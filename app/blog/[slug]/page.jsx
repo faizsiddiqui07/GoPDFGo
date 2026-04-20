@@ -50,12 +50,12 @@ export default function BlogDetailPage() {
         <h2 className="text-2xl font-bold text-slate-800 mb-4">
           Article not found
         </h2>
-        <button
-          onClick={() => router.push("/blog")}
+        <Link
+          href="/blog/"
           className="bg-[#FF9933] text-white px-6 py-3 rounded-full font-bold hover:bg-[#e68a2e] transition cursor-pointer"
         >
           Back to Blogs
-        </button>
+        </Link>
       </div>
     );
   }
@@ -63,12 +63,12 @@ export default function BlogDetailPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-8 px-4 sm:py-10 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
-        <button
-          onClick={() => router.push("/blog")}
-          className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
+        <Link
+          href="/blog/"
+          className="text-slate-500 hover:text-[#FF9933] inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to all articles
-        </button>
+        </Link>
 
         <article className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
           {/* Header Image */}
