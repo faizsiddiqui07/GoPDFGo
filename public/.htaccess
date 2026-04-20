@@ -1,22 +1,21 @@
 <IfModule mod_rewrite.c>
-  # 1. Server ko khud file guess karne se rokna
   Options -MultiViews
   RewriteEngine On
   RewriteBase /
 
-  # 2. WWW ko Non-WWW par bhej dena (Aapka mast SEO rule)
+  # 1. MAGIC FIX: Folder kholne par automatically index.html load karo
+  DirectoryIndex index.html
+
+  # 2. WWW se Non-WWW par redirect (Aapka SEO rule)
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # 3. Next.js Routing: Extension mapping
-  # Agar user bina .html ke URL daalta hai (jaise /about), toh about.html serve karo
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  # 3. Trailing Slash Rule: Agar koi bina slash ke folder kholta hai, to slash laga do
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [L,R=301]
 
-  # 4. Error Handling: Agar file nahi mili toh Next.js ka 404 page dikhao
-  # (Kyunki humne not-found.jsx banaya tha, Next.js usey 404.html mein convert kar dega)
+  # 4. Error Handling: Agar page nahi mila toh 404.html dikhao
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ 404.html [L]
