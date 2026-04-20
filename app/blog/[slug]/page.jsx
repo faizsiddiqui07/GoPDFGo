@@ -51,7 +51,7 @@ export default function BlogDetailPage() {
           Article not found
         </h2>
         <Link
-          href="/blog/"
+          href="/blogs/"
           className="bg-[#FF9933] text-white px-6 py-3 rounded-full font-bold hover:bg-[#e68a2e] transition cursor-pointer"
         >
           Back to Blogs
@@ -64,7 +64,7 @@ export default function BlogDetailPage() {
     <div className="min-h-screen bg-slate-50 py-8 px-4 sm:py-10 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <Link
-          href="/blog/"
+          href="/blogs/"
           className="text-slate-500 hover:text-[#FF9933] inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to all articles

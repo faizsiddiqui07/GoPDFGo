@@ -1,6 +1,5 @@
 name: Deploy Next.js to Hostinger
 
-# Yeh script tab chalegi jab aap 'main' branch par code push karenge
 on:
   push:
     branches:
@@ -12,26 +11,26 @@ jobs:
 
     steps:
       - name: 🚚 Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Latest v4
 
       - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # Latest v4
         with:
-          node-version: '20' # Apne node version ke hisaab se set karein
+          node-version: '20'
+          cache: 'npm' # 🔥 ChatGPT's Pro Tip: Cache enabled!
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci # 🔥 ChatGPT's Pro Tip: Clean Install for speed!
 
       - name: 🏗️ Build Next.js app
         run: npm run build
 
       - name: 🚀 Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # Latest Patch
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
-          server-dir: ./
-          # Neeche wali line zaroori hai taaki Hostinger par kuch zaroori hidden files delete na hon
+          server-dir: ./ # Jo humne 403 fix ke liye update kiya tha
           dangerous-clean-slate: false

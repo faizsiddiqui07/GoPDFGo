@@ -3,20 +3,17 @@
   RewriteEngine On
   RewriteBase /
 
-  # 1. MAGIC FIX: Folder kholne par automatically index.html load karo
   DirectoryIndex index.html
 
-  # 2. WWW se Non-WWW par redirect (Aapka SEO rule)
+  # WWW → Non-WWW
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # 3. Trailing Slash Rule: Agar koi bina slash ke folder kholta hai, to slash laga do
+  # Trailing Slash fix
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteCond %{REQUEST_URI} !/$
   RewriteRule ^(.*)$ /$1/ [L,R=301]
 
-  # 4. Error Handling: Agar page nahi mila toh 404.html dikhao
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^ 404.html [L]
+  # ❗ IMPORTANT: 404 handling proper tarike se
+  ErrorDocument 404 /404.html
 </IfModule>
