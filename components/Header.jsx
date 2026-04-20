@@ -298,8 +298,8 @@ const Header = () => {
               className="flex items-center gap-2"
               onClick={toggleMobileMenu}
             >
-              <img src={logo.src || logo} width="350"
-                height="77" alt="GoPDFGo" className="w-40" />
+              <img src="/images/logo.webp" width="350"
+                height="77" alt="GoPDFGo" className="w-40 h-auto" />
             </Link>
             <button
               onClick={toggleMobileMenu}
