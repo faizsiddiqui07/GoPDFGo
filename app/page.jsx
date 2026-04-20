@@ -104,7 +104,7 @@ export default function Home() {
             We've rebuilt online PDF tools from the ground up.
             <strong> GoPDFGo</strong> processes your files directly on your
             device, giving you the privacy of offline software with the
-            convenience of the web.
+            convenience of the web..
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
