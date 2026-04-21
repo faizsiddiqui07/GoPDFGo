@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link"; // Changed from react-router-dom
 import { ShieldCheck } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
           {/* Column 1: Brand Info & Privacy Badge */}
           <div className="space-y-6 flex flex-col justify-center items-center sm:block">
             <Link href="/" className="block">
-              <img
+              <Image
                 src="/images/logo.webp"
                 width="160"
                 height="40"
