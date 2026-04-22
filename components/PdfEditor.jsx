@@ -190,6 +190,49 @@ const PdfEditor = ({ toolId }) => {
     dragOverItem.current = null;
   };
 
+  // --- Mobile Touch Drag Logic ---
+  const handleTouchStart = (e, index) => {
+    dragPageItem.current = index;
+    setDraggingId(`page-${index}`); // Visual feedback ke liye
+  };
+
+  const handleTouchMove = (e) => {
+    // Finger screen par kahan hai, wo coordinates nikalo
+    const touch = e.touches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+
+    if (targetElement) {
+      // Pata karo ki finger kis card ke upar hai
+      const dropTarget = targetElement.closest('[data-index]');
+      if (dropTarget) {
+        const overIndex = parseInt(dropTarget.getAttribute('data-index'), 10);
+        if (!isNaN(overIndex)) {
+           dragPageOverItem.current = overIndex;
+        }
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setDraggingId(null); // Dragging effect hatao
+    
+    // Agar sahi jagah drop kiya hai toh pages ko swap kar do
+    if (
+      dragPageItem.current !== null && 
+      dragPageOverItem.current !== null && 
+      dragPageItem.current !== dragPageOverItem.current
+    ) {
+      const newThumbs = [...thumbnails];
+      const draggedItemContent = newThumbs[dragPageItem.current];
+      newThumbs.splice(dragPageItem.current, 1);
+      newThumbs.splice(dragPageOverItem.current, 0, draggedItemContent);
+      setThumbnails(newThumbs);
+    }
+    
+    dragPageItem.current = null;
+    dragPageOverItem.current = null;
+  };
+
   // --- Thumbnail Generation ---
   const generatePdfThumbnail = async (file, pageNum = 1) => {
     if (!window.pdfjsLib) return null;
@@ -1073,12 +1116,25 @@ const PdfEditor = ({ toolId }) => {
                   {thumbnails.map((thumb, index) => (
                     <div
                       key={`page-${thumb.pageNum}-${index}`}
+                      data-index={index}
                       draggable
+                      
+                      // Desktop Events
                       onDragStart={(e) => handlePageDragStart(e, index)}
                       onDragEnter={(e) => handlePageDragEnter(e, index)}
                       onDragOver={(e) => e.preventDefault()}
                       onDrop={handlePageDrop}
-                      className="relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-move transition-all shadow-sm"
+                      
+                      // Mobile Touch Events
+                      onTouchStart={(e) => handleTouchStart(e, index)}
+                      onTouchMove={handleTouchMove}
+                      onTouchEnd={handleTouchEnd}
+                      
+                      className={`relative group bg-white border-2 rounded-lg overflow-hidden cursor-move transition-all shadow-sm touch-none select-none ${
+                        draggingId === `page-${index}` 
+                          ? "opacity-50 border-dashed border-[#FF9933]" 
+                          : "border-slate-200 hover:border-[#FF9933]"
+                      }`}
                     >
                       <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
                         Original Page {thumb.pageNum}
@@ -1086,7 +1142,7 @@ const PdfEditor = ({ toolId }) => {
                       <img
                         src={thumb.url}
                         alt={`Page`}
-                        className="w-full h-auto"
+                        className="w-full h-auto pointer-events-none"
                       />
                       <div className="bg-slate-100 text-center py-2 text-xs font-bold text-slate-700 border-t border-slate-200">
                         New Position: {index + 1}
