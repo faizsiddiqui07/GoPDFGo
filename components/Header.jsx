@@ -251,7 +251,7 @@ const Header = () => {
                         <Palette size={16} />
                       </div>
                       <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">
-                        Edit & AI
+                        Edit
                       </span>
                     </div>
                     {imgEditing.map((tool) => (
@@ -299,7 +299,7 @@ const Header = () => {
               className="flex items-center gap-2"
               onClick={toggleMobileMenu}
             >
-              <img src="/images/logo.webp" width="350"
+              <Image src="/images/logo.webp" width="350"
                 height="77" alt="GoPDFGo" className="w-40 h-auto" />
             </Link>
             <button

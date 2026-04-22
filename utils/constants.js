@@ -6,12 +6,13 @@ import {
   Minimize2,
   Layers,
   QrCode,
-  Maximize2, 
+  Maximize2,
   Crop as CropIcon,
   RefreshCw,
   FlipHorizontal,
   Palette,
-  ShieldAlert
+  ShieldAlert,
+  GripVertical
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -1466,17 +1467,17 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
 
       // 2. FEATURES (3 Cards)
       features: [
-        { 
-          title: "Visual Redaction Tool", 
-          desc: "You don't need to be a Photoshop expert. Our intuitive interface lets you simply **click and drag** a black box over the sensitive areas of your document. You can resize and move the mask precisely to cover the first 8 digits while keeping the name and photo visible." 
+        {
+          title: "Visual Redaction Tool",
+          desc: "You don't need to be a Photoshop expert. Our intuitive interface lets you simply **click and drag** a black box over the sensitive areas of your document. You can resize and move the mask precisely to cover the first 8 digits while keeping the name and photo visible."
         },
-        { 
-          title: "Permanent Data Destruction", 
-          desc: "Some PDF tools simply place a black image 'over' the text, which can be removed by a clever hacker. GoPDFGo performs **destructive editing**. We overwrite the actual pixel data of the image. Once you save the file, the numbers underneath the black box are gone forever." 
+        {
+          title: "Permanent Data Destruction",
+          desc: "Some PDF tools simply place a black image 'over' the text, which can be removed by a clever hacker. GoPDFGo performs **destructive editing**. We overwrite the actual pixel data of the image. Once you save the file, the numbers underneath the black box are gone forever."
         },
-        { 
-          title: "100% Client-Side Safety", 
-          desc: "This is the most secure way to edit an ID card. Because we use **WebAssembly**, the code runs on your own computer. Your Aadhaar card never travels over the internet, eliminating the risk of 'Man-in-the-Middle' attacks or server data breaches." 
+        {
+          title: "100% Client-Side Safety",
+          desc: "This is the most secure way to edit an ID card. Because we use **WebAssembly**, the code runs on your own computer. Your Aadhaar card never travels over the internet, eliminating the risk of 'Man-in-the-Middle' attacks or server data breaches."
         }
       ],
 
@@ -1498,29 +1499,29 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
 
       // 5. FAQ (Detailed SEO Answers)
       faq: [
-        { 
-          q: "Is a Masked Aadhaar legally valid?", 
-          a: "Yes. The **UIDAI** and **RBI** recognize Masked Aadhaar as a valid proof of identity and address. Service providers cannot deny services solely because you provided a masked version, unless they are specifically licensed to perform e-KYC." 
+        {
+          q: "Is a Masked Aadhaar legally valid?",
+          a: "Yes. The **UIDAI** and **RBI** recognize Masked Aadhaar as a valid proof of identity and address. Service providers cannot deny services solely because you provided a masked version, unless they are specifically licensed to perform e-KYC."
         },
-        { 
-          q: "Can the black box be removed to see the numbers?", 
-          a: "No. GoPDFGo flattens the image. The pixels containing the numbers are **permanently replaced** with black pixels. There is no hidden layer or 'undo' data in the downloaded file." 
+        {
+          q: "Can the black box be removed to see the numbers?",
+          a: "No. GoPDFGo flattens the image. The pixels containing the numbers are **permanently replaced** with black pixels. There is no hidden layer or 'undo' data in the downloaded file."
         },
-        { 
-          q: "Is it safe to upload my Aadhaar here?", 
-          a: "Absolutely. We cannot stress this enough: **You are NOT uploading it.** The file opens in your browser, gets edited by your browser, and saves to your computer. It never touches our servers." 
+        {
+          q: "Is it safe to upload my Aadhaar here?",
+          a: "Absolutely. We cannot stress this enough: **You are NOT uploading it.** The file opens in your browser, gets edited by your browser, and saves to your computer. It never touches our servers."
         },
-        { 
-          q: "What part of the Aadhaar should I mask?", 
-          a: "Standard practice is to mask the **first 8 digits** of the 12-digit number. The last 4 digits must remain visible so the verification officer can match it with their records." 
+        {
+          q: "What part of the Aadhaar should I mask?",
+          a: "Standard practice is to mask the **first 8 digits** of the 12-digit number. The last 4 digits must remain visible so the verification officer can match it with their records."
         },
-        { 
-          q: "Can I mask other documents like PAN Card?", 
-          a: "Yes. This tool works on any image. You can use it to redact sensitive financial figures from bank statements, hide your signature on public forms, or mask the PAN number on ID copies." 
+        {
+          q: "Can I mask other documents like PAN Card?",
+          a: "Yes. This tool works on any image. You can use it to redact sensitive financial figures from bank statements, hide your signature on public forms, or mask the PAN number on ID copies."
         },
-        { 
-          q: "Does this work on PDF files?", 
-          a: "Currently, this specific tool is optimized for **Image files** (scans/photos). If you have a PDF Aadhaar, please use our 'PDF to Image' converter first, mask it, and then save it back as a PDF." 
+        {
+          q: "Does this work on PDF files?",
+          a: "Currently, this specific tool is optimized for **Image files** (scans/photos). If you have a PDF Aadhaar, please use our 'PDF to Image' converter first, mask it, and then save it back as a PDF."
         }
       ]
     }
@@ -1546,17 +1547,17 @@ Create professional, high-resolution QR codes instantly without signing up.`,
 
       // 2. FEATURES (3 Cards)
       features: [
-        { 
-          title: "Static & Permanent", 
-          desc: "Say goodbye to broken links. We generate **Direct-Encoded QR Codes**, where the information is embedded permanently into the matrix itself. Unlike dynamic codes provided by marketing platforms, our codes do not rely on a redirect server. They function independently and will work for as long as the internet exists." 
+        {
+          title: "Static & Permanent",
+          desc: "Say goodbye to broken links. We generate **Direct-Encoded QR Codes**, where the information is embedded permanently into the matrix itself. Unlike dynamic codes provided by marketing platforms, our codes do not rely on a redirect server. They function independently and will work for as long as the internet exists."
         },
-        { 
-          title: "Instant & Private", 
-          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because we use **Client-Side Technology**, you can even generate secure QR codes for sensitive data (like crypto wallet addresses) without fear of leaks." 
+        {
+          title: "Instant & Private",
+          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because we use **Client-Side Technology**, you can even generate secure QR codes for sensitive data (like crypto wallet addresses) without fear of leaks."
         },
-        { 
-          title: "High-Resolution Download", 
-          desc: "Need a QR code for a giant billboard or a tiny business card? GoPDFGo ensures crisp, clean lines. Download your code as a high-quality image that remains scannable even when printed at different sizes or displayed on screens." 
+        {
+          title: "High-Resolution Download",
+          desc: "Need a QR code for a giant billboard or a tiny business card? GoPDFGo ensures crisp, clean lines. Download your code as a high-quality image that remains scannable even when printed at different sizes or displayed on screens."
         }
       ],
 
@@ -1578,31 +1579,114 @@ Create professional, high-resolution QR codes instantly without signing up.`,
 
       // 5. FAQ (Detailed SEO Answers)
       faq: [
-        { 
-          q: "Will this QR code expire?", 
-          a: "No. Never. We generate **Static QR Codes**. Since the data is stored inside the image pattern itself, it does not depend on our servers. As long as your website URL doesn't change, the code will work forever." 
+        {
+          q: "Will this QR code expire?",
+          a: "No. Never. We generate **Static QR Codes**. Since the data is stored inside the image pattern itself, it does not depend on our servers. As long as your website URL doesn't change, the code will work forever."
         },
-        { 
-          q: "Is there a scan limit?", 
-          a: "Absolutely not. Your QR code can be scanned 10 times or 10 million times. Since we don't track scans or host a redirect link, there are **unlimited scans** for free." 
+        {
+          q: "Is there a scan limit?",
+          a: "Absolutely not. Your QR code can be scanned 10 times or 10 million times. Since we don't track scans or host a redirect link, there are **unlimited scans** for free."
         },
-        { 
-          q: "Can I use this for commercial purposes?", 
-          a: "Yes. You are free to use these QR codes on your products, menus, business cards, or billboards without any attribution or payment." 
+        {
+          q: "Can I use this for commercial purposes?",
+          a: "Yes. You are free to use these QR codes on your products, menus, business cards, or billboards without any attribution or payment."
         },
-        { 
-          q: "Why should I avoid 'Dynamic' QR codes from other sites?", 
-          a: "Many 'free' sites give you a Dynamic code that stops working after a trial period, holding your printed materials hostage until you pay. GoPDFGo eliminates this risk by giving you the direct, static code." 
+        {
+          q: "Why should I avoid 'Dynamic' QR codes from other sites?",
+          a: "Many 'free' sites give you a Dynamic code that stops working after a trial period, holding your printed materials hostage until you pay. GoPDFGo eliminates this risk by giving you the direct, static code."
         },
-        { 
-          q: "Is it safe for passwords?", 
-          a: "Yes. Because the generation happens **locally in your browser**, your text inputs (like Wi-Fi passwords) are never sent to the cloud. It is the safest way to generate sensitive codes." 
+        {
+          q: "Is it safe for passwords?",
+          a: "Yes. Because the generation happens **locally in your browser**, your text inputs (like Wi-Fi passwords) are never sent to the cloud. It is the safest way to generate sensitive codes."
         },
-        { 
-          q: "What if I change the URL later?", 
-          a: "Since this is a Static code, you cannot change the content after generating it (that would change the pattern). You will need to generate a new QR code if your link changes." 
+        {
+          q: "What if I change the URL later?",
+          a: "Since this is a Static code, you cannot change the content after generating it (that would change the pattern). You will need to generate a new QR code if your link changes."
         }
       ]
     }
   },
+  {
+    id: "rearrange-pdf",
+    type: "pdf",
+    title: "Rearrange PDF",
+    desc: "Change the page order of your PDF document easily with a visual editor.",
+    icon: GripVertical,
+    color: "orange",
+    config: { mode: "rearrange", accept: ".pdf", allowBatch: false },
+    info: {
+      // 1. INTRO SECTION (High SEO Value)
+      intro: `Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
+
+Unlike other online tools that force you to upload your sensitive files to their servers just to change the page order, our platform uses advanced **WebAssembly Technology**. This means the entire reordering process happens locally on your device. Your files never leave your computer, ensuring total data privacy.
+
+**Why choose our Client-Side Organizer?**
+Traditional tools are slow and compromise your privacy. **GoPDFGo changes the rules:**
+1.  **Visual Simplicity:** See thumbnail previews of every page and simply drag them into the perfect sequence.
+2.  **Instant Processing:** No waiting for heavy files to upload or download. It happens in milliseconds.
+3.  **Zero Risk:** Perfect for confidential legal papers, medical records, or unreleased portfolios because there are zero server uploads.
+
+Stop struggling with messy documents. Reorder your PDF pages securely and instantly with GoPDFGo.`,
+
+      // 2. FEATURES (3 Cards)
+      features: [
+        {
+          title: "Intuitive Drag & Drop",
+          desc: "No confusing menus or typing in page numbers. We generate **clear visual thumbnails** for every page. Simply click, hold, and drag the pages into your desired sequence. It is as easy as moving apps on your phone screen."
+        },
+        {
+          title: "100% Private Processing",
+          desc: "Your files are your business. Because our tool runs entirely **inside your web browser**, your data is never uploaded, stored, or seen by any third-party server. Complete peace of mind for sensitive documents."
+        },
+        {
+          title: "Zero Quality Loss",
+          desc: "Moving pages around shouldn't degrade your document. Our engine reconstructs your PDF with **lossless precision**, keeping your text sharp, vectors crisp, and images at their original high resolution."
+        }
+      ],
+
+      // 3. USE CASES (4 Checkpoints)
+      useCases: [
+        "**Fixing Scanned Documents:** When scanning a large batch of physical papers, it is incredibly easy for pages to get mixed up. Quickly upload the file and drag the out-of-order pages back to their correct chronological spots.",
+        "**Organizing Portfolios:** Designers, freelancers, and architects can experiment with the flow of their work. Move your most impressive project to the very first page to make a stronger impact on potential clients.",
+        "**Restructuring Reports:** Did you forget to put the executive summary at the beginning of your financial report? Easily drag it from the bottom to the very top in seconds before emailing it to your boss.",
+        "**Preparing Legal Files:** Arrange contracts, annexures, and signature pages in the exact sequence required by courts or corporate legal teams without ever risking data exposure."
+      ],
+
+      // 4. STEPS (4 Steps)
+      steps: [
+        "**Upload your PDF:** Click the upload box or drag and drop your PDF file into the designated area to get started.",
+        "**Wait for Thumbnails:** Give our engine a few seconds to securely process the file and generate crisp, visual previews of every single page.",
+        "**Drag to Reorder:** Click and hold any page thumbnail, then **drag it** to its new position in the grid. The position numbers will update automatically.",
+        "**Save & Download:** Once the sequence looks perfect, click **'Rearrange PDF Now'** to instantly download your newly organized document."
+      ],
+
+      // 5. FAQ (Detailed SEO Answers)
+      faq: [
+        {
+          q: "Is it safe to rearrange sensitive or confidential PDFs here?",
+          a: "Yes, absolutely. GoPDFGo utilizes strict **client-side processing**, meaning your PDF is processed using your device's own memory (RAM). It is never uploaded to the cloud, making it 100% safe for legal and financial documents."
+        },
+        {
+          q: "Will changing the page order reduce the quality of my PDF?",
+          a: "No. The rearranging process is completely **lossless**. We do not compress or alter the actual contents of the pages; we simply rewrite the structural sequence of the file."
+        },
+        {
+          q: "Can I use this tool on my smartphone or tablet?",
+          a: "Yes! Our visual drag-and-drop interface is fully **touch-optimized**. You can easily tap, hold, and reorder pages on your iPhone, iPad, or Android device just as easily as on a desktop."
+        },
+        {
+          q: "Is there a limit to how many pages I can rearrange?",
+          a: "There are **no hard limits** imposed by GoPDFGo. The only limitation is your device's RAM. Most modern phones and computers can easily handle and render thumbnails for documents with hundreds of pages."
+        },
+        {
+          q: "Are there any watermarks added to the final downloaded file?",
+          a: "Never. All of our privacy-first tools are **100% free of watermarks**, ensuring your reorganized documents remain professional, clean, and ready for official use."
+        },
+        {
+          q: "What happens to my original file after I rearrange it?",
+          a: "Your original file remains **completely untouched** on your local hard drive or phone storage. The tool simply reads it and generates a brand new, rearranged copy for you to download."
+        }
+      ]
+    }
+  }
 ];

@@ -17,6 +17,7 @@ import {
   FileDigit,
   QrCode,
   FileText,
+  GripVertical,
 } from "lucide-react";
 
 // Icons mapping
@@ -43,6 +44,7 @@ export const TOOL_ICONS = {
   "compress-pdf": <FileText className="w-5 h-5 text-red-400" />,
   "rotate-pdf": <RotateCw className="w-5 h-5 text-blue-600" />,
   "qr-generator": <QrCode className="w-5 h-5 text-gray-700" />,
+  "rearrange-pdf": <GripVertical className="w-5 h-5 text-green-400" />,
 };
 
 export const getToolIcon = (toolId) => {

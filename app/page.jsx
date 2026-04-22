@@ -16,9 +16,8 @@ import {
 } from "lucide-react";
 import { TOOLS_CONFIG } from "../utils/constants";
 
-// --- Next.js Native SEO (Replaces react-helmet) ---
 export const metadata = {
-  title: "GoPDFGo – Free Secure PDF Tools | Merge, Compress, Convert Offline",
+  title: "GoPDFGo – Free Secure PDF Tools | Merge, Split, Compress & Convert",
   description:
     "Use the safest free online PDF tools. Merge, Split, and Compress PDFs directly in your browser without uploading files. Perfect for students, professionals, and privacy-conscious users.",
   keywords:
@@ -26,7 +25,7 @@ export const metadata = {
   alternates: {
     canonical: "https://gopdfgo.com",
   },
-};
+}; 
 
 export default function Home() {
   const getToolsByType = (type) =>

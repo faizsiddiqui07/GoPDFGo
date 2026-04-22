@@ -33,15 +33,21 @@
   </url>
 
   <url>
+    <loc>https://gopdfgo.com/rearrange-pdf</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://gopdfgo.com/page-numbers</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/rotate-pdf</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
@@ -77,13 +83,13 @@
   <url>
     <loc>https://gopdfgo.com/flip</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/rotate</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
@@ -107,19 +113,19 @@
   <url>
     <loc>https://gopdfgo.com/qr-generator</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/color-picker</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/aadhaar-masking</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -161,7 +167,7 @@
   <url>
     <loc>https://gopdfgo.com/blogs</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
   <url>
@@ -214,6 +220,18 @@
 
   <url>
     <loc>https://gopdfgo.com/blog/merge-multiple-vendor-invoices-pdf-accounting</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gopdfgo.com/blog/generate-free-qr-codes-for-website</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gopdfgo.com/blog/compress-jpg-under-20kb-online-forms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

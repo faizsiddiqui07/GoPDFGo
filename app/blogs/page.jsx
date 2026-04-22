@@ -9,7 +9,7 @@ export const metadata = {
   description:
     "Read our latest guides on how to manage, compress, and edit PDF files easily and securely.",
   alternates: {
-    canonical: "https://gopdfgo.com/blog",
+    canonical: "https://gopdfgo.com/blogs",
   },
 };
 

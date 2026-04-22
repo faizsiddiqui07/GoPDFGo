@@ -30,7 +30,7 @@ import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
 
 const PdfEditor = ({ toolId }) => {
-   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
+  const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter(); // Next.js router
   const fileInputRef = useRef(null);
 
@@ -62,6 +62,8 @@ const PdfEditor = ({ toolId }) => {
   const [pageRotations, setPageRotations] = useState([]);
   const [draggingId, setDraggingId] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
+  const dragPageItem = useRef(null);
+  const dragPageOverItem = useRef(null);
 
   // Revoke URLs when component unmounts
   useEffect(() => {
@@ -139,6 +141,28 @@ const PdfEditor = ({ toolId }) => {
 
   const handleDragLeave = (e) => {
     // Optional visual feedback
+  };
+
+  const handlePageDragStart = (e, index) => {
+    dragPageItem.current = index;
+    e.dataTransfer.effectAllowed = "move";
+  };
+  const handlePageDragEnter = (e, index) => {
+    dragPageOverItem.current = index;
+  };
+  const handlePageDrop = (e) => {
+    e.preventDefault();
+    if (dragPageItem.current === null || dragPageOverItem.current === null)
+      return;
+
+    const newThumbs = [...thumbnails];
+    const draggedItemContent = newThumbs[dragPageItem.current];
+    newThumbs.splice(dragPageItem.current, 1);
+    newThumbs.splice(dragPageOverItem.current, 0, draggedItemContent);
+    setThumbnails(newThumbs);
+
+    dragPageItem.current = null;
+    dragPageOverItem.current = null;
   };
 
   const handleDrop = (e) => {
@@ -275,7 +299,11 @@ const PdfEditor = ({ toolId }) => {
       }
 
       setFiles([newFilesData[0]]);
-      if (tool.id === "split-pdf" || tool.id === "rotate-pdf") {
+      if (
+        tool.id === "split-pdf" ||
+        tool.id === "rotate-pdf" ||
+        tool.id === "rearrange-pdf"
+      ) {
         setSplitMode("all");
         setRangeInput("");
         generateAllThumbnails(newFilesData[0].file);
@@ -635,6 +663,26 @@ const PdfEditor = ({ toolId }) => {
 
         const pdfBytes = await pdf.save();
         finalizePdf(pdfBytes, `numbered-${file.name}`);
+      } else if (tool.id === "rearrange-pdf") {
+        const file = files[0].file;
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(arrayBuffer);
+        const newPdf = await PDFDocument.create();
+
+        // Ensure valid indices are passed (safeguard against empty arrays)
+        if (!thumbnails || thumbnails.length === 0) {
+          throw new Error("No pages found to rearrange.");
+        }
+
+        // Generate correct 0-based index array
+        const newOrderIndices = thumbnails.map((t) => Number(t.pageNum) - 1);
+
+        // Copy and paste pages in the new order
+        const copiedPages = await newPdf.copyPages(pdf, newOrderIndices);
+        copiedPages.forEach((page) => newPdf.addPage(page));
+
+        const pdfBytes = await newPdf.save();
+        finalizePdf(pdfBytes, `rearranged-${file.name}`);
       }
     } catch (err) {
       console.error(err);
@@ -662,7 +710,8 @@ const PdfEditor = ({ toolId }) => {
           <ArrowLeft size={16} /> Back to Tools
         </button>
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-          <tool.icon size={28} className="text-orange-500" /> {/* Ensure icon renders properly */}
+          <tool.icon size={28} className="text-orange-500" />{" "}
+          {/* Ensure icon renders properly */}
           {tool.title}
         </h1>
       </div>
@@ -716,7 +765,8 @@ const PdfEditor = ({ toolId }) => {
           {/* File List / Preview */}
           {files.length > 0 &&
             tool.id !== "split-pdf" &&
-            tool.id !== "rotate-pdf" && (
+            tool.id !== "rotate-pdf" &&
+            tool.id !== "rearrange-pdf" && (
               <div
                 className={`space-y-3 mb-8 ${
                   tool.id === "merge-pdf"
@@ -758,7 +808,7 @@ const PdfEditor = ({ toolId }) => {
                         {idx + 1}
                       </div>
                     )}
-                    
+
                     {/* INCREASED THUMBNAIL SIZE HERE */}
                     <div className="w-24 h-32 sm:w-32 sm:h-44 bg-slate-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-200 relative shadow-inner">
                       {item.preview ? (
@@ -996,6 +1046,51 @@ const PdfEditor = ({ toolId }) => {
                       <span className="mt-3 text-sm font-bold text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
                         Page {thumb.pageNum}
                       </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Rearrange PDF UI */}
+          {files.length > 0 && tool.id === "rearrange-pdf" && (
+            <div className="mb-8 animate-fade-in">
+              <div className="text-center mb-6">
+                <p className="text-sm font-bold text-slate-600 bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                  <GripVertical size={16} className="inline mr-1 mb-0.5" />
+                  Drag and Drop pages to reorder them
+                </p>
+              </div>
+
+              {generatingThumbnails ? (
+                <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
+                  <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
+                  <p className="font-medium text-slate-500">Loading Pages...</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                  {thumbnails.map((thumb, index) => (
+                    <div
+                      key={`page-${thumb.pageNum}-${index}`}
+                      draggable
+                      onDragStart={(e) => handlePageDragStart(e, index)}
+                      onDragEnter={(e) => handlePageDragEnter(e, index)}
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={handlePageDrop}
+                      className="relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-move transition-all shadow-sm"
+                    >
+                      <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
+                        Original Page {thumb.pageNum}
+                      </div>
+                      <img
+                        src={thumb.url}
+                        alt={`Page`}
+                        className="w-full h-auto"
+                      />
+                      <div className="bg-slate-100 text-center py-2 text-xs font-bold text-slate-700 border-t border-slate-200">
+                        New Position: {index + 1}
+                      </div>
                     </div>
                   ))}
                 </div>
