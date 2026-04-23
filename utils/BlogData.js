@@ -1176,7 +1176,7 @@ export const blogsData = [
   //     <h3>Create Your WhatsApp Catalog Now</h3>
   //     <p>Stop spamming your clients with dozens of loose images. Use our free, local tools to <strong>create a PDF catalog</strong> today and give your small business the professional upgrade it deserves.</p>
   //   `
-  // }
+  // },
   // {
   //   id: "add-page-numbers-legal-documents-court-filings",
   //   title: "How to Securely Add Page Numbers to Legal Documents & Court Filings",
