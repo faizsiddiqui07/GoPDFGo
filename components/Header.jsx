@@ -30,11 +30,11 @@ const Header = () => {
   );
 
   const pdfManageTools = pdfTools.filter((t) =>
-    ["merge-pdf", "split-pdf", "image-to-pdf", "compress-pdf"].includes(t.id)
+    ["merge-pdf", "split-pdf", "extract-pdf-pages", "compress-pdf"].includes(t.id)
   );
 
   const pdfEditTools = pdfTools.filter(
-    (t) => !["merge-pdf", "split-pdf", "image-to-pdf", "compress-pdf"].includes(t.id)
+    (t) => !["merge-pdf", "split-pdf", "extract-pdf-pages", "compress-pdf"].includes(t.id)
   );
 
   const toggleMobileMenu = () => {

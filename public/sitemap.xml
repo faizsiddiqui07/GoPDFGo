@@ -21,6 +21,12 @@
   </url>
 
   <url>
+    <loc>https://gopdfgo.com/extract-pdf-pages</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://gopdfgo.com/split-pdf</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -232,6 +238,12 @@
 
   <url>
     <loc>https://gopdfgo.com/blog/compress-jpg-under-20kb-online-forms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gopdfgo.com/blog/resize-passport-photo-signature-200x230</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

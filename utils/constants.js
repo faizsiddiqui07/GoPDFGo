@@ -12,7 +12,8 @@ import {
   FlipHorizontal,
   Palette,
   ShieldAlert,
-  GripVertical
+  GripVertical,
+  FileOutput
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -183,6 +184,80 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
         {
           q: "Does this tool work on mobile?",
           a: "Yes, our interface is fully **mobile-optimized**. You can select files from your Android or iPhone storage, rearrange them with a touch, and download the merged PDF directly to your phone."
+        }
+      ]
+    }
+  },
+  {
+    id: "extract-pdf-pages",
+    type: "pdf",
+    title: "Extract PDF Pages",
+    desc: "Extract specific pages or a range of pages from any large PDF document securely.",
+    icon: FileOutput,
+    color: "blue",
+    config: { mode: "extract", accept: ".pdf" },
+    info: {
+      // 1. INTRO SECTION (SEO Optimized Long Form)
+      intro: `Dealing with a massive 500-page document when you only need a single page? We have all been there. Whether you are a student trying to isolate your name from a giant university merit list, a lawyer extracting a specific signature page from a corporate contract, or a patient trying to send only the latest lab results from a heavy medical file, scrolling through hundreds of pages is frustrating.
+
+GoPDFGo’s **Extract PDF Pages** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your highly sensitive files to a remote cloud server, our tool utilizes cutting-edge **Serverless Client-Side Technology**. This means the extraction engine runs locally within your own browser's memory. Your personal documents never leave your device, guaranteeing 100% privacy.
+
+**Why is extracting better than other methods?**
+Taking a screenshot of a page destroys its quality and makes the text unsearchable. Using the browser's "Print to PDF" function often ruins the formatting, strips clickable links, and bloats the file size. Our tool structurally splits the PDF at the code level, ensuring that the extracted pages retain their exact original quality, vector graphics, and crystal-clear text without any loss.`,
+
+      // 2. WHY USE THIS TOOL?
+      features: [
+        {
+          title: "100% Lossless Extraction",
+          desc: "We do not compress or alter the contents of your pages during extraction. The tool extracts the exact structural data, meaning your text remains sharp, selectable, and fully searchable."
+        },
+        {
+          title: "Ultimate Privacy Guarantee",
+          desc: "Your files never touch our servers. Because the processing happens locally via WebAssembly, you can extract pages from confidential legal or financial documents without risking data leaks."
+        },
+        {
+          title: "Custom Range Selection",
+          desc: "You have complete control. Extract a single page (e.g., '5'), a continuous block (e.g., '10-20'), or combine multiple specific pages (e.g., '1, 5, 8-12') into one clean, new PDF file instantly."
+        }
+      ],
+
+      // 3. WHEN TO USE THIS TOOL?
+      useCases: [
+        "**Legal & Corporate Contracts:** Need to send an NDA or a specific Annexure without sharing the entire 100-page master agreement? Isolate the exact pages securely to protect corporate secrets.",
+        "**University & Exam Results:** Find your exact roll number in a massive 50MB government merit list. Extract just that one page to use as proof of admission or employment.",
+        "**Bypassing Email Limits:** If a document is too large to attach to an email, extract only the highly relevant chapters or sections to create a lightweight, focused file that sends easily.",
+        "**Organizing Medical Records:** Stop sending years of medical history to a new specialist. Extract only your most recent blood work and scans for a clean, efficient consultation."
+      ],
+
+      // 4. HOW TO USE THIS TOOL
+      steps: [
+        "**Upload Securely:** Drag and drop your heavy PDF file into the upload zone. Because it processes locally, even massive 50MB files will load instantly.",
+        "**Select Your Pages:** Use the visual thumbnails to click the pages you want, or type specific page numbers and ranges (e.g., 2, 4, 7-10) directly into the input box.",
+        "**Extract Instantly:** Click the 'Extract Pages' button. Our local engine will seamlessly stitch your chosen pages into a brand new document in milliseconds.",
+        "**Download & Share:** Save your new, lightweight, highly-targeted PDF directly to your hard drive, ready to be emailed or printed."
+      ],
+
+      // 5. FAQ
+      faq: [
+        {
+          q: "Will extracting pages reduce the visual quality of the PDF?",
+          a: "Absolutely not. GoPDFGo’s extraction process is 100% lossless. We simply extract the existing data and place it in a new file. Vector graphics and text remain perfectly sharp."
+        },
+        {
+          q: "Is it safe to extract pages from confidential bank statements?",
+          a: "Yes, it is safer than using offline software. GoPDFGo operates entirely in your browser. No upload happens, meaning we physically cannot see, copy, or store your private financial data."
+        },
+        {
+          q: "Can I extract multiple different page ranges at once?",
+          a: "Yes! You can type complex ranges into our tool. For example, typing '1, 5, 10-15' will instantly create a single new PDF containing exactly those 8 pages."
+        },
+        {
+          q: "Is there a file size limit for the PDF I want to extract from?",
+          a: "Because we use your device's processing power and not our servers, there are no artificial file size limits. You can process massive documents as long as your device has enough RAM."
+        },
+        {
+          q: "Does this tool work offline?",
+          a: "Yes! Once the webpage is loaded, the extraction engine is cached in your browser. You can disconnect from the internet and continue extracting pages securely."
         }
       ]
     }
@@ -521,6 +596,90 @@ Stop zipping files. Start creating professional PDFs instantly.`,
       ]
     }
   },
+  {
+    id: "rearrange-pdf",
+    type: "pdf",
+    title: "Rearrange PDF",
+    desc: "Change the page order of your PDF document easily with a visual editor.",
+    icon: GripVertical,
+    color: "orange",
+    config: { mode: "rearrange", accept: ".pdf", allowBatch: false },
+    info: {
+      // 1. INTRO SECTION (High SEO Value)
+      intro: `Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
+
+Unlike other online tools that force you to upload your sensitive files to their servers just to change the page order, our platform uses advanced **WebAssembly Technology**. This means the entire reordering process happens locally on your device. Your files never leave your computer, ensuring total data privacy.
+
+**Why choose our Client-Side Organizer?**
+Traditional tools are slow and compromise your privacy. **GoPDFGo changes the rules:**
+1.  **Visual Simplicity:** See thumbnail previews of every page and simply drag them into the perfect sequence.
+2.  **Instant Processing:** No waiting for heavy files to upload or download. It happens in milliseconds.
+3.  **Zero Risk:** Perfect for confidential legal papers, medical records, or unreleased portfolios because there are zero server uploads.
+
+Stop struggling with messy documents. Reorder your PDF pages securely and instantly with GoPDFGo.`,
+
+      // 2. FEATURES (3 Cards)
+      features: [
+        {
+          title: "Intuitive Drag & Drop",
+          desc: "No confusing menus or typing in page numbers. We generate **clear visual thumbnails** for every page. Simply click, hold, and drag the pages into your desired sequence. It is as easy as moving apps on your phone screen."
+        },
+        {
+          title: "100% Private Processing",
+          desc: "Your files are your business. Because our tool runs entirely **inside your web browser**, your data is never uploaded, stored, or seen by any third-party server. Complete peace of mind for sensitive documents."
+        },
+        {
+          title: "Zero Quality Loss",
+          desc: "Moving pages around shouldn't degrade your document. Our engine reconstructs your PDF with **lossless precision**, keeping your text sharp, vectors crisp, and images at their original high resolution."
+        }
+      ],
+
+      // 3. USE CASES (4 Checkpoints)
+      useCases: [
+        "**Fixing Scanned Documents:** When scanning a large batch of physical papers, it is incredibly easy for pages to get mixed up. Quickly upload the file and drag the out-of-order pages back to their correct chronological spots.",
+        "**Organizing Portfolios:** Designers, freelancers, and architects can experiment with the flow of their work. Move your most impressive project to the very first page to make a stronger impact on potential clients.",
+        "**Restructuring Reports:** Did you forget to put the executive summary at the beginning of your financial report? Easily drag it from the bottom to the very top in seconds before emailing it to your boss.",
+        "**Preparing Legal Files:** Arrange contracts, annexures, and signature pages in the exact sequence required by courts or corporate legal teams without ever risking data exposure."
+      ],
+
+      // 4. STEPS (4 Steps)
+      steps: [
+        "**Upload your PDF:** Click the upload box or drag and drop your PDF file into the designated area to get started.",
+        "**Wait for Thumbnails:** Give our engine a few seconds to securely process the file and generate crisp, visual previews of every single page.",
+        "**Drag to Reorder:** Click and hold any page thumbnail, then **drag it** to its new position in the grid. The position numbers will update automatically.",
+        "**Save & Download:** Once the sequence looks perfect, click **'Rearrange PDF Now'** to instantly download your newly organized document."
+      ],
+
+      // 5. FAQ (Detailed SEO Answers)
+      faq: [
+        {
+          q: "Is it safe to rearrange sensitive or confidential PDFs here?",
+          a: "Yes, absolutely. GoPDFGo utilizes strict **client-side processing**, meaning your PDF is processed using your device's own memory (RAM). It is never uploaded to the cloud, making it 100% safe for legal and financial documents."
+        },
+        {
+          q: "Will changing the page order reduce the quality of my PDF?",
+          a: "No. The rearranging process is completely **lossless**. We do not compress or alter the actual contents of the pages; we simply rewrite the structural sequence of the file."
+        },
+        {
+          q: "Can I use this tool on my smartphone or tablet?",
+          a: "Yes! Our visual drag-and-drop interface is fully **touch-optimized**. You can easily tap, hold, and reorder pages on your iPhone, iPad, or Android device just as easily as on a desktop."
+        },
+        {
+          q: "Is there a limit to how many pages I can rearrange?",
+          a: "There are **no hard limits** imposed by GoPDFGo. The only limitation is your device's RAM. Most modern phones and computers can easily handle and render thumbnails for documents with hundreds of pages."
+        },
+        {
+          q: "Are there any watermarks added to the final downloaded file?",
+          a: "Never. All of our privacy-first tools are **100% free of watermarks**, ensuring your reorganized documents remain professional, clean, and ready for official use."
+        },
+        {
+          q: "What happens to my original file after I rearrange it?",
+          a: "Your original file remains **completely untouched** on your local hard drive or phone storage. The tool simply reads it and generates a brand new, rearranged copy for you to download."
+        }
+      ]
+    }
+  },
+  
 
   // ==========================================
   // IMAGE TOOLS
@@ -1606,87 +1765,4 @@ Create professional, high-resolution QR codes instantly without signing up.`,
       ]
     }
   },
-  {
-    id: "rearrange-pdf",
-    type: "pdf",
-    title: "Rearrange PDF",
-    desc: "Change the page order of your PDF document easily with a visual editor.",
-    icon: GripVertical,
-    color: "orange",
-    config: { mode: "rearrange", accept: ".pdf", allowBatch: false },
-    info: {
-      // 1. INTRO SECTION (High SEO Value)
-      intro: `Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
-
-Unlike other online tools that force you to upload your sensitive files to their servers just to change the page order, our platform uses advanced **WebAssembly Technology**. This means the entire reordering process happens locally on your device. Your files never leave your computer, ensuring total data privacy.
-
-**Why choose our Client-Side Organizer?**
-Traditional tools are slow and compromise your privacy. **GoPDFGo changes the rules:**
-1.  **Visual Simplicity:** See thumbnail previews of every page and simply drag them into the perfect sequence.
-2.  **Instant Processing:** No waiting for heavy files to upload or download. It happens in milliseconds.
-3.  **Zero Risk:** Perfect for confidential legal papers, medical records, or unreleased portfolios because there are zero server uploads.
-
-Stop struggling with messy documents. Reorder your PDF pages securely and instantly with GoPDFGo.`,
-
-      // 2. FEATURES (3 Cards)
-      features: [
-        {
-          title: "Intuitive Drag & Drop",
-          desc: "No confusing menus or typing in page numbers. We generate **clear visual thumbnails** for every page. Simply click, hold, and drag the pages into your desired sequence. It is as easy as moving apps on your phone screen."
-        },
-        {
-          title: "100% Private Processing",
-          desc: "Your files are your business. Because our tool runs entirely **inside your web browser**, your data is never uploaded, stored, or seen by any third-party server. Complete peace of mind for sensitive documents."
-        },
-        {
-          title: "Zero Quality Loss",
-          desc: "Moving pages around shouldn't degrade your document. Our engine reconstructs your PDF with **lossless precision**, keeping your text sharp, vectors crisp, and images at their original high resolution."
-        }
-      ],
-
-      // 3. USE CASES (4 Checkpoints)
-      useCases: [
-        "**Fixing Scanned Documents:** When scanning a large batch of physical papers, it is incredibly easy for pages to get mixed up. Quickly upload the file and drag the out-of-order pages back to their correct chronological spots.",
-        "**Organizing Portfolios:** Designers, freelancers, and architects can experiment with the flow of their work. Move your most impressive project to the very first page to make a stronger impact on potential clients.",
-        "**Restructuring Reports:** Did you forget to put the executive summary at the beginning of your financial report? Easily drag it from the bottom to the very top in seconds before emailing it to your boss.",
-        "**Preparing Legal Files:** Arrange contracts, annexures, and signature pages in the exact sequence required by courts or corporate legal teams without ever risking data exposure."
-      ],
-
-      // 4. STEPS (4 Steps)
-      steps: [
-        "**Upload your PDF:** Click the upload box or drag and drop your PDF file into the designated area to get started.",
-        "**Wait for Thumbnails:** Give our engine a few seconds to securely process the file and generate crisp, visual previews of every single page.",
-        "**Drag to Reorder:** Click and hold any page thumbnail, then **drag it** to its new position in the grid. The position numbers will update automatically.",
-        "**Save & Download:** Once the sequence looks perfect, click **'Rearrange PDF Now'** to instantly download your newly organized document."
-      ],
-
-      // 5. FAQ (Detailed SEO Answers)
-      faq: [
-        {
-          q: "Is it safe to rearrange sensitive or confidential PDFs here?",
-          a: "Yes, absolutely. GoPDFGo utilizes strict **client-side processing**, meaning your PDF is processed using your device's own memory (RAM). It is never uploaded to the cloud, making it 100% safe for legal and financial documents."
-        },
-        {
-          q: "Will changing the page order reduce the quality of my PDF?",
-          a: "No. The rearranging process is completely **lossless**. We do not compress or alter the actual contents of the pages; we simply rewrite the structural sequence of the file."
-        },
-        {
-          q: "Can I use this tool on my smartphone or tablet?",
-          a: "Yes! Our visual drag-and-drop interface is fully **touch-optimized**. You can easily tap, hold, and reorder pages on your iPhone, iPad, or Android device just as easily as on a desktop."
-        },
-        {
-          q: "Is there a limit to how many pages I can rearrange?",
-          a: "There are **no hard limits** imposed by GoPDFGo. The only limitation is your device's RAM. Most modern phones and computers can easily handle and render thumbnails for documents with hundreds of pages."
-        },
-        {
-          q: "Are there any watermarks added to the final downloaded file?",
-          a: "Never. All of our privacy-first tools are **100% free of watermarks**, ensuring your reorganized documents remain professional, clean, and ready for official use."
-        },
-        {
-          q: "What happens to my original file after I rearrange it?",
-          a: "Your original file remains **completely untouched** on your local hard drive or phone storage. The tool simply reads it and generates a brand new, rearranged copy for you to download."
-        }
-      ]
-    }
-  }
 ];

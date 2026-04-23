@@ -34,7 +34,6 @@ const PdfEditor = ({ toolId }) => {
   const router = useRouter(); // Next.js router
   const fileInputRef = useRef(null);
 
-  // Drag and drop refs
   const dragItem = useRef(null);
   const dragOverItem = useRef(null);
 
@@ -345,7 +344,8 @@ const PdfEditor = ({ toolId }) => {
       if (
         tool.id === "split-pdf" ||
         tool.id === "rotate-pdf" ||
-        tool.id === "rearrange-pdf"
+        tool.id === "rearrange-pdf" ||
+        tool.id === "extract-pdf-pages" // <-- Yeh NAYA ID ADD HUA
       ) {
         setSplitMode("all");
         setRangeInput("");
@@ -375,7 +375,7 @@ const PdfEditor = ({ toolId }) => {
     setFiles(newFiles);
     setIsDone(false);
 
-    if (tool.id === "split-pdf" && newFiles.length === 0) {
+    if ((tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && newFiles.length === 0) {
       setThumbnails([]);
       setSelectedPages(new Set());
     }
@@ -552,7 +552,7 @@ const PdfEditor = ({ toolId }) => {
         finalizePdf(pdfBytes, "images-to-pdf.pdf");
 
         // 3. SPLIT
-      } else if (tool.id === "split-pdf") {
+      } else if (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") {
         if (!window.JSZip) {
           setErrorMsg("ZIP Library loading...");
           setIsProcessing(false);
@@ -943,8 +943,17 @@ const PdfEditor = ({ toolId }) => {
           )}
 
           {/* Split PDF Controls */}
-          {files.length > 0 && tool.id === "split-pdf" && (
+          {files.length > 0 && (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && (
             <div className="mb-8">
+              {/* Optional: Agar extract mode me hain, toh title badal sakte hain, warna ye block aise hi chalega */}
+              <div className="text-center mb-6">
+                <p className="text-sm font-bold text-slate-600 bg-blue-50 text-blue-600 inline-block px-4 py-2 rounded-full">
+                  <Scissors size={16} className="inline mr-1 mb-0.5" />
+                  {tool.id === "extract-pdf-pages" 
+                    ? "Enter specific pages to extract (e.g., 1, 3, 5-10)" 
+                    : "Enter page ranges to split (e.g., 1-5, 6-10)"}
+                </p>
+              </div>
               <div className="flex gap-3 sm:gap-4 justify-center mb-6">
                 <button
                   onClick={() => changeSplitMode("all")}
