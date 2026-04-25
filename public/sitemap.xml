@@ -248,4 +248,10 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://gopdfgo.com/blog/compress-webp-images-speed-up-wordpress</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

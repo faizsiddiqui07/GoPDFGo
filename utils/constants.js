@@ -29,7 +29,6 @@ export const TOOLS_CONFIG = [
     color: "orange",
     config: { mode: "compress", accept: ".pdf" },
     info: {
-      // 1. INTRO SECTION (SEO Optimized Long Form)
       // Design Note: Ye text aapke Hero section ke niche ya page ke bottom me SEO footer ki tarah aa sakta hai.
       intro: `Struggling with large PDF files that refuse to upload? You are not alone. Whether you are a student trying to submit an assignment, a job seeker applying on a government portal, or a professional sending a report via email, file size limits are a constant hurdle. Most platforms restrict uploads to 100KB, 2MB, or 25MB, leaving you stuck with heavy documents.
 
