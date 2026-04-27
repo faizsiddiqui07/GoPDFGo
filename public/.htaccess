@@ -1,21 +1,17 @@
 <IfModule mod_rewrite.c>
   Options -MultiViews
   RewriteEngine On
+  RewriteBase /
 
-  # Force non-www
-  RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
-  RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
+  DirectoryIndex index.html
 
-  # Remove trailing slash (ONLY ONE RULE)
-  RewriteCond %{REQUEST_URI} .+/$
-  RewriteRule ^(.+)/$ /$1 [R=301,L]
-
-  # Map to .html
+  # NEXT.JS MAPPER (Sirf yahi ek rule chahiye!)
+  # Ye bina redirect kiye silently backend mein .html serve karega
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
   RewriteRule ^(.*)$ $1.html [L]
 
-  # 4. 404 page
+  # 404 Error
   ErrorDocument 404 /404.html
 </IfModule>
