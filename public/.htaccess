@@ -2,18 +2,15 @@
   Options -MultiViews
   RewriteEngine On
 
-  # IMPORTANT: Rewrite ko force karo
-  RewriteOptions AllowNoSlash
-
-  # 1. Force non-www
+  # Force non-www
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # 2. REMOVE trailing slash (strong fix)
-  RewriteCond %{THE_REQUEST} \s/+(.+?)/+\s [NC]
-  RewriteRule ^ %1 [R=301,L]
+  # Remove trailing slash (ONLY ONE RULE)
+  RewriteCond %{REQUEST_URI} .+/$
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # 3. Map to .html (Next export)
+  # Map to .html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
