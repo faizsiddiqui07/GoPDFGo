@@ -5,21 +5,23 @@
 
   DirectoryIndex index.html
 
-  # 1. WWW → Non-WWW
+  # 1. Force non-www (SEO ke liye)
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # 2. REMOVE TRAILING SLASH (SEO Fix)
+  # 2. ChatGPT ka Quick Fix: Remove Trailing Slash
+  # Agar koi /merge-pdf/ type karega, toh ye usko /merge-pdf par bhej dega
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} (.+)/$
-  RewriteRule ^ %1 [R=301,L]
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-  # 3. NEXT.JS HTML MAPPER (Bina .html ke URL chalane ke liye)
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # 3. Next.js Static Export Logic (Sabse Zaroori)
+  # Server ko batana ki /merge-pdf asal mein merge-pdf.html file hai
   RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteRule ^(.*)$ /$1.html [L]
 
-  # 4. 404 Error Handling
+  # 4. Handle 404
   ErrorDocument 404 /404.html
 </IfModule>
