@@ -1,6 +1,5 @@
-import { blogsData } from "../../../utils/BlogData"; // Path check kar lijiyega
+import { blogsData } from "../../../utils/BlogData";
 
-// 1. YEH HAI WO MISSING FUNCTION (Jo saare URLs ki list Next.js ko dega)
 export async function generateStaticParams() {
   return blogsData.map((post) => ({
     slug: post.id,
