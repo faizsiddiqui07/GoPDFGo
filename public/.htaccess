@@ -1,17 +1,18 @@
 <IfModule mod_rewrite.c>
-  Options -MultiViews
+  # Security aur Server ko confuse hone se bachane ke liye
+  Options -Indexes -MultiViews
   RewriteEngine On
-  RewriteBase /
 
-  DirectoryIndex index.html
+  # 1. Force Non-WWW
+  RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
+  RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # NEXT.JS MAPPER (Sirf yahi ek rule chahiye!)
-  # Ye bina redirect kiye silently backend mein .html serve karega
+  # 🌟 2. THE ULTIMATE NEXT.JS HTML MAPPER 🌟
+  # Ye rule URL mein slash hone ya na hone dono cases ko handle karega
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteRule ^(.*?)/?$ $1.html [L]
 
-  # 404 Error
+  # 3. 404 Error Page
   ErrorDocument 404 /404.html
 </IfModule>
