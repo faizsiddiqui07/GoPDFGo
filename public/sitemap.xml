@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://gopdfgo.com/</loc>
+    <loc>https://gopdfgo.com</loc>
     <lastmod>2026-01-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -255,7 +255,13 @@
   </url>
 
   <url>
-    <loc>https://gopdfgo.com/blog/jpg-vs-png-format-guide/</loc>
+    <loc>https://gopdfgo.com/blog/jpg-vs-png-format-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gopdfgo.com/blog/remove-unwanted-edges-crop-scanned-documents</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -7,7 +7,6 @@
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
 
-  # 🌟 2. THE ULTIMATE NEXT.JS HTML MAPPER 🌟
   # Ye rule URL mein slash hone ya na hone dono cases ko handle karega
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
