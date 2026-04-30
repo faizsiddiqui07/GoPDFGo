@@ -676,50 +676,50 @@ export const blogsData = [
       <p>Taking just 15 to 20 seconds to properly crop your images before submission completely transforms a lazy, cluttered snapshot into a crisp, authoritative digital document. Take pride in your digital submissions and never upload a photo of your messy desk again!</p>
     `
   },
-  // {
-  //   id: "find-exact-color-code-hex-rgb",
-  //   title: "How to Find the Exact Color Code (Hex/RGB) from a Logo or Photo",
-  //   seoTitle: "Find Exact Color Code from Image | Online Hex Picker | GoPDFGo",
-  //   keywords: "find color from image, hex color picker online, get rgb from photo, extract color code from logo, identify color from picture, color code finder, web design color picker, find exact hex code, grab color from image",
-  //   excerpt: "Need to perfectly match a specific color from a brand logo, UI design, or an inspiring photograph? Learn how to extract exact HEX and RGB codes instantly using our secure, browser-based color picker.",
-  //   date: "May 6, 2026",
-  //   imageUrl: "/images/blogs/find-exact-color-code-hex-rgb.webp",
-  //   content: `
-  //     <p>Whether you are a frontend web developer building a modern SaaS UI, a graphic designer creating a pitch deck in Canva, a freelancer putting together a digital portfolio, or simply someone trying to match a specific brand aesthetic, visual consistency is the absolute key to professionalism. One of the unbreakable golden rules of digital design is that your brand colors must match perfectly across all mediums.</p>
+  {
+    id: "find-exact-color-code-hex-rgb",
+    title: "How to Find the Exact Color Code (Hex/RGB) from a Logo or Photo",
+    seoTitle: "Find Exact Color Code from Image | Online Hex Picker | GoPDFGo",
+    keywords: "find color from image, hex color picker online, get rgb from photo, extract color code from logo, identify color from picture, color code finder, web design color picker, find exact hex code, grab color from image",
+    excerpt: "Need to perfectly match a specific color from a brand logo, UI design, or an inspiring photograph? Learn how to extract exact HEX and RGB codes instantly using our secure, browser-based color picker.",
+    date: "April 30, 2026",
+    imageUrl: "/images/blogs/find-exact-color-code-hex-rgb.webp",
+    content: `
+      <p>Whether you are a frontend web developer building a modern SaaS UI, a graphic designer creating a pitch deck in Canva, a freelancer putting together a digital portfolio, or simply someone trying to match a specific brand aesthetic, visual consistency is the absolute key to professionalism. One of the unbreakable golden rules of digital design is that your brand colors must match perfectly across all mediums.</p>
 
-  //     <p>But what exactly happens when a new client sends you their company logo and vaguely asks you to "match the blue for the website buttons," but completely fails to provide you with an official brand guideline document? Or what if you stumble upon a stunning, cinematic sunset photograph on Pinterest and want to use that exact, vibrant shade of burnt orange for a headline in your personal React project?</p>
+      <p>But what exactly happens when a new client sends you their company logo and vaguely asks you to "match the blue for the website buttons," but completely fails to provide you with an official brand guideline document? Or what if you stumble upon a stunning, cinematic sunset photograph on Pinterest and want to use that exact, vibrant shade of burnt orange for a headline in your personal React project?</p>
 
-  //     <p>You simply cannot rely on your naked eye to guess the color by spinning a visual color wheel. Using a shade that is "close enough" always looks disjointed and amateurish in professional design, and clients will instantly notice the mismatch.</p>
+      <p>You simply cannot rely on your naked eye to guess the color by spinning a visual color wheel. Using a shade that is "close enough" always looks disjointed and amateurish in professional design, and clients will instantly notice the mismatch.</p>
 
-  //     <h2>Understanding Digital Color: HEX and RGB Codes Explained</h2>
-  //     <p>Computer monitors, smartphone screens, and digital displays do not natively understand human language concepts like "light sky blue" or "dark cherry red." Instead, they rely on specific, mathematically precise alphanumeric codes that dictate exactly how much Red, Green, and Blue light the screen's pixels need to emit. To replicate a specific color perfectly across different platforms, you need to extract its exact code:</p>
-  //     <ul>
-  //       <li><strong>HEX Code (Hexadecimal):</strong> A 6-character alphanumeric code preceded by a hashtag (for example, <code>#FF9933</code> for GoPDFGo's vibrant orange). HEX codes are the absolute industry standard in web development, CSS styling, HTML, and graphic design software like Adobe Illustrator and Figma.</li>
-  //       <li><strong>RGB Code:</strong> A format consisting of three specific numbers, each ranging from 0 to 255, representing Red, Green, and Blue values (for example, <code>rgb(255, 153, 51)</code>). This format is heavily used in digital display configurations, game development, and basic photo editing software.</li>
-  //     </ul>
+      <h2>Understanding Digital Color: HEX and RGB Codes Explained</h2>
+      <p>Computer monitors, smartphone screens, and digital displays do not natively understand human language concepts like "light sky blue" or "dark cherry red." Instead, they rely on specific, mathematically precise alphanumeric codes that dictate exactly how much Red, Green, and Blue light the screen's pixels need to emit. To replicate a specific color perfectly across different platforms, you need to extract its exact code:</p>
+      <ul>
+        <li><strong>HEX Code (Hexadecimal):</strong> A 6-character alphanumeric code preceded by a hashtag (for example, <code>#FF9933</code> for GoPDFGo's vibrant orange). HEX codes are the absolute industry standard in web development, CSS styling, HTML, and graphic design software like Adobe Illustrator and Figma.</li>
+        <li><strong>RGB Code:</strong> A format consisting of three specific numbers, each ranging from 0 to 255, representing Red, Green, and Blue values (for example, <code>rgb(255, 153, 51)</code>). This format is heavily used in digital display configurations, game development, and basic photo editing software.</li>
+      </ul>
 
-  //     <h2>How to Extract the Exact Color Code from Any Image</h2>
-  //     <p>Historically, to get an exact color code, you had to purchase and open heavy, expensive desktop software like Adobe Photoshop just to use their internal eyedropper tool. Today, you don't need to waste time or money. You can effortlessly extract the exact mathematical color profile from any image directly in your web browser.</p>
+      <h2>How to Extract the Exact Color Code from Any Image</h2>
+      <p>Historically, to get an exact color code, you had to purchase and open heavy, expensive desktop software like Adobe Photoshop just to use their internal eyedropper tool. Today, you don't need to waste time or money. You can effortlessly extract the exact mathematical color profile from any image directly in your web browser.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step Color Extraction Guide:</h3>
-  //       <ul>
-  //         <li><strong>Step 1: Get Your Source Image.</strong> Take a clean screenshot or download the specific logo, UI mockup, or photograph that contains your target color. (Note: If the image downloaded as a Next-Gen WebP file that your operating system won't preview easily, quickly use our <a href="/convert-webp">Convert WebP</a> tool to shift it to a standard JPG first).</li>
-  //         <li><strong>Step 2: Access the Utility.</strong> Open the completely free <a href="/color-picker">Color Picker</a> tool located in the GoPDFGo utilities section.</li>
-  //         <li><strong>Step 3: Upload the Target Image.</strong> Load your source picture into the tool's interface.</li>
-  //         <li><strong>Step 4: Utilize the Eyedropper.</strong> Hover your mouse cursor (or carefully drag your finger if you are on a mobile touch screen) over the image. Pinpoint the exact pixel containing the specific shade you want to capture.</li>
-  //         <li><strong>Step 5: Copy and Paste.</strong> The tool will instantly calculate and display the exact HEX and RGB values for that specific pixel cluster. Simply click the provided code to copy it to your clipboard, and paste it directly into your CSS file or design software.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>Step-by-Step Color Extraction Guide:</h3>
+        <ul>
+          <li><strong>Step 1: Get Your Source Image.</strong> Take a clean screenshot or download the specific logo, UI mockup, or photograph that contains your target color. (Note: If the image downloaded as a Next-Gen WebP file that your operating system won't preview easily, quickly use our <a href="/convert-webp">Convert WebP</a> tool to shift it to a standard JPG first).</li>
+          <li><strong>Step 2: Access the Utility.</strong> Open the completely free <a href="/color-picker">Color Picker</a> tool located in the GoPDFGo utilities section.</li>
+          <li><strong>Step 3: Upload the Target Image.</strong> Load your source picture into the tool's interface.</li>
+          <li><strong>Step 4: Utilize the Eyedropper.</strong> Hover your mouse cursor (or carefully drag your finger if you are on a mobile touch screen) over the image. Pinpoint the exact pixel containing the specific shade you want to capture.</li>
+          <li><strong>Step 5: Copy and Paste.</strong> The tool will instantly calculate and display the exact HEX and RGB values for that specific pixel cluster. Simply click the provided code to copy it to your clipboard, and paste it directly into your CSS file or design software.</li>
+        </ul>
+      </div>
 
-  //     <h2>Why Local Processing is Critical for Design Agencies</h2>
-  //     <p>If you are working at an agency dealing with an unreleased physical product, a highly confidential client logo redesign, or private, pre-launch brand assets, uploading those sensitive images to a random, unverified color-picking website is a massive security risk and a direct breach of most NDAs (Non-Disclosure Agreements).</p>
+      <h2>Why Local Processing is Critical for Design Agencies</h2>
+      <p>If you are working at an agency dealing with an unreleased physical product, a highly confidential client logo redesign, or private, pre-launch brand assets, uploading those sensitive images to a random, unverified color-picking website is a massive security risk and a direct breach of most NDAs (Non-Disclosure Agreements).</p>
 
-  //     <p>GoPDFGo is built for professionals. Our platform processes the image pixel mapping entirely on your local device using client-side scripts. No image data is ever transmitted to our servers, ensuring your client's unreleased, multi-million dollar brand assets remain strictly confidential and safely on your hard drive.</p>
+      <p>GoPDFGo is built for professionals. Our platform processes the image pixel mapping entirely on your local device using client-side scripts. No image data is ever transmitted to our servers, ensuring your client's unreleased, multi-million dollar brand assets remain strictly confidential and safely on your hard drive.</p>
 
-  //     <p>Stop guessing colors and relying on the "close enough" approach. Empower your daily design workflow by extracting exact, mathematical color codes instantly, keeping your UI projects, websites, and brand materials visually flawless and perfectly consistent.</p>
-  //   `
-  // },
+      <p>Stop guessing colors and relying on the "close enough" approach. Empower your daily design workflow by extracting exact, mathematical color codes instantly, keeping your UI projects, websites, and brand materials visually flawless and perfectly consistent.</p>
+    `
+  },
 
   // 23-04-2026
   // {
