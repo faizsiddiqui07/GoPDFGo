@@ -722,66 +722,66 @@ export const blogsData = [
   },
 
   // 23-04-2026
-  // {
-  //   id: "mask-aadhaar-card-safely-for-rent-agreements",
-  //   title: "How to Safely Mask Your Aadhaar Card for Rent Agreements & KYC",
-  //   seoTitle: "Mask Aadhaar Card Online Securely | Hide Aadhaar Digits | GoPDFGo",
-  //   keywords: "mask aadhaar card online, hide aadhaar number, secure aadhaar for kyc, how to mask aadhaar digits, local aadhaar masking, protect identity online, rent agreement kyc safety, blur aadhaar card photo, adhaar masking tool",
-  //   excerpt: "Sharing your full 12-digit Aadhaar number is a massive privacy risk. Learn how to securely mask your Aadhaar digits directly in your browser without uploading it to any server.",
-  //   date: "May 10, 2026",
-  //   imageUrl: "/images/blogs/mask-aadhaar-card-safely-for-rent-agreements.webp",
-  //   content: `
-  //     <p>In India, your Aadhaar card is the ultimate master key to your digital and financial identity. Whether you are signing a new rent agreement, checking into a hotel for a weekend getaway, buying a new prepaid SIM card, or completing a basic KYC verification for a digital wallet, the service provider will invariably ask you for a copy of your Aadhaar card.</p>
+  {
+    id: "mask-aadhaar-card-safely-for-rent-agreements",
+    title: "How to Safely Mask Your Aadhaar Card for Rent Agreements & KYC",
+    seoTitle: "Mask Aadhaar Card Online Securely | Hide Aadhaar Digits | GoPDFGo",
+    keywords: "mask aadhaar card online, hide aadhaar number, secure aadhaar for kyc, how to mask aadhaar digits, local aadhaar masking, protect identity online, rent agreement kyc safety, blur aadhaar card photo, adhaar masking tool",
+    excerpt: "Sharing your full 12-digit Aadhaar number is a massive privacy risk. Learn how to securely mask your Aadhaar digits directly in your browser without uploading it to any server.",
+    date: "May 1, 2026",
+    imageUrl: "/images/blogs/mask-aadhaar-card-safely-for-rent-agreements.webp",
+    content: `
+      <p>In India, your Aadhaar card is the ultimate master key to your digital and financial identity. Whether you are signing a new rent agreement, checking into a hotel for a weekend getaway, buying a new prepaid SIM card, or completing a basic KYC verification for a digital wallet, the service provider will invariably ask you for a copy of your Aadhaar card.</p>
 
-  //     <p>Most of us simply pull out our phones, take a quick photo of our physical card, and send it over WhatsApp or email without a second thought. But have you ever wondered what happens to that digital file once it leaves your phone? It often sits on unsecured local hard drives, gets forwarded around by agents, or is printed and left in open physical files accessible to anyone.</p>
+      <p>Most of us simply pull out our phones, take a quick photo of our physical card, and send it over WhatsApp or email without a second thought. But have you ever wondered what happens to that digital file once it leaves your phone? It often sits on unsecured local hard drives, gets forwarded around by agents, or is printed and left in open physical files accessible to anyone.</p>
 
-  //     <p>However, what most people do not realize is that <strong>you are not legally required to share your full 12-digit Aadhaar number</strong> for everyday, non-financial verifications. In fact, the UIDAI (Unique Identification Authority of India) strongly advises citizens to use a "Masked Aadhaar" wherever possible to prevent identity theft, financial fraud, and unauthorized authentication attempts.</p>
+      <p>However, what most people do not realize is that <strong>you are not legally required to share your full 12-digit Aadhaar number</strong> for everyday, non-financial verifications. In fact, the UIDAI (Unique Identification Authority of India) strongly advises citizens to use a "Masked Aadhaar" wherever possible to prevent identity theft, financial fraud, and unauthorized authentication attempts.</p>
 
-  //     <h2>What Exactly is a Masked Aadhaar?</h2>
-  //     <p>A Masked Aadhaar is simply a secure version of your identity document where the first 8 digits of your Aadhaar number are completely hidden, blacked out, or replaced with a series of 'XXXX' characters. This leaves only the last 4 digits visible for basic verification purposes.</p>
+      <h2>What Exactly is a Masked Aadhaar?</h2>
+      <p>A Masked Aadhaar is simply a secure version of your identity document where the first 8 digits of your Aadhaar number are completely hidden, blacked out, or replaced with a series of 'XXXX' characters. This leaves only the last 4 digits visible for basic verification purposes.</p>
 
-  //     <p>When you mask the document correctly, your photograph, the central QR code, your demographic details (like Date of Birth and Gender), and your residential address remain completely visible and legally valid for establishing your identity.</p>
+      <p>When you mask the document correctly, your photograph, the central QR code, your demographic details (like Date of Birth and Gender), and your residential address remain completely visible and legally valid for establishing your identity.</p>
 
-  //     <p>By actively hiding those first 8 digits, you create a powerful security barrier. Even if the hotel receptionist's computer is hacked, or the real estate broker accidentally leaks your document onto the internet, cybercriminals and hackers cannot use your incomplete ID to open fraudulent bank accounts, verify illegal SIM cards, or take out instant personal loans in your name.</p>
+      <p>By actively hiding those first 8 digits, you create a powerful security barrier. Even if the hotel receptionist's computer is hacked, or the real estate broker accidentally leaks your document onto the internet, cybercriminals and hackers cannot use your incomplete ID to open fraudulent bank accounts, verify illegal SIM cards, or take out instant personal loans in your name.</p>
 
-  //     <h2>Real-World Scenarios Where You MUST Use a Masked ID</h2>
-  //     <p>While direct government schemes (DBT) or opening a primary bank account might require your full Aadhaar number for e-KYC, there are countless daily scenarios where a masked version is more than enough:</p>
-  //     <ul>
-  //       <li><strong>Hotel and Resort Check-ins:</strong> Hospitality staff only need to verify that the person standing in front of them matches the photo and name on the booking. They do not need your core biometric linkage number.</li>
-  //       <li><strong>Renting an Apartment:</strong> Landlords and real estate brokers need your permanent address and identity proof for police verification. A masked ID fulfills this requirement perfectly without exposing your financial identity.</li>
-  //       <li><strong>Job Interviews and HR Screening:</strong> During the initial interview rounds or background checks, HR departments only need basic identity confirmation. Provide the full number only after you have officially signed the employment contract and need to open a salary account.</li>
-  //     </ul>
+      <h2>Real-World Scenarios Where You MUST Use a Masked ID</h2>
+      <p>While direct government schemes (DBT) or opening a primary bank account might require your full Aadhaar number for e-KYC, there are countless daily scenarios where a masked version is more than enough:</p>
+      <ul>
+        <li><strong>Hotel and Resort Check-ins:</strong> Hospitality staff only need to verify that the person standing in front of them matches the photo and name on the booking. They do not need your core biometric linkage number.</li>
+        <li><strong>Renting an Apartment:</strong> Landlords and real estate brokers need your permanent address and identity proof for police verification. A masked ID fulfills this requirement perfectly without exposing your financial identity.</li>
+        <li><strong>Job Interviews and HR Screening:</strong> During the initial interview rounds or background checks, HR departments only need basic identity confirmation. Provide the full number only after you have officially signed the employment contract and need to open a salary account.</li>
+      </ul>
 
-  //     <h2>The Danger of Standard Online Photo Editors</h2>
-  //     <p>When people finally realize they need to hide their digits, their first instinct is usually to search Google for a "Free Online Photo Editor" or a "Blur Image Online" tool. They upload their highly sensitive Aadhaar photo, use a virtual brush tool to paint over or blur the numbers, and download the edited image.</p>
+      <h2>The Danger of Standard Online Photo Editors</h2>
+      <p>When people finally realize they need to hide their digits, their first instinct is usually to search Google for a "Free Online Photo Editor" or a "Blur Image Online" tool. They upload their highly sensitive Aadhaar photo, use a virtual brush tool to paint over or blur the numbers, and download the edited image.</p>
 
-  //     <p><strong>This is a catastrophic security mistake for two major reasons:</strong></p>
+      <p><strong>This is a catastrophic security mistake for two major reasons:</strong></p>
 
-  //     <p>First, standard online photo editors are entirely cloud-based. The exact moment you hit the 'Upload' button, your unmasked, original Aadhaar card is transmitted across the internet and permanently saved on a remote server. You have just handed over your most sensitive document to an unknown, third-party tech company. Even if their privacy policy claims to "delete files after 24 hours," your data was exposed to potential server breaches during that window.</p>
+      <p>First, standard online photo editors are entirely cloud-based. The exact moment you hit the 'Upload' button, your unmasked, original Aadhaar card is transmitted across the internet and permanently saved on a remote server. You have just handed over your most sensitive document to an unknown, third-party tech company. Even if their privacy policy claims to "delete files after 24 hours," your data was exposed to potential server breaches during that window.</p>
 
-  //     <p>Second, simply "blurring" the numbers or using a pixelation filter is no longer safe. Modern Artificial Intelligence (AI) and machine learning tools can easily reverse-engineer basic blur filters to reveal the original text underneath. The only truly secure method is a solid, impenetrable black box.</p>
+      <p>Second, simply "blurring" the numbers or using a pixelation filter is no longer safe. Modern Artificial Intelligence (AI) and machine learning tools can easily reverse-engineer basic blur filters to reveal the original text underneath. The only truly secure method is a solid, impenetrable black box.</p>
 
-  //     <h2>The 100% Secure Solution: Client-Side Masking</h2>
-  //     <p>Your identity should never leave your personal device. That is the core technical philosophy behind GoPDFGo. We built a specialized <a href="/aadhaar-masking">Aadhaar Masking</a> tool that runs entirely on your local machine—meaning your laptop or smartphone—using advanced WebAssembly (Wasm) technology.</p>
+      <h2>The 100% Secure Solution: Client-Side Masking</h2>
+      <p>Your identity should never leave your personal device. That is the core technical philosophy behind GoPDFGo. We built a specialized <a href="/aadhaar-masking">Aadhaar Masking</a> tool that runs entirely on your local machine—meaning your laptop or smartphone—using advanced WebAssembly (Wasm) technology.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Mask Your ID Securely in 4 Steps:</h3>
-  //       <ul>
-  //         <li><strong>Step 1: Open the Tool.</strong> Navigate directly to the <a href="/aadhaar-masking">Aadhaar Masking</a> utility on the GoPDFGo website using your preferred browser.</li>
-  //         <li><strong>Step 2: Upload Locally.</strong> Select the photograph or scanned PDF of your Aadhaar card. You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
-  //         <li><strong>Step 3: Apply the Solid Mask.</strong> Use our intuitive, drag-and-drop interface to draw a secure, solid black box specifically over the first 8 digits of your Aadhaar number. Ensure you leave the last 4 digits visible so the document remains verifiable.</li>
-  //         <li><strong>Step 4: Save and Export.</strong> Click the apply button. The tool will permanently flatten the black box over the image data, ensuring that the hidden numbers cannot be recovered, selected, or "un-blurred" by reverse-engineering the downloaded file. Download your securely masked document to your local drive.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Mask Your ID Securely in 4 Steps:</h3>
+        <ul>
+          <li><strong>Step 1: Open the Tool.</strong> Navigate directly to the <a href="/aadhaar-masking">Aadhaar Masking</a> utility on the GoPDFGo website using your preferred browser.</li>
+          <li><strong>Step 2: Upload Locally.</strong> Select the photograph or scanned PDF of your Aadhaar card. You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
+          <li><strong>Step 3: Apply the Solid Mask.</strong> Use our intuitive, drag-and-drop interface to draw a secure, solid black box specifically over the first 8 digits of your Aadhaar number. Ensure you leave the last 4 digits visible so the document remains verifiable.</li>
+          <li><strong>Step 4: Save and Export.</strong> Click the apply button. The tool will permanently flatten the black box over the image data, ensuring that the hidden numbers cannot be recovered, selected, or "un-blurred" by reverse-engineering the downloaded file. Download your securely masked document to your local drive.</li>
+        </ul>
+      </div>
 
-  //     <h2>Why "Flattening" the Document is Crucial</h2>
-  //     <p>A common, yet highly dangerous workaround is attempting to mask the ID by opening it in Microsoft Word or Adobe Acrobat, drawing a black rectangle shape over the numbers, and saving it as a PDF. The critical problem with this method is that the black shape is saved merely as a floating "layer" on top of the image.</p>
+      <h2>Why "Flattening" the Document is Crucial</h2>
+      <p>A common, yet highly dangerous workaround is attempting to mask the ID by opening it in Microsoft Word or Adobe Acrobat, drawing a black rectangle shape over the numbers, and saving it as a PDF. The critical problem with this method is that the black shape is saved merely as a floating "layer" on top of the image.</p>
 
-  //     <p>Anyone with a basic, free PDF reader can simply click on that black box, hit the delete key on their keyboard, and immediately reveal your highly sensitive numbers underneath.</p>
+      <p>Anyone with a basic, free PDF reader can simply click on that black box, hit the delete key on their keyboard, and immediately reveal your highly sensitive numbers underneath.</p>
 
-  //     <p>Our specialized masking tool solves this by <strong>permanently rasterizing</strong> the image. The black pixels physically and permanently replace the number pixels in the image's code. There are no floating layers to delete, and the original data is destroyed in the final output file.</p>
-  //   `
-  // }, done 
+      <p>Our specialized masking tool solves this by <strong>permanently rasterizing</strong> the image. The black pixels physically and permanently replace the number pixels in the image's code. There are no floating layers to delete, and the original data is destroyed in the final output file.</p>
+    `
+  },
   // {
   //   id: "extract-single-page-from-large-pdf",
   //   title: "How to Extract a Single Page from a Massive 500-Page PDF Document",

@@ -1,7 +1,10 @@
 "use client"; // REQUIRED for Next.js since we use state, refs, and browser APIs
 
 import React, { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation"; // Changed from react-router-dom
+import { useRouter } from "next/navigation";
+import Script from "next/script";
+import { PDFDocument, degrees, StandardFonts, rgb } from "pdf-lib";
+import JSZip from "jszip";
 import {
   ArrowLeft,
   Trash2,
@@ -29,24 +32,70 @@ import { formatBytes } from "../utils/helpers";
 import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
 
+// --- DND KIT IMPORTS ---
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  rectSortingStrategy,
+  useSortable,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
+// --- SORTABLE ITEM WRAPPER (For smooth animations) ---
+function SortableItemWrapper({ id, children, className, disabled }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id, disabled });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    zIndex: isDragging ? 50 : 1,
+    opacity: isDragging ? 0.6 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...(disabled ? {} : attributes)}
+      {...(disabled ? {} : listeners)}
+      className={className}
+    >
+      {children}
+    </div>
+  );
+}
+
 const PdfEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
-  const router = useRouter(); // Next.js router
+  const router = useRouter();
   const fileInputRef = useRef(null);
-
-  const dragItem = useRef(null);
-  const dragOverItem = useRef(null);
 
   // State
   const [files, setFiles] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [downloadName, setDownloadName] = useState("");
 
   // Lib States
-  const [pdfLibLoaded, setPdfLibLoaded] = useState(false);
-  const [jsZipLoaded, setJsZipLoaded] = useState(false);
   const [pdfJsLoaded, setPdfJsLoaded] = useState(false);
 
   // UI States
@@ -59,177 +108,61 @@ const PdfEditor = ({ toolId }) => {
   const [compressionStats, setCompressionStats] = useState(null);
   const [pdfOrientation, setPdfOrientation] = useState("portrait");
   const [pageRotations, setPageRotations] = useState([]);
-  const [draggingId, setDraggingId] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const dragPageItem = useRef(null);
-  const dragPageOverItem = useRef(null);
 
-  // Revoke URLs when component unmounts
+  // Refs for Scroll and Image URLs
+  const blobUrlsRef = useRef(new Set());
+  const scrollContainerRef = useRef(null);
+
+  // Revoke URLs for memory cleanup ONLY on unmount
   useEffect(() => {
     return () => {
-      files.forEach((f) => {
-        if (f.preview && f.preview.startsWith("blob:")) {
-          URL.revokeObjectURL(f.preview);
-        }
-      });
+      blobUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);
     };
-  }, [files, downloadUrl]);
+  }, [downloadUrl]);
 
-  // Load Libraries
-  useEffect(() => {
-    if (window.PDFLib) {
-      setPdfLibLoaded(true);
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = "https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js";
-    script.async = true;
-    script.onload = () => setPdfLibLoaded(true);
-    document.body.appendChild(script);
-  }, []);
+  // --- NEW DRAG & DROP SENSORS & LOGIC ---
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5, // Allows normal clicks on buttons inside the drag area
+      },
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 150, // Slight delay on mobile so it doesn't interfere with page scroll
+        tolerance: 5,
+      },
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    }),
+  );
 
-  useEffect(() => {
-    if (window.JSZip) {
-      setJsZipLoaded(true);
-      return;
-    }
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
-    script.async = true;
-    script.onload = () => setJsZipLoaded(true);
-    document.body.appendChild(script);
-  }, []);
-
-  useEffect(() => {
-    if (window.pdfjsLib) {
-      setPdfJsLoaded(true);
-      return;
-    }
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
-    script.async = true;
-    script.onload = () => {
-      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
-        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-      setPdfJsLoaded(true);
-    };
-    document.body.appendChild(script);
-  }, []);
-
-  // --- Drag & Drop Logic ---
-  const handleDragStart = (e, index) => {
-    dragItem.current = index;
-    setDraggingId(files[index]?.id);
-    setIsDragging(true);
-    e.dataTransfer.effectAllowed = "move";
-    e.dataTransfer.setData("text/plain", index);
-  };
-
-  const handleDragOver = (e, index) => {
-    e.preventDefault();
-    dragOverItem.current = index;
-  };
-
-  const handleDragEnter = (e, index) => {
-    e.preventDefault();
-    dragOverItem.current = index;
-  };
-
-  const handleDragLeave = (e) => {
-    // Optional visual feedback
-  };
-
-  const handlePageDragStart = (e, index) => {
-    dragPageItem.current = index;
-    e.dataTransfer.effectAllowed = "move";
-  };
-  const handlePageDragEnter = (e, index) => {
-    dragPageOverItem.current = index;
-  };
-  const handlePageDrop = (e) => {
-    e.preventDefault();
-    if (dragPageItem.current === null || dragPageOverItem.current === null)
-      return;
-
-    const newThumbs = [...thumbnails];
-    const draggedItemContent = newThumbs[dragPageItem.current];
-    newThumbs.splice(dragPageItem.current, 1);
-    newThumbs.splice(dragPageOverItem.current, 0, draggedItemContent);
-    setThumbnails(newThumbs);
-
-    dragPageItem.current = null;
-    dragPageOverItem.current = null;
-  };
-
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setIsDragging(false);
-    setDraggingId(null);
-
-    if (dragItem.current === null || dragOverItem.current === null) return;
-
-    if (dragItem.current !== dragOverItem.current) {
-      const newFiles = [...files];
-      const draggedItem = newFiles[dragItem.current];
-      newFiles.splice(dragItem.current, 1);
-      newFiles.splice(dragOverItem.current, 0, draggedItem);
-      setFiles(newFiles);
-    }
-    dragItem.current = null;
-    dragOverItem.current = null;
-  };
-
-  const handleDragEnd = (e) => {
-    setIsDragging(false);
-    setDraggingId(null);
-    dragItem.current = null;
-    dragOverItem.current = null;
-  };
-
-  // --- Mobile Touch Drag Logic ---
-  const handleTouchStart = (e, index) => {
-    dragPageItem.current = index;
-    setDraggingId(`page-${index}`); // Visual feedback ke liye
-  };
-
-  const handleTouchMove = (e) => {
-    // Finger screen par kahan hai, wo coordinates nikalo
-    const touch = e.touches[0];
-    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
-
-    if (targetElement) {
-      // Pata karo ki finger kis card ke upar hai
-      const dropTarget = targetElement.closest('[data-index]');
-      if (dropTarget) {
-        const overIndex = parseInt(dropTarget.getAttribute('data-index'), 10);
-        if (!isNaN(overIndex)) {
-           dragPageOverItem.current = overIndex;
-        }
-      }
+  const handleDragEndFiles = (event) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      setFiles((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
     }
   };
 
-  const handleTouchEnd = () => {
-    setDraggingId(null); // Dragging effect hatao
-    
-    // Agar sahi jagah drop kiya hai toh pages ko swap kar do
-    if (
-      dragPageItem.current !== null && 
-      dragPageOverItem.current !== null && 
-      dragPageItem.current !== dragPageOverItem.current
-    ) {
-      const newThumbs = [...thumbnails];
-      const draggedItemContent = newThumbs[dragPageItem.current];
-      newThumbs.splice(dragPageItem.current, 1);
-      newThumbs.splice(dragPageOverItem.current, 0, draggedItemContent);
-      setThumbnails(newThumbs);
+  const handleDragEndThumbnails = (event) => {
+    const { active, over } = event;
+    if (over && active.id !== over.id) {
+      setThumbnails((items) => {
+        const oldIndex = items.findIndex(
+          (item) => item.pageNum.toString() === active.id,
+        );
+        const newIndex = items.findIndex(
+          (item) => item.pageNum.toString() === over.id,
+        );
+        return arrayMove(items, oldIndex, newIndex);
+      });
     }
-    
-    dragPageItem.current = null;
-    dragPageOverItem.current = null;
   };
 
   // --- Thumbnail Generation ---
@@ -247,7 +180,18 @@ const PdfEditor = ({ toolId }) => {
       canvas.height = viewport.height;
       canvas.width = viewport.width;
       await page.render({ canvasContext: context, viewport }).promise;
-      return canvas.toDataURL();
+
+      return new Promise((resolve) => {
+        canvas.toBlob(
+          (blob) => {
+            const url = URL.createObjectURL(blob);
+            blobUrlsRef.current.add(url);
+            resolve(url);
+          },
+          "image/jpeg",
+          0.8,
+        );
+      });
     } catch (e) {
       return null;
     }
@@ -257,6 +201,7 @@ const PdfEditor = ({ toolId }) => {
     if (!window.pdfjsLib) return;
     setGeneratingThumbnails(true);
     setThumbnails([]);
+
     try {
       const arrayBuffer = await file.arrayBuffer();
       const pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
@@ -264,16 +209,17 @@ const PdfEditor = ({ toolId }) => {
 
       if (numPages > 50) {
         setErrorMsg(
-          `Large PDF (${numPages} pages). Rendering thumbnails may take time.`,
+          `Large PDF (${numPages} pages). Rendering thumbnails incrementally...`,
         );
       }
 
-      const thumbs = [];
       const allPages = new Set();
       const initRots = Array(numPages).fill(0);
       setPageRotations(initRots);
       for (let i = 1; i <= numPages; i++) allPages.add(i);
       setSelectedPages(allPages);
+
+      const CHUNK_SIZE = 3;
 
       for (let i = 1; i <= numPages; i++) {
         const page = await pdf.getPage(i);
@@ -284,11 +230,30 @@ const PdfEditor = ({ toolId }) => {
         canvas.height = viewport.height;
         canvas.width = viewport.width;
         await page.render({ canvasContext: context, viewport }).promise;
-        thumbs.push({ pageNum: i, url: canvas.toDataURL() });
+
+        const url = await new Promise((resolve) => {
+          canvas.toBlob(
+            (blob) => {
+              const newUrl = URL.createObjectURL(blob);
+              blobUrlsRef.current.add(newUrl);
+              resolve(newUrl);
+            },
+            "image/jpeg",
+            0.7,
+          );
+        });
+
+        setThumbnails((prev) => [...prev, { pageNum: i, url }]);
+
+        if (i % CHUNK_SIZE === 0) {
+          await new Promise((resolve) => setTimeout(resolve, 15));
+        }
       }
-      setThumbnails(thumbs);
     } catch (e) {
       console.error("Error generating all thumbnails", e);
+      setErrorMsg(
+        "Error rendering pages. The PDF might be corrupted or protected.",
+      );
     } finally {
       setGeneratingThumbnails(false);
     }
@@ -315,49 +280,69 @@ const PdfEditor = ({ toolId }) => {
 
     const allowMulti = ["merge-pdf", "image-to-pdf"].includes(tool.id);
 
-    const newFilesData = await Promise.all(
-      validFiles.map(async (f, index) => ({
-        id:
-          window.crypto && window.crypto.randomUUID
-            ? window.crypto.randomUUID()
-            : Math.random().toString(36).substring(2) + Date.now().toString(36),
-        file: f,
-        rotation: 0,
-        order: files.length + index,
-        preview:
-          f.type === "application/pdf"
-            ? await generatePdfThumbnail(f)
-            : URL.createObjectURL(f),
-      })),
-    );
+    setIsUploading(true);
 
-    if (!allowMulti && newFilesData.length > 0) {
-      if (
-        files.length > 0 &&
-        files[0].preview &&
-        files[0].preview.startsWith("blob:")
-      ) {
-        URL.revokeObjectURL(files[0].preview);
+    setTimeout(async () => {
+      try {
+        const newFilesData = await Promise.all(
+          validFiles.map(async (f, index) => {
+            let previewUrl = null;
+            if (f.type === "application/pdf") {
+              previewUrl = await generatePdfThumbnail(f);
+            } else {
+              previewUrl = URL.createObjectURL(f);
+              blobUrlsRef.current.add(previewUrl);
+            }
+
+            return {
+              id:
+                window.crypto && window.crypto.randomUUID
+                  ? window.crypto.randomUUID()
+                  : Math.random().toString(36).substring(2) +
+                    Date.now().toString(36),
+              file: f,
+              rotation: 0,
+              order: files.length + index,
+              preview: previewUrl,
+            };
+          }),
+        );
+
+        if (!allowMulti && newFilesData.length > 0) {
+          if (
+            files.length > 0 &&
+            files[0].preview &&
+            files[0].preview.startsWith("blob:")
+          ) {
+            URL.revokeObjectURL(files[0].preview);
+            blobUrlsRef.current.delete(files[0].preview);
+          }
+
+          setFiles([newFilesData[0]]);
+          if (
+            tool.id === "split-pdf" ||
+            tool.id === "rotate-pdf" ||
+            tool.id === "rearrange-pdf" ||
+            tool.id === "extract-pdf-pages"
+          ) {
+            setSplitMode("all");
+            setRangeInput("");
+            generateAllThumbnails(newFilesData[0].file);
+          }
+        } else {
+          setFiles((prev) => [...prev, ...newFilesData]);
+        }
+
+        setErrorMsg(null);
+        setIsDone(false);
+        setCompressionStats(null);
+      } catch (err) {
+        console.error("Upload error: ", err);
+        setErrorMsg("Error processing files. Please try again.");
+      } finally {
+        setIsUploading(false);
       }
-
-      setFiles([newFilesData[0]]);
-      if (
-        tool.id === "split-pdf" ||
-        tool.id === "rotate-pdf" ||
-        tool.id === "rearrange-pdf" ||
-        tool.id === "extract-pdf-pages" // <-- Yeh NAYA ID ADD HUA
-      ) {
-        setSplitMode("all");
-        setRangeInput("");
-        generateAllThumbnails(newFilesData[0].file);
-      }
-    } else {
-      setFiles((prev) => [...prev, ...newFilesData]);
-    }
-
-    setErrorMsg(null);
-    setIsDone(false);
-    setCompressionStats(null);
+    }, 50);
   };
 
   const removeFile = (id) => {
@@ -369,23 +354,30 @@ const PdfEditor = ({ toolId }) => {
       fileToRemove.preview.startsWith("blob:")
     ) {
       URL.revokeObjectURL(fileToRemove.preview);
+      blobUrlsRef.current.delete(fileToRemove.preview);
     }
 
     const newFiles = files.filter((f) => f.id !== id);
     setFiles(newFiles);
     setIsDone(false);
 
-    if ((tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && newFiles.length === 0) {
+    if (
+      (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") &&
+      newFiles.length === 0
+    ) {
+      thumbnails.forEach((t) => {
+        URL.revokeObjectURL(t.url);
+        blobUrlsRef.current.delete(t.url);
+      });
       setThumbnails([]);
       setSelectedPages(new Set());
     }
   };
 
   const resetAll = () => {
-    files.forEach((f) => {
-      if (f.preview && f.preview.startsWith("blob:"))
-        URL.revokeObjectURL(f.preview);
-    });
+    blobUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
+    blobUrlsRef.current.clear();
+
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
 
     setIsDone(false);
@@ -466,11 +458,6 @@ const PdfEditor = ({ toolId }) => {
 
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
-    if (!pdfLibLoaded) {
-      setErrorMsg("PDF Library loading...");
-      return;
-    }
-
     if (files.length === 0) {
       setErrorMsg("Please upload a file first.");
       return;
@@ -478,10 +465,7 @@ const PdfEditor = ({ toolId }) => {
 
     setIsProcessing(true);
     setErrorMsg(null);
-
     try {
-      const { PDFDocument, degrees, StandardFonts, rgb } = window.PDFLib;
-
       // 1. MERGE
       if (tool.id === "merge-pdf") {
         const newPdf = await PDFDocument.create();
@@ -496,7 +480,7 @@ const PdfEditor = ({ toolId }) => {
           });
         }
         const pdfBytes = await newPdf.save();
-        finalizePdf(pdfBytes, "merged-document.pdf");
+        finalizePdf(pdfBytes, `GoPDFGo_${files[0].file.name}`);
 
         // 2. IMAGE TO PDF
       } else if (tool.id === "image-to-pdf") {
@@ -533,7 +517,6 @@ const PdfEditor = ({ toolId }) => {
               continue;
             }
           }
-
           if (image) {
             const page = newPdf.addPage([pageWidth, pageHeight]);
             const margin = 20;
@@ -549,21 +532,16 @@ const PdfEditor = ({ toolId }) => {
           }
         }
         const pdfBytes = await newPdf.save();
-        finalizePdf(pdfBytes, "images-to-pdf.pdf");
+        const baseName = files[0].file.name.split(".")[0];
+        finalizePdf(pdfBytes, `GoPDFGo_${baseName}.pdf`);
 
         // 3. SPLIT
       } else if (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") {
-        if (!window.JSZip) {
-          setErrorMsg("ZIP Library loading...");
-          setIsProcessing(false);
-          return;
-        }
-
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
         const pdf = await PDFDocument.load(arrayBuffer);
         const pageCount = pdf.getPageCount();
-        const zip = new window.JSZip();
+        const zip = new JSZip();
 
         let pagesToExtract = [];
         if (splitMode === "all") {
@@ -588,7 +566,6 @@ const PdfEditor = ({ toolId }) => {
           }
           pagesToExtract = [...new Set(pagesToExtract)].sort((a, b) => a - b);
         }
-
         if (pagesToExtract.length === 0) {
           setErrorMsg("Please select at least one page to extract.");
           setIsProcessing(false);
@@ -604,7 +581,7 @@ const PdfEditor = ({ toolId }) => {
         }
 
         const content = await zip.generateAsync({ type: "blob" });
-        finalizePdf(content, `split-${file.name}.zip`, "application/zip");
+        finalizePdf(content, `GoPDFGo_${file.name}.zip`, "application/zip");
 
         // 4. ROTATE
       } else if (tool.id === "rotate-pdf") {
@@ -620,7 +597,7 @@ const PdfEditor = ({ toolId }) => {
         });
 
         const pdfBytes = await pdf.save();
-        finalizePdf(pdfBytes, `rotated-${file.name}`);
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
 
         // 5. COMPRESS
       } else if (tool.id === "compress-pdf") {
@@ -628,8 +605,10 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         const originalSize = file.size;
 
-        if (!pdfJsLoaded) {
-          setErrorMsg("PDF.js loading...");
+        if (!window.pdfjsLib && !pdfJsLoaded) {
+          setErrorMsg(
+            "PDF engine is initializing... Please click compress again in 2 seconds.",
+          );
           setIsProcessing(false);
           return;
         }
@@ -683,8 +662,7 @@ const PdfEditor = ({ toolId }) => {
           percent,
         });
 
-        finalizePdf(pdfBytes, `compressed-${file.name}`);
-
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
         // 6. PAGE NUMBERS
       } else if (tool.id === "page-numbers") {
         const file = files[0].file;
@@ -705,27 +683,25 @@ const PdfEditor = ({ toolId }) => {
         });
 
         const pdfBytes = await pdf.save();
-        finalizePdf(pdfBytes, `numbered-${file.name}`);
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
+
+        // 7. REARRANGE
       } else if (tool.id === "rearrange-pdf") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
         const pdf = await PDFDocument.load(arrayBuffer);
         const newPdf = await PDFDocument.create();
 
-        // Ensure valid indices are passed (safeguard against empty arrays)
         if (!thumbnails || thumbnails.length === 0) {
           throw new Error("No pages found to rearrange.");
         }
 
-        // Generate correct 0-based index array
         const newOrderIndices = thumbnails.map((t) => Number(t.pageNum) - 1);
-
-        // Copy and paste pages in the new order
         const copiedPages = await newPdf.copyPages(pdf, newOrderIndices);
         copiedPages.forEach((page) => newPdf.addPage(page));
 
         const pdfBytes = await newPdf.save();
-        finalizePdf(pdfBytes, `rearranged-${file.name}`);
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
       }
     } catch (err) {
       console.error(err);
@@ -745,17 +721,26 @@ const PdfEditor = ({ toolId }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
+      <Script
+        src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (window.pdfjsLib) {
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+              "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            setPdfJsLoaded(true);
+          }
+        }}
+      />
       <div className="mb-6">
         <button
-          onClick={() => router.back()} // Changed from navigate(-1)
+          onClick={() => router.back()}
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-          <tool.icon size={28} className="text-orange-500" />{" "}
-          {/* Ensure icon renders properly */}
-          {tool.title}
+          <tool.icon size={28} className="text-orange-500" /> {tool.title}
         </h1>
       </div>
 
@@ -769,22 +754,37 @@ const PdfEditor = ({ toolId }) => {
               type="file"
               multiple={["merge-pdf", "image-to-pdf"].includes(tool.id)}
               accept={tool.config.accept}
-              className="absolute inset-0 opacity-0 cursor-pointer"
+              className="absolute inset-0 opacity-0 cursor-pointer z-10"
               onChange={handleFileUpload}
+              disabled={isUploading}
             />
-            <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-[#FF9933] group-hover:scale-110 transition-transform">
-              {tool.id === "image-to-pdf" ? (
-                <ImageIcon size={32} />
-              ) : (
-                <FileText size={32} />
-              )}
-            </div>
-            <h3 className="text-lg font-semibold text-slate-700">
-              {files.length > 0 &&
-              !["merge-pdf", "image-to-pdf"].includes(tool.id)
-                ? "Replace File"
-                : `Drop ${tool.id === "image-to-pdf" ? "Images" : "PDFs"} here`}
-            </h3>
+            {isUploading ? (
+              <div className="flex flex-col items-center justify-center py-2 pointer-events-none z-20 relative">
+                <Loader2
+                  size={40}
+                  className="animate-spin text-[#FF9933] mb-4"
+                />
+                <h3 className="text-lg font-semibold text-slate-700">
+                  Processing files... Please wait
+                </h3>
+              </div>
+            ) : (
+              <div className="pointer-events-none">
+                <div className="bg-orange-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-[#FF9933] group-hover:scale-110 transition-transform">
+                  {tool.id === "image-to-pdf" ? (
+                    <ImageIcon size={32} />
+                  ) : (
+                    <FileText size={32} />
+                  )}
+                </div>
+                <h3 className="text-lg font-semibold text-slate-700">
+                  {files.length > 0 &&
+                  !["merge-pdf", "image-to-pdf"].includes(tool.id)
+                    ? "Replace File"
+                    : `Drop ${tool.id === "image-to-pdf" ? "Images" : "PDFs"} here`}
+                </h3>
+              </div>
+            )}
           </div>
         </div>
 
@@ -805,110 +805,121 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {/* File List / Preview */}
+          {/* File List / Preview with DnD Kit */}
           {files.length > 0 &&
             tool.id !== "split-pdf" &&
             tool.id !== "rotate-pdf" &&
-            tool.id !== "rearrange-pdf" && (
-              <div
-                className={`space-y-3 mb-8 ${
-                  tool.id === "merge-pdf"
-                    ? "grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0"
-                    : ""
-                }`}
+            tool.id !== "rearrange-pdf" &&
+            tool.id !== "extract-pdf-pages" && (
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEndFiles}
               >
-                {files.map((item, idx) => (
+                <SortableContext
+                  items={files.map((f) => f.id)}
+                  strategy={rectSortingStrategy}
+                >
                   <div
-                    key={item.id}
-                    draggable={["merge-pdf", "image-to-pdf"].includes(tool.id)}
-                    onDragStart={(e) => handleDragStart(e, idx)}
-                    onDragEnter={(e) => handleDragEnter(e, idx)}
-                    onDragOver={(e) => handleDragOver(e, idx)}
-                    onDragLeave={handleDragLeave}
-                    onDrop={handleDrop}
-                    onDragEnd={handleDragEnd}
-                    className={`relative group bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition p-3 flex items-center gap-4 ${
-                      draggingId === item.id
-                        ? "opacity-50 border-[#FF9933] bg-orange-50"
+                    className={`space-y-3 mb-8 ${
+                      tool.id === "merge-pdf"
+                        ? "grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0"
                         : ""
-                    } ${
-                      dragOverItem.current === idx && draggingId !== item.id
-                        ? "border-dashed border-2 border-[#FF9933] bg-orange-50"
-                        : ""
-                    } ${
-                      ["merge-pdf", "image-to-pdf"].includes(tool.id)
-                        ? "cursor-move"
-                        : "cursor-default"
                     }`}
                   >
-                    {["merge-pdf", "image-to-pdf"].includes(tool.id) && (
-                      <div className="text-slate-400 hover:text-slate-600 cursor-grab active:cursor-grabbing">
-                        <GripVertical size={20} />
-                      </div>
-                    )}
-                    {["merge-pdf", "image-to-pdf"].includes(tool.id) && (
-                      <div className="absolute -top-2 -left-2 w-6 h-6 bg-[#FF9933] text-white text-xs rounded-full flex items-center justify-center font-bold shadow-sm z-10">
-                        {idx + 1}
-                      </div>
-                    )}
+                    {files.map((item, idx) => {
+                      const isDraggable = [
+                        "merge-pdf",
+                        "image-to-pdf",
+                      ].includes(tool.id);
+                      return (
+                        <SortableItemWrapper
+                          key={item.id}
+                          id={item.id}
+                          disabled={!isDraggable}
+                          className={`relative group bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition p-3 flex items-center gap-4 ${
+                            isDraggable
+                              ? "cursor-grab active:cursor-grabbing"
+                              : "cursor-default"
+                          }`}
+                        >
+                          {isDraggable && (
+                            <div className="text-slate-400 hover:text-slate-600">
+                              <GripVertical size={20} />
+                            </div>
+                          )}
+                          {isDraggable && (
+                            <div className="absolute -top-2 -left-2 w-6 h-6 bg-[#FF9933] text-white text-xs rounded-full flex items-center justify-center font-bold shadow-sm z-10">
+                              {idx + 1}
+                            </div>
+                          )}
 
-                    {/* INCREASED THUMBNAIL SIZE HERE */}
-                    <div className="w-24 h-32 sm:w-32 sm:h-44 bg-slate-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-200 relative shadow-inner">
-                      {item.preview ? (
-                        <img
-                          src={item.preview}
-                          alt="Preview"
-                          className="w-full h-full object-cover transition-transform duration-300"
-                          style={{ transform: `rotate(${item.rotation}deg)` }}
-                        />
-                      ) : (
-                        <FileText size={40} className="text-slate-300" />
-                      )}
-                      {item.rotation > 0 && (
-                        <div className="absolute top-1 right-1 bg-blue-500 text-white text-[10px] px-1.5 py-0.5 rounded shadow-sm font-medium z-10">
-                          {item.rotation}°
+                          <div className="w-24 h-32 sm:w-32 sm:h-44 bg-slate-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-200 relative shadow-inner">
+                            {item.preview ? (
+                              <img
+                                src={item.preview}
+                                alt="Preview"
+                                className="w-full h-full object-cover transition-transform duration-300"
+                                style={{
+                                  transform: `rotate(${item.rotation}deg)`,
+                                }}
+                              />
+                            ) : (
+                              <FileText size={40} className="text-slate-300" />
+                            )}
+                            {item.rotation > 0 && (
+                              <div className="absolute top-1 right-1 bg-blue-500 text-white text-[10px] px-1.5 py-0.5 rounded shadow-sm font-medium z-10">
+                                {item.rotation}°
+                              </div>
+                            )}
+                          </div>
+
+                          <div className="flex-1 min-w-0 py-2">
+                            <p
+                              className="font-semibold text-slate-800 text-base truncate mb-1"
+                              title={item.file.name}
+                            >
+                              {item.file.name}
+                            </p>
+                            <p className="text-sm text-slate-500 font-medium">
+                              {(item.file.size / 1024 / 1024).toFixed(2)} MB
+                            </p>
+                            {tool.id === "merge-pdf" && (
+                              <button
+                                onClick={() => rotateFile(item.id)}
+                                onPointerDown={(e) => e.stopPropagation()} // Prevents dragging when clicking button
+                                className="mt-3 text-sm flex items-center gap-1.5 text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-md transition cursor-pointer font-bold relative z-20"
+                              >
+                                <RotateCw size={14} /> Rotate
+                              </button>
+                            )}
+                          </div>
+                          <button
+                            onClick={() => removeFile(item.id)}
+                            onPointerDown={(e) => e.stopPropagation()} // Prevents dragging when clicking button
+                            className="absolute top-3 right-3 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-full transition p-2 cursor-pointer relative z-20"
+                          >
+                            <Trash2 size={18} />
+                          </button>
+                        </SortableItemWrapper>
+                      );
+                    })}
+
+                    {["merge-pdf", "image-to-pdf"].includes(tool.id) &&
+                      files.length > 1 && (
+                        <div className="col-span-full text-center mt-4 p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
+                          <p className="text-sm font-medium text-slate-600 flex items-center justify-center gap-2">
+                            <GripVertical
+                              size={18}
+                              className="text-slate-400"
+                            />
+                            Drag and drop items to reorder them
+                          </p>
                         </div>
                       )}
-                    </div>
-
-                    <div className="flex-1 min-w-0 py-2">
-                      <p
-                        className="font-semibold text-slate-800 text-base truncate mb-1"
-                        title={item.file.name}
-                      >
-                        {item.file.name}
-                      </p>
-                      <p className="text-sm text-slate-500 font-medium">
-                        {(item.file.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
-                      {tool.id === "merge-pdf" && (
-                        <button
-                          onClick={() => rotateFile(item.id)}
-                          className="mt-3 text-sm flex items-center gap-1.5 text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-md transition cursor-pointer font-bold"
-                        >
-                          <RotateCw size={14} /> Rotate
-                        </button>
-                      )}
-                    </div>
-                    <button
-                      onClick={() => removeFile(item.id)}
-                      className="absolute top-3 right-3 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-full transition p-2 cursor-pointer"
-                    >
-                      <Trash2 size={18} />
-                    </button>
                   </div>
-                ))}
-
-                {["merge-pdf", "image-to-pdf"].includes(tool.id) &&
-                  files.length > 1 && (
-                    <div className="col-span-full text-center mt-4 p-4 bg-slate-50 rounded-xl border border-dashed border-slate-300">
-                      <p className="text-sm font-medium text-slate-600 flex items-center justify-center gap-2">
-                        <GripVertical size={18} className="text-slate-400" />
-                        Drag and drop items to reorder them
-                      </p>
-                    </div>
-                  )}
-              </div>
+                </SortableContext>
+              </DndContext>
             )}
 
           {/* Image to PDF Controls */}
@@ -943,102 +954,109 @@ const PdfEditor = ({ toolId }) => {
           )}
 
           {/* Split PDF Controls */}
-          {files.length > 0 && (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && (
-            <div className="mb-8">
-              {/* Optional: Agar extract mode me hain, toh title badal sakte hain, warna ye block aise hi chalega */}
-              <div className="text-center mb-6">
-                <p className="text-sm font-bold text-slate-600 bg-blue-50 text-blue-600 inline-block px-4 py-2 rounded-full">
-                  <Scissors size={16} className="inline mr-1 mb-0.5" />
-                  {tool.id === "extract-pdf-pages" 
-                    ? "Enter specific pages to extract (e.g., 1, 3, 5-10)" 
-                    : "Enter page ranges to split (e.g., 1-5, 6-10)"}
-                </p>
-              </div>
-              <div className="flex gap-3 sm:gap-4 justify-center mb-6">
-                <button
-                  onClick={() => changeSplitMode("all")}
-                  className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
-                    splitMode === "all"
-                      ? "bg-[#FF9933] text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <Layers className="hidden sm:block" size={18} /> Extract All
-                  Pages
-                </button>
-                <button
-                  onClick={() => changeSplitMode("select")}
-                  className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
-                    splitMode === "select"
-                      ? "bg-[#FF9933] text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <Scissors className="hidden sm:block" size={18} /> Select
-                  Pages
-                </button>
-              </div>
-
-              {generatingThumbnails ? (
-                <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
-                  <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
-                  <p className="font-medium text-slate-500">
-                    Processing PDF Pages...
+          {files.length > 0 &&
+            (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && (
+              <div className="mb-8">
+                <div className="text-center mb-6">
+                  <p className="text-sm font-bold bg-blue-50 text-blue-600 inline-block px-4 py-2 rounded-full">
+                    <Scissors size={16} className="inline mr-1 mb-0.5" />
+                    {tool.id === "extract-pdf-pages"
+                      ? "Enter specific pages to extract (e.g., 1, 3, 5-10)"
+                      : "Enter page ranges to split (e.g., 1-5, 6-10)"}
                   </p>
                 </div>
-              ) : (
-                <div className="animate-fade-in space-y-6">
-                  {splitMode === "select" && (
-                    <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-2">
-                        Page Range (e.g. 1-3, 5, 8)
-                      </label>
-                      <input
-                        type="text"
-                        value={rangeInput}
-                        onChange={handleRangeInput}
-                        placeholder="Enter pages or select below..."
-                        className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none text-lg font-medium"
-                      />
-                    </div>
-                  )}
-
-                  {/* INCREASED THUMBNAIL SIZE FOR SPLIT PDF (Reduced columns, increased max-height) */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-125 overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
-                    {thumbnails.map((thumb) => (
-                      <div
-                        key={thumb.pageNum}
-                        onClick={() => togglePageSelection(thumb.pageNum)}
-                        className={`relative group rounded-lg overflow-hidden border-2 transition-all bg-white shadow-sm ${
-                          selectedPages.has(thumb.pageNum)
-                            ? "border-[#FF9933] ring-4 ring-[#FF9933]/20"
-                            : "border-slate-200"
-                        } ${
-                          splitMode === "select"
-                            ? "cursor-pointer hover:border-slate-300 hover:shadow-md"
-                            : "cursor-default opacity-90"
-                        }`}
-                      >
-                        <img
-                          src={thumb.url}
-                          alt={`Page ${thumb.pageNum}`}
-                          className="w-full h-auto"
-                        />
-                        <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
-                          Page {thumb.pageNum}
-                        </div>
-                        {selectedPages.has(thumb.pageNum) && (
-                          <div className="absolute top-2 right-2 bg-[#FF9933] text-white rounded-full p-1 shadow-md">
-                            <Check size={16} strokeWidth={3} />
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
+                <div className="flex gap-3 sm:gap-4 justify-center mb-6">
+                  <button
+                    onClick={() => changeSplitMode("all")}
+                    className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
+                      splitMode === "all"
+                        ? "bg-[#FF9933] text-white shadow-lg"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    }`}
+                  >
+                    <Layers className="hidden sm:block" size={18} /> Extract All
+                    Pages
+                  </button>
+                  <button
+                    onClick={() => changeSplitMode("select")}
+                    className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
+                      splitMode === "select"
+                        ? "bg-[#FF9933] text-white shadow-lg"
+                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    }`}
+                  >
+                    <Scissors className="hidden sm:block" size={18} /> Select
+                    Pages
+                  </button>
                 </div>
-              )}
-            </div>
-          )}
+
+                {generatingThumbnails && thumbnails.length === 0 ? (
+                  <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
+                    <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
+                    <p className="font-medium text-slate-500">
+                      Processing PDF Pages...
+                    </p>
+                  </div>
+                ) : (
+                  <div className="animate-fade-in space-y-6">
+                    {splitMode === "select" && (
+                      <div>
+                        <label className="block text-sm font-bold text-slate-700 mb-2">
+                          Page Range (e.g. 1-3, 5, 8)
+                        </label>
+                        <input
+                          type="text"
+                          value={rangeInput}
+                          onChange={handleRangeInput}
+                          placeholder="Enter pages or select below..."
+                          className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none text-lg font-medium"
+                        />
+                      </div>
+                    )}
+                    <div
+                      ref={scrollContainerRef}
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[500px] overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
+                    >
+                      {thumbnails.map((thumb) => (
+                        <div
+                          key={thumb.pageNum}
+                          onClick={() => togglePageSelection(thumb.pageNum)}
+                          className={`relative group rounded-lg overflow-hidden border-2 transition-all bg-white shadow-sm ${
+                            selectedPages.has(thumb.pageNum)
+                              ? "border-[#FF9933] ring-4 ring-[#FF9933]/20"
+                              : "border-slate-200"
+                          } ${
+                            splitMode === "select"
+                              ? "cursor-pointer hover:border-slate-300 hover:shadow-md"
+                              : "cursor-default opacity-90"
+                          }`}
+                        >
+                          <img
+                            src={thumb.url}
+                            alt={`Page ${thumb.pageNum}`}
+                            className="w-full h-auto"
+                          />
+                          <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
+                            Page {thumb.pageNum}
+                          </div>
+                          {selectedPages.has(thumb.pageNum) && (
+                            <div className="absolute top-2 right-2 bg-[#FF9933] text-white rounded-full p-1 shadow-md">
+                              <Check size={16} strokeWidth={3} />
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                      {generatingThumbnails && (
+                        <div className="col-span-full flex items-center justify-center py-4 text-slate-400">
+                          <Loader2 className="animate-spin mr-2 w-5 h-5 text-[#FF9933]" />
+                          Rendering remaining pages...
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
 
           {/* Rotate PDF Controls */}
           {files.length > 0 && tool.id === "rotate-pdf" && (
@@ -1058,30 +1076,29 @@ const PdfEditor = ({ toolId }) => {
                 </button>
               </div>
 
-              {generatingThumbnails ? (
+              {generatingThumbnails && thumbnails.length === 0 ? (
                 <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
                   <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
                   <p className="font-medium text-slate-500">Loading Pages...</p>
                 </div>
               ) : (
-                /* INCREASED THUMBNAIL SIZE FOR ROTATE PDF */
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-h-150 overflow-y-auto p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
+                <div
+                  ref={scrollContainerRef}
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-h-[600px] overflow-y-auto p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
+                >
                   {thumbnails.map((thumb, index) => (
                     <div
                       key={thumb.pageNum}
                       className="relative group flex flex-col items-center"
                     >
                       <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg p-2 w-full">
-                        {/* INCREASED HEIGHT HERE */}
                         <div className="w-full h-56 sm:h-72 flex items-center justify-center bg-slate-100 overflow-hidden rounded-lg">
                           <img
                             src={thumb.url}
                             alt={`Page ${thumb.pageNum}`}
                             className="max-w-full max-h-full object-contain transition-transform duration-300"
                             style={{
-                              transform: `rotate(${
-                                pageRotations[index] || 0
-                              }deg)`,
+                              transform: `rotate(${pageRotations[index] || 0}deg)`,
                             }}
                           />
                         </div>
@@ -1100,65 +1117,74 @@ const PdfEditor = ({ toolId }) => {
                       </span>
                     </div>
                   ))}
+                  {generatingThumbnails && (
+                    <div className="col-span-full flex items-center justify-center py-4 text-slate-400">
+                      <Loader2 className="animate-spin mr-2 w-5 h-5 text-[#FF9933]" />
+                      Loading more...
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           )}
 
-          {/* Rearrange PDF UI */}
+          {/* Rearrange PDF UI with DnD Kit */}
           {files.length > 0 && tool.id === "rearrange-pdf" && (
             <div className="mb-8 animate-fade-in">
               <div className="text-center mb-6">
-                <p className="text-sm font-bold text-slate-600 bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
                   <GripVertical size={16} className="inline mr-1 mb-0.5" />
                   Drag and Drop pages to reorder them
                 </p>
               </div>
 
-              {generatingThumbnails ? (
+              {generatingThumbnails && thumbnails.length === 0 ? (
                 <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
                   <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
                   <p className="font-medium text-slate-500">Loading Pages...</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  {thumbnails.map((thumb, index) => (
+                <DndContext
+                  sensors={sensors}
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEndThumbnails}
+                >
+                  <SortableContext
+                    items={thumbnails.map((t) => t.pageNum.toString())}
+                    strategy={rectSortingStrategy}
+                  >
                     <div
-                      key={`page-${thumb.pageNum}-${index}`}
-                      data-index={index}
-                      draggable
-                      
-                      // Desktop Events
-                      onDragStart={(e) => handlePageDragStart(e, index)}
-                      onDragEnter={(e) => handlePageDragEnter(e, index)}
-                      onDragOver={(e) => e.preventDefault()}
-                      onDrop={handlePageDrop}
-                      
-                      // Mobile Touch Events
-                      onTouchStart={(e) => handleTouchStart(e, index)}
-                      onTouchMove={handleTouchMove}
-                      onTouchEnd={handleTouchEnd}
-                      
-                      className={`relative group bg-white border-2 rounded-lg overflow-hidden cursor-move transition-all shadow-sm touch-none select-none ${
-                        draggingId === `page-${index}` 
-                          ? "opacity-50 border-dashed border-[#FF9933]" 
-                          : "border-slate-200 hover:border-[#FF9933]"
-                      }`}
+                      ref={scrollContainerRef}
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 max-h-[600px] overflow-y-auto"
                     >
-                      <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
-                        Original Page {thumb.pageNum}
-                      </div>
-                      <img
-                        src={thumb.url}
-                        alt={`Page`}
-                        className="w-full h-auto pointer-events-none"
-                      />
-                      <div className="bg-slate-100 text-center py-2 text-xs font-bold text-slate-700 border-t border-slate-200">
-                        New Position: {index + 1}
-                      </div>
+                      {thumbnails.map((thumb, index) => (
+                        <SortableItemWrapper
+                          key={`page-${thumb.pageNum}`}
+                          id={thumb.pageNum.toString()}
+                          className="relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
+                        >
+                          <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
+                            Original Page {thumb.pageNum}
+                          </div>
+                          <img
+                            src={thumb.url}
+                            alt={`Page`}
+                            className="w-full h-auto pointer-events-none"
+                          />
+                          <div className="bg-slate-100 text-center py-2 text-xs font-bold text-slate-700 border-t border-slate-200">
+                            New Position: {index + 1}
+                          </div>
+                        </SortableItemWrapper>
+                      ))}
+                      {generatingThumbnails && (
+                        <div className="col-span-full flex items-center justify-center py-4 text-slate-400">
+                          <Loader2 className="animate-spin mr-2 w-5 h-5 text-[#FF9933]" />
+                          Loading more...
+                        </div>
+                      )}
                     </div>
-                  ))}
-                </div>
+                  </SortableContext>
+                </DndContext>
               )}
             </div>
           )}
@@ -1169,10 +1195,16 @@ const PdfEditor = ({ toolId }) => {
               <button
                 onClick={processPdf}
                 disabled={
-                  files.length === 0 || isProcessing || generatingThumbnails
+                  files.length === 0 ||
+                  isProcessing ||
+                  generatingThumbnails ||
+                  isUploading
                 }
                 className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all ${
-                  files.length === 0 || isProcessing || generatingThumbnails
+                  files.length === 0 ||
+                  isProcessing ||
+                  generatingThumbnails ||
+                  isUploading
                     ? "bg-slate-300 cursor-not-allowed"
                     : "bg-[#FF9933] hover:bg-[#e68a2e] shadow-lg shadow-orange-200 cursor-pointer"
                 }`}
