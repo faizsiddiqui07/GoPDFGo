@@ -1015,7 +1015,7 @@ const PdfEditor = ({ toolId }) => {
                     )}
                     <div
                       ref={scrollContainerRef}
-                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[500px] overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-125 overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
                     >
                       {thumbnails.map((thumb) => (
                         <div
@@ -1084,7 +1084,7 @@ const PdfEditor = ({ toolId }) => {
               ) : (
                 <div
                   ref={scrollContainerRef}
-                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-h-[600px] overflow-y-auto p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-h-150 overflow-y-auto p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
                 >
                   {thumbnails.map((thumb, index) => (
                     <div
@@ -1155,7 +1155,7 @@ const PdfEditor = ({ toolId }) => {
                   >
                     <div
                       ref={scrollContainerRef}
-                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 max-h-[600px] overflow-y-auto"
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 max-h-150 overflow-y-auto"
                     >
                       {thumbnails.map((thumb, index) => (
                         <SortableItemWrapper

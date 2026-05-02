@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar } from "lucide-react"; // ArrowRight add kiya hai
 import { blogsData } from "@/utils/BlogData";
 
 export default function BlogDetailPage() {
@@ -12,10 +12,15 @@ export default function BlogDetailPage() {
   const router = useRouter();
   const contentRef = useRef(null);
 
-  // URL slug se data nikalna
+  // 1. Current blog nikalna
   const blog = blogsData.find((b) => b.id === params.slug);
 
-  // Link interceptor (Aapka custom logic Next.js router ke hisaab se updated)
+  // 2. Related blogs nikalna (Current blog ko chhod kar baaki 3 nikal lo)
+  const relatedBlogs = blogsData
+    .filter((b) => b.id !== params.slug)
+    .slice(0, 3); 
+
+  // Link interceptor (Aapka custom logic Next.js router ke hisaab se)
   useEffect(() => {
     const handleLinkClick = (e) => {
       const anchor = e.target.closest("a");
@@ -70,14 +75,15 @@ export default function BlogDetailPage() {
           <ArrowLeft size={16} /> Back to all articles
         </Link>
 
-        <article className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        {/* --- MAIN ARTICLE SECTION --- */}
+        <article className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden mb-12">
           {/* Header Image */}
           <div className="w-full bg-slate-100 overflow-hidden relative">
             <Image
               src={blog.imageUrl}
               alt={blog.title}
-              width={1200} // High quality for detail page
-              height={675} // 16:9 Aspect ratio
+              width={1200}
+              height={675}
               priority
               className="w-full h-auto object-cover"
             />
@@ -104,6 +110,72 @@ export default function BlogDetailPage() {
             />
           </div>
         </article>
+
+        {/* --- RELATED BLOGS SECTION (WITH YOUR PREMIUM CARDS) --- */}
+        {relatedBlogs.length > 0 && (
+          <div className="mt-6 sm:mt-10 border-t border-slate-200 pt-6 sm:pt-10">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6 sm:mb-8">
+              Related Guides & Tips
+            </h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
+              {relatedBlogs.map((relatedBlog) => (
+                <Link
+                  href={`/blog/${relatedBlog.id}`}
+                  key={relatedBlog.id}
+                  className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md hover:border-orange-200 transition-all duration-300 group flex flex-col cursor-pointer"
+                >
+                  {/* Image Area */}
+                  <div className="relative overflow-hidden bg-slate-100">
+                    <Image
+                      src={relatedBlog.imageUrl}
+                      alt={relatedBlog.title}
+                      width={800}
+                      height={450}
+                      className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Subtle overlay gradient */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+
+                  {/* Content Area */}
+                  <div className="p-4 md:p-6 flex flex-col flex-1">
+                    {/* Meta Info */}
+                    <div className="flex items-center gap-4 text-xs font-medium text-slate-500 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Calendar size={14} className="text-[#FF9933]" />{" "}
+                        {relatedBlog.date}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <div className="block group-hover:text-[#FF9933] transition-colors">
+                      <h3 className="text-xl font-bold text-slate-800 mb-3 line-clamp-2">
+                        {relatedBlog.title}
+                      </h3>
+                    </div>
+
+                    {/* Excerpt */}
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6 line-clamp-3 flex-1">
+                      {relatedBlog.excerpt}
+                    </p>
+
+                    {/* Read More Text */}
+                    <div className="mt-auto pt-4 border-t border-slate-100">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#FF9933] group-hover:text-[#e68a2e] transition-colors">
+                        Read Article{" "}
+                        <ArrowRight
+                          size={16}
+                          className="group-hover:translate-x-1 transition-transform"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Global CSS for Blog content formatting */}
