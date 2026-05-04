@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calendar } from "lucide-react"; // ArrowRight add kiya hai
+import { ArrowLeft, ArrowRight, Calendar } from "lucide-react"; 
 import { blogsData } from "@/utils/BlogData";
 
 export default function BlogDetailPage() {
@@ -12,13 +12,28 @@ export default function BlogDetailPage() {
   const router = useRouter();
   const contentRef = useRef(null);
 
-  // 1. Current blog nikalna
-  const blog = blogsData.find((b) => b.id === params.slug);
+  // 1. Current blog ka "Index" nikalna
+  const currentIndex = blogsData.findIndex((b) => b.id === params.slug);
+  const blog = blogsData[currentIndex];
 
-  // 2. Related blogs nikalna (Current blog ko chhod kar baaki 3 nikal lo)
-  const relatedBlogs = blogsData
-    .filter((b) => b.id !== params.slug)
-    .slice(0, 3); 
+  // 2. Related blogs nikalna (Theek pehle wale 3)
+  let relatedBlogs = [];
+  if (currentIndex !== -1) {
+    // Current blog se pehle ke saare blogs
+    const previousBlogs = blogsData.slice(0, currentIndex);
+    
+    if (previousBlogs.length >= 3) {
+      // Agar current blog se pehle 3 ya zyada blogs hain, toh theek pehle wale 3 utha lo
+      relatedBlogs = previousBlogs.slice(-3);
+    } else {
+      // Agar user pehla ya doosra blog hi open kar le (jiske pehle 3 blogs nahi hain),
+      // toh hum design maintain karne ke liye baaki array me se pehle 3 dikha denge.
+      relatedBlogs = blogsData.filter(b => b.id !== params.slug).slice(0, 3);
+    }
+  }
+
+  // Related blogs ko reverse kar dete hain taaki un 3 mein se jo sabse latest hai wo grid me pehle dikhe
+  relatedBlogs = relatedBlogs.reverse();
 
   // Link interceptor (Aapka custom logic Next.js router ke hisaab se)
   useEffect(() => {
@@ -111,11 +126,11 @@ export default function BlogDetailPage() {
           </div>
         </article>
 
-        {/* --- RELATED BLOGS SECTION (WITH YOUR PREMIUM CARDS) --- */}
+        {/* --- RELATED BLOGS SECTION --- */}
         {relatedBlogs.length > 0 && (
           <div className="mt-6 sm:mt-10 border-t border-slate-200 pt-6 sm:pt-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6 sm:mb-8">
-              Related Guides & Tips
+              Read Previous Guides
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
@@ -134,8 +149,7 @@ export default function BlogDetailPage() {
                       height={450}
                       className="w-full h-auto group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* Subtle overlay gradient */}
-                    <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
 
                   {/* Content Area */}
