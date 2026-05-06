@@ -955,69 +955,69 @@ export const blogsData = [
       A: Recent updates to Apple's Safari browser now fully support the WebP format. When you save an image from a modernized website using Safari, it smartly saves the original WebP file to save disk space. You can use local conversion tools to change them when needed for offline work.</p>
     `
   },
-  // {
-  //   id: "split-large-pdf-bypass-email-attachment-limits",
-  //   title: "How to Split a Large PDF to Bypass the 25MB Email Attachment Limit",
-  //   seoTitle: "How to Split PDF to Bypass 25MB Email Limit | GoPDFGo",
-  //   keywords: "split pdf online, bypass 25mb email limit, file too large for gmail, divide pdf into smaller files, send large pdf via email, separate pdf pages, split pdf document securely, pdf chunking, bypass outlook attachment limit",
-  //   excerpt: "Trying to email a heavy report but Gmail says 'File size exceeds 25MB'? Learn how to split your massive PDF into smaller, email-friendly chunks without losing any quality.",
-  //   date: "May 25, 2026",
-  //   imageUrl: "/images/blogs/split-large-pdf-bypass-email-attachment-limits.webp",
-  //   content: `
-  //     <p>Picture this scenario: It is 4:55 PM on a Friday. You have just spent the entire week compiling a massive, highly detailed monthly marketing report, a beautifully rendered architectural floor plan, or a comprehensive legal case file. You open your email client, type out a professional message to your boss or an important client, click the paperclip icon to attach your PDF, and hit send.</p>
+  {
+    id: "split-large-pdf-bypass-email-attachment-limits",
+    title: "How to Split a Large PDF to Bypass the 25MB Email Attachment Limit",
+    seoTitle: "How to Split PDF to Bypass 25MB Email Limit | GoPDFGo",
+    keywords: "split pdf online, bypass 25mb email limit, file too large for gmail, divide pdf into smaller files, send large pdf via email, separate pdf pages, split pdf document securely, pdf chunking, bypass outlook attachment limit",
+    excerpt: "Trying to email a heavy report but Gmail says 'File size exceeds 25MB'? Learn how to split your massive PDF into smaller, email-friendly chunks without losing any quality.",
+    date: "May 6, 2026",
+    imageUrl: "/images/blogs/split-large-pdf-bypass-email-attachment-limits.webp",
+    content: `
+      <p>Picture this scenario: It is 4:55 PM on a Friday. You have just spent the entire week compiling a massive, highly detailed monthly marketing report, a beautifully rendered architectural floor plan, or a comprehensive legal case file. You open your email client, type out a professional message to your boss or an important client, click the paperclip icon to attach your PDF, and hit send.</p>
 
-  //     <p>Instead of a satisfying "Message Sent" notification, you immediately hit a brick wall. A bold, frustrating red message appears on your screen: <strong>"The file you are trying to send exceeds the 25MB attachment limit."</strong></p>
+      <p>Instead of a satisfying "Message Sent" notification, you immediately hit a brick wall. A bold, frustrating red message appears on your screen: <strong>"The file you are trying to send exceeds the 25MB attachment limit."</strong></p>
 
-  //     <p>Almost all major email providers enforce strict attachment limits. Gmail and Yahoo cap attachments at 25MB, while Microsoft Outlook and Apple Mail often restrict you to just 20MB. These limits exist to prevent their mail servers from crashing under the massive weight of heavy files being sent globally every second. But when you are on a strict deadline, this technical limitation can be incredibly stressful.</p>
+      <p>Almost all major email providers enforce strict attachment limits. Gmail and Yahoo cap attachments at 25MB, while Microsoft Outlook and Apple Mail often restrict you to just 20MB. These limits exist to prevent their mail servers from crashing under the massive weight of heavy files being sent globally every second. But when you are on a strict deadline, this technical limitation can be incredibly stressful.</p>
 
-  //     <h2>Why is Your PDF File So Huge?</h2>
-  //     <p>Before fixing the problem, it helps to understand why your document became so heavy in the first place. PDFs usually bloat in size due to three main reasons:</p>
-  //     <ul>
-  //       <li><strong>High-Resolution Scans:</strong> If you digitized physical papers using an office scanner set to 600 DPI (Dots Per Inch), every single page becomes a heavy, high-definition image.</li>
-  //       <li><strong>Unoptimized Design Assets:</strong> Documents exported directly from design software like Canva, Adobe Illustrator, or Photoshop often contain unflattened layers, invisible metadata, and embedded custom fonts that drastically increase the file size.</li>
-  //       <li><strong>Massive Page Counts:</strong> Sometimes, the file is simply too long. A 200-page corporate audit or thesis paper will naturally cross the 25MB threshold, regardless of how well it is optimized.</li>
-  //     </ul>
+      <h2>Why is Your PDF File So Huge?</h2>
+      <p>Before fixing the problem, it helps to understand why your document became so heavy in the first place. PDFs usually bloat in size due to three main reasons:</p>
+      <ul>
+        <li><strong>High-Resolution Scans:</strong> If you digitized physical papers using an office scanner set to 600 DPI (Dots Per Inch), every single page becomes a heavy, high-definition image.</li>
+        <li><strong>Unoptimized Design Assets:</strong> Documents exported directly from design software like Canva, Adobe Illustrator, or Photoshop often contain unflattened layers, invisible metadata, and embedded custom fonts that drastically increase the file size.</li>
+        <li><strong>Massive Page Counts:</strong> Sometimes, the file is simply too long. A 200-page corporate audit or thesis paper will naturally cross the 25MB threshold, regardless of how well it is optimized.</li>
+      </ul>
 
-  //     <h2>The Problem with Common Workarounds</h2>
-  //     <p>When faced with this 25MB roadblock, most professionals immediately try one of two common workarounds. Unfortunately, both have significant professional flaws:</p>
+      <h2>The Problem with Common Workarounds</h2>
+      <p>When faced with this 25MB roadblock, most professionals immediately try one of two common workarounds. Unfortunately, both have significant professional flaws:</p>
 
-  //     <p><strong>1. Aggressive Compression:</strong> You might try to run the 40MB file through a basic compressor. While this will successfully shrink the file size down to 15MB, it often permanently ruins the document's visual integrity. High-resolution charts become pixelated, vector graphs get blurry, and small footnote text becomes completely unreadable. For high-stakes client presentations, aggressive compression is a terrible idea.</p>
+      <p><strong>1. Aggressive Compression:</strong> You might try to run the 40MB file through a basic compressor. While this will successfully shrink the file size down to 15MB, it often permanently ruins the document's visual integrity. High-resolution charts become pixelated, vector graphs get blurry, and small footnote text becomes completely unreadable. For high-stakes client presentations, aggressive compression is a terrible idea.</p>
 
-  //     <p><strong>2. Cloud Drive Links:</strong> You upload the heavy file to Google Drive, Dropbox, or WeTransfer, and send the recipient a link. While this works technically, it creates friction. Corporate firewalls often block third-party download sites like WeTransfer. Worse, if you forget to set the correct Google Drive permissions, your client clicks the link only to hit a "Request Access" wall, breaking the seamless flow of professional communication.</p>
+      <p><strong>2. Cloud Drive Links:</strong> You upload the heavy file to Google Drive, Dropbox, or WeTransfer, and send the recipient a link. While this works technically, it creates friction. Corporate firewalls often block third-party download sites like WeTransfer. Worse, if you forget to set the correct Google Drive permissions, your client clicks the link only to hit a "Request Access" wall, breaking the seamless flow of professional communication.</p>
 
-  //     <h2>The Clean Solution: Splitting the PDF into Chunks</h2>
-  //     <p>If you cannot compress the file without ruining its quality, and you want to avoid annoying cloud link permissions, the most professional solution is to digitally "chunk" the document. By dividing your massive file into two or three smaller, high-quality files (e.g., "Monthly_Report_Part1.pdf" and "Monthly_Report_Part2.pdf"), you can easily attach them to the exact same email.</p>
+      <h2>The Clean Solution: Splitting the PDF into Chunks</h2>
+      <p>If you cannot compress the file without ruining its quality, and you want to avoid annoying cloud link permissions, the most professional solution is to digitally "chunk" the document. By dividing your massive file into two or three smaller, high-quality files (e.g., "Monthly_Report_Part1.pdf" and "Monthly_Report_Part2.pdf"), you can easily attach them to the exact same email.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Split Your PDF Securely in Seconds:</h3>
-  //       <p>Because your business reports likely contain confidential financial data or proprietary strategies, you should never use cloud-based splitters that upload your company files to unknown servers. Instead, use a local, browser-based tool.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Open the Utility.</strong> Navigate directly to the <a href="/split-pdf">Split PDF</a> tool on the GoPDFGo platform.</li>
-  //         <li><strong>Step 2: Upload Locally.</strong> Drag and drop your heavy 40MB or 50MB file into the interface. Because the processing happens entirely within your browser's local memory, the upload is completely instantaneous.</li>
-  //         <li><strong>Step 3: Define Your First Range.</strong> Look at the total page count. If it is a 100-page document, you can extract the first half. Simply type "1-50" in the extraction input box and download the file.</li>
-  //         <li><strong>Step 4: Extract the Remaining Pages.</strong> Without needing to re-upload the heavy master file, simply change the extraction range to "51-100" and click download one more time.</li>
-  //         <li><strong>Step 5: Verify and Send.</strong> Check the file sizes of your two new PDFs on your computer. They should now comfortably sit around 15MB to 20MB each. You can now attach both files directly to your email and hit send without triggering any server alerts.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Split Your PDF Securely in Seconds:</h3>
+        <p>Because your business reports likely contain confidential financial data or proprietary strategies, you should never use cloud-based splitters that upload your company files to unknown servers. Instead, use a local, browser-based tool.</p>
+        <ul>
+          <li><strong>Step 1: Open the Utility.</strong> Navigate directly to the <a href="/split-pdf">Split PDF</a> tool on the GoPDFGo platform.</li>
+          <li><strong>Step 2: Upload Locally.</strong> Drag and drop your heavy 40MB or 50MB file into the interface. Because the processing happens entirely within your browser's local memory, the upload is completely instantaneous.</li>
+          <li><strong>Step 3: Define Your First Range.</strong> Look at the total page count. If it is a 100-page document, you can extract the first half. Simply type "1-50" in the extraction input box and download the file.</li>
+          <li><strong>Step 4: Extract the Remaining Pages.</strong> Without needing to re-upload the heavy master file, simply change the extraction range to "51-100" and click download one more time.</li>
+          <li><strong>Step 5: Verify and Send.</strong> Check the file sizes of your two new PDFs on your computer. They should now comfortably sit around 15MB to 20MB each. You can now attach both files directly to your email and hit send without triggering any server alerts.</li>
+        </ul>
+      </div>
 
-  //     <h2>Targeted Splitting for Specific Recipients</h2>
-  //     <p>Splitting isn't just a technical workaround for bypassing email limits; it is also a powerful exercise in relevance. If you have a 200-page corporate audit, the marketing team probably doesn't need to read the 50 pages of backend financial appendices. </p>
+      <h2>Targeted Splitting for Specific Recipients</h2>
+      <p>Splitting isn't just a technical workaround for bypassing email limits; it is also a powerful exercise in relevance. If you have a 200-page corporate audit, the marketing team probably doesn't need to read the 50 pages of backend financial appendices. </p>
 
-  //     <p>Instead of sending the massive, overwhelming file to everyone on the team, use the splitting tool to extract only the 10 pages relevant to the marketing department. Send them a highly targeted, lightweight file. They will appreciate you saving their time and their inbox storage space.</p>
+      <p>Instead of sending the massive, overwhelming file to everyone on the team, use the splitting tool to extract only the 10 pages relevant to the marketing department. Send them a highly targeted, lightweight file. They will appreciate you saving their time and their inbox storage space.</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-  //     <p><strong>Q: Will splitting my PDF lower its resolution?</strong><br>
-  //     A: No. Splitting a document simply divides the existing pages into separate file containers. The original quality, text sharpness, and image resolution remain 100% untouched and lossless.</p>
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Q: Will splitting my PDF lower its resolution?</strong><br>
+      A: No. Splitting a document simply divides the existing pages into separate file containers. The original quality, text sharpness, and image resolution remain 100% untouched and lossless.</p>
 
-  //     <p><strong>Q: What if I only want to send one specific page instead of a chunk?</strong><br>
-  //     A: The exact same tool allows you to pull out a single page. If you only need to send page 14 of a massive contract, simply enter "14" into the range box, and it will generate a lightweight, one-page document.</p>
+      <p><strong>Q: What if I only want to send one specific page instead of a chunk?</strong><br>
+      A: The exact same tool allows you to pull out a single page. If you only need to send page 14 of a massive contract, simply enter "14" into the range box, and it will generate a lightweight, one-page document.</p>
 
-  //     <p><strong>Q: Is there any way to actually shrink the 40MB file without splitting it?</strong><br>
-  //     A: If you absolutely must send it as a single document, your only option is compression. You can try a smart <a href="/compress-pdf">PDF compressor</a> that optimizes invisible background data first, before it starts reducing image quality.</p>
+      <p><strong>Q: Is there any way to actually shrink the 40MB file without splitting it?</strong><br>
+      A: If you absolutely must send it as a single document, your only option is compression. You can try a smart <a href="/compress-pdf">PDF compressor</a> that optimizes invisible background data first, before it starts reducing image quality.</p>
 
-  //     <p>By mastering the simple art of splitting PDFs locally, you ensure your documents retain their crystal-clear quality, maintain absolute corporate privacy, and effortlessly bypass those frustrating Friday evening email attachment limits.</p>
-  //   `
-  // }, done
+      <p>By mastering the simple art of splitting PDFs locally, you ensure your documents retain their crystal-clear quality, maintain absolute corporate privacy, and effortlessly bypass those frustrating Friday evening email attachment limits.</p>
+    `
+  }, 
   // {
   //   id: "fix-mirrored-selfies-upside-down-photos-online",
   //   title: "How to Fix Mirrored Selfies and Upside-Down Photos Before Uploading",
