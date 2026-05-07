@@ -887,7 +887,7 @@ const PdfEditor = ({ toolId }) => {
                             {tool.id === "merge-pdf" && (
                               <button
                                 onClick={() => rotateFile(item.id)}
-                                onPointerDown={(e) => e.stopPropagation()} // Prevents dragging when clicking button
+                                onPointerDown={(e) => e.stopPropagation()} 
                                 className="mt-3 text-sm flex items-center gap-1.5 text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-md transition cursor-pointer font-bold relative z-20"
                               >
                                 <RotateCw size={14} /> Rotate
@@ -896,7 +896,7 @@ const PdfEditor = ({ toolId }) => {
                           </div>
                           <button
                             onClick={() => removeFile(item.id)}
-                            onPointerDown={(e) => e.stopPropagation()} // Prevents dragging when clicking button
+                            onPointerDown={(e) => e.stopPropagation()}
                             className="absolute top-3 right-3 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-full transition p-2 cursor-pointer relative z-20"
                           >
                             <Trash2 size={18} />
