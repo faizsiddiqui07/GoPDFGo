@@ -1082,60 +1082,60 @@ export const blogsData = [
       <p>Maintain your rigorous professional integrity, protect your client's most sensitive data, and ensure your legal filings are perfectly formatted. Bookmark secure, local PDF tools to streamline your firm's administrative workflow today.</p>
     `
   },
-  // {
-  //   id: "create-product-catalog-pdf-whatsapp-sharing",
-  //   title: "How to Create a PDF Product Catalog from Photos for WhatsApp Sharing",
-  //   seoTitle: "How to Create a PDF Product Catalog for WhatsApp (Free) | GoPDFGo",
-  //   keywords: "create pdf catalog, image to pdf for whatsapp, product catalog pdf, whatsapp business catalog, combine product photos, make pdf portfolio, share photos as pdf, small business pdf maker, convert photos to catalog",
-  //   excerpt: "Stop spamming your customers with 30 separate product photos on WhatsApp. Learn how to combine your images into a professional, easy-to-scroll PDF catalog in seconds.",
-  //   date: "June 6, 2026",
-  //   imageUrl: "/images/blogs/create-product-catalog-pdf-whatsapp-sharing.webp",
-  //   content: `
-  //     <p>If you run a small business, a boutique, a home bakery, or a wholesale shop, WhatsApp is likely your primary sales channel. When a potential customer messages you asking for your latest collection, pricing, or product variations, what is your immediate reaction?</p>
+  {
+    id: "create-product-catalog-pdf-whatsapp-sharing",
+    title: "How to Create a PDF Product Catalog from Photos for WhatsApp Sharing",
+    seoTitle: "How to Create a PDF Product Catalog for WhatsApp (Free) | GoPDFGo",
+    keywords: "create pdf catalog, image to pdf for whatsapp, product catalog pdf, whatsapp business catalog, combine product photos, make pdf portfolio, share photos as pdf, small business pdf maker, convert photos to catalog",
+    excerpt: "Stop spamming your customers with 30 separate product photos on WhatsApp. Learn how to combine your images into a professional, easy-to-scroll PDF catalog in seconds.",
+    date: "May 8, 2026",
+    imageUrl: "/images/blogs/create-product-catalog-pdf-whatsapp-sharing.webp",
+    content: `
+      <p>If you run a small business, a boutique, a home bakery, or a wholesale shop, WhatsApp is likely your primary sales channel. When a potential customer messages you asking for your latest collection, pricing, or product variations, what is your immediate reaction?</p>
 
-  //     <p>Most business owners quickly open their phone gallery, select 20 or 30 different product photos, and hit send. The customer’s phone violently vibrates 30 times in a row, their personal gallery gets cluttered with random downloaded images, and finding the specific prices or descriptions becomes a chaotic mess. Even worse, WhatsApp automatically applies heavy background compression to individual photos, making your beautiful products look blurry and cheap.</p>
+      <p>Most business owners quickly open their phone gallery, select 20 or 30 different product photos, and hit send. The customer’s phone violently vibrates 30 times in a row, their personal gallery gets cluttered with random downloaded images, and finding the specific prices or descriptions becomes a chaotic mess. Even worse, WhatsApp automatically applies heavy background compression to individual photos, making your beautiful products look blurry and cheap.</p>
 
-  //     <p><strong>To create a PDF catalog for WhatsApp, use a secure Image to PDF tool to combine your individual product photos into a single, scrollable document. This prevents gallery clutter, maintains high image quality, and provides a professional shopping experience for your customers.</strong></p>
+      <p><strong>To create a PDF catalog for WhatsApp, use a secure Image to PDF tool to combine your individual product photos into a single, scrollable document. This prevents gallery clutter, maintains high image quality, and provides a professional shopping experience for your customers.</strong></p>
 
-  //     <h2>Why PDFs are the Ultimate Sales Tool</h2>
-  //     <p>There is a significantly better, more professional way to showcase your inventory: <strong>The PDF Product Catalog.</strong> Converting your product images into a single document instantly upgrades your brand's professional image. Here is why your customers will absolutely love it:</p>
-  //     <ul>
-  //       <li><strong>One File, One Download:</strong> Instead of downloading 30 individual images, the customer downloads one neat, organized file named <em>"Summer_Collection_2026.pdf"</em>.</li>
-  //       <li><strong>Perfect Presentation:</strong> A PDF acts like a digital magazine. The customer can smoothly scroll through your products one by one, exactly in the sequence and order you designed.</li>
-  //       <li><strong>No Gallery Clutter:</strong> PDF files save directly to the document folder on a smartphone, meaning they won't mess up your customer's personal photo gallery with screenshots and product snaps.</li>
-  //       <li><strong>Forward-Friendly for Referrals:</strong> If a customer wants to show your catalog to a friend or family member, forwarding a single PDF is infinitely easier than selecting and forwarding dozens of separate images.</li>
-  //     </ul>
+      <h2>Why PDFs are the Ultimate Sales Tool</h2>
+      <p>There is a significantly better, more professional way to showcase your inventory: <strong>The PDF Product Catalog.</strong> Converting your product images into a single document instantly upgrades your brand's professional image. Here is why your customers will absolutely love it:</p>
+      <ul>
+        <li><strong>One File, One Download:</strong> Instead of downloading 30 individual images, the customer downloads one neat, organized file named <em>"Summer_Collection_2026.pdf"</em>.</li>
+        <li><strong>Perfect Presentation:</strong> A PDF acts like a digital magazine. The customer can smoothly scroll through your products one by one, exactly in the sequence and order you designed.</li>
+        <li><strong>No Gallery Clutter:</strong> PDF files save directly to the document folder on a smartphone, meaning they won't mess up your customer's personal photo gallery with screenshots and product snaps.</li>
+        <li><strong>Forward-Friendly for Referrals:</strong> If a customer wants to show your catalog to a friend or family member, forwarding a single PDF is infinitely easier than selecting and forwarding dozens of separate images.</li>
+      </ul>
 
-  //     <h2>How to Build Your Digital Catalog for Free</h2>
-  //     <p>You don't need to hire a freelance graphic designer or buy expensive, complicated catalog-making software. If you have the product photos ready on your smartphone or laptop, you can create a PDF catalog in under two minutes using our web-based platform.</p>
+      <h2>How to Build Your Digital Catalog for Free</h2>
+      <p>You don't need to hire a freelance graphic designer or buy expensive, complicated catalog-making software. If you have the product photos ready on your smartphone or laptop, you can create a PDF catalog in under two minutes using our web-based platform.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step WhatsApp Catalog Creation:</h3>
-  //       <p>Because our tools run completely locally in your browser, your proprietary wholesale prices and unreleased product photos are never uploaded to external servers, ensuring absolute business privacy.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Prep Your Photos.</strong> Edit your product photos for brightness. If you want to add text (like price, sizes, or SKU numbers), use your phone's basic photo editor to type it directly onto the image before compiling.</li>
-  //         <li><strong>Step 2: Access the Tool.</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool on GoPDFGo. You can do this effortlessly right from your mobile browser without installing any heavy apps.</li>
-  //         <li><strong>Step 3: Upload and Sequence.</strong> Select all your prepared product photos. Once they load, drag and drop the visual thumbnails to arrange your catalog. <em>Pro Tip: Put your best-selling or most visually striking product as the very first image to act as an eye-catching "Cover Page".</em></li>
-  //         <li><strong>Step 4: Convert to PDF.</strong> Click the convert button. The local processing engine will instantly stitch the images together into a clean, seamless PDF document ready for sharing.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>Step-by-Step WhatsApp Catalog Creation:</h3>
+        <p>Because our tools run completely locally in your browser, your proprietary wholesale prices and unreleased product photos are never uploaded to external servers, ensuring absolute business privacy.</p>
+        <ul>
+          <li><strong>Step 1: Prep Your Photos.</strong> Edit your product photos for brightness. If you want to add text (like price, sizes, or SKU numbers), use your phone's basic photo editor to type it directly onto the image before compiling.</li>
+          <li><strong>Step 2: Access the Tool.</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool on GoPDFGo. You can do this effortlessly right from your mobile browser without installing any heavy apps.</li>
+          <li><strong>Step 3: Upload and Sequence.</strong> Select all your prepared product photos. Once they load, drag and drop the visual thumbnails to arrange your catalog. <em>Pro Tip: Put your best-selling or most visually striking product as the very first image to act as an eye-catching "Cover Page".</em></li>
+          <li><strong>Step 4: Convert to PDF.</strong> Click the convert button. The local processing engine will instantly stitch the images together into a clean, seamless PDF document ready for sharing.</li>
+        </ul>
+      </div>
 
-  //     <h2>Optimizing for Fast WhatsApp Delivery</h2>
-  //     <p>Before you blast this new catalog to your entire broadcast list or upload it to your WhatsApp Business profile, you must check the total file size. If your catalog is 15MB or 20MB, it will take too long for customers on slow mobile data networks to download it, causing them to lose interest and abandon the sale.</p>
+      <h2>Optimizing for Fast WhatsApp Delivery</h2>
+      <p>Before you blast this new catalog to your entire broadcast list or upload it to your WhatsApp Business profile, you must check the total file size. If your catalog is 15MB or 20MB, it will take too long for customers on slow mobile data networks to download it, causing them to lose interest and abandon the sale.</p>
 
-  //     <p>To ensure lightning-fast downloads, run your newly created catalog through our <a href="/compress-pdf">Compress PDF</a> utility. Our smart algorithm will aggressively reduce the file size down to a highly shareable 1MB or 2MB without destroying the visual quality of your product images. Your catalog will load instantly, look highly professional, and undoubtedly help you close more sales.</p>
+      <p>To ensure lightning-fast downloads, run your newly created catalog through our <a href="/compress-pdf">Compress PDF</a> utility. Our smart algorithm will aggressively reduce the file size down to a highly shareable 1MB or 2MB without destroying the visual quality of your product images. Your catalog will load instantly, look highly professional, and undoubtedly help you close more sales.</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-  //     <p><strong>Q: Will converting images to PDF reduce my product photo quality?</strong><br>
-  //     A: No. Unlike WhatsApp, which aggressively compresses photos sent in chat, converting your images into a PDF container preserves their original resolution and clarity.</p>
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Q: Will converting images to PDF reduce my product photo quality?</strong><br>
+      A: No. Unlike WhatsApp, which aggressively compresses photos sent in chat, converting your images into a PDF container preserves their original resolution and clarity.</p>
 
-  //     <p><strong>Q: Can I add or remove products later?</strong><br>
-  //     A: Yes! If a product goes out of stock, you don't need to remake the whole catalog from scratch. Just use standard PDF extraction or splitting tools to remove that specific page.</p>
+      <p><strong>Q: Can I add or remove products later?</strong><br>
+      A: Yes! If a product goes out of stock, you don't need to remake the whole catalog from scratch. Just use standard PDF extraction or splitting tools to remove that specific page.</p>
 
-  //     <h3>Create Your WhatsApp Catalog Now</h3>
-  //     <p>Stop spamming your clients with dozens of loose images. Use our free, local tools to <strong>create a PDF catalog</strong> today and give your small business the professional upgrade it deserves.</p>
-  //   `
-  // } , done
+      <h3>Create Your WhatsApp Catalog Now</h3>
+      <p>Stop spamming your clients with dozens of loose images. Use our free, local tools to <strong>create a PDF catalog</strong> today and give your small business the professional upgrade it deserves.</p>
+    `
+  } ,
   // {
   //   id: "fix-mirrored-selfies-upside-down-photos-online",
   //   title: "How to Fix Mirrored Selfies and Upside-Down Photos Before Uploading",
@@ -1320,7 +1320,7 @@ export const blogsData = [
   //     <h3>Upgrade Your Setup Today</h3>
   //     <p>Stop repeating yourself and upgrade your digital hospitality. Create your secure, free code right now and see how much time and frustration it saves you and your guests!</p>
   //   `
-  // },done
+  // }, done
   // {
   //   id: "best-secure-alternatives-ilovepdf-smallpdf",
   //   title: "Best Secure Alternatives to iLovePDF & Smallpdf (2026 Guide)",
@@ -1402,7 +1402,7 @@ export const blogsData = [
   //     <h3>Take Back Your Digital Privacy</h3>
   //     <p>Stop trading your personal and professional privacy for a tiny bit of convenience. Start using modern, private document handling today and keep your sensitive files exactly where they belong—safe with you.</p>
   //   `
-  // },
+  // }, done
   // {
   //   id: "local-pdf-processing-vs-cloud-tools-safer",
   //   title: "Local PDF Processing vs Cloud PDF Tools — Which Is Safer?",
@@ -1558,7 +1558,7 @@ export const blogsData = [
   //     <h3>Take Control of Your Links</h3>
   //     <p>Don't fall into the subscription trap for something that should be free. Create your permanent, static barcodes today and print your marketing materials with total peace of mind.</p>
   //   `
-  // },
+  // }, done
   // {
   //   id: "organize-merge-documents-online-visa-applications",
   //   title: "How to Organize and Merge Documents for Online Visa Applications",
@@ -1636,88 +1636,5 @@ export const blogsData = [
   //     <h3>Apply with Peace of Mind</h3>
   //     <p>Don't let a simple tech issue ruin your vacation plans. Organize your files properly, process them safely without uploading them to the cloud, and get that visa approved!</p>
   //   `
-  // },
-  // {
-  //   id: "make-business-brochure-pdfs-directly-from-mobile",
-  //   title: "How to Make Business Brochure PDFs Directly From Mobile",
-  //   seoTitle: "How to Create Business Brochure PDFs on Mobile (2026 Guide)",
-  //   keywords: "business brochure pdf mobile, create pdf catalog on phone, mobile document scanning, convert photos to pdf mobile, whatsapp product catalog pdf, local mobile pdf processing, smartphone pdf creator, digital brochure maker, secure mobile pdf tools",
-  //   excerpt: "Want to send a product catalog on WhatsApp? Learn how to turn your smartphone photos into a professional business brochure instantly, without downloading spammy apps.",
-  //   date: "May 13, 2026",
-  //   imageUrl: "/images/blogs/make-business-brochure-pdfs-directly-from-mobile.webp",
-  //   content: `
-  //     <p>If you run a small business, sell clothes on Instagram, or bake cakes from home, you know that speed is everything. When a customer messages you on WhatsApp asking for your price list, they want it right now.</p>
-
-  //     <p>If you reply with, "I'll send it tonight when I get to my laptop," you have probably already lost the sale to a faster competitor. You need to be able to snap photos of your products, turn them into a neat digital catalog, and send it back immediately—all while holding only your phone.</p>
-
-  //     <p>Many business owners struggle with this. They end up sending 15 separate photos in the chat, which annoys the customer and clogs up their phone gallery. Or, they download spammy apps. Let's look at a much better, safer way to do this directly from your browser.</p>
-
-  //     <h2>The Problem with Free "Scanner" Apps</h2>
-  //     <p>When you search the App Store for a document maker, you are walking into a trap. Most of those free apps are terrible for business for three reasons:</p>
-
-  //     <p><strong>1. Unprofessional Watermarks:</strong> You spend an hour organizing your catalog, and when you export it, the app slaps a massive "Made with ScannerAppPro" logo right across your beautiful products. It makes your brand look cheap.</p>
-
-  //     <p><strong>2. Hidden Paywalls:</strong> They let you select all your photos, but the second you press save, a pop-up demands a $5 weekly subscription just to download your own file.</p>
-
-  //     <p><strong>3. Data Privacy Risks:</strong> When you give a random app access to your camera roll, you are letting them scan all your images. For business owners designing new, unreleased products, this is a serious data leak risk.</p>
-
-  //     <h2>A Smarter Workflow is Here</h2>
-  //     <p>You don't need apps anymore. Modern browsers like Safari and Chrome are so powerful that they can act as full editing software. You can select photos from your gallery and stitch them together right in the browser.</p>
-
-  //     <p>Because the website doesn't actually require a server upload, it happens instantly, uses zero cellular data, and keeps your unreleased product photos strictly private.</p>
-
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step: Build Your Catalog on Mobile</h3>
-  //       <p>Creating a good-looking brochure just takes a few minutes. Here is the safest workflow for your phone:</p>
-
-  //       <p>Wipe your camera lens. Place your products in good, natural sunlight (near a window is best). Take all your photos in Portrait (vertical) mode, since your customers will be viewing them on their phones.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Shoot Your Products</strong></li>
-  //       </ul>
-
-  //       <ul>
-  //         <li><strong>Step 2: Open the Web Engine</strong></li>
-  //       </ul>
-  //       <p>Open Safari or Chrome and go to a safe, private document handler. You don't need to install anything, saving precious storage space on your phone.</p>
-
-  //       <p>Select your images. Make sure you pick your brand's cover photo first, then your products. The tool will stitch them all into a single, scrolling document instantly.</p>
-  //       <ul>
-  //         <li><strong>Step 3: Combine the Images</strong></li>
-  //       </ul>
-
-  //       <ul>
-  //         <li><strong>Step 4: Make it WhatsApp Ready</strong></li>
-  //       </ul>
-  //       <p>WhatsApp has strict file limits. Use a <a href="/compress-pdf">document shrinker</a> to reduce the file weight so it sends quickly, even if your customer has a bad data connection.</p>
-  //     </div>
-
-  //     <h2>How to Make Your Catalog Actually Look Good</h2>
-  //     <p>The tech is easy, but making it look professional requires a little thought. Follow these golden rules:</p>
-
-  //     <ul>
-  //       <li><strong>Keep the Background the Same:</strong> Shoot all your items on the same table or against the same white wall. If every photo has a different messy background, it looks like a random photo album, not a catalog.</li>
-  //       <li><strong>Make a Cover Page:</strong> The first page should just be your logo, your business name, and a nice title like "Summer Collection 2026". You can make this quickly in a free app like Canva.</li>
-  //       <li><strong>Add a Next Step:</strong> The last page is crucial. Include your UPI payment details, delivery rules, and maybe a <a href="/qr-generator">barcode that links to your payment page</a>.</li>
-  //     </ul>
-
-  //     <h2>Advanced Mobile Tricks</h2>
-  //     <p>Once you get used to doing this on your phone, you can fix mistakes easily.</p>
-      
-  //     <p>Did you accidentally take a picture of a shirt upside down? Don't delete the whole catalog. Just use a quick <a href="/rotate-pdf">page turning tool</a> to fix that one specific page. Need to add a new product next week? Just <a href="/merge-pdf">join a new page</a> to the end of your existing file.</p>
-
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-      
-  //     <p><strong>Q: How do I prevent my product photos from looking distorted or stretched?</strong><br>
-  //     A: Always ensure that your original photos are cropped to the same aspect ratio (like 3:4 or 16:9) before combining them. If you mix square photos with very tall panoramic photos, the final document pages might look uneven.</p>
-
-  //     <p><strong>Q: Can I add clickable links (like my Instagram page) to the file from my phone?</strong><br>
-  //     A: If you are just combining flat JPG photos, the text on them won't be clickable. To make clickable links, you should design the page in a tool like Canva or Word, export that single page as a document, and then join it with your photo pages.</p>
-
-  //     <p><strong>Q: How do I share the final file without WhatsApp compressing it again?</strong><br>
-  //     A: WhatsApp heavily compresses normal photos, making them blurry. But when you send a PDF, WhatsApp treats it as a "Document." It will send the exact file as it is, keeping your product images sharp and professional.</p>
-
-  //     <h3>Run Your Business from Your Pocket</h3>
-  //     <p>You don't need a fancy laptop to look like a premium brand. Use smart, browser-based tools to protect your product privacy and reply to your customers with beautiful catalogs in seconds.</p>
-  //   `
-  // }
+  // }, done
 ];
