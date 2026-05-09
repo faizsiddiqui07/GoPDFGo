@@ -1136,58 +1136,58 @@ export const blogsData = [
       <p>Stop spamming your clients with dozens of loose images. Use our free, local tools to <strong>create a PDF catalog</strong> today and give your small business the professional upgrade it deserves.</p>
     `
   } ,
-  // {
-  //   id: "fix-mirrored-selfies-upside-down-photos-online",
-  //   title: "How to Fix Mirrored Selfies and Upside-Down Photos Before Uploading",
-  //   seoTitle: "How to Fix a Mirrored Selfie & Flip Images Online Free | GoPDFGo",
-  //   keywords: "fix mirrored selfie, unmirror photo, flip image online, flip selfie horizontally, text backwards in photo, fix inverted image, unmirror picture online, flip ID card photo",
-  //   excerpt: "Did your smartphone front camera flip your ID proof selfie backwards? Learn how to easily un-mirror and horizontally flip your photos online so the text is perfectly readable.",
-  //   date: "May 10, 2026",
-  //   imageUrl: "/images/blogs/fix-mirrored-selfies-upside-down-photos-online.webp",
-  //   content: `
-  //     <p>We live in an age of instant remote digital verification. Whether you are opening a new bank account on a mobile app, completing a video KYC for a stock trading platform, or verifying your identity for a freelance marketplace, you will inevitably be asked a common instruction: "Take a selfie while holding your ID card (Aadhaar, PAN, or Passport) next to your face."</p>
+  {
+    id: "fix-mirrored-selfies-upside-down-photos-online",
+    title: "How to Fix Mirrored Selfies and Upside-Down Photos Before Uploading",
+    seoTitle: "How to Fix a Mirrored Selfie & Flip Images Online Free | GoPDFGo",
+    keywords: "fix mirrored selfie, unmirror photo, flip image online, flip selfie horizontally, text backwards in photo, fix inverted image, unmirror picture online, flip ID card photo",
+    excerpt: "Did your smartphone front camera flip your ID proof selfie backwards? Learn how to easily un-mirror and horizontally flip your photos online so the text is perfectly readable.",
+    date: "May 9, 2026",
+    imageUrl: "/images/blogs/fix-mirrored-selfies-upside-down-photos-online.webp",
+    content: `
+      <p>We live in an age of instant remote digital verification. Whether you are opening a new bank account on a mobile app, completing a video KYC for a stock trading platform, or verifying your identity for a freelance marketplace, you will inevitably be asked a common instruction: "Take a selfie while holding your ID card (Aadhaar, PAN, or Passport) next to your face."</p>
 
-  //     <p>You carefully align your face, hold up the ID card to the camera, and snap the photo. But when you preview the image before hitting submit, you notice a massive, frustrating problem: <strong>The text on your ID card is completely backwards.</strong> It looks exactly like you are reading it in a mirror. If you upload this mirrored image, the automated OCR (Optical Character Recognition) bot will instantly fail to read your name and ID number, and your KYC application will be automatically rejected.</p>
+      <p>You carefully align your face, hold up the ID card to the camera, and snap the photo. But when you preview the image before hitting submit, you notice a massive, frustrating problem: <strong>The text on your ID card is completely backwards.</strong> It looks exactly like you are reading it in a mirror. If you upload this mirrored image, the automated OCR (Optical Character Recognition) bot will instantly fail to read your name and ID number, and your KYC application will be automatically rejected.</p>
 
-  //     <p><strong>To fix a mirrored selfie, you need to flip the image horizontally. Use a secure, local online image flipper to instantly reverse the mirror effect, making backwards text on ID cards or clothing completely readable again.</strong></p>
+      <p><strong>To fix a mirrored selfie, you need to flip the image horizontally. Use a secure, local online image flipper to instantly reverse the mirror effect, making backwards text on ID cards or clothing completely readable again.</strong></p>
 
-  //     <h2>Why Do Smartphones Mirror Selfies?</h2>
-  //     <p>It is not a bug; it is a psychological feature built into almost all Apple iPhones and Android devices. When you look at your phone's front-facing camera, the software intentionally mirrors the live preview so that it acts exactly like a physical bathroom mirror. Humans are deeply accustomed to seeing their own reflection. If the camera didn't mirror the preview, moving your right hand would make the image move to the left on the screen, which would severely disorient your brain and make framing the photo nearly impossible.</p>
+      <h2>Why Do Smartphones Mirror Selfies?</h2>
+      <p>It is not a bug; it is a psychological feature built into almost all Apple iPhones and Android devices. When you look at your phone's front-facing camera, the software intentionally mirrors the live preview so that it acts exactly like a physical bathroom mirror. Humans are deeply accustomed to seeing their own reflection. If the camera didn't mirror the preview, moving your right hand would make the image move to the left on the screen, which would severely disorient your brain and make framing the photo nearly impossible.</p>
 
-  //     <p>While some modern smartphones have a hidden camera setting to "Save selfies as previewed," the factory default simply saves the mirrored image. This is perfectly fine for casual Instagram posts, but it is an absolute disaster for official documents containing text.</p>
+      <p>While some modern smartphones have a hidden camera setting to "Save selfies as previewed," the factory default simply saves the mirrored image. This is perfectly fine for casual Instagram posts, but it is an absolute disaster for official documents containing text.</p>
 
-  //     <h2>The Difference Between Rotating and Flipping</h2>
-  //     <p>When faced with backwards text, many users try to fix the issue by opening a basic photo editor on their phone and repeatedly hitting the "Rotate" button. They quickly realize that rotating the image 90, 180, or 270 degrees does not make the text readable; it just makes the backwards text sideways or upside down.</p>
+      <h2>The Difference Between Rotating and Flipping</h2>
+      <p>When faced with backwards text, many users try to fix the issue by opening a basic photo editor on their phone and repeatedly hitting the "Rotate" button. They quickly realize that rotating the image 90, 180, or 270 degrees does not make the text readable; it just makes the backwards text sideways or upside down.</p>
 
-  //     <p>To fix a mirrored image, you do not need to rotate it—you need to <strong>unmirror photo</strong> by flipping it horizontally along its vertical axis.</p>
+      <p>To fix a mirrored image, you do not need to rotate it—you need to <strong>unmirror photo</strong> by flipping it horizontally along its vertical axis.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Unmirror Your Photos Securely:</h3>
-  //       <p>Because you are dealing with a photograph containing your face and your most sensitive government ID card, uploading it to a random online photo editor is a massive data privacy risk. You must use a local, client-side tool that processes the image without uploading it to a cloud server.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Access the Utility.</strong> Open the <a href="/flip">Flip Image</a> tool on the GoPDFGo platform using your mobile browser or laptop.</li>
-  //         <li><strong>Step 2: Secure Upload.</strong> Select the mirrored selfie from your gallery. Because the tool uses WebAssembly, the image loads instantly into your browser's local memory.</li>
-  //         <li><strong>Step 3: Flip Horizontally.</strong> Click the "Flip Horizontal" button (the icon usually shows two triangles pointing away from a center line). Instantly, the image will physically swap from left to right.</li>
-  //         <li><strong>Step 4: Verify the Text.</strong> Look closely at the preview screen. You should now be able to read your name and ID numbers normally, from left to right.</li>
-  //         <li><strong>Step 5: Download.</strong> Save the corrected, unmirrored image back to your phone. It is now perfectly compliant and ready for your KYC upload.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Unmirror Your Photos Securely:</h3>
+        <p>Because you are dealing with a photograph containing your face and your most sensitive government ID card, uploading it to a random online photo editor is a massive data privacy risk. You must use a local, client-side tool that processes the image without uploading it to a cloud server.</p>
+        <ul>
+          <li><strong>Step 1: Access the Utility.</strong> Open the <a href="/flip">Flip Image</a> tool on the GoPDFGo platform using your mobile browser or laptop.</li>
+          <li><strong>Step 2: Secure Upload.</strong> Select the mirrored selfie from your gallery. Because the tool uses WebAssembly, the image loads instantly into your browser's local memory.</li>
+          <li><strong>Step 3: Flip Horizontally.</strong> Click the "Flip Horizontal" button (the icon usually shows two triangles pointing away from a center line). Instantly, the image will physically swap from left to right.</li>
+          <li><strong>Step 4: Verify the Text.</strong> Look closely at the preview screen. You should now be able to read your name and ID numbers normally, from left to right.</li>
+          <li><strong>Step 5: Download.</strong> Save the corrected, unmirrored image back to your phone. It is now perfectly compliant and ready for your KYC upload.</li>
+        </ul>
+      </div>
 
-  //     <h2>What If the Image is Also Sideways?</h2>
-  //     <p>Sometimes, smartphone gyroscopes get confused when you hold the phone at an odd angle, and the image saves completely sideways (Landscape mode instead of Portrait mode). If this happens, you need a quick two-step fix.</p>
+      <h2>What If the Image is Also Sideways?</h2>
+      <p>Sometimes, smartphone gyroscopes get confused when you hold the phone at an odd angle, and the image saves completely sideways (Landscape mode instead of Portrait mode). If this happens, you need a quick two-step fix.</p>
 
-  //     <p>First, use a <a href="/rotate">Rotate Image</a> tool to turn the image 90 degrees left or right until your head is pointing up. Once the orientation is correct, if the text is still backwards, run it through the Flip tool as described above to achieve the perfect result.</p>
+      <p>First, use a <a href="/rotate">Rotate Image</a> tool to turn the image 90 degrees left or right until your head is pointing up. Once the orientation is correct, if the text is still backwards, run it through the Flip tool as described above to achieve the perfect result.</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-  //     <p><strong>Q: Will flipping my selfie reduce the image quality?</strong><br>
-  //     A: No. Flipping an image horizontally only reverses the pixel arrangement; it does not compress the file or lower the high-definition resolution required for ID verification.</p>
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Q: Will flipping my selfie reduce the image quality?</strong><br>
+      A: No. Flipping an image horizontally only reverses the pixel arrangement; it does not compress the file or lower the high-definition resolution required for ID verification.</p>
 
-  //     <p><strong>Q: Can I prevent my phone from mirroring photos in the future?</strong><br>
-  //     A: Yes. On an iPhone, go to Settings > Camera, and toggle on "Mirror Front Camera". On Android, open the Camera app settings and look for "Save selfies as previewed" or "Mirror photos" and adjust the toggle.</p>
+      <p><strong>Q: Can I prevent my phone from mirroring photos in the future?</strong><br>
+      A: Yes. On an iPhone, go to Settings > Camera, and toggle on "Mirror Front Camera". On Android, open the Camera app settings and look for "Save selfies as previewed" or "Mirror photos" and adjust the toggle.</p>
 
-  //     <p>Don't let a simple smartphone camera quirk delay your banking, trading, or job applications. Fix your mirrored selfies securely in your browser and submit your digital KYC documents with absolute confidence.</p>
-  //   `
-  // }, done
+      <p>Don't let a simple smartphone camera quirk delay your banking, trading, or job applications. Fix your mirrored selfies securely in your browser and submit your digital KYC documents with absolute confidence.</p>
+    `
+  },
   // {
   //   id: "convert-expense-receipts-to-pdf-reimbursement",
   //   title: "How to Convert Photo Receipts into a Single PDF for Expense Reimbursement",

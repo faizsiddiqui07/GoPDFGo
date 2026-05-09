@@ -130,7 +130,7 @@ export default function BlogDetailPage() {
         {relatedBlogs.length > 0 && (
           <div className="mt-6 sm:mt-10 border-t border-slate-200 pt-6 sm:pt-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6 sm:mb-8">
-              Read Previous Guides
+              Read More Guides
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
