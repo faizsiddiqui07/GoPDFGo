@@ -1188,59 +1188,59 @@ export const blogsData = [
       <p>Don't let a simple smartphone camera quirk delay your banking, trading, or job applications. Fix your mirrored selfies securely in your browser and submit your digital KYC documents with absolute confidence.</p>
     `
   },
-  // {
-  //   id: "convert-expense-receipts-to-pdf-reimbursement",
-  //   title: "How to Convert Photo Receipts into a Single PDF for Expense Reimbursement",
-  //   seoTitle: "How to Convert Photo Receipts to PDF for Expense Reports | GoPDFGo",
-  //   keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter",
-  //   excerpt: "Returning from a business trip with a wallet full of crumpled receipts? Learn how to securely digitize and convert receipts to PDF for fast, hassle-free HR reimbursement.",
-  //   date: "June 2, 2026",
-  //   imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
-  //   content: `
-  //     <p>Whether you are a sales executive returning from a week-long corporate travel trip, a freelancer buying project supplies, or a business owner taking clients out for a networking dinner, expense reimbursements are a critical part of professional life. By the end of the trip, you inevitably collect a massive, disorganized pile of physical paper—taxi receipts, hotel invoices, restaurant bills, and boarding passes.</p>
+  {
+    id: "convert-expense-receipts-to-pdf-reimbursement",
+    title: "How to Convert Photo Receipts into a Single PDF for Expense Reimbursement",
+    seoTitle: "How to Convert Photo Receipts to PDF for Expense Reports | GoPDFGo",
+    keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter",
+    excerpt: "Returning from a business trip with a wallet full of crumpled receipts? Learn how to securely digitize and convert receipts to PDF for fast, hassle-free HR reimbursement.",
+    date: "June 2, 2026",
+    imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
+    content: `
+      <p>Whether you are a sales executive returning from a week-long corporate travel trip, a freelancer buying project supplies, or a business owner taking clients out for a networking dinner, expense reimbursements are a critical part of professional life. By the end of the trip, you inevitably collect a massive, disorganized pile of physical paper—taxi receipts, hotel invoices, restaurant bills, and boarding passes.</p>
 
-  //     <p>When the month ends, the HR and Accounting departments demand proof of these expenses. If you try to email them 25 separate, unorganized JPEG photos from your mobile phone gallery, you are going to make the accounting team incredibly angry. Individual attachments get lost, files download out of order, and your reimbursement process gets delayed by weeks.</p>
+      <p>When the month ends, the HR and Accounting departments demand proof of these expenses. If you try to email them 25 separate, unorganized JPEG photos from your mobile phone gallery, you are going to make the accounting team incredibly angry. Individual attachments get lost, files download out of order, and your reimbursement process gets delayed by weeks.</p>
 
-  //     <p><strong>To successfully convert receipts to PDF for expense reimbursement, take clear photos of your bills, upload them into a secure Image to PDF tool, arrange the images in chronological order, and export them as a single, combined PDF document.</strong></p>
+      <p><strong>To successfully convert receipts to PDF for expense reimbursement, take clear photos of your bills, upload them into a secure Image to PDF tool, arrange the images in chronological order, and export them as a single, combined PDF document.</strong></p>
 
-  //     <h2>The Wrong Way to Digitize Receipts</h2>
-  //     <p>Many professionals try to solve this documentation problem by pasting their smartphone photos into a Microsoft Word document and exporting it as a PDF. This method is incredibly tedious and inefficient. You have to manually drag, resize, and format every single image so it fits on the page without breaking the margins.</p>
+      <h2>The Wrong Way to Digitize Receipts</h2>
+      <p>Many professionals try to solve this documentation problem by pasting their smartphone photos into a Microsoft Word document and exporting it as a PDF. This method is incredibly tedious and inefficient. You have to manually drag, resize, and format every single image so it fits on the page without breaking the margins.</p>
 
-  //     <p>Furthermore, Word heavily compresses the images automatically by default. This aggressive background compression often makes the crucial tax ID numbers, GST details, or total amounts on the receipts completely blurry and unreadable, leading to immediate rejection by the finance team.</p>
+      <p>Furthermore, Word heavily compresses the images automatically by default. This aggressive background compression often makes the crucial tax ID numbers, GST details, or total amounts on the receipts completely blurry and unreadable, leading to immediate rejection by the finance team.</p>
 
-  //     <h2>The Efficient Way: Direct Image-to-PDF Conversion</h2>
-  //     <p>The corporate gold standard is to submit one single, continuous, highly organized document. The fastest and most professional way to build an expense report is to bypass Word entirely and compile your images directly into a PDF structure. Using local web technology, you can achieve this on your phone while waiting at the airport gate.</p>
+      <h2>The Efficient Way: Direct Image-to-PDF Conversion</h2>
+      <p>The corporate gold standard is to submit one single, continuous, highly organized document. The fastest and most professional way to build an expense report is to bypass Word entirely and compile your images directly into a PDF structure. Using local web technology, you can achieve this on your phone while waiting at the airport gate.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step Guide to Organizing Your Expense Report:</h3>
-  //       <p>Because you are dealing with sensitive corporate financial data, you must use a tool that processes files locally without uploading them to an external cloud server.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Digitize Smartly.</strong> Place your physical receipts on a dark background (like a black table) to create contrast and take photos using natural light. Do not use the flash, as it will cause a harsh, unreadable glare on glossy taxi or restaurant receipts.</li>
-  //         <li><strong>Step 2: Correct the Orientation.</strong> If you took photos from weird angles and some receipts are sideways, use a local <a href="/rotate-pdf">Rotate PDF</a> or image rotation utility to ensure every bill is standing upright. No accountant wants to tilt their monitor to read your lunch bill.</li>
-  //         <li><strong>Step 3: Access the Converter.</strong> Navigate to the <a href="/image-to-pdf">Image to PDF</a> tool on the GoPDFGo platform. Our zero-upload engine ensures your company's spending habits remain entirely private and compliant with data policies.</li>
-  //         <li><strong>Step 4: Upload and Reorder.</strong> Select all your receipt photos at once. Once they load on the screen, drag and drop the visual thumbnails to arrange them chronologically (e.g., Day 1 flights, Day 1 hotel, Day 2 meals, etc.).</li>
-  //         <li><strong>Step 5: Convert and Save.</strong> Click the button to merge all these images into a single document. Save the file with a clear, professional name like <em>"Rahul_Travel_Expenses_May2026.pdf"</em>.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>Step-by-Step Guide to Organizing Your Expense Report:</h3>
+        <p>Because you are dealing with sensitive corporate financial data, you must use a tool that processes files locally without uploading them to an external cloud server.</p>
+        <ul>
+          <li><strong>Step 1: Digitize Smartly.</strong> Place your physical receipts on a dark background (like a black table) to create contrast and take photos using natural light. Do not use the flash, as it will cause a harsh, unreadable glare on glossy taxi or restaurant receipts.</li>
+          <li><strong>Step 2: Correct the Orientation.</strong> If you took photos from weird angles and some receipts are sideways, use a local <a href="/rotate-pdf">Rotate PDF</a> or image rotation utility to ensure every bill is standing upright. No accountant wants to tilt their monitor to read your lunch bill.</li>
+          <li><strong>Step 3: Access the Converter.</strong> Navigate to the <a href="/image-to-pdf">Image to PDF</a> tool on the GoPDFGo platform. Our zero-upload engine ensures your company's spending habits remain entirely private and compliant with data policies.</li>
+          <li><strong>Step 4: Upload and Reorder.</strong> Select all your receipt photos at once. Once they load on the screen, drag and drop the visual thumbnails to arrange them chronologically (e.g., Day 1 flights, Day 1 hotel, Day 2 meals, etc.).</li>
+          <li><strong>Step 5: Convert and Save.</strong> Click the button to merge all these images into a single document. Save the file with a clear, professional name like <em>"Rahul_Travel_Expenses_May2026.pdf"</em>.</li>
+        </ul>
+      </div>
 
-  //     <h2>The Post-Conversion Polish for Email</h2>
-  //     <p>If you combined 20 high-resolution smartphone photos, your new PDF expense report might easily weigh 30MB or 40MB. As discussed in previous guides, this is far too large to attach to a standard corporate email (like Gmail or Outlook, which limit attachments to 25MB).</p>
+      <h2>The Post-Conversion Polish for Email</h2>
+      <p>If you combined 20 high-resolution smartphone photos, your new PDF expense report might easily weigh 30MB or 40MB. As discussed in previous guides, this is far too large to attach to a standard corporate email (like Gmail or Outlook, which limit attachments to 25MB).</p>
 
-  //     <p>Before sending it to HR, you must pass your new file through our <a href="/compress-pdf">Compress PDF</a> tool. This will drastically shrink the file size down to a manageable 2MB or 3MB, making it perfectly email-friendly while utilizing smart algorithms to keep every single digit on those receipts crystal clear for the accounting auditors.</p>
+      <p>Before sending it to HR, you must pass your new file through our <a href="/compress-pdf">Compress PDF</a> tool. This will drastically shrink the file size down to a manageable 2MB or 3MB, making it perfectly email-friendly while utilizing smart algorithms to keep every single digit on those receipts crystal clear for the accounting auditors.</p>
 
-  //     <p>Finally, for that extra touch of corporate professionalism, run the compressed file through an <a href="/page-numbers">Add Page Numbers</a> utility. This allows the finance team to easily reference specific bills (e.g., "Can you clarify the charge on Page 4?").</p>
+      <p>Finally, for that extra touch of corporate professionalism, run the compressed file through an <a href="/page-numbers">Add Page Numbers</a> utility. This allows the finance team to easily reference specific bills (e.g., "Can you clarify the charge on Page 4?").</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-  //     <p><strong>Q: Is it safe to use an online converter for company expenses?</strong><br>
-  //     A: It is only safe if the tool processes files locally. GoPDFGo uses WebAssembly to convert your files directly on your device's CPU. Your financial receipts are never uploaded to our servers, ensuring total privacy.</p>
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Q: Is it safe to use an online converter for company expenses?</strong><br>
+      A: It is only safe if the tool processes files locally. GoPDFGo uses WebAssembly to convert your files directly on your device's CPU. Your financial receipts are never uploaded to our servers, ensuring total privacy.</p>
 
-  //     <p><strong>Q: Will converting to PDF lower the quality of my receipt photos?</strong><br>
-  //     A: No. Our dedicated conversion engine places your exact image data into the PDF container without adding unnecessary compression, ensuring the text remains legible.</p>
+      <p><strong>Q: Will converting to PDF lower the quality of my receipt photos?</strong><br>
+      A: No. Our dedicated conversion engine places your exact image data into the PDF container without adding unnecessary compression, ensuring the text remains legible.</p>
 
-  //     <h3>Build Your Expense Report Instantly</h3>
-  //     <p>Stop fighting with loose papers and messy email attachments. Use our secure tools to <strong>convert receipts to PDF</strong> today, make your accountant's life easier, and ensure your reimbursement hits your bank account significantly faster.</p>
-  //   `
-  // }, done
+      <h3>Build Your Expense Report Instantly</h3>
+      <p>Stop fighting with loose papers and messy email attachments. Use our secure tools to <strong>convert receipts to PDF</strong> today, make your accountant's life easier, and ensure your reimbursement hits your bank account significantly faster.</p>
+    `
+  },
 
   // 07-05-2026
   // {
