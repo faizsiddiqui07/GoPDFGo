@@ -1194,7 +1194,7 @@ export const blogsData = [
     seoTitle: "How to Convert Photo Receipts to PDF for Expense Reports | GoPDFGo",
     keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter",
     excerpt: "Returning from a business trip with a wallet full of crumpled receipts? Learn how to securely digitize and convert receipts to PDF for fast, hassle-free HR reimbursement.",
-    date: "June 2, 2026",
+    date: "May 11, 2026",
     imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
     content: `
       <p>Whether you are a sales executive returning from a week-long corporate travel trip, a freelancer buying project supplies, or a business owner taking clients out for a networking dinner, expense reimbursements are a critical part of professional life. By the end of the trip, you inevitably collect a massive, disorganized pile of physical paper—taxi receipts, hotel invoices, restaurant bills, and boarding passes.</p>
