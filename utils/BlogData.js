@@ -1243,84 +1243,84 @@ export const blogsData = [
   },
 
   // 07-05-2026
-  // {
-  //   id: "share-wifi-without-passwords-free-qr-code",
-  //   title: "How to Share WiFi Without Passwords: Create a Free WiFi QR Code",
-  //   seoTitle: "Create Free WiFi QR Code | Share WiFi Without Passwords Securely",
-  //   keywords: "wifi qr code generator, share wifi without password, scan to connect wifi, free wifi qr code, qr code for guest network, cafe wifi qr code, wpa2 qr code, secure wifi sharing, local qr code generator, no expiry qr code",
-  //   excerpt: "Tired of spelling out your long, complicated WiFi password to every guest? Learn how to generate a secure, free, and permanent WiFi QR code that allows people to connect instantly.",
-  //   date: "May 8, 2026",
-  //   imageUrl: "/images/blogs/share-wifi-without-passwords-free-qr-code.webp",
-  //   content: `
-  //     <p>Most of us hate this awkward moment: A friend comes over, or a customer walks into your cafe, and asks for the WiFi password. You end up spelling out a messy combination like "capital P, at symbol, 55..." and they still get it wrong twice. Then you have to take their phone, type it yourself, and hope you don't mess it up either.</p>
+  {
+    id: "share-wifi-without-passwords-free-qr-code",
+    title: "How to Share WiFi Without Passwords: Create a Free WiFi QR Code",
+    seoTitle: "Create Free WiFi QR Code | Share WiFi Without Passwords Securely",
+    keywords: "wifi qr code generator, share wifi without password, scan to connect wifi, free wifi qr code, qr code for guest network, cafe wifi qr code, wpa2 qr code, secure wifi sharing, local qr code generator, no expiry qr code",
+    excerpt: "Tired of spelling out your long, complicated WiFi password to every guest? Learn how to generate a secure, free, and permanent WiFi QR code that allows people to connect instantly.",
+    date: "May 12, 2026",
+    imageUrl: "/images/blogs/share-wifi-without-passwords-free-qr-code.webp",
+    content: `
+      <p>Most of us hate this awkward moment: A friend comes over, or a customer walks into your cafe, and asks for the WiFi password. You end up spelling out a messy combination like "capital P, at symbol, 55..." and they still get it wrong twice. Then you have to take their phone, type it yourself, and hope you don't mess it up either.</p>
 
-  //     <p>Whether you run a coffee shop, an Airbnb, or just have guests over frequently, handing out your raw password is outdated and insecure. The smartest, fastest solution? <strong>Just let them scan a QR code.</strong></p>
+      <p>Whether you run a coffee shop, an Airbnb, or just have guests over frequently, handing out your raw password is outdated and insecure. The smartest, fastest solution? <strong>Just let them scan a QR code.</strong></p>
 
-  //     <p>In less than 30 seconds, you can create a permanent barcode that connects any smartphone to your network instantly without typing a single letter. Let's break down exactly how to do this safely, and why you should never use just any random website to generate it.</p>
+      <p>In less than 30 seconds, you can create a permanent barcode that connects any smartphone to your network instantly without typing a single letter. Let's break down exactly how to do this safely, and why you should never use just any random website to generate it.</p>
 
-  //     <h2>The Danger of Free Cloud Generators</h2>
-  //     <p>Writing your password on a chalkboard or a piece of paper means absolutely anyone walking by can save it. That is a basic security risk. But the digital risk is actually much bigger.</p>
+      <h2>The Danger of Free Cloud Generators</h2>
+      <p>Writing your password on a chalkboard or a piece of paper means absolutely anyone walking by can save it. That is a basic security risk. But the digital risk is actually much bigger.</p>
       
-  //     <p>If you use a random website to generate your QR code, you might be handing your router's exact password to an unknown server. If you are like most people and use the same password for your WiFi as you do for your email or banking apps, you are walking into a massive privacy trap. Using unknown websites for sensitive credentials always carries unnecessary privacy risks.</p>
+      <p>If you use a random website to generate your QR code, you might be handing your router's exact password to an unknown server. If you are like most people and use the same password for your WiFi as you do for your email or banking apps, you are walking into a massive privacy trap. Using unknown websites for sensitive credentials always carries unnecessary privacy risks.</p>
 
-  //     <p>That is why your document handling must be private. Your highly sensitive password should stay exactly where it belongs—on your own phone or laptop. You need a tool that renders the barcode directly on your screen without sending your details across the internet.</p>
+      <p>That is why your document handling must be private. Your highly sensitive password should stay exactly where it belongs—on your own phone or laptop. You need a tool that renders the barcode directly on your screen without sending your details across the internet.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step: Generate Your Free WiFi Code</h3>
-  //       <p>You don't need any technical skills for this. Just follow these quick steps using our zero-upload technology to keep your details safe:</p>
+      <div class="tool-box">
+        <h3>Step-by-Step: Generate Your Free WiFi Code</h3>
+        <p>You don't need any technical skills for this. Just follow these quick steps using our zero-upload technology to keep your details safe:</p>
 
-  //       <p>Check your router for your exact Network Name (SSID) and password. Remember, the network name is highly case-sensitive. If your network is "HomeNetwork", typing "homenetwork" will break the code.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Grab Your Details</strong></li>
-  //       </ul>
+        <p>Check your router for your exact Network Name (SSID) and password. Remember, the network name is highly case-sensitive. If your network is "HomeNetwork", typing "homenetwork" will break the code.</p>
+        <ul>
+          <li><strong>Step 1: Grab Your Details</strong></li>
+        </ul>
 
-  //       <ul>
-  //         <li><strong>Step 2: Open the Secure Creator</strong></li>
-  //       </ul>
-  //       <p>Head over to our <a href="/qr-generator">private barcode creator</a>. Select the "WiFi" option from the menu so the tool knows exactly how to format the background data for mobile phone cameras.</p>
+        <ul>
+          <li><strong>Step 2: Open the Secure Creator</strong></li>
+        </ul>
+        <p>Head over to our <a href="/qr-generator">private barcode creator</a>. Select the "WiFi" option from the menu so the tool knows exactly how to format the background data for mobile phone cameras.</p>
 
-  //       <p>Enter your SSID, choose WPA/WPA2 (which is the standard security for 99% of modern routers), and type your password carefully. Since the files stay on your device, your password never touches an external database.</p>
-  //       <ul>
-  //         <li><strong>Step 3: Enter Your Credentials</strong></li>
-  //       </ul>
+        <p>Enter your SSID, choose WPA/WPA2 (which is the standard security for 99% of modern routers), and type your password carefully. Since the files stay on your device, your password never touches an external database.</p>
+        <ul>
+          <li><strong>Step 3: Enter Your Credentials</strong></li>
+        </ul>
 
-  //       <ul>
-  //         <li><strong>Step 4: Download and Print</strong></li>
-  //       </ul>
-  //       <p>Click the generate button, save the high-resolution image to your downloads folder, and print it out to place on your desk, cafe counter, or living room table!</p>
-  //     </div>
+        <ul>
+          <li><strong>Step 4: Download and Print</strong></li>
+        </ul>
+        <p>Click the generate button, save the high-resolution image to your downloads folder, and print it out to place on your desk, cafe counter, or living room table!</p>
+      </div>
 
-  //     <h2>Real-World Uses: Who Needs This the Most?</h2>
-  //     <p>Once you print one of these, you'll wonder how you lived without it. Here is who benefits the most from this simple tech upgrade:</p>
-  //     <ul>
-  //       <li><strong>Cafe and Restaurant Owners:</strong> Stop making your busy baristas repeat the same password fifty times a shift. Tape a small barcode to every table. It speeds up service and makes customers much happier.</li>
-  //       <li><strong>Airbnb Hosts:</strong> Travelers arrive tired. The last thing they want to do is hunt for a router behind the TV. A framed "Scan to Connect" sign on the bedside table feels like a premium, 5-star hotel experience.</li>
-  //       <li><strong>Offices and Co-working Spaces:</strong> Don't let visitors connect to your private employee network. Set up a "Guest Network" on your router, make a scannable code for it, and stick it on the reception desk.</li>
-  //     </ul>
+      <h2>Real-World Uses: Who Needs This the Most?</h2>
+      <p>Once you print one of these, you'll wonder how you lived without it. Here is who benefits the most from this simple tech upgrade:</p>
+      <ul>
+        <li><strong>Cafe and Restaurant Owners:</strong> Stop making your busy baristas repeat the same password fifty times a shift. Tape a small barcode to every table. It speeds up service and makes customers much happier.</li>
+        <li><strong>Airbnb Hosts:</strong> Travelers arrive tired. The last thing they want to do is hunt for a router behind the TV. A framed "Scan to Connect" sign on the bedside table feels like a premium, 5-star hotel experience.</li>
+        <li><strong>Offices and Co-working Spaces:</strong> Don't let visitors connect to your private employee network. Set up a "Guest Network" on your router, make a scannable code for it, and stick it on the reception desk.</li>
+      </ul>
 
-  //     <h2>Pro-Tip: Make a Beautiful Custom Sign</h2>
-  //     <p>Don't just print a naked, ugly barcode on a blank A4 paper. Put the image inside a nice Canva or Word template that says "Scan for Free WiFi." Make it match your room's aesthetic.</p>
+      <h2>Pro-Tip: Make a Beautiful Custom Sign</h2>
+      <p>Don't just print a naked, ugly barcode on a blank A4 paper. Put the image inside a nice Canva or Word template that says "Scan for Free WiFi." Make it match your room's aesthetic.</p>
       
-  //     <p>If the final printed image file becomes too heavy to email to your local print shop, you can easily <a href="/compress-jpeg">reduce the picture size safely</a> right from your browser. Need to combine multiple signs for different rooms in your house? Just <a href="/merge-pdf">join them into one single document</a> before hitting print.</p>
+      <p>If the final printed image file becomes too heavy to email to your local print shop, you can easily <a href="/compress-jpeg">reduce the picture size safely</a> right from your browser. Need to combine multiple signs for different rooms in your house? Just <a href="/merge-pdf">join them into one single document</a> before hitting print.</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
+      <h2>Frequently Asked Questions (FAQ)</h2>
       
-  //     <p><strong>Q: Does this work if I have dual 5GHz and 2.4GHz networks?</strong><br>
-  //     A: Yes! However, you need to create a separate QR code for each network if they have different names (like "Home_5G" and "Home_2.4G"). Simply generate two barcodes and label them clearly on your printed sign.</p>
+      <p><strong>Q: Does this work if I have dual 5GHz and 2.4GHz networks?</strong><br>
+      A: Yes! However, you need to create a separate QR code for each network if they have different names (like "Home_5G" and "Home_2.4G"). Simply generate two barcodes and label them clearly on your printed sign.</p>
 
-  //     <p><strong>Q: What if I have a hidden network?</strong><br>
-  //     A: Most generators have a small checkbox for "Hidden Network." If you check that box, the barcode will tell the scanning phone to actively search for your specific network name, even if your router isn't broadcasting it publicly.</p>
+      <p><strong>Q: What if I have a hidden network?</strong><br>
+      A: Most generators have a small checkbox for "Hidden Network." If you check that box, the barcode will tell the scanning phone to actively search for your specific network name, even if your router isn't broadcasting it publicly.</p>
 
-  //     <p><strong>Q: Why isn't my printed code scanning properly?</strong><br>
-  //     A: Usually, this happens for two reasons. First, you might have made a typo in the network name (remember, it's case-sensitive). Second, you might have printed it too small, or on glossy paper that is reflecting room lights directly into the phone's camera.</p>
+      <p><strong>Q: Why isn't my printed code scanning properly?</strong><br>
+      A: Usually, this happens for two reasons. First, you might have made a typo in the network name (remember, it's case-sensitive). Second, you might have printed it too small, or on glossy paper that is reflecting room lights directly into the phone's camera.</p>
 
-  //     <p><strong>Q: Will this connect smart TVs and IoT devices?</strong><br>
-  //     A: If the smart TV or device has a built-in camera and a setup app that supports QR scanning, yes. Otherwise, for devices without cameras, you will still need to type the password manually using the remote.</p>
+      <p><strong>Q: Will this connect smart TVs and IoT devices?</strong><br>
+      A: If the smart TV or device has a built-in camera and a setup app that supports QR scanning, yes. Otherwise, for devices without cameras, you will still need to type the password manually using the remote.</p>
 
-  //     <h3>Upgrade Your Setup Today</h3>
-  //     <p>Stop repeating yourself and upgrade your digital hospitality. Create your secure, free code right now and see how much time and frustration it saves you and your guests!</p>
-  //   `
-  // }, done
+      <h3>Upgrade Your Setup Today</h3>
+      <p>Stop repeating yourself and upgrade your digital hospitality. Create your secure, free code right now and see how much time and frustration it saves you and your guests!</p>
+    `
+  }, 
   // {
   //   id: "best-secure-alternatives-ilovepdf-smallpdf",
   //   title: "Best Secure Alternatives to iLovePDF & Smallpdf (2026 Guide)",
