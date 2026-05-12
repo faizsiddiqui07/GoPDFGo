@@ -30,22 +30,34 @@ const Footer = () => {
             <h4 className="text-slate-900 font-bold mb-4">Popular Tools</h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/merge-pdf" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/merge-pdf"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Merge PDF
                 </Link>
               </li>
               <li>
-                <Link href="/compress-pdf" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/compress-pdf"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Compress PDF
                 </Link>
               </li>
               <li>
-                <Link href="/image-to-pdf" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/image-to-pdf"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Image to PDF
                 </Link>
               </li>
               <li>
-                <Link href="/aadhaar-masking" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/aadhaar-masking"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Mask Aadhaar
                 </Link>
               </li>
@@ -62,22 +74,31 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                  <Link href="/blogs" className="hover:text-[#FF9933] transition">
-                    Blogs
-                  </Link>
-                </li>
+                <Link href="/blogs" className="hover:text-[#FF9933] transition">
+                  Blogs
+                </Link>
+              </li>
               <li>
-                <Link href="/why-gopdfgo" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/why-gopdfgo"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Why GoPDFGo?
                 </Link>
               </li>
               <li>
-                <Link href="/how-it-works" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/how-it-works"
+                  className="hover:text-[#FF9933] transition"
+                >
                   How it Works
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/contact"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Contact Us
                 </Link>
               </li>
@@ -89,22 +110,34 @@ const Footer = () => {
               <h4 className="text-slate-900 font-bold mb-4">Popular Tools</h4>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li>
-                  <Link href="/merge-pdf" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/merge-pdf"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Merge PDF
                   </Link>
                 </li>
                 <li>
-                  <Link href="/compress-pdf" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/compress-pdf"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Compress PDF
                   </Link>
                 </li>
                 <li>
-                  <Link href="/image-to-pdf" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/image-to-pdf"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Image to PDF
                   </Link>
                 </li>
                 <li>
-                  <Link href="/aadhaar-masking" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/aadhaar-masking"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Mask Aadhaar
                   </Link>
                 </li>
@@ -116,27 +149,42 @@ const Footer = () => {
               <h4 className="text-slate-900 font-bold mb-4">Company</h4>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li>
-                  <Link href="/about" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/about"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="/blogs" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/blogs"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Blogs
                   </Link>
                 </li>
                 <li>
-                  <Link href="/why-gopdfgo" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/why-gopdfgo"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Why GoPDFGo?
                   </Link>
                 </li>
                 <li>
-                  <Link href="/how-it-works" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/how-it-works"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     How it Works
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-[#FF9933] transition">
+                  <Link
+                    href="/contact"
+                    className="hover:text-[#FF9933] transition"
+                  >
                     Contact Us
                   </Link>
                 </li>
@@ -149,7 +197,10 @@ const Footer = () => {
             <h4 className="text-slate-900 font-bold mb-4">Legal & Support</h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/privacy" className="hover:text-[#FF9933] transition">
+                <Link
+                  href="/privacy"
+                  className="hover:text-[#FF9933] transition"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -159,17 +210,19 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <div className="mt-3 inline-flex items-center gap-2 bg-slate-50 p-3 rounded-lg border border-slate-100">
-              <ShieldCheck className="text-[#FF9933]" size={20} />
-              <div>
-                <h5 className="text-slate-900 font-bold text-sm">
-                  100% Private
-                </h5>
-                <p className="text-[10px] text-slate-500">
-                  Processing on device
-                </p>
-              </div>
-            </div>
+            <a
+              href="https://sellwithboost.com"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              title="Listed on Sell With Boost"
+            >
+              <img
+                src="https://sellwithboost.com/badge/listing.svg"
+                alt="Listed on Sell With boost"
+                style={{ height: "40px", width: "auto" }}
+                className="mt-2"
+              />
+            </a>
           </div>
         </div>
 
@@ -189,13 +242,19 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
-          <div className="mt-3 flex items-center justify-center gap-2 bg-slate-50 p-1.5 sm:p-3 rounded-lg border border-slate-100">
-            <ShieldCheck className="text-[#FF9933]" size={20} />
-            <div>
-              <h5 className="text-slate-900 font-bold text-sm">100% Private</h5>
-              <p className="text-[10px] text-slate-500">Processing on device</p>
-            </div>
-          </div>
+          <a
+              href="https://sellwithboost.com"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              title="Listed on Sell With Boost"
+            >
+              <img
+                src="https://sellwithboost.com/badge/listing.svg"
+                alt="Listed on Sell With boost"
+                style={{ height: "40px", width: "auto" }}
+                className="mt-2 mx-auto"
+              />
+            </a>
         </div>
 
         {/* Bottom Bar */}
