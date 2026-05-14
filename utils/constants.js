@@ -29,6 +29,13 @@ export const TOOLS_CONFIG = [
     color: "orange",
     config: { mode: "compress", accept: ".pdf" },
     info: {
+      // NEW ADDITION: Unique SEO Headings for this specific tool
+      sectionHeadings: {
+        features: "Why Choose Our Hybrid Compressor?",
+        useCases: "Best Situations to Shrink PDFs",
+        steps: "How to Reduce File Size",
+        faq: "PDF Compression FAQs"
+      },
       // Design Note: Ye text aapke Hero section ke niche ya page ke bottom me SEO footer ki tarah aa sakta hai.
       intro: `Struggling with large PDF files that refuse to upload? You are not alone. Whether you are a student trying to submit an assignment, a job seeker applying on a government portal, or a professional sending a report via email, file size limits are a constant hurdle. Most platforms restrict uploads to 100KB, 2MB, or 25MB, leaving you stuck with heavy documents.
 
@@ -112,6 +119,12 @@ Experience the fastest, safest, and most efficient way to optimize your document
     color: "orange",
     config: { mode: "merge", accept: ".pdf", allowBatch: true },
     info: {
+      sectionHeadings: {
+        features: "Benefits of Merging Documents",
+        useCases: "When Should You Combine PDFs?",
+        steps: "Step-by-Step Merging Guide",
+        faq: "Common Questions About Merging"
+      },
       // 1. INTRO SECTION (High SEO Value)
       intro: `Managing multiple PDF files can be a nightmare. Whether you are a student submitting a thesis with separate chapters, an accountant organizing monthly invoices, or a professional combining reports, keeping track of scattered files is inefficient. You need a way to **stitch them together** into a single, organized document.
 
@@ -162,7 +175,7 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
       faq: [
         {
           q: "Can I merge PDF files with different page sizes?",
-          a: "Yes! You can combine a **Landscape A3 chart** with a **Portrait A4 letter** without any issues. Our tool stitches them together while preserving the original dimensions and formatting of each individual page."
+          a: "Yes! You can combine a **Landscape A3 chart** with a **Portrait A4 letter** without any issues. Our tool stitches them together while preserving the original dimensions and formatting of individual pages."
         },
         {
           q: "What is the maximum file count allowed for a single batch?",
@@ -196,6 +209,12 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
     color: "blue",
     config: { mode: "extract", accept: ".pdf" },
     info: {
+      sectionHeadings: {
+        features: "Advantages of Lossless Extraction",
+        useCases: "Ideal Scenarios for Extracting Pages",
+        steps: "How to Pull Pages from a PDF",
+        faq: "Extraction FAQs"
+      },
       // 1. INTRO SECTION (SEO Optimized Long Form)
       intro: `Dealing with a massive 500-page document when you only need a single page? We have all been there. Whether you are a student trying to isolate your name from a giant university merit list, a lawyer extracting a specific signature page from a corporate contract, or a patient trying to send only the latest lab results from a heavy medical file, scrolling through hundreds of pages is frustrating.
 
@@ -270,6 +289,12 @@ Taking a screenshot of a page destroys its quality and makes the text unsearchab
     color: "orange",
     config: { mode: "split", accept: ".pdf" },
     info: {
+      sectionHeadings: {
+        features: "Why Use a Precision Splitter?",
+        useCases: "Real-World Uses for Splitting PDFs",
+        steps: "Guide to Separating PDF Pages",
+        faq: "PDF Splitting Questions Answered"
+      },
       // 1. INTRO SECTION (Deep SEO Content)
       intro: `Have you ever downloaded a massive 100-page PDF document just to use **one single page**? It is a common frustration. You might have a large bank statement but only need the last month's transaction history, or a heavy textbook where you only need chapter 5. Sharing the entire file is unprofessional, slow, and confusing for the receiver. You need a tool to **extract exactly what you need**.
 
@@ -353,6 +378,12 @@ Take control of your documents. Stop sharing bulky files and start sharing only 
     color: "orange",
     config: { mode: "rotate", accept: ".pdf" },
     info: {
+      sectionHeadings: {
+        features: "Why Permanently Rotate Pages?",
+        useCases: "When is Rotation Necessary?",
+        steps: "How to Fix Upside-Down PDFs",
+        faq: "Orientation Fix FAQs"
+      },
       // 1. INTRO SECTION (Focus on "Permanent Save" vs "View Only")
       intro: `There is nothing more annoying than opening a PDF document and realizing it is upside down or sideways. You crane your neck, turn your head, or rotate your laptop screen just to read it. While most PDF viewers allow you to "view" the file correctly, they often **fail to save** that rotation. The moment you close and reopen the file, it reverts to the wrong orientation.
 
@@ -436,6 +467,12 @@ Stop struggling with sideways documents. Make your PDFs professional and readabl
     color: "orange",
     config: { mode: "page-numbers", accept: ".pdf" },
     info: {
+      sectionHeadings: {
+        features: "Benefits of Numbering Documents",
+        useCases: "When to Stamp Page Numbers",
+        steps: "How to Add Pagination",
+        faq: "Numbering Tool FAQs"
+      },
       // 1. INTRO SECTION (Focus on Organization & Professionalism)
       intro: `Imagine printing a 50-page contract or a university thesis, and accidentally dropping the papers on the floor. If those pages aren't numbered, putting them back in the correct order is a nightmare. Page numbers are not just a design element; they are the backbone of document organization. They make your files referable, professional, and easy to navigate.
 
@@ -520,6 +557,12 @@ Turn your chaotic pile of digital pages into a structured, professional document
     color: "orange",
     config: { mode: "image-to-pdf", accept: "image/*", allowBatch: true },
     info: {
+      sectionHeadings: {
+        features: "Why Convert Photos to PDF?",
+        useCases: "Perfect Situations for Image Compilations",
+        steps: "How to Combine Images into a PDF",
+        faq: "Conversion Tool FAQs"
+      },
       // 1. INTRO SECTION (Focus on Convenience & Organization)
       intro: `A picture is worth a thousand words, but sending twenty separate picture files in an email is a nightmare. It looks unprofessional, clutters the recipient's inbox, and makes printing a hassle. Whether you are a designer sharing a portfolio, a student submitting handwritten notes, or an employee filing expense receipts, you need a way to **combine these images into a single, professional document**.
 
@@ -604,6 +647,12 @@ Stop zipping files. Start creating professional PDFs instantly.`,
     color: "orange",
     config: { mode: "rearrange", accept: ".pdf", allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Use Our Visual Organizer?",
+        useCases: "Best Times to Reorder Pages",
+        steps: "How to Change PDF Page Sequence",
+        faq: "Reordering Tool FAQs"
+      },
       // 1. INTRO SECTION (High SEO Value)
       intro: `Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
 
@@ -678,7 +727,6 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
       ]
     }
   },
-  
 
   // ==========================================
   // IMAGE TOOLS
@@ -692,6 +740,12 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
     color: "blue",
     config: { showQuality: true, defaultQuality: 0.8, defaultFormat: "image/jpeg", lockFormat: true, allowBatch: true, accept: ".jpg,.jpeg,image/jpeg" },
     info: {
+      sectionHeadings: {
+        features: "The Power of Intelligent Compression",
+        useCases: "When to Optimize Your JPGs",
+        steps: "How to Shrink JPEG Files",
+        faq: "JPG Optimization FAQs"
+      },
       // 1. INTRO SECTION (Focus on Speed & Storage)
       intro: `In the digital age, speed is everything. High-resolution photos are beautiful, but they are also heavy. A single 5MB JPG image can slow down your website, clog your email outbox, and eat up your phone's storage in no time. If you are a web developer, a photographer, or just someone trying to send a holiday album to family, you know the struggle of the "File Too Large" error.
 
@@ -776,6 +830,12 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
     color: "blue",
     config: { showQuality: true, defaultQuality: 0.8, defaultFormat: "image/jpeg", lockFormat: true, allowBatch: true, accept: ".jpg,.jpeg,image/jpeg" },
     info: {
+      sectionHeadings: {
+        features: "Why Use Adaptive JPEG Control?",
+        useCases: "Best Uses for JPEG Optimization",
+        steps: "Steps to Reduce JPEG Size",
+        faq: "JPEG Compression FAQs"
+      },
       // 1. INTRO SECTION (Focus on "JPEG" specifics & Photography)
       intro: `You have likely noticed that some image files end in ".jpg" while others end in ".jpeg". While they are technically the same format, handling heavy JPEG files can still be a massive headache. A single raw JPEG from a modern DSLR or smartphone can easily exceed 10MB. Whether you are a photographer trying to upload a portfolio, an e-commerce store owner managing product images, or a student submitting scanned notes, file size limits are everywhere.
 
@@ -859,6 +919,12 @@ Shrink your files, not your quality. Experience the safest JPEG compressor onlin
     color: "blue",
     config: { showQuality: true, defaultQuality: 0.8, defaultFormat: "image/webp", lockFormat: true, allowBatch: true, accept: ".webp,image/webp" },
     info: {
+      sectionHeadings: {
+        features: "Why Optimize Next-Gen WebP?",
+        useCases: "Ideal Scenarios for WebP Shrinking",
+        steps: "How to Compress WebP Images",
+        faq: "WebP Optimization FAQs"
+      },
       // 1. INTRO SECTION (Focus on Modern Web & Speed)
       intro: `The internet is evolving, and so are image formats. You likely use WebP because it offers superior quality at smaller file sizes compared to traditional JPGs and PNGs. However, simply using WebP isn't enough. Exporting a WebP image from tools like Photoshop or Canva at 100% quality can still result in bloated files that hurt your website's loading speed. If you care about **Google PageSpeed Insights**, **Core Web Vitals**, or mobile app performance, every kilobyte counts.
 
@@ -942,6 +1008,12 @@ Maximize your site speed and SEO rankings by serving the lightest possible WebP 
     color: "blue",
     config: { showResize: true, showFormat: true, defaultQuality: 0.9, allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Use Pixel-Perfect Resizing?",
+        useCases: "When Do You Need Exact Dimensions?",
+        steps: "How to Change Image Resolution",
+        faq: "Image Resizing FAQs"
+      },
       // 1. INTRO SECTION (Focus on Precision & Social Media)
       intro: `Have you ever tried to upload a profile picture only to be told it needs to be exactly 400x400 pixels? Or tried to post a photo on Instagram, but it got awkwardly cropped because the dimensions were wrong? In the digital world, **one size does not fit all**. Every platform—from Facebook headers to passport application portals—demands specific image dimensions.
 
@@ -1025,6 +1097,12 @@ Stop struggling with complex software like Photoshop. Resize your images instant
     color: "blue",
     config: { showVisualCrop: true, allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Advantages of Local Image Cropping",
+        useCases: "When to Trim Your Photos",
+        steps: "How to Reframe Your Pictures",
+        faq: "Cropping Tool FAQs"
+      },
       // 1. INTRO SECTION (Focus on Composition & Privacy)
       intro: `We take hundreds of photos, but rarely is the raw shot perfect. Maybe there is a stranger photobombing the background, too much empty sky above your subject, or clutter on the desk that ruins a professional product shot. Often, the best picture is hiding *inside* the bigger picture. You need a tool to **trim the fat** and focus on what matters.
 
@@ -1109,6 +1187,12 @@ Take control of your photo's composition and create the perfect frame with GoPDF
     color: "blue",
     config: { showFormat: true, defaultFormat: "image/webp", lockFormat: true, allowBatch: true },
     info: {
+      sectionHeadings: {
+        features: "Why Upgrade to WebP Format?",
+        useCases: "Best Uses for WebP Conversion",
+        steps: "How to Change Images to WebP",
+        faq: "WebP Conversion FAQs"
+      },
       // 1. INTRO SECTION (Focus on Modern Web Standards & Speed)
       intro: `Is your website loading slowly? Are your high-quality PNGs and JPGs taking up too much storage space? It is time to upgrade to the future of digital imagery. **WebP** is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web.
 
@@ -1193,6 +1277,12 @@ Make the switch to WebP today and watch your digital assets become lighter and f
     color: "blue",
     config: { showFormat: true, defaultFormat: "image/jpeg", lockFormat: true, allowBatch: true },
     info: {
+      sectionHeadings: {
+        features: "Why Standardize to JPEG?",
+        useCases: "When to Switch Formats",
+        steps: "How to Transform Images to JPG",
+        faq: "JPG Conversion FAQs"
+      },
       // 1. INTRO SECTION (Focus on Compatibility & Standardization)
       intro: `In the vast world of digital images, there are dozens of formats—PNG, WebP, HEIC, TIFF, BMP—but there is only one true king of compatibility: **JPG (JPEG)**. Have you ever tried to upload a photo to a government portal, only to be rejected because it was a "PNG"? Or tried to open a modern "WebP" file on an old computer, only to see an error message?
 
@@ -1277,6 +1367,12 @@ Stop worrying about "File Format Not Supported" errors. Switch to JPG with GoPDF
     color: "blue",
     config: { showFormat: true, defaultFormat: "image/png", lockFormat: true, allowBatch: true },
     info: {
+      sectionHeadings: {
+        features: "Benefits of Lossless PNGs",
+        useCases: "When Quality Matters Most",
+        steps: "How to Upgrade to PNG",
+        faq: "PNG Conversion FAQs"
+      },
       // 1. INTRO SECTION (Focus on Quality & Graphics)
       intro: `Have you ever saved a logo or a screenshot as a JPG, only to see it become blurry, pixelated, or surrounded by "noise" artifacts? That is the price of compression. When quality matters more than file size, there is only one clear winner: **PNG (Portable Network Graphics)**.
 
@@ -1360,6 +1456,12 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
     color: "blue",
     config: { showRotate: true, showFormat: true, allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Permanently Fix Image Orientation?",
+        useCases: "Common Rotation Scenarios",
+        steps: "How to Turn Your Photos",
+        faq: "Image Rotation FAQs"
+      },
       // 1. INTRO SECTION (Focus on Orientation & Permanence)
       intro: `Taking a great photo is satisfying, but opening it on your computer only to find it is sideways or upside down is frustrating. This often happens with photos taken on smartphones or documents scanned in a hurry. While image viewers let you "turn" the image to see it, they often fail to **save that orientation permanently**. The moment you upload that photo to a website or email it, it reverts to being sideways.
 
@@ -1443,6 +1545,12 @@ Stop craning your neck. Fix your photo's orientation instantly with GoPDFGo.`,
     color: "blue",
     config: { showFlip: true, showFormat: true, allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Use Our Mirroring Tool?",
+        useCases: "Best Uses for Flipped Images",
+        steps: "How to Reverse Your Photos",
+        faq: "Image Flipping FAQs"
+      },
       // 1. INTRO SECTION (Focus on Selfies & Symmetry)
       intro: `Have you ever taken the perfect selfie, only to realize later that the text on your T-shirt is backwards? Or perhaps you have scanned an old photo negative and it looks reversed? This happens because cameras and mirrors often flip our perspective. To fix this, you don't need to retake the shot—you simply need to **mirror it back**.
 
@@ -1493,7 +1601,7 @@ Correct your perspective and create stunning symmetrical art with GoPDFGo.`,
       faq: [
         {
           q: "What is the difference between Rotate and Flip?",
-          a: "**Rotating** turns the image (like turning a steering wheel). **Flipping** creates a mirror reflection (like looking in a mirror). Crucially, simply turning the image upside down (180°) produces a different result than mirroring it vertically"
+          a: "**Rotating** turns the image (like turning a steering wheel). **Flipping** creates a mirror reflection (like looking in a mirror). Crucially, simply turning the image upside down (180°) produces a different result than mirroring it vertically."
         },
         {
           q: "Does flipping reduce image quality?",
@@ -1527,6 +1635,12 @@ Correct your perspective and create stunning symmetrical art with GoPDFGo.`,
     color: "blue",
     config: { mode: "picker", allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Extract Colors Locally?",
+        useCases: "When to Use a Digital Eyedropper",
+        steps: "How to Grab Exact Color Codes",
+        faq: "Color Picker FAQs"
+      },
       // 1. INTRO SECTION (Focus on Precision & Design Utility)
       intro: `Have you ever looked at a beautiful sunset photo, a corporate logo, or a website design and wondered, "What is that exact shade of blue?" Color precision is often the defining factor that separates a polished masterpiece from a chaotic draft. Whether you are a web developer trying to match a button to a background, or a designer building a brand palette, guessing the color isn't enough—you need the exact code.
 
@@ -1561,7 +1675,7 @@ Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
       useCases: [
         "**Web Design & CSS:** Developers often receive flat image mockups from designers. Use this tool to inspect the image and grab the exact **Hex codes** for backgrounds, fonts, and buttons to use in your CSS code.",
         "**Brand Identity Management:** Consistency is key. If you have a company logo but lost the brand guidelines, upload the logo here to recover the exact **official brand colors** to ensure your new marketing materials match perfectly.",
-        "**Concept Art & Design:**Great artwork often begins with a strong reference image or mood board. Upload a reference image to build a **custom color palette** based on the mood and tones of that photograph.",
+        "**Concept Art & Design:** Great artwork often begins with a strong reference image or mood board. Upload a reference image to build a **custom color palette** based on the mood and tones of that photograph.",
         "**Interior Design Inspiration:** Captivated by a specific wall hue or upholstery tone in a design photo? Extract the color code to find similar paint swatches or fabrics for your own home renovation projects."
       ],
 
@@ -1611,6 +1725,12 @@ Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
     color: "blue",
     config: { mode: "mask", showVisualCrop: false, showMaskTool: true, allowBatch: false },
     info: {
+      sectionHeadings: {
+        features: "Why Redact Sensitive IDs?",
+        useCases: "When to Share a Masked Aadhaar",
+        steps: "How to Hide Your Digits",
+        faq: "ID Masking FAQs"
+      },
       // 1. INTRO SECTION (Focus on Security, Identity Theft & Compliance)
       intro: `Your Aadhaar card is the most critical identity document you own. It links to your bank account, your phone number, and your tax records. Yet, we are often asked to hand over photocopies or digital scans of our Aadhaar for simple things like hotel check-ins, buying a SIM card, or renting a car. Sharing your full 12-digit UID number everywhere exposes you to a significant risk of **Identity Theft** and financial fraud.
 
@@ -1693,6 +1813,12 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
     color: "purple",
     config: { mode: "qr" },
     info: {
+      sectionHeadings: {
+        features: "Benefits of Static QR Codes",
+        useCases: "Where to Use Scannable Codes",
+        steps: "How to Generate a Free QR Code",
+        faq: "QR Generator FAQs"
+      },
       // 1. INTRO SECTION (Focus on Permanence & Privacy)
       intro: `From restaurant menus to digital payments, QR codes have become the bridge between the physical and digital worlds. Whether you want to share your Wi-Fi password without spelling it out, direct customers to your website, or share your contact details instantly, a QR code is the fastest way to do it. But not all generators are created equal. Many online tools trick you into creating "Dynamic" QR codes that expire after a week unless you pay a subscription fee.
 
@@ -1763,5 +1889,5 @@ Create professional, high-resolution QR codes instantly without signing up.`,
         }
       ]
     }
-  },
+  }
 ];

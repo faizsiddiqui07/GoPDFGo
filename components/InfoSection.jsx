@@ -44,8 +44,9 @@ const InfoSection = ({ info }) => {
       {/* 🔹 FEATURES */}
       {info.features && (
         <section className="mt-12">
+          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-3xl font-bold text-slate-800 text-center mb-8 sm:mb-12">
-            Why use this tool?
+            {info.sectionHeadings?.features || "Why use this tool?"}
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 md:gap-8">
@@ -83,8 +84,9 @@ const InfoSection = ({ info }) => {
       {/* 🔹 USE CASES (NEW - FOR ADSENSE INTENT) */}
       {info.useCases && info.useCases.length > 0 && (
         <section className="mb-12 sm:mb-16 mt-12">
+          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-5 sm:mb-8">
-            When to use this tool?
+            {info.sectionHeadings?.useCases || "When to use this tool?"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
             {info.useCases.map((useCase, idx) => (
@@ -105,8 +107,9 @@ const InfoSection = ({ info }) => {
       {/* 🔹 HOW TO USE */}
       {info.steps && (
         <section className="mt-12 mb-8 sm:mb-20">
+          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-3xl font-bold text-slate-800 text-center mb-10 sm:mb-20 md:mb-16">
-            How to use this tool
+            {info.sectionHeadings?.steps || "How to use this tool"}
           </h2>
 
           <div className="block sm:hidden max-w-md mx-auto px-4">
@@ -183,8 +186,9 @@ const InfoSection = ({ info }) => {
       {/* 🔹 FAQ */}
       {info.faq && info.faq.length > 0 && (
         <section className="mt-14 sm:mt-10 md:mt-16">
+          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-2xl text-center font-bold text-slate-800 mb-6 sm:mb-8 flex items-center justify-center gap-2">
-            Frequently Asked Questions
+            {info.sectionHeadings?.faq || "Frequently Asked Questions"}
           </h2>
 
           <div className="space-y-4">
