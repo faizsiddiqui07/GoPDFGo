@@ -1559,82 +1559,82 @@ export const blogsData = [
       <p>Blindly trusting third-party servers with your life's paperwork is a thing of the past. Start using private, browser-based tools today and guarantee your own digital safety.</p>
     `
   },
-  // {
-  //   id: "organize-merge-documents-online-visa-applications",
-  //   title: "How to Organize and Merge Documents for Online Visa Applications",
-  //   seoTitle: "How to Merge Documents for Visa Application Securely | VFS Guide",
-  //   keywords: "merge documents for visa, combine visa documents pdf, vfs document upload, schengen visa pdf size, organize visa application, secure pdf merge, compress visa documents, bank statement merge, online visa upload limit, privacy safe pdf merger",
-  //   excerpt: "Struggling to upload your visa documents? Learn how to safely organize, combine, and compress your passports and bank statements into a single file without risking identity theft.",
-  //   date: "May 12, 2026",
-  //   imageUrl: "/images/blogs/organize-merge-documents-online-visa-applications.webp",
-  //   content: `
-  //     <p>Planning an international trip is exciting, right up until the moment you have to apply for the visa. Today, almost every embassy portal (like VFS Global or TLScontact) forces you to upload your entire life's history digitally. And they usually give you just one upload button for everything.</p>
+  {
+    id: "organize-merge-documents-online-visa-applications",
+    title: "How to Organize and Merge Documents for Online Visa Applications",
+    seoTitle: "How to Merge Documents for Visa Application Securely | VFS Guide",
+    keywords: "merge documents for visa, combine visa documents pdf, vfs document upload, schengen visa pdf size, organize visa application, secure pdf merge, compress visa documents, bank statement merge, online visa upload limit, privacy safe pdf merger",
+    excerpt: "Struggling to upload your visa documents? Learn how to safely organize, combine, and compress your passports and bank statements into a single file without risking identity theft.",
+    date: "May 20, 2026",
+    imageUrl: "/images/blogs/organize-merge-documents-online-visa-applications.webp",
+    content: `
+      <p>Planning an international trip is exciting, right up until the moment you have to apply for the visa. Today, almost every embassy portal (like VFS Global or TLScontact) forces you to upload your entire life's history digitally. And they usually give you just one upload button for everything.</p>
 
-  //     <p>You sit there staring at 15 different files: your passport scan, hotel bookings, flight tickets, and bank statements. The portal says: <em>"Upload all supporting documents in a single PDF. Maximum size: 5MB."</em></p>
+      <p>You sit there staring at 15 different files: your passport scan, hotel bookings, flight tickets, and bank statements. The portal says: <em>"Upload all supporting documents in a single PDF. Maximum size: 5MB."</em></p>
 
-  //     <p>If you don't follow these exact rules, your application gets delayed or rejected. Let's look at the absolute best way to organize your files and safely combine them without sending your private financial data to random websites.</p>
+      <p>If you don't follow these exact rules, your application gets delayed or rejected. Let's look at the absolute best way to organize your files and safely combine them without sending your private financial data to random websites.</p>
 
-  //     <h2>The Major Mistake: Uploading Bank Details Online</h2>
-  //     <p>Think about what is inside your visa file. It has your passport number, your exact date of birth, six months of banking history, your salary, and your home address. It is basically an identity thief's dream package.</p>
+      <h2>The Major Mistake: Uploading Bank Details Online</h2>
+      <p>Think about what is inside your visa file. It has your passport number, your exact date of birth, six months of banking history, your salary, and your home address. It is basically an identity thief's dream package.</p>
 
-  //     <p>When people get stressed out trying to combine these files, they Google a free tool and blindly upload this massive packet of secrets to a third-party server. By doing this, you are sending your financial life across the internet. Even if the website looks safe, their servers could get hacked tomorrow.</p>
+      <p>When people get stressed out trying to combine these files, they Google a free tool and blindly upload this massive packet of secrets to a third-party server. By doing this, you are sending your financial life across the internet. Even if the website looks safe, their servers could get hacked tomorrow.</p>
 
-  //     <p>Instead of doing that, you should handle your documents privately. This means using technology where your browser does the editing directly, and your files stay on your device the entire time.</p>
+      <p>Instead of doing that, you should handle your documents privately. This means using technology where your browser does the editing directly, and your files stay on your device the entire time.</p>
 
-  //     <h2>The "Golden Order" for Visa Documents</h2>
-  //     <p>Visa officers are busy. They review hundreds of applications daily. If they have to scroll up and down endlessly to find your return flight ticket, they get annoyed. Make their job easy by arranging your pages in this specific order:</p>
+      <h2>The "Golden Order" for Visa Documents</h2>
+      <p>Visa officers are busy. They review hundreds of applications daily. If they have to scroll up and down endlessly to find your return flight ticket, they get annoyed. Make their job easy by arranging your pages in this specific order:</p>
 
-  //     <ol>
-  //       <li><strong>Main Identity:</strong> Passport bio-page (front and back).</li>
-  //       <li><strong>Forms:</strong> The signed application form and appointment receipt.</li>
-  //       <li><strong>Travel Plans:</strong> Confirmed round-trip flight tickets.</li>
-  //       <li><strong>Stay Proof:</strong> Hotel bookings or Airbnb receipts.</li>
-  //       <li><strong>Money Proof:</strong> 6 months of bank statements, followed by your Tax Returns (ITR).</li>
-  //       <li><strong>Work Proof:</strong> Leave approval letter from your boss and 3 months of payslips.</li>
-  //       <li><strong>Insurance:</strong> Travel medical insurance policy.</li>
-  //     </ol>
+      <ol>
+        <li><strong>Main Identity:</strong> Passport bio-page (front and back).</li>
+        <li><strong>Forms:</strong> The signed application form and appointment receipt.</li>
+        <li><strong>Travel Plans:</strong> Confirmed round-trip flight tickets.</li>
+        <li><strong>Stay Proof:</strong> Hotel bookings or Airbnb receipts.</li>
+        <li><strong>Money Proof:</strong> 6 months of bank statements, followed by your Tax Returns (ITR).</li>
+        <li><strong>Work Proof:</strong> Leave approval letter from your boss and 3 months of payslips.</li>
+        <li><strong>Insurance:</strong> Travel medical insurance policy.</li>
+      </ol>
 
-  //     <div class="tool-box">
-  //       <h3>Step-by-Step: Combine Everything Safely</h3>
-  //       <p>Once you have all your files downloaded into a single folder on your laptop, here is how you build the final master file with zero-upload editing:</p>
+      <div class="tool-box">
+        <h3>Step-by-Step: Combine Everything Safely</h3>
+        <p>Once you have all your files downloaded into a single folder on your laptop, here is how you build the final master file with zero-upload editing:</p>
 
-  //       <p>If you took photos of some documents with your phone, they are probably JPGs. You need to convert them first, as you cannot mix images and documents easily on embassy portals.</p>
-  //       <ul>
-  //         <li><strong>Step 1: Check File Formats</strong></li>
-  //       </ul>
+        <p>If you took photos of some documents with your phone, they are probably JPGs. You need to convert them first, as you cannot mix images and documents easily on embassy portals.</p>
+        <ul>
+          <li><strong>Step 1: Check File Formats</strong></li>
+        </ul>
 
-  //       <ul>
-  //         <li><strong>Step 2: Unlock Your Bank Statements</strong></li>
-  //       </ul>
-  //       <p>Banks always send statements with a password (usually your name and DOB). You cannot combine locked files. Open them, type the password, and hit "Print to PDF" to save an unlocked copy to your computer.</p>
+        <ul>
+          <li><strong>Step 2: Unlock Your Bank Statements</strong></li>
+        </ul>
+        <p>Banks always send statements with a password (usually your name and DOB). You cannot combine locked files. Open them, type the password, and hit "Print to PDF" to save an unlocked copy to your computer.</p>
 
-  //       <p>Open a safe <a href="/merge-pdf">file combiner that works in your browser</a>. Drag all your files into the screen. Because the site works offline, it will load them instantly. Drag the boxes around until they match the Golden Order above.</p>
-  //       <ul>
-  //         <li><strong>Step 3: Arrange and Join</strong></li>
-  //       </ul>
+        <p>Open a safe <a href="/merge-pdf">file combiner that works in your browser</a>. Drag all your files into the screen. Because the site works offline, it will load them instantly. Drag the boxes around until they match the Golden Order above.</p>
+        <ul>
+          <li><strong>Step 3: Arrange and Join</strong></li>
+        </ul>
 
-  //       <ul>
-  //         <li><strong>Step 4: Reduce the File Weight</strong></li>
-  //       </ul>
-  //       <p>If your final joined file is 15MB, the embassy portal will reject it. Use a <a href="/compress-pdf">private optimization tool</a> to shrink the size down below 5MB so it uploads smoothly.</p>
-  //     </div>
+        <ul>
+          <li><strong>Step 4: Reduce the File Weight</strong></li>
+        </ul>
+        <p>If your final joined file is 15MB, the embassy portal will reject it. Use a <a href="/compress-pdf">private optimization tool</a> to shrink the size down below 5MB so it uploads smoothly.</p>
+      </div>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
+      <h2>Frequently Asked Questions (FAQ)</h2>
 
-  //     <p><strong>Q: Should I merge family passports together or keep them separate?</strong><br>
-  //     A: Always keep them separate unless the portal specifically asks for a "Family Application File." Each applicant usually needs their own distinct profile and their own individual PDF containing just their documents.</p>
+      <p><strong>Q: Should I merge family passports together or keep them separate?</strong><br>
+      A: Always keep them separate unless the portal specifically asks for a "Family Application File." Each applicant usually needs their own distinct profile and their own individual PDF containing just their documents.</p>
 
-  //     <p><strong>Q: Will the embassy portal reject grayscale (black and white) scans?</strong><br>
-  //     A: For financial documents like bank statements and tax returns, grayscale is perfectly fine and helps reduce file size. However, your passport bio-page and the visa application photos MUST be scanned in full color.</p>
+      <p><strong>Q: Will the embassy portal reject grayscale (black and white) scans?</strong><br>
+      A: For financial documents like bank statements and tax returns, grayscale is perfectly fine and helps reduce file size. However, your passport bio-page and the visa application photos MUST be scanned in full color.</p>
 
-  //     <p><strong>Q: How do I handle double-sided documents like National ID cards?</strong><br>
-  //     A: Don't put the front on page 1 and the back on page 2. Place both the front and back of the ID card onto a single page side-by-side. You can do this easily by pasting the images into a Word document and saving it as a PDF before joining it with the rest.</p>
+      <p><strong>Q: How do I handle double-sided documents like National ID cards?</strong><br>
+      A: Don't put the front on page 1 and the back on page 2. Place both the front and back of the ID card onto a single page side-by-side. You can do this easily by pasting the images into a Word document and saving it as a PDF before joining it with the rest.</p>
 
-  //     <p><strong>Q: Is a 5MB limit normal for all embassy websites?</strong><br>
-  //     A: Yes, 5MB is the standard maximum across most major portals (including Schengen VFS and US CEAC). Some older government websites are even stricter, limiting uploads to just 2MB, which requires heavy compression.</p>
+      <p><strong>Q: Is a 5MB limit normal for all embassy websites?</strong><br>
+      A: Yes, 5MB is the standard maximum across most major portals (including Schengen VFS and US CEAC). Some older government websites are even stricter, limiting uploads to just 2MB, which requires heavy compression.</p>
 
-  //     <h3>Apply with Peace of Mind</h3>
-  //     <p>Don't let a simple tech issue ruin your vacation plans. Organize your files properly, process them safely without uploading them to the cloud, and get that visa approved!</p>
-  //   `
-  // }, done
+      <h3>Apply with Peace of Mind</h3>
+      <p>Don't let a simple tech issue ruin your vacation plans. Organize your files properly, process them safely without uploading them to the cloud, and get that visa approved!</p>
+    `
+  }, 
 ];
