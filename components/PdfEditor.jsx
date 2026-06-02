@@ -3,8 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
-import { PDFDocument, degrees, StandardFonts, rgb } from "pdf-lib";
-import JSZip from "jszip";
 import {
   ArrowLeft,
   Trash2,
@@ -87,6 +85,12 @@ const PdfEditor = ({ toolId }) => {
   const router = useRouter();
   const fileInputRef = useRef(null);
 
+  // ✅ HYDRATION FIX: Ensures heavy UI only renders on client, protecting SEO
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // State
   const [files, setFiles] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -125,12 +129,12 @@ const PdfEditor = ({ toolId }) => {
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 5, // Allows normal clicks on buttons inside the drag area
+        distance: 5,
       },
     }),
     useSensor(TouchSensor, {
       activationConstraint: {
-        delay: 150, // Slight delay on mobile so it doesn't interfere with page scroll
+        delay: 150,
         tolerance: 5,
       },
     }),
@@ -458,6 +462,11 @@ const PdfEditor = ({ toolId }) => {
 
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
+    // ✅ FIX: Libraries are ONLY loaded when the user actually clicks process!
+    const { PDFDocument, degrees, StandardFonts, rgb } =
+      await import("pdf-lib");
+    const JSZip = (await import("jszip")).default;
+
     if (files.length === 0) {
       setErrorMsg("Please upload a file first.");
       return;
@@ -805,8 +814,9 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {/* File List / Preview with DnD Kit */}
-          {files.length > 0 &&
+          {/* ✅ HYDRATION SAFE DND-KIT AREA */}
+          {isMounted &&
+            files.length > 0 &&
             tool.id !== "split-pdf" &&
             tool.id !== "rotate-pdf" &&
             tool.id !== "rearrange-pdf" &&
@@ -887,7 +897,7 @@ const PdfEditor = ({ toolId }) => {
                             {tool.id === "merge-pdf" && (
                               <button
                                 onClick={() => rotateFile(item.id)}
-                                onPointerDown={(e) => e.stopPropagation()} 
+                                onPointerDown={(e) => e.stopPropagation()}
                                 className="mt-3 text-sm flex items-center gap-1.5 text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-md transition cursor-pointer font-bold relative z-20"
                               >
                                 <RotateCw size={14} /> Rotate
@@ -1128,8 +1138,8 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {/* Rearrange PDF UI with DnD Kit */}
-          {files.length > 0 && tool.id === "rearrange-pdf" && (
+          {/* ✅ HYDRATION SAFE DND-KIT REARRANGE */}
+          {isMounted && files.length > 0 && tool.id === "rearrange-pdf" && (
             <div className="mb-8 animate-fade-in">
               <div className="text-center mb-6">
                 <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
@@ -1282,6 +1292,7 @@ const PdfEditor = ({ toolId }) => {
         </div>
       </div>
 
+      {/* ✅ SEO TEXT STAYS SERVER RENDERED - NO HYDRATION WRAPPER HERE */}
       <InfoSection info={tool.info} />
 
       <RelatedTools currentToolId={tool.id} toolType={tool.type} />
