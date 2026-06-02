@@ -85,7 +85,7 @@ const PdfEditor = ({ toolId }) => {
   const router = useRouter();
   const fileInputRef = useRef(null);
 
-  // ✅ HYDRATION FIX: Ensures heavy UI only renders on client, protecting SEO
+  // Hydration Fix
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
@@ -104,6 +104,7 @@ const PdfEditor = ({ toolId }) => {
 
   // UI States
   const [errorMsg, setErrorMsg] = useState(null);
+  const [infoMsg, setInfoMsg] = useState(null); // ✅ NEW: For info messages like Large PDFs
   const [splitMode, setSplitMode] = useState("all");
   const [thumbnails, setThumbnails] = useState([]);
   const [selectedPages, setSelectedPages] = useState(new Set());
@@ -117,10 +118,15 @@ const PdfEditor = ({ toolId }) => {
   const blobUrlsRef = useRef(new Set());
   const scrollContainerRef = useRef(null);
 
-  // Revoke URLs for memory cleanup ONLY on unmount
+  // ✅ BUG FIX 1: Split the cleanup logic so thumbnails don't break when downloadUrl changes
   useEffect(() => {
     return () => {
       blobUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, []);
+
+  useEffect(() => {
+    return () => {
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);
     };
   }, [downloadUrl]);
@@ -205,6 +211,8 @@ const PdfEditor = ({ toolId }) => {
     if (!window.pdfjsLib) return;
     setGeneratingThumbnails(true);
     setThumbnails([]);
+    setInfoMsg(null);
+    setErrorMsg(null);
 
     try {
       const arrayBuffer = await file.arrayBuffer();
@@ -212,8 +220,9 @@ const PdfEditor = ({ toolId }) => {
       const numPages = pdf.numPages;
 
       if (numPages > 50) {
-        setErrorMsg(
-          `Large PDF (${numPages} pages). Rendering thumbnails incrementally...`,
+        // ✅ BUG FIX 4: Use InfoMsg instead of ErrorMsg for large PDFs
+        setInfoMsg(
+          `Large PDF detected (${numPages} pages). Rendering thumbnails incrementally...`,
         );
       }
 
@@ -260,6 +269,7 @@ const PdfEditor = ({ toolId }) => {
       );
     } finally {
       setGeneratingThumbnails(false);
+      setInfoMsg(null); // Clear info once done
     }
   };
 
@@ -379,20 +389,20 @@ const PdfEditor = ({ toolId }) => {
   };
 
   const resetAll = () => {
+    // ✅ BUG FIX 8: Removed double revocation from here, it's handled cleanly by useEffect now
     blobUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
     blobUrlsRef.current.clear();
-
-    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    setDownloadUrl(null);
 
     setIsDone(false);
     setFiles([]);
-    setDownloadUrl(null);
     setDownloadName("");
     setCompressionStats(null);
     setThumbnails([]);
     setSelectedPages(new Set());
     setPageRotations([]);
     setErrorMsg(null);
+    setInfoMsg(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -462,7 +472,6 @@ const PdfEditor = ({ toolId }) => {
 
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
-    // ✅ FIX: Libraries are ONLY loaded when the user actually clicks process!
     const { PDFDocument, degrees, StandardFonts, rgb } =
       await import("pdf-lib");
     const JSZip = (await import("jszip")).default;
@@ -614,7 +623,8 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         const originalSize = file.size;
 
-        if (!window.pdfjsLib && !pdfJsLoaded) {
+        // ✅ BUG FIX 2: Fixed the logic check. If either is missing, it should wait.
+        if (!window.pdfjsLib) {
           setErrorMsg(
             "PDF engine is initializing... Please click compress again in 2 seconds.",
           );
@@ -804,6 +814,13 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
+          {/* ✅ BUG FIX 4: Info Messages UI */}
+          {infoMsg && (
+            <div className="mb-6 bg-blue-50 text-blue-700 p-4 rounded-lg flex items-center gap-2 text-sm border border-blue-100">
+              <Info size={18} className="shrink-0" /> {infoMsg}
+            </div>
+          )}
+
           {tool.id === "compress-pdf" && files.length > 0 && !isDone && (
             <div className="mb-6 bg-blue-50 text-blue-700 p-3 rounded-lg flex items-start gap-2 text-sm border border-blue-100">
               <Info size={18} className="mt-0.5 shrink-0" />
@@ -814,7 +831,6 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {/* ✅ HYDRATION SAFE DND-KIT AREA */}
           {isMounted &&
             files.length > 0 &&
             tool.id !== "split-pdf" &&
@@ -1086,6 +1102,13 @@ const PdfEditor = ({ toolId }) => {
                 </button>
               </div>
 
+              {/* ✅ BUG FIX: Mobile Instruction Hint */}
+              <div className="sm:hidden flex justify-center mb-4 animate-fade-in">
+                <p className="text-xs font-bold bg-orange-50 text-[#FF9933] px-4 py-2 rounded-full flex items-center gap-2 border border-orange-100 shadow-sm">
+                  <RotateCw size={14} /> Tap on any page to rotate it individually
+                </p>
+              </div>
+
               {generatingThumbnails && thumbnails.length === 0 ? (
                 <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
                   <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
@@ -1094,7 +1117,7 @@ const PdfEditor = ({ toolId }) => {
               ) : (
                 <div
                   ref={scrollContainerRef}
-                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-h-150 overflow-y-auto p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 max-h-150 overflow-y-auto p-4 sm:p-6 bg-slate-50 rounded-xl border border-slate-200 shadow-inner"
                 >
                   {thumbnails.map((thumb, index) => (
                     <div
@@ -1102,7 +1125,7 @@ const PdfEditor = ({ toolId }) => {
                       className="relative group flex flex-col items-center"
                     >
                       <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg p-2 w-full">
-                        <div className="w-full h-56 sm:h-72 flex items-center justify-center bg-slate-100 overflow-hidden rounded-lg">
+                        <div className="w-full h-48 sm:h-72 flex items-center justify-center bg-slate-100 overflow-hidden rounded-lg">
                           <img
                             src={thumb.url}
                             alt={`Page ${thumb.pageNum}`}
@@ -1112,17 +1135,20 @@ const PdfEditor = ({ toolId }) => {
                             }}
                           />
                         </div>
-                        <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 backdrop-blur-[1px] rounded-xl">
+                        
+                        {/* ✅ BUG FIX: Hover effect changed to be permanent on mobile, but hover-only on Desktop */}
+                        <div className="absolute inset-0 bg-slate-900/5 sm:bg-transparent sm:group-hover:bg-slate-900/20 transition-colors flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-[0.5px] rounded-xl">
                           <button
                             onClick={() => rotateSinglePage(index, 90)}
-                            className="bg-white text-slate-800 p-3 rounded-full shadow-xl hover:text-[#FF9933] transform hover:scale-110 transition cursor-pointer flex items-center justify-center"
+                            className="bg-white/95 sm:bg-white text-slate-800 p-3 rounded-full shadow-lg hover:text-[#FF9933] transform hover:scale-110 transition cursor-pointer flex items-center justify-center"
                             title="Rotate Right"
                           >
-                            <RotateCw size={24} />
+                            <RotateCw size={22} className="sm:w-6 sm:h-6" />
                           </button>
                         </div>
+
                       </div>
-                      <span className="mt-3 text-sm font-bold text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
+                      <span className="mt-3 text-xs sm:text-sm font-bold text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
                         Page {thumb.pageNum}
                       </span>
                     </div>
@@ -1138,7 +1164,7 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {/* ✅ HYDRATION SAFE DND-KIT REARRANGE */}
+          {/* Rearrange PDF UI with DnD Kit */}
           {isMounted && files.length > 0 && tool.id === "rearrange-pdf" && (
             <div className="mb-8 animate-fade-in">
               <div className="text-center mb-6">
@@ -1292,7 +1318,6 @@ const PdfEditor = ({ toolId }) => {
         </div>
       </div>
 
-      {/* ✅ SEO TEXT STAYS SERVER RENDERED - NO HYDRATION WRAPPER HERE */}
       <InfoSection info={tool.info} />
 
       <RelatedTools currentToolId={tool.id} toolType={tool.type} />

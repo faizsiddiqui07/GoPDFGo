@@ -1,7 +1,7 @@
 "use client"; // REQUIRED: Isme bahut saari state aur hooks hain
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter } from "next/navigation"; // Changed from react-router-dom
+import { useRouter } from "next/navigation";
 import {
   Upload,
   Download,
@@ -16,9 +16,7 @@ import {
   Archive,
   FlipHorizontal,
   FlipVertical,
-  X,
   ArrowRightLeft,
-  Maximize2,
   Crop as CropIcon,
   Palette,
   ZoomIn,
@@ -26,14 +24,14 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
-import { formatBytes } from "../utils/helpers"; // Ensure this file exists
-import { WORKER_CODE } from "../utils/worker";   // Ensure this file exists
+import { formatBytes } from "../utils/helpers";
+import { WORKER_CODE } from "../utils/worker";
 import RelatedTools from "./RelatedTools";
-import { TOOLS_CONFIG } from "@/utils/constants"; 
+import { TOOLS_CONFIG } from "@/utils/constants";
 
-const ImageEditor = ({ toolId }) => { 
+const ImageEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
-  const router = useRouter(); // Changed from useNavigate
+  const router = useRouter();
 
   // --- STATE ---
   const [files, setFiles] = useState([]);
@@ -61,13 +59,12 @@ const ImageEditor = ({ toolId }) => {
   const [flipH, setFlipH] = useState(false);
   const [flipV, setFlipV] = useState(false);
   const [filter, setFilter] = useState("none");
-  const [maintainAspectRatio, setMaintainAspectRatio] = useState(true);
+  const [maintainAspectRatio, setMaintainAspectRatio] = useState(true); // ✅ BUG FIX 9: UI Added below
 
   // Color Picker State
   const [pickedColor, setPickedColor] = useState(null);
   const [hoverColor, setHoverColor] = useState(null);
-  const [pickedColors, setPickedColors] = useState([]);
-  const [colorPalette, setColorPalette] = useState([]);
+  const [colorPalette, setColorPalette] = useState([]); // ✅ BUG FIX 6: Removed pickedColors dead code
   const [magnifier, setMagnifier] = useState({
     x: 0,
     y: 0,
@@ -86,7 +83,7 @@ const ImageEditor = ({ toolId }) => {
     current: 0,
     total: 0,
     processed: 0,
-    eta: 0,
+    eta: 0, // ✅ BUG FIX 7: ETA Logic added in processBatch
   });
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
@@ -156,7 +153,8 @@ const ImageEditor = ({ toolId }) => {
     }
   }, [files, tool.id, tool.config.defaultFormat]);
 
-  const runWorkerTask = (taskData, bitmap, transferList = []) => {
+  // ✅ BUG FIX 3: Fixed runWorkerTask parameters to avoid duplicate bitmap param bug
+  const runWorkerTask = (taskData, transferList = []) => {
     return new Promise((resolve, reject) => {
       if (!workerRef.current) return reject("Worker not ready");
       const msgHandler = (e) => {
@@ -167,9 +165,9 @@ const ImageEditor = ({ toolId }) => {
         }
       };
       workerRef.current.addEventListener("message", msgHandler);
-      const { bitmap: bmpTransfer, ...safeData } = taskData;
-      workerRef.current.postMessage({ ...safeData, bitmap: bmpTransfer }, [
-        bmpTransfer,
+      const { bitmap, ...safeData } = taskData;
+      workerRef.current.postMessage({ ...safeData, bitmap }, [
+        bitmap,
         ...transferList,
       ]);
     });
@@ -211,7 +209,19 @@ const ImageEditor = ({ toolId }) => {
     ) {
       requestProcessImage();
     }
-  }, [width, height, rotation, flipH, flipV, filter, format, quality, crop, requestProcessImage, tool.id]); // Added missing dependencies
+  }, [
+    width,
+    height,
+    rotation,
+    flipH,
+    flipV,
+    filter,
+    format,
+    quality,
+    crop,
+    requestProcessImage,
+    tool.id,
+  ]);
 
   const handleFileChange = (selectedFiles) => {
     let fileList = Array.from(selectedFiles);
@@ -341,7 +351,8 @@ const ImageEditor = ({ toolId }) => {
         originalMimeType: file.type,
       };
 
-      let blob = await runWorkerTask(taskData, bitmap);
+      // ✅ BUG FIX 3 applied here (bitmap param removed)
+      let blob = await runWorkerTask(taskData);
 
       let finalBlob = blob;
       let isReverted = false;
@@ -425,7 +436,8 @@ const ImageEditor = ({ toolId }) => {
             isMasking: false,
             originalMimeType: file.type,
           };
-          let blob = await runWorkerTask(taskData, bitmap);
+          // ✅ BUG FIX 3 applied here
+          let blob = await runWorkerTask(taskData);
 
           if (blob.size >= file.size && format === "original") blob = file;
 
@@ -448,12 +460,24 @@ const ImageEditor = ({ toolId }) => {
               stats: { original, compressed: blob.size, percent, saved },
             },
           ]);
-          setProcessingTimes((prev) => [
-            ...prev,
-            (Date.now() - startTime) / 1000,
-          ]);
+
           processedCount++;
-          setBatchProgress((prev) => ({ ...prev, processed: processedCount }));
+
+          // ✅ BUG FIX 7: Calculate ETA accurately
+          setProcessingTimes((prevTimes) => {
+            const newTimes = [...prevTimes, (Date.now() - startTime) / 1000];
+            const avgTime =
+              newTimes.reduce((a, b) => a + b, 0) / newTimes.length;
+            const remainingFiles = files.length - processedCount;
+            const newEta = Math.round(avgTime * remainingFiles);
+
+            setBatchProgress((p) => ({
+              ...p,
+              processed: processedCount,
+              eta: newEta,
+            }));
+            return newTimes;
+          });
         } catch (e) {
           processedCount++;
           setBatchProgress((prev) => ({ ...prev, processed: processedCount }));
@@ -674,6 +698,11 @@ const ImageEditor = ({ toolId }) => {
     setIsDraggingSlider(false);
   };
 
+  // ✅ BUG FIX 5: Calculate dynamic aspect ratio to prevent squishing portrait images
+  const imageAspectRatio = originalImageRef.current
+    ? `${originalImageRef.current.width} / ${originalImageRef.current.height}`
+    : "16 / 9";
+
   return (
     <div
       className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up"
@@ -688,13 +717,13 @@ const ImageEditor = ({ toolId }) => {
     >
       <div className="mb-6">
         <button
-          onClick={() => router.back()} // Changed from navigate(-1)
+          onClick={() => router.back()}
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-          <tool.icon size={28} className="text-blue-500" /> {/* Ensure icon renders properly */}
+          <tool.icon size={28} className="text-blue-500" />
           {tool.title}
         </h1>
       </div>
@@ -756,8 +785,8 @@ const ImageEditor = ({ toolId }) => {
                   {isBatchMode
                     ? `Batch (${files.length})`
                     : isColorPicker
-                    ? "Color Palette"
-                    : "Editing"}
+                      ? "Color Palette"
+                      : "Editing"}
                 </h3>
                 <button
                   onClick={handleClearAll}
@@ -776,6 +805,8 @@ const ImageEditor = ({ toolId }) => {
                         <span className="text-sm font-medium text-blue-700">
                           Processing {batchProgress.current}/
                           {batchProgress.total}
+                          {batchProgress.eta > 0 &&
+                            ` (~${batchProgress.eta}s left)`}
                         </span>
                         <span className="text-xs text-blue-600 font-medium">
                           {Math.round(
@@ -956,7 +987,8 @@ const ImageEditor = ({ toolId }) => {
 
                     {tool.config.showVisualCrop && (
                       <div className="p-3 bg-blue-50 rounded-lg text-xs text-blue-700 border border-blue-100 flex gap-2">
-                        <CropIcon size={14} /> Draw a box on the preview to crop.
+                        <CropIcon size={14} /> Draw a box on the preview to
+                        crop.
                       </div>
                     )}
 
@@ -1011,6 +1043,24 @@ const ImageEditor = ({ toolId }) => {
                     )}
                     {tool.config.showResize && (
                       <div className="grid grid-cols-2 gap-4">
+                        {/* ✅ BUG FIX 9: Added Lock Aspect Ratio Checkbox */}
+                        <div className="col-span-2 mb-2 flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={maintainAspectRatio}
+                            onChange={(e) =>
+                              setMaintainAspectRatio(e.target.checked)
+                            }
+                            id="aspect-lock"
+                            className="accent-[#FF9933] cursor-pointer"
+                          />
+                          <label
+                            htmlFor="aspect-lock"
+                            className="text-xs text-slate-600 font-medium cursor-pointer"
+                          >
+                            Lock Aspect Ratio
+                          </label>
+                        </div>
                         <div>
                           <span className="text-xs text-slate-500 mb-1 block">
                             Width
@@ -1171,7 +1221,7 @@ const ImageEditor = ({ toolId }) => {
         </div>
 
         {/* RIGHT PANEL (Preview) */}
-        <div className="bg-slate-50 p-6 md:p-8 flex flex-col items-center justify-center border-t lg:border-t-0 text-center relative min-h-100">
+        <div className="bg-slate-50 p-6 md:p-8 flex flex-col items-center justify-center border-t lg:border-t-0 text-center relative min-h-100 overflow-hidden">
           {isProcessing && !isBatchMode && !isInstantTool && (
             <div className="absolute inset-0 bg-white/80 z-20 flex flex-col items-center justify-center backdrop-blur-sm">
               <Loader2 size={48} className="text-[#FF9933] animate-spin mb-4" />
@@ -1231,30 +1281,71 @@ const ImageEditor = ({ toolId }) => {
           ) : previewUrl ? (
             <div className="w-full h-full flex flex-col items-center justify-center animate-fade-in relative">
               {isCompressor && convertedUrl ? (
+                // ✅ BUG FIX: Used 'clip-path' to perfectly align Before and After images without distortion
                 <div
-                  className="relative w-full max-w-150 aspect-video bg-slate-200 rounded-lg overflow-hidden cursor-col-resize group"
+                  className="relative w-full max-w-150 rounded-lg overflow-hidden cursor-col-resize group select-none touch-none shadow-md"
+                  style={{ aspectRatio: imageAspectRatio }}
                   onMouseDown={handleSliderInteractionStart}
                   onTouchStart={handleSliderInteractionStart}
                   ref={sliderContainerRef}
                 >
+                  {/* Checkerboard background for transparent images */}
+                  <div
+                    className="absolute inset-0 bg-slate-200 pointer-events-none"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)",
+                      backgroundSize: "20px 20px",
+                      backgroundPosition: "0 0, 0 10px, 10px -10px, -10px 0px",
+                    }}
+                  ></div>
+
+                  {/* AFTER IMAGE (Base Layer - Stays 100% width) */}
                   <img
                     src={convertedUrl}
-                    className="absolute inset-0 w-full h-full object-contain"
+                    className="absolute inset-0 w-full h-full object-contain pointer-events-none"
                     alt="After"
+                    draggable="false"
                   />
+
+                  {/* AFTER LABEL (Right Side) */}
+                  <div className="absolute top-3 right-3 bg-slate-900/70 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded backdrop-blur-md pointer-events-none z-0">
+                    After (Compressed)
+                  </div>
+
+                  {/* BEFORE IMAGE (Clipped Layer using CSS clip-path) */}
                   <div
-                    className="absolute inset-0 h-full overflow-hidden border-r-2 border-white"
-                    style={{ width: `${compareSliderPos}%` }}
+                    className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                    style={{
+                      clipPath: `polygon(0 0, ${compareSliderPos}% 0, ${compareSliderPos}% 100%, 0 100%)`,
+                    }}
                   >
                     <img
                       src={previewUrl}
-                      className="absolute top-0 left-0 h-full w-screen max-w-150 object-contain"
+                      className="absolute inset-0 w-full h-full object-contain pointer-events-none"
                       alt="Before"
+                      draggable="false"
                     />
+
+                    {/* BEFORE LABEL (Left Side) */}
+                    <div className="absolute top-3 left-3 bg-slate-900/70 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded backdrop-blur-md pointer-events-none">
+                      Before (Original)
+                    </div>
                   </div>
+
+                  {/* SLIDER DIVIDER LINE */}
                   <div
-                    className="absolute top-1/2 -ml-4 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center text-[#FF9933]"
+                    className="absolute top-0 bottom-0 w-0.5 bg-white shadow-sm pointer-events-none z-20"
                     style={{ left: `${compareSliderPos}%` }}
+                  ></div>
+
+                  {/* SLIDER HANDLE BUTTON */}
+                  <div
+                    className="absolute top-1/2 -ml-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-[#FF9933] pointer-events-none z-20"
+                    style={{
+                      left: `${compareSliderPos}%`,
+                      transform: "translateY(-50%)",
+                    }}
                   >
                     <ArrowRightLeft size={16} />
                   </div>
