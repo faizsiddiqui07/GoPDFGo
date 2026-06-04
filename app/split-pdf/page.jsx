@@ -1,6 +1,8 @@
 import React from "react";
 import { TOOLS_CONFIG } from "../../utils/constants";
 import PdfEditor from "@/components/PdfEditor";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Split PDF Online Free – Extract Specific PDF Pages | GoPDFGo",
@@ -27,6 +29,8 @@ export default function SplitPDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="split-pdf" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="split-pdf" toolType="pdf" />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Compress PDF Online Free – Reduce PDF Size Without Quality Loss | GoPDFGo",
@@ -27,6 +29,8 @@ export default function CompressPDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="compress-pdf" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="compress-pdf" toolType="pdf" />
     </div>
   );
 }

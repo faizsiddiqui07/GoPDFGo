@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Rearrange PDF Pages Online (No Server Upload) | GoPDFGo",
@@ -27,6 +29,8 @@ export default function RearrangePDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="rearrange-pdf" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="rearrange-pdf" toolType="pdf" />
     </div>
   );
 }

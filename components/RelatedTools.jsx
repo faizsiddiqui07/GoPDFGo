@@ -11,7 +11,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
   if (relatedTools.length === 0) return null;
 
   return (
-    <div className="mt-0 mb-8 border-t border-slate-200 pt-10">
+    <div className="mt-0 mb-8 border-t border-slate-200 max-w-7xl mx-auto px-4 pt-10">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
           More {toolType === "pdf" ? "PDF" : "Image"} Tools

@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Add Page Numbers to PDF Online Free | GoPDFGo",
@@ -27,6 +29,8 @@ export default function PageNumbersPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="page-numbers" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="page-numbers" toolType="pdf" />
     </div>
   );
 }

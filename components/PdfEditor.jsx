@@ -1318,9 +1318,9 @@ const PdfEditor = ({ toolId }) => {
         </div>
       </div>
 
-      <InfoSection info={tool.info} />
+      {/* <InfoSection info={tool.info} />
 
-      <RelatedTools currentToolId={tool.id} toolType={tool.type} />
+      <RelatedTools currentToolId={tool.id} toolType={tool.type} /> */}
     </div>
   );
 };

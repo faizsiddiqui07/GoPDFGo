@@ -31,7 +31,7 @@ const InfoSection = ({ info }) => {
   if (!info) return null;
 
   return (
-    <article className="max-w-7xl mx-auto mt-8 sm:mt-12 md:mt-14  pb-8 sm:pb-12">
+    <article className="max-w-7xl mx-auto px-4 mt-8 sm:mt-12 md:mt-14  pb-8 sm:pb-12">
       {/* 🔹 INTRO (SEO OPTIMIZED) */}
       {info.intro && (
         <section className="max-w-4xl mx-auto">

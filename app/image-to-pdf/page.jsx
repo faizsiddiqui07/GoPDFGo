@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Image to PDF Converter – JPG PNG to PDF Online | GoPDFGo",
@@ -27,6 +29,8 @@ export default function ImageToPDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="image-to-pdf" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="image-to-pdf" toolType="pdf" />
     </div>
   );
 }

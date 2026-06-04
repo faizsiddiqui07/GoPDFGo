@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor"; // Apne path ke hisaab se adjust kar lena
 import { TOOLS_CONFIG } from "@/utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Extract Pages from PDF Online Free | Secure PDF Extractor | GoPDFGo",
@@ -27,6 +29,8 @@ export default function ExtractPDFPages() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="extract-pdf-pages" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="extract-pdf-pages" toolType="pdf" />
     </div>
   );
 }

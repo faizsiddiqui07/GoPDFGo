@@ -1,6 +1,8 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import InfoSection from "@/components/InfoSection";
+import RelatedTools from "@/components/RelatedTools";
 
 export const metadata = {
   title: "Merge PDF Online Free – Combine Multiple PDFs Into One | GoPDFGo",
@@ -27,6 +29,8 @@ export default function MergePDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="merge-pdf" />
+      <InfoSection info={tool.info} />
+      <RelatedTools currentToolId="merge-pdf" toolType="pdf" />
     </div>
   );
 }
