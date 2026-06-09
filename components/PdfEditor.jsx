@@ -273,6 +273,29 @@ const PdfEditor = ({ toolId }) => {
     }
   };
 
+  const loadPdfJs = async () => {
+    if (window.pdfjsLib) return true; // Agar pehle se load hai toh wapas jao
+    
+    return new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+      script.async = true;
+      
+      script.onload = () => {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        setPdfJsLoaded(true);
+        resolve(true);
+      };
+      script.onerror = () => {
+        setErrorMsg("Failed to load PDF engine. Check your internet connection.");
+        reject(false);
+      };
+      
+      document.body.appendChild(script);
+    });
+  };
+
   // --- File Handling ---
   const handleFileUpload = async (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -295,6 +318,11 @@ const PdfEditor = ({ toolId }) => {
     const allowMulti = ["merge-pdf", "image-to-pdf"].includes(tool.id);
 
     setIsUploading(true);
+
+    // ✅ CHATGPT KA FIX APPLIED YAHAN: Pehle PDF.js load karo (Sirf upload ke time)
+    if (validFiles.some((f) => f.type === "application/pdf")) {
+      await loadPdfJs(); 
+    }
 
     setTimeout(async () => {
       try {
@@ -740,17 +768,6 @@ const PdfEditor = ({ toolId }) => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
-      <Script
-        src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          if (window.pdfjsLib) {
-            window.pdfjsLib.GlobalWorkerOptions.workerSrc =
-              "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-            setPdfJsLoaded(true);
-          }
-        }}
-      />
       <div className="mb-6">
         <button
           onClick={() => router.back()}
