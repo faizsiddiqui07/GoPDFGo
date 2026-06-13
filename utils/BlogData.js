@@ -1828,7 +1828,7 @@ export const blogsData = [
     seoTitle: "Prepare Property Documents in One PDF for Home Loans | GoPDFGo",
     keywords: "home loan document preparation, merge property documents pdf, property verification documents, combine property papers into one pdf, home loan application documents, single pdf for home loan",
     excerpt: "Learn how to prepare property documents in one PDF for home loan verification. Discover the best order, common mistakes, and secure ways to merge and compress.",
-    date: "June 08, 2026",
+    date: "June 13, 2026",
     imageUrl: "/images/blogs/prepare-property-documents-one-pdf-home-loan.webp",
     content: `
       <p>Buying a new house is one of life’s biggest milestones, but securing the financing for it can often feel like navigating an endless maze of paperwork. Whether you are applying for a mortgage for the first time or working as a real estate consultant, you will quickly realize that banks and housing finance companies are incredibly strict about documentation.</p>
