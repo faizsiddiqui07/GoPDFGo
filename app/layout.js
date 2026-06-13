@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "GoPDFGo",
-              url: "https://gopdfgo.com/",
+              url: "https://gopdfgo.com",
             }),
           }}
         />

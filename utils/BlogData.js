@@ -1822,110 +1822,110 @@ export const blogsData = [
       <p>Professionalism shouldn't be locked behind a subscription paywall, and your data shouldn't be the price of a free app. Ditch the heavy, ad-ridden scanner apps, start using clean, local web tools, and send immaculate, watermark-free documents every single time.</p>
     `
   },
-  // {
-  //   id: "prepare-property-documents-one-pdf-home-loan",
-  //   title: "How to Prepare Property Documents in One PDF for Home Loan Verification",
-  //   seoTitle: "Prepare Property Documents in One PDF for Home Loans | GoPDFGo",
-  //   keywords: "home loan document preparation, merge property documents pdf, property verification documents, combine property papers into one pdf, home loan application documents, single pdf for home loan",
-  //   excerpt: "Learn how to prepare property documents in one PDF for home loan verification. Discover the best order, common mistakes, and secure ways to merge and compress.",
-  //   date: "June 08, 2026",
-  //   imageUrl: "/images/blogs/prepare-property-documents-one-pdf-home-loan.webp",
-  //   content: `
-  //     <p>Buying a new house is one of life’s biggest milestones, but securing the financing for it can often feel like navigating an endless maze of paperwork. Whether you are applying for a mortgage for the first time or working as a real estate consultant, you will quickly realize that banks and housing finance companies are incredibly strict about documentation.</p>
+  {
+    id: "prepare-property-documents-one-pdf-home-loan",
+    title: "How to Prepare Property Documents in One PDF for Home Loan Verification",
+    seoTitle: "Prepare Property Documents in One PDF for Home Loans | GoPDFGo",
+    keywords: "home loan document preparation, merge property documents pdf, property verification documents, combine property papers into one pdf, home loan application documents, single pdf for home loan",
+    excerpt: "Learn how to prepare property documents in one PDF for home loan verification. Discover the best order, common mistakes, and secure ways to merge and compress.",
+    date: "June 08, 2026",
+    imageUrl: "/images/blogs/prepare-property-documents-one-pdf-home-loan.webp",
+    content: `
+      <p>Buying a new house is one of life’s biggest milestones, but securing the financing for it can often feel like navigating an endless maze of paperwork. Whether you are applying for a mortgage for the first time or working as a real estate consultant, you will quickly realize that banks and housing finance companies are incredibly strict about documentation.</p>
 
-  //     <p>Bank officials must meticulously review property verification documents to ensure the asset is legally clear and that your financial standing is solid. However, the most common bottleneck in this process isn't a lack of funds or a bad credit score—it is how the home loan application documents are submitted. Sending an email with twenty scattered image files or uploading multiple disorganized PDFs creates chaos.</p>
+      <p>Bank officials must meticulously review property verification documents to ensure the asset is legally clear and that your financial standing is solid. However, the most common bottleneck in this process isn't a lack of funds or a bad credit score—it is how the home loan application documents are submitted. Sending an email with twenty scattered image files or uploading multiple disorganized PDFs creates chaos.</p>
 
-  //     <p>To ensure a smooth, fast, and hassle-free approval process, learning how to prepare property documents in one PDF for home loan verification is absolutely essential. In this guide, we will walk you through exactly why banks prefer unified files, what documents you need, and how to organize them perfectly.</p>
+      <p>To ensure a smooth, fast, and hassle-free approval process, learning how to prepare property documents in one PDF for home loan verification is absolutely essential. In this guide, we will walk you through exactly why banks prefer unified files, what documents you need, and how to organize them perfectly.</p>
 
-  //     <h2>Why Banks Prefer a Single Organized PDF</h2>
-  //     <p>When a loan officer opens your application, their goal is to review your profile as quickly and accurately as possible. Submitting a single, neatly structured PDF file offers several massive advantages:</p>
-  //     <ul>
-  //       <li><strong>Faster Verification:</strong> A single PDF reads like a digital book. The verification officer can simply scroll from your identity proofs straight down to your property’s sale deed without having to open and close multiple tabs or figure out which file belongs to which category.</li>
-  //       <li><strong>Fewer Missing Documents:</strong> When you send multiple separate attachments, it is incredibly easy for an email server to block one, or for an officer to accidentally miss downloading a crucial file. When you combine property papers into one PDF, nothing gets left behind.</li>
-  //       <li><strong>Better Applicant Presentation:</strong> Submitting a clean, structured file shows the bank that you are an organized, serious applicant. It eliminates friction and makes the officer's job easier, which naturally speeds up your home loan document preparation and approval timeline.</li>
-  //     </ul>
+      <h2>Why Banks Prefer a Single Organized PDF</h2>
+      <p>When a loan officer opens your application, their goal is to review your profile as quickly and accurately as possible. Submitting a single, neatly structured PDF file offers several massive advantages:</p>
+      <ul>
+        <li><strong>Faster Verification:</strong> A single PDF reads like a digital book. The verification officer can simply scroll from your identity proofs straight down to your property’s sale deed without having to open and close multiple tabs or figure out which file belongs to which category.</li>
+        <li><strong>Fewer Missing Documents:</strong> When you send multiple separate attachments, it is incredibly easy for an email server to block one, or for an officer to accidentally miss downloading a crucial file. When you combine property papers into one PDF, nothing gets left behind.</li>
+        <li><strong>Better Applicant Presentation:</strong> Submitting a clean, structured file shows the bank that you are an organized, serious applicant. It eliminates friction and makes the officer's job easier, which naturally speeds up your home loan document preparation and approval timeline.</li>
+      </ul>
 
-  //     <h2>Documents Commonly Required for Home Loan Verification</h2>
-  //     <p>Before you start compiling your file, you need to gather all the necessary paperwork. While specific requirements may vary slightly between different banks, a standard home loan application requires the following property verification documents:</p>
-  //     <ul>
-  //       <li><strong>Sale Deed / Agreement to Sell:</strong> The primary document establishing the transaction between you and the seller or builder.</li>
-  //       <li><strong>Chain of Title (Previous Registry Papers):</strong> If you are buying a resale property, banks require the history of ownership to prove the seller has the legal right to transfer the property.</li>
-  //       <li><strong>Property Tax Receipts:</strong> The latest receipts proving that all municipal taxes on the property have been cleared.</li>
-  //       <li><strong>Encumbrance Certificate (EC):</strong> A crucial document that proves the property is free from any legal or financial liabilities (like an uncleared previous mortgage).</li>
-  //       <li><strong>Identity Documents:</strong> Your PAN Card, Aadhaar Card, or Passport.</li>
-  //       <li><strong>Address Proof:</strong> Recent utility bills, voter ID, or a valid rental agreement.</li>
-  //       <li><strong>Financial Records:</strong> Your last 6 months of bank statements, salary slips, and recent IT Returns (Form 16).</li>
-  //     </ul>
+      <h2>Documents Commonly Required for Home Loan Verification</h2>
+      <p>Before you start compiling your file, you need to gather all the necessary paperwork. While specific requirements may vary slightly between different banks, a standard home loan application requires the following property verification documents:</p>
+      <ul>
+        <li><strong>Sale Deed / Agreement to Sell:</strong> The primary document establishing the transaction between you and the seller or builder.</li>
+        <li><strong>Chain of Title (Previous Registry Papers):</strong> If you are buying a resale property, banks require the history of ownership to prove the seller has the legal right to transfer the property.</li>
+        <li><strong>Property Tax Receipts:</strong> The latest receipts proving that all municipal taxes on the property have been cleared.</li>
+        <li><strong>Encumbrance Certificate (EC):</strong> A crucial document that proves the property is free from any legal or financial liabilities (like an uncleared previous mortgage).</li>
+        <li><strong>Identity Documents:</strong> Your PAN Card, Aadhaar Card, or Passport.</li>
+        <li><strong>Address Proof:</strong> Recent utility bills, voter ID, or a valid rental agreement.</li>
+        <li><strong>Financial Records:</strong> Your last 6 months of bank statements, salary slips, and recent IT Returns (Form 16).</li>
+      </ul>
 
-  //     <h2>How to Arrange Property Documents in the Correct Order</h2>
-  //     <p>Having all the documents is only half the battle; the sequence in which you present them is equally important. When you merge property documents PDF files, you should arrange them in a logical hierarchy.</p>
+      <h2>How to Arrange Property Documents in the Correct Order</h2>
+      <p>Having all the documents is only half the battle; the sequence in which you present them is equally important. When you merge property documents PDF files, you should arrange them in a logical hierarchy.</p>
       
-  //     <p><strong>Recommended Sequence:</strong></p>
-  //     <ol>
-  //       <li><strong>Index / Cover Letter:</strong> A simple typed page listing what is in the document.</li>
-  //       <li><strong>Applicant KYC:</strong> PAN, Aadhaar, and current address proofs.</li>
-  //       <li><strong>Income & Financials:</strong> Bank statements and tax returns.</li>
-  //       <li><strong>Primary Property Papers:</strong> The new Agreement to Sell or Allotment Letter.</li>
-  //       <li><strong>Supporting Property Papers:</strong> The Chain of Title, Encumbrance Certificate, and NOCs (No Objection Certificates).</li>
-  //       <li><strong>Tax Records:</strong> The latest property tax receipts.</li>
-  //     </ol>
+      <p><strong>Recommended Sequence:</strong></p>
+      <ol>
+        <li><strong>Index / Cover Letter:</strong> A simple typed page listing what is in the document.</li>
+        <li><strong>Applicant KYC:</strong> PAN, Aadhaar, and current address proofs.</li>
+        <li><strong>Income & Financials:</strong> Bank statements and tax returns.</li>
+        <li><strong>Primary Property Papers:</strong> The new Agreement to Sell or Allotment Letter.</li>
+        <li><strong>Supporting Property Papers:</strong> The Chain of Title, Encumbrance Certificate, and NOCs (No Objection Certificates).</li>
+        <li><strong>Tax Records:</strong> The latest property tax receipts.</li>
+      </ol>
 
-  //     <p><strong>Importance of Page Consistency:</strong> Make sure every page flows naturally. A bank officer should not have to tilt their head because a landscape property map was placed next to a portrait text document. Consistency in page size and direction reflects a highly professional application.</p>
+      <p><strong>Importance of Page Consistency:</strong> Make sure every page flows naturally. A bank officer should not have to tilt their head because a landscape property map was placed next to a portrait text document. Consistency in page size and direction reflects a highly professional application.</p>
 
-  //     <h2>Common Mistakes That Delay Home Loan Approval</h2>
-  //     <p>Even minor formatting errors can send your application to the back of the queue. Avoid these common pitfalls:</p>
-  //     <ul>
-  //       <li><strong>Missing Pages:</strong> Accidentally leaving out the back page of an Aadhaar card or an odd-numbered page of a bank statement breaks the continuity of your verification.</li>
-  //       <li><strong>Wrong Page Order:</strong> Placing your tax receipts before your identity proof confuses the automated ATS (Applicant Tracking Systems) that some banks use to pre-scan documents.</li>
-  //       <li><strong>Multiple Attachments:</strong> Uploading "Aadhaar.jpg," "Deed1.pdf," and "Deed2.pdf" into a bank portal that only accepts a single file will result in an instant rejection error.</li>
-  //       <li><strong>Poor Scan Quality:</strong> Scanning documents on a dark table with heavy shadows or capturing a large portion of your desk in the background looks unprofessional and wastes file space.</li>
-  //     </ul>
+      <h2>Common Mistakes That Delay Home Loan Approval</h2>
+      <p>Even minor formatting errors can send your application to the back of the queue. Avoid these common pitfalls:</p>
+      <ul>
+        <li><strong>Missing Pages:</strong> Accidentally leaving out the back page of an Aadhaar card or an odd-numbered page of a bank statement breaks the continuity of your verification.</li>
+        <li><strong>Wrong Page Order:</strong> Placing your tax receipts before your identity proof confuses the automated ATS (Applicant Tracking Systems) that some banks use to pre-scan documents.</li>
+        <li><strong>Multiple Attachments:</strong> Uploading "Aadhaar.jpg," "Deed1.pdf," and "Deed2.pdf" into a bank portal that only accepts a single file will result in an instant rejection error.</li>
+        <li><strong>Poor Scan Quality:</strong> Scanning documents on a dark table with heavy shadows or capturing a large portion of your desk in the background looks unprofessional and wastes file space.</li>
+      </ul>
 
-  //     <h2>Step-by-Step Guide to Create One Organized PDF</h2>
-  //     <p>Creating the perfect master file doesn't require expensive software. You can easily prepare your file using simple browser tools.</p>
+      <h2>Step-by-Step Guide to Create One Organized PDF</h2>
+      <p>Creating the perfect master file doesn't require expensive software. You can easily prepare your file using simple browser tools.</p>
       
-  //     <div class="tool-box">
-  //       <ul>
-  //         <li><strong>Step 1: Scan Your Documents.</strong> Lay your physical papers flat in a well-lit area. If you take photos with your smartphone, your files will likely be in JPEG or PNG format. You will first need to convert these photos using an <a href="/image-to-pdf">Image to PDF</a> converter to standardize them.</li>
-  //         <li><strong>Step 2: Clean Up the Scans.</strong> If your photos include messy backgrounds like your bedsheet or desk, use a <a href="/crop">Crop Image</a> tool to trim away the unwanted edges, leaving only the clean white paper visible.</li>
-  //         <li><strong>Step 3: Fix Orientation.</strong> Scanners and mobile phones frequently save pages sideways or upside down. Before combining anything, run your files through a <a href="/rotate-pdf">Rotate PDF</a> tool to permanently lock all pages into the correct upright viewing position.</li>
-  //         <li><strong>Step 4: Merge the Files.</strong> Once all your individual pages are clean and upright, it is time to combine them. Use a secure <a href="/merge-pdf">Merge PDF</a> utility to drag and drop your files into the exact sequence mentioned earlier, binding them into one continuous master document.</li>
-  //         <li><strong>Step 5: Reduce File Size.</strong> Bank upload portals are notoriously strict, often rejecting files larger than 5MB or 10MB. Because property deeds can be dozens of pages long, your merged file might be too heavy. Pass your final master file through a <a href="/compress-pdf">Compress PDF</a> tool to shrink the file weight down to portal-friendly sizes without making the text blurry.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <ul>
+          <li><strong>Step 1: Scan Your Documents.</strong> Lay your physical papers flat in a well-lit area. If you take photos with your smartphone, your files will likely be in JPEG or PNG format. You will first need to convert these photos using an <a href="/image-to-pdf">Image to PDF</a> converter to standardize them.</li>
+          <li><strong>Step 2: Clean Up the Scans.</strong> If your photos include messy backgrounds like your bedsheet or desk, use a <a href="/crop">Crop Image</a> tool to trim away the unwanted edges, leaving only the clean white paper visible.</li>
+          <li><strong>Step 3: Fix Orientation.</strong> Scanners and mobile phones frequently save pages sideways or upside down. Before combining anything, run your files through a <a href="/rotate-pdf">Rotate PDF</a> tool to permanently lock all pages into the correct upright viewing position.</li>
+          <li><strong>Step 4: Merge the Files.</strong> Once all your individual pages are clean and upright, it is time to combine them. Use a secure <a href="/merge-pdf">Merge PDF</a> utility to drag and drop your files into the exact sequence mentioned earlier, binding them into one continuous master document.</li>
+          <li><strong>Step 5: Reduce File Size.</strong> Bank upload portals are notoriously strict, often rejecting files larger than 5MB or 10MB. Because property deeds can be dozens of pages long, your merged file might be too heavy. Pass your final master file through a <a href="/compress-pdf">Compress PDF</a> tool to shrink the file weight down to portal-friendly sizes without making the text blurry.</li>
+        </ul>
+      </div>
 
-  //     <h2>Why Secure Offline PDF Processing Matters for Property Documents</h2>
-  //     <p>When dealing with home loan application documents, you are handling your most sensitive personal data. Your file contains your financial history, your signature, your national identity numbers, and high-value property records.</p>
+      <h2>Why Secure Offline PDF Processing Matters for Property Documents</h2>
+      <p>When dealing with home loan application documents, you are handling your most sensitive personal data. Your file contains your financial history, your signature, your national identity numbers, and high-value property records.</p>
       
-  //     <p>You must prioritize privacy. Avoid using random, ad-heavy websites that upload your sensitive documents to remote cloud servers for processing. Always opt for platforms that utilize secure, local, browser-based processing (like WebAssembly). This ensures that when you merge, crop, or compress your files, the data never actually leaves your computer's local memory, guaranteeing absolute protection against data leaks and identity theft.</p>
+      <p>You must prioritize privacy. Avoid using random, ad-heavy websites that upload your sensitive documents to remote cloud servers for processing. Always opt for platforms that utilize secure, local, browser-based processing (like WebAssembly). This ensures that when you merge, crop, or compress your files, the data never actually leaves your computer's local memory, guaranteeing absolute protection against data leaks and identity theft.</p>
 
-  //     <h2>Final Checklist Before Uploading Property Documents</h2>
-  //     <p>Before you hit the "Submit" button on your bank's portal, run through this quick checklist:</p>
-  //     <ul>
-  //       <li>Are all individual files combined into one single PDF?</li>
-  //       <li>Is the final file size within the bank's maximum limit (e.g., under 5MB)?</li>
-  //       <li>Are all pages upright and easy to read without rotating the screen?</li>
-  //       <li>Are the front and back of all ID cards included?</li>
-  //       <li>Is the text sharp and legible after compression?</li>
-  //     </ul>
+      <h2>Final Checklist Before Uploading Property Documents</h2>
+      <p>Before you hit the "Submit" button on your bank's portal, run through this quick checklist:</p>
+      <ul>
+        <li>Are all individual files combined into one single PDF?</li>
+        <li>Is the final file size within the bank's maximum limit (e.g., under 5MB)?</li>
+        <li>Are all pages upright and easy to read without rotating the screen?</li>
+        <li>Are the front and back of all ID cards included?</li>
+        <li>Is the text sharp and legible after compression?</li>
+      </ul>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
-  //     <p><strong>Q: Is it safe to upload my property and ID documents to merge them online?</strong><br>
-  //     A: If you use a standard cloud-based tool, there is always a data risk. However, using secure, browser-based tools like GoPDFGo ensures your highly sensitive files (like Aadhaar cards and sale deeds) never leave your device. All merging and compressing happen securely within your own computer's memory.</p>
+      <h2>Frequently Asked Questions (FAQ)</h2>
+      <p><strong>Q: Is it safe to upload my property and ID documents to merge them online?</strong><br>
+      A: If you use a standard cloud-based tool, there is always a data risk. However, using secure, browser-based tools like GoPDFGo ensures your highly sensitive files (like Aadhaar cards and sale deeds) never leave your device. All merging and compressing happen securely within your own computer's memory.</p>
 
-  //     <p><strong>Q: What is the maximum file size banks usually accept for document uploads?</strong><br>
-  //     A: Most banking portals restrict file uploads to 5MB or 10MB. If your merged property document exceeds this limit, you can easily use a <a href="/compress-pdf">Compress PDF</a> tool to reduce the file size dramatically without losing text clarity.</p>
+      <p><strong>Q: What is the maximum file size banks usually accept for document uploads?</strong><br>
+      A: Most banking portals restrict file uploads to 5MB or 10MB. If your merged property document exceeds this limit, you can easily use a <a href="/compress-pdf">Compress PDF</a> tool to reduce the file size dramatically without losing text clarity.</p>
 
-  //     <p><strong>Q: Can I merge my bank statements if they are password-protected?</strong><br>
-  //     A: No, standard PDF combiners cannot merge encrypted files. You will first need to remove the password protection from your downloaded bank statements before you can combine them with your other property papers.</p>
+      <p><strong>Q: Can I merge my bank statements if they are password-protected?</strong><br>
+      A: No, standard PDF combiners cannot merge encrypted files. You will first need to remove the password protection from your downloaded bank statements before you can combine them with your other property papers.</p>
 
-  //     <p><strong>Q: Should I scan my property documents in color or black and white?</strong><br>
-  //     A: Black and white or grayscale is highly recommended. It keeps the overall file size drastically lower and often makes text appear sharper. Only use color if the document has a specific colored seal or thumbprint that the bank explicitly needs to verify.</p>
+      <p><strong>Q: Should I scan my property documents in color or black and white?</strong><br>
+      A: Black and white or grayscale is highly recommended. It keeps the overall file size drastically lower and often makes text appear sharper. Only use color if the document has a specific colored seal or thumbprint that the bank explicitly needs to verify.</p>
 
-  //     <h3>Conclusion</h3>
-  //     <p>Navigating a mortgage application doesn't have to be a stressful administrative nightmare. By taking the time to properly scan, clean, sequence, and combine property papers into one PDF, you actively remove the hurdles that slow down bank approvals. A single, well-organized, and perfectly compressed document not only meets strict banking requirements but also ensures your home loan verification process is smooth, secure, and successful.</p>
-  //   `
-  // },done
+      <h3>Conclusion</h3>
+      <p>Navigating a mortgage application doesn't have to be a stressful administrative nightmare. By taking the time to properly scan, clean, sequence, and combine property papers into one PDF, you actively remove the hurdles that slow down bank approvals. A single, well-organized, and perfectly compressed document not only meets strict banking requirements but also ensures your home loan verification process is smooth, secure, and successful.</p>
+    `
+  },
   // {
   //   id: "why-government-websites-reject-perfectly-fine-pdfs",
   //   title: "Why Government Websites Reject Perfectly Fine PDFs (And How to Fix It)",
