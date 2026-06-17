@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor"; // Apne path ke hisaab se ad
 import { TOOLS_CONFIG } from "@/utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Extract Pages from PDF Online Free | Secure PDF Extractor | GoPDFGo",
@@ -31,6 +32,7 @@ export default function ExtractPDFPages() {
       <PdfEditor toolId="extract-pdf-pages" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="extract-pdf-pages" toolType="pdf" />
+      <RelatedBlogs toolId="extract-pdf-pages" />
     </div>
   );
 }

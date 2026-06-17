@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor"; // Dhyan rakhein PDF tool ha
 import { TOOLS_CONFIG } from "../../utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Rotate PDF Pages Permanently Online Free | GoPDFGo",
@@ -31,6 +32,7 @@ export default function RotatePDFPage() {
       <PdfEditor toolId="rotate-pdf" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="rotate-pdf" toolType="pdf" />
+      <RelatedBlogs toolId="rotate-pdf" />
     </div>
   );
 }

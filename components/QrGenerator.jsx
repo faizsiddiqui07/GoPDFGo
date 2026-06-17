@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Changed from react-router-dom
-import { ArrowLeft, QrCode, Download, Loader2, Wifi, Type } from "lucide-react";
+import { ArrowLeft, QrCode, Download, Loader2, Wifi, Type, AlertCircle } from "lucide-react";
 import InfoSection from "./InfoSection";
 import { TOOLS_CONFIG } from "@/utils/constants";
  
@@ -22,59 +22,95 @@ const QrGenerator = ({ toolId }) => {
 
   const [qrUrl, setQrUrl] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [qrLibReady, setQrLibReady] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
-    if (!window.QRCode) {
-      const script = document.createElement("script");
+    if (window.QRCode) {
+      setQrLibReady(true);
+      return;
+    }
+    const existing = document.querySelector("script[data-qrcode]");
+    const script = existing || document.createElement("script");
+    const onLoad = () => setQrLibReady(true);
+    const onError = () =>
+      setErrorMsg(
+        "QR engine could not load. Check your internet connection (or disable an ad-blocker) and refresh the page.",
+      );
+    script.addEventListener("load", onLoad);
+    script.addEventListener("error", onError);
+    if (!existing) {
       script.src =
         "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
       script.async = true;
+      script.setAttribute("data-qrcode", "true");
       document.body.appendChild(script);
     }
+    return () => {
+      script.removeEventListener("load", onLoad);
+      script.removeEventListener("error", onError);
+    };
   }, []);
 
   const generateQR = () => {
-    let finalString = "";
+    setErrorMsg(null);
 
+    if (!window.QRCode || !qrLibReady) {
+      setErrorMsg(
+        "QR engine is still loading — please wait a moment and try again.",
+      );
+      return;
+    }
+
+    let finalString = "";
     if (mode === "text") {
       if (!text) return;
       finalString = text;
     } else if (mode === "wifi") {
       if (!wifiSsid) return;
-      finalString = `WIFI:S:${wifiSsid};T:${wifiEncryption};P:${wifiPassword};H:${wifiHidden};;`;
+      // WIFI URI spec: backslash-escape  \  ;  ,  :  "
+      const esc = (s) => String(s).replace(/([\\;,:"])/g, "\\$1");
+      finalString = `WIFI:S:${esc(wifiSsid)};T:${wifiEncryption};P:${esc(
+        wifiPassword,
+      )};H:${wifiHidden};;`;
+    }
+
+    const container = document.getElementById("qr-code-container");
+    if (!container) {
+      setErrorMsg("Something went wrong rendering the QR. Please refresh.");
+      return;
     }
 
     setLoading(true);
-    setTimeout(() => {
-      const container = document.getElementById("qr-code-container");
-      container.innerHTML = "";
+    container.innerHTML = "";
 
-      try {
-        new window.QRCode(container, {
-          text: finalString,
-          width: 256,
-          height: 256,
-          colorDark: "#000000",
-          colorLight: "#ffffff",
-          correctLevel: window.QRCode.CorrectLevel.H,
-        });
+    try {
+      new window.QRCode(container, {
+        text: finalString,
+        width: 256,
+        height: 256,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: window.QRCode.CorrectLevel.H,
+      });
 
-        setTimeout(() => {
-          const canvas = container.querySelector("canvas");
-          if (canvas) {
-            setQrUrl(canvas.toDataURL("image/png"));
-          }
-          setLoading(false);
-        }, 100);
-      } catch (e) {
-        console.error(e);
+      setTimeout(() => {
+        const canvas = container.querySelector("canvas");
+        const img = container.querySelector("img");
+        if (canvas) setQrUrl(canvas.toDataURL("image/png"));
+        else if (img) setQrUrl(img.src);
+        else setErrorMsg("Could not generate the QR image. Please try again.");
         setLoading(false);
-      }
-    }, 500);
+      }, 120);
+    } catch (e) {
+      console.error(e);
+      setErrorMsg("Could not generate the QR code. Try a shorter/simpler input.");
+      setLoading(false);
+    }
   };
 
   const isGenerateDisabled =
-    mode === "text" ? !text || loading : !wifiSsid || loading;
+    !qrLibReady || loading || (mode === "text" ? !text : !wifiSsid);
 
   return (
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
@@ -185,6 +221,12 @@ const QrGenerator = ({ toolId }) => {
                   </label>
                 </div>
               </div>
+            </div>
+          )}
+
+          {errorMsg && (
+            <div className="mb-4 bg-red-50 text-red-600 p-3 rounded-lg flex items-center gap-2 text-sm border border-red-100">
+              <AlertCircle size={16} className="shrink-0" /> {errorMsg}
             </div>
           )}
 

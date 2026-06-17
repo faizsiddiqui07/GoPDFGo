@@ -13,7 +13,11 @@ import {
   Palette,
   ShieldAlert,
   GripVertical,
-  FileOutput
+  FileOutput,
+  FileImage,
+  Stamp,
+  FileMinus,
+  Unlock
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -53,7 +57,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
       features: [
         {
           title: "Smart Hybrid Compression",
-          desc: "We don't just lower quality blindly. Our engine balances image compression with vector preservation. This ensures that while images are optimized to save space, your text remains selectable, searchable, and crystal clear at any zoom level."
+          desc: "We don't just lower quality blindly. Our engine first tries a lossless re-save that keeps your text fully selectable and searchable. Only when a document is image-heavy (like scans) do we optimize the page images for maximum size reduction — and we never hand you a file bigger than the one you uploaded."
         },
         {
           title: "100% Privacy-First Architecture",
@@ -85,7 +89,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
       faq: [
         {
           q: "Will the quality of my PDF decrease visibly?",
-          a: "For most documents, the difference is invisible to the human eye. We remove non-visual data (metadata) first. If your PDF contains heavy images, we optimize them for screens. Crucially, text elements retain their full vector integrity, ensuring razor-sharp clarity at any zoom level—ideal for high-stakes business documents."
+          a: "For most documents, the difference is invisible to the human eye. We first attempt a lossless optimization that preserves selectable text. For image-heavy or scanned PDFs, pages may be optimized as images to maximize savings, which keeps them razor-sharp on screen. Either way, we always keep the smaller result and never increase your file size."
         },
         {
           q: "Is it safe to upload private documents like Bank Statements?",
@@ -408,7 +412,7 @@ Stop struggling with sideways documents. Make your PDFs professional and readabl
           desc: "Have a document where some pages are Portrait (vertical) and some are Landscape (horizontal)? It looks messy. Use our tool to **standardize the layout**, ensuring all pages face the right way for a professional presentation."
         },
         {
-          title: "Secure Local Processing",
+          title: "Private On-Device Rotation",
           desc: "Security is our core promise. Whether you are correcting a scanned bank statement or a confidential agreement, **no file transfer** takes place. The rotation is calculated by your own CPU, ensuring your data remains 100% private."
         }
       ],
@@ -498,7 +502,7 @@ Turn your chaotic pile of digital pages into a structured, professional document
           desc: "Worried about the number covering your text? Our engine identifies the **safe whitespace** at the bottom of the page. It inserts the number cleanly in the margin, ensuring that your original content, signatures, and footnotes remain 100% visible and untouched."
         },
         {
-          title: "Secure Local Processing",
+          title: "Confidential, Local Numbering",
           desc: "Adding page numbers to a confidential Non-Disclosure Agreement (NDA) or a financial audit report? Do it safely. With GoPDFGo, **no file upload** takes place. The data processing happens locally on your CPU, guaranteeing that your secrets stay with you."
         }
       ],
@@ -723,6 +727,263 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
         {
           q: "What happens to my original file after I rearrange it?",
           a: "Your original file remains **completely untouched** on your local hard drive or phone storage. The tool simply reads it and generates a brand new, rearranged copy for you to download."
+        }
+      ]
+    }
+  },
+
+  {
+    id: "pdf-to-image",
+    type: "pdf",
+    title: "PDF to JPG",
+    desc: "Convert each PDF page into a high-quality JPG or PNG image.",
+    icon: FileImage,
+    color: "blue",
+    config: { mode: "pdf-to-image", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Convert PDF to Images?",
+        useCases: "When You Need PDF Pages as Images",
+        steps: "How to Turn a PDF into Images",
+        faq: "PDF to Image FAQs"
+      },
+      intro: `Sometimes you don't need a whole PDF — you just need a picture of a page. Maybe a portal only accepts JPG uploads, you want to share a single page on WhatsApp, or you need to drop a page into a presentation. GoPDFGo's **PDF to JPG/PNG** tool turns every page of your PDF into a crisp, high-resolution image, right inside your browser.
+
+Like all our tools, this runs **100% on your device** using WebAssembly — your document is never uploaded to a server. Choose JPG for small, share-friendly files or PNG for lossless, transparent-friendly quality. If your PDF has multiple pages, we neatly bundle all the images into a single ZIP for you.`,
+      features: [
+        {
+          title: "High-Resolution Output",
+          desc: "We render each page at a high DPI so text stays sharp and images stay clear — perfect for printing, presentations, or zooming in. No blurry, pixelated screenshots."
+        },
+        {
+          title: "JPG or PNG, Your Choice",
+          desc: "Pick **JPG** for the smallest file size (great for uploads and chat), or **PNG** when you need maximum quality and crisp edges. One click switches the entire batch."
+        },
+        {
+          title: "100% Private Conversion",
+          desc: "Your PDF never leaves your browser. Everything is rendered locally on your own device, so even sensitive documents like statements or contracts stay completely private."
+        }
+      ],
+      useCases: [
+        "**Image-Only Upload Forms:** Many government and job portals only accept JPG/PNG. Convert your PDF page into an image that fits their exact requirements.",
+        "**Sharing on WhatsApp & Social:** Images preview instantly in chats while PDFs need to be downloaded first. Send a page as a JPG for quick viewing.",
+        "**Presentations & Documents:** Drop a PDF page straight into PowerPoint, Google Slides, or a Word file as a clean image.",
+        "**Thumbnails & Previews:** Create a quick visual preview of a document's cover or a specific page for a website or catalog."
+      ],
+      steps: [
+        "**Upload PDF:** Drag and drop your PDF or tap to select it. It loads instantly because nothing is uploaded.",
+        "**Pick a Format:** Choose JPG (smaller) or PNG (higher quality) for your images.",
+        "**Convert:** Click convert — every page is rendered to an image in your browser.",
+        "**Download:** Get a single image, or a ZIP of all pages if your PDF has more than one page."
+      ],
+      faq: [
+        {
+          q: "Will the image quality be good enough to print?",
+          a: "Yes. We render pages at a high resolution so the output is sharp enough for screens and most printing needs. Choose PNG for the highest fidelity."
+        },
+        {
+          q: "What happens if my PDF has many pages?",
+          a: "Each page becomes its own image. If there's more than one page, we automatically package all the images into a single ZIP file for easy download."
+        },
+        {
+          q: "Is JPG or PNG better?",
+          a: "JPG gives much smaller files and is ideal for uploads and sharing. PNG is lossless and supports transparency, making it better for graphics and maximum quality."
+        },
+        {
+          q: "Is it safe for confidential PDFs?",
+          a: "Completely. The conversion happens entirely inside your browser using your device's own processor. Your file is never sent to or stored on any server."
+        }
+      ]
+    }
+  },
+  {
+    id: "watermark-pdf",
+    type: "pdf",
+    title: "Watermark PDF",
+    desc: "Stamp text like CONFIDENTIAL or your name across every PDF page.",
+    icon: Stamp,
+    color: "blue",
+    config: { mode: "watermark", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Watermark Your PDFs?",
+        useCases: "Best Times to Add a Watermark",
+        steps: "How to Watermark a PDF",
+        faq: "Watermark Tool FAQs"
+      },
+      intro: `A watermark protects your work and your privacy. Whether you're a freelancer marking a proposal as **DRAFT**, a student writing "Submitted to XYZ only" across an ID copy, or a business stamping **CONFIDENTIAL** on a contract, a clear diagonal watermark tells everyone how a document should be used.
+
+GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — diagonally and semi-transparent so it's visible without hiding the content. It runs entirely in your browser, so your sensitive documents never touch a server. Add your watermark and download in seconds, with no signup and no watermark from us.`,
+      features: [
+        {
+          title: "Custom Text Stamp",
+          desc: "Type anything — CONFIDENTIAL, DRAFT, your name, a website, or 'For KYC use only'. The text is applied across every page in one go."
+        },
+        {
+          title: "Adjustable Opacity",
+          desc: "Control how strong the watermark looks. Keep it light so the document stays readable, or make it bold to clearly mark ownership and intent."
+        },
+        {
+          title: "Secure & Local",
+          desc: "Stamping a confidential agreement or an ID copy? It's safe. The watermark is applied on your own device — your file is never uploaded anywhere."
+        }
+      ],
+      useCases: [
+        "**Protecting ID Copies:** Write 'Submitted to [Company] only' across a copy of your Aadhaar, PAN, or license so it can't be misused elsewhere.",
+        "**Marking Drafts:** Freelancers and teams can stamp DRAFT or SAMPLE on proposals and designs before they're finalized.",
+        "**Confidential Documents:** Clearly mark contracts, reports, and financial statements as CONFIDENTIAL before sharing.",
+        "**Branding:** Add your name or website across a portfolio or quotation to reinforce ownership."
+      ],
+      steps: [
+        "**Upload PDF:** Drop your document in — it loads instantly and privately.",
+        "**Enter Watermark Text:** Type the text you want stamped on every page.",
+        "**Adjust Opacity:** Slide to make the watermark lighter or darker to taste.",
+        "**Apply & Download:** Click to stamp every page and download your watermarked PDF."
+      ],
+      faq: [
+        {
+          q: "Will the watermark cover my text?",
+          a: "No. The watermark is placed diagonally and semi-transparent, so your original content stays fully readable underneath it. You can also lower the opacity."
+        },
+        {
+          q: "Is the watermark added to every page?",
+          a: "Yes. Your chosen text is stamped consistently across all pages of the document in a single click."
+        },
+        {
+          q: "Can the watermark be removed later?",
+          a: "The watermark is baked into the page content, so it is permanent. Keep a copy of your original file if you'll need an un-watermarked version."
+        },
+        {
+          q: "Is it safe for confidential files?",
+          a: "Yes. Watermarking happens entirely in your browser. Your file is never uploaded, so even sensitive documents stay private."
+        }
+      ]
+    }
+  },
+  {
+    id: "delete-pdf-pages",
+    type: "pdf",
+    title: "Delete PDF Pages",
+    desc: "Remove unwanted, blank, or extra pages from a PDF in seconds.",
+    icon: FileMinus,
+    color: "blue",
+    config: { mode: "delete-pages", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Use a Page Remover?",
+        useCases: "When to Delete PDF Pages",
+        steps: "How to Remove Pages from a PDF",
+        faq: "Page Deletion FAQs"
+      },
+      intro: `Scanned a document and ended up with a blank page at the end? Downloaded a form with instruction pages you don't need? GoPDFGo's **Delete PDF Pages** tool lets you remove any pages from a PDF visually — just tap the pages you want gone and download a clean, trimmed document.
+
+It's the fastest way to tidy up a PDF before uploading or printing. Everything happens **inside your browser** with zero quality loss on the pages you keep, and your file is never sent to a server.`,
+      features: [
+        {
+          title: "Visual Page Selection",
+          desc: "See a thumbnail of every page and simply tap the ones you want to remove. No guessing page numbers — what you see is what you delete."
+        },
+        {
+          title: "Lossless on Kept Pages",
+          desc: "We don't re-compress anything. The pages you keep are copied exactly as they were, so text stays sharp and selectable and images keep full quality."
+        },
+        {
+          title: "Private & Instant",
+          desc: "Removing pages from a bank statement or contract? It's processed locally on your device, so your document never leaves your hands."
+        }
+      ],
+      useCases: [
+        "**Removing Blank Pages:** Scanners often add empty pages. Delete them before sharing so your document looks professional.",
+        "**Trimming Instruction Pages:** Forms and tickets often include pages of terms you don't need to print or upload — remove them in one go.",
+        "**Cleaning Up Before Upload:** Portals with strict page or size limits? Drop the pages that aren't required.",
+        "**Sharing Only What Matters:** Keep just the relevant pages of a long report before sending it to a client or colleague."
+      ],
+      steps: [
+        "**Upload PDF:** Drag in your document and wait a moment for the page thumbnails to appear.",
+        "**Select Pages to Delete:** Tap every page you want to remove — selected pages are clearly marked.",
+        "**Delete:** Click the button to rebuild your PDF with only the pages you kept.",
+        "**Download:** Save your clean, trimmed PDF instantly."
+      ],
+      faq: [
+        {
+          q: "Does deleting pages lower the quality of the rest?",
+          a: "No. The process is lossless. We simply copy the pages you keep into a new file exactly as they were, so nothing is re-compressed."
+        },
+        {
+          q: "Can I remove multiple pages at once?",
+          a: "Yes. Select as many pages as you like across the whole document, then delete them all in a single click."
+        },
+        {
+          q: "Will my original file change?",
+          a: "Never. Your original stays untouched on your device. We create a brand-new trimmed copy for you to download."
+        },
+        {
+          q: "Is it safe for private documents?",
+          a: "Yes. Pages are removed entirely within your browser. Your file is never uploaded to any server."
+        }
+      ]
+    }
+  },
+  {
+    id: "unlock-pdf",
+    type: "pdf",
+    title: "Unlock PDF",
+    desc: "Remove the password from a PDF you can already open, for easy uploads.",
+    icon: Unlock,
+    color: "blue",
+    config: { mode: "unlock", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Unlock a PDF?",
+        useCases: "When to Remove a PDF Password",
+        steps: "How to Unlock a PDF",
+        faq: "Unlock PDF FAQs"
+      },
+      intro: `Bank and card statements in India usually arrive password-protected (often your PAN + date of birth), and many portals won't accept a locked PDF for KYC or loan uploads. GoPDFGo's **Unlock PDF** tool removes that password — for a file you already have the password to — so you get a clean, openable PDF you can upload anywhere.
+
+This is **not a password cracker**: you simply enter the password you already know, and we produce an unlocked copy. As always, everything runs in your browser — your statement is never uploaded to a server, which matters a lot for financial documents.`,
+      features: [
+        {
+          title: "Password Removed for Good",
+          desc: "Enter the password once and download a PDF that opens freely — no more typing your PAN and date of birth every time you want to view or upload it."
+        },
+        {
+          title: "Built for Bank & Card Statements",
+          desc: "Designed for the exact Indian use case: unlocking statements so they can be uploaded to KYC, loan, and verification portals that reject password-protected files."
+        },
+        {
+          title: "Stays on Your Device",
+          desc: "Your financial documents are the last thing you'd want on someone's server. Unlocking happens entirely in your browser, so the file never leaves your computer or phone."
+        }
+      ],
+      useCases: [
+        "**KYC & Loan Uploads:** Most verification portals reject locked PDFs. Unlock your statement so it uploads without errors.",
+        "**Easy Everyday Viewing:** Stop re-entering the password each time you open a statement — keep one unlocked copy for yourself.",
+        "**Sharing with Your CA:** Send statements to your accountant or advisor without also sharing the password separately.",
+        "**Printing & Archiving:** Some printers and document managers can't handle protected PDFs — unlock first for a smooth workflow."
+      ],
+      steps: [
+        "**Upload the PDF:** Select your password-protected document. It stays on your device.",
+        "**Enter the Password:** Type the password you use to open the file (e.g. your PAN + DOB for bank statements).",
+        "**Unlock:** Click to remove the protection and rebuild an openable PDF.",
+        "**Download:** Save your unlocked PDF, ready to view, print, or upload anywhere."
+      ],
+      faq: [
+        {
+          q: "Can this crack a password I don't know?",
+          a: "No. This tool only removes protection from PDFs you can already open — you must enter the correct password. It is not a password recovery or cracking tool."
+        },
+        {
+          q: "Is it safe to unlock my bank statement here?",
+          a: "Yes — in fact it's safer than most alternatives. Your statement and password never leave your browser; the unlocking is done entirely on your own device."
+        },
+        {
+          q: "Why does the unlocked file open as images?",
+          a: "To reliably strip the encryption in the browser, pages are rebuilt as high-quality images. The result opens and uploads anywhere; if you need selectable text, keep your original."
+        },
+        {
+          q: "What if I enter the wrong password?",
+          a: "We'll tell you the password was incorrect so you can try again. Nothing is processed until the correct password unlocks the file."
         }
       ]
     }

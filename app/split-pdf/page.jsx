@@ -3,6 +3,7 @@ import { TOOLS_CONFIG } from "../../utils/constants";
 import PdfEditor from "@/components/PdfEditor";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Split PDF Online Free – Extract Specific PDF Pages | GoPDFGo",
@@ -31,6 +32,7 @@ export default function SplitPDFPage() {
       <PdfEditor toolId="split-pdf" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="split-pdf" toolType="pdf" />
+      <RelatedBlogs toolId="split-pdf" />
     </div>
   );
 }

@@ -82,6 +82,36 @@ export default function BlogDetailPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-8 px-4 sm:py-10 sm:px-6 lg:px-8">
+
+      {blog && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: blog.title,
+              description: blog.excerpt,
+              image: blog.imageUrl?.startsWith("http")
+                ? blog.imageUrl
+                : `https://gopdfgo.com${blog.imageUrl}`,
+              datePublished: blog.publishedAt || blog.date,
+              dateModified: blog.publishedAt || blog.date,
+              author: { "@type": "Organization", name: "GoPDFGo" },
+              publisher: {
+                "@type": "Organization",
+                name: "GoPDFGo",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://gopdfgo.com/images/logo.webp",
+                },
+              },
+              mainEntityOfPage: `https://gopdfgo.com/blog/${blog.id}`,
+            }),
+          }}
+        />
+      )}
+      
       <div className="max-w-5xl mx-auto">
         <Link
           href="/blogs"

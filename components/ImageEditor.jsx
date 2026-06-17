@@ -22,6 +22,7 @@ import {
   ZoomIn,
   Copy,
   ShieldAlert,
+  AlertCircle,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
 import { formatBytes } from "../utils/helpers";
@@ -55,6 +56,7 @@ const ImageEditor = ({ toolId }) => {
     startX: 0,
     startY: 0,
   });
+  const [cropAspect, setCropAspect] = useState(null); // null = Free, else ratio (w/h)
   const [rotation, setRotation] = useState(0);
   const [flipH, setFlipH] = useState(false);
   const [flipV, setFlipV] = useState(false);
@@ -74,7 +76,7 @@ const ImageEditor = ({ toolId }) => {
 
   // Compression/Format States
   const [format, setFormat] = useState(tool.config.defaultFormat || "original");
-  const [quality, setQuality] = useState(0.8);
+  const [quality, setQuality] = useState(tool.config.defaultQuality || 0.8);
   const [compareSliderPos, setCompareSliderPos] = useState(50);
   const [isDraggingSlider, setIsDraggingSlider] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -87,6 +89,11 @@ const ImageEditor = ({ toolId }) => {
   });
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
+  const [imgError, setImgError] = useState(null);
+
+  // ✅ NEW: Target file-size compression (e.g. "under 100 KB" for govt forms)
+  const [sizeMode, setSizeMode] = useState("quality"); // "quality" | "target"
+  const [targetKB, setTargetKB] = useState(100);
 
   // --- REFS ---
   const originalImageRef = useRef(null);
@@ -176,6 +183,7 @@ const ImageEditor = ({ toolId }) => {
   const requestProcessImage = useCallback(() => {
     if (!files[0] || !originalImageRef.current || isBatchMode) return;
     if (tool.id === "color-picker") return;
+    if (isCompressor && sizeMode === "target") return; // target mode is manual (button)
 
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
 
@@ -197,6 +205,7 @@ const ImageEditor = ({ toolId }) => {
     quality,
     crop,
     tool.id,
+    sizeMode,
   ]);
 
   useEffect(() => {
@@ -323,11 +332,12 @@ const ImageEditor = ({ toolId }) => {
   const processSingleImage = async (qualityOverride = null) => {
     if (!files[0] || !originalImageRef.current) return;
 
+    setImgError(null);
     if (!isInstantTool) setIsProcessing(true);
 
     try {
       const file = files[0];
-      const bitmap = await createImageBitmap(file);
+      const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
       const activeQuality =
         qualityOverride !== null ? qualityOverride : quality;
 
@@ -392,10 +402,134 @@ const ImageEditor = ({ toolId }) => {
       setCompressionStats({ original, compressed, percent, isReverted });
     } catch (err) {
       console.error(err);
+      setImgError(
+        "Could not process this image. The format may be unsupported or the file may be corrupted.",
+      );
     } finally {
       setIsProcessing(false);
     }
   };
+
+  // ✅ NEW: Compress to a target file size (binary-search the best quality)
+  // ✅ NEW: Reusable — binary-search the best quality to hit a target byte size.
+  // Returns { blob, quality, targetHit }. Works for any File (single + batch).
+  const compressBlobToTarget = async (file, targetBytes) => {
+    // Decode the source ONCE, then only re-encode per iteration (no repeated decodes)
+    const bitmap = await createImageBitmap(file, {
+      imageOrientation: "from-image",
+    });
+    const reqFmt = format === "original" ? file.type : format;
+    const useFmt = ["image/jpeg", "image/png", "image/webp"].includes(reqFmt)
+      ? reqFmt
+      : "image/jpeg";
+
+    let canvas;
+    if (typeof OffscreenCanvas !== "undefined") {
+      canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+    } else {
+      canvas = document.createElement("canvas");
+      canvas.width = bitmap.width;
+      canvas.height = bitmap.height;
+    }
+    const ctx = canvas.getContext("2d");
+    if (useFmt === "image/jpeg") {
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(bitmap, 0, 0);
+    if (bitmap.close) bitmap.close();
+
+    const makeBlob = (q) =>
+      canvas.convertToBlob
+        ? canvas.convertToBlob({ type: useFmt, quality: q })
+        : new Promise((res) => canvas.toBlob((b) => res(b), useFmt, q));
+
+    let low = 0.05;
+    let high = 1.0;
+    let bestBlob = null;
+    let bestQ = 0.05;
+
+    // ~8 iterations lands within a few % of the target
+    for (let i = 0; i < 8; i++) {
+      const mid = (low + high) / 2;
+      const blob = await makeBlob(mid);
+      if (blob.size <= targetBytes) {
+        bestBlob = blob;
+        bestQ = mid;
+        low = mid; // size ok, push quality higher
+      } else {
+        high = mid; // too big, lower quality
+      }
+    }
+
+    let targetHit = true;
+    if (!bestBlob) {
+      bestBlob = await makeBlob(0.05);
+      bestQ = 0.05;
+      targetHit = bestBlob.size <= targetBytes;
+    }
+    return { blob: bestBlob, quality: bestQ, targetHit };
+  };
+
+  // Single-image "compress to target size"
+  const processToTargetSize = async () => {
+    if (!files[0] || !originalImageRef.current) return;
+    const targetBytes = Math.max(1, Number(targetKB) || 1) * 1024;
+    setIsProcessing(true);
+
+    try {
+      const file = files[0];
+      const { blob: bestBlob, quality: bestQ, targetHit } =
+        await compressBlobToTarget(file, targetBytes);
+
+      const newUrl = URL.createObjectURL(bestBlob);
+      if (currentUrlsRef.current.converted)
+        URL.revokeObjectURL(currentUrlsRef.current.converted);
+      currentUrlsRef.current.converted = newUrl;
+
+      setConvertedUrl(newUrl);
+      setQuality(bestQ);
+      setFileSize(formatBytes(bestBlob.size));
+
+      const original = file.size;
+      const compressed = bestBlob.size;
+      const saved = original - compressed;
+      const percent = saved > 0 ? ((saved / original) * 100).toFixed(1) : 0;
+      setCompressionStats({
+        original,
+        compressed,
+        percent,
+        isReverted: false,
+        targetHit,
+      });
+    } catch (err) {
+      console.error(err);
+      setImgError("Could not compress this image to the target size.");
+    } finally {
+      setIsProcessing(false);
+    }
+  };
+
+  // ✅ NEW: Live target-size compression (debounced) — preview updates as you type/click
+  useEffect(() => {
+    if (!isCompressor || sizeMode !== "target") return;
+    if (files.length === 0 || !originalImageRef.current) return;
+    if (!targetKB) return;
+    const t = setTimeout(() => {
+      processToTargetSize();
+    }, 400);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [targetKB, sizeMode, width, height, files, isCompressor]);
+
+  // ✅ NEW: Live crop/mask — regenerate output whenever the box settles (not mid-drag)
+  useEffect(() => {
+    if (!tool.config.showVisualCrop && !isMaskingTool) return;
+    if (crop.isDragging) return;
+    if (crop.w > 0 && originalImageRef.current) requestProcessImage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [crop.x, crop.y, crop.w, crop.h, crop.isDragging]);
 
   const processBatch = async () => {
     setIsProcessing(true);
@@ -415,31 +549,40 @@ const ImageEditor = ({ toolId }) => {
 
       const p = (async () => {
         const startTime = Date.now();
+        const resultId = `batch-${i}-${Date.now()}`;
         try {
-          const bitmap = await createImageBitmap(file);
-          const taskData = {
-            fileId: `batch-${i}-${Date.now()}`,
-            bitmap,
-            w: bitmap.width,
-            h: bitmap.height,
-            fmt: format === "original" ? file.type : format,
-            q: batchQuality,
-            cx: 0,
-            cy: 0,
-            cw: bitmap.width,
-            ch: bitmap.height,
-            rot: 0,
-            flipH: false,
-            flipV: false,
-            filter: "none",
-            showVisualCrop: false,
-            isMasking: false,
-            originalMimeType: file.type,
-          };
-          // ✅ BUG FIX 3 applied here
-          let blob = await runWorkerTask(taskData);
+          let blob;
 
-          if (blob.size >= file.size && format === "original") blob = file;
+          if (isCompressor && sizeMode === "target") {
+            // ✅ NEW: each file compressed to the target size
+            const targetBytes = Math.max(1, Number(targetKB) || 1) * 1024;
+            const result = await compressBlobToTarget(file, targetBytes);
+            blob = result.blob;
+          } else {
+            const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
+            const taskData = {
+              fileId: resultId,
+              bitmap,
+              w: bitmap.width,
+              h: bitmap.height,
+              fmt: format === "original" ? file.type : format,
+              q: batchQuality,
+              cx: 0,
+              cy: 0,
+              cw: bitmap.width,
+              ch: bitmap.height,
+              rot: 0,
+              flipH: false,
+              flipV: false,
+              filter: "none",
+              showVisualCrop: false,
+              isMasking: false,
+              originalMimeType: file.type,
+            };
+            // ✅ BUG FIX 3 applied here
+            blob = await runWorkerTask(taskData);
+            if (blob.size >= file.size && format === "original") blob = file;
+          }
 
           const resultUrl = URL.createObjectURL(blob);
           currentUrlsRef.current.batch.push(resultUrl);
@@ -451,7 +594,7 @@ const ImageEditor = ({ toolId }) => {
           setBatchResults((prev) => [
             ...prev,
             {
-              id: taskData.fileId,
+              id: resultId,
               name: file.name,
               url: resultUrl,
               blob,
@@ -516,16 +659,26 @@ const ImageEditor = ({ toolId }) => {
       else if (format.includes("gif")) ext = "gif";
     }
 
-    link.download = `processed_image.${ext}`;
+    const baseName = files[0]?.name?.replace(/\.[^/.]+$/, "") || "image";
+    link.download = `${baseName}-gopdfgo.${ext}`;
     link.click();
   };
 
   const downloadZip = async () => {
     if (!window.JSZip || batchResults.length === 0) return;
     const zip = new window.JSZip();
+    const usedNames = {};
     batchResults.forEach((res) => {
-      let ext = res.blob.type.split("/")[1];
-      zip.file(`${res.name.split(".")[0]}_processed.${ext}`, res.blob);
+      const ext = res.blob.type.split("/")[1] || "jpg";
+      const base = res.name.replace(/\.[^/.]+$/, "");
+      let fname = `${base}_processed.${ext}`;
+      if (usedNames[fname]) {
+        usedNames[fname] += 1;
+        fname = `${base}_processed_${usedNames[fname]}.${ext}`;
+      } else {
+        usedNames[fname] = 1;
+      }
+      zip.file(fname, res.blob);
     });
     const content = await zip.generateAsync({ type: "blob" });
     const link = document.createElement("a");
@@ -618,7 +771,14 @@ const ImageEditor = ({ toolId }) => {
     const rgb = `rgb(${r}, ${g}, ${b})`;
 
     setHoverColor({ hex, rgb });
-    setMagnifier({ x, y, show: true, color: hex });
+    setMagnifier({
+      x,
+      y,
+      fx: x / rect.width,
+      fy: y / rect.height,
+      show: true,
+      color: hex,
+    });
   };
 
   const handleColorClick = () => {
@@ -681,13 +841,46 @@ const ImageEditor = ({ toolId }) => {
       ),
     );
 
-    setCrop((p) => ({
-      ...p,
-      x: Math.min(p.startX, currX),
-      y: Math.min(p.startY, currY),
-      w: Math.abs(currX - p.startX),
-      h: Math.abs(currY - p.startY),
-    }));
+    setCrop((p) => {
+      const imgW = originalImageRef.current.width;
+      const imgH = originalImageRef.current.height;
+
+      const dx = currX - p.startX;
+      const dy = currY - p.startY;
+      let w = Math.abs(dx);
+      let h = Math.abs(dy);
+
+      // ✅ NEW: lock to a fixed aspect ratio if one is selected
+      if (cropAspect) {
+        // drive by the larger drag dimension so it feels natural
+        if (w / cropAspect > h) h = w / cropAspect;
+        else w = h * cropAspect;
+      }
+
+      // anchor the box at the start corner in the drag direction
+      let x = dx < 0 ? p.startX - w : p.startX;
+      let y = dy < 0 ? p.startY - h : p.startY;
+
+      // keep the box inside the image
+      if (x < 0) {
+        w += x;
+        x = 0;
+      }
+      if (y < 0) {
+        h += y;
+        y = 0;
+      }
+      if (x + w > imgW) w = imgW - x;
+      if (y + h > imgH) h = imgH - y;
+
+      // re-apply ratio after clamping so it stays exact
+      if (cropAspect && w > 0 && h > 0) {
+        if (w / cropAspect > h) w = h * cropAspect;
+        else h = w / cropAspect;
+      }
+
+      return { ...p, x, y, w: Math.max(0, w), h: Math.max(0, h) };
+    });
   };
 
   const handleInteractionEnd = () => {
@@ -727,6 +920,12 @@ const ImageEditor = ({ toolId }) => {
           {tool.title}
         </h1>
       </div>
+
+      {imgError && (
+        <div className="mb-6 bg-red-50 text-red-600 p-4 rounded-lg flex items-center gap-2 text-sm border border-red-100">
+          <AlertCircle size={18} className="shrink-0" /> {imgError}
+        </div>
+      )}
 
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
         {/* LEFT PANEL */}
@@ -857,24 +1056,93 @@ const ImageEditor = ({ toolId }) => {
                     ))}
                   </div>
                   <div className="space-y-3">
-                    <span className="text-xs text-slate-500">
-                      Batch Quality ({Math.round(batchQuality * 100)}%)
-                    </span>
-                    <input
-                      type="range"
-                      min="0.1"
-                      max="1"
-                      step="0.05"
-                      value={batchQuality}
-                      onChange={(e) =>
-                        setBatchQuality(parseFloat(e.target.value))
-                      }
-                      className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
-                    />
+                    {/* ✅ NEW: Batch mode toggle (compressors) */}
+                    {isCompressor && (
+                      <div className="flex gap-1 p-1 bg-slate-200 rounded-lg">
+                        <button
+                          onClick={() => setSizeMode("quality")}
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                            sizeMode === "quality"
+                              ? "bg-white text-[#FF9933] shadow-sm"
+                              : "text-slate-600 hover:text-slate-800"
+                          }`}
+                        >
+                          By Quality
+                        </button>
+                        <button
+                          onClick={() => setSizeMode("target")}
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                            sizeMode === "target"
+                              ? "bg-white text-[#FF9933] shadow-sm"
+                              : "text-slate-600 hover:text-slate-800"
+                          }`}
+                        >
+                          By Target Size
+                        </button>
+                      </div>
+                    )}
+
+                    {!isCompressor || sizeMode === "quality" ? (
+                      <>
+                        <span className="text-xs text-slate-500">
+                          Batch Quality ({Math.round(batchQuality * 100)}%)
+                        </span>
+                        <input
+                          type="range"
+                          min="0.1"
+                          max="1"
+                          step="0.05"
+                          value={batchQuality}
+                          onChange={(e) =>
+                            setBatchQuality(parseFloat(e.target.value))
+                          }
+                          className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
+                        />
+                      </>
+                    ) : (
+                      <div className="space-y-2">
+                        <span className="text-xs text-slate-500 block">
+                          Target size (applied to each file)
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {[20, 50, 100, 200, 500].map((kb) => (
+                            <button
+                              key={kb}
+                              onClick={() => setTargetKB(kb)}
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                                Number(targetKB) === kb
+                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                              }`}
+                            >
+                              {kb} KB
+                            </button>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="number"
+                            min="1"
+                            value={targetKB}
+                            onChange={(e) =>
+                              setTargetKB(parseInt(e.target.value) || 0)
+                            }
+                            className="w-24 p-2 border border-slate-300 rounded-lg text-center font-bold"
+                          />
+                          <span className="text-sm text-slate-500 font-medium">
+                            KB
+                          </span>
+                        </div>
+                      </div>
+                    )}
+
                     <button
                       onClick={processBatch}
-                      disabled={isProcessing}
-                      className="w-full bg-[#FF9933] hover:bg-[#e68a2e] text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
+                      disabled={
+                        isProcessing ||
+                        (isCompressor && sizeMode === "target" && !targetKB)
+                      }
+                      className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-400 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Zap size={20} /> Start Batch
                     </button>
@@ -992,6 +1260,65 @@ const ImageEditor = ({ toolId }) => {
                       </div>
                     )}
 
+                    {/* ✅ NEW: Crop aspect-ratio presets */}
+                    {tool.config.showVisualCrop && (
+                      <div>
+                        <span className="text-xs text-slate-500 mb-1.5 block">
+                          Aspect ratio
+                        </span>
+                        <div className="flex flex-wrap gap-2">
+                          {[
+                            { label: "Free", val: null },
+                            { label: "1:1", val: 1 },
+                            { label: "16:9", val: 16 / 9 },
+                            { label: "4:3", val: 4 / 3 },
+                            { label: "3:4", val: 3 / 4 },
+                          ].map((r) => (
+                            <button
+                              key={r.label}
+                              onClick={() => {
+                                setCropAspect(r.val);
+                                // re-shape an existing box to the new ratio instantly
+                                if (r.val && originalImageRef.current) {
+                                  setCrop((p) => {
+                                    if (!p.w || p.w <= 0) return p;
+                                    const imgW = originalImageRef.current.width;
+                                    const imgH = originalImageRef.current.height;
+                                    let w = p.w;
+                                    let h = w / r.val;
+                                    let x = p.x;
+                                    let y = p.y;
+                                    if (y + h > imgH) {
+                                      h = imgH - y;
+                                      w = h * r.val;
+                                    }
+                                    if (x + w > imgW) {
+                                      w = imgW - x;
+                                      h = w / r.val;
+                                    }
+                                    return {
+                                      ...p,
+                                      x,
+                                      y,
+                                      w: Math.max(0, w),
+                                      h: Math.max(0, h),
+                                    };
+                                  });
+                                }
+                              }}
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                                cropAspect === r.val
+                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                              }`}
+                            >
+                              {r.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     {/* AADHAR MASKING INSTRUCTIONS */}
                     {isMaskingTool && (
                       <div className="p-3 bg-red-50 rounded-lg text-xs text-red-700 border border-red-100 flex gap-2 items-start">
@@ -1061,6 +1388,33 @@ const ImageEditor = ({ toolId }) => {
                             Lock Aspect Ratio
                           </label>
                         </div>
+
+                        {/* ✅ NEW: Common size presets */}
+                        <div className="col-span-2 -mt-2 mb-1">
+                          <span className="text-xs text-slate-500 mb-1.5 block">
+                            Quick presets
+                          </span>
+                          <div className="flex flex-wrap gap-2">
+                            {[
+                              { label: "Passport 200×230", w: 200, h: 230 },
+                              { label: "Profile 400×400", w: 400, h: 400 },
+                              { label: "HD 1280×720", w: 1280, h: 720 },
+                              { label: "Square 1080", w: 1080, h: 1080 },
+                            ].map((p) => (
+                              <button
+                                key={p.label}
+                                onClick={() => {
+                                  setMaintainAspectRatio(false);
+                                  setWidth(p.w);
+                                  setHeight(p.h);
+                                }}
+                                className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] transition cursor-pointer"
+                              >
+                                {p.label}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
                         <div>
                           <span className="text-xs text-slate-500 mb-1 block">
                             Width
@@ -1104,7 +1458,34 @@ const ImageEditor = ({ toolId }) => {
                       </div>
                     )}
 
-                    {(isCompressor ||
+                    {/* ✅ NEW: Compressor mode toggle — Quality vs Target Size */}
+                    {isCompressor && (
+                      <div className="flex gap-1 p-1 bg-slate-200 rounded-lg">
+                        <button
+                          onClick={() => setSizeMode("quality")}
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                            sizeMode === "quality"
+                              ? "bg-white text-[#FF9933] shadow-sm"
+                              : "text-slate-600 hover:text-slate-800"
+                          }`}
+                        >
+                          By Quality
+                        </button>
+                        <button
+                          onClick={() => setSizeMode("target")}
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                            sizeMode === "target"
+                              ? "bg-white text-[#FF9933] shadow-sm"
+                              : "text-slate-600 hover:text-slate-800"
+                          }`}
+                        >
+                          By Target Size
+                        </button>
+                      </div>
+                    )}
+
+                    {/* Quality slider: compressors in quality mode, or jpeg/webp converters */}
+                    {((isCompressor && sizeMode === "quality") ||
                       (isConverter &&
                         (format.includes("jpeg") ||
                           format.includes("webp")))) && (
@@ -1128,6 +1509,66 @@ const ImageEditor = ({ toolId }) => {
                           }
                           className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
                         />
+                      </div>
+                    )}
+
+                    {/* ✅ NEW: Target file-size UI (govt forms: under 20/50/100 KB) */}
+                    {isCompressor && sizeMode === "target" && (
+                      <div className="space-y-3">
+                        <label className="text-sm font-bold text-slate-700 block">
+                          Target file size
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {[20, 50, 100, 200, 500].map((kb) => (
+                            <button
+                              key={kb}
+                              onClick={() => setTargetKB(kb)}
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                                Number(targetKB) === kb
+                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                              }`}
+                            >
+                              {kb} KB
+                            </button>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="number"
+                            min="1"
+                            value={targetKB}
+                            onChange={(e) =>
+                              setTargetKB(parseInt(e.target.value) || 0)
+                            }
+                            className="w-24 p-2 border border-slate-300 rounded-lg text-center font-bold"
+                          />
+                          <span className="text-sm text-slate-500 font-medium">
+                            KB
+                          </span>
+                        </div>
+                        <button
+                          onClick={processToTargetSize}
+                          disabled={isProcessing || !targetKB}
+                          className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-400 text-white font-bold py-3 rounded-lg shadow-md flex items-center justify-center gap-2 cursor-pointer transition"
+                        >
+                          {isProcessing ? (
+                            <Loader2 className="animate-spin" size={20} />
+                          ) : (
+                            <Zap size={20} />
+                          )}
+                          {isProcessing
+                            ? "Optimizing..."
+                            : `Compress to ~${targetKB} KB`}
+                        </button>
+                        {compressionStats &&
+                          compressionStats.targetHit === false && (
+                            <p className="text-xs text-amber-600 leading-snug">
+                              Couldn&apos;t reach {targetKB} KB without destroying
+                              the image — this is the smallest clear version we
+                              could produce.
+                            </p>
+                          )}
                       </div>
                     )}
 
@@ -1373,9 +1814,12 @@ const ImageEditor = ({ toolId }) => {
                           style={{
                             left: magnifier.x + 20,
                             top: magnifier.y - 50,
-                            backgroundImage: `url(${previewUrl})`,
+                            backgroundImage: `url(${convertedUrl ?? previewUrl})`,
                             backgroundRepeat: "no-repeat",
-                            background: magnifier.color,
+                            backgroundSize: "300%",
+                            backgroundPosition: `${(magnifier.fx ?? 0.5) * 100}% ${
+                              (magnifier.fy ?? 0.5) * 100
+                            }%`,
                           }}
                         >
                           <div className="absolute inset-0 flex items-center justify-center">

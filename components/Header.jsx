@@ -1,6 +1,6 @@
 "use client"; // Next.js requirement for interactive components
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Changed from react-router-dom
 import {
   Layers, FileText, Menu, X, ChevronDown, ImageIcon,
@@ -14,6 +14,14 @@ const Header = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileAccordion, setMobileAccordion] = useState(null);
+
+  // Body scroll-lock for mobile menu — always restore on close/unmount (no leak)
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   // --- FILTERING TOOLS LOGIC ---
   const pdfTools = TOOLS_CONFIG.filter((t) => t.type === "pdf");
@@ -38,8 +46,7 @@ const Header = () => {
   );
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-    document.body.style.overflow = !mobileMenuOpen ? "hidden" : "auto";
+    setMobileMenuOpen((prev) => !prev);
   };
 
   const toggleMobileAccordion = (id) => {

@@ -1,20 +1,10 @@
 import React from "react";
-import {
-  Star,
-  HelpCircle,
-  Zap,
-  Shield,
-  ThumbsUp,
-  CheckCircle2,
-} from "lucide-react";
+import { Zap, Shield, ThumbsUp, CheckCircle2 } from "lucide-react";
 
-// ✅ Helper function: **text** ko bold karne ke liye
+// **text** ko bold karne ke liye (sirf UI display ke liye)
 const parseText = (text) => {
   if (!text || typeof text !== "string") return text;
-
-  // String ko split karte hain jahan bhi ** ho
   const parts = text.split(/(\*\*.*?\*\*)/g);
-
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
@@ -27,12 +17,41 @@ const parseText = (text) => {
   });
 };
 
+// JSON-LD ke liye markdown stars hata kar plain text
+const plainText = (text) =>
+  typeof text === "string" ? text.replace(/\*\*/g, "") : "";
+
 const InfoSection = ({ info }) => {
   if (!info) return null;
 
+  // FAQ Structured Data (Google rich results ke liye)
+  const faqSchema =
+    info.faq && info.faq.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: info.faq.map((item) => ({
+            "@type": "Question",
+            name: plainText(item.q),
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: plainText(item.a),
+            },
+          })),
+        }
+      : null;
+
   return (
-    <article className="max-w-7xl mx-auto px-4 mt-8 sm:mt-12 md:mt-14  pb-8 sm:pb-12">
-      {/* 🔹 INTRO (SEO OPTIMIZED) */}
+    <article className="max-w-7xl mx-auto px-4 mt-8 sm:mt-12 md:mt-14 pb-8 sm:pb-12">
+      {/* 🔹 FAQ SCHEMA (JSON-LD) */}
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
+
+      {/* 🔹 INTRO */}
       {info.intro && (
         <section className="max-w-4xl mx-auto">
           <p className="whitespace-pre-line text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
@@ -44,7 +63,6 @@ const InfoSection = ({ info }) => {
       {/* 🔹 FEATURES */}
       {info.features && (
         <section className="mt-12">
-          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-3xl font-bold text-slate-800 text-center mb-8 sm:mb-12">
             {info.sectionHeadings?.features || "Why use this tool?"}
           </h2>
@@ -55,8 +73,10 @@ const InfoSection = ({ info }) => {
                 key={idx}
                 className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition"
               >
-                <div className="flex items-center gap-x-4">
-                  <div className="w-12 h-12 bg-orange-50 text-[#FF9933] rounded-xl flex items-center justify-center mb-4">
+                {/* ✅ Title ab sirf EK baar render hota hai.
+                    Mobile pe icon ke bagal (row), desktop pe icon ke neeche (column) */}
+                <div className="flex flex-row sm:flex-col items-center sm:items-start gap-x-4">
+                  <div className="w-12 h-12 bg-orange-50 text-[#FF9933] rounded-xl flex items-center justify-center mb-0 sm:mb-4 shrink-0">
                     {idx === 0 ? (
                       <Zap size={24} />
                     ) : idx === 1 ? (
@@ -65,14 +85,11 @@ const InfoSection = ({ info }) => {
                       <ThumbsUp size={24} />
                     )}
                   </div>
-                  <h3 className="block sm:hidden text-xl font-bold text-slate-800 mb-3">
+                  <h3 className="text-xl font-bold text-slate-800 mb-0 sm:mb-3">
                     {feature.title}
                   </h3>
                 </div>
-                <h3 className="hidden sm:block text-xl font-bold text-slate-800 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed mt-3 sm:mt-0">
                   {parseText(feature.desc)}
                 </p>
               </div>
@@ -81,10 +98,9 @@ const InfoSection = ({ info }) => {
         </section>
       )}
 
-      {/* 🔹 USE CASES (NEW - FOR ADSENSE INTENT) */}
+      {/* 🔹 USE CASES */}
       {info.useCases && info.useCases.length > 0 && (
         <section className="mb-12 sm:mb-16 mt-12">
-          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-5 sm:mb-8">
             {info.sectionHeadings?.useCases || "When to use this tool?"}
           </h2>
@@ -107,15 +123,14 @@ const InfoSection = ({ info }) => {
       {/* 🔹 HOW TO USE */}
       {info.steps && (
         <section className="mt-12 mb-8 sm:mb-20">
-          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-3xl font-bold text-slate-800 text-center mb-10 sm:mb-20 md:mb-16">
             {info.sectionHeadings?.steps || "How to use this tool"}
           </h2>
 
+          {/* MOBILE: vertical timeline */}
           <div className="block sm:hidden max-w-md mx-auto px-4">
             <div className="relative space-y-8">
               <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-100 z-0" />
-
               {info.steps.map((step, idx) => (
                 <div key={idx} className="relative flex items-start gap-5 z-10">
                   <div className="w-8 h-8 shrink-0 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md ring-4 ring-white">
@@ -131,6 +146,9 @@ const InfoSection = ({ info }) => {
             </div>
           </div>
 
+          {/* DESKTOP: zigzag timeline.
+              ✅ Pehle text top aur bottom dono jagah render hota tha (ek invisible).
+              Ab text sirf uss jagah render hota hai jahan dikhana hai — no duplicate content. */}
           <div
             className={`relative hidden sm:grid gap-2 sm:gap-8 mx-auto
           ${
@@ -151,30 +169,29 @@ const InfoSection = ({ info }) => {
                   key={idx}
                   className="relative flex flex-col items-center justify-center group h-32 sm:h-64"
                 >
-                  <div
-                    className={`flex flex-1 w-full items-end justify-center pb-2 sm:pb-6 ${
-                      isTextTop ? "" : "invisible"
-                    }`}
-                  >
-                    <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
-                      {parseText(step)}
-                    </p>
+                  {/* Top slot */}
+                  <div className="flex flex-1 w-full items-end justify-center pb-2 sm:pb-6">
+                    {isTextTop && (
+                      <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
+                        {parseText(step)}
+                      </p>
+                    )}
                   </div>
 
+                  {/* Number */}
                   <div className="relative z-10 shrink-0">
                     <div className="w-8 h-8 sm:w-10 md:w-12 sm:h-10 md:h-12 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg shadow-md sm:shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
                       {idx + 1}
                     </div>
                   </div>
 
-                  <div
-                    className={`flex flex-1 w-full items-start justify-center pt-2 sm:pt-6 ${
-                      !isTextTop ? "" : "invisible"
-                    }`}
-                  >
-                    <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
-                      {parseText(step)}
-                    </p>
+                  {/* Bottom slot */}
+                  <div className="flex flex-1 w-full items-start justify-center pt-2 sm:pt-6">
+                    {!isTextTop && (
+                      <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
+                        {parseText(step)}
+                      </p>
+                    )}
                   </div>
                 </div>
               );
@@ -183,10 +200,9 @@ const InfoSection = ({ info }) => {
         </section>
       )}
 
-      {/* 🔹 FAQ */}
+      {/* 🔹 FAQ (visible content) */}
       {info.faq && info.faq.length > 0 && (
         <section className="mt-14 sm:mt-10 md:mt-16">
-          {/* ✅ DYNAMIC HEADING ADDED HERE */}
           <h2 className="text-2xl text-center font-bold text-slate-800 mb-6 sm:mb-8 flex items-center justify-center gap-2">
             {info.sectionHeadings?.faq || "Frequently Asked Questions"}
           </h2>

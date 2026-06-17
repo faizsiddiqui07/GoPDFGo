@@ -1,17 +1,22 @@
 <IfModule mod_rewrite.c>
-  # Security aur Server ko confuse hone se bachane ke liye
+  # Security: directory listing + content-negotiation band rakho
   Options -Indexes -MultiViews
   RewriteEngine On
 
-  # 1. Force Non-WWW
+  # 1. Ek hi redirect me HTTPS + non-www force karo (path/query preserve hota hai)
+  RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
-  RewriteRule ^(.*)$ https://gopdfgo.com/$1 [L,R=301]
+  RewriteRule ^ https://gopdfgo.com%{REQUEST_URI} [L,R=301]
 
-  # Ye rule URL mein slash hone ya na hone dono cases ko handle karega
+  # 2. Trailing slash HATAO (301) -- sirf URLs par, asli directories ko chhodkar
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [L,R=301]
+
+  # 3. Clean /x URL ke liye andar-hi-andar x.html serve karo (koi redirect nahi)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-  RewriteRule ^(.*?)/?$ $1.html [L]
+  RewriteRule ^(.*)$ $1.html [L]
 
-  # 3. 404 Error Page
+  # 4. 404 Error Page
   ErrorDocument 404 /404.html
 </IfModule>

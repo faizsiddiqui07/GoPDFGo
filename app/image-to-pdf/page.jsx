@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Image to PDF Converter – JPG PNG to PDF Online | GoPDFGo",
@@ -31,6 +32,7 @@ export default function ImageToPDFPage() {
       <PdfEditor toolId="image-to-pdf" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="image-to-pdf" toolType="pdf" />
+      <RelatedBlogs toolId="image-to-pdf" />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Merge PDF Online Free – Combine Multiple PDFs Into One | GoPDFGo",
@@ -31,6 +32,7 @@ export default function MergePDFPage() {
       <PdfEditor toolId="merge-pdf" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="merge-pdf" toolType="pdf" />
+      <RelatedBlogs toolId="merge-pdf" />
     </div>
   );
 }

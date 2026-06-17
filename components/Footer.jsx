@@ -226,6 +226,51 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Popular Guides - sitewide internal links to blog posts (de-orphans blogs) */}
+        <div className="border-t border-slate-100 pt-6 mb-6">
+          <h4 className="text-slate-900 font-bold mb-3 text-center sm:text-left">
+            Popular Guides
+          </h4>
+          <div className="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-sm text-slate-600">
+            <Link
+              href="/blog/never-upload-bank-statements-free-pdf-sites"
+              className="hover:text-[#FF9933] transition"
+            >
+              Never Upload Bank Statements to Free PDF Sites
+            </Link>
+            <Link
+              href="/blog/best-secure-alternatives-ilovepdf-smallpdf"
+              className="hover:text-[#FF9933] transition"
+            >
+              Secure Alternatives to iLovePDF &amp; Smallpdf
+            </Link>
+            <Link
+              href="/blog/optimize-pdf-under-50kb-government-recruitment-forms"
+              className="hover:text-[#FF9933] transition"
+            >
+              Optimize PDF Under 50KB for Govt Forms
+            </Link>
+            <Link
+              href="/blog/compress-jpg-under-20kb-online-forms"
+              className="hover:text-[#FF9933] transition"
+            >
+              Compress JPG Under 20KB for Online Forms
+            </Link>
+            <Link
+              href="/blog/local-pdf-processing-vs-cloud-tools-safer"
+              className="hover:text-[#FF9933] transition"
+            >
+              Local PDF Processing vs Cloud Tools
+            </Link>
+            <Link
+              href="/blog/merge-marksheets-pdf-govt-jobs"
+              className="hover:text-[#FF9933] transition"
+            >
+              Merge Marksheets into One PDF
+            </Link>
+          </div>
+        </div>
+
         <div className="block md:hidden mb-2">
           <h4 className="text-slate-900 font-bold mb-4 text-center">
             Legal & Support

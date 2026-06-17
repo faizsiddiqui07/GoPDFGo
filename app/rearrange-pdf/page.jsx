@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Rearrange PDF Pages Online (No Server Upload) | GoPDFGo",
@@ -31,6 +32,7 @@ export default function RearrangePDFPage() {
       <PdfEditor toolId="rearrange-pdf" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="rearrange-pdf" toolType="pdf" />
+      <RelatedBlogs toolId="rearrange-pdf" />
     </div>
   );
 }

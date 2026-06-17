@@ -24,6 +24,8 @@ import {
   Download,
   GripVertical,
   Info,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
 import { formatBytes } from "../utils/helpers";
@@ -113,6 +115,14 @@ const PdfEditor = ({ toolId }) => {
   const [compressionStats, setCompressionStats] = useState(null);
   const [pdfOrientation, setPdfOrientation] = useState("portrait");
   const [pageRotations, setPageRotations] = useState([]);
+
+  // New tools: PDF→image format, watermark text/opacity, unlock password
+  const [imgFormat, setImgFormat] = useState("image/jpeg");
+  const [watermarkText, setWatermarkText] = useState("CONFIDENTIAL");
+  const [watermarkOpacity, setWatermarkOpacity] = useState(0.3);
+  const [watermarkPos, setWatermarkPos] = useState("diagonal");
+  const [pdfPassword, setPdfPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   // Refs for Scroll and Image URLs
   const blobUrlsRef = useRef(new Set());
@@ -209,8 +219,17 @@ const PdfEditor = ({ toolId }) => {
 
   const generateAllThumbnails = async (file) => {
     if (!window.pdfjsLib) return;
+    // Revoke thumbnails from a previously-loaded PDF (prevents memory leak on Replace)
+    setThumbnails((prev) => {
+      prev.forEach((t) => {
+        if (t.url) {
+          URL.revokeObjectURL(t.url);
+          blobUrlsRef.current.delete(t.url);
+        }
+      });
+      return [];
+    });
     setGeneratingThumbnails(true);
-    setThumbnails([]);
     setInfoMsg(null);
     setErrorMsg(null);
 
@@ -230,7 +249,8 @@ const PdfEditor = ({ toolId }) => {
       const initRots = Array(numPages).fill(0);
       setPageRotations(initRots);
       for (let i = 1; i <= numPages; i++) allPages.add(i);
-      setSelectedPages(allPages);
+      // delete-pages starts with NOTHING marked for deletion
+      setSelectedPages(tool.id === "delete-pdf-pages" ? new Set() : allPages);
 
       const CHUNK_SIZE = 3;
 
@@ -301,11 +321,6 @@ const PdfEditor = ({ toolId }) => {
     const selectedFiles = Array.from(e.target.files);
     let validFiles = [];
 
-    if (tool.id === "merge-pdf" && files.length + selectedFiles.length > 20) {
-      setErrorMsg("Limit Reached: You can merge up to 20 PDFs at once.");
-      return;
-    }
-
     if (tool.id === "image-to-pdf")
       validFiles = selectedFiles.filter((f) => f.type.startsWith("image/"));
     else validFiles = selectedFiles.filter((f) => f.type === "application/pdf");
@@ -365,7 +380,9 @@ const PdfEditor = ({ toolId }) => {
             tool.id === "split-pdf" ||
             tool.id === "rotate-pdf" ||
             tool.id === "rearrange-pdf" ||
-            tool.id === "extract-pdf-pages"
+            tool.id === "extract-pdf-pages" ||
+            tool.id === "pdf-to-image" ||
+            tool.id === "delete-pdf-pages"
           ) {
             setSplitMode("all");
             setRangeInput("");
@@ -404,7 +421,10 @@ const PdfEditor = ({ toolId }) => {
     setIsDone(false);
 
     if (
-      (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") &&
+      (tool.id === "split-pdf" ||
+        tool.id === "extract-pdf-pages" ||
+        tool.id === "pdf-to-image" ||
+        tool.id === "delete-pdf-pages") &&
       newFiles.length === 0
     ) {
       thumbnails.forEach((t) => {
@@ -471,16 +491,20 @@ const PdfEditor = ({ toolId }) => {
     const val = e.target.value;
     setRangeInput(val);
     try {
+      const maxPage = thumbnails.length || Infinity;
       const parts = val.split(",").map((s) => s.trim());
       const newSet = new Set();
       parts.forEach((part) => {
         if (part.includes("-")) {
-          const [start, end] = part.split("-").map(Number);
-          if (!isNaN(start) && !isNaN(end))
-            for (let i = start; i <= end; i++) newSet.add(i);
+          let [start, end] = part.split("-").map(Number);
+          if (!isNaN(start) && !isNaN(end)) {
+            if (start > end) [start, end] = [end, start];
+            for (let i = start; i <= end; i++)
+              if (i >= 1 && i <= maxPage) newSet.add(i);
+          }
         } else {
           const num = Number(part);
-          if (!isNaN(num) && num >= 1) newSet.add(num);
+          if (!isNaN(num) && num >= 1 && num <= maxPage) newSet.add(num);
         }
       });
       setSelectedPages(newSet);
@@ -515,17 +539,37 @@ const PdfEditor = ({ toolId }) => {
       // 1. MERGE
       if (tool.id === "merge-pdf") {
         const newPdf = await PDFDocument.create();
+        const failed = [];
         for (const item of files) {
-          const arrayBuffer = await item.file.arrayBuffer();
-          const pdf = await PDFDocument.load(arrayBuffer);
-          const copiedPages = await newPdf.copyPages(pdf, pdf.getPageIndices());
-          copiedPages.forEach((page) => {
-            const { angle } = page.getRotation();
-            page.setRotation(degrees(angle + item.rotation));
-            newPdf.addPage(page);
-          });
+          try {
+            const arrayBuffer = await item.file.arrayBuffer();
+            const pdf = await PDFDocument.load(arrayBuffer, {
+              ignoreEncryption: true,
+            });
+            const copiedPages = await newPdf.copyPages(
+              pdf,
+              pdf.getPageIndices(),
+            );
+            copiedPages.forEach((page) => {
+              const { angle } = page.getRotation();
+              page.setRotation(degrees(angle + item.rotation));
+              newPdf.addPage(page);
+            });
+          } catch (e) {
+            failed.push(item.file.name);
+          }
+        }
+        if (newPdf.getPageCount() === 0) {
+          throw new Error(
+            "None of the selected PDFs could be merged. They may be password-protected or corrupted.",
+          );
         }
         const pdfBytes = await newPdf.save();
+        if (failed.length > 0) {
+          setInfoMsg(
+            `Merged successfully. Skipped ${failed.length} file(s) we couldn't read: ${failed.join(", ")}.`,
+          );
+        }
         finalizePdf(pdfBytes, `GoPDFGo_${files[0].file.name}`);
 
         // 2. IMAGE TO PDF
@@ -536,49 +580,64 @@ const PdfEditor = ({ toolId }) => {
         const pageWidth = pdfOrientation === "portrait" ? A4_WIDTH : A4_HEIGHT;
         const pageHeight = pdfOrientation === "portrait" ? A4_HEIGHT : A4_WIDTH;
 
+        const skipped = [];
         for (const item of files) {
-          let image;
-          let imageBytes = await item.file.arrayBuffer();
+          try {
+            let image;
+            let imageBytes = await item.file.arrayBuffer();
 
-          if (item.file.type === "image/jpeg" || item.file.type === "image/jpg")
-            image = await newPdf.embedJpg(imageBytes);
-          else if (item.file.type === "image/png")
-            image = await newPdf.embedPng(imageBytes);
-          else if (item.file.type === "image/webp") {
-            const bitmap = await createImageBitmap(item.file);
-            const canvas = document.createElement("canvas");
-            canvas.width = bitmap.width;
-            canvas.height = bitmap.height;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(bitmap, 0, 0);
-            const blob = await new Promise((resolve) =>
-              canvas.toBlob(resolve, "image/png"),
-            );
-            imageBytes = await blob.arrayBuffer();
-            image = await newPdf.embedPng(imageBytes);
-          } else {
-            try {
+            if (
+              item.file.type === "image/jpeg" ||
+              item.file.type === "image/jpg"
+            )
+              image = await newPdf.embedJpg(imageBytes);
+            else if (item.file.type === "image/png")
               image = await newPdf.embedPng(imageBytes);
-            } catch (e) {
-              continue;
+            else if (item.file.type === "image/webp") {
+              const bitmap = await createImageBitmap(item.file);
+              const canvas = document.createElement("canvas");
+              canvas.width = bitmap.width;
+              canvas.height = bitmap.height;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(bitmap, 0, 0);
+              const blob = await new Promise((resolve) =>
+                canvas.toBlob(resolve, "image/png"),
+              );
+              imageBytes = await blob.arrayBuffer();
+              image = await newPdf.embedPng(imageBytes);
+            } else {
+              image = await newPdf.embedPng(imageBytes);
             }
-          }
-          if (image) {
-            const page = newPdf.addPage([pageWidth, pageHeight]);
-            const margin = 20;
-            const availableWidth = pageWidth - margin * 2;
-            const availableHeight = pageHeight - margin * 2;
-            const imgDims = image.scaleToFit(availableWidth, availableHeight);
-            page.drawImage(image, {
-              x: (pageWidth - imgDims.width) / 2,
-              y: (pageHeight - imgDims.height) / 2,
-              width: imgDims.width,
-              height: imgDims.height,
-            });
+
+            if (image) {
+              const page = newPdf.addPage([pageWidth, pageHeight]);
+              const margin = 20;
+              const availableWidth = pageWidth - margin * 2;
+              const availableHeight = pageHeight - margin * 2;
+              const imgDims = image.scaleToFit(availableWidth, availableHeight);
+              page.drawImage(image, {
+                x: (pageWidth - imgDims.width) / 2,
+                y: (pageHeight - imgDims.height) / 2,
+                width: imgDims.width,
+                height: imgDims.height,
+              });
+            }
+          } catch (e) {
+            skipped.push(item.file.name);
           }
         }
+
+        if (newPdf.getPageCount() === 0) {
+          throw new Error("We couldn't read any of the selected images.");
+        }
+
         const pdfBytes = await newPdf.save();
         const baseName = files[0].file.name.split(".")[0];
+        if (skipped.length > 0) {
+          setInfoMsg(
+            `Created PDF. Skipped ${skipped.length} image(s) we couldn't read: ${skipped.join(", ")}.`,
+          );
+        }
         finalizePdf(pdfBytes, `GoPDFGo_${baseName}.pdf`);
 
         // 3. SPLIT
@@ -597,10 +656,12 @@ const PdfEditor = ({ toolId }) => {
             const parts = rangeInput.split(",").map((s) => s.trim());
             parts.forEach((part) => {
               if (part.includes("-")) {
-                const [start, end] = part.split("-").map(Number);
-                if (!isNaN(start) && !isNaN(end))
+                let [start, end] = part.split("-").map(Number);
+                if (!isNaN(start) && !isNaN(end)) {
+                  if (start > end) [start, end] = [end, start];
                   for (let i = start; i <= end; i++)
                     if (i >= 1 && i <= pageCount) pagesToExtract.push(i - 1);
+                }
               } else {
                 const num = Number(part);
                 if (!isNaN(num) && num >= 1 && num <= pageCount)
@@ -651,81 +712,150 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         const originalSize = file.size;
 
-        // ✅ BUG FIX 2: Fixed the logic check. If either is missing, it should wait.
+        // Ensure pdf.js is ready (no more "click compress again in 2 seconds")
         if (!window.pdfjsLib) {
-          setErrorMsg(
-            "PDF engine is initializing... Please click compress again in 2 seconds.",
+          await loadPdfJs();
+        }
+        if (!window.pdfjsLib) {
+          throw new Error(
+            "PDF engine failed to load. Please check your connection and retry.",
           );
-          setIsProcessing(false);
-          return;
         }
 
-        const pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
-        const newPdf = await PDFDocument.create();
+        // Snapshot the original bytes up front — pdf.js detaches the ArrayBuffer below
+        const originalBytes = new Uint8Array(arrayBuffer.slice(0));
 
-        for (let i = 1; i <= pdf.numPages; i++) {
-          const page = await pdf.getPage(i);
-          const viewport = page.getViewport({ scale: 1.0 });
-          const actualWidth = viewport.width;
-          const actualHeight = viewport.height;
+        // Candidate 1: lossless re-save — keeps text selectable, helps bloated PDFs
+        let bestBytes = originalBytes;
+        let bestSize = originalBytes.byteLength;
+        let usedRaster = false;
+        try {
+          const reSaved = await (
+            await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
+          ).save({ useObjectStreams: true });
+          if (reSaved.byteLength < bestSize) {
+            bestBytes = reSaved;
+            bestSize = reSaved.byteLength;
+          }
+        } catch (e) {
+          // ignore — fall through to rasterization
+        }
 
-          const renderViewport = page.getViewport({ scale: 1.5 });
-          const canvas = document.createElement("canvas");
-          const context = canvas.getContext("2d");
-          canvas.height = renderViewport.height;
-          canvas.width = renderViewport.width;
-
-          context.fillStyle = "white";
-          context.fillRect(0, 0, canvas.width, canvas.height);
-
-          await page.render({
-            canvasContext: context,
-            viewport: renderViewport,
+        // Candidate 2: rasterize pages (best for scanned / image-heavy PDFs)
+        try {
+          const pdf = await window.pdfjsLib.getDocument({
+            data: arrayBuffer.slice(0),
           }).promise;
+          const rasterPdf = await PDFDocument.create();
 
-          const imgData = canvas.toDataURL("image/jpeg", 0.8);
-          const img = await newPdf.embedJpg(imgData);
+          for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const baseViewport = page.getViewport({ scale: 1.0 });
+            const actualWidth = baseViewport.width;
+            const actualHeight = baseViewport.height;
 
-          const newPage = newPdf.addPage([actualWidth, actualHeight]);
-          newPage.drawImage(img, {
-            x: 0,
-            y: 0,
-            width: actualWidth,
-            height: actualHeight,
-          });
+            // Cap longest canvas side to ~2000px to avoid mobile OOM on big scans
+            const maxSide = Math.max(actualWidth, actualHeight);
+            const scale = Math.min(1.5, 2000 / maxSide);
+            const renderViewport = page.getViewport({ scale });
 
-          canvas.remove();
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            canvas.height = renderViewport.height;
+            canvas.width = renderViewport.width;
+            context.fillStyle = "white";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            await page.render({
+              canvasContext: context,
+              viewport: renderViewport,
+            }).promise;
+
+            const imgData = canvas.toDataURL("image/jpeg", 0.8);
+            const img = await rasterPdf.embedJpg(imgData);
+            const newPage = rasterPdf.addPage([actualWidth, actualHeight]);
+            newPage.drawImage(img, {
+              x: 0,
+              y: 0,
+              width: actualWidth,
+              height: actualHeight,
+            });
+
+            canvas.width = 0;
+            canvas.height = 0;
+            canvas.remove();
+          }
+
+          const rasterBytes = await rasterPdf.save();
+          if (pdf.destroy) pdf.destroy();
+
+          if (rasterBytes.byteLength < bestSize) {
+            bestBytes = rasterBytes;
+            bestSize = rasterBytes.byteLength;
+            usedRaster = true;
+          }
+        } catch (e) {
+          // ignore — keep the best candidate so far
         }
 
-        const pdfBytes = await newPdf.save();
-        const compressedSize = pdfBytes.byteLength;
-        const saved = originalSize - compressedSize;
-        const percent =
-          saved > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
+        // Never serve a file bigger than the original
+        const useCompressed = bestSize < originalSize;
+        const finalBytes = useCompressed ? bestBytes : originalBytes;
+        const finalSize = finalBytes.byteLength;
+        const saved = originalSize - finalSize;
+        const percent = saved > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
 
         setCompressionStats({
           original: originalSize,
-          compressed: compressedSize,
+          compressed: finalSize,
           percent,
+          flattened: useCompressed && usedRaster,
+          unchanged: !useCompressed,
         });
 
-        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
+        finalizePdf(finalBytes, `GoPDFGo_${file.name}`);
         // 6. PAGE NUMBERS
       } else if (tool.id === "page-numbers") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer);
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
         const font = await pdf.embedFont(StandardFonts.Helvetica);
         const pages = pdf.getPages();
+        const size = 12;
+        const margin = 24;
 
         pages.forEach((page, idx) => {
-          const { width } = page.getSize();
-          page.drawText(`${idx + 1}`, {
-            x: width / 2,
-            y: 20,
-            size: 12,
-            font: font,
+          const text = `${idx + 1}`;
+          const textWidth = font.widthOfTextAtSize(text, size);
+          const { width, height } = page.getSize();
+          const angle = ((page.getRotation().angle % 360) + 360) % 360;
+
+          // Place the number at the VISUAL bottom-center, honoring page rotation
+          let x;
+          let y;
+          if (angle === 90) {
+            x = margin;
+            y = (height - textWidth) / 2;
+          } else if (angle === 180) {
+            x = (width + textWidth) / 2;
+            y = height - margin;
+          } else if (angle === 270) {
+            x = width - margin;
+            y = (height + textWidth) / 2;
+          } else {
+            x = (width - textWidth) / 2;
+            y = margin;
+          }
+
+          page.drawText(text, {
+            x,
+            y,
+            size,
+            font,
             color: rgb(0, 0, 0),
+            rotate: degrees(angle),
           });
         });
 
@@ -749,6 +879,237 @@ const PdfEditor = ({ toolId }) => {
 
         const pdfBytes = await newPdf.save();
         finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
+
+        // 8. PDF TO IMAGE (JPG / PNG)
+      } else if (tool.id === "pdf-to-image") {
+        const file = files[0].file;
+        const arrayBuffer = await file.arrayBuffer();
+        if (!window.pdfjsLib) await loadPdfJs();
+        if (!window.pdfjsLib)
+          throw new Error("PDF engine failed to load. Please retry.");
+
+        const pdf = await window.pdfjsLib.getDocument({
+          data: arrayBuffer.slice(0),
+        }).promise;
+        const ext = imgFormat === "image/png" ? "png" : "jpg";
+        const baseName = file.name.replace(/\.pdf$/i, "");
+        const images = [];
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const baseViewport = page.getViewport({ scale: 1.0 });
+          const maxSide = Math.max(baseViewport.width, baseViewport.height);
+          const scale = Math.min(2.0, 2500 / maxSide);
+          const viewport = page.getViewport({ scale });
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          if (imgFormat !== "image/png") {
+            context.fillStyle = "white";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+          }
+          await page.render({ canvasContext: context, viewport }).promise;
+          const blob = await new Promise((res) =>
+            canvas.toBlob(res, imgFormat, 0.92),
+          );
+          images.push({ name: `${baseName}-page-${i}.${ext}`, blob });
+          canvas.width = 0;
+          canvas.height = 0;
+          canvas.remove();
+        }
+        if (pdf.destroy) pdf.destroy();
+
+        if (images.length === 1) {
+          finalizePdf(images[0].blob, images[0].name, imgFormat);
+        } else {
+          const zip = new JSZip();
+          images.forEach((im) => zip.file(im.name, im.blob));
+          const content = await zip.generateAsync({ type: "blob" });
+          finalizePdf(
+            content,
+            `GoPDFGo_${baseName}_images.zip`,
+            "application/zip",
+          );
+        }
+
+        // 9. WATERMARK PDF
+      } else if (tool.id === "watermark-pdf") {
+        const file = files[0].file;
+        const text = (watermarkText || "").trim();
+        if (!text) {
+          setErrorMsg("Please enter the watermark text.");
+          setIsProcessing(false);
+          return;
+        }
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
+        const font = await pdf.embedFont(StandardFonts.HelveticaBold);
+        const pages = pdf.getPages();
+        const opacity = Math.max(0.05, Math.min(1, watermarkOpacity));
+        const gray = rgb(0.5, 0.5, 0.5);
+        const diag = Math.cos(Math.PI / 4);
+
+        pages.forEach((page) => {
+          const { width, height } = page.getSize();
+
+          if (watermarkPos === "tiled") {
+            const fontSize = Math.max(14, Math.min(width, height) / 22);
+            const tw = font.widthOfTextAtSize(text, fontSize);
+            const stepX = width / 3;
+            const stepY = height / 4;
+            for (let gx = 0; gx < 3; gx++) {
+              for (let gy = 0; gy < 4; gy++) {
+                page.drawText(text, {
+                  x: stepX * gx + stepX / 2 - (tw / 2) * diag,
+                  y: stepY * gy + stepY / 2 - (tw / 2) * diag,
+                  size: fontSize,
+                  font,
+                  color: gray,
+                  rotate: degrees(45),
+                  opacity,
+                });
+              }
+            }
+          } else if (watermarkPos === "footer") {
+            const fontSize = Math.max(12, Math.min(width, height) / 28);
+            const tw = font.widthOfTextAtSize(text, fontSize);
+            page.drawText(text, {
+              x: (width - tw) / 2,
+              y: 24,
+              size: fontSize,
+              font,
+              color: gray,
+              opacity,
+            });
+          } else if (watermarkPos === "center") {
+            const fontSize = Math.max(24, Math.min(width, height) / 12);
+            const tw = font.widthOfTextAtSize(text, fontSize);
+            page.drawText(text, {
+              x: (width - tw) / 2,
+              y: height / 2 - fontSize / 2,
+              size: fontSize,
+              font,
+              color: gray,
+              opacity,
+            });
+          } else {
+            // diagonal (default)
+            const fontSize = Math.max(24, Math.min(width, height) / 12);
+            const tw = font.widthOfTextAtSize(text, fontSize);
+            page.drawText(text, {
+              x: width / 2 - (tw / 2) * diag,
+              y: height / 2 - (tw / 2) * diag,
+              size: fontSize,
+              font,
+              color: gray,
+              rotate: degrees(45),
+              opacity,
+            });
+          }
+        });
+
+        const pdfBytes = await pdf.save();
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
+
+        // 10. DELETE PDF PAGES
+      } else if (tool.id === "delete-pdf-pages") {
+        const file = files[0].file;
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
+        const pageCount = pdf.getPageCount();
+
+        // selectedPages = pages (1-based) the user marked for DELETION
+        if (selectedPages.size === 0) {
+          setErrorMsg("Select at least one page to delete.");
+          setIsProcessing(false);
+          return;
+        }
+        if (selectedPages.size >= pageCount) {
+          setErrorMsg("You can't delete every page — keep at least one.");
+          setIsProcessing(false);
+          return;
+        }
+
+        const keepIndices = [];
+        for (let i = 0; i < pageCount; i++) {
+          if (!selectedPages.has(i + 1)) keepIndices.push(i);
+        }
+        const newPdf = await PDFDocument.create();
+        const copied = await newPdf.copyPages(pdf, keepIndices);
+        copied.forEach((p) => newPdf.addPage(p));
+
+        const pdfBytes = await newPdf.save();
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
+
+        // 11. UNLOCK PDF (remove a password the user knows)
+      } else if (tool.id === "unlock-pdf") {
+        const file = files[0].file;
+        const arrayBuffer = await file.arrayBuffer();
+        if (!window.pdfjsLib) await loadPdfJs();
+        if (!window.pdfjsLib)
+          throw new Error("PDF engine failed to load. Please retry.");
+
+        let pdf;
+        try {
+          pdf = await window.pdfjsLib.getDocument({
+            data: arrayBuffer.slice(0),
+            password: pdfPassword || undefined,
+          }).promise;
+        } catch (err) {
+          if (err && err.name === "PasswordException") {
+            setErrorMsg(
+              pdfPassword
+                ? "Incorrect password. Please check it and try again."
+                : "This PDF needs a password to open. Please enter it above.",
+            );
+          } else {
+            setErrorMsg("Could not open this PDF. It may be corrupted.");
+          }
+          setIsProcessing(false);
+          return;
+        }
+
+        const newPdf = await PDFDocument.create();
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const baseViewport = page.getViewport({ scale: 1.0 });
+          const actualWidth = baseViewport.width;
+          const actualHeight = baseViewport.height;
+          const maxSide = Math.max(actualWidth, actualHeight);
+          const scale = Math.min(2.0, 2200 / maxSide);
+          const renderViewport = page.getViewport({ scale });
+          const canvas = document.createElement("canvas");
+          const context = canvas.getContext("2d");
+          canvas.width = renderViewport.width;
+          canvas.height = renderViewport.height;
+          context.fillStyle = "white";
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          await page.render({
+            canvasContext: context,
+            viewport: renderViewport,
+          }).promise;
+          const imgData = canvas.toDataURL("image/jpeg", 0.85);
+          const img = await newPdf.embedJpg(imgData);
+          const newPage = newPdf.addPage([actualWidth, actualHeight]);
+          newPage.drawImage(img, {
+            x: 0,
+            y: 0,
+            width: actualWidth,
+            height: actualHeight,
+          });
+          canvas.width = 0;
+          canvas.height = 0;
+          canvas.remove();
+        }
+        if (pdf.destroy) pdf.destroy();
+
+        const pdfBytes = await newPdf.save();
+        finalizePdf(pdfBytes, `GoPDFGo_unlocked_${file.name}`);
       }
     } catch (err) {
       console.error(err);
@@ -853,7 +1214,9 @@ const PdfEditor = ({ toolId }) => {
             tool.id !== "split-pdf" &&
             tool.id !== "rotate-pdf" &&
             tool.id !== "rearrange-pdf" &&
-            tool.id !== "extract-pdf-pages" && (
+            tool.id !== "extract-pdf-pages" &&
+            tool.id !== "pdf-to-image" &&
+            tool.id !== "delete-pdf-pages" && (
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -1242,6 +1605,299 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
+          {/* PDF to Image Controls */}
+          {files.length > 0 && tool.id === "pdf-to-image" && (
+            <div className="mb-8 animate-fade-in">
+              <div className="flex gap-4 justify-center mb-6">
+                <button
+                  onClick={() => setImgFormat("image/jpeg")}
+                  className={`px-8 py-3 rounded-xl font-bold transition cursor-pointer ${
+                    imgFormat === "image/jpeg"
+                      ? "bg-[#FF9933] text-white shadow-lg"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  JPG
+                </button>
+                <button
+                  onClick={() => setImgFormat("image/png")}
+                  className={`px-8 py-3 rounded-xl font-bold transition cursor-pointer ${
+                    imgFormat === "image/png"
+                      ? "bg-[#FF9933] text-white shadow-lg"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  }`}
+                >
+                  PNG
+                </button>
+              </div>
+              {generatingThumbnails && thumbnails.length === 0 ? (
+                <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
+                  <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
+                  <p className="font-medium text-slate-500">Loading Pages...</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-125 overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
+                  {thumbnails.map((thumb) => (
+                    <div
+                      key={thumb.pageNum}
+                      className="relative rounded-lg overflow-hidden border-2 border-slate-200 bg-white shadow-sm"
+                    >
+                      <img
+                        src={thumb.url}
+                        alt={`Page ${thumb.pageNum}`}
+                        className="w-full h-auto"
+                      />
+                      <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
+                        Page {thumb.pageNum}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Delete Pages Controls */}
+          {files.length > 0 && tool.id === "delete-pdf-pages" && (
+            <div className="mb-8 animate-fade-in">
+              <div className="flex flex-col items-center gap-3 mb-6">
+                <p className="text-sm font-bold bg-red-50 text-red-600 inline-block px-4 py-2 rounded-full">
+                  <Trash2 size={16} className="inline mr-1 mb-0.5" />
+                  Tap the pages you want to DELETE
+                </p>
+                {selectedPages.size > 0 && (
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm font-bold text-slate-700">
+                      {selectedPages.size} page
+                      {selectedPages.size > 1 ? "s" : ""} selected to delete
+                    </span>
+                    <button
+                      onClick={() => setSelectedPages(new Set())}
+                      className="text-xs font-bold text-slate-500 hover:text-red-600 bg-slate-100 hover:bg-red-50 px-3 py-1.5 rounded-full transition cursor-pointer"
+                    >
+                      Clear
+                    </button>
+                  </div>
+                )}
+              </div>
+              {generatingThumbnails && thumbnails.length === 0 ? (
+                <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
+                  <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
+                  <p className="font-medium text-slate-500">Loading Pages...</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-125 overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
+                  {thumbnails.map((thumb) => {
+                    const marked = selectedPages.has(thumb.pageNum);
+                    return (
+                      <div
+                        key={thumb.pageNum}
+                        onClick={() => {
+                          const s = new Set(selectedPages);
+                          if (s.has(thumb.pageNum)) s.delete(thumb.pageNum);
+                          else s.add(thumb.pageNum);
+                          setSelectedPages(s);
+                        }}
+                        className={`relative group rounded-lg overflow-hidden border-2 cursor-pointer transition-all bg-white shadow-sm ${
+                          marked
+                            ? "border-red-500 ring-4 ring-red-500/20"
+                            : "border-slate-200 hover:border-slate-300 hover:shadow-md"
+                        }`}
+                      >
+                        <img
+                          src={thumb.url}
+                          alt={`Page ${thumb.pageNum}`}
+                          className={`w-full h-auto transition ${
+                            marked ? "opacity-40" : ""
+                          }`}
+                        />
+                        <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
+                          Page {thumb.pageNum}
+                        </div>
+                        {marked && (
+                          <div className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 shadow-md">
+                            <Trash2 size={14} />
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Watermark Controls */}
+          {files.length > 0 && tool.id === "watermark-pdf" && (
+            <div className="mb-8 animate-fade-in max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
+              {/* Controls */}
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Watermark Text
+                  </label>
+                  <input
+                    type="text"
+                    value={watermarkText}
+                    onChange={(e) => setWatermarkText(e.target.value)}
+                    placeholder="e.g. CONFIDENTIAL"
+                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none font-medium"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Position
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      { id: "diagonal", label: "Diagonal" },
+                      { id: "center", label: "Center" },
+                      { id: "tiled", label: "Tiled" },
+                      { id: "footer", label: "Footer" },
+                    ].map((p) => (
+                      <button
+                        key={p.id}
+                        onClick={() => setWatermarkPos(p.id)}
+                        className={`py-2.5 rounded-lg font-bold text-sm transition cursor-pointer ${
+                          watermarkPos === p.id
+                            ? "bg-[#FF9933] text-white shadow"
+                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <label className="text-sm font-bold text-slate-700">
+                      Opacity
+                    </label>
+                    <span className="text-xs font-mono bg-orange-100 text-[#FF9933] px-2 py-1 rounded">
+                      {Math.round(watermarkOpacity * 100)}%
+                    </span>
+                  </div>
+                  <input
+                    type="range"
+                    min="0.05"
+                    max="1"
+                    step="0.05"
+                    value={watermarkOpacity}
+                    onChange={(e) =>
+                      setWatermarkOpacity(parseFloat(e.target.value))
+                    }
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
+                  />
+                </div>
+              </div>
+
+              {/* Live Preview (Page 1) */}
+              <div>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 text-center">
+                  Live Preview (Page 1)
+                </p>
+                <div className="relative bg-slate-100 rounded-xl border border-slate-200 overflow-hidden shadow-inner flex items-center justify-center min-h-75">
+                  {files[0]?.preview ? (
+                    <img
+                      src={files[0].preview}
+                      alt="Page 1 preview"
+                      className="max-w-full max-h-100 w-auto"
+                    />
+                  ) : (
+                    <div className="py-12 text-slate-400 flex flex-col items-center">
+                      <FileText size={40} />
+                      <span className="text-xs mt-2">Preview</span>
+                    </div>
+                  )}
+
+                  {watermarkText.trim() && (
+                    <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+                      {watermarkPos === "tiled" ? (
+                        <div className="absolute inset-0 flex flex-wrap items-center justify-around content-around p-2">
+                          {Array.from({ length: 12 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className="font-extrabold text-slate-600 whitespace-nowrap"
+                              style={{
+                                opacity: watermarkOpacity,
+                                transform: "rotate(-45deg)",
+                                fontSize: "0.7rem",
+                              }}
+                            >
+                              {watermarkText}
+                            </span>
+                          ))}
+                        </div>
+                      ) : watermarkPos === "footer" ? (
+                        <span
+                          className="absolute bottom-3 left-1/2 -translate-x-1/2 font-extrabold text-slate-600 whitespace-nowrap"
+                          style={{ opacity: watermarkOpacity, fontSize: "0.8rem" }}
+                        >
+                          {watermarkText}
+                        </span>
+                      ) : watermarkPos === "center" ? (
+                        <span
+                          className="absolute top-1/2 left-1/2 font-extrabold text-slate-600 whitespace-nowrap"
+                          style={{
+                            opacity: watermarkOpacity,
+                            transform: "translate(-50%, -50%)",
+                            fontSize: "1.4rem",
+                          }}
+                        >
+                          {watermarkText}
+                        </span>
+                      ) : (
+                        <span
+                          className="absolute top-1/2 left-1/2 font-extrabold text-slate-600 whitespace-nowrap"
+                          style={{
+                            opacity: watermarkOpacity,
+                            transform: "translate(-50%, -50%) rotate(-45deg)",
+                            fontSize: "1.4rem",
+                          }}
+                        >
+                          {watermarkText}
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Unlock Controls */}
+          {files.length > 0 && tool.id === "unlock-pdf" && (
+            <div className="mb-8 animate-fade-in max-w-md mx-auto">
+              <label className="block text-sm font-bold text-slate-700 mb-2">
+                PDF Password
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={pdfPassword}
+                  onChange={(e) => setPdfPassword(e.target.value)}
+                  placeholder="Enter the password you use to open this PDF"
+                  className="w-full p-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none font-medium"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((s) => !s)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#FF9933] cursor-pointer p-1"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  title={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
+              <p className="text-xs text-slate-500 mt-2 leading-snug">
+                We only remove a password you already know — this is not a
+                cracker. For bank statements it&apos;s often your PAN + date of
+                birth.
+              </p>
+            </div>
+          )}
+
           {/* Action Buttons */}
           <div className="flex flex-col items-center">
             {!isDone && (
@@ -1269,6 +1925,11 @@ const PdfEditor = ({ toolId }) => {
                 ) : tool.id === "compress-pdf" ? (
                   <>
                     <Minimize2 size={20} /> Compress PDF
+                  </>
+                ) : tool.id === "pdf-to-image" ? (
+                  <>
+                    PDF to {imgFormat === "image/png" ? "PNG" : "JPG"} Now{" "}
+                    <Zap size={20} />
                   </>
                 ) : (
                   <>
@@ -1311,6 +1972,18 @@ const PdfEditor = ({ toolId }) => {
                         <TrendingDown size={20} /> {compressionStats.percent}%
                       </div>
                     </div>
+                    {compressionStats.unchanged && (
+                      <p className="text-xs text-slate-500 mt-3 leading-snug">
+                        This PDF was already well-optimized, so we kept your
+                        original file unchanged.
+                      </p>
+                    )}
+                    {compressionStats.flattened && (
+                      <p className="text-xs text-amber-600 mt-3 leading-snug">
+                        Note: pages were flattened to images to shrink the file,
+                        so text inside is no longer selectable.
+                      </p>
+                    )}
                   </div>
                 )}
 

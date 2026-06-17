@@ -3,6 +3,7 @@ import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
+import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "Add Page Numbers to PDF Online Free | GoPDFGo",
@@ -31,6 +32,7 @@ export default function PageNumbersPage() {
       <PdfEditor toolId="page-numbers" />
       <InfoSection info={tool.info} />
       <RelatedTools currentToolId="page-numbers" toolType="pdf" />
+      <RelatedBlogs toolId="page-numbers" />
     </div>
   );
 }
