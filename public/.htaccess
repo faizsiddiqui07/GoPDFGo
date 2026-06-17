@@ -8,9 +8,10 @@
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^ https://gopdfgo.com%{REQUEST_URI} [L,R=301]
 
-  # 2. Trailing slash HATAO (301) -- sirf URLs par, asli directories ko chhodkar
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.+)/$ /$1 [L,R=301]
+  # 2. Trailing slash HATAO (301) -- sirf tab jab no-slash ".html" page मौजूद ho.
+  #    Yeh leftover /x/ folder hone par bhi chalta hai, aur asli asset folders par loop nahi karta.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/$ /$1 [L,R=301]
 
   # 3. Clean /x URL ke liye andar-hi-andar x.html serve karo (koi redirect nahi)
   RewriteCond %{REQUEST_FILENAME} !-f
