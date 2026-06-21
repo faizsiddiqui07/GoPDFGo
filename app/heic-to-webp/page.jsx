@@ -4,7 +4,7 @@ import { TOOLS_CONFIG } from "@/utils/constants";
 import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
-  title: "HEIC to WebP Converter Online Free – iPhone HEIC to WebP for Web | GoPDFGo",
+  title: "HEIC to WebP – Convert iPhone Photos to WebP Free | GoPDFGo",
   description:
     "Convert iPhone HEIC photos to lightweight WebP online for free. Smaller files, faster pages, private — no upload. Batch convert and download as ZIP.",
   keywords:

@@ -4,7 +4,7 @@ import { TOOLS_CONFIG } from "@/utils/constants";
 import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
-  title: "HEIC to PNG Converter Online Free – iPhone HEIC to Lossless PNG | GoPDFGo",
+  title: "HEIC to PNG – Convert iPhone Photos to PNG Free | GoPDFGo",
   description:
     "Convert iPhone HEIC photos to lossless PNG online for free. Pixel-perfect, edit-friendly, private — no upload. Batch convert and download as ZIP.",
   keywords:

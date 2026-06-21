@@ -6,7 +6,7 @@ import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
-  title: "Organize PDF Online Free – Reorder, Rotate & Delete Pages in One Tool | GoPDFGo",
+  title: "Organize PDF – Reorder, Rotate & Delete Pages Free | GoPDFGo",
   description:
     "Organize a PDF on one screen: drag to reorder, rotate, and delete pages together, then download. The all-in-one PDF page organizer — free, private, no upload.",
   keywords:

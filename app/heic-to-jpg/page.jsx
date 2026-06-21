@@ -4,7 +4,7 @@ import { TOOLS_CONFIG } from "@/utils/constants";
 import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
-  title: "HEIC to JPG Converter Online Free – iPhone HEIC to JPG/PNG/WebP | GoPDFGo",
+  title: "HEIC to JPG – Convert iPhone Photos to JPG Free | GoPDFGo",
   description:
     "Convert iPhone HEIC photos to JPG, PNG, or WebP online for free. Fast, private, browser-based — no upload. Batch convert and download as ZIP.",
   keywords:
