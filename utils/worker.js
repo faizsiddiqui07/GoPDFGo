@@ -5,7 +5,7 @@ self.onmessage = async (e) => {
       return;
   }
   
-  const { fileId, bitmap, w, h, fmt, q, cx, cy, cw, ch, rot, flipH, flipV, filter, showVisualCrop, isMasking, originalMimeType } = e.data;
+  const { fileId, bitmap, w, h, fmt, q, cx, cy, cw, ch, rot, flipH, flipV, filter, showVisualCrop, isMasking, masks, originalMimeType } = e.data;
   
   try {
     let canvasWidth = Math.max(1, w || bitmap.width);
@@ -54,12 +54,20 @@ self.onmessage = async (e) => {
         // Draw Full Image
         ctx.drawImage(bitmap, -drawW / 2, -drawH / 2, drawW, drawH);
         
-        // --- AADHAR MASKING LOGIC ---
-        if (isMasking && cw > 0 && ch > 0) {
-            // Adjust coordinates: cx, cy are from Top-Left of original image.
-            // context is translated to center, so we subtract half width/height
-            ctx.fillStyle = "#000000"; // Secure Black Redaction
-            ctx.fillRect(cx - drawW/2, cy - drawH/2, cw, ch);
+        // --- ID MASKING LOGIC (multiple boxes) ---
+        // cx/cy/w/h are from the Top-Left of the original image; the context is
+        // translated to the centre, so we subtract half the draw width/height.
+        if (isMasking) {
+            ctx.fillStyle = "#000000"; // Secure black redaction (pixels are removed)
+            if (Array.isArray(masks) && masks.length) {
+                for (const m of masks) {
+                    if (m && m.w > 0 && m.h > 0) {
+                        ctx.fillRect(m.x - drawW/2, m.y - drawH/2, m.w, m.h);
+                    }
+                }
+            } else if (cw > 0 && ch > 0) {
+                ctx.fillRect(cx - drawW/2, cy - drawH/2, cw, ch);
+            }
         }
     }
     ctx.restore();

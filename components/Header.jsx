@@ -31,19 +31,32 @@ const Header = () => {
     ["compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
   );
 
-  const imgConverters = imageTools.filter((t) => t.id.includes("convert"));
+  const imgConverters = imageTools.filter(
+    (t) => t.id.includes("convert") || t.id.startsWith("heic-to-")
+  );
 
   const imgEditing = imageTools.filter(
-    (t) => !t.id.includes("convert") && !["compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
+    (t) =>
+      !t.id.includes("convert") &&
+      !t.id.startsWith("heic-to-") &&
+      !["compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
   );
 
-  const pdfManageTools = pdfTools.filter((t) =>
-    ["merge-pdf", "split-pdf", "extract-pdf-pages", "compress-pdf"].includes(t.id)
-  );
+  // Left column = organize/manage pages; right column = edit, optimize & convert.
+  // Kept roughly balanced (6 / 7) so the dropdown doesn't look lopsided.
+  const pdfManageIds = [
+    "merge-pdf",
+    "split-pdf",
+    "extract-pdf-pages",
+    "organize-pdf",
+    "rearrange-pdf",
+    "delete-pdf-pages",
+    "rotate-pdf",
+  ];
 
-  const pdfEditTools = pdfTools.filter(
-    (t) => !["merge-pdf", "split-pdf", "extract-pdf-pages", "compress-pdf"].includes(t.id)
-  );
+  const pdfManageTools = pdfTools.filter((t) => pdfManageIds.includes(t.id));
+
+  const pdfEditTools = pdfTools.filter((t) => !pdfManageIds.includes(t.id));
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);

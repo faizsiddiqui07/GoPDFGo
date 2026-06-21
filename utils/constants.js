@@ -17,7 +17,11 @@ import {
   FileImage,
   Stamp,
   FileMinus,
-  Unlock
+  Unlock,
+  Type,
+  ImageDown,
+  LayoutGrid,
+  PenTool
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -988,6 +992,219 @@ This is **not a password cracker**: you simply enter the password you already kn
       ]
     }
   },
+  {
+    id: "pdf-to-text",
+    type: "pdf",
+    title: "PDF to Text",
+    desc: "Extract all selectable text from a PDF into plain text.",
+    icon: Type,
+    color: "blue",
+    config: { mode: "pdf-to-text", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Extract PDF Text in Your Browser?",
+        useCases: "When You Need the Text Out of a PDF",
+        steps: "How to Convert PDF to Text",
+        faq: "PDF to Text FAQs"
+      },
+      intro: `Sometimes you don't need the whole PDF — you just need the words inside it. Maybe you want to copy a few paragraphs from a report into an email, pull the question text out of a question paper, quote a clause from an agreement, or feed some content into another document without retyping it line by line.
+
+GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it back to you as clean, copyable plain text. You can copy it with one tap or download it as a **.txt** file. It runs **entirely in your browser** — your PDF is never uploaded to any server, which matters when you're pulling text out of contracts, statements, or anything with personal details.
+
+**One honest limitation:** this works on PDFs that actually contain real text (the kind where you can already select words with your cursor). If your PDF is a **scanned image** — a photo of a page saved as a PDF — there is no text layer to read, and you'll need OCR instead, which is a different kind of tool.`,
+      features: [
+        {
+          title: "Keeps Your Reading Order",
+          desc: "We don't just dump characters. The tool follows the layout of each page — line by line, page by page — so the text you get back reads in roughly the same order you see on screen, with page breaks marked clearly."
+        },
+        {
+          title: "100% Private, No Upload",
+          desc: "The extraction happens on your own device using your browser's PDF engine. Your file never leaves your laptop or phone, so even sensitive documents like offer letters or statements stay completely yours."
+        },
+        {
+          title: "Copy or Download",
+          desc: "Once the text is out, grab it however you like — hit Copy to drop it straight into WhatsApp, Word, or an email, or download it as a .txt file to keep or edit later."
+        }
+      ],
+      useCases: [
+        "**Students & Researchers:** Pull quotes, definitions, or references out of e-books and papers without retyping a single line.",
+        "**Office Work:** Copy a clause from a contract, a paragraph from a report, or figures from a statement into your own document in seconds.",
+        "**Question Papers & Notes:** Get the text out of a PDF question paper or notes so you can reformat, translate, or share it.",
+        "**Feeding Other Tools:** Need the raw text to paste into a translator, a summarizer, or a word counter? Extract it here first, cleanly."
+      ],
+      steps: [
+        "**Upload your PDF:** Drag and drop the file or tap to select it. It stays on your device.",
+        "**Extract:** Click the button and the tool reads the text layer of every page.",
+        "**Copy or Download:** Read the extracted text on screen, tap Copy to grab it all, or download it as a .txt file.",
+        "**Scanned file?** If nothing comes out, your PDF is a scanned image with no text layer — you'll need an OCR tool for that."
+      ],
+      faq: [
+        {
+          q: "Why did I get no text / empty result?",
+          a: "Your PDF is almost certainly a scanned document — basically a picture of a page. There's no real text inside it to extract, only an image. Reading text from a picture needs OCR, which is a separate technology from plain text extraction."
+        },
+        {
+          q: "Does the formatting (bold, tables, columns) come through?",
+          a: "No. This gives you plain text only — no fonts, colours, bold, or table grids. Complex multi-column layouts may also come out in an unexpected order, because PDFs don't always store text the way it looks. It's meant for getting the words out, not recreating the design."
+        },
+        {
+          q: "Is my PDF uploaded anywhere?",
+          a: "Never. The whole process runs inside your browser using your device's own power. Your file is never sent to us or any server, so it's safe for private documents."
+        },
+        {
+          q: "Can I extract text from a password-protected PDF?",
+          a: "Remove the password first using our Unlock PDF tool (if you know the password), then run the unlocked file through this tool."
+        },
+        {
+          q: "Does it work on mobile?",
+          a: "Yes. It works in Chrome, Safari, and other modern browsers on Android and iPhone — no app to install."
+        }
+      ]
+    }
+  },
+  {
+    id: "organize-pdf",
+    type: "pdf",
+    title: "Organize PDF",
+    desc: "Reorder, rotate, and delete PDF pages on one screen.",
+    icon: LayoutGrid,
+    color: "orange",
+    config: { mode: "organize", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Organize PDF Pages Visually?",
+        useCases: "When You Need to Reorganize a PDF",
+        steps: "How to Organize PDF Pages",
+        faq: "Organize PDF FAQs"
+      },
+      intro: `Some PDFs come out of the scanner or the export button in a mess. Pages in the wrong order. A blank sheet in the middle. One page lying sideways because it was scanned the wrong way. Normally you'd need three separate tools to fix that — one to reorder, one to rotate, one to delete — and you'd run the file through each one in turn.
+
+GoPDFGo's **Organize PDF** tool puts all of that on a single screen. You see every page of your PDF as a thumbnail. **Drag** them into the right order, **rotate** the sideways ones upright, and **remove** the blank or unwanted pages — then export one clean PDF. No going back and forth between tools, no re-uploading between steps.
+
+And like everything on GoPDFGo, it runs **entirely in your browser**. Your pages are rendered and rebuilt on your own device, so even a contract, an answer sheet, or a set of bank statements never gets uploaded to a server.`,
+      features: [
+        {
+          title: "Everything on One Screen",
+          desc: "Reorder, rotate, and delete in the same view. Drag a page to move it, tap to rotate it 90°, tap to remove it. What you see is exactly what your final PDF will look like."
+        },
+        {
+          title: "Rotations Stay With Their Page",
+          desc: "Rotate a page and then move it — the rotation travels with the page, not the slot. So you can fix a sideways scan first and reorder afterwards without anything getting scrambled."
+        },
+        {
+          title: "Private, No Upload",
+          desc: "Your PDF is opened and rebuilt right inside your browser using your device's own power. Nothing is sent to a server, which matters for personal or confidential documents."
+        }
+      ],
+      useCases: [
+        "**Fixing Scanned Documents:** Scanners often produce pages out of order or upside down. Reorder and rotate them into a clean, readable document in one go.",
+        "**Removing Blank or Extra Pages:** Delete the blank separator sheets, duplicate pages, or instruction pages you don't want before sharing or printing.",
+        "**Assembling Reports & Submissions:** Drag chapters, annexures, or certificates into the exact sequence a college, office, or portal expects.",
+        "**Tidying a Merged File:** After combining several PDFs, use this to put every page in the right place and drop anything that slipped in by mistake."
+      ],
+      steps: [
+        "**Upload your PDF:** Drop the file in and every page appears as a thumbnail. It stays on your device.",
+        "**Rearrange:** Drag any page to a new position. The 'New Position' number updates as you go.",
+        "**Rotate or delete:** Use the buttons on each page to turn it 90° or remove it. Removed pages can be restored until you export.",
+        "**Export:** Click the button to download your reorganized PDF, with your new order, rotations, and deletions applied."
+      ],
+      faq: [
+        {
+          q: "Can I do everything at once, or one thing at a time?",
+          a: "All at once. Reorder, rotate, and delete pages in the same screen in any order you like, then export a single PDF. You don't need separate tools or multiple passes."
+        },
+        {
+          q: "If I rotate a page and then move it, does the rotation stay?",
+          a: "Yes. Each page carries its own rotation, so you can rotate first and reorder later — the rotation always stays attached to the correct page."
+        },
+        {
+          q: "Can I get a deleted page back?",
+          a: "Yes, until you export. Removed pages are shown greyed out with a restore option, so you can bring one back if you change your mind. Once you download, the deletion is final in that file."
+        },
+        {
+          q: "Are my pages uploaded anywhere?",
+          a: "No. The PDF is rendered and rebuilt entirely in your browser on your own device. Nothing is ever sent to a server, so it's safe for private documents."
+        },
+        {
+          q: "Does the text stay selectable after organizing?",
+          a: "Yes. Reordering, rotating, and deleting pages keeps the original page content intact, so text inside your PDF stays selectable and searchable."
+        }
+      ]
+    }
+  },
+
+  {
+    id: "sign-pdf",
+    type: "pdf",
+    title: "Sign PDF",
+    desc: "Draw, type, or upload a signature and place it on your PDF.",
+    icon: PenTool,
+    color: "orange",
+    config: { mode: "sign", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Sign PDFs in Your Browser?",
+        useCases: "When You Need to Sign a PDF",
+        steps: "How to Sign a PDF",
+        faq: "Sign PDF FAQs"
+      },
+      intro: `Someone emails you a form, a letter, or an agreement and asks you to "sign and send it back." The old way was painful: print it, sign with a pen, scan it, hope the scan isn't crooked, and email it back. GoPDFGo's **Sign PDF** tool skips all of that. You add your signature to the PDF right on screen and download the signed file — no printer, no scanner, no app.
+
+You can create your signature three ways: **draw** it with your finger or mouse, **type** your name and pick a handwriting style, or **upload** a photo of your real signature. Then just drag it onto the page exactly where it belongs, resize it, and download. The whole thing takes under a minute.
+
+Everything happens **inside your browser** — your document is never uploaded to a server. That matters, because the PDFs people sign are often the sensitive ones: offer letters, rental agreements, consent forms, bank paperwork. With GoPDFGo, your file and your signature stay on your own device.
+
+One honest note: this adds a **visual (ink) signature** — the kind that's perfect for everyday forms, approvals, and letters. It is not a legally certified digital signature (the DSC/PKI kind issued by a certifying authority), so for documents that specifically demand that, you'll need a registered digital signature instead.`,
+      features: [
+        {
+          title: "Draw, Type, or Upload",
+          desc: "Make your signature whichever way suits you — draw it by hand, type your name in a signature-style font, or upload a clean photo of your real signature. You're in control of how it looks."
+        },
+        {
+          title: "Place It Exactly Where You Want",
+          desc: "Drag your signature to the right spot on any page and resize it to fit the signature line. What you see on screen is exactly where it lands in the final PDF."
+        },
+        {
+          title: "100% Private",
+          desc: "Your PDF and your signature never leave your device. The signing happens entirely in your browser, so even confidential agreements stay completely yours."
+        }
+      ],
+      useCases: [
+        "**Forms & Applications:** Sign admission forms, job paperwork, or government forms and send them back without printing.",
+        "**Agreements & Contracts:** Add your signature to rental agreements, freelance contracts, or NDAs in seconds.",
+        "**Letters & Approvals:** Put a signature on official letters, authorisation notes, or approvals before emailing them.",
+        "**Consent & Declaration Forms:** Quickly sign school, medical, or bank consent forms from your phone or laptop."
+      ],
+      steps: [
+        "**Upload your PDF:** Drop in the file you need to sign. It stays on your device.",
+        "**Create your signature:** Draw it, type your name in a handwriting style, or upload an image of your signature.",
+        "**Place it:** Drag the signature onto the right page and spot, then resize it to fit.",
+        "**Download:** Click to add the signature and download your signed PDF."
+      ],
+      faq: [
+        {
+          q: "Is this a legally valid digital signature?",
+          a: "It adds a visual (ink) signature, which is widely accepted for everyday forms, letters, and approvals. It is not a certified digital signature (DSC/PKI) issued by a certifying authority. If a document specifically requires that kind of signature, you'll need a registered DSC instead."
+        },
+        {
+          q: "Is my document uploaded to a server?",
+          a: "No. Your PDF and signature are processed entirely in your browser on your own device. Nothing is ever uploaded, which keeps sensitive agreements private."
+        },
+        {
+          q: "Can I sign on my phone?",
+          a: "Yes. You can draw your signature with your finger and drag it into place right on a phone or tablet — no app needed."
+        },
+        {
+          q: "Can I place the signature on any page?",
+          a: "Yes. Move between pages and drop the signature on whichever page needs it, exactly where you want it."
+        },
+        {
+          q: "What's the best way to upload my real signature?",
+          a: "Sign on white paper, take a clear photo, and ideally remove the background so it's a transparent PNG. A clean image sits more naturally on the document, though a normal photo works too."
+        }
+      ]
+    }
+  },
 
   // ==========================================
   // IMAGE TOOLS
@@ -1446,7 +1663,7 @@ Take control of your photo's composition and create the perfect frame with GoPDF
     desc: "Convert images to the modern WebP format.",
     icon: RefreshCw,
     color: "blue",
-    config: { showFormat: true, defaultFormat: "image/webp", lockFormat: true, allowBatch: true },
+    config: { showFormat: true, defaultFormat: "image/webp", lockFormat: true, allowBatch: true, accept: ".jpg,.jpeg,.png,.gif,.bmp,image/jpeg,image/png,image/gif,image/bmp" },
     info: {
       sectionHeadings: {
         features: "Why Upgrade to WebP Format?",
@@ -1536,7 +1753,7 @@ Make the switch to WebP today and watch your digital assets become lighter and f
     desc: "Convert PNG, WebP, and others to JPG.",
     icon: RefreshCw,
     color: "blue",
-    config: { showFormat: true, defaultFormat: "image/jpeg", lockFormat: true, allowBatch: true },
+    config: { showFormat: true, defaultFormat: "image/jpeg", lockFormat: true, allowBatch: true, accept: ".png,.webp,.gif,.bmp,image/png,image/webp,image/gif,image/bmp" },
     info: {
       sectionHeadings: {
         features: "Why Standardize to JPEG?",
@@ -1626,7 +1843,7 @@ Stop worrying about "File Format Not Supported" errors. Switch to JPG with GoPDF
     desc: "Convert JPG and WebP to PNG format.",
     icon: RefreshCw,
     color: "blue",
-    config: { showFormat: true, defaultFormat: "image/png", lockFormat: true, allowBatch: true },
+    config: { showFormat: true, defaultFormat: "image/png", lockFormat: true, allowBatch: true, accept: ".jpg,.jpeg,.webp,.gif,.bmp,image/jpeg,image/webp,image/gif,image/bmp" },
     info: {
       sectionHeadings: {
         features: "Benefits of Lossless PNGs",
@@ -1704,6 +1921,234 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
         {
           q: "Can I convert multiple formats at once?",
           a: "Yes. You can drag in a mix of JPGs, WebPs, and BMPs. Our tool will standardize them all into high-quality PNG files in a single batch."
+        }
+      ]
+    }
+  },
+  {
+    id: "heic-to-jpg",
+    type: "image",
+    title: "HEIC to JPG",
+    desc: "Convert iPhone HEIC photos to JPG, PNG, or WebP.",
+    icon: ImageDown,
+    color: "blue",
+    config: {
+      showFormat: true,
+      defaultFormat: "image/jpeg",
+      defaultQuality: 0.9,
+      allowBatch: true,
+      accept: ".heic,.heif,image/heic,image/heif"
+    },
+    info: {
+      sectionHeadings: {
+        features: "Why Convert HEIC in Your Browser?",
+        useCases: "When You Need to Convert HEIC Photos",
+        steps: "How to Convert HEIC to JPG",
+        faq: "HEIC to JPG FAQs"
+      },
+      intro: `You took a photo on your iPhone, went to upload it somewhere — a job portal, a college form, a website, your Windows laptop — and it just wouldn't open. Or it uploaded but nobody else could see it. The culprit is almost always the same: **HEIC**, the format iPhones save photos in by default.
+
+HEIC (High Efficiency Image Container) is genuinely clever — it keeps photos sharp while using roughly half the space of a JPG. The catch is that most of the world hasn't caught up. Android phones, Windows, a lot of government and exam portals, and countless websites still expect a plain old **JPG**. So an iPhone photo that looks perfect on your phone becomes a headache the moment it leaves it.
+
+GoPDFGo's **HEIC to JPG** tool fixes that in seconds. Drop in your iPhone photos and get back universal **JPG, PNG, or WebP** files that open and upload anywhere. And because everything runs **inside your browser**, your photos are never uploaded to a server — which matters, because the photos you're converting are often personal ones.`,
+      features: [
+        {
+          title: "JPG, PNG, or WebP — Your Choice",
+          desc: "Pick the format you actually need. **JPG** for forms, portals, and sharing (smallest, most compatible). **PNG** when you want the cleanest possible quality. **WebP** for fast-loading websites. One tool, all three outputs."
+        },
+        {
+          title: "Your Photos Never Leave Your Device",
+          desc: "Most HEIC converters upload your private photos to their servers. We don't. The conversion happens right here in your browser using your own device, so your personal pictures stay completely private."
+        },
+        {
+          title: "Convert a Whole Batch at Once",
+          desc: "Got a folder full of iPhone photos? Drop them all in together and download the converted JPGs as a single ZIP. No converting them one painful file at a time."
+        }
+      ],
+      useCases: [
+        "**Uploading to Forms & Portals:** Job applications, exam registrations, and government sites that reject HEIC will happily accept the JPG version.",
+        "**Sharing with Android & Windows Users:** Send photos that your friends, family, or colleagues can actually open, instead of a file their device doesn't recognise.",
+        "**Posting Online:** Many websites, CMS uploaders, and marketplaces only accept JPG or PNG — convert first, upload without errors.",
+        "**Editing & Printing:** Most photo editors and print shops want a JPG or PNG. Convert your iPhone shots so any software or printer can use them."
+      ],
+      steps: [
+        "**Add your HEIC photos:** Drag and drop one or many iPhone photos, or tap to select them. They stay on your device.",
+        "**Choose a format:** Pick JPG (most compatible), PNG (best quality), or WebP (smallest for web).",
+        "**Convert:** The tool decodes the HEIC and re-encodes it to your chosen format, right in your browser.",
+        "**Download:** Save a single converted photo, or grab the whole batch as a ZIP."
+      ],
+      faq: [
+        {
+          q: "What is a HEIC file and why won't it open?",
+          a: "HEIC is the high-efficiency format iPhones use to save photos in less space. The problem is that Android, Windows, and many websites and portals don't support it yet, so the file refuses to open or upload. Converting it to JPG solves this instantly."
+        },
+        {
+          q: "Will I lose quality converting HEIC to JPG?",
+          a: "The difference is invisible to the eye. We decode the full-quality HEIC and re-encode it at a high quality setting. If you want zero compression at all, choose PNG instead of JPG."
+        },
+        {
+          q: "Are my photos uploaded to a server?",
+          a: "No. Everything happens inside your browser on your own device. Your photos are never sent to us or anyone else, which makes this safe for personal pictures."
+        },
+        {
+          q: "Can I convert many photos at once?",
+          a: "Yes. Drop in as many HEIC files as you like and download them all together as a ZIP. Larger batches take a little longer on older phones, since the decoding happens on your device."
+        },
+        {
+          q: "A few of my photos failed to convert. Why?",
+          a: "Some special HEICs — like iPhone Live Photos or certain 10/12-bit images — can't always be decoded in the browser. If one fails, the easiest fix is to open it on your iPhone and use Share or export it as a JPG, or try the others."
+        }
+      ]
+    }
+  },
+  {
+    id: "heic-to-png",
+    type: "image",
+    title: "HEIC to PNG",
+    desc: "Convert iPhone HEIC photos to lossless PNG.",
+    icon: ImageDown,
+    color: "blue",
+    config: {
+      showFormat: true,
+      defaultFormat: "image/png",
+      defaultQuality: 0.92,
+      allowBatch: true,
+      accept: ".heic,.heif,image/heic,image/heif"
+    },
+    info: {
+      sectionHeadings: {
+        features: "Why Convert HEIC to PNG?",
+        useCases: "When PNG Is the Right Choice",
+        steps: "How to Convert HEIC to PNG",
+        faq: "HEIC to PNG FAQs"
+      },
+      intro: `When you convert an iPhone photo, the format you pick decides what you can do with it afterwards. **PNG** is the one to choose when quality is the priority. Unlike JPG, PNG is **lossless** — it doesn't throw away any image data to save space, so what you get is a pixel-perfect copy of the original HEIC, with no compression blur, no blocky artifacts, nothing lost.
+
+That matters the moment you plan to **edit** the photo. Every time a JPG is opened, edited, and re-saved, it loses a little more quality. A PNG doesn't. So if you're going to retouch the image, drop it into a design, crop it repeatedly, or keep it as a clean master copy, PNG is the safer format. It's also the format virtually every image editor, design tool, and document app accepts without complaint.
+
+GoPDFGo's **HEIC to PNG** converter does this **entirely in your browser** — your photos are decoded and saved on your own device and never uploaded anywhere. The trade-off to know up front: because PNG keeps everything, the files are larger than JPG. If your goal is simply to upload to a form or share quickly, JPG is lighter; if it's quality you're after, PNG wins.`,
+      features: [
+        {
+          title: "Truly Lossless",
+          desc: "PNG stores every pixel exactly as it was in the original HEIC. No compression, no quality drop, no artifacts — ideal when the image will be edited or printed and you can't afford any loss."
+        },
+        {
+          title: "Edit-Friendly Everywhere",
+          desc: "PNG is the universal currency of image editors and design tools. Convert once and your iPhone photo will open cleanly in Photoshop, Canva, GIMP, Figma, Word, or anything else."
+        },
+        {
+          title: "Private, In Your Browser",
+          desc: "The HEIC is decoded and re-saved as PNG on your own device. Nothing is sent to a server, so even personal or work photos stay completely private."
+        }
+      ],
+      useCases: [
+        "**Editing & Retouching:** Keep full quality through multiple edits — PNG won't degrade each time you save, unlike JPG.",
+        "**Design & Graphics Work:** Drop your iPhone photos into Canva, Figma, or Photoshop in a format they handle perfectly.",
+        "**Archiving Master Copies:** Store a clean, lossless version of an important photo that you can always re-export from later.",
+        "**Crisp Documents:** When a photo has fine text, lines, or detail that must stay sharp, PNG preserves it better than JPG."
+      ],
+      steps: [
+        "**Add your HEIC photos:** Drag and drop one or many iPhone photos, or tap to select. They stay on your device.",
+        "**PNG is preselected:** The tool is already set to output lossless PNG (you can switch to JPG or WebP if you change your mind).",
+        "**Convert:** Your HEIC is decoded and re-saved as a pixel-perfect PNG in your browser.",
+        "**Download:** Save a single PNG, or grab the whole batch as a ZIP."
+      ],
+      faq: [
+        {
+          q: "Is PNG better than JPG for HEIC photos?",
+          a: "It depends on your goal. PNG is lossless, so it's better when you'll edit, print, or archive the photo and want zero quality loss. JPG makes much smaller files and is better for quick sharing or uploading to forms. Choose PNG for quality, JPG for size."
+        },
+        {
+          q: "Why is my PNG file larger than the HEIC?",
+          a: "HEIC is a highly compressed format, while PNG is lossless and stores every pixel without compression. That extra quality means a bigger file. If size matters more than perfect quality, convert to JPG instead."
+        },
+        {
+          q: "Does converting to PNG lose any quality?",
+          a: "No. PNG is lossless, so the conversion keeps the full quality decoded from your HEIC. Nothing is thrown away."
+        },
+        {
+          q: "Are my photos uploaded anywhere?",
+          a: "Never. Everything runs inside your browser on your own device, so your photos are never sent to us or any server."
+        },
+        {
+          q: "Can I convert many HEIC files to PNG at once?",
+          a: "Yes. Drop in as many as you like and download them together as a ZIP. Big batches take a little longer on older phones since the decoding happens on your device."
+        }
+      ]
+    }
+  },
+  {
+    id: "heic-to-webp",
+    type: "image",
+    title: "HEIC to WebP",
+    desc: "Convert iPhone HEIC photos to lightweight WebP for the web.",
+    icon: ImageDown,
+    color: "blue",
+    config: {
+      showFormat: true,
+      defaultFormat: "image/webp",
+      defaultQuality: 0.85,
+      allowBatch: true,
+      accept: ".heic,.heif,image/heic,image/heif"
+    },
+    info: {
+      sectionHeadings: {
+        features: "Why Convert HEIC to WebP?",
+        useCases: "When WebP Is the Right Choice",
+        steps: "How to Convert HEIC to WebP",
+        faq: "HEIC to WebP FAQs"
+      },
+      intro: `If your iPhone photos are headed for a **website** — a blog, an online store, a portfolio, a CMS — then **WebP** is the format built for the job. WebP is Google's modern image format, and its whole purpose is to look as good as JPG or PNG while weighing **significantly less**. Smaller images mean pages that load faster, and faster pages mean happier visitors and better Google rankings (page speed is a real ranking signal).
+
+The problem WebP solves is specific: a raw iPhone HEIC won't display on most websites at all, and a converted JPG, while compatible, is often heavier than it needs to be. WebP gives you web-ready images that are both **universally supported by modern browsers** and noticeably lighter — frequently 25–35% smaller than the same JPG at comparable quality.
+
+GoPDFGo's **HEIC to WebP** converter runs **entirely in your browser**, so your photos are never uploaded to a server. If you're a blogger, a small-business owner adding product shots, or a developer optimising a site, this turns your iPhone photos into fast-loading web images in seconds. (Sharing with a friend or uploading to a form instead? Plain JPG is the safer pick there.)`,
+      features: [
+        {
+          title: "Built for Fast Websites",
+          desc: "WebP files are typically 25–35% smaller than JPG at similar quality. Lighter images load faster, improve Core Web Vitals, and help your pages rank — exactly what you want for web photos."
+        },
+        {
+          title: "Modern Quality & Transparency",
+          desc: "WebP keeps your photos looking sharp at a smaller size, and unlike JPG it also supports transparency — a genuinely modern format for the web."
+        },
+        {
+          title: "Private, In Your Browser",
+          desc: "Your HEIC is decoded and re-encoded to WebP on your own device. Nothing is uploaded, so your photos stay yours."
+        }
+      ],
+      useCases: [
+        "**Blog & Website Images:** Add iPhone photos to your posts and pages as fast-loading WebP files.",
+        "**E-Commerce Product Shots:** Lighter product images mean a quicker store and a smoother buying experience.",
+        "**Web Performance & SEO:** Cut image weight to improve page speed and Core Web Vitals scores.",
+        "**Developers & Designers:** Generate optimised WebP assets for sites and apps straight from iPhone photos."
+      ],
+      steps: [
+        "**Add your HEIC photos:** Drag and drop one or many, or tap to select. They stay on your device.",
+        "**WebP is preselected:** The tool is already set to output WebP (switch to JPG or PNG anytime).",
+        "**Convert:** Your HEIC is decoded and re-encoded as a lightweight WebP in your browser.",
+        "**Download:** Save a single WebP, or grab the whole batch as a ZIP."
+      ],
+      faq: [
+        {
+          q: "Is WebP supported everywhere?",
+          a: "All modern browsers — Chrome, Edge, Firefox, Safari, and their mobile versions — support WebP, which is why it's the standard for web images today. For emailing a photo or uploading to an older form, though, JPG is still the safest choice."
+        },
+        {
+          q: "Why choose WebP over JPG for iPhone photos?",
+          a: "WebP files are usually 25–35% smaller than JPG at the same quality, so they make web pages load faster and help SEO. For website use, WebP wins; for universal sharing, JPG is more compatible."
+        },
+        {
+          q: "Does WebP lose quality?",
+          a: "WebP uses smart compression to stay small while looking sharp. At the default quality the difference is hard to notice, and you can raise the quality slider if you want it even closer to the original."
+        },
+        {
+          q: "Are my photos uploaded anywhere?",
+          a: "No. The whole conversion happens inside your browser on your own device, so your photos are never sent to a server."
+        },
+        {
+          q: "Can I convert HEIC to WebP in bulk?",
+          a: "Yes. Drop in as many HEIC files as you like and download them all as a ZIP. Larger batches take a little longer on older phones since decoding runs on your device."
         }
       ]
     }

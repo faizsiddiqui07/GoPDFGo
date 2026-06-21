@@ -2128,8 +2128,6 @@ export const blogsData = [
       <p>A home loan application moves faster when the officer can read it top to bottom without hunting for pages. Take the time to scan cleanly, fix the orientation, put the documents in a sensible order, and merge them into one file. A single, well-organized, properly compressed PDF meets the bank's upload rules and keeps your verification from stalling on avoidable formatting problems.</p>
     `
   },
-
-
   {
     id: "why-government-websites-reject-perfectly-fine-pdfs",
     title: "Why Government Websites Reject Perfectly Fine PDFs (And How to Fix It)",
@@ -2185,7 +2183,7 @@ export const blogsData = [
       <h3>The Ultimate Rule for Official Uploads</h3>
       <p>Government portals have absolute zero tolerance for technical deviations. Never rely on screenshots, WhatsApp forwarded images, or sloppy software hacks. Use dedicated, precise, and highly secure local tools to format your documents correctly the very first time. Perfect formatting ensures your application sails past the technical screening, allowing the human reviewers to focus entirely on your hard-earned qualifications.</p>
     `
-  }, 
+  },
   // {
   //   id: "real-difference-pdf-optimization-vs-compression",
   //   title: "The Real Difference Between PDF Optimization and PDF Compression",
@@ -2793,6 +2791,563 @@ export const blogsData = [
   //     <p>A password-protected statement is your bank doing its job. A portal rejecting that locked file is the portal doing its job. You just happen to be caught between the two. Removing a password you already know is a perfectly normal, legitimate thing to do with your own document, and there's no reason to send that document, or your PAN, off to a stranger's server to get it done.</p>
 
   //     <p>So the next time a KYC page bounces your statement, you'll know the fix. Type the password you know, get an unlocked copy back, and carry on with your loan or your verification. Go ahead and <a href="/unlock-pdf">unlock your PDF</a> right on your own device, no upload, nothing leaving your hands.</p>
+  //   `
+  // },
+
+
+  // 21-06-2026
+  // (7 new blogs below — commented; uncomment + add /images/blogs/<slug>.webp to publish)
+  // {
+  //   id: "add-cover-page-to-pdf-report-project",
+  //   title: "How to Add a Cover Page to a PDF Report or Project",
+  //   seoTitle: "Add Cover Page to PDF Report or Project | GoPDFGo",
+  //   keywords: "add cover page to pdf, title page for pdf project, prepend cover page pdf, add front page to pdf report, college project cover page pdf, internship report title page, merge cover page with pdf, add title page to pdf without word",
+  //   excerpt: "Exported your whole report to PDF and only then noticed the title page is missing? Here is the quick way to stick a cover in front without redoing the entire export.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/add-cover-page-to-pdf-report-project.webp",
+  //   content: `
+  //     <p>You finished the report. Forty pages of a final-year project, an internship report, maybe a client proposal. You exported the whole thing to PDF and then noticed the obvious gap. There is no cover page. No title, no your name, no college logo, no "Submitted to Prof. So-and-so." Page one is just chapter one.</p>
+      
+  //     <p>So do you go back into that giant Word file, insert a page at the very top, fight the formatting that always shifts when you add a page, and re-export all 40 pages again? No. The cover is one page. The report is already a clean PDF. You only need to glue one in front of the other, and that is a two-minute job.</p>
+      
+  //     <h2>The simplest way to think about it</h2>
+  //     <p>A cover page is a separate document until you decide otherwise. So treat it like one. Make your title page as its own one-page PDF, keep your report PDF exactly as it is, and then put the cover <strong>first</strong> and the report <strong>second</strong>. Stack them in that order and merge. That is the whole trick. You are not editing the report. You are not touching a single comma inside those 40 pages. You are adding one sheet to the front of the pile.</p>
+      
+  //     <p>This matters because re-exporting is where things break. Word repaginates, your carefully placed figure jumps to the next page, the heading styles drift, and now you have three new problems you did not have ten minutes ago. Leave the report PDF untouched and all of that goes away.</p>
+      
+  //     <h2>First, get your cover page as a PDF</h2>
+  //     <p>You have a few honest options here, depending on how your cover was made. Pick whichever matches your situation.</p>
+      
+  //     <ul>
+  //     <li><strong>You designed it in Canva or something similar.</strong> Plenty of students grab a free cover template off Canva because it looks nicer than a plain Word page. Canva exports straight to PDF, so download that single page as a PDF and you are set. Same for a cover built in PowerPoint or Google Slides.</li>
+  //     <li><strong>You have the cover as an image.</strong> Maybe a friend designed it, or you got a JPG with the college logo and a border. An image is not a PDF, so convert it first with <a href="/image-to-pdf">Image to PDF</a>. Drop the JPG or PNG in and it comes out as a clean one-page A4 PDF you can merge.</li>
+  //     <li><strong>The cover sits inside the big Word file but the report is already PDF.</strong> Open the Word doc, go to Print, set the range to that one page ("current page" or "page 1"), and save as PDF. Now you have a standalone cover without re-exporting the whole thing.</li>
+  //     <li><strong>You want to keep it plain.</strong> A simple typed cover in Word, exported as a one-page PDF, works perfectly well. Examiners care that the details are correct, not that the page sparkles.</li>
+  //     </ul>
+      
+  //     <p>Whatever route you take, the goal is one thing: a single PDF that is your cover page, sitting in your Downloads folder, ready to go.</p>
+      
+  //     <h2>Now merge the cover in front of the report</h2>
+  //     <p>This is where the order does all the work. The tool keeps whatever sequence you arrange, so the cover goes on top of the stack and the report follows.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Adding your cover page with Merge PDF</h3>
+  //     <p>Everything here runs inside your browser. The project file and the cover never leave your laptop, which is reassuring when the report carries your name, roll number, and sometimes a company's internal numbers.</p>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/merge-pdf">Merge PDF</a> tool on GoPDFGo.</li>
+  //     <li><strong>Step 2:</strong> Add your cover-page PDF first, then add the full report PDF. You can drop both in together.</li>
+  //     <li><strong>Step 3:</strong> Check the order in the preview tiles. The cover should be first, the report after it. If they loaded the wrong way around, drag the cover tile to the front.</li>
+  //     <li><strong>Step 4:</strong> If the cover came in sideways from a scan, tap the Rotate button on its tile to set it upright before merging.</li>
+  //     <li><strong>Step 5:</strong> Click <strong>Merge PDF Now</strong> and download. Open it once to confirm page one is your cover and page two is where the report begins.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <p>That check at the end takes five seconds and saves a fair bit of embarrassment. Open the merged file, look at page one. If it is your title page, you are done.</p>
+      
+  //     <h2>Page numbers, the right way round</h2>
+  //     <p>Plenty of college rubrics and internship report formats want numbered pages, and printed reports almost never number the cover. Here is the part people get wrong: do not merge first and number after. GoPDFGo's <a href="/page-numbers">Add Page Numbers</a> tool stamps a number on <em>every</em> page, starting from one, with no option to skip the first page or start later. Number the merged file and your cover ends up wearing a "1," which looks off.</p>
+      
+  //     <p>So flip the order. Number the report <em>first</em>, while it is still on its own, then prepend the un-numbered cover with Merge PDF. The cover was never in the file when numbering ran, so it stays clean, and your chapters carry the numbers. If you have already merged and want a more controlled setup (cover blank, numbering starting from the real page one), the longer split-and-rejoin route is laid out in our guide on <a href="/blog/add-page-numbers-to-college-project-pdf">adding page numbers to a college project PDF</a>. For most submissions, numbering before you prepend is enough.</p>
+      
+  //     <h2>If the merged file turns heavy</h2>
+  //     <p>If the report was full of scanned diagrams or high-res photos and the cover came from a detailed Canva design, the merged PDF can swell to 15 or 20 MB. That is a problem when the college portal caps uploads at 5 MB, or when Gmail starts grumbling at the attachment. Run the finished file through <a href="/compress-pdf">Compress PDF</a> and it drops a lot while the text stays sharp. Do this last, after merging, so you compress once and not twice.</p>
+      
+  //     <h2>The freelancer version of the same job</h2>
+  //     <p>This is not only a student thing. Say you run a small design or consulting gig and you send out quotations and proposals. The quote itself often drops out of an invoicing app or a spreadsheet as a plain PDF. Functional, but flat. A branded cover with your logo, your tagline, and "Proposal prepared for [client]" makes the whole thing read like a studio sent it, not a guy with a laptop at a cafe.</p>
+      
+  //     <p>The steps do not change. Build the cover once in Canva, keep it as a reusable one-page PDF, and put it on the front of every proposal with <a href="/merge-pdf">Merge PDF</a>. You design it a single time and reuse it for the next ten clients. They see a clean front page before they reach your numbers, and that first impression on a quote does real work.</p>
+      
+  //     <h2>A couple of things this will not do</h2>
+  //     <p>Let me be straight about the limits. Merging puts the cover in front of the report, but it does not redesign the cover for you. If the title page itself looks rough, fix that in whatever tool you made it in. Merge only handles the stacking.</p>
+      
+  //     <p>Also, if the report PDF is password protected, say you pulled it from a portal that locked it, you will need to remove the password with <a href="/unlock-pdf">Unlock PDF</a> before merging, because locked files cannot be combined. And merging keeps each file at its own page size. If the cover is A4 and the report is Letter, they merge fine but the page dimensions differ a touch. Nobody notices on most submissions, but if your guidelines are strict, match the cover's size to the report before you make it.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: Will adding a cover page change anything in my actual report?</strong><br>
+  //     A: No. Your report's text, figures, and formatting stay exactly as they were. You are only placing a new page in front of it, so nothing inside the report shifts.</p>
+      
+  //     <p><strong>Q: My cover is a JPG, not a PDF. Can I still merge it?</strong><br>
+  //     A: Not directly. Convert the JPG to a PDF first with <a href="/image-to-pdf">Image to PDF</a>, then merge that one-page PDF in front of your report.</p>
+      
+  //     <p><strong>Q: How do I number pages but leave the cover unnumbered?</strong><br>
+  //     A: Add page numbers to the report on its own first with <a href="/page-numbers">Add Page Numbers</a>, then prepend the cover using <a href="/merge-pdf">Merge PDF</a>. The cover is never in the file while numbering runs, so it stays clean.</p>
+      
+  //     <p><strong>Q: The merged file is too big for my college upload portal. What now?</strong><br>
+  //     A: Run the finished merged PDF through <a href="/compress-pdf">Compress PDF</a> as the last step. It brings the size down a good bit while keeping your text and diagrams readable.</p>
+      
+  //     <p>Adding a title page really is just stacking one PDF in front of another in the right order. Make your cover, open <a href="/merge-pdf">Merge PDF</a>, put the cover first, and the report is ready to submit. Worth the two minutes before you upload.</p>
+  //   `
+  // },
+  // {
+  //   id: "convert-png-to-jpg-online-fix-black-background",
+  //   title: "Convert PNG to JPG Online to Fix Black Backgrounds and Heavy Files",
+  //   seoTitle: "Convert PNG to JPG Online Free (Fix Black BG) | GoPDFGo",
+  //   keywords: "convert png to jpg online, png to jpg converter, fix black background png, png transparent background black, png to jpg for government form, screenshot png too large, convert png to jpeg, change png to jpg free, png to jpg for kyc upload, college erp jpg only",
+  //   excerpt: "Your PNG screenshot shows up with a black box on the upload preview, or the portal only takes JPG, or the file is too heavy for a strict KB limit. Here is the simple, private fix.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/convert-png-to-jpg-online-fix-black-background.webp",
+  //   content: `
+  //     <p>You took a screenshot on your phone, cropped it neatly, and went to upload it to a government form or your college ERP. The preview loads and there is a big black box around your photo. Or the portal flat-out refuses the file: <em>"Only JPG/JPEG allowed."</em> Or it accepts the PNG but then complains the file is 4MB when the limit is 200KB. Same screenshot, three different walls.</p>
+      
+  //     <p>All three usually trace back to one thing. Your file is a PNG, and the portal wanted a JPG. Converting it fixes the lot, and it takes about ten seconds. Here is what is actually going on, and how to sort it without handing your KYC documents to some random server.</p>
+      
+  //     <h2>Why your PNG turns into a black box</h2>
+      
+  //     <p>PNG files can store transparency. That is the whole point of the format for logos and clean graphics. When you screenshot a Story, save a sticker, or crop something with rounded corners, the "empty" areas are not white, they are <em>nothing</em>. Transparent pixels with no colour assigned.</p>
+      
+  //     <p>Your phone and your laptop know how to draw "nothing" as a clean checkered or white area. But a lot of older upload portals, government servers, and printing setups do not. When a transparent pixel reaches a viewer that does not handle it gracefully, those see-through areas often render as solid black. So your perfectly fine screenshot lands in the verification officer's folder looking like it was photographed in a power cut.</p>
+      
+  //     <p>JPG cannot store transparency at all. So the moment you convert PNG to JPG, the tool has to decide what to put behind those transparent pixels, and it fills them with a solid colour, usually white. This is not a bug, it is how the format works. That flattening is exactly what kills the black box. The transparent gaps become plain white, the image looks the way it does on your screen, and the portal stops choking on it.</p>
+      
+  //     <h2>The other reason: PNGs are just heavy</h2>
+      
+  //     <p>PNG keeps every pixel, lossless, no shortcuts. Great for a crisp logo. Terrible when you have screenshotted a full-colour photo or a busy webpage and the file balloons to 3, 4, even 8MB. A government recruitment portal that wants your photo under 100KB is going to reject that instantly.</p>
+      
+  //     <p>JPG uses lossy compression. It throws away colour data your eye will not miss and gets dramatically smaller. The same screenshot that is 4MB as a PNG can drop to a few hundred KB as a JPG, often with no visible difference for a document or a form photo. So converting solves the size problem and the format problem in one move.</p>
+      
+  //     <p>If you genuinely want to understand which format suits which job, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks down the trade-offs properly. This article is not that. This is the practical "I just need a JPG right now" walkthrough.</p>
+      
+  //     <h2>When you actually need PNG to JPG</h2>
+      
+  //     <ul>
+  //     <li>The portal says JPG or JPEG only. Banking KYC, a few state PSC forms, older college admission ERPs, some scholarship sites. They simply do not accept PNG.</li>
+  //     <li>Your screenshot or cropped photo shows a black background on the preview but looks fine in your own gallery.</li>
+  //     <li>The file is too heavy for a strict KB limit and it happens to be a PNG.</li>
+  //     <li>You are sending a document photo on WhatsApp or email and want a smaller, universally openable file.</li>
+  //     <li>The Xerox shop guy says his printer "is not taking" your file. Hand him a JPG and watch the problem disappear.</li>
+  //     </ul>
+      
+  //     <p>One honest caveat. If your image genuinely needs transparency to sit cleanly over a coloured background, like a logo going onto a website header, converting to JPG is the wrong call. JPG will slap a white rectangle behind it. For a form upload that is exactly what you want. For a floating logo it is not. Know which one you are doing.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>How to convert PNG to JPG on GoPDFGo</h3>
+  //     <p>The whole thing runs inside your browser. Your screenshot, your Aadhaar photo, your marksheet, none of it gets uploaded to a server. It is processed on your own device and nothing leaves it.</p>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/convert-jpg">Convert to JPG</a> tool on your phone or laptop.</li>
+  //     <li><strong>Step 2:</strong> Drag your PNG in, or tap the upload area and pick it from your gallery or downloads.</li>
+  //     <li><strong>Step 3:</strong> The tool flattens the image to JPG and fills any transparent areas with a solid white background. That is the step that removes the black box.</li>
+  //     <li><strong>Step 4:</strong> Download the JPG. Open it once to confirm the background is white and the image looks right before you upload it anywhere.</li>
+  //     <li><strong>Step 5:</strong> If the portal also has a size limit and your JPG is still a touch heavy, run it through <a href="/compress-jpg">Compress JPG</a> to bring it under the KB cap.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>Format first, then size</h2>
+      
+  //     <p>This is the order that trips people up. They convert to JPG, see it is still 800KB against a 100KB limit, and assume the conversion failed. It did not. Conversion fixes the <em>format and the black box</em>. Hitting a specific KB target is a separate job.</p>
+      
+  //     <p>So do it in two steps. First convert PNG to JPG. Then, only if the portal has a size cap you are still over, send that JPG through <a href="/compress-jpg">Compress JPG</a> and squeeze it down to the limit. Trying to do both in your head at once is how you end up re-uploading the same file five times while the deadline clock ticks. And if the portal is fussy and insists on the JPEG extension specifically, our <a href="/compress-jpeg">Compress JPEG</a> tool covers the same ground.</p>
+      
+  //     <h2>A few real situations this solves</h2>
+      
+  //     <p><strong>The fresher's first job application.</strong> You cropped your passport photo on your phone, it saved as PNG with rounded transparent corners, and the company careers portal shows it with black wedges in the corners. Convert to JPG and the corners go white.</p>
+      
+  //     <p><strong>The college ERP that only eats JPG.</strong> Half these systems were built years ago and never updated. They reject PNG outright. You do not need to re-take anything, just convert what you have.</p>
+      
+  //     <p><strong>The bank KYC re-upload.</strong> SBI or HDFC net banking asks for a fresh photo of a document, your screenshot is a heavy PNG, and the upload keeps failing silently. Convert it, it shrinks, it goes through.</p>
+      
+  //     <p>If your source is a screenshot that needs cropping or straightening first, do that with <a href="/crop">Crop</a> or <a href="/resize">Resize</a> before you convert. And if a portal actually wants a PDF instead of an image, <a href="/image-to-pdf">Image to PDF</a> takes your converted JPG and wraps it into a clean single-page document.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: Will converting PNG to JPG reduce my image quality?</strong><br> A: A little, because JPG is lossy. For a document, a form photo, a screenshot of text, or a marksheet, you will not notice it at normal viewing size. For a high-detail photograph you plan to print large, you would see a slight softening, but for upload-to-a-portal purposes it is a non-issue.</p>
+      
+  //     <p><strong>Q: Why is the background white and not transparent after converting?</strong><br> A: Because JPG cannot hold transparency. The tool has to fill those see-through pixels with something, and white is the safe default. That is the exact behaviour that fixes the black box on government and ERP uploads. If you need transparency kept, stay on PNG, JPG is not the format for that.</p>
+      
+  //     <p><strong>Q: Is my document safe? Do you see my files?</strong><br> A: No. The conversion happens locally in your browser on your own device. Your screenshots, Aadhaar photos, and marksheets are never uploaded to us, so there is nothing on our side to leak.</p>
+      
+  //     <p><strong>Q: The portal accepted the JPG but says it is too big. Now what?</strong><br> A: Convert handled the format. For the size, run the JPG through <a href="/compress-jpg">Compress JPG</a> and bring it under the KB limit the portal specified. Two quick steps, format then size.</p>
+      
+  //     <p>That black box was never a problem with your photo. It was just a PNG meeting a portal that wanted a JPG. Convert it, check the background is white, compress if there is a size cap, and upload with one less thing to worry about. Start with the <a href="/convert-jpg">Convert to JPG</a> tool and get it off your plate.</p>
+  //   `
+  // },
+  // {
+  //   id: "linkedin-youtube-whatsapp-dp-image-sizes-2026",
+  //   title: "Correct Image Sizes for LinkedIn, YouTube and WhatsApp DP (2026 Cheat Sheet)",
+  //   seoTitle: "LinkedIn Profile Photo Size & YouTube, WhatsApp DP | GoPDFGo",
+  //   keywords: "linkedin profile photo size, youtube channel art size, whatsapp dp size, linkedin banner size, youtube profile picture size, social media image sizes 2026, resize image for linkedin, profile photo dimensions india, whatsapp business dp size",
+  //   excerpt: "A fresher's LinkedIn, a small shop's YouTube channel, a WhatsApp Business DP, all ruined by blurry or badly cropped photos. Here are the exact pixel sizes for 2026 and how to hit them.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/linkedin-youtube-whatsapp-dp-image-sizes-2026.webp",
+  //   content: `
+  //     <p>You finished your degree, a senior told you to "make a proper LinkedIn for placements," and you uploaded a nice photo. On your phone it looked sharp. On the actual profile it came out soft, with the top of your head chopped off and your collar cut at a weird angle. You're not imagining it. You used the wrong size, and LinkedIn squeezed your photo into a box it was never shaped for.</p>
+      
+  //     <p>This happens to everyone the first time. A fresher building a profile for campus placements, a kirana shop owner starting a YouTube channel for product reviews, a salon putting up a WhatsApp Business DP. Same story every time: wrong dimensions in, blurry or badly cropped photo out. The fix isn't a better camera. It's knowing the recommended pixel size for each platform, cropping to that shape first, then resizing to the exact pixels. Here's the cheat sheet, then the method.</p>
+      
+  //     <h2>The 2026 cheat sheet (bookmark this)</h2>
+  //     <p>These are the recommended upload sizes. Platforms accept bigger images and shrink them down, but uploading at the right size gives you the cleanest result and the smallest file. Keep this handy.</p>
+  //     <ul>
+  //     <li><strong>LinkedIn profile photo:</strong> 400x400 pixels, square. This is the <em>linkedin profile photo size</em> people search for and get wrong constantly. LinkedIn displays it inside a circle, so keep your face centred with some breathing room.</li>
+  //     <li><strong>LinkedIn banner (cover):</strong> 1584x396 pixels, a wide strip. Your profile photo sits on the bottom-left of this banner, so don't put important text or your logo down in that corner.</li>
+  //     <li><strong>YouTube profile picture (channel icon):</strong> 800x800 pixels, square, shown as a circle. YouTube recommends 800x800 and renders it quite small, so a simple, high-contrast image reads better than a busy one.</li>
+  //     <li><strong>YouTube channel art (banner):</strong> 2560x1440 pixels. The catch: only a centre <strong>safe area of roughly 1235x338 pixels</strong> is guaranteed to show on every device. Anything outside that can get cropped on phones or TVs. Keep your channel name and logo inside the safe area.</li>
+  //     <li><strong>WhatsApp DP (profile photo):</strong> 640x640 pixels, square, shown as a circle. This covers personal WhatsApp and WhatsApp Business. WhatsApp compresses hard, so start sharp.</li>
+  //     <li><strong>Instagram profile photo:</strong> 320x320 pixels, square, shown as a circle. It's small, so crop tight to your face and skip the fine detail.</li>
+  //     </ul>
+      
+  //     <p>Notice the pattern. Almost every profile photo is a <strong>square</strong> that the app then masks into a <strong>circle</strong>. Only the banners are wide rectangles. That one fact prevents most cropping disasters, and it's worth keeping in your head for the rest of this.</p>
+      
+  //     <h2>Why your photo goes blurry or gets chopped</h2>
+  //     <p>Two different problems get blamed on the same thing. Let's separate them.</p>
+      
+  //     <p><strong>Blurry</strong> usually means your image was too small and the platform stretched it up to fill the box. Upload a 150x150 thumbnail into a slot that wants 400x400 and the app enlarges it, turning every pixel mushy. The fix is to start from a decent-resolution photo and resize <em>down</em> to the target, never up. Resizing up never adds detail that wasn't there.</p>
+      
+  //     <p><strong>Badly cropped</strong> means your image was the wrong shape. You uploaded a tall portrait photo, say 1080x1920 straight off your phone, into a square slot. The platform can't fit a tall photo in a square hole, so it grabs the middle and discards the top and bottom. Your forehead and chin go missing. The fix is to crop to the right shape before you upload, so you decide what stays in frame instead of leaving it to an algorithm.</p>
+      
+  //     <p>So the order is always the same: crop to the right shape, then resize to the exact pixels. Do it backwards and you've just shrunk a badly shaped mess.</p>
+      
+  //     <h2>Crop to shape first, then resize to pixels</h2>
+  //     <p>The circle mask is the bit that catches first-timers. The app shows your square photo as a circle, which means the four corners are hidden. If your face is pushed to one side or your logo touches an edge, the round crop eats it. Compose for the circle, not the square: face roughly centred, a little margin all around. This is the one thing passport-photo guides never have to worry about, because government forms want a flat rectangle, not a circle.</p>
+      
+  //     <p>The <a href="/crop">Crop Image</a> tool has aspect-ratio presets for this. For a profile photo, lock it to <strong>1:1</strong> and the crop box won't let you pull it out of square, however shaky your dragging is. Drag the box so your face sits inside the eventual circle, then crop. For a YouTube channel banner, the 2560x1440 frame is 16:9, so pick the <strong>16:9</strong> preset and keep your channel name and logo near the centre, inside that safe area. The LinkedIn banner is an odd 1584x396 ratio with no matching preset, so use <strong>Free</strong> and drag a long, thin box across the top. After cropping, send the result to <a href="/resize">Resize Image</a> and type in the precise width and height.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>How to get a sharp LinkedIn / YouTube / WhatsApp photo</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Pick your best, well-lit, reasonably high-resolution photo. Bigger to start is fine, you'll shrink it. A tiny screenshot will never come out sharp.</li>
+  //     <li><strong>Step 2:</strong> Open the <a href="/crop">Crop Image</a> tool. For any profile photo, choose the <strong>1:1 (square)</strong> preset. For YouTube channel art, pick <strong>16:9</strong>. For a LinkedIn banner, choose <strong>Free</strong> and drag a wide, short box.</li>
+  //     <li><strong>Step 3:</strong> Drag the crop box so your face (or logo) is centred with a little space around it. Remember the circle mask: anything in the corners gets hidden. Apply the crop.</li>
+  //     <li><strong>Step 4:</strong> Open the <a href="/resize">Resize Image</a> tool and load the cropped image. Enter the exact pixels from the cheat sheet: 400x400 for LinkedIn, 800x800 for YouTube, 640x640 for WhatsApp, and so on.</li>
+  //     <li><strong>Step 5:</strong> Download. If the file feels heavy for upload, run it through <a href="/compress-jpg">Compress JPG</a> to cut the weight without touching the dimensions. Then upload it.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>Platform by platform, the real-life version</h2>
+  //     <p><strong>The fresher's first LinkedIn.</strong> Crop a head-and-shoulders shot to 1:1, resize to 400x400. Plain background, face filling most of the frame, looking at the camera. For the banner at 1584x396, a clean colour or your campus skyline works, but keep text away from the bottom-left where your photo overlaps. Recruiters scroll fast. A crisp, correctly sized photo quietly signals you've got your act together.</p>
+      
+  //     <p><strong>The small shop's YouTube channel.</strong> Channel icon at 800x800, usually your logo or a clear product shot. Channel art at 2560x1440, but treat the 1235x338 centre as the only space you can trust. Put the shop name and tagline there. Anything in the outer area might vanish on a customer's phone. Open it on your own phone before you call it done.</p>
+      
+  //     <p><strong>The WhatsApp Business DP.</strong> 640x640, cropped to 1:1. WhatsApp compresses aggressively, so a small or dark photo turns to mush. Start with a bright, sharp logo or storefront shot, crop tight for the circle, resize to 640, and it survives the squeeze. The same 640x640 works for your personal DP too.</p>
+      
+  //     <p>One honest note. These tools crop and resize. They don't un-blur a photo that was low quality to begin with, and they can't rescue a dark, grainy shot. Start with a decent original and the rest is easy.</p>
+      
+  //     <h2>FAQ</h2>
+  //     <p><strong>Q: What is the correct LinkedIn profile photo size in 2026?</strong><br> A: 400x400 pixels, square. LinkedIn shows it inside a circle, so centre your face with a bit of margin. You can upload larger and it'll downscale, but 400x400 is the clean target.</p>
+      
+  //     <p><strong>Q: My YouTube banner text keeps getting cut off. Why?</strong><br> A: Because it's outside the safe area. The full channel art is 2560x1440, but only the centre 1235x338 is guaranteed to show on every device. Keep your channel name and logo inside that strip.</p>
+      
+  //     <p><strong>Q: Should I crop or resize first?</strong><br> A: Crop first to fix the shape, then resize to set the exact pixels. Resizing a wrong-shaped photo just shrinks the problem and can squash your face. Crop to 1:1, then resize to 400x400 (or whatever the platform wants).</p>
+      
+  //     <p><strong>Q: Why does my WhatsApp DP look worse than the original?</strong><br> A: WhatsApp compresses profile photos heavily. Start with a sharp 640x640 image. If it still looks soft, the original was probably too small or low quality, and resizing up can't add detail back.</p>
+      
+  //     <p>Save the cheat sheet, crop to shape, then resize to the exact pixels. Whether it's a placement-ready LinkedIn, a shop's first YouTube channel, or a Business DP, the <a href="/crop">Crop</a> and <a href="/resize">Resize</a> tools run entirely in your browser, so your photos never leave your device. Get the size right once and you won't upload a blurry DP again.</p>
+  //   `
+  // },
+  // {
+  //   id: "qr-code-for-google-reviews",
+  //   title: "How to Make a QR Code for Google Reviews (and Actually Get More 5-Star Ratings)",
+  //   seoTitle: "QR Code for Google Reviews: Get More 5-Stars | GoPDFGo",
+  //   keywords: "qr code for google reviews, google review qr code, get more google reviews, google review link qr, restaurant google review qr code, salon google review qr, business profile review link, static qr code for reviews, scan to review on google, free google review qr generator",
+  //   excerpt: "Want walk-in customers to leave a Google review before they leave your counter? Here is the honest, no-subscription way to turn your Google review link into a permanent printable QR code.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/qr-code-for-google-reviews.webp",
+  //   content: `
+  //     <p>Every shop owner figures this out the slow way. A happy customer means it when they say "lovely food, will come again" or "best haircut in months." But ask them to actually open Google and write a review, and that goodwill vanishes the second they step onto the road. They forget. You forget to ask. And the place two lanes down somehow has 340 reviews while you are stuck on 11.</p>
+      
+  //     <p>The fix is not begging on WhatsApp. It is a small printed QR code sitting on your counter or your bill tray. The customer scans it with the phone already in their hand, your Google review box opens straight up, they tap five stars, done. No typing your business name, no searching, no friction. This post shows you how to make one for free, honestly, without falling into any monthly-subscription trap.</p>
+      
+  //     <h2>Why a review QR beats a WhatsApp message</h2>
+  //     <p>Think about what you are actually asking when you send a "please review us" text. The customer has to read it, tap the link, wait for the page, find your listing, scroll to reviews, then write something. Five steps, all while they are busy with ten other things. Most never get past the first one.</p>
+  //     <p>A QR code collapses that whole chain. The customer is standing right there, full of fresh goodwill, paying the bill. You point at a small tent card. They scan. The review window is open in a second. You have caught them at the exact moment they are most likely to say something nice, which is right after the service, not three hours later when they are stuck in traffic and irritated.</p>
+  //     <p>This works for almost any walk-in business. A restaurant or dhaba puts it on the table or inside the bill folder. A salon sticks it at the billing counter. A clinic keeps it at the reception desk. A gym puts it near the front desk. Even a kirana shop can tape it next to the QR they already use for UPI payments. Same gesture the customer already knows, different result.</p>
+      
+  //     <h2>First, get your real Google review link</h2>
+  //     <p>This is the part most people get wrong, so go slow here. The QR is only as good as the link inside it, and you want the link that drops customers straight into the "write a review" box, not just your map listing.</p>
+  //     <p>You need a verified <strong>Google Business Profile</strong> for your shop. If your business already shows up on Google Maps with a photo, timings, and a phone number, you probably have one. To get the review link, open your Business Profile (search your own business name while logged into the Google account that manages it, or use the Google Business Profile dashboard). Look for the option that says <strong>"Ask for reviews"</strong> or <strong>"Get more reviews."</strong> Google hands you a short link, usually something like <em>g.page/r/...</em> or a <em>search.google.com/...</em> review URL.</p>
+  //     <p>Copy that link exactly. That is the one that opens the review and star-rating window directly. Do not just copy your Google Maps URL from the browser bar, because that only opens your listing and the customer still has to hunt for the review button. The whole point is removing taps, so use the proper review link.</p>
+      
+  //     <h2>Now turn that link into a QR code</h2>
+  //     <p>This is the easy bit, and it is completely free. You paste your review link into a QR generator and download the image. Use the Text/URL mode, which simply takes whatever link you give it and draws it into the black-and-white squares.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Make your Google review QR code in 2 minutes</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Get your review link ready first. From your Google Business Profile, use "Ask for reviews" or "Get more reviews" to copy the short review link (the g.page or search.google URL). Keep it on your clipboard.</li>
+  //     <li><strong>Step 2:</strong> Open the <a href="/qr-generator">QR Code Generator</a> and stay on the <strong>Text / URL</strong> tab. Paste your review link into the box. Check it once for stray spaces at the start or end, since one extra character will break it.</li>
+  //     <li><strong>Step 3:</strong> Hit Generate. The code appears on screen instantly. It is drawn right inside your browser, so the link you pasted is never sent off to anyone's server.</li>
+  //     <li><strong>Step 4:</strong> Before anything else, pick up your own phone and scan the code on the screen. It must open the Google review window for your business with the star rating ready. If it lands on the right page, you are set.</li>
+  //     <li><strong>Step 5:</strong> Download the PNG. Take it to your local Xerox or print shop, or print at home, and you have a counter card ready to go.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>Why this QR never expires</h2>
+  //     <p>You may have read scary stories about QR codes that "stop working" after a free trial. Those are <strong>dynamic</strong> codes, where the squares hold a tracking link owned by some company that switches it off when you stop paying. The code you just made is <strong>static</strong>: your actual Google review link is baked physically into the pattern, with no middleman who can flip a switch. As long as your Business Profile exists, it works. Print it once, use it for years, no monthly fee. If you want the full breakdown before you order 500 stickers, we covered it in <a href="/blog/static-vs-dynamic-qr-codes-difference">static vs dynamic QR codes</a>.</p>
+  //     <p>The one trade-off with a static code is that you cannot edit the link later, because it is fixed in the squares. For a review QR that almost never bites you, since the review link is tied to your Business Profile and does not change as your review count climbs. The rare exception is a rebrand or a shift to a new location, which I will come back to in the FAQ.</p>
+      
+  //     <h2>What to actually write on the card</h2>
+  //     <p>A bare QR on a white card gets ignored. People need a reason and a nudge. Keep the wording short and warm, the kind of thing you would say out loud. A few lines that work on a tent card or sticker:</p>
+  //     <ul>
+  //     <li><strong>"Loved it? Scan to rate us on Google."</strong> Short, friendly, does the job.</li>
+  //     <li><strong>"Happy with your visit? A review takes 10 seconds and means a lot to us."</strong> Honest and specific about the effort.</li>
+  //     <li><strong>"Scan, tap the stars, done. Thank you!"</strong> Good for a busy counter where nobody reads long text.</li>
+  //     </ul>
+  //     <p>Add your shop name and maybe a tiny "Thank you for visiting" at the bottom. Do not write paragraphs. Nobody reads a billboard while settling a bill.</p>
+      
+  //     <h2>Placement and timing, where most people slip</h2>
+  //     <p>The best QR dies if it is stuck in a corner nobody looks at. Put it where the customer's eyes already land. The billing counter is the sweet spot, because they are standing still there. On a restaurant table, prop it next to the napkin holder. Slip a small printed card inside the bill folder so it is the last thing they see. A salon can stick one on the mirror at the station.</p>
+  //     <p>Timing matters as much as placement. The moment to ask is right after the service, when they are smiling, not while the food is still coming. Train your staff to say one line: "If you enjoyed it, there is a quick QR on the counter to leave us a review." That single sentence, said warmly, multiplies scans more than any fancy card design. People review when a human asks; the card just makes it effortless.</p>
+      
+  //     <h2>Printing tips so it actually scans</h2>
+  //     <p>Print it big enough. A QR smaller than about 2x2 cm on a table card is fussy to scan in dim restaurant lighting. Keep clear white space around the squares and do not crop it tight. The PNG you download is small and clean already, so do not run it through any image compressor before printing, because squeezing a dense QR can soften the squares and trip up the scan. Want the review code on the back of your menu or brochure? First save it as a one-page PDF, then <a href="/merge-pdf">combine it into your existing PDF</a> before sending the file to the press. And laminate the counter card, because grubby fingers and chai spills are real. If you are also planning a Wi-Fi sticker or a UPI card for the same counter, the broader walkthrough in <a href="/blog/generate-free-qr-codes-for-website">free QR codes for your business</a> covers those too.</p>
+      
+  //     <h2>Frequently Asked Questions (FAQ)</h2>
+      
+  //     <p><strong>Q: Do I need a paid Google account or any subscription for this?</strong><br>
+  //     A: No. A Google Business Profile is free, the review link is free, and the QR generator is free. The only cost is the print, a 10-rupee job at any Xerox shop. Anyone charging you a monthly fee for a "review QR" is selling you a dynamic code you simply do not need.</p>
+      
+  //     <p><strong>Q: Can the QR force customers to give 5 stars?</strong><br>
+  //     A: No, and do not try to. The QR just opens Google's review box with the stars ready; the customer picks the rating and writes whatever they want. Google's policies are strict about review gating and fake reviews, so make it easy for genuinely happy customers and let the honest ones flow in.</p>
+      
+  //     <p><strong>Q: My link looks like a long messy URL. Will the QR still work?</strong><br>
+  //     A: Yes. A longer link just makes the QR pattern slightly denser, but a normal-sized print still scans fine. Always test with your own phone after generating, and if you are nervous, print it a touch bigger.</p>
+      
+  //     <p><strong>Q: What if I rename my shop or move locations later?</strong><br>
+  //     A: Your review link is tied to your Business Profile, not your signboard, so a simple name change usually keeps the same link alive and your printed code keeps working. A full move or rebrand is the one case where Google might issue a genuinely new link; if that happens, paste the new one into the generator and reprint. For everyday running, the same code lasts you years.</p>
+      
+  //     <p>Reviews are the closest thing a small shop has to free advertising, and most owners leave them on the table because asking out loud feels awkward. A printed QR removes the awkward part. Make yours in the next two minutes with the <a href="/qr-generator">QR Code Generator</a>, print it, set it on the counter, and let the happy customers handle the rest.</p>
+  //   `
+  // },
+  // {
+  //   id: "qr-code-for-restaurant-menu-no-monthly-fees",
+  //   title: "How to Make a QR Code for Your Restaurant Menu (No Monthly Fees)",
+  //   seoTitle: "QR Code for Restaurant Menu, No Monthly Fee | GoPDFGo",
+  //   keywords: "qr code for restaurant menu, menu qr code free, digital menu qr code, restaurant menu qr code generator, cafe menu qr code, no monthly fee menu qr, free qr code for menu, qr code menu for restaurant india, cloud kitchen menu qr, tiffin service menu qr",
+  //   excerpt: "Those menu QR apps charging 300 to 800 rupees a month are mostly selling you a redirect you can skip. The real skill is updating your menu without reprinting a single table card. Here is the trick.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/qr-code-for-restaurant-menu-no-monthly-fees.webp",
+  //   content: `
+  //     <p>Walk into any half-decent cafe in India now and there is a little sticker on the table. You scan it, the menu opens on your phone, the waiter doesn't have to wipe down laminated cards all day. The owner, though, is usually paying for that sticker. Quietly, every single month.</p>
+      
+  //     <p>A lot of those "menu QR" services run on a subscription. You pay 300, 500, sometimes 800 rupees a month, and in return they host your menu and hand you a code. Stop paying and the code goes dead. For a busy restaurant that might be fine. For a small dhaba, a one-person cloud kitchen, or a tiffin service taking orders on WhatsApp, it is a recurring bill for something you can set up yourself in twenty minutes. I want to focus on the one part of this that nobody explains properly: how to change your menu later without reprinting a thing.</p>
+      
+  //     <h2>Why the subscription even exists</h2>
+  //     <p>A QR code is just a picture that holds some text. Scan it, your phone reads the text, and if that text is a web link, the phone opens it. That is the entire mechanism. The subscription apps slip a redirect into the middle: their code points to their server first, which then bounces you to your menu. They own that middle step, so they can switch it off the day your payment fails. A code that has your real link built straight into the squares has no middleman and no off-switch. If you want the full static-versus-dynamic breakdown, our piece on <a href="/blog/static-vs-dynamic-qr-codes-difference">static and dynamic QR codes</a> covers it. For our purposes, one line is enough: keep the link inside the code, and there is no one left to bill you.</p>
+      
+  //     <h2>Get your menu into one PDF and keep it light</h2>
+  //     <p>Your menu lives as either nice photos of a printed card, or a design file from whoever did your branding. The goal is the same: one PDF, not five loose images, so a customer at the table scrolls through everything in a single go.</p>
+      
+  //     <p>If it is photos, shoot them flat and straight first, then combine the shots into one document with <a href="/image-to-pdf">Image to PDF</a>, dragging them into the order you want. Pages came out jumbled? Fix the sequence with <a href="/rearrange-pdf">Rearrange PDF</a>. Already have a separate food card and beverage card as two PDFs? Stitch them with <a href="/merge-pdf">Merge PDF</a>. That is the boring part, and it is genuinely two minutes of work.</p>
+      
+  //     <p>The step people skip is weight, and it bites you exactly where it hurts. Your customer might be on patchy 4G inside the cafe, or out on the highway at a dhaba where the signal drops every few seconds. An 8MB file of high-resolution food photos will just sit there spinning, and they give up and call the waiter anyway. Push the file through <a href="/compress-pdf">Compress PDF</a> and get it to a few hundred KB. The text stays sharp, the dish photos still look good on a phone, and it opens almost instantly even on a weak connection. A menu that loads fast is a menu people actually read.</p>
+      
+  //     <h2>Put it online and grab the link</h2>
+  //     <p>The QR needs a public address to point at. Two quick routes. On Google Drive, upload the PDF, right-click it, choose Share, and switch access to "Anyone with the link," then copy that link. If you have a website, upload the PDF there and use the direct address, something like yourcafe.in/menu.pdf, which looks more trustworthy because it is yours. Either way, open the link in an incognito tab before moving on. If the menu loads with no login wall, you are set. (Drive that stays private throws customers a "request access" screen, and they walk away.)</p>
+      
+  //     <h2>Make the QR code</h2>
+  //     <p>Take that public link and feed it to a generator that doesn't lock you into anything.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Make Your Free Menu QR Code</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Copy the public link to your menu PDF, then open it once yourself to confirm it loads cleanly with no login.</li>
+  //     <li><strong>Step 2:</strong> Open the <a href="/qr-generator">QR Code Generator</a> and pick the text/URL mode.</li>
+  //     <li><strong>Step 3:</strong> Paste your link into the box. Check it twice for a missing letter or a stray space, because a static code can't be edited once it is printed.</li>
+  //     <li><strong>Step 4:</strong> Generate the code, then scan it off your own screen with your phone and make sure the menu actually opens.</li>
+  //     <li><strong>Step 5:</strong> Download the image and send it to print. A 10-rupee print at the Xerox shop does the job for a tabletop card; for the counter or outdoors, get it on a small flex or a laminated stand.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <p>No account, no card details, no monthly anything. The link lives inside the code for good.</p>
+      
+  //     <h2>The whole point: change the menu, keep the same QR</h2>
+  //     <p>This is the bit the subscription apps want you to believe is hard, and it is the real reason to read this rather than just any QR guide. Your code points to a link, not to the file sitting behind it. So when you raise the price of the paneer or add a summer shake, you do <em>not</em> generate a new code and reprint every table card. You swap the file at the same link, and the QR on your tables is none the wiser.</p>
+      
+  //     <p>How you do that depends on where the file lives:</p>
+  //     <ul>
+  //     <li><strong>On Google Drive:</strong> open the existing file, go to "Manage versions," and upload the new PDF as a new version of the same file. The share link does not change one character. Do not delete the old file and upload a fresh one, because that creates a new link and breaks every printed code.</li>
+  //     <li><strong>On your own website:</strong> upload the new menu and overwrite the old file using the exact same filename, so menu.pdf stays menu.pdf at the same address.</li>
+  //     </ul>
+      
+  //     <p>That is the static-link trick in full. Same code on the table, updated menu behind it, and you never paid anyone to "edit" anything. The only time you ever reprint is if you move the file to a brand-new address, so pick one home for it and leave it there.</p>
+      
+  //     <h2>For cloud kitchens and tiffin services</h2>
+  //     <p>No sit-down place, just WhatsApp and Instagram orders? This still fits. Print the QR on your delivery boxes and on the flyer you slip into tiffin bags, or drop it into your shop bio image. The customer scans and the menu PDF opens, so they see the full week's spread and the prices without you typing it out for the hundredth time. Want them to be able to message you straight from the scan? That is a different recipe, where the QR points at a wa.me link instead of the PDF. For just showing the menu, the PDF link is exactly right, and there is no per-scan cut going to anyone.</p>
+      
+  //     <h2>Frequently asked questions</h2>
+      
+  //     <p><strong>Q: How do I update prices without reprinting my table cards?</strong><br> A: Replace the PDF at the same link. On Drive, use "Manage versions" to upload the new file over the old one; on your website, overwrite menu.pdf with the same filename. The printed QR is untouched and instantly shows the updated menu.</p>
+      
+  //     <p><strong>Q: My menu photos make the file heavy. Will customers wait forever?</strong><br> A: Run it through <a href="/compress-pdf">Compress PDF</a> first. A few hundred KB opens almost instantly even on weak signal, which is exactly what you want at a highway dhaba or anywhere the network is patchy.</p>
+      
+  //     <p><strong>Q: Google Drive or my own website?</strong><br> A: Drive is faster to set up and free. Your own website looks more professional and the address belongs to you. Have a site? Use it. If not, Drive is perfectly fine to start with.</p>
+      
+  //     <p><strong>Q: Can I combine photos and a separate drinks card into one menu?</strong><br> A: Yes. Turn loose photos into a PDF with <a href="/image-to-pdf">Image to PDF</a>, then join that with any existing PDF card using <a href="/merge-pdf">Merge PDF</a>, so customers get everything in one scroll.</p>
+      
+  //     <p>You don't need to rent a QR code. You need a clean PDF, a public link, and one free generator. Build the file with <a href="/image-to-pdf">Image to PDF</a>, trim it with <a href="/compress-pdf">Compress PDF</a>, and point the <a href="/qr-generator">QR generator</a> at it. Print once, update forever, pay no one.</p>
+  //   `
+  // },
+  // {
+  //   id: "vcard-qr-code-generator-digital-business-card",
+  //   title: "vCard QR Code Generator: Make a Digital Business Card That Saves Your Contact in One Scan",
+  //   seoTitle: "vCard QR Code Generator: Digital Card | GoPDFGo",
+  //   keywords: "vcard qr code generator, digital business card qr code, contact qr code, save contact qr code, vcard qr for visiting card, qr code that saves contact, business card qr code india, create vcard qr code free, scan to save contact, qr code for phone number and email",
+  //   excerpt: "Stop printing your phone number in tiny text on your visiting card. Build a short vCard text block, turn it into a QR code, and let one scan drop your name, number, email and company straight into someone's phone.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/vcard-qr-code-generator-digital-business-card.webp",
+  //   content: `
+  //     <p>Picture the end of a meeting at a coffee shop in Koramangala, or a site visit for a 2BHK in Wakad. You hand over your visiting card. The other person looks at it, says "great, I'll save your number," and slips it into a shirt pocket. You both know what happens next. That card goes home, lands in a drawer with forty others, and your number never makes it into their phone. Three weeks later they are squinting at it trying to remember which broker you were.</p>
+      
+  //     <p>The card isn't the problem. The gap between paper and phone is. Nobody enjoys typing a ten-digit number plus an email with a dot and an underscore off a 7-point font, so they don't. A vCard QR code removes that step. One scan with the phone camera, a little card pops up saying "Add to Contacts," they tap once, and your name, number, email and company are saved. No typing, no lost card. It actually works, and it is cheaper than the card you already print.</p>
+      
+  //     <h2>What a vCard QR code actually is (and what it isn't)</h2>
+      
+  //     <p>Most QR codes you have scanned on a poster or a menu open a website. You point your camera, a link shows up, you tap it, a browser loads. A vCard QR code does none of that. It doesn't open a webpage. The black-and-white pattern has your contact details written straight inside it, in a small standard format called <strong>vCard</strong>. When the phone reads the code, it recognises a contact and offers to save it into the phonebook.</p>
+      
+  //     <p>That difference is the whole point. There is no website to maintain, no link that can break, nothing for the other person to "visit." It works offline too. Stuck in the basement of an exhibition hall with one bar of signal? The scan still works, because everything sits in the code itself, not on a server somewhere.</p>
+      
+  //     <p>Here is the trade-off, and it is a real one. A vCard QR code is <strong>static and permanent</strong>. The details are baked into the pattern. If you switch your number next year, every printed code keeps handing out the old one forever, and you cannot edit a code that is already on paper. You generate a fresh one and reprint. So put details you are confident about, and lead with the number you intend to keep. If you change companies or numbers every few months, this is a genuine limitation, not a footnote.</p>
+      
+  //     <h2>The vCard text block: simpler than it sounds</h2>
+      
+  //     <p>"vCard format" sounds like something a developer wrote. It is just a few lines of plain text with labels in front. You are not coding. You are filling a form by hand. Here is a working block you can copy and edit. Select the whole thing, top line to bottom line:</p>
+      
+  //     <pre>BEGIN:VCARD
+  //     VERSION:3.0
+  //     N:Sharma;Rohan;;;
+  //     FN:Rohan Sharma
+  //     TEL;TYPE=CELL:+919812345678
+  //     EMAIL:rohan@example.com
+  //     ORG:Sharma Properties
+  //     END:VCARD</pre>
+      
+  //     <p>That is the entire thing. Read it top to bottom and it explains itself, but a quick tour of the lines you will actually change:</p>
+      
+  //     <ul>
+  //       <li><strong>N</strong> is the structured name, written <em>Surname;First name;;;</em> — surname comes first here, with those semicolons. So <em>N:Sharma;Rohan;;;</em> means surname Sharma, first name Rohan. The extra semicolons hold a middle name and titles you are leaving blank, so keep them.</li>
+  //       <li><strong>FN</strong> is the full name written the normal way, <em>Rohan Sharma</em>. This is the line that shows up as the contact name on most phones, so don't drop it.</li>
+  //       <li><strong>TEL</strong> is your phone. Add the country code: for India that is <em>+91</em> and then the ten digits, no spaces. The <em>;TYPE=CELL</em> tag just tells the phone it is a mobile.</li>
+  //       <li><strong>EMAIL</strong> is your email. <strong>ORG</strong> is your company or shop name — for a freelancer that is just your studio or brand name.</li>
+  //     </ul>
+      
+  //     <p>Keep it short. Every extra line you add (full address, website, a second number) makes the QR pattern denser and harder to scan, which bites when it is printed small in the corner of a card. Name, number, email, company covers what most people need at a meeting.</p>
+      
+  //     <h2>Build it, generate it, print it</h2>
+      
+  //     <p>The tool is the <a href="/qr-generator">QR Generator</a>, and the detail that matters is which tab you pick. Use the <strong>Text / URL</strong> tab, not the Wi-Fi one. You paste your finished vCard block into the text box exactly as written. The generator doesn't need to "understand" vCard — it encodes whatever text you hand it, and the phone on the other end knows what to do with it.</p>
+      
+  //     <div class="tool-box">
+  //       <h3>How to make your vCard QR code on GoPDFGo</h3>
+  //       <ul>
+  //         <li><strong>Step 1:</strong> Open Notes, WhatsApp's "message yourself," or any text box, and write out your vCard block using the example above. Swap in your own name, number, email and company. Check the phone number digit by digit — this is the one thing you cannot fix after printing.</li>
+  //         <li><strong>Step 2:</strong> Copy the whole block, from <strong>BEGIN:VCARD</strong> down to <strong>END:VCARD</strong>. Leave either line out and the phone won't recognise it as a contact, so grab both.</li>
+  //         <li><strong>Step 3:</strong> Open the <a href="/qr-generator">QR Generator</a> and stay on the <strong>Text / URL</strong> tab. Paste your vCard block straight into the text field.</li>
+  //         <li><strong>Step 4:</strong> Tap <strong>Generate QR Code</strong>. The code appears on screen. Your contact details are encoded into the image right there in your browser — they are not sent to our servers.</li>
+  //         <li><strong>Step 5:</strong> Before you download, test it. Open your phone camera and scan the code off your laptop screen. If an "Add Contact" card pops up with your details correct, you are set. If nothing happens, check that both the BEGIN and END lines made it in.</li>
+  //         <li><strong>Step 6:</strong> Hit <strong>Download PNG</strong> and send the file to your designer, or drop it into your card layout yourself. A 10-rupee print run at the Xerox shop near the office, and your card now saves itself into people's phones.</li>
+  //       </ul>
+  //     </div>
+      
+  //     <h2>Who this actually helps in India</h2>
+      
+  //     <p>A real-estate agent doing four site visits a day cannot count on people typing the number off a card later that evening. Print the vCard QR on the card and the brochure, and every serious lead has you saved before they walk out of the flat. A freelance designer or developer at a meetup hands over the card, the other person scans once, and the name lands in their phone spelled right — no "was it Rohan or Rohit" guessing a week later. Sales reps walking into a distributor's office, a salon owner who wants regulars to save the booking number, a CA or an insurance advisor whose whole business runs on people calling back — same story. The card stops being a thing people mean to act on and forget.</p>
+      
+  //     <p>It sits well next to the rest of the card too. If you also want a code that opens your portfolio or a Google review page, that is a separate <a href="/blog/static-vs-dynamic-qr-codes-difference">static URL QR code</a> — keep the two clearly apart so nobody scans the wrong one. And if you are laying out the card yourself from photos or screenshots, run them through <a href="/image-to-pdf">Image to PDF</a> first so the press gets one clean file, then <a href="/compress-pdf">compress the PDF</a> if it comes out heavy for emailing.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: Will this work on both Android and iPhone?</strong><br> A: Yes. Modern iPhones through the camera app and most Android phones read vCard QR codes natively and offer to save the contact. Very old phones or a stripped-down camera app might not, in which case a free QR scanner app handles it — but that is rare now.</p>
+      
+  //     <p><strong>Q: Can I edit the QR later if my number changes?</strong><br> A: No. A vCard QR is static — the details are physically encoded in the pattern. If your number or email changes, you generate a new code and reprint. Codes already printed will keep giving the old details. Put your most stable number on it.</p>
+      
+  //     <p><strong>Q: Is my phone number safe? Does the tool store it?</strong><br> A: The <a href="/qr-generator">QR Generator</a> encodes your vCard text into the image inside your browser, so your contact details are not sent to us to build the code. Keep in mind that once it is printed, anyone who scans it gets those details — that is the point of the thing — so only put what you are happy to share on a visiting card.</p>
+      
+  //     <p><strong>Q: My code only showed text, it didn't save the contact. What went wrong?</strong><br> A: Almost always a missing or misspelled BEGIN:VCARD or END:VCARD line, or a typo in VERSION:3.0. The phone treats it as a contact only when those exact lines wrap your details. Copy the example again carefully and regenerate.</p>
+      
+  //     <p>Write your eight lines of text, paste them into the <a href="/qr-generator">QR Generator</a> on the Text / URL tab, scan it once to be sure, and print. Your next card won't sit forgotten in a drawer — it will be in the phonebook, which is where you wanted it all along.</p>
+  //   `
+  // },
+  // {
+  //   id: "qr-code-for-wedding-invitation",
+  //   title: "How to Add a QR Code to Your Wedding Invitation (Venue Map, RSVP & Photo Album)",
+  //   seoTitle: "QR Code for Wedding Invitation: Map, RSVP | GoPDFGo",
+  //   keywords: "qr code for wedding invitation, wedding invitation qr code, qr code venue map wedding, rsvp qr code wedding, wedding photo album qr code, google maps qr code wedding, scan to rsvp wedding card, qr code on shaadi card, static qr code wedding, free wedding qr code generator",
+  //   excerpt: "Guests getting lost between the mehendi, the sangeet hall and the farmhouse? Put one QR code on the printed card that opens a Google Maps pin, an RSVP form, or a shared photo album. Here is how to make it without the jargon.",
+  //   date: "June 21, 2026",
+  //   imageUrl: "/images/blogs/qr-code-for-wedding-invitation.webp",
+  //   content: `
+  //     <p>Picture a proper Indian wedding. The mehendi is at the bride's house in one colony. The sangeet is at a banquet hall on the other side of the city. The actual wedding is at a farmhouse 40 minutes out on the highway, the one with no signboard and a turn that everybody misses. Now print all three addresses on a card in tiny gold font and watch what happens. By 8pm half your guests are calling your father, "bhaisaab, woh farmhouse hai kahaan exactly?"</p>
+      
+  //     <p>A QR code on the invitation quietly fixes this. Guest points the phone camera at the card, the Google Maps pin opens, and they just drive. No typing the address, no spelling "Chhatarpur" wrong, no calling anyone. You can pull the same trick for RSVP and for a shared photo album. And you can make all of these yourself, for free, in about two minutes, then hand the image to your card printer. Here is how it actually works, without pretending the QR code does anything magical.</p>
+      
+  //     <h2>What a QR code on a wedding card actually does</h2>
+      
+  //     <p>The QR code itself is not a website. It's not "smart." It doesn't store your venue or your guest list. A QR code is just a link written as a square pattern that a phone camera can read. So the real work happens before the QR code exists. You first create the thing you want to share, which gives you a link, and then you turn that link into the square. Scan the square, the phone opens the link. The catch: the QR is only as good as the link behind it. A clean Google Maps share link will work for years. A messy one you grabbed off the address bar of a half-loaded page might not.</p>
+      
+  //     <h2>The three QR codes worth printing</h2>
+      
+  //     <p>You don't need ten codes cluttering the card. For most weddings, three cover everything that actually causes phone calls and confusion.</p>
+      
+  //     <ul>
+  //     <li><strong>Venue map.</strong> Open Google Maps, search the exact venue (or drop a pin if it's a farmhouse with no listing), tap Share, and copy the link. Turned into a QR, that drops the guest straight onto navigation. If your three functions are in three places, you can make three separate map codes, or just code the main wedding venue since that's the one people stress about most.</li>
+  //     <li><strong>RSVP form.</strong> Make a quick Google Form: name, number of guests, which functions they're attending, maybe a veg/non-veg count for the caterer. Hit Send, copy the form link, turn it into a QR. Now Bua doesn't WhatsApp you "hum 4 log aa rahe hain" and you don't maintain a chaotic headcount in your Notes app.</li>
+  //     <li><strong>Photo album.</strong> Create a shared album in Google Photos, set it so people with the link can add photos, and copy the link. Print that QR on the card or on a small standee at the venue. Now every guest's candid shots, the ones your hired photographer never catches, land in one album instead of being scattered across 200 phones.</li>
+  //     </ul>
+      
+  //     <p>You can do all three. Just label each one so nobody scans the photo album expecting directions.</p>
+      
+  //     <h2>How to actually make it</h2>
+      
+  //     <p>The whole thing runs in your browser, so the link never leaves your machine. Here's the flow from start to printer.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Step-by-step: QR code for your wedding card</h3>
+  //     <ul>
+  //     <li><strong>Step 1: Get your link first.</strong> For the map, open Google Maps, find the venue, tap Share and copy the link. For RSVP, build a Google Form and copy its send link. For photos, create a shared Google Photos album and copy the share link. Keep whichever one you need on your clipboard.</li>
+  //     <li><strong>Step 2: Open the generator.</strong> Go to the <a href="/qr-generator">GoPDFGo QR Generator</a> and stay on the Text / URL tab. That's the right mode for any web link, whether it's Maps, Forms, or Photos.</li>
+  //     <li><strong>Step 3: Paste the link.</strong> Drop your copied link into the box. The QR preview updates right there on screen, so you can see the square being drawn.</li>
+  //     <li><strong>Step 4: Download the PNG.</strong> Save the image to your downloads folder. Give it a clear name like <em>wedding-venue-map.png</em> so you don't mix it up with the RSVP one.</li>
+  //     <li><strong>Step 5: Repeat for each code.</strong> One for the map, one for RSVP, one for the album. Three separate PNGs, clearly named.</li>
+  //     <li><strong>Step 6: Hand it to your printer.</strong> WhatsApp or email the PNG files to your card designer or the print shop, and tell them where on the card each one goes. They'll place it into the design like any other image.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <p>No app to install, no monthly subscription, no "your QR code will expire in 14 days" nonsense that some sites pull on you.</p>
+      
+  //     <h2>Why a static QR is exactly right here</h2>
+      
+  //     <p>The code our generator makes is static, which means the link is baked directly into the pattern. No account, no expiry, no recurring fee, and nobody can switch it off later. That suits a wedding card perfectly: you print 500 copies once, they end up stuck on fridges and pinboards, and you never edit them again. The alternative, a dynamic code from a paid service, can be deactivated if you stop paying. If you want the full comparison, we've covered <a href="/blog/static-vs-dynamic-qr-codes-difference">static versus dynamic QR codes</a> separately.</p>
+      
+  //     <h2>Where to put it on the card (and how big)</h2>
+      
+  //     <p>Designers will grumble about the plain black square sitting in the middle of a soft pink, gold-foiled card. A few placement habits keep it useful without wrecking the look.</p>
+      
+  //     <ul>
+  //     <li><strong>Give it quiet space.</strong> A QR needs a little white margin around it to scan cleanly. Don't let the mandap illustration or the paisley border bleed right up to the edges of the square.</li>
+  //     <li><strong>Mind the size.</strong> Too tiny and old phones struggle. As a rough rule, keep it at least 2cm by 2cm on the printed card. On a separate insert or a standee at the venue, go bigger.</li>
+  //     <li><strong>Skip dark backgrounds.</strong> A black QR on a deep maroon card is hard for cameras to read. Keep the square dark on a light patch.</li>
+  //     <li><strong>Label it.</strong> A line under each code, "Scan for venue location," "Scan to RSVP," "Scan to share your photos," saves a lot of confusion at scanning time.</li>
+  //     </ul>
+      
+  //     <p>The back of the card, or a separate small insert, is usually the cleanest home for the codes so they don't fight with the main design on the front. While you're at it, you can also make a <a href="/blog/share-wifi-without-passwords-free-qr-code">Wi-Fi QR for the venue</a> on a standee, so out-of-town relatives stop asking for the password.</p>
+      
+  //     <h2>Test before you print 500 cards</h2>
+      
+  //     <p>This is the step everyone skips and then regrets. A QR code that doesn't scan on a printed card is a very expensive mistake when there are 500 of them. So before you approve the final print:</p>
+      
+  //     <ul>
+  //     <li>Ask the printer for one physical proof card, not just a PDF on screen.</li>
+  //     <li>Scan it with at least two phones, one newish and one your uncle's three-year-old budget phone with a scratched camera. If both open the right link, you're safe.</li>
+  //     <li>Check that the link actually goes where you think. Maps should open navigation, the form should open the RSVP, the album should let people add photos and not just view.</li>
+  //     <li>Test in normal indoor light, the way a guest will, not under your phone's torch.</li>
+  //     </ul>
+      
+  //     <p>If the QR came out a little soft, or the file your designer used was low quality, download a fresh PNG and send it again. Two minutes now beats a reprint later.</p>
+      
+  //     <h2>Frequently Asked Questions</h2>
+      
+  //     <p><strong>Q: Will the QR code stop working after the wedding?</strong><br>
+  //     A: The code itself never expires; it's static, with the link baked in. It keeps working as long as the underlying link stays live. So if you delete the Google Form or unshare the photo album later, the QR will just open a dead page. Keep the links active as long as you want the codes to work.</p>
+      
+  //     <p><strong>Q: Can one QR code do map, RSVP and photos all together?</strong><br>
+  //     A: Not cleanly. One QR equals one link. The honest move is three separate codes, each labelled. Cramming everything behind one code means building an extra landing page, which is more hassle than it's worth for most families.</p>
+      
+  //     <p><strong>Q: My venue isn't listed on Google Maps. What do I do?</strong><br>
+  //     A: Open Maps, long-press on the exact spot to drop a pin, then tap Share and copy that link. A dropped-pin link works even for an unnamed farmhouse or a relative's house in a colony with no proper address.</p>
+      
+  //     <p><strong>Q: Do guests need a special app to scan it?</strong><br>
+  //     A: No. Almost every phone from the last several years scans QR codes straight from the default camera app. A really old phone may need a free scanner, but most guests just open their camera and point.</p>
+      
+  //     <p>One small square on a card can save your family a hundred phone calls and a lot of "we're lost" texts on the big day. Grab your map, form, and album links, run them through the <a href="/qr-generator">free QR Generator</a>, test the printed proof on two phones, and you're done. Now you can go back to worrying about the things that actually deserve your attention, like whether the caterer ordered enough paneer.</p>
   //   `
   // },
 ];

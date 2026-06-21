@@ -90,6 +90,10 @@ const ImageEditor = ({ toolId }) => {
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
   const [imgError, setImgError] = useState(null);
+  const [heicDecoding, setHeicDecoding] = useState(false);
+
+  // ID Masking: list of redaction boxes (in original-image coordinates)
+  const [masks, setMasks] = useState([]);
 
   // ✅ NEW: Target file-size compression (e.g. "under 100 KB" for govt forms)
   const [sizeMode, setSizeMode] = useState("quality"); // "quality" | "target"
@@ -114,7 +118,8 @@ const ImageEditor = ({ toolId }) => {
     "compress-jpg",
     "compress-jpeg",
   ].includes(tool.id);
-  const isConverter = tool.id.includes("convert");
+  const isHeic = tool.id.startsWith("heic-to-");
+  const isConverter = tool.id.includes("convert") || isHeic;
   const isInstantTool = ["rotate", "flip"].includes(tool.id);
   const isColorPicker = tool.id === "color-picker";
   const isGeneralTool =
@@ -213,6 +218,7 @@ const ImageEditor = ({ toolId }) => {
     if (
       tool.id.includes("compress") ||
       tool.id.includes("convert") ||
+      isHeic ||
       tool.id === "rotate" ||
       tool.id === "flip"
     ) {
@@ -231,6 +237,98 @@ const ImageEditor = ({ toolId }) => {
     requestProcessImage,
     tool.id,
   ]);
+
+  // Lazy-load the heic2any decoder from CDN only when an iPhone HEIC is dropped
+  const loadHeic2any = () =>
+    new Promise((resolve, reject) => {
+      if (typeof window !== "undefined" && window.heic2any) return resolve();
+      const existing = document.getElementById("heic2any-cdn");
+      if (existing) {
+        existing.addEventListener("load", () => resolve());
+        existing.addEventListener("error", () =>
+          reject(new Error("heic2any failed to load")),
+        );
+        return;
+      }
+      const s = document.createElement("script");
+      s.id = "heic2any-cdn";
+      s.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js";
+      s.async = true;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error("heic2any failed to load"));
+      document.body.appendChild(s);
+    });
+
+  // Decode HEIC/HEIF files → PNG File objects, then run the normal image pipeline
+  const decodeAndLoadHeic = async (fileList) => {
+    cleanupUrls();
+    setFiles([]);
+    setBatchResults([]);
+    setPreviewUrl(null);
+    setConvertedUrl(null);
+    setCompressionStats(null);
+    setColorPalette([]);
+    setPickedColor(null);
+    setHoverColor(null);
+    setImgError(null);
+    setHeicDecoding(true);
+
+    try {
+      await loadHeic2any();
+      const decoded = [];
+      let failures = 0;
+      for (const f of fileList) {
+        try {
+          const out = await window.heic2any({ blob: f, toType: "image/png" });
+          const blob = Array.isArray(out) ? out[0] : out;
+          const base = f.name.replace(/\.(heic|heif)$/i, "") || "photo";
+          decoded.push(
+            new File([blob], `${base}.png`, { type: "image/png" }),
+          );
+        } catch (e) {
+          failures++;
+        }
+      }
+
+      setHeicDecoding(false);
+
+      if (decoded.length === 0) {
+        setImgError(
+          "Couldn't read this HEIC file. Some iPhone Live Photos or 10/12-bit HEICs can't be decoded in the browser — open it on your iPhone and export as JPG, or try another photo.",
+        );
+        return;
+      }
+      if (failures > 0) {
+        setImgError(
+          `${failures} photo${failures > 1 ? "s" : ""} couldn't be decoded and ${failures > 1 ? "were" : "was"} skipped (Live Photos or unusual HEICs). The rest are ready below.`,
+        );
+      }
+
+      setBatchProgress({
+        current: 0,
+        total: decoded.length,
+        processed: 0,
+        eta: 0,
+      });
+      setProcessingTimes([]);
+
+      if (decoded.length > 1 && tool.config.allowBatch) {
+        setIsBatchMode(true);
+        setBatchResults([]);
+        setFiles(decoded);
+      } else {
+        setIsBatchMode(false);
+        setFiles(decoded);
+        loadFileForEdit(decoded[0]);
+      }
+    } catch (e) {
+      setHeicDecoding(false);
+      setImgError(
+        "The HEIC converter couldn't load. Please check your connection and try again.",
+      );
+    }
+  };
 
   const handleFileChange = (selectedFiles) => {
     let fileList = Array.from(selectedFiles);
@@ -259,6 +357,12 @@ const ImageEditor = ({ toolId }) => {
     }
 
     if (fileList.length === 0) return;
+
+    // HEIC needs decoding first (browsers can't read it natively)
+    if (isHeic) {
+      decodeAndLoadHeic(fileList);
+      return;
+    }
 
     cleanupUrls();
     setFiles([]);
@@ -303,6 +407,7 @@ const ImageEditor = ({ toolId }) => {
     setFlipH(false);
     setFlipV(false);
     setFilter("none");
+    setMasks([]);
 
     const img = new Image();
     img.src = url;
@@ -319,6 +424,7 @@ const ImageEditor = ({ toolId }) => {
       if (
         tool.id.includes("compress") ||
         tool.id.includes("convert") ||
+        isHeic ||
         tool.id === "rotate" ||
         tool.id === "flip"
       ) {
@@ -358,6 +464,7 @@ const ImageEditor = ({ toolId }) => {
         filter,
         showVisualCrop: tool.config.showVisualCrop,
         isMasking: isMaskingTool,
+        masks: isMaskingTool ? masks : undefined,
         originalMimeType: file.type,
       };
 
@@ -523,13 +630,21 @@ const ImageEditor = ({ toolId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetKB, sizeMode, width, height, files, isCompressor]);
 
-  // ✅ NEW: Live crop/mask — regenerate output whenever the box settles (not mid-drag)
+  // ✅ Live crop — regenerate output whenever the crop box settles (not mid-drag)
   useEffect(() => {
-    if (!tool.config.showVisualCrop && !isMaskingTool) return;
+    if (!tool.config.showVisualCrop) return;
     if (crop.isDragging) return;
     if (crop.w > 0 && originalImageRef.current) requestProcessImage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [crop.x, crop.y, crop.w, crop.h, crop.isDragging]);
+
+  // ID Masking: rebuild the redacted output whenever the mask list changes
+  useEffect(() => {
+    if (!isMaskingTool || !originalImageRef.current || files.length === 0) return;
+    const t = setTimeout(() => processSingleImage(), 200);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [masks]);
 
   const processBatch = async () => {
     setIsProcessing(true);
@@ -700,6 +815,7 @@ const ImageEditor = ({ toolId }) => {
     setPickedColor(null);
     setRotation(0);
     setFilter("none");
+    setMasks([]);
     const fileInput = document.getElementById("fileInput");
     if (fileInput) fileInput.value = "";
   };
@@ -885,11 +1001,21 @@ const ImageEditor = ({ toolId }) => {
 
   const handleInteractionEnd = () => {
     if (crop.isDragging) {
-      setCrop((p) => ({ ...p, isDragging: false }));
-      requestProcessImage();
+      if (isMaskingTool && crop.w > 2 && crop.h > 2) {
+        // Commit this box to the redaction list, then clear the live drawing box
+        const box = { x: crop.x, y: crop.y, w: crop.w, h: crop.h };
+        setMasks((prev) => [...prev, box]);
+        setCrop((p) => ({ ...p, isDragging: false, x: 0, y: 0, w: 0, h: 0 }));
+      } else {
+        setCrop((p) => ({ ...p, isDragging: false }));
+        requestProcessImage();
+      }
     }
     setIsDraggingSlider(false);
   };
+
+  const undoLastMask = () => setMasks((prev) => prev.slice(0, -1));
+  const clearMasks = () => setMasks([]);
 
   // ✅ BUG FIX 5: Calculate dynamic aspect ratio to prevent squishing portrait images
   const imageAspectRatio = originalImageRef.current
@@ -927,6 +1053,7 @@ const ImageEditor = ({ toolId }) => {
         </div>
       )}
 
+
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
         {/* LEFT PANEL */}
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
@@ -960,20 +1087,38 @@ const ImageEditor = ({ toolId }) => {
                 accept={tool.config.accept || "image/*"}
                 onChange={(e) => handleFileChange(e.target.files)}
               />
-              <div className="bg-orange-100 p-4 rounded-full mb-4 shadow-sm">
-                <Upload className="w-8 h-8 text-[#FF9933]" />
-              </div>
-              <p className="text-lg font-bold text-slate-700">
-                Click to Upload {tool.config.allowBatch ? "Images" : "Image"}
-              </p>
-              {tool.config.accept && (
-                <p className="text-xs text-slate-400 mt-2 font-medium bg-slate-50 inline-block px-2 py-1 rounded border border-slate-100 uppercase">
-                  Allows:{" "}
-                  {tool.config.accept
-                    .replace(/image\//g, "")
-                    .replace(/\./g, " ")
-                    .toUpperCase()}
-                </p>
+              {heicDecoding ? (
+                <>
+                  <div className="bg-orange-100 p-4 rounded-full mb-4 shadow-sm">
+                    <Loader2 className="w-8 h-8 text-[#FF9933] animate-spin" />
+                  </div>
+                  <p className="text-lg font-bold text-slate-700">
+                    Converting your HEIC photo
+                    {tool.config.allowBatch ? "s" : ""}…
+                  </p>
+                  <p className="text-xs text-slate-400 mt-2 font-medium">
+                    This can take a few seconds on phones — the decoding runs on
+                    your device.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="bg-orange-100 p-4 rounded-full mb-4 shadow-sm">
+                    <Upload className="w-8 h-8 text-[#FF9933]" />
+                  </div>
+                  <p className="text-lg font-bold text-slate-700">
+                    Click to Upload {tool.config.allowBatch ? "Images" : "Image"}
+                  </p>
+                  {tool.config.accept && (
+                    <p className="text-xs text-slate-400 mt-2 font-medium bg-slate-50 inline-block px-2 py-1 rounded border border-slate-100 uppercase">
+                      Allows:{" "}
+                      {tool.config.accept
+                        .replace(/image\//g, "")
+                        .replace(/\./g, " ")
+                        .toUpperCase()}
+                    </p>
+                  )}
+                </>
               )}
             </div>
           ) : (
@@ -1319,16 +1464,68 @@ const ImageEditor = ({ toolId }) => {
                       </div>
                     )}
 
-                    {/* AADHAR MASKING INSTRUCTIONS */}
+                    {/* ID MASKING INSTRUCTIONS + CONTROLS */}
                     {isMaskingTool && (
-                      <div className="p-3 bg-red-50 rounded-lg text-xs text-red-700 border border-red-100 flex gap-2 items-start">
-                        <ShieldAlert size={16} className="shrink-0 mt-0.5" />
-                        <div>
-                          <strong>Secure Masking Mode:</strong>
-                          <br />
-                          Draw a box over the Aadhar number. It will be
-                          permanently redacted with a black box.
+                      <div className="space-y-3">
+                        <div className="p-3 bg-red-50 rounded-lg text-xs text-red-700 border border-red-100 flex gap-2 items-start">
+                          <ShieldAlert size={16} className="shrink-0 mt-0.5" />
+                          <div>
+                            <strong>Secure Masking Mode:</strong>
+                            <br />
+                            Draw a box over each detail you want to hide — you can
+                            add <strong>as many boxes as you need</strong>. Each
+                            one is permanently burned out with a solid black box
+                            (the pixels underneath are removed, not just covered).
+                            For Aadhaar, UIDAI suggests hiding the first 8 digits
+                            and keeping only the last 4 visible. Works for{" "}
+                            <strong>
+                              PAN, passport, voter ID, driving licence, bank
+                              statements
+                            </strong>{" "}
+                            and marksheets too.
+                          </div>
                         </div>
+
+                        <div className="p-3 bg-amber-50 rounded-lg text-xs text-amber-800 border border-amber-200 flex gap-2 items-start">
+                          <AlertCircle size={16} className="shrink-0 mt-0.5" />
+                          <div>
+                            <strong>Don&apos;t forget the QR code!</strong> An
+                            Aadhaar/PAN QR code stores your full number and
+                            details — anyone can scan it. If your card has a QR
+                            code, draw a box over that too, or masking the digits
+                            alone won&apos;t protect you.
+                          </div>
+                        </div>
+
+                        {masks.length > 0 && (
+                          <div className="flex items-center justify-between gap-2 bg-slate-50 border border-slate-200 rounded-lg p-2.5">
+                            <span className="text-xs font-bold text-slate-600">
+                              {masks.length} area{masks.length > 1 ? "s" : ""}{" "}
+                              redacted
+                            </span>
+                            <div className="flex gap-2">
+                              <button
+                                onClick={undoLastMask}
+                                className="text-xs font-bold px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] cursor-pointer transition"
+                              >
+                                Undo last
+                              </button>
+                              <button
+                                onClick={clearMasks}
+                                className="text-xs font-bold px-3 py-1.5 rounded-md bg-white border border-slate-200 text-red-500 hover:bg-red-50 cursor-pointer transition"
+                              >
+                                Clear all
+                              </button>
+                            </div>
+                          </div>
+                        )}
+
+                        <p className="text-[11px] text-slate-400 leading-snug flex gap-1.5 items-start">
+                          <ShieldAlert size={13} className="shrink-0 mt-0.5" />
+                          Bonus: saving here also strips hidden photo metadata
+                          (GPS location, device info), so nothing extra leaks with
+                          your file.
+                        </p>
                       </div>
                     )}
 
@@ -1455,6 +1652,39 @@ const ImageEditor = ({ toolId }) => {
                             className="w-full p-2 border rounded"
                           />
                         </div>
+                      </div>
+                    )}
+
+                    {/* HEIC: choose output format JPG / PNG / WebP */}
+                    {isHeic && (
+                      <div>
+                        <label className="text-sm font-bold text-slate-700 block mb-2">
+                          Convert to
+                        </label>
+                        <div className="flex gap-2">
+                          {[
+                            { v: "image/jpeg", label: "JPG" },
+                            { v: "image/png", label: "PNG" },
+                            { v: "image/webp", label: "WebP" },
+                          ].map((opt) => (
+                            <button
+                              key={opt.v}
+                              onClick={() => setFormat(opt.v)}
+                              className={`flex-1 py-2.5 text-sm font-bold rounded-lg border transition cursor-pointer ${
+                                format === opt.v
+                                  ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
+                                  : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                              }`}
+                            >
+                              {opt.label}
+                            </button>
+                          ))}
+                        </div>
+                        <p className="text-xs text-slate-500 mt-2 leading-snug">
+                          JPG is the most compatible (forms, portals, sharing).
+                          PNG keeps the cleanest quality. WebP is smallest for
+                          websites.
+                        </p>
                       </div>
                     )}
 
@@ -1842,6 +2072,19 @@ const ImageEditor = ({ toolId }) => {
                         className="max-w-full max-h-full block pointer-events-none"
                         alt="Crop"
                       />
+                      {isMaskingTool &&
+                        masks.map((m, i) => (
+                          <div
+                            key={`mask-${i}`}
+                            className="absolute bg-black pointer-events-none"
+                            style={{
+                              left: `${(m.x / originalImageRef.current?.width) * 100}%`,
+                              top: `${(m.y / originalImageRef.current?.height) * 100}%`,
+                              width: `${(m.w / originalImageRef.current?.width) * 100}%`,
+                              height: `${(m.h / originalImageRef.current?.height) * 100}%`,
+                            }}
+                          />
+                        ))}
                       {crop.w > 0 && (
                         <div
                           className={`absolute border-2 ${

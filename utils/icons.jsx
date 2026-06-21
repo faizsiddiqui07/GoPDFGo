@@ -22,6 +22,10 @@ import {
   Stamp,
   FileMinus,
   Unlock,
+  Type,
+  ImageDown,
+  LayoutGrid,
+  PenTool,
 } from "lucide-react";
 
 // Icons mapping
@@ -54,6 +58,12 @@ export const TOOL_ICONS = {
   "watermark-pdf": <Stamp className="w-5 h-5 text-orange-500" />,
   "delete-pdf-pages": <FileMinus className="w-5 h-5 text-red-500" />,
   "unlock-pdf": <Unlock className="w-5 h-5 text-green-600" />,
+  "pdf-to-text": <Type className="w-5 h-5 text-blue-600" />,
+  "heic-to-jpg": <ImageDown className="w-5 h-5 text-blue-500" />,
+  "heic-to-png": <ImageDown className="w-5 h-5 text-purple-500" />,
+  "heic-to-webp": <ImageDown className="w-5 h-5 text-green-500" />,
+  "organize-pdf": <LayoutGrid className="w-5 h-5 text-orange-500" />,
+  "sign-pdf": <PenTool className="w-5 h-5 text-orange-600" />,
 };
 
 export const getToolIcon = (toolId) => {

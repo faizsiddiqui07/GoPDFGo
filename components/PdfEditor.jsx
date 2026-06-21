@@ -124,6 +124,14 @@ const PdfEditor = ({ toolId }) => {
   const [pdfPassword, setPdfPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  // PDF → Text
+  const [extractedText, setExtractedText] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  // Compress PDF → target size (KB)
+  const [pdfSizeMode, setPdfSizeMode] = useState("best"); // "best" | "target"
+  const [pdfTargetKB, setPdfTargetKB] = useState(500);
+
   // Refs for Scroll and Image URLs
   const blobUrlsRef = useRef(new Set());
   const scrollContainerRef = useRef(null);
@@ -382,7 +390,8 @@ const PdfEditor = ({ toolId }) => {
             tool.id === "rearrange-pdf" ||
             tool.id === "extract-pdf-pages" ||
             tool.id === "pdf-to-image" ||
-            tool.id === "delete-pdf-pages"
+            tool.id === "delete-pdf-pages" ||
+            tool.id === "organize-pdf"
           ) {
             setSplitMode("all");
             setRangeInput("");
@@ -424,7 +433,8 @@ const PdfEditor = ({ toolId }) => {
       (tool.id === "split-pdf" ||
         tool.id === "extract-pdf-pages" ||
         tool.id === "pdf-to-image" ||
-        tool.id === "delete-pdf-pages") &&
+        tool.id === "delete-pdf-pages" ||
+        tool.id === "organize-pdf") &&
       newFiles.length === 0
     ) {
       thumbnails.forEach((t) => {
@@ -451,8 +461,20 @@ const PdfEditor = ({ toolId }) => {
     setPageRotations([]);
     setErrorMsg(null);
     setInfoMsg(null);
+    setExtractedText("");
+    setCopied(false);
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
+    }
+  };
+
+  const copyExtractedText = async () => {
+    try {
+      await navigator.clipboard.writeText(extractedText);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch (e) {
+      setErrorMsg("Couldn't copy automatically — select the text and copy manually.");
     }
   };
 
@@ -485,6 +507,25 @@ const PdfEditor = ({ toolId }) => {
     setSelectedPages(newSet);
     const sorted = Array.from(newSet).sort((a, b) => a - b);
     setRangeInput(sorted.join(", "));
+  };
+
+  // --- Organize PDF: per-tile rotate + delete (rotation/deleted live on the thumbnail) ---
+  const rotateOrganizeTile = (pageNum) => {
+    setThumbnails((prev) =>
+      prev.map((t) =>
+        t.pageNum === pageNum
+          ? { ...t, rotation: (((t.rotation || 0) + 90) % 360) }
+          : t,
+      ),
+    );
+  };
+
+  const toggleDeleteOrganizeTile = (pageNum) => {
+    setThumbnails((prev) =>
+      prev.map((t) =>
+        t.pageNum === pageNum ? { ...t, deleted: !t.deleted } : t,
+      ),
+    );
   };
 
   const handleRangeInput = (e) => {
@@ -725,26 +766,11 @@ const PdfEditor = ({ toolId }) => {
         // Snapshot the original bytes up front — pdf.js detaches the ArrayBuffer below
         const originalBytes = new Uint8Array(arrayBuffer.slice(0));
 
-        // Candidate 1: lossless re-save — keeps text selectable, helps bloated PDFs
-        let bestBytes = originalBytes;
-        let bestSize = originalBytes.byteLength;
-        let usedRaster = false;
-        try {
-          const reSaved = await (
-            await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
-          ).save({ useObjectStreams: true });
-          if (reSaved.byteLength < bestSize) {
-            bestBytes = reSaved;
-            bestSize = reSaved.byteLength;
-          }
-        } catch (e) {
-          // ignore — fall through to rasterization
-        }
-
-        // Candidate 2: rasterize pages (best for scanned / image-heavy PDFs)
-        try {
+        // Rasterize the whole PDF at a resolution cap + JPEG quality → new PDF bytes.
+        // (A fresh byte copy each call because pdf.js detaches the buffer it's given.)
+        const rasterizeToBytes = async (scaleCap, quality) => {
           const pdf = await window.pdfjsLib.getDocument({
-            data: arrayBuffer.slice(0),
+            data: originalBytes.slice(0),
           }).promise;
           const rasterPdf = await PDFDocument.create();
 
@@ -756,7 +782,7 @@ const PdfEditor = ({ toolId }) => {
 
             // Cap longest canvas side to ~2000px to avoid mobile OOM on big scans
             const maxSide = Math.max(actualWidth, actualHeight);
-            const scale = Math.min(1.5, 2000 / maxSide);
+            const scale = Math.min(scaleCap, 2000 / maxSide);
             const renderViewport = page.getViewport({ scale });
 
             const canvas = document.createElement("canvas");
@@ -771,7 +797,7 @@ const PdfEditor = ({ toolId }) => {
               viewport: renderViewport,
             }).promise;
 
-            const imgData = canvas.toDataURL("image/jpeg", 0.8);
+            const imgData = canvas.toDataURL("image/jpeg", quality);
             const img = await rasterPdf.embedJpg(imgData);
             const newPage = rasterPdf.addPage([actualWidth, actualHeight]);
             newPage.drawImage(img, {
@@ -788,32 +814,113 @@ const PdfEditor = ({ toolId }) => {
 
           const rasterBytes = await rasterPdf.save();
           if (pdf.destroy) pdf.destroy();
+          return rasterBytes;
+        };
 
-          if (rasterBytes.byteLength < bestSize) {
-            bestBytes = rasterBytes;
-            bestSize = rasterBytes.byteLength;
-            usedRaster = true;
+        if (pdfSizeMode === "target") {
+          // ---- Compress to a target file size (KB) ----
+          const targetBytes = Math.max(20, Number(pdfTargetKB) || 500) * 1024;
+
+          // Already small enough? Keep the original untouched (don't blur a tiny PDF).
+          if (originalSize <= targetBytes) {
+            setCompressionStats({
+              original: originalSize,
+              compressed: originalSize,
+              percent: 0,
+              unchanged: true,
+              target: Number(pdfTargetKB),
+              alreadyUnder: true,
+            });
+            finalizePdf(originalBytes, `GoPDFGo_${file.name}`);
+          } else {
+            // Progressively more aggressive: [resolution cap, JPEG quality]
+            const steps = [
+              [1.5, 0.8],
+              [1.3, 0.72],
+              [1.1, 0.65],
+              [1.0, 0.6],
+              [0.85, 0.55],
+              [0.7, 0.5],
+              [0.6, 0.42],
+              [0.5, 0.38],
+              [0.42, 0.32],
+            ];
+            let chosen = null;
+            let hit = false;
+            for (const [sc, q] of steps) {
+              const bytes = await rasterizeToBytes(sc, q);
+              if (!chosen || bytes.byteLength < chosen.byteLength) chosen = bytes;
+              if (bytes.byteLength <= targetBytes) {
+                chosen = bytes;
+                hit = true;
+                break;
+              }
+            }
+            const finalBytes = chosen || originalBytes;
+            const finalSize = finalBytes.byteLength;
+            const saved = originalSize - finalSize;
+            const percent =
+              saved > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
+            setCompressionStats({
+              original: originalSize,
+              compressed: finalSize,
+              percent,
+              flattened: true,
+              unchanged: false,
+              target: Number(pdfTargetKB),
+              targetMissed: !hit,
+            });
+            finalizePdf(finalBytes, `GoPDFGo_${file.name}`);
           }
-        } catch (e) {
-          // ignore — keep the best candidate so far
+        } else {
+          // ---- Best compression (default): lossless-first, raster only if smaller ----
+          let bestBytes = originalBytes;
+          let bestSize = originalBytes.byteLength;
+          let usedRaster = false;
+
+          // Candidate 1: lossless re-save — keeps text selectable, helps bloated PDFs
+          try {
+            const reSaved = await (
+              await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
+            ).save({ useObjectStreams: true });
+            if (reSaved.byteLength < bestSize) {
+              bestBytes = reSaved;
+              bestSize = reSaved.byteLength;
+            }
+          } catch (e) {
+            // ignore — fall through to rasterization
+          }
+
+          // Candidate 2: rasterize pages (best for scanned / image-heavy PDFs)
+          try {
+            const rasterBytes = await rasterizeToBytes(1.5, 0.8);
+            if (rasterBytes.byteLength < bestSize) {
+              bestBytes = rasterBytes;
+              bestSize = rasterBytes.byteLength;
+              usedRaster = true;
+            }
+          } catch (e) {
+            // ignore — keep the best candidate so far
+          }
+
+          // Never serve a file bigger than the original
+          const useCompressed = bestSize < originalSize;
+          const finalBytes = useCompressed ? bestBytes : originalBytes;
+          const finalSize = finalBytes.byteLength;
+          const saved = originalSize - finalSize;
+          const percent =
+            saved > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
+
+          setCompressionStats({
+            original: originalSize,
+            compressed: finalSize,
+            percent,
+            flattened: useCompressed && usedRaster,
+            unchanged: !useCompressed,
+          });
+
+          finalizePdf(finalBytes, `GoPDFGo_${file.name}`);
         }
-
-        // Never serve a file bigger than the original
-        const useCompressed = bestSize < originalSize;
-        const finalBytes = useCompressed ? bestBytes : originalBytes;
-        const finalSize = finalBytes.byteLength;
-        const saved = originalSize - finalSize;
-        const percent = saved > 0 ? ((saved / originalSize) * 100).toFixed(1) : 0;
-
-        setCompressionStats({
-          original: originalSize,
-          compressed: finalSize,
-          percent,
-          flattened: useCompressed && usedRaster,
-          unchanged: !useCompressed,
-        });
-
-        finalizePdf(finalBytes, `GoPDFGo_${file.name}`);
         // 6. PAGE NUMBERS
       } else if (tool.id === "page-numbers") {
         const file = files[0].file;
@@ -1110,6 +1217,97 @@ const PdfEditor = ({ toolId }) => {
 
         const pdfBytes = await newPdf.save();
         finalizePdf(pdfBytes, `GoPDFGo_unlocked_${file.name}`);
+
+        // 12. PDF TO TEXT
+      } else if (tool.id === "pdf-to-text") {
+        const file = files[0].file;
+        const arrayBuffer = await file.arrayBuffer();
+        if (!window.pdfjsLib) await loadPdfJs();
+        if (!window.pdfjsLib)
+          throw new Error("PDF engine failed to load. Please retry.");
+
+        const pdf = await window.pdfjsLib.getDocument({
+          data: arrayBuffer.slice(0),
+        }).promise;
+
+        let fullText = "";
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          let pageText = "";
+          let lastY = null;
+          for (const item of content.items) {
+            const str = item.str || "";
+            const y = item.transform ? item.transform[5] : null;
+            if (lastY !== null && y !== null && Math.abs(lastY - y) > 2) {
+              // new visual line
+              pageText += "\n";
+            } else if (
+              pageText &&
+              !/\s$/.test(pageText) &&
+              str &&
+              !/^\s/.test(str)
+            ) {
+              // same line, separate items — keep words apart
+              pageText += " ";
+            }
+            pageText += str;
+            if (item.hasEOL) pageText += "\n";
+            lastY = y;
+          }
+          pageText = pageText.replace(/[ \t]+\n/g, "\n").trim();
+          if (pdf.numPages > 1) {
+            fullText += `===== Page ${i} =====\n${pageText}\n\n`;
+          } else {
+            fullText += pageText;
+          }
+        }
+        if (pdf.destroy) pdf.destroy();
+
+        const cleaned = fullText.replace(/\n{3,}/g, "\n\n").trim();
+        if (!cleaned) {
+          setErrorMsg(
+            "No selectable text found. This looks like a scanned PDF (an image of a page), which has no text layer to extract — you'd need an OCR tool for that.",
+          );
+          setIsProcessing(false);
+          return;
+        }
+
+        setExtractedText(cleaned);
+        const baseName = file.name.replace(/\.pdf$/i, "");
+        finalizePdf(cleaned, `${baseName}.txt`, "text/plain;charset=utf-8");
+
+        // 13. ORGANIZE PDF (reorder + rotate + delete in one pass)
+      } else if (tool.id === "organize-pdf") {
+        const file = files[0].file;
+        const kept = thumbnails.filter((t) => !t.deleted);
+        if (kept.length === 0) {
+          setErrorMsg(
+            "You've removed every page. Keep at least one page before exporting.",
+          );
+          setIsProcessing(false);
+          return;
+        }
+
+        const arrayBuffer = await file.arrayBuffer();
+        const srcPdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
+        const outPdf = await PDFDocument.create();
+
+        const indices = kept.map((t) => Number(t.pageNum) - 1);
+        const copied = await outPdf.copyPages(srcPdf, indices);
+        copied.forEach((page, i) => {
+          const added = kept[i].rotation || 0;
+          if (added) {
+            const current = page.getRotation().angle || 0;
+            page.setRotation(degrees((current + added) % 360));
+          }
+          outPdf.addPage(page);
+        });
+
+        const pdfBytes = await outPdf.save();
+        finalizePdf(pdfBytes, `GoPDFGo_organized_${file.name}`);
       }
     } catch (err) {
       console.error(err);
@@ -1200,12 +1398,91 @@ const PdfEditor = ({ toolId }) => {
           )}
 
           {tool.id === "compress-pdf" && files.length > 0 && !isDone && (
-            <div className="mb-6 bg-blue-50 text-blue-700 p-3 rounded-lg flex items-start gap-2 text-sm border border-blue-100">
-              <Info size={18} className="mt-0.5 shrink-0" />
-              <span>
-                <strong>Note:</strong> Extreme compression flattens the PDF.
-                Text selection and searchability inside the PDF will be lost.
-              </span>
+            <div className="mb-6">
+              {/* Mode toggle: Best compression vs Target size */}
+              <div className="inline-flex w-full sm:w-auto p-1 bg-slate-100 rounded-xl mb-4">
+                <button
+                  type="button"
+                  onClick={() => setPdfSizeMode("best")}
+                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
+                    pdfSizeMode === "best"
+                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      : "text-slate-500 hover:text-slate-700"
+                  }`}
+                >
+                  Best Compression
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPdfSizeMode("target")}
+                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
+                    pdfSizeMode === "target"
+                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      : "text-slate-500 hover:text-slate-700"
+                  }`}
+                >
+                  Target Size (KB)
+                </button>
+              </div>
+
+              {pdfSizeMode === "target" && (
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-slate-600 mb-2">
+                    Shrink to about this size (for portals with strict upload
+                    limits):
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {[200, 500, 1000, 2000].map((kb) => (
+                      <button
+                        key={kb}
+                        type="button"
+                        onClick={() => setPdfTargetKB(kb)}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold border transition cursor-pointer ${
+                          Number(pdfTargetKB) === kb
+                            ? "bg-orange-100 border-orange-300 text-[#e68a2e]"
+                            : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
+                        }`}
+                      >
+                        {kb >= 1000 ? `${kb / 1000} MB` : `${kb} KB`}
+                      </button>
+                    ))}
+                    <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-3">
+                      <input
+                        type="number"
+                        min="20"
+                        value={pdfTargetKB}
+                        onChange={(e) =>
+                          setPdfTargetKB(parseInt(e.target.value) || 0)
+                        }
+                        className="w-20 py-2 outline-none text-sm font-bold text-slate-700"
+                      />
+                      <span className="text-sm text-slate-400 font-medium">
+                        KB
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-blue-50 text-blue-700 p-3 rounded-lg flex items-start gap-2 text-sm border border-blue-100">
+                <Info size={18} className="mt-0.5 shrink-0" />
+                <span>
+                  {pdfSizeMode === "target" ? (
+                    <>
+                      <strong>Note:</strong> Hitting an exact size flattens pages
+                      to images, so text inside becomes non-selectable and may
+                      look softer. Best for scanned or image-heavy PDFs.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Note:</strong> We try a lossless re-save first and
+                      keep text selectable when we can. Only image-heavy PDFs get
+                      flattened for extra savings — and we never hand back a file
+                      bigger than your original.
+                    </>
+                  )}
+                </span>
+              </div>
             </div>
           )}
 
@@ -1216,7 +1493,8 @@ const PdfEditor = ({ toolId }) => {
             tool.id !== "rearrange-pdf" &&
             tool.id !== "extract-pdf-pages" &&
             tool.id !== "pdf-to-image" &&
-            tool.id !== "delete-pdf-pages" && (
+            tool.id !== "delete-pdf-pages" &&
+            tool.id !== "organize-pdf" && (
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -1605,6 +1883,146 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
+          {/* Organize PDF: drag-reorder + per-page rotate + delete */}
+          {isMounted && files.length > 0 && tool.id === "organize-pdf" && (
+            <div className="mb-8 animate-fade-in">
+              <div className="text-center mb-6">
+                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                  <GripVertical size={16} className="inline mr-1 mb-0.5" />
+                  Drag to reorder · rotate or remove any page
+                </p>
+              </div>
+
+              {generatingThumbnails && thumbnails.length === 0 ? (
+                <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
+                  <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
+                  <p className="font-medium text-slate-500">Loading Pages...</p>
+                </div>
+              ) : (
+                <DndContext
+                  sensors={sensors}
+                  collisionDetection={closestCenter}
+                  onDragEnd={handleDragEndThumbnails}
+                >
+                  <SortableContext
+                    items={thumbnails.map((t) => t.pageNum.toString())}
+                    strategy={rectSortingStrategy}
+                  >
+                    <div
+                      ref={scrollContainerRef}
+                      className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200 max-h-150 overflow-y-auto"
+                    >
+                      {thumbnails.map((thumb, index) => {
+                        const keptBefore = thumbnails
+                          .slice(0, index)
+                          .filter((t) => !t.deleted).length;
+                        return (
+                          <SortableItemWrapper
+                            key={`org-${thumb.pageNum}`}
+                            id={thumb.pageNum.toString()}
+                            disabled={thumb.deleted}
+                            className={`relative group bg-white border-2 rounded-lg overflow-hidden transition-all shadow-sm touch-none select-none ${
+                              thumb.deleted
+                                ? "border-red-200 opacity-60"
+                                : "border-slate-200 hover:border-[#FF9933] cursor-grab active:cursor-grabbing"
+                            }`}
+                          >
+                            <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
+                              Page {thumb.pageNum}
+                            </div>
+
+                            <div className="absolute top-1 right-1 flex gap-1 z-20">
+                              <button
+                                onPointerDown={(e) => e.stopPropagation()}
+                                onClick={() => rotateOrganizeTile(thumb.pageNum)}
+                                className="bg-white/90 hover:bg-white text-slate-700 hover:text-[#FF9933] p-1.5 rounded-md shadow cursor-pointer"
+                                title="Rotate 90°"
+                                aria-label="Rotate page"
+                              >
+                                <RotateCw size={14} />
+                              </button>
+                              <button
+                                onPointerDown={(e) => e.stopPropagation()}
+                                onClick={() =>
+                                  toggleDeleteOrganizeTile(thumb.pageNum)
+                                }
+                                className={`p-1.5 rounded-md shadow cursor-pointer ${
+                                  thumb.deleted
+                                    ? "bg-green-500 text-white hover:bg-green-600"
+                                    : "bg-white/90 hover:bg-white text-slate-700 hover:text-red-500"
+                                }`}
+                                title={
+                                  thumb.deleted ? "Restore page" : "Remove page"
+                                }
+                                aria-label={
+                                  thumb.deleted ? "Restore page" : "Remove page"
+                                }
+                              >
+                                {thumb.deleted ? (
+                                  <RotateCcw size={14} />
+                                ) : (
+                                  <Trash2 size={14} />
+                                )}
+                              </button>
+                            </div>
+
+                            <div className="h-40 flex items-center justify-center overflow-hidden bg-white">
+                              <img
+                                src={thumb.url}
+                                alt={`Page ${thumb.pageNum}`}
+                                style={{
+                                  transform: `rotate(${thumb.rotation || 0}deg)`,
+                                }}
+                                className="max-h-40 max-w-full w-auto h-auto object-contain pointer-events-none transition-transform"
+                              />
+                            </div>
+
+                            <div
+                              className={`text-center py-2 text-xs font-bold border-t ${
+                                thumb.deleted
+                                  ? "bg-red-50 text-red-500 border-red-100"
+                                  : "bg-slate-100 text-slate-700 border-slate-200"
+                              }`}
+                            >
+                              {thumb.deleted
+                                ? "Removed"
+                                : `New Position: ${keptBefore + 1}`}
+                            </div>
+                          </SortableItemWrapper>
+                        );
+                      })}
+                      {generatingThumbnails && (
+                        <div className="col-span-full flex items-center justify-center py-4 text-slate-400">
+                          <Loader2 className="animate-spin mr-2 w-5 h-5 text-[#FF9933]" />
+                          Loading more...
+                        </div>
+                      )}
+                    </div>
+                  </SortableContext>
+                </DndContext>
+              )}
+
+              {thumbnails.length > 0 && !generatingThumbnails && (
+                <div className="text-center mt-4 text-sm text-slate-500">
+                  {thumbnails.filter((t) => !t.deleted).length} of{" "}
+                  {thumbnails.length} pages kept
+                  {thumbnails.some((t) => t.deleted) && (
+                    <button
+                      onClick={() =>
+                        setThumbnails((prev) =>
+                          prev.map((t) => ({ ...t, deleted: false })),
+                        )
+                      }
+                      className="ml-2 text-[#FF9933] font-bold hover:underline cursor-pointer"
+                    >
+                      Restore all
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
           {/* PDF to Image Controls */}
           {files.length > 0 && tool.id === "pdf-to-image" && (
             <div className="mb-8 animate-fade-in">
@@ -1972,18 +2390,71 @@ const PdfEditor = ({ toolId }) => {
                         <TrendingDown size={20} /> {compressionStats.percent}%
                       </div>
                     </div>
-                    {compressionStats.unchanged && (
-                      <p className="text-xs text-slate-500 mt-3 leading-snug">
-                        This PDF was already well-optimized, so we kept your
-                        original file unchanged.
+                    {compressionStats.alreadyUnder && (
+                      <p className="text-xs text-green-600 mt-3 leading-snug">
+                        Your PDF was already under {compressionStats.target} KB,
+                        so we kept it unchanged.
                       </p>
                     )}
-                    {compressionStats.flattened && (
+                    {compressionStats.unchanged &&
+                      !compressionStats.alreadyUnder && (
+                        <p className="text-xs text-slate-500 mt-3 leading-snug">
+                          This PDF was already well-optimized, so we kept your
+                          original file unchanged.
+                        </p>
+                      )}
+                    {compressionStats.targetMissed && (
                       <p className="text-xs text-amber-600 mt-3 leading-snug">
-                        Note: pages were flattened to images to shrink the file,
-                        so text inside is no longer selectable.
+                        We couldn&apos;t reach {compressionStats.target} KB
+                        without making the pages unreadable, so here&apos;s the
+                        smallest clear version we could make.
                       </p>
                     )}
+                    {compressionStats.flattened &&
+                      !compressionStats.targetMissed && (
+                        <p className="text-xs text-amber-600 mt-3 leading-snug">
+                          Note: pages were flattened to images to shrink the
+                          file, so text inside is no longer selectable.
+                        </p>
+                      )}
+                  </div>
+                )}
+
+                {tool.id === "pdf-to-text" && extractedText && (
+                  <div className="mb-6 max-w-2xl mx-auto text-left">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-bold text-slate-600">
+                        Extracted text
+                        <span className="text-slate-400 font-medium">
+                          {" "}
+                          ({extractedText.length.toLocaleString()} characters)
+                        </span>
+                      </span>
+                      <button
+                        onClick={copyExtractedText}
+                        className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition cursor-pointer ${
+                          copied
+                            ? "bg-green-100 text-green-700"
+                            : "bg-orange-100 text-[#e68a2e] hover:bg-orange-200"
+                        }`}
+                      >
+                        {copied ? (
+                          <>
+                            <Check size={16} /> Copied!
+                          </>
+                        ) : (
+                          <>
+                            <FileText size={16} /> Copy all
+                          </>
+                        )}
+                      </button>
+                    </div>
+                    <textarea
+                      readOnly
+                      value={extractedText}
+                      onFocus={(e) => e.target.select()}
+                      className="w-full h-64 p-4 border border-slate-300 rounded-xl bg-slate-50 text-sm text-slate-700 font-mono leading-relaxed resize-y focus:ring-2 focus:ring-[#FF9933] outline-none"
+                    />
                   </div>
                 )}
 
@@ -1993,7 +2464,8 @@ const PdfEditor = ({ toolId }) => {
                     download={downloadName}
                     className="bg-[#FF9933] text-white px-8 py-3.5 rounded-full hover:bg-[#e68a2e] transition font-bold shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer text-lg"
                   >
-                    <Download size={22} /> Download Result
+                    <Download size={22} />{" "}
+                    {tool.id === "pdf-to-text" ? "Download .txt" : "Download Result"}
                   </a>
                   <button
                     onClick={resetAll}
