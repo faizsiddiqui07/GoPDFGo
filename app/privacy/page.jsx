@@ -5,6 +5,7 @@ import {
   ServerOff,
   Database,
   HelpCircle,
+  Cookie,
 } from "lucide-react";
 
 // --- Next.js Native SEO ---
@@ -87,13 +88,15 @@ export default function PrivacyPage() {
           <Database className="w-8 h-8 text-slate-400 shrink-0 mt-1" />
           <div>
             <h3 className="text-lg font-bold text-slate-800">
-              Data Collection
+              What We Collect
             </h3>
             <p className="text-slate-600">
-              We only collect anonymous usage data (e.g., "someone visited the
-              Compress PDF page") using Google Analytics with IP anonymization
-              enabled to improve our website. We do not track your personal
-              identity or document contents.
+              We do not require accounts or logins, and we never collect your
+              personal identity or the contents of your documents. We do not run
+              our own tracking or analytics cookies. To see how our pages perform
+              in Google Search, we use Google Search Console, which reports only
+              anonymous, aggregated data and does not place cookies on your
+              device.
             </p>
           </div>
         </div>
@@ -114,26 +117,91 @@ export default function PrivacyPage() {
       </div>
 
       {/* =========================================
-           ANALYTICS & ADVERTISING DISCLOSURE
+           COOKIES & ADVERTISING DISCLOSURE (AdSense)
       ========================================= */}
       <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200">
-        <h2 className="text-xl font-bold text-slate-900 mb-4">
-          Analytics and Advertising
-        </h2>
+        <div className="flex items-center gap-2 mb-4">
+          <Cookie className="w-6 h-6 text-[#FF9933] shrink-0" />
+          <h2 className="text-xl font-bold text-slate-900">
+            Cookies and Advertising
+          </h2>
+        </div>
 
         <p className="text-slate-600 leading-relaxed mb-4">
-          GoPDFGo uses privacy-focused analytics tools to understand how visitors
-          interact with our website. These analytics collect only anonymous
-          information, such as page visits and device type, and do not include
-          personal data or document contents.
+          GoPDFGo itself does not set tracking cookies, and your files are
+          processed entirely in your browser. To keep our tools free, however, we
+          show ads through <strong>Google AdSense</strong> — and Google&rsquo;s
+          advertising technology does use cookies. We want to be transparent about
+          exactly what that means.
         </p>
 
+        <h3 className="font-bold text-slate-800 mb-1">What cookies are used</h3>
+        <p className="text-slate-600 leading-relaxed mb-4">
+          A cookie is a small text file stored in your browser. The only cookies
+          on GoPDFGo come from Google and its advertising partners — these are
+          &ldquo;third-party&rdquo; cookies, not ours. Google uses them, along with
+          similar technologies, to serve and measure ads, limit how often you see
+          the same ad, and detect fraud. Where personalized ads are shown, Google
+          and its partners may use cookies to serve ads based on your prior visits
+          to this and other websites.
+        </p>
+
+        <h3 className="font-bold text-slate-800 mb-1">
+          How to control or opt out
+        </h3>
+        <ul className="list-disc pl-5 space-y-1.5 text-slate-600 leading-relaxed mb-4">
+          <li>
+            Manage or turn off personalized ads at{" "}
+            <a
+              href="https://adssettings.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FF9933] font-semibold hover:underline"
+            >
+              Google Ads Settings
+            </a>
+            .
+          </li>
+          <li>
+            Opt out of third-party ad cookies at{" "}
+            <a
+              href="https://www.aboutads.info/choices"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FF9933] font-semibold hover:underline"
+            >
+              aboutads.info/choices
+            </a>{" "}
+            or{" "}
+            <a
+              href="https://www.youronlinechoices.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#FF9933] font-semibold hover:underline"
+            >
+              youronlinechoices.com
+            </a>
+            .
+          </li>
+          <li>
+            You can block or delete cookies in your browser settings at any time.
+            Blocking ad cookies will <strong>not</strong> affect any GoPDFGo tool,
+            because every tool runs entirely on your own device.
+          </li>
+        </ul>
+
         <p className="text-slate-600 leading-relaxed">
-          If and when advertising is displayed on GoPDFGo, it may be served by
-          third-party advertising partners such as Google AdSense. These partners may
-          use cookies or similar technologies to show relevant ads based on general
-          browsing behavior. Users can manage or disable personalized advertising
-          through their browser or Google ad settings.
+          You can read how Google uses information from sites that use its services
+          at{" "}
+          <a
+            href="https://policies.google.com/technologies/partner-sites"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#FF9933] font-semibold hover:underline"
+          >
+            policies.google.com/technologies/partner-sites
+          </a>
+          .
         </p>
       </div>
 
@@ -158,6 +226,17 @@ export default function PrivacyPage() {
           acceptance of the updated policy.
         </p>
       </div>
+
+      <p className="text-center text-sm text-slate-400 mt-8">
+        Last updated: 22 June 2026 &middot; Questions about your privacy?{" "}
+        <a
+          href="/contact"
+          className="text-[#FF9933] font-semibold hover:underline"
+        >
+          Contact us
+        </a>
+        .
+      </p>
     </div>
   );
 }

@@ -82,8 +82,22 @@ export default function Home() {
     },
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  };
+
   return (
     <div className="bg-slate-50 font-sans text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* =========================================
              1. HERO HEADER SECTION
         ========================================= */}
@@ -444,7 +458,7 @@ export default function Home() {
 
                 <li className="flex items-center text-sm text-slate-500">
                   <CheckCircle2 size={16} className="text-green-500 mr-2" />{" "}
-                  Client-side encryption
+                  Files never leave your device
                 </li>
               </ul>
             </div>
@@ -545,7 +559,7 @@ export default function Home() {
               the server from the equation entirely. By utilizing
               browser-based processing, we ensure that your file remains in
               your own computer's memory (RAM) throughout the entire editing
-              process. Our serverless architecture ensures that your files stay strictly in your control—invisible to us and safe from external access..
+              process. Our serverless architecture ensures that your files stay strictly in your control—invisible to us and safe from external access.
             </p>
           </div>
 
