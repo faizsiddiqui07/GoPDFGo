@@ -2184,133 +2184,133 @@ export const blogsData = [
       <p>Government portals have absolute zero tolerance for technical deviations. Never rely on screenshots, WhatsApp forwarded images, or sloppy software hacks. Use dedicated, precise, and highly secure local tools to format your documents correctly the very first time. Perfect formatting ensures your application sails past the technical screening, allowing the human reviewers to focus entirely on your hard-earned qualifications.</p>
     `
   },
-  // {
-  //   id: "real-difference-pdf-optimization-vs-compression",
-  //   title: "The Real Difference Between PDF Optimization and PDF Compression",
-  //   seoTitle: "PDF Optimization vs PDF Compression: What is the Real Difference?",
-  //   keywords: "PDF Optimization vs PDF Compression, reduce PDF file size, optimize PDF, compress PDF, PDF performance, PDF storage management",
-  //   excerpt: "Many people think PDF compression and optimization are the exact same thing. Learn the real technical difference, how they work, and when you should use each to manage your documents.",
-  //   date: "June 08, 2026",
-  //   imageUrl: "/images/blogs/real-difference-pdf-optimization-vs-compression.webp",
-  //   content: `
-  //     <p>Have you ever tried to attach a document to an email, only to be stopped by a frustrating "File exceeds maximum size" error? When this happens, almost everyone immediately searches the internet for ways to reduce PDF file size. During your search, you will constantly see two technical terms popping up: <strong>PDF Compression</strong> and <strong>PDF Optimization</strong>.</p>
+  {
+    id: "real-difference-pdf-optimization-vs-compression",
+    title: "The Real Difference Between PDF Optimization and PDF Compression",
+    seoTitle: "PDF Optimization vs PDF Compression: What is the Real Difference?",
+    keywords: "PDF Optimization vs PDF Compression, reduce PDF file size, optimize PDF, compress PDF, PDF performance, PDF storage management",
+    excerpt: "Many people think PDF compression and optimization are the exact same thing. Learn the real technical difference, how they work, and when you should use each to manage your documents.",
+    date: "June 28, 2026",
+    imageUrl: "/images/blogs/real-difference-pdf-optimization-vs-compression.webp",
+    content: `
+      <p>Have you ever tried to attach a document to an email, only to be stopped by a frustrating "File exceeds maximum size" error? When this happens, almost everyone immediately searches the internet for ways to reduce PDF file size. During your search, you will constantly see two technical terms popping up: <strong>PDF Compression</strong> and <strong>PDF Optimization</strong>.</p>
 
-  //     <p>Most internet users, and even many software programs, use these two terms interchangeably. However, in the world of digital document management, they are completely entirely different processes. While both methods can technically result in a smaller file, they achieve this goal using completely different mechanics and serve very different purposes.</p>
+      <p>Most internet users, and even many software programs, use these two terms interchangeably. However, in the world of digital document management, they are completely entirely different processes. While both methods can technically result in a smaller file, they achieve this goal using completely different mechanics and serve very different purposes.</p>
 
-  //     <p>If you regularly handle digital paperwork, understanding the primary keyword—PDF Optimization vs PDF Compression—is crucial for maintaining PDF performance, visual quality, and effective PDF storage management. In this educational guide, we will break down the technical jargon into simple, professional, and easy-to-understand concepts.</p>
+      <p>If you regularly handle digital paperwork, understanding the primary keyword—PDF Optimization vs PDF Compression—is crucial for maintaining PDF performance, visual quality, and effective PDF storage management. In this educational guide, we will break down the technical jargon into simple, professional, and easy-to-understand concepts.</p>
 
-  //     <h2>What is PDF Compression?</h2>
-  //     <p><strong>Definition:</strong> PDF compression is the brute-force method of shrinking a file. It reduces the overall file size by permanently altering, downscaling, or discarding some of the data inside the document.</p>
+      <h2>What is PDF Compression?</h2>
+      <p><strong>Definition:</strong> PDF compression is the brute-force method of shrinking a file. It reduces the overall file size by permanently altering, downscaling, or discarding some of the data inside the document.</p>
 
-  //     <p><strong>How it works:</strong> Think of compression like packing a suitcase for a flight. To make your suitcase close, you might have to squeeze your clothes tightly, leave some non-essential items behind, or use vacuum-sealed bags. When you <a href="/compress-pdf">Compress PDF</a> files, the software looks for the heaviest elements—usually images—and shrinks them. For example, it might take a high-resolution photograph (300 DPI) meant for a billboard and reduce its quality to a screen-friendly resolution (72 DPI). It also deletes invisible metadata, like the author's name or the software used to create the file.</p>
+      <p><strong>How it works:</strong> Think of compression like packing a suitcase for a flight. To make your suitcase close, you might have to squeeze your clothes tightly, leave some non-essential items behind, or use vacuum-sealed bags. When you <a href="/compress-pdf">Compress PDF</a> files, the software looks for the heaviest elements—usually images—and shrinks them. For example, it might take a high-resolution photograph (300 DPI) meant for a billboard and reduce its quality to a screen-friendly resolution (72 DPI). It also deletes invisible metadata, like the author's name or the software used to create the file.</p>
 
-  //     <p><strong>Benefits:</strong> The biggest advantage of compression is a massive reduction in file size. A 50MB architectural blueprint can often be shrunk down to just 2MB, making it incredibly easy to share across the internet.</p>
+      <p><strong>Benefits:</strong> The biggest advantage of compression is a massive reduction in file size. A 50MB architectural blueprint can often be shrunk down to just 2MB, making it incredibly easy to share across the internet.</p>
 
-  //     <p><strong>Limitations:</strong> Because compression alters the data, applying "extreme" or "maximum" compression can lead to blurry images, pixelated charts, and flattened text that cannot be highlighted or searched.</p>
+      <p><strong>Limitations:</strong> Because compression alters the data, applying "extreme" or "maximum" compression can lead to blurry images, pixelated charts, and flattened text that cannot be highlighted or searched.</p>
 
-  //     <h2>What is PDF Optimization?</h2>
-  //     <p><strong>Definition:</strong> PDF optimization is the smart, structural reorganization of a file. Its primary goal is not just to reduce PDF file size, but to dramatically improve the document's speed, efficiency, and PDF performance, especially when viewed on the internet.</p>
+      <h2>What is PDF Optimization?</h2>
+      <p><strong>Definition:</strong> PDF optimization is the smart, structural reorganization of a file. Its primary goal is not just to reduce PDF file size, but to dramatically improve the document's speed, efficiency, and PDF performance, especially when viewed on the internet.</p>
 
-  //     <p><strong>How optimization improves PDFs:</strong> If compression is like squeezing clothes into a suitcase, optimization is like organizing a chaotic closet. The software cleans up the internal code of the document without ruining the visual quality. It does this through several clever techniques:</p>
-  //     <ul>
-  //       <li><strong>Font Subsetting:</strong> If you use the "Arial" font in your document, standard PDFs might embed the entire Arial font dictionary (thousands of characters from multiple languages). Optimization removes the unused characters, keeping only the specific letters you actually typed.</li>
-  //       <li><strong>Removing Duplicates:</strong> If your company logo appears on all 50 pages of a report, an unoptimized PDF might save that image 50 separate times. Optimization saves the logo once and simply points all 50 pages to that single image file.</li>
-  //     </ul>
+      <p><strong>How optimization improves PDFs:</strong> If compression is like squeezing clothes into a suitcase, optimization is like organizing a chaotic closet. The software cleans up the internal code of the document without ruining the visual quality. It does this through several clever techniques:</p>
+      <ul>
+        <li><strong>Font Subsetting:</strong> If you use the "Arial" font in your document, standard PDFs might embed the entire Arial font dictionary (thousands of characters from multiple languages). Optimization removes the unused characters, keeping only the specific letters you actually typed.</li>
+        <li><strong>Removing Duplicates:</strong> If your company logo appears on all 50 pages of a report, an unoptimized PDF might save that image 50 separate times. Optimization saves the logo once and simply points all 50 pages to that single image file.</li>
+      </ul>
 
-  //     <p><strong>Performance benefits (Linearization):</strong> The biggest superpower of an optimized PDF is "Fast Web View" or Linearization. Normally, a browser has to download an entire 100-page PDF before you can see page 1. Optimization restructures the file so it streams like a YouTube video. The browser downloads and displays page 1 instantly, while the remaining 99 pages quietly load in the background.</p>
+      <p><strong>Performance benefits (Linearization):</strong> The biggest superpower of an optimized PDF is "Fast Web View" or Linearization. Normally, a browser has to download an entire 100-page PDF before you can see page 1. Optimization restructures the file so it streams like a YouTube video. The browser downloads and displays page 1 instantly, while the remaining 99 pages quietly load in the background.</p>
 
-  //     <h2>PDF Optimization vs PDF Compression: Key Differences</h2>
-  //     <p>To make the comparison easier, here is a breakdown of how the two processes differ in real-world scenarios:</p>
+      <h2>PDF Optimization vs PDF Compression: Key Differences</h2>
+      <p>To make the comparison easier, here is a breakdown of how the two processes differ in real-world scenarios:</p>
 
-  //     <div class="overflow-x-auto my-6">
-  //       <table class="w-full text-left border-collapse border border-slate-200">
-  //         <thead>
-  //           <tr class="bg-slate-100">
-  //             <th class="border border-slate-200 p-3 font-bold text-slate-700">Feature</th>
-  //             <th class="border border-slate-200 p-3 font-bold text-slate-700">PDF Compression</th>
-  //             <th class="border border-slate-200 p-3 font-bold text-slate-700">PDF Optimization</th>
-  //           </tr>
-  //         </thead>
-  //         <tbody>
-  //           <tr>
-  //             <td class="border border-slate-200 p-3 font-semibold">Primary Purpose</td>
-  //             <td class="border border-slate-200 p-3">To drastically shrink the file size.</td>
-  //             <td class="border border-slate-200 p-3">To improve loading speed and efficiency.</td>
-  //           </tr>
-  //           <tr>
-  //             <td class="border border-slate-200 p-3 font-semibold">File Size Reduction</td>
-  //             <td class="border border-slate-200 p-3">High (Can reduce size by up to 90%).</td>
-  //             <td class="border border-slate-200 p-3">Low to Moderate (Usually 10% to 30%).</td>
-  //           </tr>
-  //           <tr>
-  //             <td class="border border-slate-200 p-3 font-semibold">Quality Impact</td>
-  //             <td class="border border-slate-200 p-3">Noticeable. Images may become slightly blurry.</td>
-  //             <td class="border border-slate-200 p-3">None. The visual quality remains identical.</td>
-  //           </tr>
-  //           <tr>
-  //             <td class="border border-slate-200 p-3 font-semibold">Loading Speed</td>
-  //             <td class="border border-slate-200 p-3">Slower on web (browser must download the whole file).</td>
-  //             <td class="border border-slate-200 p-3">Instant on web (streams page by page).</td>
-  //           </tr>
-  //         </tbody>
-  //       </table>
-  //     </div>
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left border-collapse border border-slate-200">
+          <thead>
+            <tr class="bg-slate-100">
+              <th class="border border-slate-200 p-3 font-bold text-slate-700">Feature</th>
+              <th class="border border-slate-200 p-3 font-bold text-slate-700">PDF Compression</th>
+              <th class="border border-slate-200 p-3 font-bold text-slate-700">PDF Optimization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-slate-200 p-3 font-semibold">Primary Purpose</td>
+              <td class="border border-slate-200 p-3">To drastically shrink the file size.</td>
+              <td class="border border-slate-200 p-3">To improve loading speed and efficiency.</td>
+            </tr>
+            <tr>
+              <td class="border border-slate-200 p-3 font-semibold">File Size Reduction</td>
+              <td class="border border-slate-200 p-3">High (Can reduce size by up to 90%).</td>
+              <td class="border border-slate-200 p-3">Low to Moderate (Usually 10% to 30%).</td>
+            </tr>
+            <tr>
+              <td class="border border-slate-200 p-3 font-semibold">Quality Impact</td>
+              <td class="border border-slate-200 p-3">Noticeable. Images may become slightly blurry.</td>
+              <td class="border border-slate-200 p-3">None. The visual quality remains identical.</td>
+            </tr>
+            <tr>
+              <td class="border border-slate-200 p-3 font-semibold">Loading Speed</td>
+              <td class="border border-slate-200 p-3">Slower on web (browser must download the whole file).</td>
+              <td class="border border-slate-200 p-3">Instant on web (streams page by page).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-  //     <h2>When Should You Compress a PDF?</h2>
-  //     <p>You should focus on compression when strict file size limits are your main obstacle. Here are common practical examples:</p>
-  //     <ul>
-  //       <li><strong>Government and Tax Portals:</strong> Most state and national government websites have ancient upload systems that strictly reject files larger than 2MB or 5MB.</li>
-  //       <li><strong>Email Attachments:</strong> Gmail and Outlook restrict attachments to 20MB or 25MB. If you are sending a massive pitch deck to a client, you must compress it first.</li>
-  //       <li><strong>Job Applications:</strong> HR portals (like Workday or Taleo) often limit resume and portfolio uploads to keep their server costs low.</li>
-  //     </ul>
+      <h2>When Should You Compress a PDF?</h2>
+      <p>You should focus on compression when strict file size limits are your main obstacle. Here are common practical examples:</p>
+      <ul>
+        <li><strong>Government and Tax Portals:</strong> Most state and national government websites have ancient upload systems that strictly reject files larger than 2MB or 5MB.</li>
+        <li><strong>Email Attachments:</strong> Gmail and Outlook restrict attachments to 20MB or 25MB. If you are sending a massive pitch deck to a client, you must compress it first.</li>
+        <li><strong>Job Applications:</strong> HR portals (like Workday or Taleo) often limit resume and portfolio uploads to keep their server costs low.</li>
+      </ul>
 
-  //     <h2>When Should You Optimize a PDF?</h2>
-  //     <p>Optimization is your best friend when you care about the user experience, professional presentation, and long-term PDF storage management. Consider these examples:</p>
-  //     <ul>
-  //       <li><strong>Hosting Files on Websites:</strong> If you are uploading an e-book, a product manual, or a digital brochure to your company website, you want it to load instantly for the user. Optimization (Fast Web View) is mandatory here.</li>
-  //       <li><strong>Digital Archives:</strong> When a business is archiving thousands of invoices, they don't want to compress and blur the text (which ruins OCR and text searching). Optimizing them cleans up the file structure without losing vital text clarity.</li>
-  //       <li><strong>Business Document Management:</strong> For internal corporate servers, keeping documents optimized ensures the network doesn't slow down when 50 employees open the company handbook at the same time.</li>
-  //     </ul>
+      <h2>When Should You Optimize a PDF?</h2>
+      <p>Optimization is your best friend when you care about the user experience, professional presentation, and long-term PDF storage management. Consider these examples:</p>
+      <ul>
+        <li><strong>Hosting Files on Websites:</strong> If you are uploading an e-book, a product manual, or a digital brochure to your company website, you want it to load instantly for the user. Optimization (Fast Web View) is mandatory here.</li>
+        <li><strong>Digital Archives:</strong> When a business is archiving thousands of invoices, they don't want to compress and blur the text (which ruins OCR and text searching). Optimizing them cleans up the file structure without losing vital text clarity.</li>
+        <li><strong>Business Document Management:</strong> For internal corporate servers, keeping documents optimized ensures the network doesn't slow down when 50 employees open the company handbook at the same time.</li>
+      </ul>
 
-  //     <h2>Common Myths About PDF File Size Reduction</h2>
-  //     <p>The digital world is full of bad advice. Let's clear up two massive myths:</p>
-  //     <p><strong>Myth 1: "Compression always ruins the document completely."</strong><br>
-  //     Fact: Basic compression only targets images. If your PDF is purely text (like a typed contract), compression will not make the text blurry. Text is vector-based, meaning it scales infinitely without losing quality.</p>
+      <h2>Common Myths About PDF File Size Reduction</h2>
+      <p>The digital world is full of bad advice. Let's clear up two massive myths:</p>
+      <p><strong>Myth 1: "Compression always ruins the document completely."</strong><br>
+      Fact: Basic compression only targets images. If your PDF is purely text (like a typed contract), compression will not make the text blurry. Text is vector-based, meaning it scales infinitely without losing quality.</p>
 
-  //     <p><strong>Myth 2: "I can just optimize a 100MB file to make it 2MB."</strong><br>
-  //     Fact: Optimization only removes structural waste. If a file is 100MB because it contains fifty 4K photographs, optimization might only bring it down to 98MB. You must compress the images to see a massive size drop.</p>
+      <p><strong>Myth 2: "I can just optimize a 100MB file to make it 2MB."</strong><br>
+      Fact: Optimization only removes structural waste. If a file is 100MB because it contains fifty 4K photographs, optimization might only bring it down to 98MB. You must compress the images to see a massive size drop.</p>
 
-  //     <h2>Best Practices for Managing Large PDF Files</h2>
-  //     <p>Instead of relying on a single button, smart professionals use a combination of tools to achieve the perfect balance of size and quality. If your file is still too large after compression, try managing the pages structurally.</p>
+      <h2>Best Practices for Managing Large PDF Files</h2>
+      <p>Instead of relying on a single button, smart professionals use a combination of tools to achieve the perfect balance of size and quality. If your file is still too large after compression, try managing the pages structurally.</p>
 
-  //     <p>For instance, if you are trying to email a 500-page corporate report, but the recipient only needs the financial summary from chapter 4, don't compress the whole document. Instead, use a tool to <a href="/extract-pdf-pages">Extract PDF Pages</a>. If you need to send the whole report but it refuses to compress enough, you can <a href="/split-pdf">Split PDF</a> into "Part 1" and "Part 2" for easy emailing. </p>
+      <p>For instance, if you are trying to email a 500-page corporate report, but the recipient only needs the financial summary from chapter 4, don't compress the whole document. Instead, use a tool to <a href="/extract-pdf-pages">Extract PDF Pages</a>. If you need to send the whole report but it refuses to compress enough, you can <a href="/split-pdf">Split PDF</a> into "Part 1" and "Part 2" for easy emailing. </p>
 
-  //     <p>Conversely, if you have twenty different optimized receipts scattered across your desktop, it is better for your PDF storage management to <a href="/merge-pdf">Merge PDF</a> them into a single, clean expense report.</p>
+      <p>Conversely, if you have twenty different optimized receipts scattered across your desktop, it is better for your PDF storage management to <a href="/merge-pdf">Merge PDF</a> them into a single, clean expense report.</p>
 
-  //     <div class="mt-8 ">
-  //       <h2>Frequently Asked Questions (FAQ)</h2>
+      <div class="mt-8 ">
+        <h2>Frequently Asked Questions (FAQ)</h2>
 
-  //       <p><strong>Q1: Will optimizing a PDF change how it looks when printed?</strong><br>
-  //       A: No. Optimization works entirely behind the scenes on the file's code (like removing duplicate fonts and embedding links properly). The visual layout and print quality will remain 100% identical to the original file.</p>
+        <p><strong>Q1: Will optimizing a PDF change how it looks when printed?</strong><br>
+        A: No. Optimization works entirely behind the scenes on the file's code (like removing duplicate fonts and embedding links properly). The visual layout and print quality will remain 100% identical to the original file.</p>
 
-  //       <p><strong>Q2: Can I compress a PDF that has already been optimized?</strong><br>
-  //       A: Yes, absolutely. In fact, best practice for web publishing is to first compress the PDF to reduce the heavy image sizes, and then run it through an optimization process to enable Fast Web View (linearization).</p>
+        <p><strong>Q2: Can I compress a PDF that has already been optimized?</strong><br>
+        A: Yes, absolutely. In fact, best practice for web publishing is to first compress the PDF to reduce the heavy image sizes, and then run it through an optimization process to enable Fast Web View (linearization).</p>
 
-  //       <p><strong>Q3: Why did my PDF file size increase after I tried to optimize it?</strong><br>
-  //       A: This rarely happens, but it can occur if your original PDF was missing essential font dictionaries or color profiles. The optimization software might embed these missing resources to ensure the file is structurally sound and readable on all devices, slightly increasing the weight.</p>
+        <p><strong>Q3: Why did my PDF file size increase after I tried to optimize it?</strong><br>
+        A: This rarely happens, but it can occur if your original PDF was missing essential font dictionaries or color profiles. The optimization software might embed these missing resources to ensure the file is structurally sound and readable on all devices, slightly increasing the weight.</p>
 
-  //       <p><strong>Q4: Is it safe to compress legal documents or contracts?</strong><br>
-  //       A: Yes, but you must be careful. Extreme compression can sometimes flatten digital signatures or make scanned stamps blurry. Always review your legal documents after compressing to ensure signatures and notary seals are still clearly legible.</p>
+        <p><strong>Q4: Is it safe to compress legal documents or contracts?</strong><br>
+        A: Yes, but you must be careful. Extreme compression can sometimes flatten digital signatures or make scanned stamps blurry. Always review your legal documents after compressing to ensure signatures and notary seals are still clearly legible.</p>
 
-  //       <p><strong>Q5: Does PDF compression remove passwords or security encryption?</strong><br>
-  //       A: No standard compression or optimization tool can bypass heavy encryption. If a file is password-protected, you must unlock it first before the software can read, compress, or reorganize the internal data.</p>
-  //     </div>
+        <p><strong>Q5: Does PDF compression remove passwords or security encryption?</strong><br>
+        A: No standard compression or optimization tool can bypass heavy encryption. If a file is password-protected, you must unlock it first before the software can read, compress, or reorganize the internal data.</p>
+      </div>
 
-  //     <h3>Conclusion</h3>
-  //     <p>Understanding the difference between PDF optimization vs PDF compression saves you time, frustration, and embarrassment. Remember the golden rule: Use <strong>Compression</strong> when you need to bypass strict upload size limits by shrinking images, and use <strong>Optimization</strong> when you want to clean up a file's code so it loads incredibly fast on the internet. By combining both methods intelligently, you can master digital document management like a true professional.</p>
+      <h3>Conclusion</h3>
+      <p>Understanding the difference between PDF optimization vs PDF compression saves you time, frustration, and embarrassment. Remember the golden rule: Use <strong>Compression</strong> when you need to bypass strict upload size limits by shrinking images, and use <strong>Optimization</strong> when you want to clean up a file's code so it loads incredibly fast on the internet. By combining both methods intelligently, you can master digital document management like a true professional.</p>
 
-  //   `
-  // }, done
+    `
+  }, 
   // {
   //   id: "how-to-create-paperless-workflow-small-businesses",
   //   title: "How to Create a 100% Paperless Workflow for Small Businesses",
@@ -3348,6 +3348,1285 @@ export const blogsData = [
   //     A: No. Almost every phone from the last several years scans QR codes straight from the default camera app. A really old phone may need a free scanner, but most guests just open their camera and point.</p>
       
   //     <p>One small square on a card can save your family a hundred phone calls and a lot of "we're lost" texts on the big day. Grab your map, form, and album links, run them through the <a href="/qr-generator">free QR Generator</a>, test the printed proof on two phones, and you're done. Now you can go back to worrying about the things that actually deserve your attention, like whether the caterer ordered enough paneer.</p>
+  //   `
+  // },
+
+
+  // 22-06-2026
+  // (4 new-tool blogs below — commented; uncomment + add /images/blogs/<slug>.webp to publish)
+  // {
+  //   id: "extract-text-from-pdf-copy-paste-free",
+  //   title: "How to Extract and Copy Text From a PDF (Free, No Upload)",
+  //   seoTitle: "Extract & Copy Text From PDF Free, No Upload | GoPDFGo",
+  //   keywords: "extract text from pdf, copy text from pdf, pdf to text, get text out of pdf, copy paste from pdf, convert pdf to txt, pull text from pdf free, extract text without upload",
+  //   excerpt: "You select text in a PDF, hit Ctrl+C, and paste only to get a jumbled mess or nothing at all. Here is how to pull clean, copyable text out of a PDF in seconds, fully in your browser.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/extract-text-from-pdf-copy-paste-free.webp",
+  //   content: `
+  //     <p>You are studying late, a chapter PDF from your coaching material open on one screen, and you just want two paragraphs from it in your study group's WhatsApp. You drag across the text, press Ctrl+C, paste, and out comes a jumbled mess: words glued together, line breaks in the wrong places, half a sentence missing. Or nothing pastes at all. Most of us have been there with a PDF at least once.</p>
+      
+  //           <p>Getting plain text out of a PDF should be simple, but the format does not make it easy. A PDF is built to look identical on every screen and printer, not to hand its words over neatly. Here is why it fights you, and a clean way to pull copyable text out of most PDFs in a few seconds, right in your browser, without uploading the file anywhere.</p>
+      
+  //           <h2>Why copying text from a PDF goes wrong</h2>
+  //           <p>A PDF is not a Word file. Inside, text is often placed character by character at fixed positions on the page, more like a printed sheet than a document you can edit. When you select and copy inside a PDF reader, the reader has to guess the reading order. On multi-column layouts, tables, or anything with fancy formatting, it guesses wrong a lot. That is how you end up with two columns mixed together or stray spaces scattered through a sentence.</p>
+      
+  //           <p>On a phone it is worse, because selecting a precise block of text in a mobile PDF viewer is fiddly and the handles never land where you want them. What you actually need is a tool that reads the PDF's underlying text directly and gives it back as clean plain text you can copy or save. That is what our <a href="/pdf-to-text">PDF to Text</a> tool does.</p>
+      
+  //           <h2>The one thing to understand: the text layer</h2>
+  //           <p>Every PDF created from a real document, a Word export, an e-book, a generated question paper, an invoice from accounting software, carries a hidden <strong>text layer</strong>. That is the actual selectable text sitting behind what you see on the page. Our tool reads that layer and hands it to you, formatting stripped, ready to use.</p>
+      
+  //           <p>There is one honest catch. If your PDF is a <strong>scan</strong>, where someone photographed or scanned a printed page, that page is just an <em>image</em>. To your eyes it looks like text, but there is no text layer under it. It is a picture of words. Nothing can copy text that does not exist in the file as text. For a pure scan you would need OCR (optical character recognition), and GoPDFGo does not do OCR yet, so this tool will come back empty on those.</p>
+      
+  //           <p>You can check in two seconds. Open the PDF and try to select a single word with your mouse or finger. If a word highlights, you have a real text layer and extraction will work cleanly. If your cursor just draws a box over the whole page and nothing highlights, it is a scanned image. Good news for one common worry though: even PDFs that block copying through restrictions usually still have a readable text layer, and our reader pulls the text from those restricted-but-text-based files just fine.</p>
+      
+  //           <h2>Where you will actually copy text from a PDF</h2>
+  //           <p>Once you know it works on any text-based PDF, the everyday uses pile up fast:</p>
+  //           <ul>
+  //             <li><strong>Exam prep and coaching:</strong> Pull a definition, a formula explanation, or a worked answer from an e-book or your lecture notes and paste it straight into your notes app or the group chat. No retyping.</li>
+  //             <li><strong>Previous year question papers:</strong> This is the big one for students. Copy questions out of a PYQ PDF to build your own practice set, or to paste a tricky question into a search and find a worked solution. Far quicker than typing each question by hand.</li>
+  //             <li><strong>Agreements and letters:</strong> Need one specific clause out of a rent agreement or an offer letter to send to a family member? Copy just that clause instead of screenshotting the whole page.</li>
+  //             <li><strong>Translation:</strong> Copy a chunk of English or Hindi text and paste it into Google Translate. You cannot translate a picture of words, but you can translate extracted text.</li>
+  //             <li><strong>Quick sharing:</strong> Drop a key line from a notice or circular into WhatsApp instead of forwarding a 4 MB file nobody opens.</li>
+  //           </ul>
+      
+  //           <h2>How to extract text from your PDF on GoPDFGo</h2>
+  //           <p>The whole thing runs <strong>inside your browser</strong>. Your PDF never leaves your device and nothing is uploaded to any server, which matters when the file is an agreement, a salary slip, or anything with your personal details in it. Here is the flow.</p>
+      
+  //           <div class="tool-box">
+  //             <h3>Get clean, copyable text in under a minute</h3>
+  //             <ul>
+  //               <li><strong>Step 1:</strong> Open the <a href="/pdf-to-text">PDF to Text</a> tool on GoPDFGo, on your laptop or your phone, it works on both.</li>
+  //               <li><strong>Step 2:</strong> Click the upload area or drag your PDF onto it. The file is read locally, so even a big document loads without waiting on an internet upload.</li>
+  //               <li><strong>Step 3:</strong> The tool reads the PDF's text layer and shows the full extracted text on screen, page by page, as plain readable text.</li>
+  //               <li><strong>Step 4:</strong> Select just the part you need and copy it, or grab everything at once and download it as a <strong>.txt file</strong> that opens in any text editor. Paste into your notes, a chat, a translator, or an email.</li>
+  //               <li><strong>Step 5:</strong> If the output comes back empty, do the highlight test above. An empty result almost always means a scanned page with no text layer, not a problem with the tool.</li>
+  //             </ul>
+  //           </div>
+      
+  //           <h2>If your PDF turns out to be a scan</h2>
+  //           <p>Say you ran the highlight test and confirmed it is a scanned image, so nothing extracts. You are not fully stuck, you just need a different path. For a short clause, retyping the few lines you need is often faster than people expect. For a longer file, a dedicated OCR service can handle it. And if the scan is what you are working with anyway, you can still keep it tidy with our other tools, like cropping the dark edges off a scan with <a href="/crop">Crop</a>, or fixing pages that came out sideways using <a href="/rotate-pdf">Rotate PDF</a> before you share it.</p>
+      
+  //           <p>One more thing worth separating out: if your real goal was to grab a single page out of a giant report rather than its text, that is a different job. For pulling a page out as its own file, the <a href="/split-pdf">Split PDF</a> tool is the right fit, not this one. This tool is purely about getting the words out so you can copy, paste, or save them as text.</p>
+      
+  //           <h2>A few tips for the cleanest text</h2>
+  //           <ul>
+  //             <li><strong>Check before you panic.</strong> The highlight test (try to select one word in the PDF) tells you in two seconds whether extraction will work at all.</li>
+  //             <li><strong>Tables come out flat.</strong> Plain text extraction strips formatting, so a table arrives as rows of words without the grid. That is expected, you get the words, not the layout.</li>
+  //             <li><strong>Mixed PDFs happen.</strong> A file can have some real-text pages and some scanned pages. The text pages extract, the scanned ones stay blank, and now you know why.</li>
+  //             <li><strong>Private files stay private.</strong> Since everything runs on your device, you can put an agreement or a pay slip through it without wondering where the file ended up.</li>
+  //           </ul>
+      
+  //           <p>So the next time a PDF refuses to give up a clean paragraph, you do not have to retype it word by word or take ten screenshots. Open the text extractor, let it read the layer, and lift exactly the lines you need. For genuine text-based PDFs, which is almost everything you deal with day to day, it just reads them and gives you the text.</p>
+      
+  //           <h2>Frequently Asked Questions</h2>
+  //           <p><strong>Q: Does my PDF get uploaded to a server?</strong><br> A: No. The whole process runs inside your browser on your own device. The file never leaves your phone or computer, which is why it is safe for agreements, salary slips, and anything personal.</p>
+      
+  //           <p><strong>Q: Why is the extracted text empty even though I can clearly see the words?</strong><br> A: Your PDF is almost certainly a scanned image, a picture of a page with no real text layer underneath. The words are visible but they are not actual text in the file, so there is nothing to copy. That case needs OCR, which this tool does not do yet.</p>
+      
+  //           <p><strong>Q: Does it work on my phone?</strong><br> A: Yes. The tool runs in the browser on both Android and iPhone the same way it does on a laptop. Open the PDF, let it read, then copy the part you need or download the .txt. Handy when you only have your phone and a question paper.</p>
+      
+  //           <p><strong>Q: Why does my copied text have weird spacing or jumbled words?</strong><br> A: That usually comes from copying directly inside a PDF reader, especially on two-column pages or tables, where the reader guesses the reading order wrong. Reading the text layer through this tool gives you cleaner output, though tables still arrive as flat rows of words rather than a grid.</p>
+      
+  //           <p><strong>Q: Can I copy just one paragraph instead of the whole document?</strong><br> A: Yes. The extracted text appears on screen as plain text, so you can select and copy just the clause, definition, or paragraph you need, or grab everything at once and download it as a .txt file.</p>
+  //   `
+  // },
+  // {
+  //   id: "heic-to-jpg-iphone-photos-wont-open",
+  //   title: "iPhone HEIC Photos Won't Open? How to Convert HEIC to JPG (and When to Use PNG or WebP)",
+  //   seoTitle: "HEIC to JPG: Fix iPhone Photos That Won't Open",
+  //   keywords: "heic to jpg, what is heic, heic file won't open, convert heic to jpg, heic to png, heic to webp, iphone photo won't upload, heic not supported, convert iphone photos, heic file format",
+  //   excerpt: "You sent a photo from your iPhone and the other person got a file that won't open. Or an exam portal rejected your upload. That's HEIC. Here is what it is and how to fix it in seconds.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/heic-to-jpg-iphone-photos-wont-open.webp",
+  //   content: `
+  //     <p>You take a photo on your iPhone and email it to your office, or upload it to an exam portal, and the file is suddenly called something like <em>IMG_4821.HEIC</em> that refuses to open. Your Android friend taps it and gets a grey box. The government website says "invalid file format." The photo looks fine on your phone, but nowhere else will read it.</p>
+      
+  //     <p>This is one of the most common headaches for iPhone users. The fix takes about ten seconds and needs no app or paid software. Here is what HEIC actually is, why it happens, and exactly which format to convert it to.</p>
+      
+  //     <h2>What Is HEIC, and Why Does Your iPhone Use It?</h2>
+  //     <p>HEIC stands for High Efficiency Image Coding. It is Apple's image format, built on the same HEVC video compression that newer iPhones use, and stored in a container called HEIF. Since iOS 11 (2017), on the iPhone 7 and later, Apple made HEIC the default camera format instead of the old JPG.</p>
+      
+  //     <p>The reason is genuinely useful: a HEIC photo looks just as sharp as a JPG but takes up roughly half the storage. So your phone holds twice as many photos for the same space. That part works well.</p>
+      
+  //     <p>The catch is that almost nothing outside Apple's world fully supports it. Android phones, older Windows laptops, most websites, and a long list of Indian government and exam portals do not recognise a <strong>.HEIC</strong> file. iOS understands the format and shows it to you perfectly. The moment that file leaves an Apple device, other systems do not know what to do with it. You are not doing anything wrong, and the photo is not corrupted. It is just in a format the rest of the world has not caught up with.</p>
+      
+  //     <h2>Where HEIC Actually Causes Trouble</h2>
+  //     <p>Here are the real situations where people get stuck:</p>
+  //     <ul>
+  //     <li><strong>Exam and job portals:</strong> SSC, UPSC, IBPS, state PSCs, university admission sites and KYC pages usually accept only JPG, JPEG or PNG. Drop a HEIC there and you get a rejection or a blank upload.</li>
+  //     <li><strong>Sharing with Android friends:</strong> Sending a photo on WhatsApp usually works because WhatsApp compresses images sent as photos into a standard format. But send the same file as a <em>document</em> (to keep it full quality), and the original .HEIC goes through unchanged, and your Android friend cannot open it.</li>
+  //     <li><strong>Putting photos on a website:</strong> Browsers and WordPress do not display HEIC. A product photo or a blog image saved as HEIC simply will not show up for visitors.</li>
+  //     <li><strong>Old Windows machines:</strong> A college lab PC or an office desktop on an older Windows build will refuse to preview the file without a special add-on.</li>
+  //     </ul>
+      
+  //     <p>In every one of these cases the fix is the same: convert the HEIC into a format that is actually accepted. The only real question is which format.</p>
+      
+  //     <h2>Quick Way to Tell If a File Is HEIC</h2>
+  //     <p>Look at the file name. If it ends in <strong>.HEIC</strong> or <strong>.HEIF</strong>, that is the one. On your iPhone you usually will not see the extension, but the moment you AirDrop, email or copy the original to a computer, the .HEIC tag shows up. If a file "won't open" on a non-Apple device and it came from an iPhone, it is almost certainly HEIC.</p>
+      
+  //     <h2>JPG, PNG or WebP? Which One to Convert This File Into</h2>
+  //     <p>You have three sensible targets. Pick based on what you are about to do with the photo, not on theory.</p>
+      
+  //     <p><strong>Pick JPG for forms, uploads and sharing.</strong> This is the safe default for most people. JPG opens on every device and is accepted by every exam, job and KYC portal. Uploading a photo to an SSC or IBPS form, a college admission page, or sending it to someone whose phone you do not know? Convert to JPG with the <a href="/heic-to-jpg">HEIC to JPG</a> tool.</p>
+      
+  //     <p><strong>Pick PNG when you need lossless quality for editing.</strong> PNG keeps every pixel exactly as it was, with no compression softening. If you are going to edit the photo, or you need a screenshot to stay razor-sharp, use <a href="/heic-to-png">HEIC to PNG</a>. Files are bigger, so skip it for casual sharing.</p>
+      
+  //     <p><strong>Pick WebP when the photo is going on a website.</strong> WebP gives the smallest file at good quality, which keeps web pages loading fast. For an online store, a portfolio or a WordPress blog, <a href="/heic-to-webp">HEIC to WebP</a> is the right call. A few very old browsers do not support it, but in 2026 that is a tiny minority.</p>
+      
+  //     <p>If you want the deeper trade-offs behind these formats, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks it down properly. For a HEIC file you just need to upload somewhere, JPG is almost always the answer.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>How to Convert Your HEIC Photos on GoPDFGo</h3>
+  //     <p>The whole thing runs inside your browser. Your photos are never uploaded to any server, which matters when the image is your Aadhaar selfie, a signature, or a personal photo. Everything stays on your own device.</p>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Get the HEIC file onto the device you are working on. AirDrop it, email it to yourself, or connect your iPhone and copy it over.</li>
+  //     <li><strong>Step 2:</strong> Decide the target format. For an exam or job portal, open the <a href="/heic-to-jpg">HEIC to JPG</a> tool. For editing, use <a href="/heic-to-png">HEIC to PNG</a>. For a website, use <a href="/heic-to-webp">HEIC to WebP</a>.</li>
+  //     <li><strong>Step 3:</strong> Drag and drop your photo onto the upload area, or tap to select it. You can add several photos at once, not just one.</li>
+  //     <li><strong>Step 4:</strong> The conversion runs on your device. For multiple photos you get them packed into a single ZIP, so you are not downloading them one by one.</li>
+  //     <li><strong>Step 5:</strong> Download your converted images. As a real example, if an IBPS or university form was rejecting your iPhone selfie as an invalid format, the JPG you just made will sail through the same upload box.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>When HEIC Conversion Can Fail</h2>
+  //     <p>Most HEIC files convert cleanly, but a few stubborn ones can trip up any browser-based converter. <strong>Live Photos</strong> sometimes bundle motion data that does not translate into a flat image, and a few HEICs shot in very high colour depth can fail to decode. If one particular photo refuses to convert, it is usually one of these special types, not a fault at your end.</p>
+      
+  //     <p>The workaround: open the photo on your iPhone, take a screenshot of it, and convert that screenshot instead. A screenshot is a plain image and always converts.</p>
+      
+  //     <h2>Stop the Problem at the Source</h2>
+  //     <p>If you keep hitting HEIC trouble, tell your iPhone to shoot in JPG from now on. Go to <strong>Settings, then Camera, then Formats</strong>, and choose <strong>Most Compatible</strong> instead of "High Efficiency." From then on your camera saves JPG by default and you skip the conversion step. You lose a little storage efficiency, but if you upload to portals often, that is a fair trade.</p>
+      
+  //     <p>You will still have years of old HEIC photos in your library, so knowing how to convert them stays useful.</p>
+      
+  //     <h2>A Note on Privacy</h2>
+  //     <p>Many free "HEIC to JPG" sites work by uploading your photo to their server, converting it there, and sending it back. For a holiday snap, no problem. For a photo of your PAN card, your signature, or a KYC selfie, that is your personal data sitting on someone else's computer. GoPDFGo does the conversion entirely in your browser, so nothing leaves your device. It is the same reason a lot of people prefer a local <a href="/compress-pdf">compress PDF</a> tool over cloud-based ones when the file is sensitive.</p>
+      
+  //     <h2>The Short Version</h2>
+  //     <p>HEIC is not a broken format, just an Apple-first one. The instant you need that photo to work outside the Apple world, convert it: JPG for forms and sharing, PNG for editing and quality, WebP for websites. Do it once and it stops being a problem.</p>
+      
+  //     <h2>Frequently Asked Questions</h2>
+  //     <p><strong>Q: Why does my iPhone photo open on my phone but not on my friend's Android?</strong><br> A: Your iPhone saves photos in HEIC, which Apple devices read but most Android phones do not fully support. Convert it to JPG using the <a href="/heic-to-jpg">HEIC to JPG</a> tool and it will open on any device.</p>
+      
+  //     <p><strong>Q: Is it safe to convert photos of my documents like Aadhaar or PAN?</strong><br> A: Yes. On GoPDFGo the conversion happens inside your browser and the photo is never uploaded anywhere. Your sensitive documents stay on your own device the whole time.</p>
+      
+  //     <p><strong>Q: Will converting to JPG hurt the quality?</strong><br> A: JPG uses slight compression, but it is invisible for normal photos and uploads. If you need genuinely lossless quality for editing, convert to PNG instead.</p>
+      
+  //     <p><strong>Q: Can I convert many HEIC photos at once?</strong><br> A: Yes. Drop several photos together and the tool converts them in a batch, then gives you everything in a single ZIP file to download.</p>
+      
+  //     <p><strong>Q: My HEIC file will not convert at all. What is wrong?</strong><br> A: It is likely a Live Photo or a high-colour-depth HEIC that is hard to decode. The easy fix is to open the photo on your iPhone, take a screenshot, and convert the screenshot, since screenshots are always standard images.</p>
+  //   `
+  // },
+  // {
+  //   id: "sign-pdf-online-without-printing",
+  //   title: "How to Sign a PDF Online Without Printing or Scanning",
+  //   seoTitle: "Sign PDF Online Without Printing | GoPDFGo",
+  //   keywords: "sign pdf online, how to sign a pdf, sign pdf without printing, add signature to pdf, e sign pdf free, sign rent agreement pdf, draw signature on pdf, sign pdf on phone, electronic signature pdf india",
+  //   excerpt: "Got a rent agreement or job form that needs your signature, but no printer at home? Here is how to sign a PDF straight from your phone or laptop, without printing a single page.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
+  //   content: `
+      
+  //           <p>The landlord sends the rent agreement on WhatsApp at 9 PM. He wants it signed and back tonight. You have a phone, the PDF is sitting in your downloads, and there is no printer anywhere in the flat. The old routine of print, sign with a pen, scan, then send back is not happening at this hour.</p>
+      
+  //           <p>This is one of the most common everyday situations in India right now, and you do not need a printer at all. You can sign a PDF online directly, save it, and send it back in two minutes. Here is exactly how, and I will also be clear about what kind of signature this actually is so you do not run into trouble later.</p>
+      
+  //           <h2>The Print-Sign-Scan Habit Needs to Go</h2>
+  //           <p>Most of us were taught one way to "sign" a document: print it, put pen to paper, then scan it back. Every step in that chain can go wrong. The printer is out of ink. The scanner app slaps a watermark across your page. The scan comes out crooked and grey. You end up with a file that is heavier and uglier than the original, and you have wasted a sheet of paper for nothing.</p>
+  //           <p>When the document is already a PDF on your screen, printing it just to sign and re-digitise it makes no sense. You are turning a clean digital file into paper and then back into a worse digital file. Keep it digital the whole way through and drop your signature onto the page directly.</p>
+      
+  //           <h2>What You Can Actually Do in the Browser</h2>
+  //           <p>A signing tool that runs in your browser gives you three ways to put your mark on the page, and you can pick whichever feels natural:</p>
+  //           <ul>
+  //             <li><strong>Draw it:</strong> Use your finger on a phone or your mouse on a laptop to draw your signature, the same way you sign on a courier's delivery device. On a touchscreen this comes out surprisingly close to your real handwriting.</li>
+  //             <li><strong>Type it:</strong> Type your name and the tool renders it in a handwriting-style font. This is quick and clean, handy when you just need a neat name on an approval or a letter.</li>
+  //             <li><strong>Upload an image:</strong> If you already have a photo of your signature on white paper, upload that PNG or JPG. The signature sits on the page like a sticker you can move around.</li>
+  //           </ul>
+  //           <p>Once your signature is ready, you drag it to the right spot on any page, resize it so it fits the signature line properly, and download the finished PDF. No queue, no email-it-to-us step.</p>
+      
+  //           <h2>The Honest Part: This Is an Ink Signature, Not a DSC</h2>
+  //           <p>What you are adding is a <strong>visual signature</strong>, also called an ink or wet-ink-style signature. It is a picture of your handwriting placed on the document. For the vast majority of everyday paperwork, that is completely fine and widely accepted.</p>
+  //           <p>What it is <strong>not</strong> is a legally certified <strong>Digital Signature Certificate (DSC)</strong>. A real DSC uses PKI cryptography and is issued by a licensed Certifying Authority in India (the kind of thing you buy for filing GST, MCA company returns, income tax audits, or e-tendering). That signature carries your verified identity in encrypted form and ties it to the document. A drawn or typed signature does not do that.</p>
+  //           <p>So the line is simple. For a rent agreement between you and your landlord, a job application form, a college admission consent form, an authorisation letter, or an internal office approval, a visual signature is perfectly suitable and saves you a printer trip. But if a government portal, a bank, or a court specifically demands a "digitally signed" file with a valid DSC, you will need an actual <strong>Class 3 DSC</strong> from an authorised provider. (Class 2 certificates were discontinued by CCA India in 2021, so Class 3 is what gets issued now.) As long as you do not confuse the two, you are on safe ground.</p>
+      
+  //           <div class="tool-box">
+  //             <h3>How to Sign Your PDF in Under Two Minutes</h3>
+  //             <ul>
+  //               <li><strong>Step 1:</strong> Open the <a href="/sign-pdf">GoPDFGo Sign PDF</a> tool on your phone or laptop and load the PDF you need to sign.</li>
+  //               <li><strong>Step 2:</strong> Choose how you want to sign. Draw it with your finger or mouse, type your name to get a handwriting font, or upload a saved image of your signature.</li>
+  //               <li><strong>Step 3:</strong> Your signature now appears as a movable box. Drag it onto the correct signature line on the page, and pull the corners to resize it so it does not look oversized.</li>
+  //               <li><strong>Step 4:</strong> If the document has signature spots on more than one page, repeat the placement wherever needed. You can add the date next to it the same way.</li>
+  //               <li><strong>Step 5:</strong> Click Download. The signed PDF saves straight to your device, ready to send back on WhatsApp or email.</li>
+  //             </ul>
+  //           </div>
+      
+  //           <h2>Why Doing This in the Browser Matters for Privacy</h2>
+  //           <p>Think about what is usually inside the documents you sign. A rent agreement has your full name, your address, your father's name, sometimes your Aadhaar number. A bank form or an authorisation letter can carry even more. The last thing you want is to hand that file to a random website that uploads it to a server you know nothing about.</p>
+  //           <p>GoPDFGo does the entire job inside your browser. Your PDF never leaves your phone or computer, nothing is uploaded, and nothing sits on a cloud server waiting to be leaked. This is the same reason careful people prefer to <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">keep PDF processing local instead of using cloud tools</a>, especially for anything with personal details on it. If your agreement happens to show an Aadhaar number you would rather hide before sharing, run it through the <a href="/aadhaar-masking">Aadhaar masking</a> tool first.</p>
+      
+  //           <h2>A Few Practical Tips</h2>
+  //           <ul>
+  //             <li><strong>Sign on your phone for a real-looking signature.</strong> Drawing with a finger on a touchscreen looks far more natural than dragging a mouse on a laptop. If the document is on your computer, the typed handwriting-font option still gives you a clean result.</li>
+  //             <li><strong>Save a clean signature image once.</strong> Sign on plain white paper with a dark pen, photograph it in good light, and keep that image on your phone. Then you can upload the same neat signature onto any form in future instead of redrawing it every time.</li>
+  //             <li><strong>Resize it sensibly.</strong> A giant signature sprawling across half the page looks careless. Match it roughly to the size of the printed name or the signature line.</li>
+  //             <li><strong>Need to combine pages first?</strong> If your agreement and its annexures are separate files, <a href="/merge-pdf">merge them into one PDF</a> before signing so everything stays in a single tidy document.</li>
+  //           </ul>
+      
+  //           <p>The whole print-sign-scan routine was always a workaround for the days when documents lived on paper. Your rent agreement, your admission form, your office approval, they are already digital. Sign them as digital files, send them back the same night, and keep that one sheet of paper for something that actually needs it.</p>
+      
+  //           <h2>Frequently Asked Questions</h2>
+      
+  //           <p><strong>Q: Is a signature I draw on GoPDFGo legally valid?</strong><br>
+  //           A: For everyday paperwork like rent contracts, job and admission forms, consent forms and authorisation letters, it is generally accepted. Where it falls short is anything that specifically requires a Digital Signature Certificate (DSC) with PKI, such as GST or MCA filings on a government portal. For those, only a valid Class 3 DSC from a licensed Certifying Authority will do.</p>
+      
+  //           <p><strong>Q: Does my PDF get uploaded to a server?</strong><br>
+  //           A: No. The signing happens entirely inside your browser on your own device. The file never leaves your phone or computer, which is exactly what you want for documents that carry your personal details.</p>
+      
+  //           <p><strong>Q: Can I sign a PDF on my Android or iPhone?</strong><br>
+  //           A: Yes. The tool works in your mobile browser, and drawing your signature with a finger on a touchscreen actually looks more natural than using a mouse. Just open the PDF, sign, place it and download.</p>
+      
+  //           <p><strong>Q: I don't have a printer or scanner. Is that a problem?</strong><br>
+  //           A: Not at all, that is the whole point. You skip printing and scanning completely. The PDF stays digital from start to finish, and you download a signed copy ready to share.</p>
+      
+  //           <p><strong>Q: Can I add the date or initials along with my signature?</strong><br>
+  //           A: Yes. You can place a typed or drawn date next to your signature, and add initials on each page if the document needs them, using the same drag-and-place method.</p>
+      
+  //   `
+  // },
+  // {
+  //   id: "organize-pdf-pages-reorder-rotate-delete-one-screen",
+  //   title: "Organize PDF Pages: Fix a Messy Scan on One Screen (Reorder, Rotate, Delete)",
+  //   seoTitle: "Organize PDF Pages on One Screen | GoPDFGo",
+  //   keywords: "organize pdf pages, reorder rotate delete pdf, fix messy pdf, organize pdf online, edit pdf pages browser, clean up scanned pdf, organize pdf free",
+  //   excerpt: "You scanned a rent agreement, the tenant's Aadhaar copy snuck in sideways, and there's a blank back-page riding along. Here's how to fix all three at once instead of running three separate tools.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/organize-pdf-pages-reorder-rotate-delete-one-screen.webp",
+  //   content: `
+  //     <p>You scanned a six-page rent agreement on your phone for the landlord, and somewhere in the rush the tenant's Aadhaar copy got pulled into the same file. Now the document is a small mess. The pages are out of sequence because you photographed them in the wrong order. The Aadhaar page sits sideways because the phone was held the wrong way that one time. And page 6 is completely blank, the back of a sheet the scanner picked up by accident. Three problems, one PDF.</p>
+      
+  //     <p>The usual fix is to bounce between three tools: a reorder tool, then a rotate tool, then a delete-pages tool, downloading and re-uploading each time. By the third round you have four near-identical files in your Downloads folder and no idea which is the latest. A two-minute job somehow ate twenty.</p>
+      
+  //     <p>You can do the whole thing on a single screen instead. See every page as a thumbnail, fix the order, spin the sideways page, drop the blank one, and export once at the end. That is what an <strong>organize PDF pages</strong> tool does.</p>
+      
+  //     <h2>Why a messy PDF usually has three problems at once</h2>
+      
+  //     <p>A jumbled file is rarely just one issue. When a document gets messy, it is almost always because it was scanned in a hurry or stitched together from a couple of sources, and that produces a predictable mix:</p>
+      
+  //     <ul>
+  //     <li><strong>Wrong order.</strong> You photographed page 3 before page 2, or the scanner's feeder pulled sheets out of sequence.</li>
+  //     <li><strong>A sideways page.</strong> One sheet went into the camera rotated, so it sits at 90 degrees while everything else is upright. On a government portal, the officer checking that page cannot read it without tilting their head.</li>
+  //     <li><strong>A blank or duplicate page.</strong> The back of a printed sheet, a stray cover page, or a second copy of an ID that got swept into a merge.</li>
+  //     </ul>
+      
+  //     <p>Fix these one at a time across different tools and you end up uploading the same private document again and again. For a rent agreement with someone's Aadhaar in it, or a bank statement, that is exactly what you want to avoid. Better to see all the pages together and fix everything where it sits.</p>
+      
+  //     <h2>One screen, all your pages as thumbnails</h2>
+      
+  //     <p>The <a href="/organize-pdf">Organize PDF</a> tool lays the whole document out as a grid of page thumbnails, like seeing every photo in your gallery at once. Because you can see everything, the problems jump out. The sideways Aadhaar page is obvious. The blank page is clearly blank. And you can tell at a glance that the page sitting at position 5 really belongs at position 2.</p>
+      
+  //     <p>From that one view you do three things without leaving the screen. Drag a thumbnail to a new spot to reorder it. Hit rotate on the sideways page to spin it upright. Delete the blank page, and restore it if you change your mind. When the grid looks right, you export once, and that single PDF carries every change.</p>
+      
+  //     <p>Here is the part that makes doing it all together actually work: when you rotate a page, the rotation stays stuck to that specific page, not to a slot. So you can rotate the Aadhaar sheet, then drag it three positions earlier, and it stays upright wherever it lands. You are not rotating "page 4" as a fixed position. You are rotating that actual sheet, and it carries its orientation with it. Without that, pages would un-rotate every time you shuffled them.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>How to clean up a messy PDF in one go</h3>
+  //     <p>Everything below happens inside your browser. The file is never sent to a server, so a scan with an Aadhaar or PAN card in it stays on your own device. If the ID copy is meant to be shared, you can run it through <a href="/aadhaar-masking">Aadhaar Masking</a> first to grey out the number before you ever assemble the document.</p>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/organize-pdf">Organize PDF</a> tool and drop in your file. Give it a moment to render a thumbnail for every page.</li>
+  //     <li><strong>Step 2:</strong> Fix the order. Click and hold any out-of-place thumbnail, drag it where it belongs, and let go. The page numbers update as you move things.</li>
+  //     <li><strong>Step 3:</strong> Fix the sideways page. Find the rotated thumbnail and tap rotate until it stands upright.</li>
+  //     <li><strong>Step 4:</strong> Remove the junk last, once the order looks right. A stray blank or duplicate page is much easier to spot when the rest of the document is already in proper sequence. Delete it, and restore it if you removed the wrong one. Nothing is final until you export.</li>
+  //     <li><strong>Step 5:</strong> When the grid looks clean, click export. Your corrected PDF downloads with the reorder, rotation, and deletion all applied together.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>When a single-purpose tool still makes more sense</h2>
+      
+  //     <p>Doing everything at once is not always the right call. If your document has exactly one problem, a focused tool is quicker and there is less to think about.</p>
+      
+  //     <ul>
+  //     <li>If the order is perfect and you only need to shuffle pages around, the dedicated <a href="/rearrange-pdf">Rearrange PDF</a> tool is a tighter fit.</li>
+  //     <li>If every page is upright except for a batch that all need the same turn, <a href="/rotate-pdf">Rotate PDF</a> handles just that.</li>
+  //     <li>If you only need to drop a couple of pages and nothing else, <a href="/delete-pdf-pages">Delete PDF Pages</a> does the one job.</li>
+  //     </ul>
+      
+  //     <p>The organize tool earns its place when you have a combination of issues. One sideways page, plus a wrong order, plus a blank sheet, all in the same file. That is when running three separate tools wastes real time, and seeing everything on one canvas saves it.</p>
+      
+  //     <h2>Why staying in the browser matters here</h2>
+      
+  //     <p>Every time you upload a document to a cloud-based PDF site, a copy of that file sits on someone else's server for a while. For a wedding invite, fine. For a scanned PAN card, a bank statement, or a signed rent agreement, that is a real exposure, and you take it three times over if you bounce between three upload-based tools. The Organize PDF tool runs entirely on your machine, so the document never leaves your device, and the export is quick because there is no upload and no queue. If you want the longer version of why local processing is safer, we covered <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local PDF processing versus cloud tools</a> separately.</p>
+      
+  //     <p>Once the file is clean, you might have one thing left to do. Big phone scans are heavy, often several MB per page, so if your tidied document is too large to attach to an email or upload to a portal, run it through <a href="/compress-pdf">Compress PDF</a> before you send it. And if you built this file from several scans to begin with, <a href="/merge-pdf">Merge PDF</a> is where that combining happens, with the organize tool stepping in afterward to clean up the mess that merging tends to leave.</p>
+      
+  //     <h2>Frequently Asked Questions</h2>
+      
+  //     <p><strong>Q: If I rotate a page and then move it, does the rotation get lost?</strong><br>
+  //     A: No. The rotation is attached to that specific page, not to a position. Drag the page anywhere in the document and it stays correctly oriented.</p>
+      
+  //     <p><strong>Q: Can I undo a delete?</strong><br>
+  //     A: Yes. Deleted pages can be restored. Nothing is permanent until you click export, so you can remove a page, look at the result, and bring it back if you changed your mind.</p>
+      
+  //     <p><strong>Q: Is my file uploaded anywhere?</strong><br>
+  //     A: No. The whole process runs inside your browser on your own device. The PDF never travels to a server, which is what makes it safe for sensitive scans like ID proofs and bank statements.</p>
+      
+  //     <p><strong>Q: Will reordering keep the text in my PDF selectable and searchable?</strong><br>
+  //     A: Yes. Reordering and rotating only change the sequence and orientation of pages. They do not re-render or flatten the content, so any selectable or searchable text in the original pages stays selectable and searchable afterward.</p>
+      
+  //     <p><strong>Q: Does it work for a very large scan with a few hundred pages?</strong><br>
+  //     A: It does, though a big file takes a few seconds to render a thumbnail for every page before the grid is ready. Once the thumbnails load, dragging, rotating, and deleting stay responsive, and you still export in a single step.</p>
+  //   `
+  // },
+
+
+  // 22-06-2026 (batch 2 — existing-tool blogs, 14)
+  // (commented; uncomment + add /images/blogs/<slug>.webp to publish)
+  // {
+  //   id: "split-question-paper-pdf-subject-wise",
+  //   title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
+  //   seoTitle: "Split Question Paper PDF Subject-Wise (Free) | GoPDFGo",
+  //   keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
+  //   excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
+  //   content: `
+  //     <p>You download a 240-page PDF of previous-year questions, or a senior shares a fat question bank on the class group. The problem hits the first time you sit down to revise. You only want to do Chemistry tonight, but Physics, Maths and Biology are all stuffed into the same file, so you keep scrolling past sixty pages of other subjects just to reach the section you need. Then a friend pings you for "only Chemistry," and you end up forwarding an 80MB monster that takes ten minutes to load on their phone.</p>
+      
+  //     <p>The fix takes about five minutes, once. You break that one combined PDF into separate subject-wise files, and after that every revision session starts with the right file already in front of you. Here is how to do it without your question bank ever leaving your device.</p>
+      
+  //     <h2>Why one combined PDF slows down your revision</h2>
+  //     <p>A single mega-PDF looks handy on the day you download it. The pain turns up later, usually when you are already short on time.</p>
+  //     <ul>
+  //     <li><strong>Scrolling kills your focus.</strong> Every time you open the file for Maths, you scroll past dozens of pages of other subjects. Repeated across a study session, that drag adds up and pulls your attention away from actually solving questions.</li>
+  //     <li><strong>Sharing is a hassle.</strong> Nobody wants to download an 80MB file just to get one subject. A 6MB Chemistry-only PDF lands almost instantly, so your friend actually opens it instead of leaving it on the group.</li>
+  //     <li><strong>Printing costs you.</strong> If you want a printout for last-minute revision, a combined file means you either print all 240 pages or fiddle with page-range settings at the shop every single time.</li>
+  //     <li><strong>Backups get confusing.</strong> When everything is one blob, you cannot tell at a glance whether you have the complete Biology set. Files named per subject make your Drive or phone folder readable in one look.</li>
+  //     </ul>
+      
+  //     <h2>Splitting by subject is not the same as pulling one page</h2>
+  //     <p>People mix these up. If you only want a single page out of a large file, say one specific question or one answer-key sheet, that is a one-page job and our <a href="/blog/extract-single-page-from-large-pdf">extract a single page guide</a> covers it. Subject-wise splitting is different. You are carving the document into several chunks by page range so each subject becomes its own complete file. One PDF goes in, four or five clean PDFs come out.</p>
+      
+  //     <h2>First, find where each subject starts and ends</h2>
+  //     <p>Before you split anything, get the page numbers. Open the combined PDF and note where each subject begins and ends. Most question banks have a contents page or clear section breaks, so this is quick.</p>
+  //     <p>Write it down somewhere, on paper or in your notes app:</p>
+  //     <ul>
+  //     <li><strong>Physics:</strong> pages 1 to 58</li>
+  //     <li><strong>Chemistry:</strong> pages 59 to 122</li>
+  //     <li><strong>Maths:</strong> pages 123 to 190</li>
+  //     <li><strong>Biology:</strong> pages 191 to 240</li>
+  //     </ul>
+  //     <p>Watch out for one thing students often get wrong. The page number printed at the bottom of the sheet is usually not the same as the actual PDF page number, because of cover pages and blank sheets. Trust the page counter in your PDF viewer, not the printed number. Count from the real first page of the file.</p>
+      
+  //     <h2>How to split the question paper subject-wise on GoPDFGo</h2>
+  //     <p>This is exactly what our Split PDF tool is for, and the whole thing runs <strong>inside your browser</strong>. Your question bank is never uploaded to any server, which matters if it is paid material a coaching institute shared with your batch.</p>
+  //     <p>One thing to know about how the tool works, so the result is not a surprise. When you give it a range, it pulls out each of those pages and hands them back as a ZIP of individual single-page PDFs. To turn one subject into a single clean file, you then merge just that subject's pages back together. It sounds like an extra step but it takes seconds, and you only do it a handful of times.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Splitting your combined PDF, step by step</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/split-pdf">Split PDF</a> tool and drop in your big combined question-paper file. Nothing leaves your device.</li>
+  //     <li><strong>Step 2:</strong> Choose Select Pages and type the range you noted for one subject, for example 1-58 for Physics. Download the ZIP it produces.</li>
+  //     <li><strong>Step 3:</strong> Unzip it, then open <a href="/merge-pdf">Merge PDF</a> and drop in those pages to stitch them back into one file. Rename it something clear like Physics_PYQ_2016-2025.pdf.</li>
+  //     <li><strong>Step 4:</strong> Repeat for the next subject using its own range. Once each subject is its own PDF, drop them all into a clearly named folder on your phone or Drive.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>Name the files properly</h2>
+  //     <p>This sounds trivial, but it saves real frustration. A file called Split_1.pdf tells you nothing at 11pm before an exam. Give each one a name that says the subject and the span of years or chapters, like <strong>Maths_PYQ_2015-2025.pdf</strong> or <strong>Biology_Genetics_QBank.pdf</strong>. When you dig through WhatsApp or Drive a month later, the right file shows up in one tap. And because a subject-wise file is small and self-contained, when someone on the group asks for "only Physics," you forward one neat PDF instead of the whole bank, and it downloads in seconds even on patchy hostel 4G.</p>
+      
+  //     <h2>A bit of cleanup makes each file nicer to revise from</h2>
+  //     <p>Once your subjects are separate, a little tidying goes a long way.</p>
+  //     <ul>
+  //     <li><strong>Drop the junk pages.</strong> Combined PDFs often have a cover, an index, and blank separators between subjects. If a stray blank sheet or an irrelevant instruction page landed in your Chemistry file, cut it with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the file holds only questions.</li>
+  //     <li><strong>Fix sideways scans.</strong> Some banks are scanned, and a diagram-heavy page can come in rotated. Instead of tilting your head every time, straighten it for good with <a href="/rotate-pdf">Rotate PDF</a> before you save the subject file.</li>
+  //     <li><strong>Shrink heavy scans.</strong> If a subject file is still large because it is a high-resolution scan, run it through <a href="/compress-pdf">Compress PDF</a> so it sends quickly on the class group and nobody complains about data.</li>
+  //     </ul>
+      
+  //     <p>There is one honest limit. If your subjects are interleaved rather than in clean blocks, say a mixed mock test where Q1 is Physics, Q2 is Chemistry and so on, splitting by page range will not separate them, because the tool works on continuous ranges. For that kind of jumble you are better off keeping the file whole and using your viewer's bookmarks. But for the standard subject-after-subject question bank, which is how almost all of them are arranged, this is exactly the right approach.</p>
+      
+  //     <p>Spend the five minutes on it now, before your prep gets intense. A folder of clean, named, subject-wise PDFs is a small thing that makes every study session after it run smoother.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: Will splitting reduce the quality of the question paper?</strong><br> A: No. The pages are copied exactly as they are into the new file. The text, diagrams and scan quality stay identical to the original. Only the page count changes.</p>
+      
+  //     <p><strong>Q: Is my question bank uploaded to a server when I split it?</strong><br> A: No. The Split PDF tool runs entirely in your browser, on your device. Your file never leaves your phone or computer, which matters if it is paid coaching material.</p>
+      
+  //     <p><strong>Q: Why does the tool give me separate pages instead of one subject file?</strong><br> A: Split PDF pulls out each page in your range as its own single-page PDF, bundled in a ZIP. To get one combined file per subject, run those pages through Merge PDF afterwards. That second step takes only a few seconds.</p>
+      
+  //     <p><strong>Q: Can I split a password-protected question paper PDF?</strong><br> A: Not directly. Remove the password first with <a href="/unlock-pdf">Unlock PDF</a>, entering the password you already know, then split the unlocked copy. A locked file cannot be split as it is.</p>
+      
+  //     <p><strong>Q: How do I know the exact page numbers for each subject?</strong><br> A: Open the PDF and use your viewer's page counter, not the number printed on the sheet. Note where each subject begins and ends, since cover and blank pages can shift the real page numbers.</p>
+  //   `
+  // },
+  // {
+  //   id: "remove-instruction-pages-government-form-pdf",
+  //   title: "Remove Instruction Pages From a Government Form PDF Before You Upload It",
+  //   seoTitle: "Remove Instruction Pages From Govt Form PDF | GoPDFGo",
+  //   keywords: "remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove",
+  //   excerpt: "Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/remove-instruction-pages-government-form-pdf.webp",
+  //   content: `
+  //     {"slug":"remove-instruction-pages-government-form-pdf","title":"Remove Instruction Pages From a Government Form PDF Before You Upload It","seoTitle":"Remove Instruction Pages From Govt Form PDF | GoPDFGo","keywords":"remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove","excerpt":"Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.","content":"<p>You download the application PDF for an SSC post, or a state PSC vacancy, or an NSP scholarship. You open it expecting boxes to fill. Instead, page 1 is a notice with the closing date and a helpline number. Page 2 is eligibility conditions. Page 3 is \"Documents to be enclosed\". The actual form, the one with your name, photo and signature, does not start until page 4 or 5.</p>\n\n<p>That part is normal. The annoyance comes later, at the upload step, when the portal asks for the filled form back and you realise the file you have still drags all those instruction pages along at the front.</p>\n\n<h2>Why you need to remove instruction pages from a government form PDF</h2>\n\n<p>Most people fill the form, save it, and try to upload the whole thing. Two specific problems show up.</p>\n\n<p>First, the portal often spells out a page rule. NSP scholarship renewals, many university admission forms, and several PSC application packs say something close to \"upload the duly filled application only\" or \"pages 4 onwards\". The instruction pages were never meant to come back. Send all 11 pages and a verifier has to dig through guideline text to find your form. That is the kind of thing that gets an application marked incomplete.</p>\n\n<p>Second, those front pages are dead weight against the size cap. Portals like SSC, NSP and most state recruitment boards cap each upload tight, often 200KB, 500KB, or \"max 2MB\". If the form was issued as a scanned PDF, every instruction page is a full image. Four or five of them can quietly add a megabyte or more. Drop those pages and you frequently land under the limit before you touch any compression at all.</p>\n\n<p>So the goal is plain: keep your filled form pages, throw out the notice and guideline pages sitting in front of them.</p>\n\n<h2>How to tell where the instructions end and the form begins</h2>\n\n<p>The tricky bit with these forms is the boundary. Does the form start on page 4 or page 5? Did the eligibility notice run to two pages or three? On a government PDF the numbering printed on the page often does not match the PDF's actual page order, because the cover notice is unnumbered or the annexures restart counting. So typing a page range from memory is risky.</p>\n\n<p>Looking at the pages is far safer. An instruction page is dense running text with bullet points and a heading like \"General Instructions\" or \"Important Dates\". Your form page looks nothing like it. It has a photo box, a signature line, ruled fields, your typed or handwritten entries. You can spot the switch at a glance, no page-number arithmetic involved.</p>\n\n<p>This is where a tool that shows every page as a picture helps. The <a href=\"/delete-pdf-pages\">Delete PDF Pages</a> tool lays out your whole form as thumbnails. You scroll, find the first real form page, and mark everything before it. A counter at the top tracks how many pages you have selected, and a Clear button resets your selection if you tap one too many. You are deleting by sight, not by guessing numbers.</p>\n\n<div class=\"tool-box\">\n<h3>Removing the front instruction pages from your form</h3>\n<ul>\n<li><strong>Step 1:</strong> Open the <a href=\"/delete-pdf-pages\">Delete PDF Pages</a> tool and add your form, by dropping the file in or tapping to pick it from your phone or laptop. Every page appears as a thumbnail.</li>\n<li><strong>Step 2:</strong> Scroll to the first page of your actual filled form, the one with the photo box and fields. Tap each page that comes before it, the cover notice, the eligibility page, the \"documents required\" page, to mark them for removal.</li>\n<li><strong>Step 3:</strong> Glance back over the thumbnails. The pages you did not mark are the ones being kept, so confirm every filled page of your form is still untouched.</li>\n<li><strong>Step 4:</strong> Download the trimmed file. Only your form pages remain, and the instruction pages are gone.</li>\n</ul>\n</div>\n\n<h2>The page numbers on the form can lie to you</h2>\n\n<p>One trap worth calling out. Many official forms are assembled from separate documents, so the printed footer might say \"Page 1 of 3\" on what is actually the seventh sheet of the PDF. If you trust a \"Print pages 4-8\" instruction blindly, you can chop the wrong sheets. With thumbnails you sidestep this entirely, because you are reacting to what each page actually contains, not to a number someone typed in a footer that may have reset halfway through.</p>\n\n<p>The same goes for forms where the instructions are interleaved oddly, like a declaration page tucked between two notice pages. You handle each page on its own merit instead of assuming a clean block of \"first four pages = instructions\".</p>\n\n<h2>Your filled form has Aadhaar and bank details, so where it runs matters</h2>\n\n<p>A completed government form is not a casual file. It usually carries your date of birth, address, category, roll number, sometimes your Aadhaar number, bank account for fee or scholarship transfer, plus a scanned photo and signature. Uploading that to some random \"delete pages\" website means a copy of your full application lands on a server you know nothing about.</p>\n\n<p>The Delete PDF Pages tool runs inside your own browser. Your form is opened, the front pages are stripped, and the result is saved straight to your device. The file is never sent anywhere. It keeps working even if your connection drops in the middle, and there is no sign-up, no email, no charge. For a job or scholarship application carrying your KYC details, that is the difference that actually matters.</p>\n\n<h2>If it is still over the size limit after trimming</h2>\n\n<p>Removing the instruction pages clears out most of the bulk, since those scanned guideline pages were the heaviest part. If your filled form pages are still chunky and the portal is strict, run the trimmed file through <a href=\"/compress-pdf\">Compress PDF</a> after. Do it in that order, delete first then compress, so you are not spending effort shrinking pages you were about to remove anyway.</p>\n\n<h2>When this is not the right move</h2>\n\n<p>This is specifically for the notice and guideline pages bunched at the front of a form before you upload it. A couple of nearby situations need different handling.</p>\n\n<p>If your form pages are simply out of order, say the declaration ended up before the main form, do not delete anything. Use the <a href=\"/organize-pdf\">Organize PDF</a> tool to drag them back into the right sequence. And if you need to attach separate scans of your certificates or mark sheets to the filled form as one combined file, that is a job for <a href=\"/merge-pdf\">Merge PDF</a>, not deletion.</p>\n\n<p>For the common case though, it is genuinely quick. The form opens with pages of instructions you do not need to send back, and you want them off without disturbing the form pages. Open Delete PDF Pages, mark the front pages by looking at them, and download a clean file with only your filled application inside.</p>\n\n<h2>FAQ</h2>\n\n<p><strong>Q: The form says \"upload pages 4 to 8 only\" but my PDF numbering is different. Which do I trust?</strong><br> A: Trust what the pages look like, not the printed footers. Government PDFs often have unnumbered cover notices or annexures that restart the count, so the footer can disagree with the PDF order. In the thumbnail view, keep the pages that show your filled form fields and remove the instruction pages, whatever number they carry.</p>\n\n<p><strong>Q: Will removing the instruction pages reduce the quality of my filled form pages?</strong><br> A: No. The pages you keep are carried over as they are, with no re-rendering. Your scanned signature and photo stay at the same resolution. You are only changing which pages are in the file, not how the remaining ones look.</p>\n\n<p><strong>Q: My form has my Aadhaar number and bank details. Is this safe?</strong><br> A: Yes, because nothing leaves your device. The whole process runs inside your browser, so your form is never uploaded to any server. That is exactly why you should avoid the random upload-based sites for a document like this.</p>\n\n<p><strong>Q: After trimming, the file is still above the portal's size limit. What do I do?</strong><br> A: Run the trimmed file through <a href=\"/compress-pdf\">Compress PDF</a>. Removing the instruction pages handles most of the weight, and compressing the leftover form pages usually gets you under caps like 200KB or 500KB.</p>\n\n<p><strong>Q: Do I need an app or an account?</strong><br> A: Neither. It runs in your web browser on phone or laptop, with no install, no sign-up and no cost. You open the tool, add your file, mark the pages, and download.</p>","approxWords":1180,"title":"Remove Instruction Pages From a Government Form PDF Before You Upload It","seoTitle":"Remove Instruction Pages From Govt Form PDF | GoPDFGo","slug":"remove-instruction-pages-government-form-pdf","keywords":"remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove","excerpt":"Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap."}
+  //   `
+  // },
+  // {
+  //   id: "rotate-upside-down-cheque-passbook-pdf-bank-kyc",
+  //   title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
+  //   seoTitle: "Rotate Upside-Down Cheque or Passbook PDF for KYC",
+  //   keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
+  //   excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
+  //   content: `
+  //     <h2>The cheque looked fine on your phone. The bank saw it sideways.</h2>
+  //     <p>The quick fix you need is this: rotate the scanned cheque or passbook PDF upright and save it so the new angle stays in the file, then upload that. Here is how the problem usually starts. You needed to add a bank account for a refund, or finish KYC for a new demat account, or submit a cancelled cheque for an EPF claim. You placed the cheque on the table, scanned it with whatever app was on your phone, and it saved as a PDF. You uploaded it and moved on.</p>
+  //     <p>Two days later there is an email or an SMS saying the document was rejected, please re-upload a clear image. You open the file and the cheque is lying on its side, or fully upside down. The account number is there. The IFSC is there. Everything is readable if you tilt your head. But the verification person, or the automated check behind the portal, saw a rotated page and bounced it.</p>
+  //     <p>The same thing happens with passbooks. You open the passbook flat, scan the page with your name, branch and account number, and because of how you held the phone, the page lands rotated 90 degrees. On your screen the scanner app spins the preview to match your phone, so it looks correct while you tap save. The PDF that actually gets written keeps the raw captured angle. The page you saw and the page they received were not the same.</p>
+      
+  //     <h2>Rotate the scanned cheque or passbook upright before the bank sees it</h2>
+  //     <p>Two separate things cause this, and it helps to know which one got you.</p>
+  //     <p>The first is the preview mismatch above: the app rotates what you see, not what it saves. You swipe through, everything looks upright, you save, and the file is sideways. You only find out when someone opens it on a desktop.</p>
+  //     <p>The second is plain misorientation at capture. You held the phone in portrait while the cheque was landscape, or the passbook sat rotated on the table. The page goes in at 90 or 270 degrees and stays there.</p>
+  //     <p>The fix for both is the same. Open the PDF, turn the page so the account number reads the normal way, and write that new angle into the file so it travels with it. That writing-in step is the one people skip. If you only spin the view inside a PDF reader and re-share, some readers keep that change as a setting on your screen rather than inside the document, so the next person opens it sideways again.</p>
+      
+  //     <h2>Why a rotated cheque actually gets rejected</h2>
+  //     <p>The bank is not being fussy for the sake of it. A few concrete reasons orientation matters:</p>
+  //     <ul>
+  //     <li>Many KYC and account-verification desks clear hundreds of documents a day. A sideways cheque is slower to read at a glance, so it gets bounced rather than squinted at.</li>
+  //     <li>Several portals run automated readers that try to pull the account number, IFSC code or the MICR line at the bottom of the cheque. That OCR is trained on upright text. Feed it a page turned 90 or 180 degrees and it reads nothing usable, so the document fails the check silently, before any human even looks.</li>
+  //     <li>For an EPF or insurance claim, the cancelled cheque is the proof of which account the money goes to. If the reviewer cannot instantly confirm the name and the number, they mark it incomplete and the claim waits another cycle.</li>
+  //     </ul>
+  //     <p>Two minutes spent turning it upright is the difference between approved this week and re-upload next week.</p>
+      
+  //     <h2>Turn the page upright and keep the angle in the file</h2>
+  //     <p>This is a PDF, not a photo, so it needs a PDF tool. If your cheque is sitting as a JPG instead, that is a different fix (covered further down). For an actual PDF, you want something that rotates the page and stores the new orientation inside the document for good. GoPDFGo's <a href="/rotate-pdf">Rotate PDF</a> does that, and it runs entirely inside your browser, so your cheque or passbook never gets uploaded to anyone's server. For a cancelled cheque with your account number on it, that local-only handling is worth caring about.</p>
+      
+  //     <div class="tool-box">
+  //     <p><strong>Step 1:</strong> Open the <a href="/rotate-pdf">Rotate PDF</a> tool and pick your scanned cheque or passbook PDF. Nothing leaves your device; the whole thing runs on your machine.</p>
+  //     <p><strong>Step 2:</strong> Look at each page. Use the rotate control to turn it 90, 180 or 270 degrees until the account number, name and IFSC read upright the normal way.</p>
+  //     <p><strong>Step 3:</strong> If only one page is wrong, common with a multi-page passbook, rotate just that page and leave the others as they are.</p>
+  //     <p><strong>Step 4:</strong> Save or download. The new angle is now written into the PDF, so whoever opens it next sees it upright, on any device or reader.</p>
+  //     <p><strong>Step 5:</strong> Open the downloaded file once more, ideally on a computer or in a different app than the one that made it, and confirm it genuinely opens upright before you submit it to the bank or KYC portal.</p>
+  //     </div>
+      
+  //     <h2>A few practical tips for cheques and passbooks</h2>
+  //     <p><strong>Rotate before anything else.</strong> If you also need to shrink the file to fit an upload limit, fix the orientation first, then compress. Do it the other way and you sometimes compress, spot that it is sideways, and redo the whole thing. When the portal has a size cap, run the upright file through <a href="/compress-pdf">Compress PDF</a> afterwards.</p>
+  //     <p><strong>One subject per page.</strong> For a cancelled cheque, the cheque should fill the page and read upright. For a passbook, the page with your name, account number, branch and IFSC is the one they want. If your scan picked up blank or duplicate pages, trim them with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the reviewer sees only what matters.</p>
+  //     <p><strong>Hide what they do not need.</strong> Some KYC submissions ask only for proof of the account, not your full transaction history or other ID numbers on the page. If an Aadhaar number is visible in the same scan, you can cover it with <a href="/aadhaar-masking">Aadhaar Masking</a> before you share.</p>
+  //     <p><strong>If it is a photo, not a PDF.</strong> Got the cheque as a sideways JPG straight from the camera? Turn the image first with <a href="/rotate">Rotate Image</a>, then convert it using <a href="/image-to-pdf">Image to PDF</a> if the portal wants a PDF. Rotate PDF is only for files that are already PDFs.</p>
+      
+  //     <h2>What rotating cannot fix</h2>
+  //     <p>Rotation fixes orientation and nothing else. If your cheque is blurry, the corners are cut off, or the lighting washed out the account number, turning it upright will not make it readable; re-scan it in good light with the whole cheque inside the frame. Rotation also will not undo a mirror flip, where the text reads backwards as if seen in a mirror, that is a separate issue. And if the bank specifically asked for a JPG or PNG, send that format rather than a PDF just because it rotated nicely.</p>
+  //     <p>For most rejections, though, orientation really is the whole story. Turn it upright, save the angle into the file, re-upload, and it usually clears on the next try.</p>
+      
+  //     <h2>FAQ</h2>
+  //     <p><strong>Q: I rotated the page in my PDF reader and it looked fine, but the bank still saw it sideways. Why?</strong><br> A: Some readers spin only the view on your screen and do not store that change inside the file. When you share or re-upload, the document still carries its old angle. You need a tool that writes the rotation into the PDF itself so it travels with the file.</p>
+  //     <p><strong>Q: My passbook PDF has five pages and only one is upside down. Do I have to rotate all of them?</strong><br> A: No. Rotate just the page that is wrong and leave the correctly-oriented pages alone. The tool lets you set the angle for each page on its own.</p>
+  //     <p><strong>Q: Is it safe to put my cancelled cheque through an online rotate tool?</strong><br> A: With GoPDFGo the file never leaves your device; the rotation runs inside your browser. That is why it suits sensitive documents like cheques and passbooks. Tools that upload your file to a server are a different matter, and for bank documents it is better to avoid those.</p>
+  //     <p><strong>Q: After rotating, the bank still rejected it. What now?</strong><br> A: Check whether the real problem was clarity rather than orientation. A blurry or cropped cheque fails even when it is upright. Re-scan in good light with the full cheque inside the frame, then rotate again if needed.</p>
+  //     <p><strong>Q: The cheque is sideways in a photo, not a PDF. Same tool?</strong><br> A: No. Use the image rotate tool for a JPG or PNG, then convert it to PDF if the portal wants one. Rotate PDF only handles files that are already in PDF format.</p>
+  //   `
+  // },
+  // {
+  //   id: "aadhaar-front-and-back-in-one-pdf",
+  //   title: "How to Put Aadhaar Front and Back in One PDF for KYC",
+  //   seoTitle: "Aadhaar Front and Back in One PDF for KYC | GoPDFGo",
+  //   keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
+  //   excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
+  //   content: `
+  //     <h1>How to Put Aadhaar Front and Back in One PDF for KYC</h1>
+      
+  //     <p>Putting your Aadhaar front and back in one PDF is the exact thing a bank or KYC form asks for, usually at the worst moment. You are halfway through opening an account, you hit the field that says "Upload Aadhaar (front and back) as a single PDF," and the form only accepts one file. You have a photo of the front somewhere in your gallery, the back is missing, and now you are stuck.</p>
+      
+  //     <p>It takes about two minutes and you do not need any app. The whole thing runs in your browser, so your Aadhaar photos never leave your phone or laptop. For a document this sensitive, that is worth caring about.</p>
+      
+  //     <h2>Why KYC Forms Insist on a Single PDF</h2>
+  //     <p>Banks, mutual fund portals, SIM re-verification desks, and most government KYC flows ask for both sides of Aadhaar because each side carries different information. The front has your photo, name, date of birth, and the Aadhaar number. The back has your address and the QR code. A form that only takes the front is incomplete for address proof, which is usually why they asked for Aadhaar in the first place.</p>
+      
+  //     <p>They want one file instead of two images for a practical reason. Their staff opens a single attachment, sees front then back, and moves on. Send two separate JPGs and one often gets lost, attached to the wrong record, or downloaded out of order. A single ordered PDF removes that confusion, and it is the format their upload field is actually built to accept, so you skip the "file type not supported" rejection.</p>
+      
+  //     <h2>Take Two Clean Photos First</h2>
+  //     <p>Before you combine anything, get the two source photos right. A bad scan of Aadhaar gets a KYC application sent back, and re-doing it can cost you a few days. Place the card flat on a plain, dark surface like a wooden table. A dark background makes the white card stand out and keeps the edges sharp.</p>
+      
+  //     <ul>
+  //       <li>Shoot in daylight near a window. Skip the camera flash, since it throws a white glare across the laminated card and washes out the Aadhaar number.</li>
+  //       <li>Hold the phone directly above the card, parallel to it, so the card comes out as a clean rectangle and not a slanted shape.</li>
+  //       <li>Fill most of the frame with the card, but leave a small margin so no corner gets cut off.</li>
+  //       <li>Click the front first, then flip and click the back. Check both before you move on. The number and address must be readable when you zoom in, not a grey smudge.</li>
+  //     </ul>
+      
+  //     <p>If a photo came out with too much table around it, trim it with the <a href="/crop">Crop</a> tool so only the card remains. Cleaner input gives you a cleaner final PDF.</p>
+      
+  //     <h2>Combine Both Sides into One Ordered PDF</h2>
+  //     <p>Now you have two photos: front and back. The job is to stack them into one PDF in that exact order. The <a href="/image-to-pdf">Image to PDF</a> tool does precisely this. It takes your photos and combines them into a single ordered PDF, entirely inside your browser, with no upload to any server and no watermark stamped on top.</p>
+      
+  //     <div class="tool-box">
+  //       <h3>Make your single Aadhaar PDF:</h3>
+  //       <ul>
+  //         <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool in your phone or laptop browser.</li>
+  //         <li><strong>Step 2:</strong> Add both photos. Select the front and the back together from your gallery, or add them one at a time.</li>
+  //         <li><strong>Step 3:</strong> Check the order. The front should sit as page 1 and the back as page 2. If they loaded the wrong way around, drag the thumbnails to swap them.</li>
+  //         <li><strong>Step 4:</strong> Generate the PDF. The tool stitches both images into a single two-page file in seconds.</li>
+  //         <li><strong>Step 5:</strong> Download and rename it something clear like "Aadhaar_FrontBack.pdf" so you can find it instantly when the upload field opens.</li>
+  //       </ul>
+  //     </div>
+      
+  //     <p>One file, both sides, in the right order, ready to attach. Because everything happens locally, your Aadhaar image is never sitting on some random website's server waiting to be leaked.</p>
+      
+  //     <h2>Keep the File Small Enough to Upload</h2>
+  //     <p>Phone cameras shoot big photos these days, often a few MB each, and two of those combined can push your PDF past the size limit many KYC portals enforce. Those limits vary by portal, and some run as tight as a couple of hundred KB, so check the exact number your form shows. If the form rejects your file for being too large, do not re-shoot the photos at lower quality. Make the full PDF first, then run it through the <a href="/compress-pdf">Compress PDF</a> tool. It shrinks the file while keeping the number and address sharp enough to pass verification.</p>
+      
+  //     <p>Be careful not to over-compress. If you squeeze the file so hard that the Aadhaar number turns fuzzy, the KYC reviewer cannot read it and your form bounces. Aim for the smallest size where you can still zoom in and read every digit cleanly.</p>
+      
+  //     <h2>If You Are Sharing It Outside Official KYC, Mask It First</h2>
+  //     <p>Official bank or government KYC needs your full, unmasked Aadhaar, so leave it as is for those. But the moment you send Aadhaar to a landlord, a coaching centre, a private gym, a courier, or any non-government party, you should hide the first eight digits of the number. UIDAI itself permits masked Aadhaar for most address-proof purposes, and your full number sitting in a stranger's WhatsApp is a genuine risk.</p>
+      
+  //     <p>Run the front through the <a href="/aadhaar-masking">Aadhaar Masking</a> tool before you combine the sides. It blacks out the first eight digits and leaves only the last four visible, which is enough to prove identity without handing over the whole number. Then combine the masked front and the back into your single PDF the same way as above.</p>
+      
+  //     <h2>A Few Honest Limits</h2>
+  //     <p>This method makes a clean image-based PDF, which is exactly what KYC desks want. It will not improve a blurry photo, so if your source shot is unreadable, the PDF will be too. Re-shoot it rather than hoping compression saves it. A few strict government portals occasionally ask for a self-attested copy, meaning you sign across the photocopy. In that case, print, sign, photograph the signed copy, and then make your PDF. For the vast majority of online KYC, the two-photo method here is all you need.</p>
+      
+  //     <p>Once you have done this once, the next form is quick. Two photos, drop them in front-then-back, export one PDF, compress if needed. That is the whole routine.</p>
+      
+  //     <p><strong>Q: Does the front have to be page 1 and the back page 2?</strong><br> A: Yes, keep the front first. Reviewers expect to see your photo and number first, then the address on the back. If they loaded in the wrong order, drag the thumbnails to swap them before exporting.</p>
+      
+  //     <p><strong>Q: Is it safe to make my Aadhaar PDF on a website?</strong><br> A: With the Image to PDF tool here, yes, because the work happens inside your own browser and the photos are never uploaded to a server. Avoid any site that sends your Aadhaar image to the cloud for processing.</p>
+      
+  //     <p><strong>Q: My KYC portal rejected the PDF for being too big. What do I do?</strong><br> A: Make the single PDF first, then pass it through the Compress PDF tool to bring it under the portal's size limit. Stop compressing the moment the Aadhaar number is still clearly readable on zoom.</p>
+      
+  //     <p><strong>Q: Should I mask my Aadhaar for bank KYC?</strong><br> A: No. Official bank and government KYC needs the full, unmasked number. Mask it only when sharing with private parties like landlords, gyms, or coaching centres.</p>
+      
+  //     <p><strong>Q: Can I add my PAN or photo to the same PDF?</strong><br> A: A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents.</p>
+      
+  //     <script type="application/ld+json">
+  //     {
+  //       "@context": "https://schema.org",
+  //       "@type": "FAQPage",
+  //       "mainEntity": [
+  //         {
+  //           "@type": "Question",
+  //           "name": "Does the front have to be page 1 and the back page 2?",
+  //           "acceptedAnswer": {
+  //             "@type": "Answer",
+  //             "text": "Yes, keep the front first. Reviewers expect to see your photo and number first, then the address on the back. If they loaded in the wrong order, drag the thumbnails to swap them before exporting."
+  //           }
+  //         },
+  //         {
+  //           "@type": "Question",
+  //           "name": "Is it safe to make my Aadhaar PDF on a website?",
+  //           "acceptedAnswer": {
+  //             "@type": "Answer",
+  //             "text": "With the Image to PDF tool here, yes, because the work happens inside your own browser and the photos are never uploaded to a server. Avoid any site that sends your Aadhaar image to the cloud for processing."
+  //           }
+  //         },
+  //         {
+  //           "@type": "Question",
+  //           "name": "My KYC portal rejected the PDF for being too big. What do I do?",
+  //           "acceptedAnswer": {
+  //             "@type": "Answer",
+  //             "text": "Make the single PDF first, then pass it through the Compress PDF tool to bring it under the portal's size limit. Stop compressing the moment the Aadhaar number is still clearly readable on zoom."
+  //           }
+  //         },
+  //         {
+  //           "@type": "Question",
+  //           "name": "Should I mask my Aadhaar for bank KYC?",
+  //           "acceptedAnswer": {
+  //             "@type": "Answer",
+  //             "text": "No. Official bank and government KYC needs the full, unmasked number. Mask it only when sharing with private parties like landlords, gyms, or coaching centres."
+  //           }
+  //         },
+  //         {
+  //           "@type": "Question",
+  //           "name": "Can I add my PAN or photo to the same PDF?",
+  //           "acceptedAnswer": {
+  //             "@type": "Answer",
+  //             "text": "A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents."
+  //           }
+  //         }
+  //       ]
+  //     }
+  //     </script>
+  //   `
+  // },
+  // {
+  //   id: "combine-documents-one-pdf-gst-registration",
+  //   title: "How to Put All Your Documents in One PDF for GST Registration",
+  //   seoTitle: "Documents in One PDF for GST Registration | GoPDFGo",
+  //   keywords: "documents in one pdf for gst registration, gst registration document upload, combine address proof pan photo pdf, gst portal single pdf upload, image to pdf for gst, gst registration documents format",
+  //   excerpt: "The GST portal often wants your address proof, PAN, photo and rent agreement as one neat PDF in a single slot. Here is how to combine them in the right sequence without tripping over the size limit.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/combine-documents-one-pdf-gst-registration.webp",
+  //   content: `
+  //     <p>You are halfway through your GST registration on the portal, you reach the "Documents Upload" section, and the page gives you exactly one slot for "Proof of Principal Place of Business." But your CA (or the YouTube tutorial you are following) told you to attach the electricity bill, the rent agreement, and a couple of other pages. One slot, four documents. Plenty of people freeze right here.</p>
+      
+  //     <p>The GST portal is fussy about this. Each upload slot usually accepts a single file, and depending on the document and format, the cap is often up to 1MB or 2MB. So if you have separate photos of your electricity bill, your rent agreement, your PAN, and your photograph, you cannot feed them in one by one. You need to merge those images into <strong>one clean PDF, in the correct sequence</strong>, before you upload. Let us get that sorted.</p>
+      
+  //     <h2>What documents in one PDF for GST registration actually look like</h2>
+  //     <p>Before combining anything, it helps to know what the portal expects so you can arrange the pages sensibly. For a typical proprietor or small business, the documents fall into three buckets:</p>
+  //     <ul>
+  //     <li><strong>Proof of business address:</strong> Latest electricity bill, property tax receipt, or municipal khata copy. If the premises are rented, you also attach the <strong>rent agreement</strong> along with the owner's electricity bill as a No Objection set.</li>
+  //     <li><strong>Identity and PAN:</strong> The PAN card of the proprietor or the company, and sometimes Aadhaar. These often have their own slots, but some address-proof slots may ask for them bundled.</li>
+  //     <li><strong>Photograph:</strong> A passport-size photo of the proprietor or authorised signatory. This is usually a JPEG with its own small size cap, and it sometimes goes inside the address-proof bundle.</li>
+  //     </ul>
+  //     <p>The portal lists the exact requirement next to each slot, including "Proof of Principal Place of Business" for the address bundle. Read that label carefully. When it says upload a single PDF, that is your cue to combine. When it gives separate slots for PAN and the photo, keep those individual. Group into one PDF only the documents that share a single slot, and leave the rest alone.</p>
+      
+  //     <h2>Why the page order makes a difference</h2>
+  //     <p>People skip past this and then pay for it later. When a GST officer opens your PDF during verification, they read it top to bottom. If your rent agreement starts on page 1, the owner's electricity bill is on page 4, and the NOC is buried at the end, the officer has to hunt around. A confused officer raises a clarification, and a clarification notice (FORM GST REG-03) can delay your registration by a week or more while you respond.</p>
+  //     <p>So arrange the documents in the order the officer expects. For a rented business address, a clean sequence is: rent agreement first, then the owner's electricity bill or property tax receipt, then the NOC if you have a separate one. For owned premises, lead with the latest electricity bill, then the property tax receipt. Stick to the same order you would use if you were handing the papers across a counter.</p>
+      
+  //     <h2>Combining your document photos into one PDF</h2>
+  //     <p>If you have photographed or scanned each document with your phone, you already have the raw material. The job now is to stack those images into a single PDF in the right sequence. Our <a href="/image-to-pdf">Image to PDF</a> tool does exactly this, and because it runs entirely inside your browser, your PAN, rent agreement and electricity bill never leave your device. That matters a lot here, because these papers carry your PAN number, your home or shop address, and the property owner's details too.</p>
+  //     <p>Already have them as PDFs rather than photos? If your rent agreement and electricity bill are separate PDF files, use our <a href="/merge-pdf">Merge PDF</a> tool instead to join them into one, then carry on with the size check below.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Steps to build your GST upload PDF:</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool and select all the document photos that belong in one slot at once, the rent agreement, the electricity bill, the PAN, whichever go together.</li>
+  //     <li><strong>Step 2:</strong> Drag the thumbnails to fix the order. Put the rent agreement first, the address proof next, and so on. The first thumbnail becomes page 1.</li>
+  //     <li><strong>Step 3:</strong> Check that each image is the right way up. If a page is sideways, rotate it before converting so the officer can read it without rotating their screen.</li>
+  //     <li><strong>Step 4:</strong> Click <strong>Convert to PDF</strong>. The tool places each image on its own page and stitches them into one file.</li>
+  //     <li><strong>Step 5:</strong> Download the PDF, open it once to confirm the order is correct, then upload it to the matching slot on the GST portal.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>Getting under the GST portal size limit</h2>
+  //     <p>Modern phone cameras produce heavy images. A single photo of a rent agreement can easily be 4MB or 5MB. Stack four of those and your PDF balloons past 10MB, well over what the portal accepts. If you hit a "file size exceeds the limit" error after combining, you do not have to re-shoot everything. Just run the finished PDF through our <a href="/compress-pdf">Compress PDF</a> tool to bring it under the cap while keeping the text readable.</p>
+  //     <p>The balance to strike is size versus legibility. Compress too hard and the officer cannot read the meter number on your electricity bill or the clauses in your rent agreement, and that gets your application sent back. Compress just enough to clear the limit and stop there. Open the compressed file and check that every line is still sharp before you upload.</p>
+      
+  //     <h2>A few practical habits that save you a rejection</h2>
+  //     <ul>
+  //     <li><strong>Shoot in good light, flat on a table.</strong> A clear photo taken on a plain surface beats a fancy scanner app that adds shadows or a watermark across your document.</li>
+  //     <li><strong>Keep colour where it is asked.</strong> Some address proofs and the photograph read better in colour. Do not force everything to black and white if the portal shows a colour preview.</li>
+  //     <li><strong>Name the file sensibly.</strong> Something like Business_Address_Proof.pdf reads far better to a verifying officer than IMG_20260622_184502.pdf.</li>
+  //     <li><strong>Match the format the slot asks for.</strong> If a slot specifically wants a JPEG photograph and not a PDF, do not bundle the photo into your PDF. Upload it separately as the image.</li>
+  //     <li><strong>Cross-check the address.</strong> The address on your electricity bill, your rent agreement, and what you typed into the GST form should all match. Mismatched addresses are one of the most common reasons for a clarification notice.</li>
+  //     </ul>
+      
+  //     <p>That is the whole job, really. Group the documents that share a slot, order them the way an officer would want to read them, combine them into one PDF, and shrink it if the portal complains about size. Get it right at the upload stage and you skip the back-and-forth of clarification notices that drag GST registration out for weeks.</p>
+      
+  //     <p><strong>Q: Can I put my PAN, photo and address proof all in one PDF for GST?</strong><br> A: Only combine documents that share the same upload slot. The GST portal often gives PAN and the photograph their own separate slots, so keep those individual. Bundle into one PDF only what a single slot asks for, such as the rent agreement plus the owner's electricity bill for the address-proof slot.</p>
+      
+  //     <p><strong>Q: My combined PDF is too big for the GST portal. What do I do?</strong><br> A: Run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring it under the slot's limit, which depending on the document and format is often up to 1MB or 2MB. Compress only as far as needed so the text on your electricity bill and rent agreement stays clearly readable.</p>
+      
+  //     <p><strong>Q: Does the order of pages in the PDF really matter?</strong><br> A: Yes. The verifying officer reads your PDF top to bottom. A logical order, rent agreement first, then address proof, then NOC, makes verification quick and reduces the chance of a clarification notice. You can drag the thumbnails in the <a href="/image-to-pdf">Image to PDF</a> tool to set the sequence before converting.</p>
+      
+  //     <p><strong>Q: I already have my rent agreement and electricity bill as PDFs, not photos. How do I combine those?</strong><br> A: Use the <a href="/merge-pdf">Merge PDF</a> tool. Add both PDF files, drag them into the order you want, and merge them into a single file. Then check the size and compress if needed before uploading.</p>
+      
+  //     <p><strong>Q: Is it safe to upload my rent agreement and PAN to an online tool?</strong><br> A: With GoPDFGo, the conversion happens entirely inside your browser. Your documents are processed on your own device and never uploaded to any server, so your PAN number, address and the property owner's details stay private.</p>
+  //   `
+  // },
+  // {
+  //   id: "admit-card-pdf-to-image-save-gallery",
+  //   title: "Save Your Admit Card PDF as an Image in Your Phone Gallery",
+  //   seoTitle: "Admit Card PDF to Image: Save Hall Ticket in Gallery",
+  //   keywords: "admit card pdf to image, hall ticket pdf to jpg, save admit card in gallery, ssc admit card to image, ibps hall ticket jpg, neet admit card image, rrb admit card download jpg, convert admit card pdf to photo",
+  //   excerpt: "Your exam centre has no network and you are standing in a queue. Here is how to save your SSC, IBPS, NEET or RRB admit card PDF as a JPG straight in your phone gallery, so it opens offline in one tap.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/admit-card-pdf-to-image-save-gallery.webp",
+  //   content: `
+      
+  //           <p>It is 8:40 in the morning. The reporting time on your admit card said 8:30. You are stuck in a long queue outside the centre, the invigilator is telling everyone to keep their hall ticket ready, and your phone is showing that little "No Internet" symbol because three thousand other candidates are all hanging off the same cell tower. You open your downloads, tap the admit card PDF, and the reader app gives you a white screen and a spinning circle. That is the moment people start to sweat.</p>
+      
+  //           <p>The way around it takes about half a minute the night before: turn your admit card PDF into a plain JPG and let it sit in your phone gallery like any other photo. A photo opens the instant you tap it, with no network, in whatever app your phone uses for pictures. No PDF reader, no loading, no nasty surprise at the gate.</p>
+      
+  //           <h2>Why an image beats a PDF at the exam centre</h2>
+  //           <p>A PDF is a fine format for documents you fill, print, or email. But at the gate you do not need any of that. You need the page to show up the second you tap it. On a phone, a PDF can trip you up in ways a plain image does not:</p>
+  //           <ul>
+  //             <li><strong>A PDF often needs a separate app to open.</strong> If that reader decides to update itself or fetch something online first, you are stuck. A JPG opens in the built-in Gallery or Photos app, which never needs the internet.</li>
+  //             <li><strong>Files in Downloads get buried.</strong> In the week before your exam you download ten different things, and the admit card slides down the list. A photo sits right at the top of your camera roll where you can find it in a second.</li>
+  //             <li><strong>Images zoom cleanly.</strong> Pinching in on your roll number or photo is smoother on an image than on many mobile PDF viewers, which sometimes re-render and go blurry for a moment.</li>
+  //           </ul>
+  //           <p>So keep both. Keep the original PDF for printing, and keep a JPG copy in your gallery for exam day. Most SSC, IBPS, NEET, and RRB admit cards are a single page, so you get exactly one clean image out.</p>
+      
+  //           <h2>Why you should not upload your admit card to a random site</h2>
+  //           <p>Your admit card is not a casual document. It carries your full name, your photo, your signature, your roll number, your registration number, your date of birth, and the exact address of your exam centre. Put all of that on one page and it is enough for someone to impersonate you. Yet the usual instinct is to Google "pdf to jpg", tap the first result, and upload the admit card to whatever server it points at.</p>
+  //           <p>For a one-time conversion of a document this sensitive, that is a bad deal. Once your file leaves your phone, you have no way to know how long it is kept or who can open it. The safer route is a tool that does the whole conversion inside your own browser, so the file never goes anywhere in the first place.</p>
+      
+  //           <h2>How to turn your admit card PDF into a gallery image</h2>
+  //           <p>This is exactly what our PDF to Image tool does. It opens your PDF and re-draws each page as a fresh JPG or PNG right on your device. Nothing is uploaded. Since an admit card is normally one page, you download a single image and you are done.</p>
+      
+  //           <div class="tool-box">
+  //             <h3>Step-by-Step: Admit Card PDF to a Phone Photo</h3>
+  //             <ul>
+  //               <li><strong>Step 1:</strong> Open the <a href="/pdf-to-image">GoPDFGo PDF to Image</a> tool in your phone browser. Chrome, Safari, anything works.</li>
+  //               <li><strong>Step 2:</strong> Tap the upload area and pick your downloaded admit card PDF from your files.</li>
+  //               <li><strong>Step 3:</strong> Choose <strong>JPG</strong> as the output format. JPG is smaller and perfect for a hall ticket. Pick PNG only if you specifically want a lossless copy.</li>
+  //               <li><strong>Step 4:</strong> Let the tool render the page. For a single-page admit card, one image preview appears in a moment.</li>
+  //               <li><strong>Step 5:</strong> Tap Download. On Android the JPG drops into your Downloads or Pictures folder, and usually shows up in the gallery on its own. On iPhone the image often lands in the Files app first, so open it there, tap the share button, and choose <em>Save Image</em> to send it into Photos.</li>
+  //               <li><strong>Step 6:</strong> Open your Gallery or Photos app and check the admit card is sitting there, sharp and readable. That is your offline copy ready.</li>
+  //             </ul>
+  //           </div>
+      
+  //           <h2>Make sure it is actually readable</h2>
+  //           <p>Before you head to the centre, zoom into the saved image and look at it with your own eyes. SSC, NTA, and IBPS admit cards pack the parts that matter into small boxes: the passport photo, the signature box, and the barcode or QR strip down one side. Invigilators scan or eyeball those, so they have to be crisp. Check your name, your roll or registration number, and that photo and signature box are clear. The starting quality matters a lot here, so always convert from the original PDF you downloaded from the official portal, not a screenshot of a screenshot.</p>
+  //           <p>If the saved JPG comes out a touch large to send on WhatsApp, you can shrink it with our <a href="/compress-jpg">Compress JPG</a> tool without making the text fuzzy. Some state-board admit cards run to two pages, with the actual hall ticket on page one and instructions on page two. In that case the tool simply gives you two images and you save the one you need, or you can pull a single page first with the <a href="/split-pdf">Split PDF</a> tool.</p>
+      
+  //           <h2>Print the PDF, keep the JPG as backup</h2>
+  //           <p>Most centres still want a printed admit card on white A4 paper, plus a photo ID. The image is your backup and your quick-reference copy, not a replacement for the printout. Print from the original PDF for the cleanest result. Keep the JPG in your gallery for the queue, for showing the centre code to an auto driver, and for that last nervous check that you are at the right venue. If you ever need to put the admit card image and your ID proof into one file, the <a href="/image-to-pdf">Image to PDF</a> tool handles that.</p>
+      
+  //           <p>Exams are stressful enough without your phone letting you down at the gate. Convert the PDF to a photo the night before, leave it in your gallery, and you have one less thing to worry about on the day.</p>
+      
+  //           <p><strong>Q: My admit card is one page. Will I get one image or many?</strong><br>
+  //           A: One page gives you one image. The tool renders each page of the PDF on its own, so a standard single-page hall ticket downloads as a single JPG, ready to drop into your gallery. A two-page card gives you two images.</p>
+      
+  //           <p><strong>Q: Is my admit card uploaded anywhere during conversion?</strong><br>
+  //           A: No. The whole conversion runs inside your browser on your own device. Your file, with all its personal details, never touches an external server. For a document this sensitive, that is exactly what you want.</p>
+      
+  //           <p><strong>Q: Will the image look worse than the PDF?</strong><br>
+  //           A: Not in any way that matters at the gate. The tool renders the page at a high resolution, so your name, photo, and roll number stay sharp. JPG uses light compression you will not notice on a document like this. Want zero loss? Pick PNG instead.</p>
+      
+  //           <p><strong>Q: Can I do this on a basic Android phone without installing an app?</strong><br>
+  //           A: Yes. It runs in your normal mobile browser, so there is nothing to install. Open the tool, pick your PDF, download the image. It works the same way on an iPhone.</p>
+      
+  //           <p><strong>Q: Can I still print my admit card if I only saved the image?</strong><br>
+  //           A: You can print the image in a pinch, but for the cleanest print, print straight from the original PDF you downloaded from the official website. Keep the JPG as your fast offline copy for the exam queue.</p>
+      
+  //   `
+  // },
+  // {
+  //   id: "copy-text-from-government-notification-pdf",
+  //   title: "How to Copy Text From a Government Notification PDF (Eligibility, Age Limit, Syllabus)",
+  //   seoTitle: "Copy Text From Government Notification PDF | GoPDFGo",
+  //   keywords: "copy text from government notification pdf, extract eligibility from ssc notification, copy syllabus from upsc pdf, govt notification pdf to text, translate government notification, copy vacancy details pdf, pdf to text govt jobs",
+  //   excerpt: "SSC, UPSC and state notifications run 40-plus pages. Here is how to pull the age limit, eligibility, syllabus or vacancy lines out as plain text so you can search, translate or paste them into your notes instead of retyping every word.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/copy-text-from-government-notification-pdf.webp",
+  //   content: `
+  //     <p>The SSC CGL notification drops, you download the PDF, and it is 67 pages long. Somewhere in there is the one line that actually matters to you: the upper age limit for your category, or whether your B.Com counts for the post you want, or the exact Tier-1 syllabus. You scroll, you squint at a tiny table on page 41, and then you start typing it out into your WhatsApp study group word by word. Half an hour later you have made two spelling mistakes and you are not even sure you copied the right row.</p>
+      
+  //     <h2>How to copy text from a government notification PDF instead of retyping it</h2>
+  //     <p>Most official notification PDFs already have the text sitting inside them as real, selectable text. The SSC, UPSC, IBPS and RRB generate their notices from Word or a proper publishing system, so the words are genuinely there, not just printed pictures. That means you can pull the age limit, eligibility clause or syllabus out as plain text, search it on your phone, paste it into your notes, and stop retyping what is already typed.</p>
+      
+  //     <p>Why bother instead of just reading the PDF? Because retyping a recruitment notice goes wrong in ways that cost aspirants every year. A date like "01.08.2026" quietly becomes "01.08.2025". "Graduation in any discipline" turns into "Graduation in relevant discipline" without you noticing, and now you have talked yourself out of a post you were eligible for. And searching a 60-page PDF for the word "reservation" on a phone is genuinely painful, while the same text in your notes app is one find-tap away.</p>
+      
+  //     <h2>The text layer is what lets you copy it</h2>
+  //     <p>The reason this works for notifications specifically: when a PDF is built from a document file, it carries an invisible text layer under what you see on screen. That is the part your cursor selects. Because central recruitment bodies publish from real documents, their notifications almost always have that layer intact.</p>
+      
+  //     <p>Our <a href="/pdf-to-text">PDF to Text</a> tool reads exactly that layer and gives you the whole thing as plain text you can select in one go. It runs entirely inside your browser, so the file never gets uploaded to any server. That matters less for a public notification and more as a habit, because the same tool is what you will reach for later when the PDF is your own admit card, result or scorecard with your roll number on it.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Copying text out of a notification PDF, step by step</h3>
+  //     <p>The whole thing runs on your own device. Nothing is sent anywhere, and there is no sign-up.</p>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/pdf-to-text">PDF to Text</a> tool and drop in your notification PDF. Even a 60-page file usually opens within seconds because your own device does the reading.</li>
+  //     <li><strong>Step 2:</strong> The tool reads the text layer and shows all the extracted text on screen. Scroll through it like a normal document.</li>
+  //     <li><strong>Step 3:</strong> Use Ctrl+F on a laptop, or your browser's find option on a phone, to jump straight to the word you care about, such as "age", "eligibility", "syllabus", "vacancy" or "fee".</li>
+  //     <li><strong>Step 4:</strong> Select just the lines you need and copy them, or copy the whole text and paste it into Notepad, Google Keep, your notes app or a WhatsApp message.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>One honest warning: tables come out without their columns</h2>
+  //     <p>This is the part you need to know before you trust the copy for an important detail. Notifications are full of tables, the category-wise age-relaxation table (SC, ST, OBC, PwD, ESM), the post-wise vacancy break-up, the application fee by category. The tool reads the text stream, not the visual layout, so a neat grid in the PDF can come out as a flattened run of numbers and words. The figures are all there and correct, but the column alignment is gone, so a row like "OBC 3 years" might land next to the wrong heading if you copy it carelessly.</p>
+      
+  //     <p>For those tables, copy the block and then read it slowly against the original PDF before you act on it, especially for the age-relaxation numbers that decide whether you can apply at all. For plain prose, the eligibility paragraph, the syllabus list, the important dates, it copies cleanly and you can paste it as-is.</p>
+      
+  //     <h2>Once it is plain text, you can search, translate and share it</h2>
+  //     <p>With the eligibility clause or syllabus sitting in your notes as text, a few things get easier that a PDF made fiddly:</p>
+  //     <ul>
+  //     <li><strong>Translate a specific section.</strong> Notifications are dense English with legal phrasing. Plain text is far easier to paste into Google Translate than hunting for the right paragraph inside a PDF, so you can read the age-relaxation rules in Hindi, Tamil, Marathi or Bengali and be sure you understood them.</li>
+  //     <li><strong>Keep the syllabus in your prep file.</strong> Copy the full Tier-1 and Tier-2 syllabus once, paste it at the top of your study notes, and tick topics off as you cover them.</li>
+  //     <li><strong>Share the exact lines on WhatsApp.</strong> Instead of forwarding a 4 MB PDF and saying "see page 41", paste the three lines about eligibility into the group where everyone will actually read them.</li>
+  //     <li><strong>Compare last year and this year.</strong> Pull the text from both notices and the changes in pattern, fee or vacancy count jump out fast.</li>
+  //     </ul>
+      
+  //     <h2>When the notification is a scan, this will not work</h2>
+  //     <p>Some notices, usually older ones or those from smaller state boards, are not real text PDFs at all. They are scanned images of a printed page saved as a PDF. It looks like text to your eye, but underneath there is nothing to select. It is basically a photograph.</p>
+      
+  //     <p>Quick check: open the PDF and try to drag-select a line. If a highlight follows your cursor over the words, the text layer is there and the extraction will work. If nothing selects, or the whole page selects like one big picture, it is a scan. Those need OCR, the technology that reads text out of an image, and <strong>GoPDFGo does not offer OCR yet</strong>, so a purely scanned notification will not give you copyable text through our tool. The notifications from the big central bodies, the ones most people are chasing, are almost always proper text PDFs, so the tool works for them.</p>
+      
+  //     <h2>While you are at it</h2>
+  //     <p>Working with a heavy notification PDF often comes with a few related jobs, and these run locally on your device too:</p>
+  //     <ul>
+  //     <li><strong>Want only the syllabus pages as their own file?</strong> Pull them out with the <a href="/split-pdf">Split PDF</a> tool before copying the text.</li>
+  //     <li><strong>The PDF is too big to forward?</strong> Shrink it with <a href="/compress-pdf">Compress PDF</a> so it slides under WhatsApp and email size limits.</li>
+  //     <li><strong>Only need a couple of pages?</strong> Use <a href="/delete-pdf-pages">Delete PDF Pages</a> to strip out the parts you do not need and keep the notice light.</li>
+  //     </ul>
+      
+  //     <p>Stop typing out what is already typed. Copy the lines that decide your eligibility, double-check anything that came from a table, and spend the saved hour actually preparing.</p>
+      
+  //     <p><strong>Q: Will the copied text keep the table layout, like the age-relaxation grid?</strong><br> A: No. The tool reads the text stream, not the visual columns, so tables come out as plain text without their alignment. The numbers are all there, but a vacancy or age-relaxation grid will read as a flattened list. Copy it, then check it against the original PDF before you rely on it.</p>
+      
+  //     <p><strong>Q: How do I know if my notification is a scan or real text?</strong><br> A: Open it and drag your cursor across a line. If the words highlight, it is real text and you can copy it. If nothing selects or the page acts like one image, it is a scanned PDF and would need OCR, which GoPDFGo does not offer yet.</p>
+      
+  //     <p><strong>Q: Can I copy a regional-language notification PDF?</strong><br> A: Yes, as long as it is a real text PDF and not a scan. The tool reads whatever text layer is there, whether the notice is in English, Hindi or another script, and gives it back as copyable text.</p>
+      
+  //     <p><strong>Q: Is my file uploaded anywhere when I do this?</strong><br> A: No. The whole process runs inside your browser on your own device, so the PDF never leaves your phone or computer. That is the same reason the tool is safe to use later on your own admit cards and scorecards.</p>
+      
+  //     <p><strong>Q: Can I copy just one part, like the eligibility clause, instead of the whole document?</strong><br> A: Yes. After the text appears on screen, use your find feature to jump to that section, then select and copy only those lines. You do not have to take the entire notification.</p>
+  //   `
+  // },
+  // {
+  //   id: "reduce-digilocker-pdf-size",
+  //   title: "How to Reduce DigiLocker PDF Size for Job and Exam Portals",
+  //   seoTitle: "Reduce DigiLocker PDF Size for Uploads | GoPDFGo",
+  //   keywords: "reduce digilocker pdf size, compress digilocker marksheet, digilocker aadhaar pdf too large, shrink digilocker certificate, digilocker file size for upload, compress pdf from digilocker, digilocker document too heavy",
+  //   excerpt: "DigiLocker marksheets and Aadhaar PDFs often cross a portal's upload cap. Here is how to shrink them to a specific size cap while keeping every line readable.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/reduce-digilocker-pdf-size.webp",
+  //   content: `
+  //     <p>Your 10th marksheet downloads cleanly from the DigiLocker app, verified copy and all. Then the exam board portal bounces it: <em>"File size should not exceed 200KB."</em> You check the file and it's 1.4MB. A government-issued, signed PDF that still won't fit through the upload box. The fix is straightforward, and you don't have to wreck the page to get there.</p>
+      
+  //     <p>DigiLocker documents are accepted almost everywhere now, but they were never packaged with upload caps in mind. The PDF you pull from there is usually heavier than a plain phone scan of the same paper. Here's why that happens, and how to bring the size down to whatever number the portal is asking for.</p>
+      
+  //     <h2>Why DigiLocker PDFs Are So Heavy in the First Place</h2>
+  //     <p>An official digital document feels like it should already be small. It usually isn't. A DigiLocker PDF carries a lot more than the visible marksheet or Aadhaar image:</p>
+  //     <ul>
+  //       <li><strong>A high-resolution image layer:</strong> Boards and issuing authorities render the document at a high DPI so it prints sharply. Good for a printout, bad for a 100KB upload limit. This image layer is the single biggest reason the file is heavy.</li>
+  //       <li><strong>Embedded digital signature data:</strong> The cryptographic certificate that makes the file "verified" adds weight. It's also what gives the document its legal validity.</li>
+  //       <li><strong>Fonts and metadata:</strong> Embedded fonts, XML, and issuer details add a few extra kilobytes nobody notices until an upload fails.</li>
+  //     </ul>
+  //     <p>So a single-page marksheet that looks plain can sit at 1MB to 2MB. Aadhaar PDFs and degree certificates behave the same way. The data is genuine; it's just built for quality, not for tight portal limits.</p>
+      
+  //     <h2>How to Reduce DigiLocker PDF Size for an Upload Cap</h2>
+  //     <p>The aim is simple. Keep the page sharp enough that a clerk can read your roll number, name, and marks, but small enough to clear the cap. You don't need paid software.</p>
+  //     <p>A sensible compressor starts with a <strong>lossless re-save</strong>, which strips duplicated data and metadata overhead. That trims some weight, but be honest about what it can do: since DigiLocker files are heavy mainly because of that high-DPI image layer, the re-save alone won't take a 1.5MB marksheet anywhere near 200KB. The real work is done by the image-detail reduction step, which lowers the resolution of the rendered page just enough to hit the cap while keeping the text readable.</p>
+      
+  //     <h2>The Mistake People Make With DigiLocker Files</h2>
+  //     <p>The common reflex is to screenshot the DigiLocker PDF, crop it, and upload that. Skip it. The moment you screenshot and re-save, the file stops being a verified PDF and becomes an ordinary image. Some portals specifically check for the signed DigiLocker output, and a flat screenshot can get an application flagged.</p>
+  //     <p>The second mistake is uploading the raw DigiLocker file to some random online compressor. Your Aadhaar number, date of birth, and full address sit inside that file. Sending it off to an unknown server is exactly what you'd be furious about if your data turned up somewhere later. Keep these documents on your own device.</p>
+  //     <p>One thing to be clear about: <strong>any compression breaks the embedded digital signature.</strong> Re-writing the PDF, even on a lossless pass, invalidates the cryptographic signature that DigiLocker attached, regardless of whether a single pixel changes. So if a portal insists on the signed, verified DigiLocker PDF, upload the original file untouched. Compression is for portals that just want a readable copy of the marksheet, Aadhaar, or certificate, which is most of them.</p>
+      
+  //     <div class="tool-box">
+  //       <h3>How to Shrink Your DigiLocker PDF to a Size Cap</h3>
+  //       <ul>
+  //         <li><strong>Step 1:</strong> Download the document from the DigiLocker app as a PDF and save it to your phone or laptop. Don't screenshot it.</li>
+  //         <li><strong>Step 2:</strong> Open the <a href="/compress-pdf">GoPDFGo Compress PDF</a> tool. Everything runs inside your browser, so the file never leaves your device.</li>
+  //         <li><strong>Step 3:</strong> Drag in your DigiLocker PDF. The tool first runs a lossless re-save to clear the overhead, then reduces image detail, which is the part that actually gets an image-heavy official file down to a low cap.</li>
+  //         <li><strong>Step 4:</strong> If the portal has a strict limit, switch to <strong>Target Size (KB)</strong> mode and type the exact number, like 200 or 100. The tool works to land at or under that figure.</li>
+  //         <li><strong>Step 5:</strong> Check the preview to confirm the roll number, name, and marks are still readable, then download. Rename it to something clean like <em>Priya_10th_Marksheet.pdf</em> before uploading.</li>
+  //       </ul>
+  //     </div>
+      
+  //     <h2>About That Target Size Mode</h2>
+  //     <p>This is where most of the back-and-forth disappears. Many compressors only give you a low/medium/high slider, so you compress, it lands at 240KB, the portal wants under 200KB, and you run it again. With Target Size mode you set the cap up front and the tool aims straight for it.</p>
+  //     <p>That matters for the portals that actually consume DigiLocker pulls. A state exam board upload that demands under 200KB? Type 200. A university admission portal that caps documents at 300KB? Type 300. A scholarship portal like NSP that wants a small marksheet copy? Set the number it asks for. If your file is already smaller than the target, the tool leaves it alone instead of degrading a clean page for no reason.</p>
+      
+  //     <h2>Where Compression Has Limits</h2>
+  //     <p>This isn't unlimited. If a portal insists on under 50KB and your marksheet is a dense, full-colour, high-resolution scan, hitting that number can cost some sharpness. Aim for the cap, but always check the result. A page the officer can't read is worse than one that's slightly over the limit. "Legible enough" has a practical meaning for a marksheet: the roll number, your name, and the marks column all have to stay clearly readable. If the page starts going soft, see whether the portal accepts a slightly larger size, or whether it'll take a JPG instead, in which case our <a href="/compress-jpg">Compress JPG</a> tool gives finer control over image-only uploads.</p>
+      
+  //     <p>If your DigiLocker download has pages you don't need, like an instruction sheet or a blank back page, drop them before compressing with the <a href="/delete-pdf-pages">Delete PDF Pages</a> tool. If a page comes out sideways, the <a href="/rotate-pdf">Rotate PDF</a> tool fixes that in a click. Fewer, correctly oriented pages compress to a smaller, cleaner final file.</p>
+      
+  //     <p>That's the whole process. DigiLocker hands you a trustworthy document; you just repackage it to fit the upload box without losing what makes it readable. Do it on your own device, watch the preview, and the size error clears.</p>
+      
+  //     <p><strong>Q: Will compressing a DigiLocker PDF remove its digital signature?</strong><br> A: Yes. Any compression re-writes the file and invalidates the embedded DigiLocker signature, even a lossless re-save where no pixels change. If a portal specifically demands the signed, verified DigiLocker PDF, upload the original untouched. For portals that only need a readable copy of the marksheet or certificate, a compressed version is fine.</p>
+      
+  //     <p><strong>Q: My DigiLocker marksheet is 1.5MB and the portal wants 200KB. Is that possible?</strong><br> A: Usually, yes. A lossless re-save clears the overhead, but the image-detail reduction step is what actually brings an image-heavy file down to 200KB. Use Target Size mode, type 200, and check the preview. A single-page marksheet at 200KB is usually still legible.</p>
+      
+  //     <p><strong>Q: Which DigiLocker documents hit upload limits most often?</strong><br> A: Marksheets and degree certificates are the usual offenders, because boards render them at high DPI. Aadhaar PDFs and caste or income certificates run heavy too. Anything with a detailed scanned or rendered image tends to cross 1MB even though it's a single page.</p>
+      
+  //     <p><strong>Q: Does compressing change my DigiLocker document's QR or verification code?</strong><br> A: The printed QR code stays visible as part of the page, so a scanner can still read it as long as you keep the result legible. What compression does break is the file's embedded cryptographic signature. So the visual QR survives; the signed-file status does not.</p>
+      
+  //     <p><strong>Q: Is it safe to compress my Aadhaar PDF online?</strong><br> A: Only if the tool processes the file locally. GoPDFGo runs entirely in your browser, so your Aadhaar number, photo, and address never reach any server. Avoid tools that send your file to the cloud for documents this sensitive.</p>
+  //   `
+  // },
+  // {
+  //   id: "remove-password-from-salary-slip-pdf",
+  //   title: "How to Remove the Password From a Salary Slip PDF You Can Already Open",
+  //   seoTitle: "Remove Password From Salary Slip PDF | GoPDFGo",
+  //   keywords: "remove password from salary slip pdf, unlock salary slip pdf, payslip password remover, remove pdf password salary slip, password protected payslip, unlock payslip pdf for loan, open locked salary slip, salary slip pdf password",
+  //   excerpt: "Your monthly payslip from HR opens with a password, but the loan officer wants a clean printable copy. Here is how to take that password off a salary slip you can already open, without uploading it anywhere.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/remove-password-from-salary-slip-pdf.webp",
+  //   content: `
+  //     <p>Payroll mail lands on the 1st: "Salary Slip - May 2026," PDF attached. You open it on your phone and it wants a password. You know the format because HR mentioned it on your first day, your first four name letters in capitals stuck to your employee ID. You type RAHU10472 and there it is: gross, the PF deduction, the bit that says net credited to your account.</p>
+      
+  //     <p>Three weeks later the home loan officer asks for your last three payslips, printed. You forward the same file, and word comes back that it is locked and can you send an open one. Same story when the landlord wants them for the rent agreement, or the visa file checklist says "salary slips." You can read the thing perfectly, but every person you hand it to hits a wall.</p>
+      
+  //     <h2>Why HR Locks the Slip in the First Place</h2>
+      
+  //     <p>A payslip is not an ordinary attachment. It carries your exact CTC breakup, your deductions, often your PAN and the bank account your salary lands in. If that PDF is sitting in your inbox or your Downloads folder and the phone gets stolen, one password is a cheap thing standing between a stranger and your full income picture. So payroll teams lock it.</p>
+      
+  //     <p>Whether your company runs payroll on greytHR, Keka, Zoho Payroll, or Darwinbox, the slip usually arrives encrypted. The password is stitched from things only you would know, a slice of your name, your employee code, your date of birth as DDMMYYYY, or some blend of those. The recipe is sitting in the same mail that delivered the slip. Nobody reads it until a loan officer is waiting.</p>
+      
+  //     <h2>Why You Now Need It Without the Lock</h2>
+      
+  //     <p>The problem only shows up when someone other than you has to handle the file. A bank's loan desk wants to print your slips and clip them into your file. A property dealer wants a copy for the rent agreement. A visa centre wants physical printouts on the table. None of them want to be told a password, and honestly you should not be reading out the password that guards your salary to a stranger at a counter anyway.</p>
+      
+  //     <p>Then there is the print shop. Send a locked PDF to the operator's machine and all he gets is a password prompt, so you end up leaning over the keyboard typing it in yourself. A copy with no password prints straight off, attaches to any application form, and goes up to any HR portal at your next job without a hiccup.</p>
+      
+  //     <h2>What This Tool Actually Does</h2>
+      
+  //     <p>The <a href="/unlock-pdf">Unlock PDF</a> tool takes the password off a slip you can already open. You enter the password you know, it hands back a copy with no lock on it, and that is the job.</p>
+      
+  //     <p>It is not a cracker. It will not guess, recover, or force its way into a payslip whose password you have forgotten. Enter the wrong one and you get an error while the file stays as it was. There is no recover-forgotten-password button, because no honest tool has one. If the format has slipped your mind, the fix is the payroll email that carried the slip, or a quick message to your HR, where the rule is almost always spelled out.</p>
+      
+  //     <h2>The One Catch: Selectable Text Goes Away</h2>
+      
+  //     <p>The copy that comes back is flattened, meaning each page is rebuilt as an image of itself. It looks identical, prints sharp, and opens on any device, but you can no longer click and drag to copy your net salary figure straight out of it, and software cannot scrape the raw numbers the way it could from the original. For a slip you are printing for a loan desk or attaching to a visa file, that changes nothing, since they only need to <em>see</em> a real, openable payslip. It would only pinch if someone wanted to lift figures out of the file directly, which rarely happens with a document you are handing over to be filed.</p>
+      
+  //     <h2>Keep It On Your Phone, Not On Some Server</h2>
+      
+  //     <p>Look at what you would be uploading otherwise. Your whole salary slip, the CTC, every deduction, the net credited, possibly your account number and PAN. And to unlock it you would also hand over the password, which is often just your own name and employee ID joined together. Push all of that into a random site that sends your file off to a server somewhere and you have no idea who runs that machine or whether your salary and password end up sitting in a log file.</p>
+      
+  //     <p>This tool runs inside your browser. Your payslip is never uploaded, never sent anywhere, never seen by anyone but you. The whole thing happens on the same phone or laptop you opened the mail on, which is the only sensible way to handle a document this personal.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>How to Remove the Password From Your Salary Slip</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/unlock-pdf">GoPDFGo Unlock PDF</a> tool in your browser, on your phone or your computer.</li>
+  //     <li><strong>Step 2:</strong> Choose your locked payslip, or drag and drop it into the box. It stays on your device the whole time.</li>
+  //     <li><strong>Step 3:</strong> Type in the password you already know. Tap the eye icon to reveal what you typed and check for a stray space or a wrong letter, since one off character throws an error.</li>
+  //     <li><strong>Step 4:</strong> Run the unlock. Right password, and you get a clean copy back in a moment. Wrong one, and you just see an error with your file untouched, so try again.</li>
+  //     <li><strong>Step 5:</strong> Download the unlocked slip, open it once to confirm it no longer asks for a password, then print it or attach it wherever it is needed.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>What to Do Once the Lock Is Off</h2>
+      
+  //     <p>The next request is usually for several months at once. Loan files and visa checklists tend to ask for three or six payslips as a single document. Rather than attach a fistful of files, line them up newest to oldest with the <a href="/merge-pdf">Merge PDF</a> tool so the bank gets one tidy file in the order it asked for.</p>
+      
+  //     <p>If that bundle is too heavy to email, or a portal caps uploads at 2MB, run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring the size down while the figures stay readable. And if you are passing slips to an agent or a dealer and want them marked so they cannot quietly get reused elsewhere, stamp them first with the <a href="/watermark-pdf">Watermark PDF</a> tool, something like "For loan application only" across the page is enough to put off anyone tempted to forward it.</p>
+      
+  //     <p>One more, if your slip or any document beside it shows your full Aadhaar number. Cover it before you submit using the <a href="/aadhaar-masking">Aadhaar Masking</a> tool. UIDAI itself suggests sharing a masked Aadhaar wherever the full number is not strictly required.</p>
+      
+  //     <h2>The Short Version</h2>
+      
+  //     <p>A payslip you can open but nobody else can use is not a job for a cracker. You already hold the key, you just need to take the lock off the file. Type the password once, get a clean copy, and hand a print-ready slip to the loan desk or the visa counter without anyone fumbling for a password box. And since none of it leaves your phone, your salary figures stay between you and the people who actually need them.</p>
+      
+  //     <p><strong>Q: Can this open my payslip if I forgot the password?</strong><br> A: No. It removes a password you already know, it does not recover or crack a forgotten one. If the format has slipped your mind, the payroll email that delivered the slip almost always states the rule, or your HR can tell you.</p>
+      
+  //     <p><strong>Q: What is the usual password on a salary slip?</strong><br> A: It varies by company, but common patterns are the first few letters of your name in capitals plus your employee ID, your date of birth as DDMMYYYY, or a mix of those. Your payroll team sets it and states it in the mail with the slip.</p>
+      
+  //     <p><strong>Q: Will the unlocked copy still look the same?</strong><br> A: Yes, it looks identical and prints perfectly. The only change is that each page becomes image-based, so the text is no longer selectable for copy-paste. For printing, attaching, or uploading, that makes no difference.</p>
+      
+  //     <p><strong>Q: Is it safe to do this with my salary details?</strong><br> A: It is, because the slip and the password are processed inside your browser with no upload to any server. Nothing about your income ends up sitting online for someone to find.</p>
+      
+  //     <p><strong>Q: Can I unlock several months of payslips at once?</strong><br> A: Unlock each one, then if a loan file or portal wants them together, combine them with the Merge PDF tool in the order requested. If the joined file is too big to email, the Compress PDF tool will shrink it.</p>
+  //   `
+  // },
+  // {
+  //   id: "convert-heic-to-webp-for-wordpress",
+  //   title: "Convert HEIC to WebP for WordPress: A Faster Site From Your iPhone Photos",
+  //   seoTitle: "Convert HEIC to WebP for WordPress (Batch, Free)",
+  //   keywords: "convert heic to webp for wordpress, heic to webp, iphone photos wordpress, webp for wordpress, batch heic to webp, core web vitals images",
+  //   excerpt: "Your iPhone shoots HEIC, and WordPress refuses the upload. Here is how to batch-convert those photos straight to lightweight WebP for a faster site and better Core Web Vitals.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/convert-heic-to-webp-for-wordpress.webp",
+  //   content: `
+  //     <p>You photographed a dozen products on your iPhone for a new post. You drag them into the WordPress media library and get back: <em>"Sorry, this file type is not permitted for security reasons."</em> Those are HEIC files, and WordPress won't take them. Most converters you find next will push you toward JPG. But you've heard WebP is lighter and better for speed, so the obvious question is whether you can skip the JPG step entirely and go straight from HEIC to WebP.</p>
+      
+  //     <p>You can, and for a WordPress site you care about, it's the right call. WebP for the same visible quality is usually 25 to 35 percent smaller than the equivalent JPG. So instead of converting to JPG, then compressing the JPG, then maybe converting again, you do it once: HEIC into WebP. Lighter images mean a faster Largest Contentful Paint, and LCP is a documented Google ranking signal through <strong>Core Web Vitals</strong>. That's the whole reason this is worth the few minutes. Below is how to do the conversion in batch, what the actual file-size drop looks like, and the limits worth knowing before you upload.</p>
+      
+  //     <h2>Convert HEIC to WebP for WordPress in one batch</h2>
+      
+  //     <p>Nobody wants to convert thirty photos one at a time, so the workflow is built around selecting everything together. First get the photos off your iPhone. AirDrop to a Mac, a USB cable to a Windows laptop, or pull them down from WhatsApp Web all work fine. Then run the whole set through the converter at once.</p>
+      
+  //     <div class="tool-box">
+  //     <p><strong>Convert a folder of iPhone HEIC photos to WebP:</strong></p>
+  //     <p><strong>Step 1:</strong> Open the <a href="/heic-to-webp">HEIC to WebP converter</a> on GoPDFGo.</p>
+  //     <p><strong>Step 2:</strong> Select all your HEIC files together, or drop the whole folder in one go.</p>
+  //     <p><strong>Step 3:</strong> The tool decodes each HEIC inside your browser and encodes it as WebP. Your photos themselves are never uploaded to a server.</p>
+  //     <p><strong>Step 4:</strong> Download everything as a single ZIP, then upload the WebP files to your WordPress media library like any JPG or PNG.</p>
+  //     <p>If a particular theme or plugin insists on JPG, the <a href="/heic-to-jpg">HEIC to JPG tool</a> does the same batch job in that format.</p>
+  //     </div>
+      
+  //     <p>One habit that pays off: rename the files to something descriptive before you upload. Instead of IMG_4821.webp, call it handmade-leather-wallet-brown.webp. WordPress reads the filename as part of the image's context, so a clear name quietly helps image SEO. Do the renaming after conversion so you don't disturb the batch, and set proper alt text in WordPress once the images are in.</p>
+      
+  //     <h2>What the size drop actually looks like</h2>
+      
+  //     <p>The speed claim is easy to wave at, so here are real numbers. A typical iPhone HEIC straight off the camera runs around 3 to 4 MB at roughly 4000 pixels wide. Convert that to WebP and shrink the width to about 1200 pixels, which is plenty for a blog, and you land somewhere near 250 to 350 KB. That's the same photo, looking the same on screen, at a tenth of the weight. Multiply that across the eight or ten images in a long post and you've cut several megabytes off the page.</p>
+      
+  //     <p>That gap matters more in India than the raw number suggests. A big share of your readers are on mid-range Android phones over Jio or Airtel 4G, not fibre. A 6 MB image-heavy post on a crowded cell tower at 7 PM can take ten seconds to settle, and people don't wait. If your WordPress site also sits on cheap shared hosting, lighter images ease the server load too, so the whole site feels quicker, not just the one post. Going straight to WebP is the cheapest speed win you have before you start paying for a CDN or a caching plugin.</p>
+      
+  //     <h2>Why the conversion stays on your machine</h2>
+      
+  //     <p>Most online converters upload your photos to their servers, convert them there, and send them back. For stock-looking web images that's no big deal. But plenty of bloggers shoot personal things too: family, their home, location shots they'd rather not park in some company's cloud they've never heard of.</p>
+      
+  //     <p>This tool decodes the HEIC and encodes the WebP right in your browser, on your own device. Your photos are never sent to a server, there's no account, no email, and no upload queue to sit through. If you want the longer reasoning on why that model is safer, we've covered <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local processing beats cloud tools</a> separately. One honest caveat: the first time you use it, the browser pulls in the small HEIC-decoding library, so you do need to be online to load the page. After that, the photos stay with you.</p>
+      
+  //     <h2>The limits worth knowing</h2>
+      
+  //     <p>A few things to keep realistic before you commit your whole library:</p>
+      
+  //     <ul>
+  //     <li><strong>Browser support is a non-issue now.</strong> Every current browser displays WebP, including Safari since version 14 in 2020. The fear that a visitor won't see your images was valid years ago, not today.</li>
+  //     <li><strong>WordPress accepts WebP natively since version 5.8 in 2021.</strong> As long as your install is reasonably current, WebP uploads work like JPG or PNG. A very old WordPress might block them, which is really a sign you're overdue for an update.</li>
+  //     <li><strong>Converting is not resizing.</strong> A 4000-pixel iPhone shot stays 4000 pixels wide as WebP unless you shrink it. For a blog you rarely need more than about 1200 pixels. The <a href="/resize">image resize tool</a> handles that, and resizing is where most of the size drop in the example above came from.</li>
+  //     <li><strong>Some HEICs won't decode.</strong> A handful of iPhone Live Photos and unusual 10- or 12-bit HEICs can't be read in the browser. The tool skips those and tells you; for the rare one, open it on your iPhone and export as JPG.</li>
+  //     </ul>
+      
+  //     <p>If you already have a pile of existing WebP images that still feel heavy, that's a different job from this one, and the guide on <a href="/blog/compress-webp-images-speed-up-wordpress">compressing WebP images to speed up WordPress</a> covers it. This post is about getting your iPhone source files into WebP in the first place.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: Will converting HEIC to WebP reduce my photo quality?</strong><br> A: Not in any way you'd notice on a website. WebP holds very good quality at a much smaller file size, and the conversion is built for screen viewing, which is exactly what a blog needs. For a print run you'd keep the original HEIC, but for web pages WebP is ideal.</p>
+      
+  //     <p><strong>Q: I already have hundreds of JPGs on my site. Should I replace them all with WebP?</strong><br> A: You don't have to convert the back catalogue by hand. The bigger win is doing all new uploads as WebP from now on, and letting a WebP optimisation or caching plugin serve your existing JPGs as WebP on the fly. Bulk-replacing old media manually is rarely worth the effort unless a specific heavy page is dragging your scores down.</p>
+      
+  //     <p><strong>Q: Will switching to WebP break my old posts or my RSS feed?</strong><br> A: No. WebP is a normal image format to WordPress and to every current browser and feed reader, so embedded WebP images render fine in posts and feeds. The only thing that can look off is a very old browser from before 2017, and those are a rounding error in real traffic now.</p>
+      
+  //     <p><strong>Q: Can I convert many HEIC files at once instead of one by one?</strong><br> A: Yes. Select your whole set of HEIC photos together, let the tool convert all of them, and download a single ZIP. That batch flow is the point, since a real post usually has a folder of images, not one.</p>
+      
+  //     <p><strong>Q: Do I still need to resize, or is converting enough?</strong><br> A: Convert for the lighter format, then resize for the real speed gain. A 4000-pixel HEIC is far bigger than any blog layout uses. Drop it to around 1200 pixels wide after converting and that's where the 3 MB to 300 KB difference comes from.</p>
+  //   `
+  // },
+  // {
+  //   id: "rotate-sideways-android-photo-save-permanently",
+  //   title: "How to Rotate a Sideways Android Photo and Save It Permanently",
+  //   seoTitle: "Rotate Sideways Android Photo & Save Permanently",
+  //   keywords: "rotate sideways photo android save permanently, fix sideways photo upload form, android photo sideways on pc, exif orientation fix, rotate image online free",
+  //   excerpt: "An Android photo can look upright in your gallery but turn sideways the moment you upload it to a form or open it on a PC. Here is why it happens and how to rotate it and save it permanently so it stays straight everywhere.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/rotate-sideways-android-photo-save-permanently.webp",
+  //   content: `
+  //     <h2>How to rotate a sideways Android photo and save it permanently</h2>
+  //     <p>You click a photo of a document on your Android phone. In the gallery it sits perfectly upright. Then you go to fill an admission form or a KYC upload, attach that same photo, and the preview shows it lying on its side. Sometimes it is turned 90 degrees, sometimes fully upside down. You open the same file on a friend's laptop and it is wrong there too.</p>
+  //     <p>The annoying part is that nothing looks broken on the phone. You did not rotate anything. But the file genuinely is sideways. The phone is just showing you a corrected version while every other app shows the raw one.</p>
+  //     <h2>Why the photo looks fine on your phone but sideways on a PC</h2>
+  //     <p>Most Android phones do not physically turn the photo when you tilt the camera. They save the picture exactly as the sensor captured it, then add a small instruction inside the file. This instruction is the <strong>EXIF orientation tag</strong>, and it records something like "rotate this 90 degrees clockwise when displaying."</p>
+  //     <p>Your gallery app reads that tag and rotates the photo for display, so you see it upright. The trouble is that a lot of other software ignores the tag and shows the raw pixels instead. Old upload forms, many government and exam portals, Windows Photo Viewer on some setups, and certain web previews fall into this category. That is why one file can look upright on your phone and sideways nearly everywhere else.</p>
+  //     <p>So this is not a photo that is slightly tilted by a few degrees. To fix it for good, you need to take the rotation the EXIF tag was asking for and actually apply it to the pixels, then drop that tag. Once the rotation is baked into the image itself, there is no instruction left for anything to ignore. It then looks correct on the phone, on the PC, in the form, and in print.</p>
+  //     <h2>Why re-saving or screenshotting is not reliable</h2>
+  //     <p>People reach for a couple of quick tricks. One is to screenshot the upright photo from the gallery. That works in a basic sense, but you lose resolution and often capture the status bar or the navigation buttons at the edges. Then you have to crop, and the quality drops again, which is a problem when a form has a minimum size or clarity requirement of, say, 50 KB to 200 KB at a set resolution.</p>
+  //     <p>The other trick is to open the gallery editor, hit rotate, and save. Sometimes this works and sometimes it makes things worse, because some editors only flip the EXIF tag rather than rewriting the actual pixels. The reliable approach is a tool that rotates the real image content and writes a fresh file with the orientation locked in.</p>
+  //     <p>One thing worth separating out: this is different from a mirrored or upside-down selfie, where the front camera flips the image left to right. That is a flip problem, not a rotation one, and it is covered in <a href="/blog/fix-mirrored-selfies-upside-down-photos-online">fix mirrored selfies and upside-down photos</a>. Here we are dealing with a normal photo that is rotated a clean 90, 180, or 270 degrees because of the orientation tag.</p>
+  //     <div class="tool-box">
+  //     <p><strong>How to rotate your sideways Android photo and save it for good:</strong></p>
+  //     <p><strong>Step 1:</strong> Open the <a href="/rotate">Rotate Image</a> tool on GoPDFGo. Everything runs inside your browser, so the photo never leaves your device.</p>
+  //     <p><strong>Step 2:</strong> Upload the photo straight from your phone or computer. You will usually see it the way other sites see it, which is the sideways version. That is fine, because now you can fix exactly what they see.</p>
+  //     <p><strong>Step 3:</strong> Rotate until the photo sits upright. Use <strong>90 degrees clockwise</strong> for a photo whose top points left, <strong>90 degrees anti-clockwise (270)</strong> for one whose top points right, and <strong>180 degrees</strong> for one that is upside down. Keep tapping until it looks right.</p>
+  //     <p><strong>Step 4:</strong> Download the corrected image. The tool bakes the rotation into the pixels and writes a clean file with the orientation tag stripped out, so the new copy stays upright in forms, on PCs, and in print.</p>
+  //     <p><strong>Step 5:</strong> Upload this new file to your form instead of the original.</p>
+  //     </div>
+  //     <h2>How to pick the right angle without guessing</h2>
+  //     <p>You do not need to know the exact degree number in advance. Look at how the photo appears after uploading and turn it toward upright.</p>
+  //     <ul>
+  //     <li>If the top of the document points to the <strong>right</strong>, rotate anti-clockwise by 90 degrees (270).</li>
+  //     <li>If the top points to the <strong>left</strong>, rotate clockwise by 90 degrees.</li>
+  //     <li>If the whole thing is <strong>upside down</strong>, rotate 180 degrees.</li>
+  //     <li>If it already looks upright in the tool but came out sideways on a portal, just rotate it to the correct position and download. The act of exporting writes a fresh file with the orientation baked in and the EXIF tag removed, which is what fixes stubborn portals.</li>
+  //     </ul>
+  //     <p>Because the preview updates as you rotate, this is a look-and-turn job. You do not have to calculate anything.</p>
+  //     <h2>Where a sideways photo causes real problems</h2>
+  //     <p>Take a common case. A student finishes a state board or SSC registration and has to upload a photo of the marksheet and a PAN card. Both were clicked on an Android phone and look upright in the gallery. On the portal, the marksheet uploads sideways. The site does not flag it at the time, but during verification the document is marked unclear and the application is held up, sometimes days before a deadline. The student now has to log back in, delete the file, and re-upload a corrected one under pressure.</p>
+  //     <p>Bank KYC is similar. A sideways PAN or Aadhaar photo can be rejected by the reviewer because the details are not readable in the orientation the system shows. You do not get a second chance in the same sitting, so the whole upload step has to be redone. Fixing the orientation before you attach the file avoids that round trip.</p>
+  //     <p>It matters for printing too. Send a sideways photo to a print shop and it may come out rotated, wasting paper and a few rupees each time. Correcting it first keeps the output predictable.</p>
+  //     <p>If the corrected photo is going into a multi-page application, you can turn it into a proper PDF afterwards with <a href="/image-to-pdf">Image to PDF</a> so the page sits upright in the final document. And if your document is actually a scanned PDF that is sideways rather than a photo, that is a different job handled by the <a href="/rotate-pdf">Rotate PDF</a> tool instead.</p>
+  //     <h2>Why doing it in the browser is the safer choice</h2>
+  //     <p>Document photos are personal. A marksheet carries your roll number, a PAN card carries your details, a signed form carries your signature. There is no reason to send those to an unknown server just to turn them upright. GoPDFGo does the rotation entirely on your own device, inside the browser tab. Nothing is uploaded and nothing is stored, and the corrected file is created locally on your phone or PC. For anything with personal information on it, that is how it should work.</p>
+  //     <h2>FAQ</h2>
+  //     <p><strong>Q: Why does my photo look fine on my phone but sideways on the computer?</strong><br>
+  //     A: Your phone saves the photo with a hidden EXIF orientation tag, and your gallery app obeys it and turns the photo upright for display. Many computers, forms, and websites ignore that tag and show the raw, sideways file. Rotating and re-saving bakes the correct orientation into the pixels so every app shows it the same way.</p>
+  //     <p><strong>Q: I rotated it in my gallery and it still shows sideways on the form. Why?</strong><br>
+  //     A: Some gallery editors only change the EXIF orientation tag instead of rewriting the actual pixels. The form ignores that tag, so it still shows the original sideways pixels. You need a rotation that bakes the change into the pixels and removes the tag, which is what the Rotate Image tool does when you download the file.</p>
+  //     <p><strong>Q: Will rotating the photo reduce its quality?</strong><br>
+  //     A: A clean 90, 180, or 270 degree rotation does not blur or stretch the image, so the visible quality stays the same. You are turning the pixels, not resizing them. This is far better than taking a screenshot, which loses detail.</p>
+  //     <p><strong>Q: Is this the same as fixing a mirrored selfie?</strong><br>
+  //     A: No. A mirrored selfie is flipped left to right by the front camera, which is a flip issue. A sideways gallery photo is rotated by 90, 180, or 270 degrees because of the orientation tag, and this tool handles that rotation case.</p>
+  //     <p><strong>Q: Do I need to install an app for this?</strong><br>
+  //     A: No. The Rotate Image tool works in any browser on Android, iPhone, or PC. There is nothing to download or sign up for, and the photo stays on your device the whole time.</p>
+  //   `
+  // },
+  // {
+  //   id: "hide-roll-number-marksheet-before-sharing",
+  //   title: "How to Hide Your Roll Number on a Marksheet Before Sharing It Online",
+  //   seoTitle: "Hide Roll Number on Marksheet Before Sharing",
+  //   keywords: "hide roll number on marksheet before sharing, black out roll number result, mask marksheet registration number, hide details before whatsapp status, remove roll number from result image",
+  //   excerpt: "Posting your result on WhatsApp status? Learn how to hide your roll number on a marksheet before sharing, properly removing the pixels under the black box instead of just covering them, all in your browser.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/hide-roll-number-marksheet-before-sharing.webp",
+  //   content: `
+  //     <h2>How to hide your roll number on a marksheet before sharing it online</h2>
+  //     <p>Results are out, your percentage is good, and the first thing you want to do is screenshot the marksheet and put it on WhatsApp status. Go ahead. But before you do, look at the screenshot once more. Right next to your name sits your roll number, your registration number, often your date of birth and the school code, all printed clean and readable. That is the part you want to deal with first.</p>
+  //     <p>Here is why it matters. Most board result portals open your marksheet using just your roll number plus date of birth. Think of how the CBSE results page or a state board portal works: you punch in those two fields and the full result loads. So if a screenshot on your status shows both, anyone who is curious can re-open your result on the same public site, or go poke around the verification page. People have had strangers pull their full marksheet and reuse it for fake admissions or just to needle them. The fix is simple: post the achievement, blank out the fields that let someone fetch your real document.</p>
+  //     <p>The lazy version is to open a photo editor and scribble a black mark over the numbers. The trouble is that a lot of those quick edits only sit a layer on top of the pixels. If you save in a layered format, or the app keeps an undo history baked into the file, or your black box is even slightly see-through, the original digits can still be read back. You want the numbers actually gone, not parked under a sticker.</p>
+      
+  //     <h2>Covering is not the same as removing</h2>
+  //     <p>This is where most students slip. A fully opaque black rectangle exported as a flat JPG is genuinely safe, but plenty of editors do not give you that. They keep the original layer, or save with an undo trail, or the overlay you drew was a touch transparent. In those cases the masked number can be recovered, which is a bad outcome for something as sensitive as roll number plus date of birth.</p>
+  //     <p>What you want is a tool that deletes the pixels under your black box and writes out a fresh image with nothing hidden behind it. The <a href="/aadhaar-masking">ID Masking tool</a> on GoPDFGo does exactly this. You drag a box over a field, it paints over those pixels on the canvas and re-saves a clean copy, so there is no original layer left to dig out. And the whole thing runs inside your own browser. Your marksheet is never uploaded to any server, which means no result image of yours sitting on some random company's cloud.</p>
+  //     <p>There is a small bonus here too. When the tool re-saves, it flattens everything into a brand new image file. If your original screenshot carried any leftover EXIF data, that gets dropped in the process. A plain screenshot usually does not have much in it anyway, so do not imagine your marksheet is stuffed with location tags. But if anything was tucked behind the picture, the clean re-save clears it along with the pixels you removed.</p>
+      
+  //     <div class="tool-box">
+  //     <p><strong>Step 1:</strong> Save your marksheet as an image, either a screenshot of the portal or the image you downloaded from it. If there are corners you do not want in the post, crop them out first.</p>
+  //     <p><strong>Step 2:</strong> Open the <a href="/aadhaar-masking">ID Masking tool</a> and load your image. Everything stays on your phone or laptop. Nothing gets sent anywhere.</p>
+  //     <p><strong>Step 3:</strong> Draw a black box over the roll number. Then draw one over the registration number, one over the date of birth, and one over any other line you want gone. Place as many boxes as you need.</p>
+  //     <p><strong>Step 4:</strong> Save the masked image. The pixels under each box are removed, not just hidden, and the fresh re-save drops any leftover photo metadata in one go.</p>
+  //     <p><strong>Step 5:</strong> Open the saved file once to check it, then post that clean copy to your status or wherever you like. Keep the untouched original somewhere safe for your own records.</p>
+  //     </div>
+      
+  //     <h2>What you should actually black out</h2>
+  //     <p>Most people black out the obvious roll number and stop. Think about what else either identifies you or lets someone re-open your result:</p>
+  //     <ul>
+  //     <li><strong>Roll number or seat number</strong> — the main key to your result on the portal.</li>
+  //     <li><strong>Registration or enrolment number</strong> — often the second field a portal asks for to fetch the marksheet.</li>
+  //     <li><strong>Date of birth</strong> — many board portals ask for roll number plus DOB, so this pairing is the risky one to leave visible.</li>
+  //     <li><strong>School or college code and centre code</strong> — less obvious, but they narrow down exactly which student you are.</li>
+  //     <li><strong>Any printed barcode or QR strip</strong> — these can encode your full record, so cover them as well.</li>
+  //     </ul>
+  //     <p>You can keep your name and the marks on show if you want the flex. That is your call. Just take out the fields a stranger would need to pull the real document.</p>
+      
+  //     <h2>If your result is a PDF, not an image</h2>
+  //     <p>Some boards hand you the marksheet as a PDF instead of a picture. The masking tool works on images, so convert it first. Run the page through <a href="/pdf-to-image">PDF to Image</a> to turn it into a picture, then load that into ID Masking and black out the fields. And if you are sharing a heavier document, like a full marksheet together with a certificate, you can <a href="/compress-pdf">compress the PDF</a> afterwards so WhatsApp stops complaining that the file is too large.</p>
+  //     <p>Worth being honest about the limits. Masking only protects the image you post. It does nothing to the result sitting on the board's own website, and it cannot pull back a marksheet you already shared earlier without masking. So do this before the first post. Once a status or a group has it, you have lost control of where it goes.</p>
+      
+  //     <h2>FAQ</h2>
+  //     <p><strong>Q: Will the masked number show if someone zooms in or screenshots my status?</strong><br>
+  //     A: No. Because the tool removes the pixels under the box and saves a fresh image, there is nothing hidden to reveal. Zooming, brightening or screenshotting just gives a closer look at a solid black box. That is the difference from a normal photo editor, where the original data can sometimes survive.</p>
+  //     <p><strong>Q: Can I hide more than one detail at a time?</strong><br>
+  //     A: Yes. Draw as many boxes as you need in one go, one over the roll number, one over the registration number, one over the DOB, and so on. Then save once. All of them get removed together.</p>
+  //     <p><strong>Q: My result is a PDF, not an image. What do I do?</strong><br>
+  //     A: Convert the page to an image first using the PDF to Image tool, then load it into ID Masking and black out the fields. Save the clean picture and share that one.</p>
+  //     <p><strong>Q: Does my marksheet get uploaded anywhere when I use this?</strong><br>
+  //     A: No. The whole thing runs inside your browser on your own device. Your result image never leaves your phone or laptop, which is the whole reason to do it this way instead of trusting some random online site.</p>
+  //     <p><strong>Q: I already posted my result without masking. Can I fix it now?</strong><br>
+  //     A: You can delete the old status or post and re-upload a masked version, but you cannot pull back what people already saw or screenshotted. Mask before the first share, and make it a habit from here on.</p>
+  //   `
+  // },
+  // {
+  //   id: "qr-code-for-google-form-scan-to-fill",
+  //   title: "How to Make a QR Code for a Google Form (So People Scan and Fill It On the Spot)",
+  //   seoTitle: "QR Code for Google Form: Scan to Fill | GoPDFGo",
+  //   keywords: "qr code for google form, google form qr code, qr code for survey, scan to fill google form, feedback form qr code, attendance qr code google form, admission form qr code, google form link to qr, event feedback qr code, free google form qr generator",
+  //   excerpt: "Got a Google Form for feedback, attendance or admissions? Here is the honest, free way to turn its link into a QR code people can scan to open the form straight away. No app, no subscription.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/qr-code-for-google-form-scan-to-fill.webp",
+  //   content: `
+  //     <p>You built the form last night. Maybe it is a feedback form for the college fest, an attendance sheet for a training session, or an enquiry form for admissions. The questions are set. Now comes the annoying part: getting people to actually open it. Reading out a long link from the stage never works, and the WhatsApp group only reaches half the room. A <strong>QR code for a Google Form</strong> solves this in one move. You print it on the poster, show it on a slide, leave it on the registration desk, and people point their camera at it. The form opens on their phone and they fill it right there.</p>
+      
+  //     <p>Here is how to make one for free in a couple of minutes, with the form link never leaving your browser.</p>
+      
+  //     <h2>Where a Google Form QR code actually helps</h2>
+  //     <p>A scan-to-open form earns its place anywhere you want answers from a crowd that is standing in front of you but will not type out a link:</p>
+  //     <ul>
+  //     <li><strong>Event feedback:</strong> Print the QR on the back of the entry pass or flash it on the closing slide. People scan before they leave, while the session is still fresh in their head.</li>
+  //     <li><strong>Attendance:</strong> Stick the code at the door of a workshop or seminar. Attendees scan, enter name and roll number, and you drop the paper sheet that always goes missing halfway through.</li>
+  //     <li><strong>Admissions and enquiries:</strong> During counselling season, put it on the banner at the college gate or on the enquiry desk card. A parent walking in scans it and the enquiry form opens, even when nobody is free to hand them a paper.</li>
+  //     <li><strong>Surveys:</strong> A shop, clinic, or society office keeps a small printed card at the counter. Customers scan and answer three quick questions instead of dodging a follow-up call later.</li>
+  //     </ul>
+  //     <p>In every one of these, the person already has their phone out and a scan beats typing. That is the whole point. You take away the step where most people give up.</p>
+      
+  //     <h2>First, get the right Google Form link</h2>
+  //     <p>The QR is only as good as the link inside it, so get the link right before anything else. Open your form in edit mode and click the <strong>Send</strong> button at the top right. In the box that opens, pick the link tab (the chain icon). You will see the full <em>docs.google.com/forms/...</em> address, and below it a <strong>Shorten URL</strong> checkbox that turns it into a tidy <em>forms.gle/...</em> link. Tick it. A shorter link makes a less crowded QR pattern, which a phone reads more easily off a printed poster.</p>
+  //     <p>Copy that link. One thing to check: this is the fill link, not the editing link. The fill link does not have <em>/edit</em> at the end. If your URL shows <em>/edit</em> anywhere, you grabbed the wrong one and scanners would land on a page they cannot use. Use the link straight from the Send box and you are safe.</p>
+  //     <p>Decide now who is allowed to respond. Open the form settings, go to the Responses section, and look for <strong>Restrict to users in your organisation</strong>. If that is on, only people with a matching Google login can open the form. For a public fest or a parent at the gate, switch it off, otherwise your QR sends strangers to a sign-in wall.</p>
+      
+  //     <h2>Turn that link into a QR code</h2>
+  //     <p>This part is quick and free. You paste your form link into a generator and it draws the black-and-white squares right there. No account, no watermark.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Make your Google Form QR code in 2 minutes</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> In your Google Form, click <strong>Send</strong>, open the link tab, tick <strong>Shorten URL</strong>, and copy the <em>forms.gle/...</em> link.</li>
+  //     <li><strong>Step 2:</strong> Open the <a href="/qr-generator">QR Code Generator</a> and stay on the <strong>Text / URL</strong> tab. Paste your form link into the box and clear any stray spaces at the start or end.</li>
+  //     <li><strong>Step 3:</strong> Click <strong>Generate QR Code</strong>. The code appears on screen straight away. It is drawn inside your browser, so the link you pasted is never uploaded to any server.</li>
+  //     <li><strong>Step 4:</strong> Scan the on-screen code with your own phone and confirm it opens your live form, ready to fill. Sort out any problem now, not after you have printed copies.</li>
+  //     <li><strong>Step 5:</strong> Click <strong>Download PNG</strong>. Print it on the poster, drop it on a slide, or stick it on a desk card.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>It is a static QR, which suits a form perfectly</h2>
+  //     <p>The code you just made is a <strong>static</strong> one: your form link sits inside the pattern itself, with no company in the middle, which is why it is free and never expires. The trade-off is that the link is fixed once printed, but that rarely matters for a form. The Google Form link stays the same even when you rewrite the questions, add sections, or change the title, so the same printed code keeps opening the updated form. You only need a new QR if you delete the form and build a fresh one. If you want the longer reasoning before printing a stack of posters, read our note on <a href="/blog/static-vs-dynamic-qr-codes-difference">static vs dynamic QR codes</a>.</p>
+      
+  //     <h2>Putting it on a poster or a slide</h2>
+  //     <p>A QR sitting alone on white paper gets ignored. Give people a reason and a clear line: "Scan to share your feedback" or "Scan for the attendance form." Mention what they are filling and roughly how long it takes, because "2 quick questions" pulls far more scans than a bare code.</p>
+  //     <p>Get the size right. On an A4 poster pinned to a wall, keep the QR at least 3 by 3 cm so a phone at arm's length can lock onto it cleanly. For a banner people scan from across a corridor, print it much bigger, since the rough rule is that a code reads from about ten times its own width away. Leave a clear white margin around the squares and never crop tight to the edge. On a slide, drop the PNG in a corner and hold that slide up for a good half a minute, because the room needs time to dig out their phones.</p>
+  //     <p>If the QR goes on a printed handout with other material, save it as a one-page PDF and <a href="/merge-pdf">merge it into your existing document</a> before sending the file to the press. And if you are bundling event photos and forms into one packet, our guide on turning <a href="/image-to-pdf">images into a single PDF</a> saves you the back-and-forth.</p>
+      
+  //     <h2>One honest limit</h2>
+  //     <p>A QR cannot collect responses by itself. It only opens the form. Google still handles the answers and stores them in the linked responses sheet, exactly as if the person typed the link. So check your form settings before the event: confirm it is accepting responses, decide whether you want one response per person or many, and watch the response limit if it is an organisation form. The QR brings people to the form. Google does the collecting.</p>
+      
+  //     <h2>Frequently Asked Questions (FAQ)</h2>
+      
+  //     <p><strong>Q: Do I need any app or subscription to make this QR?</strong><br>
+  //     A: No. The Google Form is free, the QR generator is free, and there is no account to create. The only real cost is printing, a few rupees at any Xerox shop. Anyone charging a monthly fee for a "form QR" is selling you a dynamic redirect you do not need here.</p>
+      
+  //     <p><strong>Q: If I edit the form questions later, does the QR break?</strong><br>
+  //     A: No. The link stays the same when you change questions, add sections, or rename the form, so the same printed code keeps opening your updated form. You only need a new code if you delete the form and create a completely new one.</p>
+      
+  //     <p><strong>Q: People scan it and get a sign-in page. What went wrong?</strong><br>
+  //     A: The form has "Restrict to users in your organisation" or a sign-in requirement switched on. Open the form settings, go to the Responses section, and turn that off for a public audience. Then test the QR again with a phone that is not logged into your work account.</p>
+      
+  //     <p><strong>Q: My form link is long and the QR looks busy. Will it still scan?</strong><br>
+  //     A: It will, but tick Shorten URL in the Send box first to get a forms.gle link. A shorter link makes a cleaner, less dense pattern that reads faster, especially on a poster scanned from a distance. Check the final printed size with your own phone.</p>
+      
+  //     <p><strong>Q: Can I see how many people scanned the code?</strong><br>
+  //     A: A static QR does not count scans. You usually do not need that anyway, since your Google Form already shows the number of responses, which is the figure that actually matters for an event.</p>
+      
+  //     <p>Forms only work if people open them, and a printed link is where most responses are lost. A QR removes that gap. Make yours in the next two minutes with the <a href="/qr-generator">QR Code Generator</a> and put it where the crowd can see it.</p>
+  //   `
+  // },
+  // {
+  //   id: "youtube-channel-qr-code-for-banners-cards",
+  //   title: "YouTube Channel QR Code: Make One Free So People Scan to Subscribe",
+  //   seoTitle: "YouTube Channel QR Code Generator (Free)",
+  //   keywords: "youtube channel qr code generator, qr code for youtube channel, subscribe qr code, youtube banner qr code, channel link qr code",
+  //   excerpt: "Turn your YouTube channel link into a scannable QR code for banners, visiting cards and shop displays. Free, static, made right in your browser with no login.",
+  //   date: "June 22, 2026",
+  //   imageUrl: "/images/blogs/youtube-channel-qr-code-for-banners-cards.webp",
+  //   content: `
+  //     <p>A YouTube channel QR code is the quickest fix for a problem every creator runs into: people see your stuff in the real world and have no easy way to find your channel. You hand a flyer to someone at your coaching centre, or your channel name flashes at the end of a video, and they have to remember a handle and type it correctly later. Most won't. A QR code lets them point their phone camera, tap the link that pops up, and land straight on your channel. No typing, no spelling, no missed visit.</p>
+      
+  //     <p>This guide is for creators who want one clean code for their YouTube channel so it can sit on a banner, a visiting card, a shop standee, or a video end screen. You copy your channel URL, paste it, and download the QR. Let's get into how.</p>
+      
+  //     <h2>Where a channel QR actually helps</h2>
+      
+  //     <p>A QR is only useful where someone is holding a phone and has a reason to scan. For a YouTube channel, that means printed surfaces people glance at in passing:</p>
+      
+  //     <ul>
+  //     <li><strong>Visiting cards.</strong> A tutor, a fitness coach, or a property dealer who also posts videos. The card carries your number; the QR sends people to see what you actually teach or sell.</li>
+  //     <li><strong>Shop and counter standees.</strong> A small printed card near the billing counter. "Scan to see our product demos" works better than reading out a long handle to every customer.</li>
+  //     <li><strong>Event banners.</strong> Workshops, college fests, exhibitions. People walk past with phones already in hand.</li>
+  //     <li><strong>Video end screens and cross-promotion.</strong> If you post Reels or shorts elsewhere, a QR in the corner can quietly point viewers to your main channel.</li>
+  //     </ul>
+      
+  //     <p>It works on printed, physical things. On a website or a WhatsApp message, skip the QR and just paste a tappable link, because nobody scans a screen with another screen.</p>
+      
+  //     <h2>A worked example: the coaching-centre pamphlet</h2>
+      
+  //     <p>Say you run a NEET coaching centre in your town and you post free chapter explainers on YouTube. Every term you print a few thousand pamphlets to hand out at school gates and tuition stops. Earlier the pamphlet just said "Search XYZ Classes on YouTube," and almost nobody did. So you make one QR for your channel and print it on the pamphlet next to a line that says "Scan for free physics lessons."</p>
+      
+  //     <p>Now a parent or student scanning the pamphlet lands on your channel in two seconds. They see your pinned video, browse a playlist, and many tap subscribe before they even reach home. The QR cost you nothing, prints in black ink, and sits on every pamphlet for the whole admission season. That single, focused use does more than scattering five different links across the page.</p>
+      
+  //     <h2>How to make a YouTube channel QR code</h2>
+      
+  //     <p>The QR encodes whatever link you give it, so the first job is getting the right channel URL. Open YouTube, go to your channel, and copy the address from the bar. These days it usually looks like youtube.com/@yourhandle. If yours is the older youtube.com/channel/UC... format with a long string, that works the same way. Just confirm it opens your channel and not a single video, unless one specific video is exactly what you want to point to.</p>
+      
+  //     <div class="tool-box">
+  //     <p><strong>Step 1:</strong> Copy your YouTube channel link from the browser address bar (the youtube.com/@yourhandle one).</p>
+  //     <p><strong>Step 2:</strong> Open the <a href="/qr-generator">QR Code Generator</a> and paste the channel URL into the box.</p>
+  //     <p><strong>Step 3:</strong> The QR appears straight away. Scan it with your own phone to confirm it opens your channel.</p>
+  //     <p><strong>Step 4:</strong> Download the image and send it to the printer, or drop it onto your banner or card design.</p>
+  //     </div>
+      
+  //     <p>The generator runs in your browser. Your link stays on your own device, nothing gets uploaded, and there's no account to create. Want the scan to pop the subscribe box? Add <strong>?sub_confirmation=1</strong> to the end of your channel URL before you paste it. So youtube.com/@yourhandle becomes youtube.com/@yourhandle?sub_confirmation=1, and a scan opens your channel with the Subscribe prompt already showing.</p>
+      
+  //     <h2>It's a static QR, so you own it</h2>
+      
+  //     <p>The code you make here is static. The channel link is built directly into the pattern of squares. When someone scans it, their phone reads that link straight off the image. No middleman service sits in between, so nothing can break later because a company shut down or started charging a monthly fee.</p>
+      
+  //     <p>The honest limit: a static QR can't be edited after printing. If you change your channel handle, the old printed code still points to the old link. For YouTube this rarely bites, because a channel URL almost never changes once it's set. Many "dynamic" QR services let you redirect the code later but charge a subscription to keep it alive, and the code stops working if you stop paying. For a banner that hangs for two years, a static QR you keep forever is the safer choice. If you want the longer comparison, here's our plain explainer on <a href="/blog/static-vs-dynamic-qr-codes-difference">static vs dynamic QR codes</a>.</p>
+      
+  //     <h2>Make it scan reliably on print</h2>
+      
+  //     <p>A code that looks fine on screen can fail on paper. Three things matter most for a channel QR:</p>
+      
+  //     <ul>
+  //     <li><strong>Print it big enough.</strong> On a visiting card, keep it around 2 cm square. On a banner viewed from a few feet away, scale it up generously. A tiny code on a large banner is unscannable.</li>
+  //     <li><strong>Keep the white margin.</strong> The blank space around the code is how scanners lock on. Don't crowd it with your channel art or push it against the edge.</li>
+  //     <li><strong>Test print one copy first.</strong> Print a single pamphlet or card, scan it with two different phones, then run the full batch. This one check saves you from a thousand useless flyers.</li>
+  //     </ul>
+      
+  //     <p>Pair it with a short line like "Scan to subscribe" so people know why they should bother. A bare code with no label gets ignored.</p>
+      
+  //     <h2>Quick recap</h2>
+      
+  //     <p>Copy your channel link, paste it into the <a href="/qr-generator">QR generator</a>, confirm a scan opens your channel, and download. Print it at a sensible size with a "scan to subscribe" line and some white space around it. Because the code is static and made on your own device, it's yours to keep with no expiry and no monthly fee.</p>
+      
+  //     <p><strong>Q: Will appending ?sub_confirmation=1 really show the Subscribe prompt?</strong><br>
+  //     A: Yes. Add ?sub_confirmation=1 to the end of your channel URL before you make the QR, and a scan opens your channel with the Subscribe popup already on screen. It's the single best trick for a "scan to subscribe" code.</p>
+      
+  //     <p><strong>Q: Will this QR scan with the default iPhone or Android camera?</strong><br>
+  //     A: Yes. On both iPhone and most Android phones, the built-in camera app reads QR codes directly. The person just opens their normal camera, points it at the code, and taps the link that appears. No special scanner app needed.</p>
+      
+  //     <p><strong>Q: Can I add my logo or brand colours to the QR?</strong><br>
+  //     A: No. This tool makes a plain black-and-white static QR. That's deliberate, because high contrast scans most reliably on print. Heavily styled or coloured codes often fail when photographed under shop lighting.</p>
+      
+  //     <p><strong>Q: Does my channel need to be public for the QR to work?</strong><br>
+  //     A: Yes. The QR just opens your channel URL, so whatever a stranger would normally see when visiting that link is what they get. If the channel is set up and public, the scan lands them on it fine.</p>
+      
+  //     <p><strong>Q: Is it safe to paste my channel link into the generator?</strong><br>
+  //     A: Yes. The QR is built right in your browser, so your link isn't uploaded anywhere and there's no login at the generator step. Note that this only covers making the code. Once someone scans it and opens your channel, YouTube logs that visit like any normal channel view.</p>
   //   `
   // },
 ];
