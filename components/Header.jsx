@@ -105,7 +105,14 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown("pdf")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2">
+              <button
+                onClick={() =>
+                  setActiveDropdown((p) => (p === "pdf" ? null : "pdf"))
+                }
+                aria-expanded={activeDropdown === "pdf"}
+                aria-haspopup="true"
+                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
+              >
                 All PDF Tools{" "}
                 <ChevronDown
                   size={15}
@@ -190,7 +197,14 @@ const Header = () => {
               onMouseEnter={() => setActiveDropdown("image")}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2">
+              <button
+                onClick={() =>
+                  setActiveDropdown((p) => (p === "image" ? null : "image"))
+                }
+                aria-expanded={activeDropdown === "image"}
+                aria-haspopup="true"
+                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
+              >
                 Image Tools{" "}
                 <ChevronDown
                   size={15}
@@ -302,6 +316,7 @@ const Header = () => {
 
           <button
             onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
             className="md:hidden text-slate-600 p-2 hover:bg-slate-100 rounded-lg"
             aria-label="Open Menu"
           >
@@ -324,6 +339,7 @@ const Header = () => {
             </Link>
             <button
               onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
               className="p-2 text-slate-500 hover:bg-slate-100 rounded-full"
             >
               <X size={24} />

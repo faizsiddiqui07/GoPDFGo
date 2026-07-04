@@ -25,6 +25,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
+import RelatedBlogs from "./RelatedBlogs";
 import { formatBytes } from "../utils/helpers";
 import { WORKER_CODE } from "../utils/worker";
 import RelatedTools from "./RelatedTools";
@@ -147,6 +148,12 @@ const ImageEditor = ({ toolId }) => {
         "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js";
       script.async = true;
       script.onload = () => setJsZipLoaded(true);
+      script.onerror = () => {
+        // Previously failed silently — "Download All (ZIP)" just stayed dead
+        setImgError(
+          "Couldn't load the ZIP engine. Batch downloads need an internet connection — files can still be downloaded one by one.",
+        );
+      };
       document.body.appendChild(script);
     } else setJsZipLoaded(true);
 
@@ -158,8 +165,12 @@ const ImageEditor = ({ toolId }) => {
     };
   }, [cleanupUrls]);
 
+  // Tracks whether the user explicitly picked an output format, so loading
+  // files doesn't silently snap their choice back to the tool default.
+  const userPickedFormatRef = useRef(false);
+
   useEffect(() => {
-    if (files.length > 0) {
+    if (files.length > 0 && !userPickedFormatRef.current) {
       if (tool.config.defaultFormat) setFormat(tool.config.defaultFormat);
       else setFormat("original");
     }
@@ -343,11 +354,11 @@ const ImageEditor = ({ toolId }) => {
         return allowedExtensions.includes(ext);
       });
       if (validFiles.length === 0 && fileList.length > 0) {
-        alert(
+        setImgError(
           `Incorrect file type! Only ${tool.config.accept
             .replace(/image\//g, "")
             .toUpperCase()
-            .replace(/\./g, "")} allowed.`,
+            .replace(/\./g, "")} allowed here.`,
         );
         return;
       }
@@ -357,6 +368,8 @@ const ImageEditor = ({ toolId }) => {
     }
 
     if (fileList.length === 0) return;
+
+    setImgError(null);
 
     // HEIC needs decoding first (browsers can't read it natively)
     if (isHeic) {
@@ -433,10 +446,32 @@ const ImageEditor = ({ toolId }) => {
         setIsProcessing(false);
       }
     };
+    img.onerror = () => {
+      // Undecodable image (e.g. an iPhone HEIC dropped into a generic tool) —
+      // without this the full-screen spinner never goes away.
+      setIsProcessing(false);
+      setFiles([]);
+      setPreviewUrl(null);
+      URL.revokeObjectURL(url);
+      currentUrlsRef.current.preview = null;
+      setImgError(
+        /\.(heic|heif)$/i.test(file.name || "")
+          ? "This is an iPhone HEIC photo, which this tool can't open directly. Convert it first with our HEIC to JPG tool, then come back."
+          : "We couldn't read this image. The file may be corrupted or in an unsupported format.",
+      );
+    };
   };
+
+  // Run token: an in-flight worker result from file A must not overwrite
+  // state after file B has been loaded.
+  const processRunRef = useRef(0);
+  // Actual MIME of the last produced blob — used for a truthful file extension
+  // (the worker may fall back to PNG for formats canvases can't encode).
+  const lastBlobTypeRef = useRef(null);
 
   const processSingleImage = async (qualityOverride = null) => {
     if (!files[0] || !originalImageRef.current) return;
+    const run = ++processRunRef.current;
 
     setImgError(null);
     if (!isInstantTool) setIsProcessing(true);
@@ -470,6 +505,7 @@ const ImageEditor = ({ toolId }) => {
 
       // ✅ BUG FIX 3 applied here (bitmap param removed)
       let blob = await runWorkerTask(taskData);
+      if (run !== processRunRef.current) return; // a newer file/run took over
 
       let finalBlob = blob;
       let isReverted = false;
@@ -498,6 +534,7 @@ const ImageEditor = ({ toolId }) => {
       if (currentUrlsRef.current.converted)
         URL.revokeObjectURL(currentUrlsRef.current.converted);
       currentUrlsRef.current.converted = newUrl;
+      lastBlobTypeRef.current = finalBlob.type || null;
 
       setConvertedUrl(newUrl);
       setFileSize(formatBytes(finalBlob.size));
@@ -509,11 +546,13 @@ const ImageEditor = ({ toolId }) => {
       setCompressionStats({ original, compressed, percent, isReverted });
     } catch (err) {
       console.error(err);
-      setImgError(
-        "Could not process this image. The format may be unsupported or the file may be corrupted.",
-      );
+      if (run === processRunRef.current) {
+        setImgError(
+          "Could not process this image. The format may be unsupported or the file may be corrupted.",
+        );
+      }
     } finally {
-      setIsProcessing(false);
+      if (run === processRunRef.current) setIsProcessing(false);
     }
   };
 
@@ -576,6 +615,63 @@ const ImageEditor = ({ toolId }) => {
       bestQ = 0.05;
       targetHit = bestBlob.size <= targetBytes;
     }
+
+    // Quality alone can't get a 4000px photo under 20KB — progressively
+    // downscale the dimensions and retry (the PDF target mode already does
+    // this; the image mode just gave up with targetHit:false).
+    if (!targetHit) {
+      let scaleW = canvas.width;
+      let scaleH = canvas.height;
+      const MIN_SIDE = 200; // keep it recognizable for form uploads
+      while (
+        bestBlob.size > targetBytes &&
+        Math.min(scaleW, scaleH) > MIN_SIDE
+      ) {
+        scaleW = Math.round(scaleW * 0.8);
+        scaleH = Math.round(scaleH * 0.8);
+        let smaller;
+        if (typeof OffscreenCanvas !== "undefined") {
+          smaller = new OffscreenCanvas(scaleW, scaleH);
+        } else {
+          smaller = document.createElement("canvas");
+          smaller.width = scaleW;
+          smaller.height = scaleH;
+        }
+        const sctx = smaller.getContext("2d");
+        if (useFmt === "image/jpeg") {
+          sctx.fillStyle = "#FFFFFF";
+          sctx.fillRect(0, 0, scaleW, scaleH);
+        }
+        sctx.imageSmoothingQuality = "high";
+        sctx.drawImage(canvas, 0, 0, scaleW, scaleH);
+        const makeSmall = (q) =>
+          smaller.convertToBlob
+            ? smaller.convertToBlob({ type: useFmt, quality: q })
+            : new Promise((res) => smaller.toBlob((b) => res(b), useFmt, q));
+        // quick 4-step search at this size
+        let lo = 0.05;
+        let hi = 0.92;
+        let found = null;
+        for (let i = 0; i < 4; i++) {
+          const mid = (lo + hi) / 2;
+          const b = await makeSmall(mid);
+          if (b && b.size <= targetBytes) {
+            found = b;
+            bestQ = mid;
+            lo = mid;
+          } else {
+            hi = mid;
+          }
+        }
+        const candidate = found || (await makeSmall(0.05));
+        if (candidate && candidate.size < bestBlob.size) bestBlob = candidate;
+        if (found) {
+          targetHit = true;
+          break;
+        }
+      }
+    }
+
     return { blob: bestBlob, quality: bestQ, targetHit };
   };
 
@@ -594,6 +690,7 @@ const ImageEditor = ({ toolId }) => {
       if (currentUrlsRef.current.converted)
         URL.revokeObjectURL(currentUrlsRef.current.converted);
       currentUrlsRef.current.converted = newUrl;
+      lastBlobTypeRef.current = bestBlob.type || null;
 
       setConvertedUrl(newUrl);
       setQuality(bestQ);
@@ -696,7 +793,12 @@ const ImageEditor = ({ toolId }) => {
             };
             // ✅ BUG FIX 3 applied here
             blob = await runWorkerTask(taskData);
-            if (blob.size >= file.size && format === "original") blob = file;
+            // Never ship a bigger file when the format isn't changing.
+            // (For compressors `format` is a concrete MIME, so the old
+            // `format === "original"` guard never fired and an already
+            // optimized JPEG could come back LARGER.)
+            const batchOutFmt = format === "original" ? file.type : format;
+            if (blob.size >= file.size && batchOutFmt === file.type) blob = file;
           }
 
           const resultUrl = URL.createObjectURL(blob);
@@ -710,6 +812,7 @@ const ImageEditor = ({ toolId }) => {
             ...prev,
             {
               id: resultId,
+              srcIndex: i,
               name: file.name,
               url: resultUrl,
               blob,
@@ -764,7 +867,19 @@ const ImageEditor = ({ toolId }) => {
     link.href = convertedUrl;
     let ext = "jpg";
 
-    if (compressionStats?.isReverted && files[0] && !isMaskingTool) {
+    // Trust the ACTUAL blob type first — the worker falls back to PNG for
+    // formats browsers can't encode (BMP/GIF), and a wrong extension gets
+    // files rejected by strict upload portals.
+    const typeToExt = {
+      "image/jpeg": "jpg",
+      "image/png": "png",
+      "image/webp": "webp",
+      "image/gif": "gif",
+      "image/bmp": "bmp",
+    };
+    if (lastBlobTypeRef.current && typeToExt[lastBlobTypeRef.current]) {
+      ext = typeToExt[lastBlobTypeRef.current];
+    } else if (compressionStats?.isReverted && files[0] && !isMaskingTool) {
       ext = files[0].name.split(".").pop();
     } else {
       if (format === "original" && files[0])
@@ -797,9 +912,12 @@ const ImageEditor = ({ toolId }) => {
     });
     const content = await zip.generateAsync({ type: "blob" });
     const link = document.createElement("a");
-    link.href = URL.createObjectURL(content);
-    link.download = `images.zip`;
+    const zipUrl = URL.createObjectURL(content);
+    link.href = zipUrl;
+    link.download = `GoPDFGo_images.zip`;
     link.click();
+    // Give the browser a moment to start the download, then free the blob
+    setTimeout(() => URL.revokeObjectURL(zipUrl), 30000);
   };
 
   const handleClearAll = () => {
@@ -814,8 +932,14 @@ const ImageEditor = ({ toolId }) => {
     setColorPalette([]);
     setPickedColor(null);
     setRotation(0);
+    setFlipH(false);
+    setFlipV(false);
     setFilter("none");
     setMasks([]);
+    setImgError(null);
+    setCropAspect(null);
+    setCompressionStats(null);
+    userPickedFormatRef.current = false;
     const fileInput = document.getElementById("fileInput");
     if (fileInput) fileInput.value = "";
   };
@@ -824,6 +948,8 @@ const ImageEditor = ({ toolId }) => {
     const updated = files.filter((_, i) => i !== index);
     if (updated.length === 0) return handleClearAll();
     setFiles(updated);
+    // Keep the progress denominator in sync or the bar finishes at e.g. 3/5
+    setBatchProgress((prev) => ({ ...prev, total: updated.length }));
     if (updated.length === 1 && isBatchMode) {
       setIsBatchMode(false);
       loadFileForEdit(updated[0]);
@@ -895,6 +1021,16 @@ const ImageEditor = ({ toolId }) => {
       show: true,
       color: hex,
     });
+  };
+
+  // Touch support for the color picker — it was mouse-only on a mobile-first
+  // site. Maps the first touch point onto the same sampling logic.
+  const handlePickerTouch = (e) => {
+    const t = e.touches && e.touches[0];
+    if (!t) return;
+    const img = e.currentTarget.querySelector("img");
+    if (!img) return;
+    handleMouseMove({ target: img, clientX: t.clientX, clientY: t.clientY });
   };
 
   const handleColorClick = () => {
@@ -1036,7 +1172,11 @@ const ImageEditor = ({ toolId }) => {
     >
       <div className="mb-6">
         <button
-          onClick={() => router.back()}
+          onClick={() =>
+            document.referrer.startsWith(window.location.origin)
+              ? router.back()
+              : router.push("/")
+          }
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
@@ -1134,6 +1274,8 @@ const ImageEditor = ({ toolId }) => {
                 </h3>
                 <button
                   onClick={handleClearAll}
+                  aria-label="Clear all files"
+                  title="Clear all files"
                   className="text-red-500 hover:bg-red-50 p-2 rounded-full cursor-pointer"
                 >
                   <Trash2 size={18} />
@@ -1187,7 +1329,7 @@ const ImageEditor = ({ toolId }) => {
                             {formatBytes(f.size)}
                           </p>
                         </div>
-                        {batchResults.find((r) => r.name === f.name) ? (
+                        {batchResults.find((r) => r.srcIndex === i) ? (
                           <CheckCircle size={16} className="text-green-500" />
                         ) : isProcessing && i < batchProgress.current ? (
                           <Loader2
@@ -1669,7 +1811,10 @@ const ImageEditor = ({ toolId }) => {
                           ].map((opt) => (
                             <button
                               key={opt.v}
-                              onClick={() => setFormat(opt.v)}
+                              onClick={() => {
+                                userPickedFormatRef.current = true;
+                                setFormat(opt.v);
+                              }}
                               className={`flex-1 py-2.5 text-sm font-bold rounded-lg border transition cursor-pointer ${
                                 format === opt.v
                                   ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
@@ -2025,13 +2170,16 @@ const ImageEditor = ({ toolId }) => {
                 <div className="relative max-w-full max-h-100 border border-slate-200 shadow-sm rounded-lg overflow-hidden bg-white">
                   {isColorPicker ? (
                     <div
-                      className="cursor-crosshair relative"
+                      className="cursor-crosshair relative touch-none"
                       onMouseMove={handleMouseMove}
                       onMouseLeave={() => {
                         setHoverColor(null);
                         setMagnifier((p) => ({ ...p, show: false }));
                       }}
                       onClick={handleColorClick}
+                      onTouchStart={handlePickerTouch}
+                      onTouchMove={handlePickerTouch}
+                      onTouchEnd={handleColorClick}
                     >
                       <img
                         src={convertedUrl ?? previewUrl}
@@ -2117,7 +2265,14 @@ const ImageEditor = ({ toolId }) => {
                     </div>
                   ) : (
                     <img
-                      src={previewUrl}
+                      // Show the PROCESSED result once it exists (users were
+                      // downloading resize output blind); instant tools keep
+                      // the CSS-transformed original for live feedback.
+                      src={
+                        !isInstantTool && convertedUrl
+                          ? convertedUrl
+                          : previewUrl
+                      }
                       className="max-w-full max-h-100 object-contain"
                       alt="Preview"
                       style={
@@ -2146,6 +2301,7 @@ const ImageEditor = ({ toolId }) => {
       <InfoSection info={tool.info} />
 
       <RelatedTools currentToolId={tool.id} toolType={tool.type} />
+      <RelatedBlogs toolId={tool.id} />
     </div>
   );
 };

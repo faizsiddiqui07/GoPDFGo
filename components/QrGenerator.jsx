@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Changed from react-router-dom
 import { ArrowLeft, QrCode, Download, Loader2, Wifi, Type, AlertCircle } from "lucide-react";
 import InfoSection from "./InfoSection";
+import RelatedTools from "./RelatedTools";
+import RelatedBlogs from "./RelatedBlogs";
 import { TOOLS_CONFIG } from "@/utils/constants";
  
 const QrGenerator = ({ toolId }) => {
@@ -24,6 +26,10 @@ const QrGenerator = ({ toolId }) => {
   const [loading, setLoading] = useState(false);
   const [qrLibReady, setQrLibReady] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  // Output options — 256px was blurry when printed on posters/menus
+  const [qrSize, setQrSize] = useState(512);
+  const [qrLevel, setQrLevel] = useState("H"); // M | Q | H (error correction)
 
   useEffect(() => {
     if (window.QRCode) {
@@ -87,11 +93,12 @@ const QrGenerator = ({ toolId }) => {
     try {
       new window.QRCode(container, {
         text: finalString,
-        width: 256,
-        height: 256,
+        width: qrSize,
+        height: qrSize,
         colorDark: "#000000",
         colorLight: "#ffffff",
-        correctLevel: window.QRCode.CorrectLevel.H,
+        correctLevel:
+          window.QRCode.CorrectLevel[qrLevel] || window.QRCode.CorrectLevel.H,
       });
 
       setTimeout(() => {
@@ -116,7 +123,11 @@ const QrGenerator = ({ toolId }) => {
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
       <div className="mb-6">
         <button
-          onClick={() => router.back()} // Changed from navigate(-1)
+          onClick={() =>
+            document.referrer.startsWith(window.location.origin)
+              ? router.back()
+              : router.push("/")
+          } // Changed from navigate(-1)
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
@@ -224,6 +235,65 @@ const QrGenerator = ({ toolId }) => {
             </div>
           )}
 
+          {/* Output options */}
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">
+                Size
+              </label>
+              <div className="flex gap-1.5">
+                {[
+                  { v: 256, label: "S" },
+                  { v: 512, label: "M" },
+                  { v: 1024, label: "L" },
+                ].map((s) => (
+                  <button
+                    key={s.v}
+                    onClick={() => setQrSize(s.v)}
+                    title={`${s.v}×${s.v}px`}
+                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
+                      qrSize === s.v
+                        ? "bg-[#FF9933] text-white shadow"
+                        : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[10px] text-slate-400 mt-1">
+                L (1024px) prints sharpest on posters &amp; menus
+              </p>
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">
+                Error correction
+              </label>
+              <div className="flex gap-1.5">
+                {[
+                  { v: "M", label: "M" },
+                  { v: "Q", label: "Q" },
+                  { v: "H", label: "H" },
+                ].map((l) => (
+                  <button
+                    key={l.v}
+                    onClick={() => setQrLevel(l.v)}
+                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
+                      qrLevel === l.v
+                        ? "bg-[#FF9933] text-white shadow"
+                        : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
+                    }`}
+                  >
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+              <p className="text-[10px] text-slate-400 mt-1">
+                H survives scratches/dirt best (default)
+              </p>
+            </div>
+          </div>
+
           {errorMsg && (
             <div className="mb-4 bg-red-50 text-red-600 p-3 rounded-lg flex items-center gap-2 text-sm border border-red-100">
               <AlertCircle size={16} className="shrink-0" /> {errorMsg}
@@ -277,6 +347,8 @@ const QrGenerator = ({ toolId }) => {
       </div>
 
       <InfoSection info={tool.info} />
+      <RelatedTools currentToolId={tool.id} toolType={tool.type} />
+      <RelatedBlogs toolId={tool.id} />
     </div>
   );
 };

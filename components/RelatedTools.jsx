@@ -4,9 +4,26 @@ import { TOOLS_CONFIG } from "../utils/constants";
 import { ArrowRight } from "lucide-react";
 
 const RelatedTools = ({ currentToolId, toolType }) => {
-  const relatedTools = TOOLS_CONFIG.filter(
-    (t) => t.type === toolType && t.id !== currentToolId
-  ).slice(0, 4);
+  // Rotate the picks based on the current tool's position so every tool page
+  // links a DIFFERENT set of 4 — previously .slice(0,4) always linked the same
+  // first four tools and newer tools never received internal links.
+  const typeList = TOOLS_CONFIG.filter((t) => t.type === toolType);
+  const pos = Math.max(
+    0,
+    typeList.findIndex((t) => t.id === currentToolId),
+  );
+  const pool = typeList.filter((t) => t.id !== currentToolId);
+  const rotated = [...pool.slice(pos), ...pool.slice(0, pos)];
+  let relatedTools = rotated.slice(0, 4);
+
+  // Small categories (e.g. the lone QR tool) top up from the other types
+  // instead of rendering nothing.
+  if (relatedTools.length < 4) {
+    const others = TOOLS_CONFIG.filter(
+      (t) => t.type !== toolType && t.id !== currentToolId,
+    );
+    relatedTools = [...relatedTools, ...others.slice(0, 4 - relatedTools.length)];
+  }
 
   if (relatedTools.length === 0) return null;
 
@@ -14,7 +31,9 @@ const RelatedTools = ({ currentToolId, toolType }) => {
     <div className="mt-0 mb-8 border-t border-slate-200 max-w-7xl mx-auto px-4 pt-10">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
-          More {toolType === "pdf" ? "PDF" : "Image"} Tools
+          More{" "}
+          {toolType === "pdf" ? "PDF " : toolType === "image" ? "Image " : ""}
+          Tools
         </h3>
         <Link
           href="/" // Changed from 'to'

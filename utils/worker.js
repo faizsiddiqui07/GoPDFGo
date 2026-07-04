@@ -73,13 +73,17 @@ self.onmessage = async (e) => {
     ctx.restore();
 
     let mimeType = actualFmt;
-    const validMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
-    if (!validMimeTypes.includes(mimeType)) mimeType = originalMimeType || 'image/jpeg';
-    
+    // Only formats canvases can actually ENCODE. BMP/GIF requests silently
+    // came back as PNG bytes but kept the wrong name — strict portals reject
+    // a .bmp file with PNG bytes inside. Fall back to PNG honestly instead.
+    const encodableMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+    if (!encodableMimeTypes.includes(mimeType)) mimeType = 'image/png';
+
     let qualityToUse = Math.max(0.1, Math.min(1, q || 0.8));
     if (mimeType === 'image/png') qualityToUse = undefined;
 
     const blob = await canvas.convertToBlob({ type: mimeType, quality: qualityToUse });
+    if (bitmap.close) bitmap.close();
     self.postMessage({ fileId, success: true, blob, mimeType: mimeType });
     
   } catch (err) { 

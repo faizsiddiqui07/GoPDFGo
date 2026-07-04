@@ -1,7 +1,6 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
-import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "HEIC to JPG – Convert iPhone Photos to JPG Free | GoPDFGo",
@@ -28,7 +27,6 @@ export default function HeicToJpgPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <ImageEditor toolId="heic-to-jpg" />
-      <RelatedBlogs toolId="heic-to-jpg" />
     </div>
   );
 }

@@ -1,13 +1,31 @@
 import "./globals.css";
-import Header from "../components/Header"; 
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Script from "next/script";
 
 // Yeh function Google ko title, description aur base URL dega
 export const metadata = {
   title: "GoPDFGo – Free PDF & Image Tools Online",
   description: "Secure, serverless, and free digital tools for everyone. We process your files locally in your browser.",
   metadataBase: new URL('https://gopdfgo.com'),
+  // Site-wide social cards. og:title/og:description automatically fall back to
+  // each page's own title/description, so every page gets a proper card.
+  openGraph: {
+    siteName: "GoPDFGo",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/images/logo.webp",
+        width: 1063,
+        height: 235,
+        alt: "GoPDFGo – Free, private PDF & image tools",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/logo.webp"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -17,23 +35,40 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning 
     >
       <head>
-        {/* Google AdSense Script */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7106106075518883"
-          crossOrigin="anonymous"
-          strategy="afterInteractive" 
+        {/* Google AdSense — loaded AFTER window load so its managed-script
+            injection can't shift <head> nodes mid-hydration (raw <script async>
+            here caused React hydration mismatches, and next/script adds a
+            data-nscript attribute AdSense's head-tag checker flags). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7106106075518883';s.crossOrigin='anonymous';document.head.appendChild(s);});",
+          }}
         />
-        
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "GoPDFGo",
-              url: "https://gopdfgo.com",
-            }),
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "GoPDFGo",
+                url: "https://gopdfgo.com",
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "GoPDFGo",
+                url: "https://gopdfgo.com",
+                logo: "https://gopdfgo.com/images/logo.webp",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  email: "contact.gopdfgo@gmail.com",
+                  contactType: "customer support",
+                },
+              },
+            ]),
           }}
         />
       </head>

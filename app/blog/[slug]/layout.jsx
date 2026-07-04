@@ -24,6 +24,18 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: `https://gopdfgo.com/blog/${post.id}`,
     },
+    openGraph: {
+      type: "article",
+      title: post.seoTitle || post.title,
+      description: post.excerpt,
+      url: `https://gopdfgo.com/blog/${post.id}`,
+      images: [{ url: post.imageUrl, width: 1200, height: 675, alt: post.title }],
+      publishedTime: post.publishedAt || undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [post.imageUrl],
+    },
   };
 }
 

@@ -18,11 +18,16 @@ import {
   Move,
 } from "lucide-react";
 
+// Webfonts loaded from Google Fonts — the previous Windows/macOS system fonts
+// all collapsed to the same generic cursive on Android, making the three
+// style buttons look identical for most visitors.
 const SIG_FONTS = [
-  { label: "Style 1", css: "'Brush Script MT','Segoe Script','Bradley Hand',cursive" },
-  { label: "Style 2", css: "'Lucida Handwriting','Apple Chancery','Segoe Script',cursive" },
-  { label: "Style 3", css: "'Segoe Script','Comic Sans MS',cursive" },
+  { label: "Style 1", family: "Dancing Script", css: "'Dancing Script','Brush Script MT',cursive" },
+  { label: "Style 2", family: "Great Vibes", css: "'Great Vibes','Apple Chancery',cursive" },
+  { label: "Style 3", family: "Caveat", css: "'Caveat','Segoe Script',cursive" },
 ];
+const SIG_FONTS_URL =
+  "https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Dancing+Script:wght@600&family=Great+Vibes&display=swap";
 
 const PDFJS = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174";
 
@@ -99,6 +104,7 @@ export default function SignPdf() {
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [signAllPages, setSignAllPages] = useState(false);
 
   const pdfDocRef = useRef(null);
   const arrayBufRef = useRef(null);
@@ -121,6 +127,30 @@ export default function SignPdf() {
     };
   }, []);
 
+  // Load the signature webfonts once
+  useEffect(() => {
+    if (document.querySelector('link[data-sig-fonts]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = SIG_FONTS_URL;
+    link.setAttribute("data-sig-fonts", "true");
+    document.head.appendChild(link);
+  }, []);
+
+  // Sharp drawing: size the canvas to its on-screen box × devicePixelRatio.
+  // The fixed 600×220 buffer was stretched to fit, blurring strokes and
+  // distorting x vs y (different scale ratios).
+  useEffect(() => {
+    if (sigMode !== "draw") return;
+    const c = drawCanvasRef.current;
+    if (!c) return;
+    const rect = c.getBoundingClientRect();
+    if (rect.width === 0) return;
+    const dpr = window.devicePixelRatio || 1;
+    c.width = Math.round(rect.width * dpr);
+    c.height = Math.round(rect.height * dpr);
+  }, [sigMode, file]);
+
   // ---- Load PDF + render a page ----
   const renderPage = useCallback(async (pageNum) => {
     const pdf = pdfDocRef.current;
@@ -141,7 +171,11 @@ export default function SignPdf() {
   }, []);
 
   const handleFile = async (f) => {
-    if (!f || f.type !== "application/pdf") {
+    const isPdf =
+      f &&
+      (f.type === "application/pdf" ||
+        (f.name || "").toLowerCase().endsWith(".pdf"));
+    if (!isPdf) {
       setErrorMsg("Please choose a PDF file.");
       return;
     }
@@ -167,6 +201,7 @@ export default function SignPdf() {
   };
 
   const goToPage = async (n) => {
+    invalidateResult();
     const target = Math.max(1, Math.min(numPages, n));
     setCurrentPage(target);
     await renderPage(target);
@@ -188,7 +223,7 @@ export default function SignPdf() {
     const ctx = c.getContext("2d");
     const p = canvasPos(e);
     ctx.strokeStyle = "#0b1f4d";
-    ctx.lineWidth = 2.6;
+    ctx.lineWidth = 2.6 * (window.devicePixelRatio || 1);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
     ctx.beginPath();
@@ -217,20 +252,29 @@ export default function SignPdf() {
       return;
     }
     setErrorMsg(null);
+    invalidateResult();
     setSignature({ url: trimmed.toDataURL("image/png"), w: trimmed.width, h: trimmed.height });
     setPlace({ x: 0.34, y: 0.74, w: 0.3 });
   };
 
   // ---- Signature: TYPE ----
-  const applyTyped = () => {
+  const applyTyped = async () => {
     const text = typedText.trim();
     if (!text) {
       setErrorMsg("Type your name first.");
       return;
     }
     setErrorMsg(null);
+    invalidateResult();
     const fontSize = 80;
     const css = `${fontSize}px ${SIG_FONTS[fontIdx].css}`;
+    // Make sure the webfont is actually loaded before rasterizing, otherwise
+    // the canvas falls back to a generic font
+    try {
+      await document.fonts.load(css, text);
+    } catch (e) {
+      /* draw with whatever is available */
+    }
     const meas = document.createElement("canvas").getContext("2d");
     meas.font = css;
     const tw = Math.ceil(meas.measureText(text).width);
@@ -257,6 +301,7 @@ export default function SignPdf() {
     const url = URL.createObjectURL(f);
     const img = new Image();
     img.onload = () => {
+      invalidateResult();
       const canvas = document.createElement("canvas");
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
@@ -283,10 +328,17 @@ export default function SignPdf() {
     return (place.w * pageAR) / sigAR;
   };
 
+  // A finished result belongs to the OLD signature/placement/page — hide the
+  // stale "Signed!" download whenever any of those change.
+  const invalidateResult = () => {
+    setIsDone(false);
+  };
+
   const onDragStart = (e, mode) => {
     e.preventDefault();
     e.stopPropagation();
     if (!previewWrapRef.current) return;
+    invalidateResult();
     const rect = previewWrapRef.current.getBoundingClientRect();
     // Snapshot everything so the math stays stable for the whole drag, and so
     // the exact move/end functions we add are the ones we later remove.
@@ -313,7 +365,15 @@ export default function SignPdf() {
           y: clamp(start.orig.y + dyF, 0, Math.max(0, 1 - hF)),
         });
       } else {
-        const w = clamp(start.orig.w + dxF, 0.06, 1 - start.orig.x);
+        // Cap width horizontally AND so the scaled height never pushes the
+        // signature past the bottom edge (it exported clipped before).
+        const maxWVert =
+          ((1 - start.orig.y) * start.sigAR) / start.pageAR;
+        const w = clamp(
+          start.orig.w + dxF,
+          0.06,
+          Math.max(0.06, Math.min(1 - start.orig.x, maxWVert)),
+        );
         setPlace({ ...start.orig, w });
       }
     };
@@ -340,50 +400,57 @@ export default function SignPdf() {
       const pngBytes = await (await fetch(signature.url)).arrayBuffer();
       const sigImg = await pdfDoc.embedPng(pngBytes);
 
-      const page = pdfDoc.getPages()[currentPage - 1];
-      // pdf.js (preview) applies the page's /Rotate flag; pdf-lib's getWidth/Height
-      // and drawImage work in the UNROTATED MediaBox. Map the user's placement
-      // (measured in the rotated, as-seen frame) back into MediaBox space.
-      const rot = ((page.getRotation().angle % 360) + 360) % 360;
-      const pw = page.getWidth();
-      const ph = page.getHeight();
-      const rotated = rot === 90 || rot === 270;
-      const Wv = rotated ? ph : pw; // visible frame width (matches the preview)
-      const Hv = rotated ? pw : ph; // visible frame height
+      const allPages = pdfDoc.getPages();
+      const targets = signAllPages
+        ? allPages
+        : [allPages[currentPage - 1]];
 
-      const bw = place.w * Wv;
-      const bh = bw * (signature.h / signature.w);
-      const vx = place.x * Wv; // box left in the visible frame
-      const vy = place.y * Hv; // box top in the visible frame
+      for (const page of targets) {
+        // pdf.js (preview) applies the page's /Rotate flag; pdf-lib's getWidth/Height
+        // and drawImage work in the UNROTATED MediaBox. Map the user's placement
+        // (measured in the rotated, as-seen frame) back into MediaBox space —
+        // computed per page, since sizes/rotations can differ page to page.
+        const rot = ((page.getRotation().angle % 360) + 360) % 360;
+        const pw = page.getWidth();
+        const ph = page.getHeight();
+        const rotated = rot === 90 || rot === 270;
+        const Wv = rotated ? ph : pw; // visible frame width (matches the preview)
+        const Hv = rotated ? pw : ph; // visible frame height
 
-      let x;
-      let y;
-      let rotateDeg;
-      if (rot === 90) {
-        x = vy + bh;
-        y = vx;
-        rotateDeg = 90;
-      } else if (rot === 180) {
-        x = pw - vx;
-        y = vy + bh;
-        rotateDeg = 180;
-      } else if (rot === 270) {
-        x = pw - vy - bh;
-        y = ph - vx;
-        rotateDeg = 270;
-      } else {
-        x = vx;
-        y = ph - vy - bh;
-        rotateDeg = 0;
+        const bw = place.w * Wv;
+        const bh = bw * (signature.h / signature.w);
+        const vx = place.x * Wv; // box left in the visible frame
+        const vy = place.y * Hv; // box top in the visible frame
+
+        let x;
+        let y;
+        let rotateDeg;
+        if (rot === 90) {
+          x = vy + bh;
+          y = vx;
+          rotateDeg = 90;
+        } else if (rot === 180) {
+          x = pw - vx;
+          y = vy + bh;
+          rotateDeg = 180;
+        } else if (rot === 270) {
+          x = pw - vy - bh;
+          y = ph - vx;
+          rotateDeg = 270;
+        } else {
+          x = vx;
+          y = ph - vy - bh;
+          rotateDeg = 0;
+        }
+
+        page.drawImage(sigImg, {
+          x,
+          y,
+          width: bw,
+          height: bh,
+          rotate: degrees(rotateDeg),
+        });
       }
-
-      page.drawImage(sigImg, {
-        x,
-        y,
-        width: bw,
-        height: bh,
-        rotate: degrees(rotateDeg),
-      });
 
       const bytes = await pdfDoc.save();
       const blob = new Blob([bytes], { type: "application/pdf" });
@@ -420,7 +487,11 @@ export default function SignPdf() {
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
       <div className="mb-6">
         <button
-          onClick={() => router.back()}
+          onClick={() =>
+            document.referrer.startsWith(window.location.origin)
+              ? router.back()
+              : router.push("/")
+          }
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
@@ -588,6 +659,23 @@ export default function SignPdf() {
               </div>
             )}
 
+            {signature && numPages > 1 && (
+              <label className="flex items-center gap-2 cursor-pointer bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5">
+                <input
+                  type="checkbox"
+                  checked={signAllPages}
+                  onChange={(e) => {
+                    setSignAllPages(e.target.checked);
+                    invalidateResult();
+                  }}
+                  className="accent-[#FF9933] w-4 h-4"
+                />
+                <span className="text-sm font-bold text-slate-700">
+                  Place this signature on all {numPages} pages
+                </span>
+              </label>
+            )}
+
             {!isDone ? (
               <button
                 onClick={signAndDownload}
@@ -638,6 +726,7 @@ export default function SignPdf() {
               <button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage <= 1}
+                aria-label="Previous page"
                 className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-[#FF9933] cursor-pointer disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={18} />
@@ -648,6 +737,7 @@ export default function SignPdf() {
               <button
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage >= numPages}
+                aria-label="Next page"
                 className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-[#FF9933] cursor-pointer disabled:cursor-not-allowed"
               >
                 <ChevronRight size={18} />

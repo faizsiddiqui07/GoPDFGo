@@ -1,7 +1,6 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
-import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
   title: "HEIC to WebP – Convert iPhone Photos to WebP Free | GoPDFGo",
@@ -28,7 +27,6 @@ export default function HeicToWebpPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <ImageEditor toolId="heic-to-webp" />
-      <RelatedBlogs toolId="heic-to-webp" />
     </div>
   );
 }

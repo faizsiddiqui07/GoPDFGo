@@ -66,6 +66,101 @@ const TOOL_BLOG_MAP = {
     "compress-pan-card-pdf-kyc-verification",
     "local-pdf-processing-vs-cloud-tools-safer",
   ],
+  "pdf-to-text": [
+    "extract-single-page-from-large-pdf",
+    "local-pdf-processing-vs-cloud-tools-safer",
+    "best-secure-alternatives-ilovepdf-smallpdf",
+  ],
+  "organize-pdf": [
+    "rearrange-scanned-pdf-page-order",
+    "organize-merge-documents-online-visa-applications",
+    "prepare-property-documents-one-pdf-home-loan",
+  ],
+  "sign-pdf": [
+    "mask-aadhaar-card-safely-for-rent-agreements",
+    "common-pdf-mistakes-online-job-applications",
+    "local-pdf-processing-vs-cloud-tools-safer",
+  ],
+  "heic-to-jpg": [
+    "jpg-vs-png-format-guide",
+    "convert-mobile-photos-to-clear-pdf",
+    "fix-mirrored-selfies-upside-down-photos-online",
+  ],
+  "heic-to-png": [
+    "jpg-vs-png-format-guide",
+    "convert-webp-to-png-for-photoshop",
+    "find-exact-color-code-hex-rgb",
+  ],
+  "heic-to-webp": [
+    "compress-webp-images-speed-up-wordpress",
+    "jpg-vs-png-format-guide",
+    "convert-webp-to-png-for-photoshop",
+  ],
+  "compress-jpg": [
+    "compress-jpg-under-20kb-online-forms",
+    "resize-passport-photo-signature-200x230",
+    "common-pdf-mistakes-online-job-applications",
+  ],
+  "compress-jpeg": [
+    "compress-jpg-under-20kb-online-forms",
+    "resize-passport-photo-signature-200x230",
+    "convert-expense-receipts-to-pdf-reimbursement",
+  ],
+  "compress-webp": [
+    "compress-webp-images-speed-up-wordpress",
+    "jpg-vs-png-format-guide",
+    "convert-webp-to-png-for-photoshop",
+  ],
+  resize: [
+    "resize-passport-photo-signature-200x230",
+    "compress-jpg-under-20kb-online-forms",
+    "fix-mirrored-selfies-upside-down-photos-online",
+  ],
+  crop: [
+    "remove-unwanted-edges-crop-scanned-documents",
+    "resize-passport-photo-signature-200x230",
+    "mask-aadhaar-card-safely-for-rent-agreements",
+  ],
+  "convert-jpg": [
+    "jpg-vs-png-format-guide",
+    "convert-webp-to-png-for-photoshop",
+    "compress-jpg-under-20kb-online-forms",
+  ],
+  "convert-png": [
+    "jpg-vs-png-format-guide",
+    "convert-webp-to-png-for-photoshop",
+    "find-exact-color-code-hex-rgb",
+  ],
+  "convert-webp": [
+    "convert-webp-to-png-for-photoshop",
+    "compress-webp-images-speed-up-wordpress",
+    "jpg-vs-png-format-guide",
+  ],
+  rotate: [
+    "fix-mirrored-selfies-upside-down-photos-online",
+    "rotate-scanned-assignment-pages-permanently",
+    "remove-unwanted-edges-crop-scanned-documents",
+  ],
+  flip: [
+    "fix-mirrored-selfies-upside-down-photos-online",
+    "jpg-vs-png-format-guide",
+    "find-exact-color-code-hex-rgb",
+  ],
+  "color-picker": [
+    "find-exact-color-code-hex-rgb",
+    "jpg-vs-png-format-guide",
+    "compress-webp-images-speed-up-wordpress",
+  ],
+  "aadhaar-masking": [
+    "mask-aadhaar-card-safely-for-rent-agreements",
+    "never-upload-bank-statements-free-pdf-sites",
+    "local-pdf-processing-vs-cloud-tools-safer",
+  ],
+  "qr-generator": [
+    "generate-free-qr-codes-for-website",
+    "share-wifi-without-passwords-free-qr-code",
+    "static-vs-dynamic-qr-codes-difference",
+  ],
 };
 
 const RelatedBlogs = ({ toolId }) => {

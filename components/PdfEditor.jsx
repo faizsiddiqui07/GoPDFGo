@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import Script from "next/script";
 import {
   ArrowLeft,
   Trash2,
@@ -118,9 +117,18 @@ const PdfEditor = ({ toolId }) => {
 
   // New tools: PDF→image format, watermark text/opacity, unlock password
   const [imgFormat, setImgFormat] = useState("image/jpeg");
+  const [imgQuality, setImgQuality] = useState(0.92); // pdf-to-image JPG quality
   const [watermarkText, setWatermarkText] = useState("CONFIDENTIAL");
   const [watermarkOpacity, setWatermarkOpacity] = useState(0.3);
   const [watermarkPos, setWatermarkPos] = useState("diagonal");
+  const [watermarkSize, setWatermarkSize] = useState("normal"); // small | normal | large
+  const [watermarkColor, setWatermarkColor] = useState("gray"); // gray | red | blue
+
+  // Page numbers: position / start / format / skip-cover options
+  const [pageNumPos, setPageNumPos] = useState("bottom-center");
+  const [pageNumStart, setPageNumStart] = useState(1);
+  const [pageNumFormat, setPageNumFormat] = useState("plain"); // plain | pageofn
+  const [pageNumSkipFirst, setPageNumSkipFirst] = useState(false);
   const [pdfPassword, setPdfPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -196,9 +204,10 @@ const PdfEditor = ({ toolId }) => {
   // --- Thumbnail Generation ---
   const generatePdfThumbnail = async (file, pageNum = 1) => {
     if (!window.pdfjsLib) return null;
+    let pdf = null;
     try {
       const arrayBuffer = await file.arrayBuffer();
-      const pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
+      pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
 
       const page = await pdf.getPage(pageNum);
       const scale = 1.0;
@@ -209,9 +218,10 @@ const PdfEditor = ({ toolId }) => {
       canvas.width = viewport.width;
       await page.render({ canvasContext: context, viewport }).promise;
 
-      return new Promise((resolve) => {
+      return await new Promise((resolve) => {
         canvas.toBlob(
           (blob) => {
+            if (!blob) return resolve(null); // OOM on low-end devices
             const url = URL.createObjectURL(blob);
             blobUrlsRef.current.add(url);
             resolve(url);
@@ -222,11 +232,24 @@ const PdfEditor = ({ toolId }) => {
       });
     } catch (e) {
       return null;
+    } finally {
+      // pdf.js keeps a worker document alive unless destroyed — this leaked
+      // one document per uploaded file (e.g. 20 leaks when merging 20 PDFs)
+      try {
+        await pdf?.destroy();
+      } catch (e) {
+        /* ignore */
+      }
     }
   };
 
+  // Generation counter: replacing the file mid-render previously left two
+  // loops appending thumbnails of DIFFERENT PDFs into the same grid.
+  const thumbGenRef = useRef(0);
+
   const generateAllThumbnails = async (file) => {
     if (!window.pdfjsLib) return;
+    const gen = ++thumbGenRef.current;
     // Revoke thumbnails from a previously-loaded PDF (prevents memory leak on Replace)
     setThumbnails((prev) => {
       prev.forEach((t) => {
@@ -241,9 +264,11 @@ const PdfEditor = ({ toolId }) => {
     setInfoMsg(null);
     setErrorMsg(null);
 
+    let pdf = null;
     try {
       const arrayBuffer = await file.arrayBuffer();
-      const pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
+      pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
+      if (gen !== thumbGenRef.current) return; // a newer file took over
       const numPages = pdf.numPages;
 
       if (numPages > 50) {
@@ -263,6 +288,7 @@ const PdfEditor = ({ toolId }) => {
       const CHUNK_SIZE = 3;
 
       for (let i = 1; i <= numPages; i++) {
+        if (gen !== thumbGenRef.current) return; // bail out of the stale loop
         const page = await pdf.getPage(i);
         const scale = 0.5;
         const viewport = page.getViewport({ scale });
@@ -275,6 +301,7 @@ const PdfEditor = ({ toolId }) => {
         const url = await new Promise((resolve) => {
           canvas.toBlob(
             (blob) => {
+              if (!blob) return resolve(null); // OOM — skip this page
               const newUrl = URL.createObjectURL(blob);
               blobUrlsRef.current.add(newUrl);
               resolve(newUrl);
@@ -284,7 +311,14 @@ const PdfEditor = ({ toolId }) => {
           );
         });
 
-        setThumbnails((prev) => [...prev, { pageNum: i, url }]);
+        if (gen !== thumbGenRef.current) {
+          if (url) {
+            URL.revokeObjectURL(url);
+            blobUrlsRef.current.delete(url);
+          }
+          return;
+        }
+        if (url) setThumbnails((prev) => [...prev, { pageNum: i, url }]);
 
         if (i % CHUNK_SIZE === 0) {
           await new Promise((resolve) => setTimeout(resolve, 15));
@@ -292,23 +326,37 @@ const PdfEditor = ({ toolId }) => {
       }
     } catch (e) {
       console.error("Error generating all thumbnails", e);
-      setErrorMsg(
-        "Error rendering pages. The PDF might be corrupted or protected.",
-      );
+      if (gen === thumbGenRef.current) {
+        setErrorMsg(
+          "Error rendering pages. The PDF might be corrupted or protected.",
+        );
+      }
     } finally {
-      setGeneratingThumbnails(false);
-      setInfoMsg(null); // Clear info once done
+      try {
+        await pdf?.destroy();
+      } catch (e) {
+        /* ignore */
+      }
+      if (gen === thumbGenRef.current) {
+        setGeneratingThumbnails(false);
+        setInfoMsg(null); // Clear info once done
+      }
     }
   };
 
   const loadPdfJs = async () => {
     if (window.pdfjsLib) return true; // Agar pehle se load hai toh wapas jao
-    
+
     return new Promise((resolve, reject) => {
+      // Reuse a previous (possibly failed) tag instead of stacking new ones
+      const existing = document.getElementById("pdfjs-cdn");
+      if (existing) existing.remove();
+
       const script = document.createElement("script");
+      script.id = "pdfjs-cdn";
       script.src = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
       script.async = true;
-      
+
       script.onload = () => {
         window.pdfjsLib.GlobalWorkerOptions.workerSrc =
           "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
@@ -316,10 +364,11 @@ const PdfEditor = ({ toolId }) => {
         resolve(true);
       };
       script.onerror = () => {
+        script.remove();
         setErrorMsg("Failed to load PDF engine. Check your internet connection.");
-        reject(false);
+        reject(new Error("pdfjs load failed"));
       };
-      
+
       document.body.appendChild(script);
     });
   };
@@ -329,9 +378,15 @@ const PdfEditor = ({ toolId }) => {
     const selectedFiles = Array.from(e.target.files);
     let validFiles = [];
 
+    // Accept by MIME or .pdf extension — Android file managers / WhatsApp
+    // downloads often hand over PDFs with a blank MIME type.
+    const isPdfFile = (f) =>
+      f.type === "application/pdf" ||
+      (f.name || "").toLowerCase().endsWith(".pdf");
+
     if (tool.id === "image-to-pdf")
       validFiles = selectedFiles.filter((f) => f.type.startsWith("image/"));
-    else validFiles = selectedFiles.filter((f) => f.type === "application/pdf");
+    else validFiles = selectedFiles.filter(isPdfFile);
 
     if (validFiles.length === 0) {
       setErrorMsg("Invalid file type selected.");
@@ -340,11 +395,32 @@ const PdfEditor = ({ toolId }) => {
 
     const allowMulti = ["merge-pdf", "image-to-pdf"].includes(tool.id);
 
+    // Soft warning for very large files — a 300MB PDF can crash a phone tab
+    const bigOne = validFiles.find((f) => f.size > 50 * 1024 * 1024);
+    if (bigOne) {
+      setInfoMsg(
+        `"${bigOne.name}" is ${(bigOne.size / (1024 * 1024)).toFixed(0)} MB — large files may be slow or run out of memory on phones. A laptop handles them better.`,
+      );
+    }
+
+    // Single-file tools: tell the user we kept only the first selection
+    if (!allowMulti && validFiles.length > 1) {
+      setInfoMsg(
+        `This tool works on one file at a time — using "${validFiles[0].name}" and ignoring the other ${validFiles.length - 1}.`,
+      );
+    }
+
     setIsUploading(true);
 
-    // ✅ CHATGPT KA FIX APPLIED YAHAN: Pehle PDF.js load karo (Sirf upload ke time)
-    if (validFiles.some((f) => f.type === "application/pdf")) {
-      await loadPdfJs(); 
+    // Load pdf.js up front for PDF previews — but never let a CDN failure
+    // strand the uploader in the disabled "Processing files..." state.
+    if (validFiles.some(isPdfFile)) {
+      try {
+        await loadPdfJs();
+      } catch (err) {
+        setIsUploading(false);
+        return; // loadPdfJs already set a helpful error message
+      }
     }
 
     setTimeout(async () => {
@@ -621,33 +697,58 @@ const PdfEditor = ({ toolId }) => {
         const pageWidth = pdfOrientation === "portrait" ? A4_WIDTH : A4_HEIGHT;
         const pageHeight = pdfOrientation === "portrait" ? A4_HEIGHT : A4_WIDTH;
 
+        // Re-encode via canvas honoring EXIF orientation — phone JPEGs otherwise
+        // land sideways in the PDF even though the on-screen preview looks fine.
+        const bakeOrientation = async (file, outType, quality) => {
+          const bitmap = await createImageBitmap(file, {
+            imageOrientation: "from-image",
+          });
+          const canvas = document.createElement("canvas");
+          canvas.width = bitmap.width;
+          canvas.height = bitmap.height;
+          const ctx = canvas.getContext("2d");
+          if (outType === "image/jpeg") {
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+          }
+          ctx.drawImage(bitmap, 0, 0);
+          if (bitmap.close) bitmap.close();
+          const blob = await new Promise((resolve) =>
+            canvas.toBlob(resolve, outType, quality),
+          );
+          canvas.width = 0;
+          canvas.height = 0;
+          canvas.remove();
+          if (!blob) throw new Error("encode failed");
+          return blob.arrayBuffer();
+        };
+
         const skipped = [];
         for (const item of files) {
           try {
             let image;
-            let imageBytes = await item.file.arrayBuffer();
 
             if (
               item.file.type === "image/jpeg" ||
               item.file.type === "image/jpg"
-            )
-              image = await newPdf.embedJpg(imageBytes);
-            else if (item.file.type === "image/png")
-              image = await newPdf.embedPng(imageBytes);
-            else if (item.file.type === "image/webp") {
-              const bitmap = await createImageBitmap(item.file);
-              const canvas = document.createElement("canvas");
-              canvas.width = bitmap.width;
-              canvas.height = bitmap.height;
-              const ctx = canvas.getContext("2d");
-              ctx.drawImage(bitmap, 0, 0);
-              const blob = await new Promise((resolve) =>
-                canvas.toBlob(resolve, "image/png"),
-              );
-              imageBytes = await blob.arrayBuffer();
-              image = await newPdf.embedPng(imageBytes);
+            ) {
+              try {
+                const bytes = await bakeOrientation(
+                  item.file,
+                  "image/jpeg",
+                  0.92,
+                );
+                image = await newPdf.embedJpg(bytes);
+              } catch (e) {
+                // decoding failed — fall back to embedding the raw JPEG
+                image = await newPdf.embedJpg(await item.file.arrayBuffer());
+              }
+            } else if (item.file.type === "image/png") {
+              image = await newPdf.embedPng(await item.file.arrayBuffer());
             } else {
-              image = await newPdf.embedPng(imageBytes);
+              // WebP/GIF/BMP and anything else the browser can decode
+              const bytes = await bakeOrientation(item.file, "image/png");
+              image = await newPdf.embedPng(bytes);
             }
 
             if (image) {
@@ -684,52 +785,107 @@ const PdfEditor = ({ toolId }) => {
         // 3. SPLIT
       } else if (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") {
         const file = files[0].file;
+        const baseName = file.name.replace(/\.pdf$/i, "");
         const arrayBuffer = await file.arrayBuffer();
         const pdf = await PDFDocument.load(arrayBuffer);
         const pageCount = pdf.getPageCount();
-        const zip = new JSZip();
 
-        let pagesToExtract = [];
-        if (splitMode === "all") {
-          for (let i = 0; i < pageCount; i++) pagesToExtract.push(i);
-        } else {
-          if (selectedPages.size === 0 && rangeInput.trim().length > 0) {
-            const parts = rangeInput.split(",").map((s) => s.trim());
-            parts.forEach((part) => {
+        // Parse the range input into PARTS ("1-5, 8, 10-12" → three groups).
+        // Split keeps each part as its own output file; extract flattens them.
+        const parseParts = (text) => {
+          const groups = [];
+          text
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean)
+            .forEach((part) => {
+              const pages = [];
               if (part.includes("-")) {
                 let [start, end] = part.split("-").map(Number);
                 if (!isNaN(start) && !isNaN(end)) {
                   if (start > end) [start, end] = [end, start];
                   for (let i = start; i <= end; i++)
-                    if (i >= 1 && i <= pageCount) pagesToExtract.push(i - 1);
+                    if (i >= 1 && i <= pageCount) pages.push(i - 1);
                 }
               } else {
                 const num = Number(part);
                 if (!isNaN(num) && num >= 1 && num <= pageCount)
-                  pagesToExtract.push(num - 1);
+                  pages.push(num - 1);
               }
+              if (pages.length > 0) groups.push({ label: part, pages });
             });
+          return groups;
+        };
+
+        // Copy a set of zero-based page indices into ONE new PDF.
+        const buildPdfFromPages = async (indices) => {
+          const outPdf = await PDFDocument.create();
+          const copied = await outPdf.copyPages(pdf, indices);
+          copied.forEach((p) => outPdf.addPage(p));
+          return outPdf.save();
+        };
+
+        if (tool.id === "extract-pdf-pages") {
+          // EXTRACT: all selected pages → one combined PDF (as the page promises)
+          let pagesToExtract = [];
+          if (splitMode === "all") {
+            for (let i = 0; i < pageCount; i++) pagesToExtract.push(i);
+          } else if (rangeInput.trim().length > 0) {
+            parseParts(rangeInput).forEach((g) => pagesToExtract.push(...g.pages));
           } else {
             pagesToExtract = Array.from(selectedPages).map((p) => p - 1);
           }
           pagesToExtract = [...new Set(pagesToExtract)].sort((a, b) => a - b);
-        }
-        if (pagesToExtract.length === 0) {
-          setErrorMsg("Please select at least one page to extract.");
-          setIsProcessing(false);
-          return;
-        }
 
-        for (const pageIdx of pagesToExtract) {
-          const subPdf = await PDFDocument.create();
-          const [copiedPage] = await subPdf.copyPages(pdf, [pageIdx]);
-          subPdf.addPage(copiedPage);
-          const pdfBytes = await subPdf.save();
-          zip.file(`page-${pageIdx + 1}.pdf`, pdfBytes);
-        }
+          if (pagesToExtract.length === 0) {
+            setErrorMsg("Please select at least one page to extract.");
+            setIsProcessing(false);
+            return;
+          }
 
-        const content = await zip.generateAsync({ type: "blob" });
-        finalizePdf(content, `GoPDFGo_${file.name}.zip`, "application/zip");
+          const pdfBytes = await buildPdfFromPages(pagesToExtract);
+          finalizePdf(pdfBytes, `GoPDFGo_${baseName}_extracted.pdf`);
+        } else {
+          // SPLIT: each entered range becomes its own PDF.
+          // "All pages" mode = every page as a separate PDF (classic split).
+          let groups = [];
+          if (splitMode === "all") {
+            for (let i = 0; i < pageCount; i++)
+              groups.push({ label: `${i + 1}`, pages: [i] });
+          } else if (rangeInput.trim().length > 0) {
+            groups = parseParts(rangeInput);
+          } else {
+            groups = Array.from(selectedPages)
+              .sort((a, b) => a - b)
+              .map((p) => ({ label: `${p}`, pages: [p - 1] }));
+          }
+
+          if (groups.length === 0) {
+            setErrorMsg("Please select at least one page to split.");
+            setIsProcessing(false);
+            return;
+          }
+
+          if (groups.length === 1) {
+            // One range → one clean PDF, no ZIP needed
+            const pdfBytes = await buildPdfFromPages(groups[0].pages);
+            const safe = groups[0].label.replace(/[^0-9-]/g, "");
+            finalizePdf(pdfBytes, `GoPDFGo_${baseName}_pages-${safe}.pdf`);
+          } else {
+            const zip = new JSZip();
+            for (const g of groups) {
+              const pdfBytes = await buildPdfFromPages(g.pages);
+              const safe = g.label.replace(/[^0-9-]/g, "");
+              zip.file(`${baseName}_pages-${safe}.pdf`, pdfBytes);
+            }
+            const content = await zip.generateAsync({ type: "blob" });
+            finalizePdf(
+              content,
+              `GoPDFGo_${baseName}_split.zip`,
+              "application/zip",
+            );
+          }
+        }
 
         // 4. ROTATE
       } else if (tool.id === "rotate-pdf") {
@@ -741,7 +897,10 @@ const PdfEditor = ({ toolId }) => {
         pages.forEach((page, idx) => {
           const currentRotation = page.getRotation().angle;
           const addedRotation = pageRotations[idx] || 0;
-          page.setRotation(degrees(currentRotation + addedRotation));
+          // Normalize: negative or >360 /Rotate values render wrong in some viewers
+          const normalized =
+            (((currentRotation + addedRotation) % 360) + 360) % 360;
+          page.setRotation(degrees(normalized));
         });
 
         const pdfBytes = await pdf.save();
@@ -933,27 +1092,58 @@ const PdfEditor = ({ toolId }) => {
         const size = 12;
         const margin = 24;
 
+        const startNum = Math.max(1, Number(pageNumStart) || 1);
+        const skip = pageNumSkipFirst && pages.length > 1;
+        const totalNumbered = pages.length - (skip ? 1 : 0);
+        const lastNum = startNum + totalNumbered - 1;
+
         pages.forEach((page, idx) => {
-          const text = `${idx + 1}`;
+          if (skip && idx === 0) return; // cover page stays clean
+
+          const n = startNum + idx - (skip ? 1 : 0);
+          const text =
+            pageNumFormat === "pageofn" ? `Page ${n} of ${lastNum}` : `${n}`;
           const textWidth = font.widthOfTextAtSize(text, size);
           const { width, height } = page.getSize();
           const angle = ((page.getRotation().angle % 360) + 360) % 360;
 
-          // Place the number at the VISUAL bottom-center, honoring page rotation
+          // Work in the VISUAL frame (what the reader sees), then map back to
+          // the unrotated page coordinates pdf-lib draws in.
+          const rotatedPage = angle === 90 || angle === 270;
+          const Wv = rotatedPage ? height : width;
+          const Hv = rotatedPage ? width : height;
+
+          let vx; // from visual-left to the text start
+          let vy; // from visual-bottom to the baseline
+          if (pageNumPos === "bottom-left") {
+            vx = margin;
+            vy = margin;
+          } else if (pageNumPos === "bottom-right") {
+            vx = Wv - margin - textWidth;
+            vy = margin;
+          } else if (pageNumPos === "top-right") {
+            vx = Wv - margin - textWidth;
+            vy = Hv - margin - size;
+          } else {
+            // bottom-center (default)
+            vx = (Wv - textWidth) / 2;
+            vy = margin;
+          }
+
           let x;
           let y;
           if (angle === 90) {
-            x = margin;
-            y = (height - textWidth) / 2;
+            x = vy;
+            y = vx;
           } else if (angle === 180) {
-            x = (width + textWidth) / 2;
-            y = height - margin;
+            x = width - vx;
+            y = height - vy;
           } else if (angle === 270) {
-            x = width - margin;
-            y = (height + textWidth) / 2;
+            x = width - vy;
+            y = height - vx;
           } else {
-            x = (width - textWidth) / 2;
-            y = margin;
+            x = vx;
+            y = vy;
           }
 
           page.drawText(text, {
@@ -1002,7 +1192,18 @@ const PdfEditor = ({ toolId }) => {
         const baseName = file.name.replace(/\.pdf$/i, "");
         const images = [];
 
-        for (let i = 1; i <= pdf.numPages; i++) {
+        // Convert only the pages the user left selected (all by default)
+        const wantedPages = Array.from(selectedPages)
+          .filter((p) => p >= 1 && p <= pdf.numPages)
+          .sort((a, b) => a - b);
+        if (wantedPages.length === 0) {
+          setErrorMsg("Select at least one page to convert.");
+          if (pdf.destroy) pdf.destroy();
+          setIsProcessing(false);
+          return;
+        }
+
+        for (const i of wantedPages) {
           const page = await pdf.getPage(i);
           const baseViewport = page.getViewport({ scale: 1.0 });
           const maxSide = Math.max(baseViewport.width, baseViewport.height);
@@ -1018,7 +1219,7 @@ const PdfEditor = ({ toolId }) => {
           }
           await page.render({ canvasContext: context, viewport }).promise;
           const blob = await new Promise((res) =>
-            canvas.toBlob(res, imgFormat, 0.92),
+            canvas.toBlob(res, imgFormat, imgQuality),
           );
           images.push({ name: `${baseName}-page-${i}.${ext}`, blob });
           canvas.width = 0;
@@ -1028,7 +1229,7 @@ const PdfEditor = ({ toolId }) => {
         if (pdf.destroy) pdf.destroy();
 
         if (images.length === 1) {
-          finalizePdf(images[0].blob, images[0].name, imgFormat);
+          finalizePdf(images[0].blob, `GoPDFGo_${images[0].name}`, imgFormat);
         } else {
           const zip = new JSZip();
           images.forEach((im) => zip.file(im.name, im.blob));
@@ -1056,65 +1257,81 @@ const PdfEditor = ({ toolId }) => {
         const font = await pdf.embedFont(StandardFonts.HelveticaBold);
         const pages = pdf.getPages();
         const opacity = Math.max(0.05, Math.min(1, watermarkOpacity));
-        const gray = rgb(0.5, 0.5, 0.5);
+        const wmColor =
+          watermarkColor === "red"
+            ? rgb(0.82, 0.16, 0.16)
+            : watermarkColor === "blue"
+              ? rgb(0.16, 0.35, 0.78)
+              : rgb(0.5, 0.5, 0.5);
+        const sizeMul =
+          watermarkSize === "small" ? 0.7 : watermarkSize === "large" ? 1.35 : 1;
         const diag = Math.cos(Math.PI / 4);
 
         pages.forEach((page) => {
           const { width, height } = page.getSize();
+          // Draw in the VISUAL frame so the stamp lands where the reader sees
+          // it, even on /Rotate-d scans (footer used to land on a side edge).
+          const angle = ((page.getRotation().angle % 360) + 360) % 360;
+          const rotatedPage = angle === 90 || angle === 270;
+          const Wv = rotatedPage ? height : width;
+          const Hv = rotatedPage ? width : height;
+
+          const toBase = (vx, vy) => {
+            if (angle === 90) return { x: vy, y: vx };
+            if (angle === 180) return { x: width - vx, y: height - vy };
+            if (angle === 270) return { x: width - vy, y: height - vx };
+            return { x: vx, y: vy };
+          };
+          const stamp = (vx, vy, fontSize, extraRotate = 0) => {
+            const { x, y } = toBase(vx, vy);
+            page.drawText(text, {
+              x,
+              y,
+              size: fontSize,
+              font,
+              color: wmColor,
+              rotate: degrees(angle + extraRotate),
+              opacity,
+            });
+          };
 
           if (watermarkPos === "tiled") {
-            const fontSize = Math.max(14, Math.min(width, height) / 22);
+            const fontSize =
+              Math.max(14, Math.min(Wv, Hv) / 22) * sizeMul;
             const tw = font.widthOfTextAtSize(text, fontSize);
-            const stepX = width / 3;
-            const stepY = height / 4;
+            const stepX = Wv / 3;
+            const stepY = Hv / 4;
             for (let gx = 0; gx < 3; gx++) {
               for (let gy = 0; gy < 4; gy++) {
-                page.drawText(text, {
-                  x: stepX * gx + stepX / 2 - (tw / 2) * diag,
-                  y: stepY * gy + stepY / 2 - (tw / 2) * diag,
-                  size: fontSize,
-                  font,
-                  color: gray,
-                  rotate: degrees(45),
-                  opacity,
-                });
+                stamp(
+                  stepX * gx + stepX / 2 - (tw / 2) * diag,
+                  stepY * gy + stepY / 2 - (tw / 2) * diag,
+                  fontSize,
+                  45,
+                );
               }
             }
           } else if (watermarkPos === "footer") {
-            const fontSize = Math.max(12, Math.min(width, height) / 28);
+            const fontSize =
+              Math.max(12, Math.min(Wv, Hv) / 28) * sizeMul;
             const tw = font.widthOfTextAtSize(text, fontSize);
-            page.drawText(text, {
-              x: (width - tw) / 2,
-              y: 24,
-              size: fontSize,
-              font,
-              color: gray,
-              opacity,
-            });
+            stamp((Wv - tw) / 2, 24, fontSize);
           } else if (watermarkPos === "center") {
-            const fontSize = Math.max(24, Math.min(width, height) / 12);
+            const fontSize =
+              Math.max(24, Math.min(Wv, Hv) / 12) * sizeMul;
             const tw = font.widthOfTextAtSize(text, fontSize);
-            page.drawText(text, {
-              x: (width - tw) / 2,
-              y: height / 2 - fontSize / 2,
-              size: fontSize,
-              font,
-              color: gray,
-              opacity,
-            });
+            stamp((Wv - tw) / 2, Hv / 2 - fontSize / 2, fontSize);
           } else {
             // diagonal (default)
-            const fontSize = Math.max(24, Math.min(width, height) / 12);
+            const fontSize =
+              Math.max(24, Math.min(Wv, Hv) / 12) * sizeMul;
             const tw = font.widthOfTextAtSize(text, fontSize);
-            page.drawText(text, {
-              x: width / 2 - (tw / 2) * diag,
-              y: height / 2 - (tw / 2) * diag,
-              size: fontSize,
-              font,
-              color: gray,
-              rotate: degrees(45),
-              opacity,
-            });
+            stamp(
+              Wv / 2 - (tw / 2) * diag,
+              Hv / 2 - (tw / 2) * diag,
+              fontSize,
+              45,
+            );
           }
         });
 
@@ -1325,11 +1542,24 @@ const PdfEditor = ({ toolId }) => {
     setIsProcessing(false);
   };
 
+  // Visitors landing straight from Google have no in-site history —
+  // router.back() would bounce them off the site entirely.
+  const goBackToTools = () => {
+    if (
+      typeof document !== "undefined" &&
+      document.referrer.startsWith(window.location.origin)
+    ) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
       <div className="mb-6">
         <button
-          onClick={() => router.back()}
+          onClick={goBackToTools}
           className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
@@ -1581,6 +1811,8 @@ const PdfEditor = ({ toolId }) => {
                           <button
                             onClick={() => removeFile(item.id)}
                             onPointerDown={(e) => e.stopPropagation()}
+                            aria-label="Remove file"
+                            title="Remove file"
                             className="absolute top-3 right-3 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-full transition p-2 cursor-pointer relative z-20"
                           >
                             <Trash2 size={18} />
@@ -2026,7 +2258,7 @@ const PdfEditor = ({ toolId }) => {
           {/* PDF to Image Controls */}
           {files.length > 0 && tool.id === "pdf-to-image" && (
             <div className="mb-8 animate-fade-in">
-              <div className="flex gap-4 justify-center mb-6">
+              <div className="flex flex-wrap gap-3 justify-center mb-4">
                 <button
                   onClick={() => setImgFormat("image/jpeg")}
                   className={`px-8 py-3 rounded-xl font-bold transition cursor-pointer ${
@@ -2048,6 +2280,39 @@ const PdfEditor = ({ toolId }) => {
                   PNG
                 </button>
               </div>
+
+              {imgFormat === "image/jpeg" && (
+                <div className="flex items-center gap-2 justify-center mb-4">
+                  <span className="text-sm font-semibold text-slate-600">
+                    Quality:
+                  </span>
+                  {[
+                    { v: 0.8, label: "Good" },
+                    { v: 0.92, label: "High" },
+                    { v: 1.0, label: "Max" },
+                  ].map((q) => (
+                    <button
+                      key={q.v}
+                      onClick={() => setImgQuality(q.v)}
+                      className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                        imgQuality === q.v
+                          ? "bg-[#FF9933] text-white border-[#FF9933]"
+                          : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                      }`}
+                    >
+                      {q.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              <div className="text-center mb-4">
+                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                  Tap pages to include or exclude them —{" "}
+                  {selectedPages.size} of {thumbnails.length || "…"} selected
+                </p>
+              </div>
+
               {generatingThumbnails && thumbnails.length === 0 ? (
                 <div className="py-12 flex flex-col items-center text-slate-400 animate-pulse">
                   <Loader2 className="animate-spin mb-2 w-8 h-8 text-[#FF9933]" />
@@ -2055,21 +2320,43 @@ const PdfEditor = ({ toolId }) => {
                 </div>
               ) : (
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-h-125 overflow-y-auto p-4 bg-slate-50 rounded-xl border border-slate-200 shadow-inner">
-                  {thumbnails.map((thumb) => (
-                    <div
-                      key={thumb.pageNum}
-                      className="relative rounded-lg overflow-hidden border-2 border-slate-200 bg-white shadow-sm"
-                    >
-                      <img
-                        src={thumb.url}
-                        alt={`Page ${thumb.pageNum}`}
-                        className="w-full h-auto"
-                      />
-                      <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
-                        Page {thumb.pageNum}
-                      </div>
-                    </div>
-                  ))}
+                  {thumbnails.map((thumb) => {
+                    const isOn = selectedPages.has(thumb.pageNum);
+                    return (
+                      <button
+                        type="button"
+                        key={thumb.pageNum}
+                        onClick={() =>
+                          setSelectedPages((prev) => {
+                            const next = new Set(prev);
+                            if (next.has(thumb.pageNum))
+                              next.delete(thumb.pageNum);
+                            else next.add(thumb.pageNum);
+                            return next;
+                          })
+                        }
+                        className={`relative rounded-lg overflow-hidden border-2 bg-white shadow-sm text-left cursor-pointer transition ${
+                          isOn
+                            ? "border-[#FF9933]"
+                            : "border-slate-200 opacity-50"
+                        }`}
+                      >
+                        {isOn && (
+                          <div className="absolute top-1 right-1 bg-[#FF9933] text-white rounded-full p-1 z-10">
+                            <Check size={12} />
+                          </div>
+                        )}
+                        <img
+                          src={thumb.url}
+                          alt={`Page ${thumb.pageNum}`}
+                          className="w-full h-auto"
+                        />
+                        <div className="absolute bottom-0 w-full bg-slate-900/80 text-white text-xs font-medium text-center py-1.5 backdrop-blur-sm">
+                          Page {thumb.pageNum}
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -2146,6 +2433,90 @@ const PdfEditor = ({ toolId }) => {
           )}
 
           {/* Watermark Controls */}
+          {/* Page Numbers Options */}
+          {files.length > 0 && tool.id === "page-numbers" && !isDone && (
+            <div className="mb-8 animate-fade-in max-w-3xl mx-auto space-y-5">
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  Position
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: "bottom-center", label: "Bottom Center" },
+                    { id: "bottom-right", label: "Bottom Right" },
+                    { id: "bottom-left", label: "Bottom Left" },
+                    { id: "top-right", label: "Top Right" },
+                  ].map((p) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setPageNumPos(p.id)}
+                      className={`py-2.5 px-2 rounded-lg font-bold text-xs sm:text-sm transition cursor-pointer ${
+                        pageNumPos === p.id
+                          ? "bg-[#FF9933] text-white shadow"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Format
+                  </label>
+                  <div className="flex gap-1.5">
+                    {[
+                      { id: "plain", label: "1, 2, 3" },
+                      { id: "pageofn", label: "Page 1 of N" },
+                    ].map((f) => (
+                      <button
+                        key={f.id}
+                        onClick={() => setPageNumFormat(f.id)}
+                        className={`flex-1 py-2 px-2 rounded-lg font-bold text-xs transition cursor-pointer ${
+                          pageNumFormat === f.id
+                            ? "bg-[#FF9933] text-white shadow"
+                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        {f.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Start counting from
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={pageNumStart}
+                    onChange={(e) =>
+                      setPageNumStart(parseInt(e.target.value) || 1)
+                    }
+                    className="w-full p-2.5 border border-slate-300 rounded-lg text-center font-bold focus:ring-2 focus:ring-[#FF9933] outline-none"
+                  />
+                </div>
+                <div className="flex items-end">
+                  <label className="flex items-center gap-2 cursor-pointer bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 w-full">
+                    <input
+                      type="checkbox"
+                      checked={pageNumSkipFirst}
+                      onChange={(e) => setPageNumSkipFirst(e.target.checked)}
+                      className="accent-[#FF9933] w-4 h-4"
+                    />
+                    <span className="text-sm font-bold text-slate-700">
+                      Skip first page (cover)
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
+
           {files.length > 0 && tool.id === "watermark-pdf" && (
             <div className="mb-8 animate-fade-in max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
               {/* Controls */}
@@ -2207,6 +2578,55 @@ const PdfEditor = ({ toolId }) => {
                     }
                     className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
                   />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                      Size
+                    </label>
+                    <div className="flex gap-1.5">
+                      {[
+                        { id: "small", label: "S" },
+                        { id: "normal", label: "M" },
+                        { id: "large", label: "L" },
+                      ].map((s) => (
+                        <button
+                          key={s.id}
+                          onClick={() => setWatermarkSize(s.id)}
+                          className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
+                            watermarkSize === s.id
+                              ? "bg-[#FF9933] text-white shadow"
+                              : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                          }`}
+                        >
+                          {s.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                      Color
+                    </label>
+                    <div className="flex gap-1.5">
+                      {[
+                        { id: "gray", cls: "bg-slate-500" },
+                        { id: "red", cls: "bg-red-600" },
+                        { id: "blue", cls: "bg-blue-600" },
+                      ].map((c) => (
+                        <button
+                          key={c.id}
+                          onClick={() => setWatermarkColor(c.id)}
+                          aria-label={`${c.id} watermark`}
+                          className={`flex-1 h-9 rounded-lg cursor-pointer transition ring-offset-2 ${c.cls} ${
+                            watermarkColor === c.id
+                              ? "ring-2 ring-[#FF9933]"
+                              : "opacity-60 hover:opacity-100"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -2312,6 +2732,10 @@ const PdfEditor = ({ toolId }) => {
                 We only remove a password you already know — this is not a
                 cracker. For bank statements it&apos;s often your PAN + date of
                 birth.
+              </p>
+              <p className="text-xs text-amber-600 mt-2 leading-snug">
+                Note: the unlocked copy is rebuilt page-by-page as images, so
+                text inside it won&apos;t be selectable or searchable.
               </p>
             </div>
           )}
@@ -2467,6 +2891,19 @@ const PdfEditor = ({ toolId }) => {
                     <Download size={22} />{" "}
                     {tool.id === "pdf-to-text" ? "Download .txt" : "Download Result"}
                   </a>
+                  <button
+                    onClick={() => {
+                      // Keep the loaded file; just return to the options so the
+                      // user can tweak settings and run again
+                      setIsDone(false);
+                      setCompressionStats(null);
+                      setExtractedText("");
+                      setErrorMsg(null);
+                    }}
+                    className="bg-orange-50 text-[#e68a2e] border border-orange-200 px-8 py-3.5 rounded-full hover:bg-orange-100 transition font-bold cursor-pointer"
+                  >
+                    Adjust &amp; Re-run
+                  </button>
                   <button
                     onClick={resetAll}
                     className="bg-slate-100 text-slate-700 px-8 py-3.5 rounded-full hover:bg-slate-200 transition font-bold cursor-pointer"

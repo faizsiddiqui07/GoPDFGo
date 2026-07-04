@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link"; // Changed from react-router-dom
 import { ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import YearNow from "./YearNow";
 
 const Footer = () => {
   return (
@@ -304,7 +305,9 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-slate-100 pt-6 flex justify-center items-center gap-4 text-sm text-slate-400">
-          <p>© {new Date().getFullYear()} GoPDFGo. All rights reserved.</p>
+          <p>
+            © <YearNow /> GoPDFGo. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

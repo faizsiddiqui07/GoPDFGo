@@ -345,7 +345,7 @@ Take control of your documents. Stop sharing bulky files and start sharing only 
         "**Upload PDF:** Click 'Select File' or drag your document into the box. The tool loads the file instantly.",
         "**Define Range:** Enter the page numbers you want to keep. You can type a single page (e.g., **'5'**) or a range (e.g., **'1-10'**) to extract a section.",
         "**Process Split:** Click the **'Split PDF'** button. Our browser-based engine cuts the document locally in milliseconds.",
-        "**Download:** Your new, smaller PDF containing only the selected pages is ready. Download it immediately."
+        "**Download:** One range gives you a single, smaller PDF. Enter multiple ranges (like '1-10, 11-20') and each range becomes its own PDF, delivered together in a ZIP."
       ],
 
       // 5. FAQ (Detailed Answers)

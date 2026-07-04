@@ -435,7 +435,7 @@ export const blogsData = [
           <li><strong>Step 2: View the Thumbnails.</strong> Our tool will instantly generate a visual grid showing every single page in your document. You will easily spot the exact pages that are sideways or upside down.</li>
           <li><strong>Step 3: Rotate Specific Pages.</strong> Hover your mouse (or tap on mobile) over the incorrect page and click the rotate icon (↻) until the text is facing up. You can rotate individual pages without affecting the rest of the correctly oriented document.</li>
           <li><strong>Step 4: Rotate All (Optional).</strong> If your entire document scanned sideways (in landscape instead of portrait), simply use the "Rotate All Left/Right" bulk buttons at the top of the screen to fix everything in one click.</li>
-          <li><strong>Step 5: Save and Download.</strong> Click "Apply Changes." The new file you download will now open perfectly straight on any device, browser, or email client.</li>
+          <li><strong>Step 5: Save and Download.</strong> Click "Rotate PDF Now." The new file you download will now open perfectly straight on any device, browser, or email client.</li>
         </ul>
       </div>
 
@@ -554,7 +554,7 @@ export const blogsData = [
           <li><strong>Step 1: Copy Your Exact Target Link.</strong> Open a new tab and go to the exact webpage you want to share with your audience (e.g., your LinkedIn profile, your business homepage, or a specific product page). Highlight and copy the full, complete URL from the browser's address bar at the top of the screen.</li>
           <li><strong>Step 2: Access the Generator.</strong> Navigate to the <a href="/qr-generator">Free QR Generator</a> tool located in the utility section on the GoPDFGo website.</li>
           <li><strong>Step 3: Paste and Generate.</strong> Paste your copied URL into the primary input text box. Click the "Generate" button. Our completely client-side tool will instantly translate your web address into a unique, scannable square pixel pattern right on your screen.</li>
-          <li><strong>Step 4: Download and Rigorously Test.</strong> Download the high-quality generated PNG or JPG image file to your device. <strong>Crucial Pro Tip:</strong> Always, without fail, scan the downloaded image from your computer screen using your own mobile phone's camera to verify that it successfully opens the correct webpage before you send that file to a commercial printing press!</li>
+          <li><strong>Step 4: Download and Rigorously Test.</strong> Download the high-quality generated PNG image file to your device. <strong>Crucial Pro Tip:</strong> Always, without fail, scan the downloaded image from your computer screen using your own mobile phone's camera to verify that it successfully opens the correct webpage before you send that file to a commercial printing press!</li>
         </ul>
       </div>
 
@@ -949,7 +949,7 @@ export const blogsData = [
         <h3>How to Mask Your ID Securely in 4 Steps:</h3>
         <ul>
           <li><strong>Step 1: Open the Tool.</strong> Navigate directly to the <a href="/aadhaar-masking">Aadhaar Masking</a> utility on the GoPDFGo website using your preferred browser.</li>
-          <li><strong>Step 2: Upload Locally.</strong> Select the photograph or scanned PDF of your Aadhaar card. You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
+          <li><strong>Step 2: Upload Locally.</strong> Select the photograph of your Aadhaar card (JPG or PNG — if you only have it as a PDF, convert it to an image first with our PDF to JPG tool). You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
           <li><strong>Step 3: Apply the Solid Mask.</strong> Use our intuitive, drag-and-drop interface to draw a secure, solid black box specifically over the first 8 digits of your Aadhaar number. Ensure you leave the last 4 digits visible so the document remains verifiable.</li>
           <li><strong>Step 4: Save and Export.</strong> Click the apply button. The tool will permanently flatten the black box over the image data, ensuring that the hidden numbers cannot be recovered, selected, or "un-blurred" by reverse-engineering the downloaded file. Download your securely masked document to your local drive.</li>
         </ul>
@@ -1012,7 +1012,7 @@ export const blogsData = [
         <li><strong>Did the page scan sideways?</strong> If the extracted page was originally scanned horizontally, it will look awkward when sent alone. Fix it permanently by using our <a href="/rotate-pdf">Rotate PDF</a> utility.</li>
         <li><strong>Need to combine it with another document?</strong> If you extracted a signed contract page and now need to attach a copy of your PAN card to it, simply use our <a href="/merge-pdf">Merge PDF</a> tool to stitch them seamlessly together.</li>
         <li><strong>Want to change the sequence?</strong> If you extracted pages "5, 10, and 15" but want them to appear in a different order, drop the new file into the <a href="/rearrange-pdf">Rearrange PDF</a> visual organizer.</li>
-        <li><strong>Need fresh page numbers?</strong> Now that it is a brand new document, the old page numbers won't make sense. Use our <a href="/page-numbers">Add Page Numbers</a> tool to stamp a fresh "Page 1 of 1" at the bottom.</li>
+        <li><strong>Need fresh page numbers?</strong> Now that it is a brand new document, the old page numbers won't make sense. Use our <a href="/page-numbers">Add Page Numbers</a> tool to stamp fresh page numbers at the bottom.</li>
       </ul>
 
       <h2>Professional Benefits of Extracting Pages</h2>
@@ -1333,7 +1333,7 @@ export const blogsData = [
 
       <h2>Make It Behave on WhatsApp Business</h2>
       <p>On WhatsApp Business, a PDF shows up as a tidy document card with your filename and a page count, not a wall of thumbnails. So the filename is doing real marketing. <em>RaviTextiles_Diwali_2026.pdf</em> reads far better in a forward than <em>doc_20260608.pdf</em>. When an aunty forwards your catalog to her sister's WhatsApp group, that name is the first thing forty strangers see.</p>
-      <p>Two things to respect. WhatsApp caps document sharing at 100MB, but the real enemy is a customer on a patchy 4G connection in a small town. A 25MB catalog that spins forever gets abandoned before it opens. Keep it lean. And a light touch of branding goes a long way: make the very first image a proper cover with your shop name, area, and number, so even a screenshot of page one tells a new buyer who to call.</p>
+      <p>Two things to respect. WhatsApp now allows documents up to 2GB, but the real enemy is a customer on a patchy 4G connection in a small town. A 25MB catalog that spins forever gets abandoned before it opens. Keep it lean. And a light touch of branding goes a long way: make the very first image a proper cover with your shop name, area, and number, so even a screenshot of page one tells a new buyer who to call.</p>
 
       <h2>Refresh It When Stock Changes, Don't Rebuild It</h2>
       <p>Stock moves every week, and nobody has the patience to remake the whole file each time. The trick is to edit, not restart. When new arrivals come in, run a quick <a href="/image-to-pdf">Image to PDF</a> of just the fresh photos, then <a href="/merge-pdf">Merge PDF</a> them onto your existing catalog so the old pages stay untouched. Put the new stuff at the front and people instantly see what's new.</p>
@@ -1796,7 +1796,7 @@ export const blogsData = [
       A: Don't put the front on page 1 and the back on page 2. Place both the front and back of the ID card onto a single page side-by-side. You can do this easily by pasting the images into a Word document and saving it as a PDF before joining it with the rest.</p>
 
       <p><strong>Q: Is a 5MB limit normal for all embassy websites?</strong><br>
-      A: Yes, 5MB is the standard maximum across most major portals (including Schengen VFS and US CEAC). Some older government websites are even stricter, limiting uploads to just 2MB, which requires heavy compression.</p>
+      A: 5MB is a common ceiling on major portals like Schengen/VFS, though some are stricter — US CEAC, for example, allows only around 2MB per file. Some older government websites are even stricter, limiting uploads to just 2MB, which requires heavy compression.</p>
 
       <h2>Name Your Files Like the Consulate Asked, Not Like Your Phone Did</h2>
       <p>Here is a detail almost everyone misses. Several consulates don't just want one merged PDF, they want it <em>named</em> a certain way. The German and French Schengen centres are famous for this. They'll ask for something like <strong>SURNAME_GIVENNAME_PASSPORTNO.pdf</strong> in capital letters, no spaces, no brackets. Your phone, meanwhile, saves everything as <em>WhatsApp Image 2026-06-19 at 9.14.21 PM.jpeg</em>. Upload that and an officer skimming a folder of 300 files has no idea whose document it is.</p>
@@ -1842,7 +1842,7 @@ export const blogsData = [
       <h2>Understanding WhatsApp’s Hidden Document Limits</h2>
       <p>To solve the problem, you first need to understand the rules of the platform. Over the years, WhatsApp has increased its file-sharing limits, but there are still hard caps and practical limitations you must be aware of:</p>
       <ul>
-        <li><strong>The Official Limit:</strong> WhatsApp generally lets you send documents up to 100MB; some versions allow larger files, but you should not count on it. This cap applies to the "Document" sharing option, not the "Gallery/Media" option.</li>
+        <li><strong>The Official Limit:</strong> WhatsApp officially supports documents up to 2GB these days, but a huge file is still miserable to download on the other side. This cap applies to the "Document" sharing option, not the "Gallery/Media" option.</li>
         <li><strong>The Practical Limit (Network Drops):</strong> Even if WhatsApp allows a 90MB PDF, attempting to send it over a standard 4G or unstable Wi-Fi network is a nightmare. Large files frequently fail to upload, get stuck at 99%, or take several minutes to download on the receiver's end, leading to a terrible user experience.</li>
         <li><strong>The Storage Issue:</strong> Sending a 50MB PDF to a WhatsApp Group with 200 members means you are forcing 200 people to sacrifice 50MB of their phone's internal storage. This is highly inconsiderate and often leads to people deleting your file without reading it.</li>
       </ul>
@@ -1899,7 +1899,7 @@ export const blogsData = [
       A: That last 1% is usually the upload finalising on WhatsApp's servers, and a weak 4G signal or unstable Wi-Fi is what stalls it. A 40MB file on a patchy connection can sit there for minutes or fail outright. Compressing the PDF first or splitting it into smaller parts makes this far less likely.</p>
 
       <p><strong>Q: What is the real size limit for a PDF on WhatsApp?</strong><br>
-      A: For most people it is 100MB per document. Even when your version allows more, the practical limit is much lower, because a large file is painful to upload, slow to download, and eats the recipient's storage. Aim to keep important documents under 10MB if you want them actually opened.</p>
+      A: The official cap is now 2GB per document. But the practical limit is much lower, because a large file is painful to upload, slow to download, and eats the recipient's storage. Aim to keep important documents under 10MB if you want them actually opened.</p>
 
       <p><strong>Q: Is sending a Google Drive link better than attaching the file?</strong><br>
       A: Only when the file is genuinely too big to send directly. Links break when the sharing permission is left on "Restricted," and confidential work files on a public drive can run into company NDA rules. For most documents, compressing and sending the file itself is cleaner.</p>
@@ -2195,7 +2195,7 @@ export const blogsData = [
     content: `
       <p>Have you ever tried to attach a document to an email, only to be stopped by a frustrating "File exceeds maximum size" error? When this happens, almost everyone immediately searches the internet for ways to reduce PDF file size. During your search, you will constantly see two technical terms popping up: <strong>PDF Compression</strong> and <strong>PDF Optimization</strong>.</p>
 
-      <p>Most internet users, and even many software programs, use these two terms interchangeably. However, in the world of digital document management, they are completely entirely different processes. While both methods can technically result in a smaller file, they achieve this goal using completely different mechanics and serve very different purposes.</p>
+      <p>Most internet users, and even many software programs, use these two terms interchangeably. However, in the world of digital document management, they are completely different processes. While both methods can technically result in a smaller file, they achieve this goal using completely different mechanics and serve very different purposes.</p>
 
       <p>If you regularly handle digital paperwork, understanding the primary keyword—PDF Optimization vs PDF Compression—is crucial for maintaining PDF performance, visual quality, and effective PDF storage management. In this educational guide, we will break down the technical jargon into simple, professional, and easy-to-understand concepts.</p>
 
@@ -2311,63 +2311,63 @@ export const blogsData = [
 
     `
   }, 
-  // {
-  //   id: "how-to-create-paperless-workflow-small-businesses",
-  //   title: "How to Create a 100% Paperless Workflow for Small Businesses",
-  //   seoTitle: "Paperless Office Workflow for Small Business | Digital Document Guide",
-  //   keywords: "paperless office, small business digital workflow, merge invoices pdf, free qr code generator for business, compress business documents, digital accounting workflow, b2b pdf tools, secure business document processing, mask aadhaar employee kyc",
-  //   excerpt: "Drowning in paper receipts, physical contracts, and overflowing filing cabinets? Learn how to transition your small business to a highly efficient, secure, and 100% paperless digital workflow.",
-  //   date: "May 30, 2026",
-  //   imageUrl: "/images/blogs/how-to-create-paperless-workflow-small-businesses.webp",
-  //   content: `
-  //     <p>If you run a small business, a consultancy, a real estate firm, or a creative agency, you likely understand the creeping, overwhelming chaos of paperwork. It always starts small: a few printed vendor invoices sitting on your desk, a physical contract signed with a new client in a folder, and a shoebox full of faded taxi receipts from a business trip. Fast forward six months, and your office is literally drowning in overflowing filing cabinets, messy desks, and lost documents.</p>
+  {
+    id: "how-to-create-paperless-workflow-small-businesses",
+    title: "How to Create a 100% Paperless Workflow for Small Businesses",
+    seoTitle: "Paperless Office Workflow for Small Business | Digital Document Guide",
+    keywords: "paperless office, small business digital workflow, merge invoices pdf, free qr code generator for business, compress business documents, digital accounting workflow, b2b pdf tools, secure business document processing, mask aadhaar employee kyc",
+    excerpt: "Drowning in paper receipts, physical contracts, and overflowing filing cabinets? Learn how to transition your small business to a highly efficient, secure, and 100% paperless digital workflow.",
+    date: "July 04, 2026",
+    imageUrl: "/images/blogs/how-to-create-paperless-workflow-small-businesses.webp",
+    content: `
+      <p>If you run a small business, a consultancy, a real estate firm, or a creative agency, you likely understand the creeping, overwhelming chaos of paperwork. It always starts small: a few printed vendor invoices sitting on your desk, a physical contract signed with a new client in a folder, and a shoebox full of faded taxi receipts from a business trip. Fast forward six months, and your office is literally drowning in overflowing filing cabinets, messy desks, and lost documents.</p>
 
-  //     <p>Relying on physical paper in 2026 is not just outdated; it is incredibly expensive and highly inefficient. You are paying constantly for printer ink cartridges, reams of paper, physical storage space, and courier fees. But the biggest hidden cost is time—the hours of wasted billable time spent digging through dusty folders to find a single, specific tax receipt before an audit. Transitioning to a 100% paperless workflow doesn't just save trees; it drastically improves your company's profitability, data security, and administrative speed. Here is how you can completely digitize your business operations using free, secure digital utilities.</p>
+      <p>Relying on physical paper in 2026 is not just outdated; it is incredibly expensive and highly inefficient. You are paying constantly for printer ink cartridges, reams of paper, physical storage space, and courier fees. But the biggest hidden cost is time—the hours of wasted billable time spent digging through dusty folders to find a single, specific tax receipt before an audit. Transitioning to a 100% paperless workflow doesn't just save trees; it drastically improves your company's profitability, data security, and administrative speed. Here is how you can completely digitize your business operations using free, secure digital utilities.</p>
 
-  //     <h2>Step 1: Digitize and Consolidate Your Accounting</h2>
-  //     <p>The biggest, most relentless source of paper clutter in any business is the accounting department. Every single month, you receive dozens of invoices from software SaaS subscriptions, independent contractors, wholesale suppliers, and utility companies. The absolute secret to a paperless, stress-free accounting system is digital consolidation.</p>
+      <h2>Step 1: Digitize and Consolidate Your Accounting</h2>
+      <p>The biggest, most relentless source of paper clutter in any business is the accounting department. Every single month, you receive dozens of invoices from software SaaS subscriptions, independent contractors, wholesale suppliers, and utility companies. The absolute secret to a paperless, stress-free accounting system is digital consolidation.</p>
 
-  //     <p>Instead of printing these digital invoices out, or forwarding 50 separate, confusing emails to your Chartered Accountant (CA) or bookkeeper, build a "Master Expense File" at the end of every month. Download your PDF invoices to a local folder. Then, compile them using a secure <a href="/merge-pdf">Merge PDF</a> tool. Group them chronologically or by expense category.</p>
+      <p>Instead of printing these digital invoices out, or forwarding 50 separate, confusing emails to your Chartered Accountant (CA) or bookkeeper, build a "Master Expense File" at the end of every month. Download your PDF invoices to a local folder. Then, compile them using a secure <a href="/merge-pdf">Merge PDF</a> tool. Group them chronologically or by expense category.</p>
 
-  //     <p>If you have physical restaurant receipts or hardware store bills, snap a clear photo with your smartphone and use an <a href="/image-to-pdf">Image to PDF</a> tool to convert them before merging them into the master file. Handing your CA one single, cleanly organized document named <em>"March_2026_Master_Expenses.pdf"</em> makes tax season utterly painless and guarantees that no legitimate business expense falls through the cracks.</p>
+      <p>If you have physical restaurant receipts or hardware store bills, snap a clear photo with your smartphone and use an <a href="/image-to-pdf">Image to PDF</a> tool to convert them before merging them into the master file. Handing your CA one single, cleanly organized document named <em>"March_2026_Master_Expenses.pdf"</em> makes tax season utterly painless and guarantees that no legitimate business expense falls through the cracks.</p>
 
-  //     <h2>Step 2: Optimize Client Deliverables for the Cloud</h2>
-  //     <p>Going paperless fundamentally means moving your storage from physical filing cabinets to the cloud (like Google Workspace, Dropbox Business, or Microsoft OneDrive). However, cloud storage is notoriously expensive once your business crosses the initial free tier limit. If your business consistently delivers heavy digital reports, high-resolution architectural floor plans, or dense legal discovery files to clients, you will burn through your cloud storage quota incredibly rapidly.</p>
+      <h2>Step 2: Optimize Client Deliverables for the Cloud</h2>
+      <p>Going paperless fundamentally means moving your storage from physical filing cabinets to the cloud (like Google Workspace, Dropbox Business, or Microsoft OneDrive). However, cloud storage is notoriously expensive once your business crosses the initial free tier limit. If your business consistently delivers heavy digital reports, high-resolution architectural floor plans, or dense legal discovery files to clients, you will burn through your cloud storage quota incredibly rapidly.</p>
 
-  //     <p>Make it a strict, non-negotiable company policy to run every final client document through a <a href="/compress-pdf">Compress PDF</a> utility before saving it to your permanent cloud drive or attaching it to an email. Smart, hybrid compression reduces file weights by up to 80% without losing visual clarity or vector sharpness. This simple daily habit will literally save your business hundreds of dollars a year in upgraded cloud storage subscription fees.</p>
+      <p>Make it a strict, non-negotiable company policy to run every final client document through a <a href="/compress-pdf">Compress PDF</a> utility before saving it to your permanent cloud drive or attaching it to an email. Smart, hybrid compression reduces file weights by up to 80% without losing visual clarity or vector sharpness. This simple daily habit will literally save your business hundreds of dollars a year in upgraded cloud storage subscription fees.</p>
 
-  //     <h2>Step 3: Secure Your HR and Employee Onboarding</h2>
-  //     <p>When you hire a new employee or onboard a contractor, you must collect critical KYC (Know Your Customer) documents, including PAN cards, banking details, and Aadhaar cards. Storing physical photocopies of these highly sensitive documents in an unlocked office cabinet is a massive privacy liability.</p>
+      <h2>Step 3: Secure Your HR and Employee Onboarding</h2>
+      <p>When you hire a new employee or onboard a contractor, you must collect critical KYC (Know Your Customer) documents, including PAN cards, banking details, and Aadhaar cards. Storing physical photocopies of these highly sensitive documents in an unlocked office cabinet is a massive privacy liability.</p>
 
-  //     <p>Digitize your HR workflow immediately. Furthermore, practice strict data minimization. You do not need to store an employee's full biometric Aadhaar number for basic file-keeping. Instruct your HR team to run all submitted ID proofs through an <a href="/aadhaar-masking">ID Masking</a> tool. This secure utility permanently blackouts the first 8 digits of the identity card, ensuring that even if your company's HR drive is compromised, your employees are protected from severe identity theft.</p>
+      <p>Digitize your HR workflow immediately. Furthermore, practice strict data minimization. You do not need to store an employee's full biometric Aadhaar number for basic file-keeping. Instruct your HR team to run all submitted ID proofs through an <a href="/aadhaar-masking">ID Masking</a> tool. This secure utility permanently blackouts the first 8 digits of the identity card, ensuring that even if your company's HR drive is compromised, your employees are protected from severe identity theft.</p>
 
-  //     <h2>Step 4: Connect Physical Spaces to Digital Assets</h2>
-  //     <p>Being a paperless business doesn't mean your physical storefront, restaurant, or office has to be disconnected from your customers. You can seamlessly bridge the gap using modern barcode technology.</p>
+      <h2>Step 4: Connect Physical Spaces to Digital Assets</h2>
+      <p>Being a paperless business doesn't mean your physical storefront, restaurant, or office has to be disconnected from your customers. You can seamlessly bridge the gap using modern barcode technology.</p>
 
-  //     <p>If you own a cafe or a salon, stop printing expensive, easily-damaged paper menus or price lists. Upload your menu PDF to Google Drive and use a <a href="/qr-generator">Free QR Code Generator</a> to create a static, non-expiring barcode. Place it as a sticker on the tables or counter. Customers simply scan and read on their own devices. Similarly, consultants and sales executives can print a single QR code on the back of their minimalist business cards that links directly to their digital portfolio or Calendy booking page, entirely eliminating the need for bulky, expensive promotional pamphlets.</p>
+      <p>If you own a cafe or a salon, stop printing expensive, easily-damaged paper menus or price lists. Upload your menu PDF to Google Drive and use a <a href="/qr-generator">Free QR Code Generator</a> to create a static, non-expiring barcode. Place it as a sticker on the tables or counter. Customers simply scan and read on their own devices. Similarly, consultants and sales executives can print a single QR code on the back of their minimalist business cards that links directly to their digital portfolio or Calendly booking page, entirely eliminating the need for bulky, expensive promotional pamphlets.</p>
 
-  //     <h2>The B2B Privacy Mandate: Why Local Processing is Crucial</h2>
-  //     <p>The single biggest hurdle businesses face when going paperless is <strong>Data Security</strong>. If you are handling corporate Non-Disclosure Agreements (NDAs), proprietary client financials, unreleased product patents, or sensitive employee records, you absolutely cannot use random "free" cloud-based PDF editors you find on Google.</p>
+      <h2>The B2B Privacy Mandate: Why Local Processing is Crucial</h2>
+      <p>The single biggest hurdle businesses face when going paperless is <strong>Data Security</strong>. If you are handling corporate Non-Disclosure Agreements (NDAs), proprietary client financials, unreleased product patents, or sensitive employee records, you absolutely cannot use random "free" cloud-based PDF editors you find on Google.</p>
 
-  //     <p>Uploading client data to third-party servers is a massive legal liability and a direct breach of corporate trust. Your paperless digital workflow must be built on <strong>Client-Side Technology</strong>.</p>
+      <p>Uploading client data to third-party servers is a massive legal liability and a direct breach of corporate trust. Your paperless digital workflow must be built on <strong>Client-Side Technology</strong>.</p>
 
-  //     <p>Platforms like GoPDFGo operate entirely via modern WebAssembly architecture. When you merge, split, compress, or mask a corporate file on our site, the mathematical processing happens directly on your office computer's own CPU and RAM. The confidential data never travels across the internet, and no files are ever uploaded to our backend servers. It is the ultimate combination of free web convenience and enterprise-grade, offline security.</p>
+      <p>Platforms like GoPDFGo operate entirely via modern WebAssembly architecture. When you merge, split, compress, or mask a corporate file on our site, the mathematical processing happens directly on your office computer's own CPU and RAM. The confidential data never travels across the internet, and no files are ever uploaded to our backend servers. It is the ultimate combination of free web convenience and enterprise-grade, offline security.</p>
 
-  //     <h2>Frequently Asked Questions (FAQ)</h2>
+      <h2>Frequently Asked Questions (FAQ)</h2>
 
-  //     <p><strong>Q: Is digital storage legally valid for audits?</strong><br>
-  //     A: Yes. In almost all modern jurisdictions, digitally scanned copies of invoices and receipts (PDFs) are perfectly valid for tax audits and accounting purposes, provided they are legible and unaltered.</p>
+      <p><strong>Q: Is digital storage legally valid for audits?</strong><br>
+      A: Yes. In almost all modern jurisdictions, digitally scanned copies of invoices and receipts (PDFs) are perfectly valid for tax audits and accounting purposes, provided they are legible and unaltered.</p>
 
-  //     <p><strong>Q: What if I have hundreds of old paper files to scan?</strong><br>
-  //     A: Don't do it all at once. Start "Day Forward" paperless—meaning everything new from today is digital. Then, dedicate one hour a week to slowly scanning and archiving your old back-catalog using your smartphone and our Image to PDF converter.</p>
+      <p><strong>Q: What if I have hundreds of old paper files to scan?</strong><br>
+      A: Don't do it all at once. Start "Day Forward" paperless—meaning everything new from today is digital. Then, dedicate one hour a week to slowly scanning and archiving your old back-catalog using your smartphone and our Image to PDF converter.</p>
 
-  //     <p><strong>Q: Can I password-protect my merged master files?</strong><br>
-  //     A: While GoPDFGo does not currently add passwords, you can easily use your operating system's built-in file encryption or ZIP password features to secure the final compressed PDF before uploading it to a shared company cloud drive.</p>
+      <p><strong>Q: Can I password-protect my merged master files?</strong><br>
+      A: While GoPDFGo does not currently add passwords, you can easily use your operating system's built-in file encryption or ZIP password features to secure the final compressed PDF before uploading it to a shared company cloud drive.</p>
 
-  //     <h3>Transform Your Office Today</h3>
-  //     <p>Embracing a completely paperless workflow isn't a futuristic, sci-fi concept; it is a baseline requirement for modern business survival and efficiency. Digitize your records securely, optimize your digital storage costs, protect your client's data, and watch your administrative overhead plummet.</p>
-  //   `
-  // }, done
+      <h3>Transform Your Office Today</h3>
+      <p>Embracing a completely paperless workflow isn't a futuristic, sci-fi concept; it is a baseline requirement for modern business survival and efficiency. Digitize your records securely, optimize your digital storage costs, protect your client's data, and watch your administrative overhead plummet.</p>
+    `
+  }, 
   // {
   //   id: "break-down-annual-reports-department-wise-pdfs",
   //   title: "How to Break Down Annual Reports into Department-Wise PDFs",
@@ -2377,7 +2377,7 @@ export const blogsData = [
   //   date: "June 08, 2026",
   //   imageUrl: "/images/blogs/break-down-annual-reports-department-wise-pdfs.webp",
   //   content: `
-  // Every fiscal year, corporate executives and department heads face the same monumental task: reviewing the company's annual report. These comprehensive documents are essential for transparency, stakeholder communication, and strategic planning. However, they are also massive—often spanning 150 to 300 pages of dense financial data, operational reviews, and compliance metrics.
+  // <p>Every fiscal year, corporate executives and department heads face the same monumental task: reviewing the company's annual report. These comprehensive documents are essential for transparency, stakeholder communication, and strategic planning. However, they are also massive—often spanning 150 to 300 pages of dense financial data, operational reviews, and compliance metrics.</p>
 
   //   <p>Emailing a monolithic 300-page file to every manager in the company creates immediate productivity issues. A marketing manager does not need to sift through 50 pages of raw accounting data, just as a supply chain director does not need to read the human resources diversity metrics. Sharing oversized documents leads to information overload, wasted time, and confusion.</p>
 
@@ -3765,7 +3765,73 @@ export const blogsData = [
   //   date: "June 22, 2026",
   //   imageUrl: "/images/blogs/remove-instruction-pages-government-form-pdf.webp",
   //   content: `
-  //     {"slug":"remove-instruction-pages-government-form-pdf","title":"Remove Instruction Pages From a Government Form PDF Before You Upload It","seoTitle":"Remove Instruction Pages From Govt Form PDF | GoPDFGo","keywords":"remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove","excerpt":"Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.","content":"<p>You download the application PDF for an SSC post, or a state PSC vacancy, or an NSP scholarship. You open it expecting boxes to fill. Instead, page 1 is a notice with the closing date and a helpline number. Page 2 is eligibility conditions. Page 3 is \"Documents to be enclosed\". The actual form, the one with your name, photo and signature, does not start until page 4 or 5.</p>\n\n<p>That part is normal. The annoyance comes later, at the upload step, when the portal asks for the filled form back and you realise the file you have still drags all those instruction pages along at the front.</p>\n\n<h2>Why you need to remove instruction pages from a government form PDF</h2>\n\n<p>Most people fill the form, save it, and try to upload the whole thing. Two specific problems show up.</p>\n\n<p>First, the portal often spells out a page rule. NSP scholarship renewals, many university admission forms, and several PSC application packs say something close to \"upload the duly filled application only\" or \"pages 4 onwards\". The instruction pages were never meant to come back. Send all 11 pages and a verifier has to dig through guideline text to find your form. That is the kind of thing that gets an application marked incomplete.</p>\n\n<p>Second, those front pages are dead weight against the size cap. Portals like SSC, NSP and most state recruitment boards cap each upload tight, often 200KB, 500KB, or \"max 2MB\". If the form was issued as a scanned PDF, every instruction page is a full image. Four or five of them can quietly add a megabyte or more. Drop those pages and you frequently land under the limit before you touch any compression at all.</p>\n\n<p>So the goal is plain: keep your filled form pages, throw out the notice and guideline pages sitting in front of them.</p>\n\n<h2>How to tell where the instructions end and the form begins</h2>\n\n<p>The tricky bit with these forms is the boundary. Does the form start on page 4 or page 5? Did the eligibility notice run to two pages or three? On a government PDF the numbering printed on the page often does not match the PDF's actual page order, because the cover notice is unnumbered or the annexures restart counting. So typing a page range from memory is risky.</p>\n\n<p>Looking at the pages is far safer. An instruction page is dense running text with bullet points and a heading like \"General Instructions\" or \"Important Dates\". Your form page looks nothing like it. It has a photo box, a signature line, ruled fields, your typed or handwritten entries. You can spot the switch at a glance, no page-number arithmetic involved.</p>\n\n<p>This is where a tool that shows every page as a picture helps. The <a href=\"/delete-pdf-pages\">Delete PDF Pages</a> tool lays out your whole form as thumbnails. You scroll, find the first real form page, and mark everything before it. A counter at the top tracks how many pages you have selected, and a Clear button resets your selection if you tap one too many. You are deleting by sight, not by guessing numbers.</p>\n\n<div class=\"tool-box\">\n<h3>Removing the front instruction pages from your form</h3>\n<ul>\n<li><strong>Step 1:</strong> Open the <a href=\"/delete-pdf-pages\">Delete PDF Pages</a> tool and add your form, by dropping the file in or tapping to pick it from your phone or laptop. Every page appears as a thumbnail.</li>\n<li><strong>Step 2:</strong> Scroll to the first page of your actual filled form, the one with the photo box and fields. Tap each page that comes before it, the cover notice, the eligibility page, the \"documents required\" page, to mark them for removal.</li>\n<li><strong>Step 3:</strong> Glance back over the thumbnails. The pages you did not mark are the ones being kept, so confirm every filled page of your form is still untouched.</li>\n<li><strong>Step 4:</strong> Download the trimmed file. Only your form pages remain, and the instruction pages are gone.</li>\n</ul>\n</div>\n\n<h2>The page numbers on the form can lie to you</h2>\n\n<p>One trap worth calling out. Many official forms are assembled from separate documents, so the printed footer might say \"Page 1 of 3\" on what is actually the seventh sheet of the PDF. If you trust a \"Print pages 4-8\" instruction blindly, you can chop the wrong sheets. With thumbnails you sidestep this entirely, because you are reacting to what each page actually contains, not to a number someone typed in a footer that may have reset halfway through.</p>\n\n<p>The same goes for forms where the instructions are interleaved oddly, like a declaration page tucked between two notice pages. You handle each page on its own merit instead of assuming a clean block of \"first four pages = instructions\".</p>\n\n<h2>Your filled form has Aadhaar and bank details, so where it runs matters</h2>\n\n<p>A completed government form is not a casual file. It usually carries your date of birth, address, category, roll number, sometimes your Aadhaar number, bank account for fee or scholarship transfer, plus a scanned photo and signature. Uploading that to some random \"delete pages\" website means a copy of your full application lands on a server you know nothing about.</p>\n\n<p>The Delete PDF Pages tool runs inside your own browser. Your form is opened, the front pages are stripped, and the result is saved straight to your device. The file is never sent anywhere. It keeps working even if your connection drops in the middle, and there is no sign-up, no email, no charge. For a job or scholarship application carrying your KYC details, that is the difference that actually matters.</p>\n\n<h2>If it is still over the size limit after trimming</h2>\n\n<p>Removing the instruction pages clears out most of the bulk, since those scanned guideline pages were the heaviest part. If your filled form pages are still chunky and the portal is strict, run the trimmed file through <a href=\"/compress-pdf\">Compress PDF</a> after. Do it in that order, delete first then compress, so you are not spending effort shrinking pages you were about to remove anyway.</p>\n\n<h2>When this is not the right move</h2>\n\n<p>This is specifically for the notice and guideline pages bunched at the front of a form before you upload it. A couple of nearby situations need different handling.</p>\n\n<p>If your form pages are simply out of order, say the declaration ended up before the main form, do not delete anything. Use the <a href=\"/organize-pdf\">Organize PDF</a> tool to drag them back into the right sequence. And if you need to attach separate scans of your certificates or mark sheets to the filled form as one combined file, that is a job for <a href=\"/merge-pdf\">Merge PDF</a>, not deletion.</p>\n\n<p>For the common case though, it is genuinely quick. The form opens with pages of instructions you do not need to send back, and you want them off without disturbing the form pages. Open Delete PDF Pages, mark the front pages by looking at them, and download a clean file with only your filled application inside.</p>\n\n<h2>FAQ</h2>\n\n<p><strong>Q: The form says \"upload pages 4 to 8 only\" but my PDF numbering is different. Which do I trust?</strong><br> A: Trust what the pages look like, not the printed footers. Government PDFs often have unnumbered cover notices or annexures that restart the count, so the footer can disagree with the PDF order. In the thumbnail view, keep the pages that show your filled form fields and remove the instruction pages, whatever number they carry.</p>\n\n<p><strong>Q: Will removing the instruction pages reduce the quality of my filled form pages?</strong><br> A: No. The pages you keep are carried over as they are, with no re-rendering. Your scanned signature and photo stay at the same resolution. You are only changing which pages are in the file, not how the remaining ones look.</p>\n\n<p><strong>Q: My form has my Aadhaar number and bank details. Is this safe?</strong><br> A: Yes, because nothing leaves your device. The whole process runs inside your browser, so your form is never uploaded to any server. That is exactly why you should avoid the random upload-based sites for a document like this.</p>\n\n<p><strong>Q: After trimming, the file is still above the portal's size limit. What do I do?</strong><br> A: Run the trimmed file through <a href=\"/compress-pdf\">Compress PDF</a>. Removing the instruction pages handles most of the weight, and compressing the leftover form pages usually gets you under caps like 200KB or 500KB.</p>\n\n<p><strong>Q: Do I need an app or an account?</strong><br> A: Neither. It runs in your web browser on phone or laptop, with no install, no sign-up and no cost. You open the tool, add your file, mark the pages, and download.</p>","approxWords":1180,"title":"Remove Instruction Pages From a Government Form PDF Before You Upload It","seoTitle":"Remove Instruction Pages From Govt Form PDF | GoPDFGo","slug":"remove-instruction-pages-government-form-pdf","keywords":"remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove","excerpt":"Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap."}
+  //     <p>You download the application PDF for an SSC post, or a state PSC vacancy, or an NSP scholarship. You open it expecting boxes to fill. Instead, page 1 is a notice with the closing date and a helpline number. Page 2 is eligibility conditions. Page 3 is "Documents to be enclosed". The actual form, the one with your name, photo and signature, does not start until page 4 or 5.</p>
+      
+  //     <p>That part is normal. The annoyance comes later, at the upload step, when the portal asks for the filled form back and you realise the file you have still drags all those instruction pages along at the front.</p>
+      
+  //     <h2>Why you need to remove instruction pages from a government form PDF</h2>
+      
+  //     <p>Most people fill the form, save it, and try to upload the whole thing. Two specific problems show up.</p>
+      
+  //     <p>First, the portal often spells out a page rule. NSP scholarship renewals, many university admission forms, and several PSC application packs say something close to "upload the duly filled application only" or "pages 4 onwards". The instruction pages were never meant to come back. Send all 11 pages and a verifier has to dig through guideline text to find your form. That is the kind of thing that gets an application marked incomplete.</p>
+      
+  //     <p>Second, those front pages are dead weight against the size cap. Portals like SSC, NSP and most state recruitment boards cap each upload tight, often 200KB, 500KB, or "max 2MB". If the form was issued as a scanned PDF, every instruction page is a full image. Four or five of them can quietly add a megabyte or more. Drop those pages and you frequently land under the limit before you touch any compression at all.</p>
+      
+  //     <p>So the goal is plain: keep your filled form pages, throw out the notice and guideline pages sitting in front of them.</p>
+      
+  //     <h2>How to tell where the instructions end and the form begins</h2>
+      
+  //     <p>The tricky bit with these forms is the boundary. Does the form start on page 4 or page 5? Did the eligibility notice run to two pages or three? On a government PDF the numbering printed on the page often does not match the PDF's actual page order, because the cover notice is unnumbered or the annexures restart counting. So typing a page range from memory is risky.</p>
+      
+  //     <p>Looking at the pages is far safer. An instruction page is dense running text with bullet points and a heading like "General Instructions" or "Important Dates". Your form page looks nothing like it. It has a photo box, a signature line, ruled fields, your typed or handwritten entries. You can spot the switch at a glance, no page-number arithmetic involved.</p>
+      
+  //     <p>This is where a tool that shows every page as a picture helps. The <a href="/delete-pdf-pages">Delete PDF Pages</a> tool lays out your whole form as thumbnails. You scroll, find the first real form page, and mark everything before it. A counter at the top tracks how many pages you have selected, and a Clear button resets your selection if you tap one too many. You are deleting by sight, not by guessing numbers.</p>
+      
+  //     <div class="tool-box">
+  //     <h3>Removing the front instruction pages from your form</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/delete-pdf-pages">Delete PDF Pages</a> tool and add your form, by dropping the file in or tapping to pick it from your phone or laptop. Every page appears as a thumbnail.</li>
+  //     <li><strong>Step 2:</strong> Scroll to the first page of your actual filled form, the one with the photo box and fields. Tap each page that comes before it, the cover notice, the eligibility page, the "documents required" page, to mark them for removal.</li>
+  //     <li><strong>Step 3:</strong> Glance back over the thumbnails. The pages you did not mark are the ones being kept, so confirm every filled page of your form is still untouched.</li>
+  //     <li><strong>Step 4:</strong> Download the trimmed file. Only your form pages remain, and the instruction pages are gone.</li>
+  //     </ul>
+  //     </div>
+      
+  //     <h2>The page numbers on the form can lie to you</h2>
+      
+  //     <p>One trap worth calling out. Many official forms are assembled from separate documents, so the printed footer might say "Page 1 of 3" on what is actually the seventh sheet of the PDF. If you trust a "Print pages 4-8" instruction blindly, you can chop the wrong sheets. With thumbnails you sidestep this entirely, because you are reacting to what each page actually contains, not to a number someone typed in a footer that may have reset halfway through.</p>
+      
+  //     <p>The same goes for forms where the instructions are interleaved oddly, like a declaration page tucked between two notice pages. You handle each page on its own merit instead of assuming a clean block of "first four pages = instructions".</p>
+      
+  //     <h2>Your filled form has Aadhaar and bank details, so where it runs matters</h2>
+      
+  //     <p>A completed government form is not a casual file. It usually carries your date of birth, address, category, roll number, sometimes your Aadhaar number, bank account for fee or scholarship transfer, plus a scanned photo and signature. Uploading that to some random "delete pages" website means a copy of your full application lands on a server you know nothing about.</p>
+      
+  //     <p>The Delete PDF Pages tool runs inside your own browser. Your form is opened, the front pages are stripped, and the result is saved straight to your device. The file is never sent anywhere. It keeps working even if your connection drops in the middle, and there is no sign-up, no email, no charge. For a job or scholarship application carrying your KYC details, that is the difference that actually matters.</p>
+      
+  //     <h2>If it is still over the size limit after trimming</h2>
+      
+  //     <p>Removing the instruction pages clears out most of the bulk, since those scanned guideline pages were the heaviest part. If your filled form pages are still chunky and the portal is strict, run the trimmed file through <a href="/compress-pdf">Compress PDF</a> after. Do it in that order, delete first then compress, so you are not spending effort shrinking pages you were about to remove anyway.</p>
+      
+  //     <h2>When this is not the right move</h2>
+      
+  //     <p>This is specifically for the notice and guideline pages bunched at the front of a form before you upload it. A couple of nearby situations need different handling.</p>
+      
+  //     <p>If your form pages are simply out of order, say the declaration ended up before the main form, do not delete anything. Use the <a href="/organize-pdf">Organize PDF</a> tool to drag them back into the right sequence. And if you need to attach separate scans of your certificates or mark sheets to the filled form as one combined file, that is a job for <a href="/merge-pdf">Merge PDF</a>, not deletion.</p>
+      
+  //     <p>For the common case though, it is genuinely quick. The form opens with pages of instructions you do not need to send back, and you want them off without disturbing the form pages. Open Delete PDF Pages, mark the front pages by looking at them, and download a clean file with only your filled application inside.</p>
+      
+  //     <h2>FAQ</h2>
+      
+  //     <p><strong>Q: The form says "upload pages 4 to 8 only" but my PDF numbering is different. Which do I trust?</strong><br> A: Trust what the pages look like, not the printed footers. Government PDFs often have unnumbered cover notices or annexures that restart the count, so the footer can disagree with the PDF order. In the thumbnail view, keep the pages that show your filled form fields and remove the instruction pages, whatever number they carry.</p>
+      
+  //     <p><strong>Q: Will removing the instruction pages reduce the quality of my filled form pages?</strong><br> A: No. The pages you keep are carried over as they are, with no re-rendering. Your scanned signature and photo stay at the same resolution. You are only changing which pages are in the file, not how the remaining ones look.</p>
+      
+  //     <p><strong>Q: My form has my Aadhaar number and bank details. Is this safe?</strong><br> A: Yes, because nothing leaves your device. The whole process runs inside your browser, so your form is never uploaded to any server. That is exactly why you should avoid the random upload-based sites for a document like this.</p>
+      
+  //     <p><strong>Q: After trimming, the file is still above the portal's size limit. What do I do?</strong><br> A: Run the trimmed file through <a href="/compress-pdf">Compress PDF</a>. Removing the instruction pages handles most of the weight, and compressing the leftover form pages usually gets you under caps like 200KB or 500KB.</p>
+      
+  //     <p><strong>Q: Do I need an app or an account?</strong><br> A: Neither. It runs in your web browser on phone or laptop, with no install, no sign-up and no cost. You open the tool, add your file, mark the pages, and download.</p>
   //   `
   // },
   // {
@@ -3899,54 +3965,6 @@ export const blogsData = [
       
   //     <p><strong>Q: Can I add my PAN or photo to the same PDF?</strong><br> A: A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents.</p>
       
-  //     <script type="application/ld+json">
-  //     {
-  //       "@context": "https://schema.org",
-  //       "@type": "FAQPage",
-  //       "mainEntity": [
-  //         {
-  //           "@type": "Question",
-  //           "name": "Does the front have to be page 1 and the back page 2?",
-  //           "acceptedAnswer": {
-  //             "@type": "Answer",
-  //             "text": "Yes, keep the front first. Reviewers expect to see your photo and number first, then the address on the back. If they loaded in the wrong order, drag the thumbnails to swap them before exporting."
-  //           }
-  //         },
-  //         {
-  //           "@type": "Question",
-  //           "name": "Is it safe to make my Aadhaar PDF on a website?",
-  //           "acceptedAnswer": {
-  //             "@type": "Answer",
-  //             "text": "With the Image to PDF tool here, yes, because the work happens inside your own browser and the photos are never uploaded to a server. Avoid any site that sends your Aadhaar image to the cloud for processing."
-  //           }
-  //         },
-  //         {
-  //           "@type": "Question",
-  //           "name": "My KYC portal rejected the PDF for being too big. What do I do?",
-  //           "acceptedAnswer": {
-  //             "@type": "Answer",
-  //             "text": "Make the single PDF first, then pass it through the Compress PDF tool to bring it under the portal's size limit. Stop compressing the moment the Aadhaar number is still clearly readable on zoom."
-  //           }
-  //         },
-  //         {
-  //           "@type": "Question",
-  //           "name": "Should I mask my Aadhaar for bank KYC?",
-  //           "acceptedAnswer": {
-  //             "@type": "Answer",
-  //             "text": "No. Official bank and government KYC needs the full, unmasked number. Mask it only when sharing with private parties like landlords, gyms, or coaching centres."
-  //           }
-  //         },
-  //         {
-  //           "@type": "Question",
-  //           "name": "Can I add my PAN or photo to the same PDF?",
-  //           "acceptedAnswer": {
-  //             "@type": "Answer",
-  //             "text": "A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents."
-  //           }
-  //         }
-  //       ]
-  //     }
-  //     </script>
   //   `
   // },
   // {
