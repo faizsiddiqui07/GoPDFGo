@@ -8,6 +8,15 @@
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
   RewriteRule ^ https://gopdfgo.com%{REQUEST_URI} [L,R=301]
 
+  # 1b. Raw ".html" URL ko clean URL par 301 karo (duplicate-URL band karo).
+  #     %{THE_REQUEST} ORIGINAL request line dekhta hai -- isliye niche rule 3 ki
+  #     andar-hi-andar hone wali (x -> x.html) rewrite par yeh fire NAHI hota,
+  #     yaani koi redirect loop nahi banta. Query string default se preserve hoti hai.
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
   # 2. Trailing slash HATAO (301) -- sirf tab jab no-slash ".html" page मौजूद ho.
   #    Yeh leftover /x/ folder hone par bhi chalta hai, aur asli asset folders par loop nahi karta.
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
