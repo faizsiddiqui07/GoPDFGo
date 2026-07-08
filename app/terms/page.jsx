@@ -53,8 +53,8 @@ export default function TermsAndConditionPage() {
             Your documents are never transmitted to, retained on, or inspected
             by our backend systems. All processing (e.g., compressing a PDF,
             masking an Aadhaar card) is performed locally within your browser
-            using WebAssembly technologies. You retain full ownership, privacy,
-            and control of your data at all times.
+            on your own device. You retain full ownership, privacy, and control
+            of your data at all times.
           </p>
         </section>
 

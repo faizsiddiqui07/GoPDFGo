@@ -34,9 +34,9 @@ export const blogsData = [
         <ul>
           <li><strong>Step 1:</strong> Navigate to the secure <a href="/compress-pdf">GoPDFGo Compress PDF</a> tool on your mobile or desktop.</li>
           <li><strong>Step 2:</strong> Click on the upload area or simply drag and drop your heavy PDF document (like your 10th marksheet or graduation degree).</li>
-          <li><strong>Step 3:</strong> Once uploaded, our WebAssembly-powered engine will instantly analyze your document. It uses smart rasterization technology to reduce the file footprint while maintaining sharp, legible text edges.</li>
+          <li><strong>Step 3:</strong> Once uploaded, our in-browser engine will instantly analyze your document. It uses smart rasterization technology to reduce the file footprint while maintaining sharp, legible text edges.</li>
           <li><strong>Step 4:</strong> Click the <strong>Compress PDF</strong> button. Within seconds, you will see the new optimized file size displayed on your screen.</li>
-          <li><strong>Step 5:</strong> If the size is exactly under the 50KB limit, click Download. If it is still slightly larger (e.g., 60KB), you can simply run the compressed file through the tool one more time for a deeper compression.</li>
+          <li><strong>Step 5:</strong> If the size is exactly under the 50KB limit, click Download. If it is still slightly larger (e.g., 60KB), you can simply use the <strong>Target Size (KB)</strong> mode and set your exact limit, like 50KB, so the tool aims straight for that size.</li>
         </ul>
       </div>
 
@@ -48,6 +48,17 @@ export const blogsData = [
       </ul>
 
       <p>Don't let a simple technical error or a blurry document ruin months of intense exam preparation. Compress your files securely, upload them with confidence, and get back to your studies. Good luck with your upcoming exams!</p>
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I compress a PDF to exactly under 50KB or 100KB?</strong><br>
+      A: Open the <a href="/compress-pdf">Compress PDF</a> tool and switch to <strong>Target Size (KB)</strong> mode. Pick a preset like 50 KB or 100 KB, or type your own number, and the tool aims straight for that limit — no guesswork and no compressing the file twice.</p>
+      <p><strong>Q: Will compressing under 50KB make my marksheet unreadable?</strong><br>
+      A: Not with a smart compressor. GoPDFGo optimises the file first and only reduces image detail as much as needed, so your roll number, name, and marks stay legible for the verification officer.</p>
+      <p><strong>Q: Is it safe to compress my Aadhaar card or marksheet online?</strong><br>
+      A: On GoPDFGo, yes — because nothing is uploaded. The entire process runs inside your browser on your own device, so your documents never touch a server.</p>
+      <p><strong>Q: The portal wants a JPG under 50KB, not a PDF. What should I do?</strong><br>
+      A: Use the <a href="/compress-jpg">Compress JPG</a> tool instead and set the same Target Size. For a photo or signature, also check the required pixel size with our <a href="/resize">Resize Image</a> tool.</p>
+      <p><strong>Q: My file is still above 50KB after compressing. What now?</strong><br>
+      A: Set the exact cap in Target Size mode so the tool pushes closer to your limit. If a scanned document simply carries too much detail, reduce its dimensions first with <a href="/resize">Resize Image</a>, then compress — that almost always gets it under 50KB.</p>
     `
   },
   {
@@ -112,6 +123,18 @@ export const blogsData = [
       <p>None of these are dramatic. But document verification is the one stage where a clerk is actively looking for a reason to send your form back, and a messy, half-rotated, oddly-named PDF hands them that reason on a plate. Five minutes of cleanup is cheaper than waiting for the next recruitment cycle.</p>
 
       <p>Organizing your digital documents doesn't have to be a headache. Keep your scans ready, merge them securely in the right order, and present a winning application every single time.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I merge my 10th, 12th, and degree marksheets into one PDF?</strong><br>
+      A: Open the <a href="/merge-pdf">Merge PDF</a> tool, add all your marksheet files, drag them into the right order, and download a single combined PDF — all inside your browser.</p>
+      <p><strong>Q: In what order should I arrange the marksheets?</strong><br>
+      A: Unless the portal says otherwise, arrange them chronologically — 10th, then 12th, then each semester of your degree. The file at the top becomes the first page.</p>
+      <p><strong>Q: Will merging reduce the quality of my scanned marksheets?</strong><br>
+      A: No. Merging simply places each page one after another; it does not re-compress or blur your scans, so every marksheet stays exactly as sharp as the original.</p>
+      <p><strong>Q: The merged PDF is too big for the portal. How do I shrink it?</strong><br>
+      A: Run it through the <a href="/compress-pdf">Compress PDF</a> tool and use <strong>Target Size (KB)</strong> mode to bring it under the portal’s limit (like 200KB) while keeping the text readable.</p>
+      <p><strong>Q: Is it safe to merge my documents here?</strong><br>
+      A: Yes. Everything runs inside your browser on your own device — your marksheets are never uploaded to any server.</p>
     `
   },
   {
@@ -165,7 +188,7 @@ export const blogsData = [
       <p>Second, the shadow of your own hand or phone is falling across the page. Side lighting from a tube light does this constantly. Shift slightly so the light comes over your shoulder, not from behind the paper. Third, your crop is lazy. A real scanner outputs <em>only</em> the document, with clean right-angle corners. So after you shoot, draw a tight box right up to the paper's edge in our <a href="/crop">Crop tool</a> — the built-in aspect-ratio presets snap you to a clean A4-ish rectangle in seconds. That single step does more for the "scan look" than any expensive app filter.</p>
 
       <h2>Why Bother When Scanner Apps Exist?</h2>
-      <p>Fair question. Most popular scanner apps do auto-detect edges, and that part is genuinely useful. But here's what they don't tell you upfront. The free tier slaps a watermark across the corner of every page — "Scanned with XYZ" — and an SSC or EPFO clerk reviewing your form is well within rights to reject a watermarked document. To remove it, you pay a monthly subscription for a tool you'll use twice a year. Several of these apps also push your scans through their own cloud for "enhancement," which is the last thing you want for a PAN card or a bank passbook.</p>
+      <p>Fair question. Most popular scanner apps do auto-detect edges, and that part is genuinely useful. But here's what they don't tell you upfront. The free tier slaps a watermark across the corner of every page — "Scanned with CamScanner" — and an SSC or EPFO clerk reviewing your form is well within rights to reject a watermarked document. To remove it, you pay a monthly subscription for a tool you'll use twice a year. Several of these apps also push your scans through their own cloud for "enhancement," which is the last thing you want for a PAN card or a bank passbook.</p>
       <p>Shooting a plain photo with your normal camera and converting it yourself sidesteps all of that. No watermark, no subscription, no account. You shoot, you crop, you convert. If a stray finger or a bit of the desk crept in, fix it before converting rather than paying to "auto-clean" it.</p>
 
       <h2>Keeping Text Crisp for KYC and Portal Uploads</h2>
@@ -176,6 +199,16 @@ export const blogsData = [
       <p>Phones love saving the odd photo rotated 90 degrees, and you usually notice only after it's inside the PDF. When you're combining several pages, one sideways shot throws off the whole sequence — page 3 of your six-month statement suddenly lands on its side. Sort it at the source. Drop your images into the <a href="/image-to-pdf">Image to PDF</a> tool, drag the thumbnails into the exact reading order you want, and straighten any rogue one with our <a href="/rotate">Rotate tool</a> before you hit convert. Two minutes of tidying beats re-uploading a rejected form to the Income Tax portal at 11pm.</p>
 
       <p>Taking these extra 30 seconds to clean up your image guarantees a flawless, scanner-quality PDF that will be accepted anywhere, saving you time and stress in the long run.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I turn phone photos into a single clear PDF?</strong><br>
+      A: Open the <a href="/image-to-pdf">Image to PDF</a> tool, add your photos, reorder them if needed, and download one clean PDF — right on your phone, with nothing uploaded.</p>
+      <p><strong>Q: Why do my photo-scans look blurry when I upload them?</strong><br>
+      A: Usually the document does not fill the frame or the lighting is uneven. Get close so the paper touches the edges, use even light, and crop out the background with our <a href="/crop">Crop Image</a> tool.</p>
+      <p><strong>Q: Can I combine several photos into one PDF?</strong><br>
+      A: Yes. Add all the photos at once, drag them into the correct order, and they become a single multi-page PDF.</p>
+      <p><strong>Q: My PDF is too large for the upload form. What now?</strong><br>
+      A: Use the <a href="/compress-pdf">Compress PDF</a> tool with Target Size (KB) mode to fit the portal’s size limit.</p>
     `
   },
   {
@@ -212,7 +245,7 @@ export const blogsData = [
 
       <div class="tool-box">
         <h3>How "Local Processing" Works to Protect You</h3>
-        <p>Our platform runs on <strong>WebAssembly (Wasm)</strong>. When you load our website, we send a tiny, highly efficient application directly to your web browser. </p>
+        <p>Our platform runs entirely inside your web browser. When you load our website, we send a tiny, highly efficient application directly to your web browser. </p>
         <p>Whether you are using our <a href="/compress-pdf">Compress tool</a> to shrink a file, extracting specific pages with our <a href="/split-pdf">Split PDF tool</a>, or blurring information with our <a href="/aadhaar-masking">Aadhaar Masking tool</a>, the actual mathematical processing happens <strong>entirely inside your phone or laptop's CPU</strong>.</p>
         <p><strong>Your file is never uploaded. It is never transmitted across the internet. We have absolutely zero access to your documents.</strong></p>
       </div>
@@ -245,6 +278,16 @@ export const blogsData = [
       <p>One real warning on masking: don't just slap a coloured highlight over the number in a viewer and call it done. A highlight is decoration sitting on top — the text underneath is still selectable and copyable. The whole point of masking is that the number is genuinely covered before you hit send, not hidden behind a layer anyone can peel off.</p>
 
       <p>The next time you handle confidential documents, make the smart, educated choice. Stop trading your privacy for convenience, and start using zero-upload, client-side tools to ensure your identity remains safe and yours alone.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: Is it safe to compress or edit a bank statement online?</strong><br>
+      A: Only if the tool is truly client-side. On GoPDFGo nothing is uploaded — the file is processed inside your browser, so a statement never touches a server.</p>
+      <p><strong>Q: How can I tell a tool is not secretly uploading my file?</strong><br>
+      A: A genuine client-side tool keeps working even after you turn off your internet once the page has loaded. If it needs a connection to process, it is uploading your file.</p>
+      <p><strong>Q: How do I open a password-protected bank statement PDF?</strong><br>
+      A: If you know the password, remove it with our <a href="/unlock-pdf">Unlock PDF</a> tool, then work with the unlocked copy.</p>
+      <p><strong>Q: How do I hide my account number before sharing a statement?</strong><br>
+      A: Use the <a href="/aadhaar-masking">ID Masking</a> tool to place a solid black box over the account number and any sensitive detail; the masked area is flattened permanently.</p>
     `
   },
   {
@@ -266,7 +309,7 @@ export const blogsData = [
       <p>If you upload this highly sensitive document to a standard, cloud-based PDF tool, you are actively transmitting your financial identity to a remote server. Even if the website claims to delete files after 2 hours, your data sits on an external server long enough to be vulnerable to data breaches, automated scraping scripts, or hackers. Financial fraud starting from stolen KYC documents is a massive global issue.</p>
 
       <h2>The Secure Alternative: Local Browser Compression</h2>
-      <p>You need a tool that can reduce the file size without ever looking at the file itself. That is exactly how <a href="/">GoPDFGo</a> operates. We use <strong>client-side processing</strong> via WebAssembly. This means the mathematical compression algorithm runs entirely within your own computer or mobile browser's memory. Absolutely zero data is sent to our servers.</p>
+      <p>You need a tool that can reduce the file size without ever looking at the file itself. That is exactly how <a href="/">GoPDFGo</a> operates. We use <strong>client-side processing</strong> that runs entirely in your browser. This means the mathematical compression algorithm runs entirely within your own computer or mobile browser's memory. Absolutely zero data is sent to our servers.</p>
 
       <div class="tool-box">
         <h3>Step-by-Step Guide to Compress Your PAN Card:</h3>
@@ -285,6 +328,16 @@ export const blogsData = [
       <p>Simply navigate to our <a href="/image-to-pdf">Image to PDF Converter</a>. Upload the photo of your PAN card, and the tool will instantly wrap it into a secure, standard PDF format. Once converted, if the size is still too large, you can run it through the compression tool.</p>
 
       <p>KYC processes are designed to secure your financial future and prevent money laundering. Make sure the digital tools you use to handle these documents are just as secure. Compress your PAN card locally, complete your verification with peace of mind, and protect your identity.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I compress a PAN card PDF for KYC?</strong><br>
+      A: Open the <a href="/compress-pdf">Compress PDF</a> tool, switch to <strong>Target Size (KB)</strong> mode, and set the limit your KYC portal asks for (often 100KB or 200KB).</p>
+      <p><strong>Q: What file size do most KYC portals accept?</strong><br>
+      A: It varies, but many keep it under 100KB to 200KB. Always check the exact limit shown on the upload page and set that number as your target.</p>
+      <p><strong>Q: Is it safe to compress my PAN card online?</strong><br>
+      A: Yes on GoPDFGo — the compression happens inside your browser and your PAN is never uploaded to a server.</p>
+      <p><strong>Q: Should I mask my PAN before sharing it?</strong><br>
+      A: For anything beyond official KYC, yes. Use the <a href="/aadhaar-masking">ID Masking</a> tool to hide part of the number so the copy cannot be misused.</p>
     `
   },
   {
@@ -351,6 +404,16 @@ export const blogsData = [
       <p>One practical tip for hostel life: keep a separate gallery album for each subject so the right 20 photos are sitting together instead of scattered between mess selfies and meme screenshots. When the deadline hits at 11:50pm, you want to tap one album and select all, not hunt page by page. Get the PDF made, give it a sensible name, drop it on the portal, and go back to your chai with five minutes to spare.</p>
 
       <p>Make a great impression on your professors. Submit clean, organized, and properly formatted digital assignments every single time.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I combine assignment photos into one PDF on my phone?</strong><br>
+      A: Open the <a href="/image-to-pdf">Image to PDF</a> tool in your mobile browser, add all the page photos, and download a single PDF — no app to install.</p>
+      <p><strong>Q: How do I fix the page order?</strong><br>
+      A: After adding the photos, drag each one into the correct sequence before you convert. The order you see is the order in the PDF.</p>
+      <p><strong>Q: Some pages came out sideways. How do I fix that?</strong><br>
+      A: Convert first, then use the <a href="/rotate-pdf">Rotate PDF</a> tool to permanently turn any sideways pages upright.</p>
+      <p><strong>Q: The finished PDF is too big to submit. What should I do?</strong><br>
+      A: Shrink it with the <a href="/compress-pdf">Compress PDF</a> tool using Target Size (KB) mode to meet your portal’s limit.</p>
     `
   },
   {
@@ -392,20 +455,30 @@ export const blogsData = [
 
       <h2>Some Pages Should NOT Have a Number on Them</h2>
       <p>This is the part most students get wrong, and examiners notice it in two seconds. Your cover page, the certificate signed by your guide, the declaration, and usually the acknowledgement are <strong>not</strong> supposed to carry a visible page number. The front matter is either left blank or numbered separately in small roman numerals (i, ii, iii) in most university handbooks. If you stamp a bold "1" right on your title page, it instantly looks like a homemade job.</p>
-      <p>So before you number anything, split your front matter off from the main body. Pull the cover, certificate and declaration out using the <a href="/split-pdf">Split PDF</a> tool, run page numbers only on the chapters and references, then join everything back with <a href="/merge-pdf">Merge PDF</a>. It is one extra step, but the difference between a "1" sitting on your certificate and a clean cover is the difference between looking careful and looking rushed.</p>
+      <p>So before you number anything, decide where the numbers should start. If you do not want a number on your cover or certificate, just tick the <strong>Skip first page</strong> option in the <a href="/page-numbers">Add Page Numbers</a> tool — it keeps the cover clean and starts the count from the next page. You can also set the starting number and the position. There is no need to split the file apart and merge it back any more; but the difference between a "1" sitting on your certificate and a clean cover is the difference between looking careful and looking rushed.</p>
 
       <h2>Match the Numbers to Your Table of Contents and List of Figures</h2>
       <p>Here is the thing nobody tells you until the viva: your Table of Contents, List of Figures and List of Tables all point to specific page numbers. The moment you stamp numbers onto the assembled PDF, those have to agree. If your ToC says "Chapter 3 — page 34" but the stamped number on that page reads 31, the examiner flipping to it will land on the wrong page and start doubting everything else.</p>
       <p>So do the numbering <em>first</em>, then go back into your Word file and type the real numbers into the ToC, the List of Figures and the List of Tables by hand. Don't trust Word's auto-field across a merged document, because the merged PDF and your Word draft almost never line up page-for-page. Open the final stamped PDF side by side, find where each chapter and each figure actually begins, and write those exact numbers in. Five minutes of cross-checking saves you a very awkward moment in front of the panel.</p>
 
       <h2>Re-numbered Everything After a Last-Minute Edit?</h2>
-      <p>You will. Your guide will read it the evening before submission and ask you to add a paragraph or fix one figure, and suddenly every page after that shifts by one. This is exactly why you number the PDF <em>last</em> and keep the un-numbered master safe. Re-running the <a href="/page-numbers">page numbers tool</a> takes a few seconds, and because it stamps cleanly at the bottom-centre of every page, you are not left peeling off old numbers or fighting misaligned text boxes. Just regenerate, then update the three lists again.</p>
+      <p>You will. Your guide will read it the evening before submission and ask you to add a paragraph or fix one figure, and suddenly every page after that shifts by one. This is exactly why you number the PDF <em>last</em> and keep the un-numbered master safe. Re-running the <a href="/page-numbers">page numbers tool</a> takes a few seconds, and because it stamps cleanly at your chosen position (bottom-centre by default), you are not left peeling off old numbers or fighting misaligned text boxes. Just regenerate, then update the three lists again.</p>
       <p>If the late edit was only removing a junk page or a duplicate, you don't even need to touch your Word file. Drop the page with <a href="/delete-pdf-pages">Delete PDF Pages</a>, then re-stamp. The kept pages stay sharp and the count corrects itself.</p>
 
       <h2>Getting It Right at the Xerox and Binding Shop</h2>
-      <p>The print shop near campus is not going to proofread your file. Whatever you hand them on the pen drive or over WhatsApp is what gets printed and hardbound, and a spiral or hardbound copy is expensive to redo. So check two things on the final numbered PDF before you pay. First, that the number isn't sitting inside the binding margin — hardbinding eats roughly half an inch on the left edge, so bottom-centre is the safe choice (which is exactly where this tool puts it). Second, that no number lands on top of a footnote or the caption under a full-page chart. Scroll the whole thing once. The five minutes you spend here is a lot cheaper than reprinting forty pages and waiting another day for the binder.</p>
+      <p>The print shop near campus is not going to proofread your file. Whatever you hand them on the pen drive or over WhatsApp is what gets printed and hardbound, and a spiral or hardbound copy is expensive to redo. So check two things on the final numbered PDF before you pay. First, that the number isn't sitting inside the binding margin — hardbinding eats roughly half an inch on the left edge, so bottom-centre is the safe choice (which is exactly where this tool defaults to). Second, that no number lands on top of a footnote or the caption under a full-page chart. Scroll the whole thing once. The five minutes you spend here is a lot cheaper than reprinting forty pages and waiting another day for the binder.</p>
 
       <p>A well-formatted, properly numbered thesis shows your evaluating professors that you pay attention to detail. Finish your academic project strong by ensuring the final presentation is totally flawless.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I add page numbers to my college project PDF?</strong><br>
+      A: Open the <a href="/page-numbers">Add Page Numbers</a> tool, choose the position and format, and click apply — numbers are stamped across every page in one go.</p>
+      <p><strong>Q: How do I skip numbering the cover page?</strong><br>
+      A: Tick <strong>Skip first page</strong> in the tool. It leaves your cover clean and starts the count from the next page — no need to split the file.</p>
+      <p><strong>Q: Can I start numbering from a specific number?</strong><br>
+      A: Yes. Set your own starting number, and pick a format like plain "1, 2, 3" or "Page 1 of N".</p>
+      <p><strong>Q: Will the number overlap my text or diagrams?</strong><br>
+      A: It sits in the page margin. Choose Bottom Center (safest for binding) or another corner so it stays clear of your content, and do a quick scroll before printing.</p>
     `
   },
   {
@@ -459,6 +532,16 @@ export const blogsData = [
       <p>The principle is boring but it holds: fix orientation as early in your workflow as you can. Every later step — numbering, merging, printing, submitting — just inherits whatever state the pages are in. Get them straight once, save it permanently, and the rest of the chain stays clean.</p>
 
       <p>Sending a properly oriented document is a basic digital courtesy. Take the extra 30 seconds to permanently fix your PDFs before sharing them with the world.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I permanently rotate scanned PDF pages?</strong><br>
+      A: Open the <a href="/rotate-pdf">Rotate PDF</a> tool, turn the sideways or upside-down pages upright, and download — the new orientation is saved into the file itself.</p>
+      <p><strong>Q: Why does my PDF go sideways again after I close the viewer?</strong><br>
+      A: Most viewers only rotate the on-screen view, not the file. Our tool rewrites the page orientation so it opens correctly for everyone, everywhere.</p>
+      <p><strong>Q: Can I rotate only a few pages, not the whole document?</strong><br>
+      A: Yes. Rotate just the pages that need fixing and leave the rest untouched.</p>
+      <p><strong>Q: Is it safe for private or scanned documents?</strong><br>
+      A: Yes. Rotation happens inside your browser on your own device — nothing is uploaded.</p>
     `
   },
   {
@@ -523,6 +606,16 @@ export const blogsData = [
       <p>Do this once a month while the spending is still fresh in your head and the year-end becomes a non-event. If you're sharing the file outside your team, say with an external consultant, a light <a href="/watermark-pdf">watermark</a> marking it as a record copy keeps a stray draft from being mistaken for the final filing.</p>
 
       <p>Taking control of your digital paperwork doesn't just make you look more professional; it actively saves you money during tax season. Start merging your financial records today and streamline your entire accounting workflow.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I merge multiple vendor invoices into one PDF?</strong><br>
+      A: Open the <a href="/merge-pdf">Merge PDF</a> tool, add every invoice, drag them into date or vendor order, and download a single combined file.</p>
+      <p><strong>Q: Can I add page numbers so I can reference each invoice?</strong><br>
+      A: Yes. After merging, run the file through <a href="/page-numbers">Add Page Numbers</a> so your team can say "see page 4" instead of digging through attachments.</p>
+      <p><strong>Q: Can I pull one vendor back out later?</strong><br>
+      A: Yes. Use <a href="/split-pdf">Split PDF</a> or <a href="/extract-pdf-pages">Extract PDF Pages</a> to lift just those pages into a separate file.</p>
+      <p><strong>Q: Is it safe for confidential financial records?</strong><br>
+      A: Yes. The whole process runs on your own computer inside the browser; no invoice is ever uploaded to a server.</p>
     `
   },
   {
@@ -568,6 +661,16 @@ export const blogsData = [
       <p><strong>3. Smarter Business Cards:</strong> Physical space is extremely limited on a standard 3x2 inch piece of cardstock. Instead of cramming it with tiny text detailing your website, Twitter, LinkedIn, and email, print a clean, minimalist QR code on the back. Have that code link directly to your Linktree profile, your digital portfolio, or your company's "About Us" page.</p>
 
       <p>It is time to take full control of your digital sharing strategy and stop paying for basic web utilities. Generate your URL QR codes locally for free, print them with absolute confidence, and never worry about unexpected subscription fees, expired links, or broken marketing materials ever again.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I make a free QR code for my website?</strong><br>
+      A: Open the <a href="/qr-generator">QR Code Generator</a>, paste your website URL, pick a size, and download the image — free, with no signup.</p>
+      <p><strong>Q: Will the QR code expire or stop working?</strong><br>
+      A: No. We generate static QR codes, so the link is baked into the pattern itself. As long as your URL stays the same, the code works forever with unlimited scans.</p>
+      <p><strong>Q: What size should I download for printing?</strong><br>
+      A: Pick 256px for on-screen use, 512px for flyers and cards, or 1024px for posters and standees so the squares stay crisp when printed large.</p>
+      <p><strong>Q: Can the same tool make Wi-Fi, text, or contact QR codes?</strong><br>
+      A: Yes. Besides website links, you can generate QR codes for your Wi-Fi, a WhatsApp link, plain text, or contact details — all created locally in your browser.</p>
     `
   },
   {
@@ -598,7 +701,7 @@ export const blogsData = [
         <h3>Step-by-Step Guide to Compressing Your Image:</h3>
         <ul>
           <li><strong>Step 1: Access the Tool.</strong> Open your web browser and go to the <a href="/compress-jpg">Compress JPG</a> or <a href="/compress-jpeg">Compress JPEG</a> tool on GoPDFGo, depending on your original file extension.</li>
-          <li><strong>Step 2: Upload Your Photo Securely.</strong> Select the image from your phone's photo gallery or drag and drop it from your desktop computer. Our tools are built on WebAssembly, meaning they process everything locally inside your browser. Your personal identification photo remains completely private and is never uploaded to an external server.</li>
+          <li><strong>Step 2: Upload Your Photo Securely.</strong> Select the image from your phone's photo gallery or drag and drop it from your desktop computer. Our tools are designed to process everything locally inside your browser. Your personal identification photo remains completely private and is never uploaded to an external server.</li>
           <li><strong>Step 3: Adjust the Quality Slider.</strong> Unlike basic one-click tools that guess what you want, we give you manual control. You can adjust the compression slider to find the absolute perfect sweet spot between file size (getting it under 20KB) and visual clarity. Watch the estimated output size change in real-time.</li>
           <li><strong>Step 4: Download and Verify.</strong> Once the tool confirms the output size is within your required 10KB to 20KB limit, click download. Open the downloaded file to ensure your face and signature are still easily identifiable.</li>
         </ul>
@@ -612,6 +715,17 @@ export const blogsData = [
       <p>If the application portal specifies a strict height and width, you must use our <a href="/resize">Resize Image</a> tool first to set the exact pixels. Once the image is perfectly resized to the correct shape, check its weight. If the resized file is still above 20KB, then you should take that new file and run it through the compression tool.</p>
 
       <p>By using the right, calculated combination of resizing and compressing, you can confidently ensure your application sails through the strictest technical checks without a single hitch. Get your documents right the first time, avoid the stress of last-minute rejections, and focus all your energy on preparing for your actual exam!</p>
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I compress a photo under 20KB for an SSC or UPSC form?</strong><br>
+      A: Open the <a href="/compress-jpg">Compress JPG</a> tool, switch to <strong>Target Size (KB)</strong> mode, and pick 20 KB (or type any number). The tool lowers quality and, if needed, resizes the photo until it fits under that limit.</p>
+      <p><strong>Q: Do I need to resize the photo as well as compress it?</strong><br>
+      A: Often, yes. Weight (KB) and dimensions (pixels) are separate things. If your form asks for an exact size like 200x230 pixels, set that first in the <a href="/resize">Resize Image</a> tool, then compress the resized file under the KB limit.</p>
+      <p><strong>Q: Will a 20KB photo look too blurry to be accepted?</strong><br>
+      A: At the correct pixel size, a well-compressed 20KB photo stays clear enough for form verification. Blurriness usually comes from compressing a huge photo without resizing it to the required dimensions first.</p>
+      <p><strong>Q: Is it safe to compress my photo and signature here?</strong><br>
+      A: Completely. Everything runs inside your browser on your own device — your photo and signature are never uploaded to any server.</p>
+      <p><strong>Q: What size does my signature usually need to be?</strong><br>
+      A: Many exam forms ask for a signature around 140x60 pixels and under 10-20KB, but always check your official notification. Resize to the exact pixels first, then compress to the required KB.</p>
     `
   },
   {
@@ -665,6 +779,16 @@ export const blogsData = [
       <p>Simply take that final image and run it quickly through our <a href="/compress-jpg">Compress JPG</a> tool. You can shave off those last few stubborn kilobytes by lowering the quality slider slightly, all while retaining the exact 200x230 dimensions you worked so hard to create.</p>
 
       <p>By taking the extra two minutes to professionally crop before you resize, you guarantee that your application looks sharp, accurate, and completely verifiable by government authorities. Master this digital skill once, and you will never struggle with an online application form again.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I resize a photo to exactly 200x230 pixels?</strong><br>
+      A: Open the <a href="/resize">Resize Image</a> tool, turn off aspect-lock if the form needs an exact size, and type 200 for width and 230 for height.</p>
+      <p><strong>Q: What is the usual size for a signature?</strong><br>
+      A: Many exam forms ask for a signature around 140x60 pixels, but the exact size is always listed in your official notification, so check that first.</p>
+      <p><strong>Q: After resizing, how do I get the photo under the KB limit?</strong><br>
+      A: Send the resized image to the <a href="/compress-jpg">Compress JPG</a> tool and use Target Size (KB) mode to bring it under 20KB or 50KB as required.</p>
+      <p><strong>Q: Will resizing distort my photo?</strong><br>
+      A: Not if you use the right numbers. Keep aspect-lock on for proportional resizing, or turn it off only when the form demands exact width and height.</p>
     `
   },
   {
@@ -694,7 +818,7 @@ export const blogsData = [
         <h3>Step-by-Step Guide to WebP Compression:</h3>
         <ul>
           <li><strong>Step 1: Gather Your Assets.</strong> Collect all the hero banners, blog thumbnails, and product images you intend to upload to your website.</li>
-          <li><strong>Step 2: Navigate to the Tool.</strong> Open the <a href="/compress-webp">Compress WebP</a> tool on GoPDFGo. Because our platform is built on modern WebAssembly, the compression engine loads instantly in your browser.</li>
+          <li><strong>Step 2: Navigate to the Tool.</strong> Open the <a href="/compress-webp">Compress WebP</a> tool on GoPDFGo. Because our platform is designed to run entirely in your browser, the compression engine loads instantly in your browser.</li>
           <li><strong>Step 3: Upload Securely.</strong> Drag and drop your WebP files. Our completely client-side architecture handles the files locally. You are not waiting for heavy files to upload to a remote server, which saves you massive amounts of time.</li>
           <li><strong>Step 4: Optimize and Compress.</strong> Click the compress button. The advanced algorithm will intelligently reduce the file footprint by discarding invisible metadata and optimizing visual data arrays that the human eye simply cannot perceive.</li>
           <li><strong>Step 5: Download and Deploy.</strong> Save the significantly lighter, web-ready WebP images to your desktop and upload them directly into your WordPress dashboard for maximum site speed.</li>
@@ -728,6 +852,16 @@ export const blogsData = [
       <p>Lighter images are the cheapest fix you have for mobile bounce rate. No new theme, no caching plugin you'll need a tutorial to configure. Just smaller files going out the door. When the page snaps into view on a weak signal, people actually stay and read, and that longer session is exactly the signal Google rewards.</p>
 
       <p>By strictly incorporating manual WebP compression into your daily content publishing routine, you will ensure a lightning-fast, highly SEO-friendly website that keeps both your human users and Google's crawling bots incredibly happy.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I compress WebP images for my WordPress site?</strong><br>
+      A: Open the <a href="/compress-webp">Compress WebP</a> tool, drop in your images, set the quality (around 80% is ideal for web), and download the lighter files.</p>
+      <p><strong>Q: Can I force each image under a specific KB size?</strong><br>
+      A: Yes. Switch to <strong>Target Size (KB)</strong> mode and pick a cap like 100KB so every image lands under your performance budget.</p>
+      <p><strong>Q: Does compressing WebP keep the transparent background?</strong><br>
+      A: Yes. Our WebP compressor preserves the alpha channel, so logos and cutouts stay transparent.</p>
+      <p><strong>Q: Is it safe to compress client or unreleased assets?</strong><br>
+      A: Yes. Everything is processed inside your browser on your own machine — no image is ever uploaded to a server.</p>
     `
   },
   {
@@ -775,6 +909,16 @@ export const blogsData = [
       <p>On the flip side, if you have a graphic or an image that you absolutely need to preserve in a lossless format for further editing in design software, you can seamlessly convert it up using our <a href="/convert-png">Convert JPG to PNG</a> tool.</p>
 
       <p>Understanding the architecture behind image formats is a fundamental digital skill. By utilizing JPGs and PNGs in their correct contexts, you ensure your professional documents look incredibly sharp, your logos blend perfectly, and your websites load at lightning speed.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: Should I use JPG or PNG?</strong><br>
+      A: Use JPG for photographs and anything with smooth colour gradients to keep files small; use PNG for logos, screenshots, text graphics, and anything that needs a transparent background.</p>
+      <p><strong>Q: How do I convert between JPG and PNG?</strong><br>
+      A: Use our <a href="/convert-jpg">Convert to JPG</a> or <a href="/convert-png">Convert to PNG</a> tool — pick your image and download it in the other format.</p>
+      <p><strong>Q: Which format gives a smaller file?</strong><br>
+      A: JPG is usually much smaller for photos. PNG files are larger because they store lossless data and transparency.</p>
+      <p><strong>Q: Does PNG really keep transparency?</strong><br>
+      A: Yes. PNG supports a transparent background; JPG does not, so converting a transparent PNG to JPG fills the background with a solid colour.</p>
     `
   },
   {
@@ -812,7 +956,7 @@ export const blogsData = [
           <li><strong>Step 1: Open the Tool.</strong> Navigate to the <a href="/crop">Crop Image</a> tool on your desktop monitor or mobile browser.</li>
           <li><strong>Step 2: Upload Securely.</strong> Select the messy, unedited photograph of your document from your local storage.</li>
           <li><strong>Step 3: Adjust the Boundary Frame.</strong> Once loaded, you will see an interactive, adjustable cropping box overlaying your image. Carefully drag the four corners and edges of the box so that it tightly hugs the actual borders of your paper document, leaving the wooden desk or background completely outside the designated frame.</li>
-          <li><strong>Step 4: Apply and Save.</strong> Click the primary crop button. The WebAssembly tool will instantly trim away the excess pixel areas. Download your clean, professional-looking, focused image.</li>
+          <li><strong>Step 4: Apply and Save.</strong> Click the primary crop button. The in-browser tool will instantly trim away the excess pixel areas. Download your clean, professional-looking, focused image.</li>
         </ul>
       </div>
 
@@ -847,6 +991,16 @@ export const blogsData = [
       <p>You're not making art. You're removing every reason for someone to pause and doubt the page. A tight crop quietly says the document is real and the person submitting it pays attention. Once it's cleaned up, roll it into a <a href="/image-to-pdf">PDF</a> if the form needs one, and you're done.</p>
 
       <p>Taking just 15 to 20 seconds to properly crop your images before submission completely transforms a lazy, cluttered snapshot into a crisp, authoritative digital document. Take pride in your digital submissions and never upload a photo of your messy desk again!</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I crop the messy edges off a scanned document?</strong><br>
+      A: Open the <a href="/crop">Crop Image</a> tool, drag the crop box around just the document, and download a clean, tightly framed image.</p>
+      <p><strong>Q: Does cropping reduce the file size?</strong><br>
+      A: Yes. Removing the background pixels means fewer pixels to store, so the file gets lighter before you even compress it.</p>
+      <p><strong>Q: Can I crop and then resize to an exact size?</strong><br>
+      A: Yes. Crop first to remove the junk, then send the result to the <a href="/resize">Resize Image</a> tool to set the exact pixels a form needs.</p>
+      <p><strong>Q: Is cropping my document private?</strong><br>
+      A: Completely. It happens inside your browser on your own device — nothing is uploaded.</p>
     `
   },
   {
@@ -943,7 +1097,7 @@ export const blogsData = [
       <p>Second, simply "blurring" the numbers or using a pixelation filter is no longer safe. Modern Artificial Intelligence (AI) and machine learning tools can easily reverse-engineer basic blur filters to reveal the original text underneath. The only truly secure method is a solid, impenetrable black box.</p>
 
       <h2>The 100% Secure Solution: Client-Side Masking</h2>
-      <p>Your identity should never leave your personal device. That is the core technical philosophy behind GoPDFGo. We built a specialized <a href="/aadhaar-masking">Aadhaar Masking</a> tool that runs entirely on your local machine—meaning your laptop or smartphone—using advanced WebAssembly (Wasm) technology.</p>
+      <p>Your identity should never leave your personal device. That is the core technical philosophy behind GoPDFGo. We built a specialized <a href="/aadhaar-masking">Aadhaar Masking</a> tool that runs entirely on your local machine—meaning your laptop or smartphone—using advanced browser-based technology.</p>
 
       <div class="tool-box">
         <h3>How to Mask Your ID Securely in 4 Steps:</h3>
@@ -964,6 +1118,16 @@ export const blogsData = [
 
       <h2>What to Do Next</h2>
       <p>If the office you're sharing with wants a PDF rather than a photo, take your masked image and run it through our <a href="/image-to-pdf">Image to PDF</a> tool to wrap it into a clean single-page document. And if the file still comes out heavier than the upload limit allows, our <a href="/compress-pdf">Compress PDF</a> tool will bring the size down without you having to re-do the mask.</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: How do I mask my Aadhaar card for a rent agreement?</strong><br>
+      A: Open the <a href="/aadhaar-masking">Aadhaar Masking</a> tool, draw a black box over the first 8 digits, and download the masked copy — the hidden area is flattened permanently.</p>
+      <p><strong>Q: Is a masked Aadhaar legally valid?</strong><br>
+      A: Yes. UIDAI and RBI recognise a Masked Aadhaar (first 8 digits hidden, last 4 visible) as valid proof of identity and address.</p>
+      <p><strong>Q: Can the black box be removed to reveal the number?</strong><br>
+      A: No. The tool flattens the image, permanently replacing the pixels under the box, so there is no hidden layer to peel off.</p>
+      <p><strong>Q: Should I also cover the QR code?</strong><br>
+      A: Yes. The Aadhaar QR code can still hold your full details, so add a box over it too — masking only the printed number may not be enough.</p>
     `
   },
   {
@@ -996,7 +1160,7 @@ export const blogsData = [
 
       <div class="tool-box">
         <h3>How to Extract Your Pages Safely and Instantly:</h3>
-        <p>GoPDFGo’s platform uses advanced WebAssembly technology, meaning the heavy lifting is done entirely by your own device’s CPU. Your massive files never leave your computer.</p>
+        <p>GoPDFGo’s platform uses advanced browser-based technology, meaning the heavy lifting is done entirely by your own device’s CPU. Your massive files never leave your computer.</p>
         <ul>
           <li><strong>Step 1: Load the File.</strong> Navigate to the secure <a href="/extract-pdf-pages">Extract Pages</a> tool on our platform and drag your massive file into the upload zone. Because it processes locally, even a 500-page, 50MB document will load incredibly fast.</li>
           <li><strong>Step 2: Choose Your Extraction Mode.</strong> Our tool gives you complete visual control. You can either manually click the visual thumbnail of the specific page you want to extract, or, if you already know the exact page number, simply type it (e.g., "342") into the range input box.</li>
@@ -1052,7 +1216,7 @@ export const blogsData = [
       <p>When searching for a quick fix, many users turn to free online PDF organizers. However, scanned documents almost always contain highly sensitive personal information. Uploading your tax returns, legal contracts, or signed NDAs to a random cloud server just to move one page is a massive privacy risk. Your data could be stored on external databases or exposed in a server breach.</p>
 
       <h2>The Free, Visual Solution: Local Drag-and-Drop Reordering</h2>
-      <p>You absolutely do not need to buy expensive software subscriptions, risk your data on the cloud, or start your tedious scanning process over from scratch. With GoPDFGo's modern WebAssembly technology, you can visually reorganize the structure of your PDF file locally—just as easily as rearranging app icons on your smartphone's home screen.</p>
+      <p>You absolutely do not need to buy expensive software subscriptions, risk your data on the cloud, or start your tedious scanning process over from scratch. With GoPDFGo's modern browser-based technology, you can visually reorganize the structure of your PDF file locally—just as easily as rearranging app icons on your smartphone's home screen.</p>
 
       <div class="tool-box">
         <h3>How to Reorder Your Pages in 4 Simple Steps:</h3>
@@ -1118,7 +1282,7 @@ export const blogsData = [
         <ul>
           <li><strong>Step 1: Decide on your Output Format.</strong> Look at the image you downloaded. If it is a standard photograph (like a person or a landscape), you can seamlessly convert it to a standard JPEG. Alternatively, if the image has a transparent background that you desperately need to keep for a UI mockup, you must use a dedicated <a href="/convert-png">Convert WebP to PNG</a> tool to preserve that transparency.</li>
           <li><strong>Step 2: Drag and Drop.</strong> Drag the stubbornly un-openable WebP file from your computer's downloads folder directly into the tool's interface.</li>
-          <li><strong>Step 3: Instant Local Conversion.</strong> Because the conversion algorithm runs locally via WebAssembly, there is absolutely zero upload waiting time. The image data is instantly translated from the WebP structure into standard PNG or JPG pixel mapping right inside your browser's memory.</li>
+          <li><strong>Step 3: Instant Local Conversion.</strong> Because the conversion algorithm runs locally in your browser, there is absolutely zero upload waiting time. The image data is instantly translated from the WebP structure into standard PNG or JPG pixel mapping right inside your browser's memory.</li>
           <li><strong>Step 4: Download and Work.</strong> Click download. You now have a standard, universally recognized image file. You can effortlessly drag it into Photoshop, Premiere Pro, Microsoft Word, or any legacy software without triggering a single error message.</li>
         </ul>
       </div>
@@ -1178,7 +1342,7 @@ export const blogsData = [
         <ul>
           <li><strong>Step 1: Open the Utility.</strong> Navigate directly to the <a href="/split-pdf">Split PDF</a> tool on the GoPDFGo platform.</li>
           <li><strong>Step 2: Upload Locally.</strong> Drag and drop your heavy 40MB or 50MB file into the interface. Because the processing happens entirely within your browser's local memory, the upload is completely instantaneous.</li>
-          <li><strong>Step 3: Define Your First Range.</strong> Look at the total page count. If it is a 100-page document, you can extract the first half. Simply type "1-50" in the extraction input box and download the file.</li>
+          <li><strong>Step 3: Define Your First Range.</strong> Look at the total page count. If it is a 100-page document, you can extract the first half. Simply type "1-50" in the range box and download. (Tip: you can also enter several ranges at once, like 1-50, 51-100, and get each as its own PDF in a single download.)</li>
           <li><strong>Step 4: Extract the Remaining Pages.</strong> Without needing to re-upload the heavy master file, simply change the extraction range to "51-100" and click download one more time.</li>
           <li><strong>Step 5: Verify and Send.</strong> Check the file sizes of your two new PDFs on your computer. They should now comfortably sit around 15MB to 20MB each. You can now attach both files directly to your email and hit send without triggering any server alerts.</li>
         </ul>
@@ -1227,7 +1391,7 @@ export const blogsData = [
       <h2>The Secure Solution: Zero-Upload Client-Side Pagination</h2>
       <p>To strictly adhere to client confidentiality agreements and Non-Disclosure Agreements (NDAs) while still achieving perfect digital document formatting, law firms must transition to client-side technology. GoPDFGo was engineered exactly for high-security, high-stakes use cases.</p>
 
-      <p>Our tools operate locally using advanced WebAssembly technology. This means the mathematical processing and structural editing of the PDF happen entirely inside your computer's RAM (Random Access Memory). The document physically never leaves your machine, and no data is ever transmitted to our backend servers. It is as secure as using premium, expensive offline desktop software, but completely free and instantly accessible from your browser.</p>
+      <p>Our tools operate locally using advanced browser-based technology. This means the mathematical processing and structural editing of the PDF happen entirely inside your computer's RAM (Random Access Memory). The document physically never leaves your machine, and no data is ever transmitted to our backend servers. It is as secure as using premium, expensive offline desktop software, but completely free and instantly accessible from your browser.</p>
 
       <h2>The Pre-Filing Checklist Before You Number</h2>
       <p>Paginating your document is the very last step of building a case file. Before you permanently stamp those numbers onto the bottom of the pages, you must ensure the structural integrity of the file is perfect. Here is the highly recommended workflow for legal professionals:</p>
@@ -1372,7 +1536,7 @@ export const blogsData = [
         <p>Because you are dealing with a photograph containing your face and your most sensitive government ID card, uploading it to a random online photo editor is a massive data privacy risk. You must use a local, client-side tool that processes the image without uploading it to a cloud server.</p>
         <ul>
           <li><strong>Step 1: Access the Utility.</strong> Open the <a href="/flip">Flip Image</a> tool on the GoPDFGo platform using your mobile browser or laptop.</li>
-          <li><strong>Step 2: Secure Upload.</strong> Select the mirrored selfie from your gallery. Because the tool uses WebAssembly, the image loads instantly into your browser's local memory.</li>
+          <li><strong>Step 2: Secure Upload.</strong> Select the mirrored selfie from your gallery. Because the tool runs in your browser, the image loads instantly into your browser's local memory.</li>
           <li><strong>Step 3: Flip Horizontally.</strong> Click the "Flip Horizontal" button (the icon usually shows two triangles pointing away from a center line). Instantly, the image will physically swap from left to right.</li>
           <li><strong>Step 4: Verify the Text.</strong> Look closely at the preview screen. You should now be able to read your name and ID numbers normally, from left to right.</li>
           <li><strong>Step 5: Download.</strong> Save the corrected, unmirrored image back to your phone. It is now perfectly compliant and ready for your KYC upload.</li>
@@ -1462,7 +1626,7 @@ export const blogsData = [
 
       <h2>Frequently Asked Questions (FAQ)</h2>
       <p><strong>Q: Is it safe to use an online converter for company expenses?</strong><br>
-      A: It is only safe if the tool processes files locally. GoPDFGo uses WebAssembly to convert your files directly on your device's CPU. Your financial receipts are never uploaded to our servers, ensuring total privacy.</p>
+      A: It is only safe if the tool processes files locally. GoPDFGo converts your files directly, in your browser, on your device's CPU. Your financial receipts are never uploaded to our servers, ensuring total privacy.</p>
 
       <p><strong>Q: Will converting to PDF lower the quality of my receipt photos?</strong><br>
       A: No. Our dedicated conversion engine places your exact image data into the PDF container without adding unnecessary compression, ensuring the text remains legible.</p>
@@ -1486,7 +1650,7 @@ export const blogsData = [
 
       <p>Whether you run a coffee shop, an Airbnb, or just have guests over frequently, handing out your raw password is outdated and insecure. The smartest, fastest solution? <strong>Just let them scan a QR code.</strong></p>
 
-      <p>In less than 30 seconds, you can create a permanent barcode that connects any smartphone to your network instantly without typing a single letter. Let's break down exactly how to do this safely, and why you should never use just any random website to generate it.</p>
+      <p>In less than 30 seconds, you can create a permanent QR code that connects any smartphone to your network instantly without typing a single letter. Let's break down exactly how to do this safely, and why you should never use just any random website to generate it.</p>
 
       <h2>The Danger of Free Cloud Generators</h2>
       <p>Writing your password on a chalkboard or a piece of paper means absolutely anyone walking by can save it. That is a basic security risk. But the digital risk is actually much bigger.</p>
@@ -1501,7 +1665,7 @@ export const blogsData = [
 
         <ul>
           <li><strong>Step 1: Grab Your Details.</strong> Check your router for your exact Network Name (SSID) and password. Remember, the network name is highly case-sensitive. If your network is "HomeNetwork", typing "homenetwork" will break the code.</li>
-          <li><strong>Step 2: Open the Secure Creator.</strong> Head over to our <a href="/qr-generator">private barcode creator</a>. Select the "WiFi" option from the menu so the tool knows exactly how to format the data for mobile phone cameras.</li>
+          <li><strong>Step 2: Open the Secure Creator.</strong> Head over to our <a href="/qr-generator">private QR code creator</a>. Select the "WiFi" option from the menu so the tool knows exactly how to format the data for mobile phone cameras.</li>
           <li><strong>Step 3: Enter Your Credentials.</strong> Enter your SSID, choose WPA/WPA2 (the standard security for 99% of modern routers), and type your password carefully. Since everything stays on your device, your password never touches an external database.</li>
           <li><strong>Step 4: Download and Print.</strong> Click the generate button, save the high-resolution image to your downloads folder, and print it out to place on your desk, cafe counter, or living room table!</li>
         </ul>
@@ -1510,13 +1674,13 @@ export const blogsData = [
       <h2>Real-World Uses: Who Needs This the Most?</h2>
       <p>Print one of these and stick it where guests can reach it, and the password question more or less disappears. Here is who gets the most out of it:</p>
       <ul>
-        <li><strong>Cafe and Restaurant Owners:</strong> Stop making your busy baristas repeat the same password fifty times a shift. Tape a small barcode to every table. It speeds up service and makes customers much happier.</li>
+        <li><strong>Cafe and Restaurant Owners:</strong> Stop making your busy baristas repeat the same password fifty times a shift. Tape a small QR code to every table. It speeds up service and makes customers much happier.</li>
         <li><strong>Airbnb Hosts:</strong> Travelers arrive tired. The last thing they want to do is hunt for a router behind the TV. A framed "Scan to Connect" sign on the bedside table means they are online before they have even unpacked, and you skip the late-night password text.</li>
         <li><strong>Offices and Co-working Spaces:</strong> Don't let visitors connect to your private employee network. Set up a "Guest Network" on your router, make a scannable code for it, and stick it on the reception desk.</li>
       </ul>
 
       <h2>Pro-Tip: Make a Beautiful Custom Sign</h2>
-      <p>Don't just print a naked, ugly barcode on a blank A4 paper. Put the image inside a nice Canva or Word template that says "Scan for Free WiFi." Make it match your room's aesthetic.</p>
+      <p>Don't just print a naked, ugly QR code on a blank A4 paper. Put the image inside a nice Canva or Word template that says "Scan for Free WiFi." Make it match your room's aesthetic.</p>
       
       <p>If the final printed image file becomes too heavy to email to your local print shop, you can easily <a href="/compress-jpg">reduce the picture size safely</a> right from your browser. Need to combine multiple signs for different rooms in your house? Just <a href="/merge-pdf">join them into one single document</a> before hitting print.</p>
 
@@ -1634,11 +1798,11 @@ export const blogsData = [
 
       <div class="tool-box">
         <h3>Step-by-Step: How to Make a Safe, Free Code</h3>
-        <p>If you want a barcode that never expires, here is how you create one safely without handing your data over to tracking companies:</p>
+        <p>If you want a QR code that never expires, here is how you create one safely without handing your data over to tracking companies:</p>
 
         <ul>
           <li><strong>Step 1: Get Your Final Link Ready.</strong> Decide exactly where you want to send people. Is it your Instagram page, a direct WhatsApp chat, or a WiFi network? Copy the exact link.</li>
-          <li><strong>Step 2: Use a Zero-Upload Generator.</strong> Open an <a href="/qr-generator">offline-ready barcode creator</a>. Using a secure platform means your destination link isn't being saved to a marketer's database.</li>
+          <li><strong>Step 2: Use a Zero-Upload Generator.</strong> Open an <a href="/qr-generator">offline-ready QR code creator</a>. Using a secure platform means your destination link isn't being saved to a marketer's database.</li>
           <li><strong>Step 3: Paste and Verify.</strong> Paste your link carefully and double-check for typos. Remember, static codes are forever, so a broken link ruins the whole image.</li>
           <li><strong>Step 4: Download and Test.</strong> Click generate. Before you send it to a printer, always take out your own phone and scan the screen to make sure it opens the right page!</li>
         </ul>
@@ -1662,14 +1826,14 @@ export const blogsData = [
       A: It depends on the content. If the code links to a website, they need the internet to load the page. But if the code just contains plain text (like a WiFi password or a phone number), the phone camera will read and display it even in airplane mode.</p>
 
       <h3>Take Control of Your Links</h3>
-      <p>Don't fall into the subscription trap for something that should be free. Create your permanent, static barcodes today and print your marketing materials with total peace of mind.</p>
+      <p>Don't fall into the subscription trap for something that should be free. Create your permanent, static QR codes today and print your marketing materials with total peace of mind.</p>
     `
   },
   {
     id: "local-pdf-processing-vs-cloud-tools-safer",
     title: "Local PDF Processing vs Cloud PDF Tools — Which Is Safer?",
     seoTitle: "Local vs Cloud PDF Tools: Which is More Secure for Your Data?",
-    keywords: "local pdf processing, cloud pdf tools, webassembly pdf, secure pdf editor, privacy friendly pdf tools, serverless pdf processing, offline pdf tools in browser, client-side document editing, data privacy, secure document management",
+    keywords: "local pdf processing, cloud pdf tools, browser based pdf, secure pdf editor, privacy friendly pdf tools, serverless pdf processing, offline pdf tools in browser, client-side document editing, data privacy, secure document management",
     excerpt: "Are you risking your confidential data by uploading documents to cloud PDF websites? Discover the massive security differences between legacy cloud tools and privacy-first browser processing.",
     date: "May 18, 2026",
     imageUrl: "/images/blogs/local-pdf-processing-vs-cloud-tools-safer.webp",
@@ -1859,7 +2023,7 @@ export const blogsData = [
         <p>Because your business reports likely contain confidential data, you should never use cloud-based compressors that upload your files to external servers. Use our secure, serverless utility instead.</p>
         <ul>
           <li><strong>Step 1: Open the Compressor.</strong> Navigate directly to the <a href="/compress-pdf">Compress PDF</a> tool on the GoPDFGo platform using your mobile phone or desktop browser.</li>
-          <li><strong>Step 2: Upload Locally.</strong> Select your heavy PDF. Because the tool uses WebAssembly, it loads the file directly into your device's local memory instantly, completely bypassing the internet.</li>
+          <li><strong>Step 2: Upload Locally.</strong> Select your heavy PDF. Because the tool runs in your browser, it loads the file directly into your device's local memory instantly, completely bypassing the internet.</li>
           <li><strong>Step 3: Optimize.</strong> Click the compress button. Our compressor tries a lossless re-save first to shrink the file while keeping text sharp and selectable, and only rasterizes pages when that makes it even smaller — and it never returns a file bigger than the one you started with.</li>
           <li><strong>Step 4: Download and Share.</strong> Save the lightweight file to your device. You can now attach it directly in WhatsApp, and it will upload in a fraction of a second.</li>
         </ul>
@@ -1952,7 +2116,17 @@ export const blogsData = [
       <h3>The Ultimate Privacy Warning for Job Seekers</h3>
       <p>Your resume contains your entire life's data: your personal phone number, home address, educational history, and entire employment timeline. <strong>Never upload your resume to random, cloud-based free PDF websites.</strong> You are risking severe identity theft.</p>
       
-      <p>Always build, merge, and compress your master application file using platforms like GoPDFGo that utilize <strong>Client-Side WebAssembly technology</strong>. This guarantees your sensitive professional data is processed locally on your own computer and never transmitted across the internet. Protect your privacy while you hunt for your dream job!</p>
+      <p>Always build, merge, and compress your master application file using platforms like GoPDFGo that utilize <strong>client-side, in-browser technology</strong>. This guarantees your sensitive professional data is processed locally on your own computer and never transmitted across the internet. Protect your privacy while you hunt for your dream job!</p>
+    
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: Why do job portals keep rejecting my PDF?</strong><br>
+      A: Usually it is the file size, the wrong format (PDF vs JPG), or wrong pixel dimensions for the photo and signature. Read the portal’s notification for the exact rules.</p>
+      <p><strong>Q: How do I get my document under the portal’s size limit?</strong><br>
+      A: Use the <a href="/compress-pdf">Compress PDF</a> tool with <strong>Target Size (KB)</strong> mode and set the exact cap the portal asks for.</p>
+      <p><strong>Q: The portal wants a JPG photo, not a PDF. What do I do?</strong><br>
+      A: Resize the photo to the required pixels with <a href="/resize">Resize Image</a>, then compress it under the KB limit with <a href="/compress-jpg">Compress JPG</a>.</p>
+      <p><strong>Q: Is it safe to prepare my application documents online?</strong><br>
+      A: On GoPDFGo, yes — every tool runs inside your browser, so your certificates and ID proofs are never uploaded to a server.</p>
     `
   },
   {
@@ -1968,7 +2142,7 @@ export const blogsData = [
 
       <p>You spend ten minutes carefully aligning the document on your table, avoiding shadows, taking a great high-resolution photo, applying a nice black-and-white contrast filter, and hitting the export button. You attach the file to your email, click open to review it one last time, and your heart sinks.</p>
 
-      <p>There it is—a massive, bold, incredibly ugly watermark permanently stamped across the bottom right corner of your document: <strong>"Scanned with [App Name]."</strong> Sometimes, it even covers up important text, page numbers, or your own signature at the bottom of the page.</p>
+      <p>There it is—a massive, bold, incredibly ugly watermark permanently stamped across the bottom right corner of your document: <strong>"Scanned with CamScanner."</strong> Sometimes, it even covers up important text, page numbers, or your own signature at the bottom of the page.</p>
 
       <p>If you want to remove it, the app suddenly throws a massive paywall in your face, demanding a $30 to $50 annual premium subscription just to unlock this basic feature. Submitting a heavily watermarked document to a high-paying client, an employer, or a strict university looks incredibly unprofessional. It screams "cheap," detracts from the serious nature of your work, and makes you look unprepared for the corporate world.</p>
 
@@ -1995,7 +2169,7 @@ export const blogsData = [
         <ul>
           <li><strong>Step 1: Prep the Shot.</strong> Place your document on a dark table or bedsheet (to create high visual contrast with the white paper). Use natural window lighting if possible. Turn off your camera's flash to avoid a harsh, unreadable white glare in the center of the glossy paper.</li>
           <li><strong>Step 2: Use Your Native Camera.</strong> Open your phone's default camera app. Align the phone perfectly parallel to the paper (use the camera grid lines feature) and snap clear photos of all the pages you need.</li>
-          <li><strong>Step 3: Open the Secure Web Tool.</strong> Open your mobile browser (Safari, Chrome, or Brave) and navigate to the <a href="/image-to-pdf">Image to PDF</a> tool on GoPDFGo. Because it runs locally via WebAssembly, it loads instantly and works just as fast as any native app.</li>
+          <li><strong>Step 3: Open the Secure Web Tool.</strong> Open your mobile browser (Safari, Chrome, or Brave) and navigate to the <a href="/image-to-pdf">Image to PDF</a> tool on GoPDFGo. Because it runs locally in your browser, it loads instantly and works just as fast as any native app.</li>
           <li><strong>Step 4: Select and Arrange.</strong> Tap to upload the photos from your phone gallery. You can easily drag and drop the visual thumbnails on your screen to arrange the pages in the correct chronological sequence (e.g., Page 1, Page 2, Page 3).</li>
           <li><strong>Step 5: Convert and Download.</strong> Click the convert button. The tool will stitch your images together into a beautiful, standardized PDF document with absolutely zero watermarks, logos, or forced branding.</li>
         </ul>
@@ -2099,7 +2273,7 @@ export const blogsData = [
       <h2>Why Secure Offline PDF Processing Matters for Property Documents</h2>
       <p>When dealing with home loan application documents, you are handling your most sensitive personal data. Your file contains your financial history, your signature, your national identity numbers, and high-value property records.</p>
       
-      <p>You must prioritize privacy. Avoid using random, ad-heavy websites that upload your sensitive documents to remote cloud servers for processing. Always opt for platforms that utilize secure, local, browser-based processing (like WebAssembly). This ensures that when you merge, crop, or compress your files, the data never actually leaves your computer's local memory, guaranteeing absolute protection against data leaks and identity theft.</p>
+      <p>You must prioritize privacy. Avoid using random, ad-heavy websites that upload your sensitive documents to remote cloud servers for processing. Always opt for platforms that utilize secure, local, browser-based processing that runs on your own device. This ensures that when you merge, crop, or compress your files, the data never actually leaves your computer's local memory, guaranteeing absolute protection against data leaks and identity theft.</p>
 
       <h2>Final Checklist Before Uploading Property Documents</h2>
       <p>Before you hit the "Submit" button on your bank's portal, run through this quick checklist:</p>
@@ -2148,7 +2322,7 @@ export const blogsData = [
 
       <p>Even if your document is just a single page containing a scanned signature or a basic text affidavit, if it was scanned at a high DPI (Dots Per Inch) setting or exported from modern, heavy software like Microsoft Word, it carries what developers call "invisible bloat." This includes embedded font subsets, extensive XML metadata, high-resolution color profiles, and document edit histories. This invisible bloat pushes a simple 1-page document to 2MB or 3MB, resulting in an instant automated rejection from the server.</p>
 
-      <p><strong>The Fix:</strong> You need an intelligent, hybrid compressor that targets this invisible bloat first, rather than just destroying your image quality. Run your rejected document through our secure, local <a href="/compress-pdf">Compress PDF</a> tool. The WebAssembly engine will strip out the unnecessary metadata, remove unused fonts, and intelligently downscale the background image DPI. This brings your heavy file safely under the strict 50KB or 100KB limit while ensuring the actual text and your roll number remain perfectly readable for the verification officers.</p>
+      <p><strong>The Fix:</strong> You need an intelligent, hybrid compressor that targets this invisible bloat first, rather than just destroying your image quality. Run your rejected document through our secure, local <a href="/compress-pdf">Compress PDF</a> tool. The in-browser engine will strip out the unnecessary metadata, remove unused fonts, and intelligently downscale the background image DPI. This brings your heavy file safely under the strict 50KB or 100KB limit while ensuring the actual text and your roll number remain perfectly readable for the verification officers.</p>
 
       <h2>Reason 2: Physical Dimensions vs. File Size (The Ultimate Trap)</h2>
       <p>This is where 90% of job applicants get completely confused and frustrated. They successfully use a compressor to shrink their passport photo or signature image under the 20KB limit, but the portal still violently rejects it. This happens because the portal is running a script to check <strong>Geometric Dimensions (Pixels)</strong>, not just the file weight.</p>
@@ -2344,14 +2518,14 @@ export const blogsData = [
       <h2>Step 4: Connect Physical Spaces to Digital Assets</h2>
       <p>Being a paperless business doesn't mean your physical storefront, restaurant, or office has to be disconnected from your customers. You can seamlessly bridge the gap using modern barcode technology.</p>
 
-      <p>If you own a cafe or a salon, stop printing expensive, easily-damaged paper menus or price lists. Upload your menu PDF to Google Drive and use a <a href="/qr-generator">Free QR Code Generator</a> to create a static, non-expiring barcode. Place it as a sticker on the tables or counter. Customers simply scan and read on their own devices. Similarly, consultants and sales executives can print a single QR code on the back of their minimalist business cards that links directly to their digital portfolio or Calendly booking page, entirely eliminating the need for bulky, expensive promotional pamphlets.</p>
+      <p>If you own a cafe or a salon, stop printing expensive, easily-damaged paper menus or price lists. Upload your menu PDF to Google Drive and use a <a href="/qr-generator">Free QR Code Generator</a> to create a static, non-expiring QR code. Place it as a sticker on the tables or counter. Customers simply scan and read on their own devices. Similarly, consultants and sales executives can print a single QR code on the back of their minimalist business cards that links directly to their digital portfolio or Calendly booking page, entirely eliminating the need for bulky, expensive promotional pamphlets.</p>
 
       <h2>The B2B Privacy Mandate: Why Local Processing is Crucial</h2>
       <p>The single biggest hurdle businesses face when going paperless is <strong>Data Security</strong>. If you are handling corporate Non-Disclosure Agreements (NDAs), proprietary client financials, unreleased product patents, or sensitive employee records, you absolutely cannot use random "free" cloud-based PDF editors you find on Google.</p>
 
       <p>Uploading client data to third-party servers is a massive legal liability and a direct breach of corporate trust. Your paperless digital workflow must be built on <strong>Client-Side Technology</strong>.</p>
 
-      <p>Platforms like GoPDFGo operate entirely via modern WebAssembly architecture. When you merge, split, compress, or mask a corporate file on our site, the mathematical processing happens directly on your office computer's own CPU and RAM. The confidential data never travels across the internet, and no files are ever uploaded to our backend servers. It is the ultimate combination of free web convenience and enterprise-grade, offline security.</p>
+      <p>Platforms like GoPDFGo operate entirely inside your browser. When you merge, split, compress, or mask a corporate file on our site, the mathematical processing happens directly on your office computer's own CPU and RAM. The confidential data never travels across the internet, and no files are ever uploaded to our backend servers. It is the ultimate combination of free web convenience and enterprise-grade, offline security.</p>
 
       <h2>Frequently Asked Questions (FAQ)</h2>
 
@@ -2466,7 +2640,7 @@ export const blogsData = [
   //   <h2>Security Considerations When Sharing Internal Reports</h2>
   //   <p>Corporate annual reports often contain highly sensitive financial data, upcoming acquisition plans, and unreleased strategic shifts. When you use online software to split or manipulate these documents, data privacy should be your ultimate priority.</p>
 
-  //   <p>Never upload an internal corporate document to a server-based PDF tool that processes files remotely in the cloud. Instead, utilize secure, browser-based utilities that leverage local processing (WebAssembly). This ensures that your proprietary financial data never leaves your company laptop, eliminating the risk of data interception or unauthorized server storage.</p>
+  //   <p>Never upload an internal corporate document to a server-based PDF tool that processes files remotely in the cloud. Instead, utilize secure, browser-based utilities that run entirely on your own device. This ensures that your proprietary financial data never leaves your company laptop, eliminating the risk of data interception or unauthorized server storage.</p>
 
   //   <div class="mt-8">
   //     <h2>Frequently Asked Questions (FAQ)</h2>
@@ -2516,7 +2690,7 @@ export const blogsData = [
 
   //     <h2>The Privacy Problem With Most Watermark Tools</h2>
   //     <p>Here is the irony with most "free" online watermark websites. You go searching for a way to <em>protect</em> a sensitive document, and the very first tool asks you to <strong>upload that exact file to its server</strong>. When the document is your Aadhaar, a bank statement, a signed contract, or a client's confidential brief, that is a serious risk. Your private file gets copied to an unknown cloud, often hosted outside India, just so a stamp can be added and sent back. You have traded one privacy risk for a bigger one.</p>
-  //     <p>The <a href="/watermark-pdf">GoPDFGo Watermark PDF</a> tool works differently. It runs <strong>100% inside your browser</strong> using pdf-lib and WebAssembly. Your PDF is never uploaded anywhere — the watermarking happens on your own phone or laptop, and nothing is transmitted to any server. It is free, needs no signup, and unlike many tools, GoPDFGo adds <strong>no watermark of its own</strong> to your output. The only text on your pages is the text you chose.</p>
+  //     <p>The <a href="/watermark-pdf">GoPDFGo Watermark PDF</a> tool works differently. It runs <strong>100% inside your browser</strong> using pdf-lib, right on your own device. Your PDF is never uploaded anywhere — the watermarking happens on your own phone or laptop, and nothing is transmitted to any server. It is free, needs no signup, and unlike many tools, GoPDFGo adds <strong>no watermark of its own</strong> to your output. The only text on your pages is the text you chose.</p>
 
   //     <h2>The Four Watermark Positions (And When to Use Each)</h2>
   //     <p>One text watermark can look very different depending on where it sits. GoPDFGo gives you four placement styles, so you can match the look to the purpose:</p>
@@ -2642,7 +2816,7 @@ export const blogsData = [
   //   keywords: "delete pages from pdf, remove pages from pdf online, how to delete a page from a pdf, delete blank pages from scanned pdf, remove extra pages pdf, trim pdf pages free, delete pdf pages without software",
   //   excerpt: "Scanner threw in a blank back-side page? Bank PDF padded with terms-and-conditions pages? Here is the cleanest way to delete pages from a PDF online, free, without reuploading your file anywhere.",
   //   date: "June 18, 2026",
-  //   imageUrl: "/images/blogs/delete-pdf-pages.webp",
+  //   imageUrl: "/images/blogs/delete-pdf-pages-online-remove-blank-and-extra-pages.webp",
   //   content: `
   //     <p>You scan a 10-page document at the Xerox shop, walk home happy, open the PDF, and there it is. Page 2 is blank. So is page 6. The scanner picked up the empty back-sides of your sheets and dutifully added them in. Now your neat 10-page file is actually 14 pages, half of them white nothing.</p>
 
@@ -2711,7 +2885,7 @@ export const blogsData = [
 
   //     <p>Most of the time, though, the annoyance is simpler than all that. You have a PDF with a few pages you wish were not there, and you want them gone without wrecking the rest. That is a thirty-second job. Open the <a href="/delete-pdf-pages">Delete PDF Pages</a> tool, tap the pages you do not want, and download a clean file with everything else exactly as sharp as it always was. No reupload, no reprint, no rescan.</p>
   //   `
-  // },
+  // }, done
   // {
   //   id: "unlock-bank-statement-pdf-remove-password",
   //   title: "How to Unlock a Bank Statement PDF (Remove the Password You Already Know)",
@@ -2719,7 +2893,7 @@ export const blogsData = [
   //   keywords: "remove password from pdf, unlock pdf, unlock bank statement pdf, remove pdf password online, password protected bank statement, unlock credit card statement pdf, pdf password remover, open locked pdf for kyc",
   //   excerpt: "Your bank statement opens with a password but the KYC portal still rejects it. Here is how to remove that password from a PDF you can already open, entirely on your own device.",
   //   date: "June 18, 2026",
-  //   imageUrl: "/images/blogs/unlock-bank-statement-pdf.webp",
+  //   imageUrl: "/images/blogs/unlock-bank-statement-pdf-remove-password.webp",
   //   content: `
   //     <p>You download your account statement from net banking. You go to open it, and your laptop asks for a password. By now you know the drill by heart: it's your PAN in capital letters, followed by your date of birth as DDMMYYYY. You type <em>ABCDE1234F15081990</em>, hit enter, and there it is. Your statement. Every transaction, neatly listed.</p>
 
@@ -2792,7 +2966,7 @@ export const blogsData = [
 
   //     <p>So the next time a KYC page bounces your statement, you'll know the fix. Type the password you know, get an unlocked copy back, and carry on with your loan or your verification. Go ahead and <a href="/unlock-pdf">unlock your PDF</a> right on your own device, no upload, nothing leaving your hands.</p>
   //   `
-  // },
+  // }, done
 
 
   // 21-06-2026
@@ -3049,7 +3223,7 @@ export const blogsData = [
   //     <h2>Why a review QR beats a WhatsApp message</h2>
   //     <p>Think about what you are actually asking when you send a "please review us" text. The customer has to read it, tap the link, wait for the page, find your listing, scroll to reviews, then write something. Five steps, all while they are busy with ten other things. Most never get past the first one.</p>
   //     <p>A QR code collapses that whole chain. The customer is standing right there, full of fresh goodwill, paying the bill. You point at a small tent card. They scan. The review window is open in a second. You have caught them at the exact moment they are most likely to say something nice, which is right after the service, not three hours later when they are stuck in traffic and irritated.</p>
-  //     <p>This works for almost any walk-in business. A restaurant or dhaba puts it on the table or inside the bill folder. A salon sticks it at the billing counter. A clinic keeps it at the reception desk. A gym puts it near the front desk. Even a kirana shop can tape it next to the QR they already use for UPI payments. Same gesture the customer already knows, different result.</p>
+  //     <p>This works for almost any walk-in business. A restaurant or dhaba puts it on the table or inside the bill folder. A salon sticks it at the billing counter. A clinic keeps it at the reception desk. A gym puts it near the front desk. Even a small shop can tape it next to the QR codes they already display at the counter. Same gesture the customer already knows, different result.</p>
       
   //     <h2>First, get your real Google review link</h2>
   //     <p>This is the part most people get wrong, so go slow here. The QR is only as good as the link inside it, and you want the link that drops customers straight into the "write a review" box, not just your map listing.</p>
@@ -3088,7 +3262,7 @@ export const blogsData = [
   //     <p>Timing matters as much as placement. The moment to ask is right after the service, when they are smiling, not while the food is still coming. Train your staff to say one line: "If you enjoyed it, there is a quick QR on the counter to leave us a review." That single sentence, said warmly, multiplies scans more than any fancy card design. People review when a human asks; the card just makes it effortless.</p>
       
   //     <h2>Printing tips so it actually scans</h2>
-  //     <p>Print it big enough. A QR smaller than about 2x2 cm on a table card is fussy to scan in dim restaurant lighting. Keep clear white space around the squares and do not crop it tight. The PNG you download is small and clean already, so do not run it through any image compressor before printing, because squeezing a dense QR can soften the squares and trip up the scan. Want the review code on the back of your menu or brochure? First save it as a one-page PDF, then <a href="/merge-pdf">combine it into your existing PDF</a> before sending the file to the press. And laminate the counter card, because grubby fingers and chai spills are real. If you are also planning a Wi-Fi sticker or a UPI card for the same counter, the broader walkthrough in <a href="/blog/generate-free-qr-codes-for-website">free QR codes for your business</a> covers those too.</p>
+  //     <p>Print it big enough. A QR smaller than about 2x2 cm on a table card is fussy to scan in dim restaurant lighting. Keep clear white space around the squares and do not crop it tight. The PNG you download is small and clean already, so do not run it through any image compressor before printing, because squeezing a dense QR can soften the squares and trip up the scan. Want the review code on the back of your menu or brochure? First save it as a one-page PDF, then <a href="/merge-pdf">combine it into your existing PDF</a> before sending the file to the press. And laminate the counter card, because grubby fingers and chai spills are real. If you are also planning a Wi-Fi sticker for the same counter, the broader walkthrough in <a href="/blog/generate-free-qr-codes-for-website">free QR codes for your business</a> covers that too.</p>
       
   //     <h2>Frequently Asked Questions (FAQ)</h2>
       
@@ -3716,15 +3890,15 @@ export const blogsData = [
       
   //     <h2>How to split the question paper subject-wise on GoPDFGo</h2>
   //     <p>This is exactly what our Split PDF tool is for, and the whole thing runs <strong>inside your browser</strong>. Your question bank is never uploaded to any server, which matters if it is paid material a coaching institute shared with your batch.</p>
-  //     <p>One thing to know about how the tool works, so the result is not a surprise. When you give it a range, it pulls out each of those pages and hands them back as a ZIP of individual single-page PDFs. To turn one subject into a single clean file, you then merge just that subject's pages back together. It sounds like an extra step but it takes seconds, and you only do it a handful of times.</p>
+  //     <p>One thing to know about how the tool works, so the result is not a surprise. You hand it your page ranges — one per subject, separated by commas — and it gives each range back as its own separate, ready-made PDF, all bundled together in a single ZIP. So four subjects means four clean subject-wise PDFs in one download. There is no unzipping-and-merging step any more; the tool groups each range into its own file for you.</p>
       
   //     <div class="tool-box">
   //     <h3>Splitting your combined PDF, step by step</h3>
   //     <ul>
   //     <li><strong>Step 1:</strong> Open the <a href="/split-pdf">Split PDF</a> tool and drop in your big combined question-paper file. Nothing leaves your device.</li>
-  //     <li><strong>Step 2:</strong> Choose Select Pages and type the range you noted for one subject, for example 1-58 for Physics. Download the ZIP it produces.</li>
-  //     <li><strong>Step 3:</strong> Unzip it, then open <a href="/merge-pdf">Merge PDF</a> and drop in those pages to stitch them back into one file. Rename it something clear like Physics_PYQ_2016-2025.pdf.</li>
-  //     <li><strong>Step 4:</strong> Repeat for the next subject using its own range. Once each subject is its own PDF, drop them all into a clearly named folder on your phone or Drive.</li>
+  //     <li><strong>Step 2:</strong> Enter one range per subject, separated by commas — for example <strong>1-58, 59-122, 123-190, 191-240</strong> for Physics, Chemistry, Maths and Biology. Each range becomes its own PDF.</li>
+  //     <li><strong>Step 3:</strong> Click Split and download the ZIP. Inside you already get one clean PDF per subject — no unzipping and no merging. Rename each one clearly, like Physics_PYQ_2016-2025.pdf.</li>
+  //     <li><strong>Step 4:</strong> That is it — every subject is already its own PDF. Drop them into a clearly named folder on your phone or Drive so the right file is one tap away at revision time.</li>
   //     </ul>
   //     </div>
       

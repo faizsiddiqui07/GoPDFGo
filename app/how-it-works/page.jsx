@@ -17,9 +17,9 @@ import {
 export const metadata = {
   title: "How GoPDFGo Works – The Technology Behind Serverless PDF Tools",
   description:
-    "Understand the browser-based technology behind GoPDFGo. Learn how WebAssembly enables secure, offline-ready PDF processing without file uploads.",
+    "Understand the browser-based technology behind GoPDFGo — how secure, offline-ready PDF processing works entirely on your device, with no file uploads.",
   keywords:
-    "how gopdfgo works, webassembly pdf processing, client side pdf tools, secure document processing technology, browser based pdf editor architecture, no upload pdf converter",
+    "how gopdfgo works, browser based pdf processing, client side pdf tools, secure document processing technology, browser based pdf editor architecture, no upload pdf converter",
   alternates: {
     canonical: "https://gopdfgo.com/how-it-works",
   },
@@ -84,12 +84,12 @@ export default function HowItWorksPage() {
                 <Cpu size={40} className="text-blue-500" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3">
-                2. WASM Execution
+                2. On-Device Processing
               </h3>
               <p className="text-slate-600 text-sm px-4 leading-relaxed">
-                Our website downloads a tiny engine called{" "}
-                <strong>WebAssembly (WASM)</strong>. This engine uses your
-                computer's CPU to edit, merge, or compress the PDF locally.
+                Your browser loads a lightweight processing engine that runs
+                on your own device&apos;s CPU to edit, merge, or compress the
+                PDF locally — no server involved.
               </p>
             </div>
 
@@ -130,11 +130,21 @@ export default function HowItWorksPage() {
                 directly inside the browser at near-native speeds.
               </p>
               <p>
-                GoPDFGo utilizes customized WASM libraries (based on
-                Ghostscript and PDF-Lib) to perform complex mathematical
-                operations—like compressing a 50MB PDF to 5MB—without needing
-                a powerful backend server. This is why our tools work even if
-                you disconnect your internet after loading the page.
+                GoPDFGo runs proven open-source engines like{" "}
+                <strong>pdf-lib</strong> and <strong>pdf.js</strong> right
+                inside your browser — with <strong>WebAssembly</strong> stepping
+                in for heavier formats such as iPhone HEIC photos. Together they
+                handle complex work like{" "}
+                <a href="/compress-pdf" className="text-[#FF9933] font-semibold hover:underline">
+                  compressing a large PDF
+                </a>{" "}
+                or{" "}
+                <a href="/merge-pdf" className="text-[#FF9933] font-semibold hover:underline">
+                  merging several files
+                </a>{" "}
+                without ever needing a backend server. This is why our tools
+                keep working even if you disconnect your internet after the page
+                loads.
               </p>
             </div>
           </div>

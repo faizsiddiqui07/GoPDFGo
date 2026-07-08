@@ -20,11 +20,11 @@ export default function BlogsPage() {
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">
-            Resources & Guides
+            PDF Tips, Guides &amp; Tutorials
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Expert tips, tutorials, and updates to help you manage your
-            digital documents securely.
+            Expert PDF and image tips, tutorials, and step-by-step guides to
+            help you manage your documents securely.
           </p>
         </div>
 

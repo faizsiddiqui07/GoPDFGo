@@ -16,9 +16,9 @@ import {
 export const metadata = {
   title: "About Us – GoPDFGo | The Future of Secure PDF Tools",
   description:
-    "GoPDFGo is a 100% serverless, privacy-first platform. We process files directly in your browser using WebAssembly, ensuring your sensitive data never leaves your device.",
+    "GoPDFGo is a 100% serverless, privacy-first platform. We process files directly in your browser, ensuring your sensitive data never leaves your device.",
   keywords:
-    "about gopdfgo, serverless pdf tools, privacy first pdf editor, secure document processing, client side pdf tools, browser based pdf converter, webassembly pdf tools",
+    "about gopdfgo, serverless pdf tools, privacy first pdf editor, secure document processing, client side pdf tools, browser based pdf converter, free online pdf tools",
   alternates: {
     canonical: "https://gopdfgo.com/about",
   },
@@ -70,7 +70,7 @@ export default function AboutPage() {
             <Server size={16} /> No Backend Servers
           </span>
           <span className="bg-slate-100 px-4 py-2 rounded-full flex items-center gap-2">
-            <Code size={16} /> Powered by WebAssembly
+            <Code size={16} /> Runs in Your Browser
           </span>
           <span className="bg-slate-100 px-4 py-2 rounded-full flex items-center gap-2">
             <Globe size={16} /> 100% Free Forever
@@ -182,10 +182,10 @@ export default function AboutPage() {
                 Aadhaar Masking
               </Link>{" "}
               tool for identity protection or our converters for business
-              documents, the processing happens locally on your device via
-              WebAssembly. There is no database to hack, no cloud storage to
-              breach, and no server logs to track you. Your data remains
-              mathematically secure on your own hardware.
+              documents, the processing happens locally on your device, right
+              inside your browser. There is no database to hack, no cloud
+              storage to breach, and no server logs to track you. Your data
+              stays on your own hardware.
             </p>
           </div>
           {/* Card 2: Lightning Fast */}
@@ -210,12 +210,11 @@ export default function AboutPage() {
               >
                 Image to PDF
               </Link>{" "}
-              to run instantly. By leveraging{" "}
-              <strong>WebAssembly (WASM)</strong>, we run high-performance
-              code directly inside JavaScript. This allows heavy tasks like
-              compression and merging to run near-natively on your device,
-              eliminating network latency entirely. A 100-page document merges
-              in milliseconds, not minutes.
+              to run instantly. By running{" "}
+              <strong>high-performance code directly in your browser</strong>,
+              heavy tasks like compression and merging happen on your own
+              device, eliminating network latency entirely. A 100-page document
+              merges in milliseconds, not minutes.
             </p>
           </div>
 
@@ -261,9 +260,10 @@ export default function AboutPage() {
             Our Mission for the Future
           </h2>
           <p className="text-slate-300 text-lg leading-relaxed mb-8">
-            We are on a mission to build a **Decentralized Digital Utility**.
-            We envision a web where users don't have to trade their privacy
-            for convenience.
+            We are on a mission to build a{" "}
+            <strong className="text-white">Decentralized Digital Utility</strong>
+            . We envision a web where users don&apos;t have to trade their
+            privacy for convenience.
             <br />
             <br />
             We are constantly evolving our tech stack to bring desktop-class

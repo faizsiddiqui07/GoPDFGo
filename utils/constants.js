@@ -41,11 +41,11 @@ export const TOOLS_CONFIG = [
       sectionHeadings: {
         features: "Why Choose Our Hybrid Compressor?",
         useCases: "Best Situations to Shrink PDFs",
-        steps: "How to Reduce File Size",
+        steps: "How to Compress PDF Online",
         faq: "PDF Compression FAQs"
       },
       // Design Note: Ye text aapke Hero section ke niche ya page ke bottom me SEO footer ki tarah aa sakta hai.
-      intro: `Struggling with large PDF files that refuse to upload? You are not alone. Whether you are a student trying to submit an assignment, a job seeker applying on a government portal, or a professional sending a report via email, file size limits are a constant hurdle. Most platforms restrict uploads to 100KB, 2MB, or 25MB, leaving you stuck with heavy documents.
+      intro: `Struggling with large PDF files that refuse to upload? You need to **Compress PDF** files fast, and you are not alone. Whether you are a student trying to submit an assignment, a job seeker applying on a government portal, or a professional sending a report via email, file size limits are a constant hurdle. Most platforms restrict uploads to 100KB, 2MB, or 25MB, leaving you stuck with heavy documents.
 
 GoPDFGo’s **Compress PDF** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your personal files to a remote server, our tool utilizes **Serverless Client-Side Technology**. This means the compression engine is downloaded to your browser and runs directly on your device (laptop or mobile). Your sensitive bank statements, Aadhaar cards, and contracts never leave your system, guaranteeing 100% privacy.
 
@@ -65,7 +65,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
         },
         {
           title: "100% Privacy-First Architecture",
-          desc: "Your security is our #1 priority. GoPDFGo operates entirely in your browser using WebAssembly. Unlike other sites, we have no 'upload' server. You can literally turn off your internet after the page loads, and the tool will still compress your files perfectly."
+          desc: "Your security is our #1 priority. GoPDFGo runs entirely in your browser, right on your own device. Unlike other sites, we have no 'upload' server. You can literally turn off your internet after the page loads, and the tool will still compress your files perfectly."
         },
         {
           title: "Preserve Visual Quality",
@@ -75,7 +75,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
 
       // 3. WHEN TO USE THIS TOOL? (Matches Screenshot 3 - 4 Checkpoints)
       useCases: [
-        "**Official Document Submission:** Applying for a government job or visa? These sites strictly limit uploads to small sizes like 500KB. Instantly shrink your PDFs or images to fit these quotas perfectly while keeping them readable.",
+        "**Exam & Government Portal Uploads:** Applying on SSC, UPSC, IBPS, NEET or a state government portal? These sites strictly cap uploads at sizes like 100KB, 200KB or 500KB. Switch to Target Size mode to Compress PDF files down to the exact quota while keeping them readable.",
         "**Email Attachments:** Gmail and Outlook block attachments larger than 25MB. Compress your heavy project reports, portfolios, or thesis papers to send them in a single email without needing Google Drive links.",
         "**Site Performance & SEO:** Heavy PDF assets kill your page load speed and hurt your Core Web Vitals scores. Optimize your files to ensure lightning-fast downloads, reduce bounce rates, and secure higher rankings on Google search results.",
         "**Saving Digital Storage:** Running out of space on Google Drive, iCloud, or your phone? Compressing your archived bills, receipts, and e-books can reclaim gigabytes of storage space for free."
@@ -114,6 +114,10 @@ Experience the fastest, safest, and most efficient way to optimize your document
         {
           q: "Why did my file size not decrease much?",
           a: "If your PDF is already optimized or contains only text (no images), there isn't much to compress. However, scanned documents and files with photos usually see a reduction of 40% to 80%."
+        },
+        {
+          q: "How do I compress a PDF under 100KB or 200KB for an exam or government form?",
+          a: "Switch to the 'Target Size (KB)' mode and either tap a preset like 200 KB or type a custom target such as 100 KB in the box. The tool then shrinks your PDF toward that limit, which is ideal for SSC, UPSC, IBPS and other portal upload caps. To hit a very small exact size it flattens pages into images, so text may become non-selectable and slightly softer; this works best for scanned forms and photos. If it cannot reach the exact number, it gets as close as possible without ever handing back a file bigger than your original."
         }
       ]
     }
@@ -130,13 +134,13 @@ Experience the fastest, safest, and most efficient way to optimize your document
       sectionHeadings: {
         features: "Benefits of Merging Documents",
         useCases: "When Should You Combine PDFs?",
-        steps: "Step-by-Step Merging Guide",
+        steps: "How to Merge PDF Files Online",
         faq: "Common Questions About Merging"
       },
       // 1. INTRO SECTION (High SEO Value)
-      intro: `Managing multiple PDF files can be a nightmare. Whether you are a student submitting a thesis with separate chapters, an accountant organizing monthly invoices, or a professional combining reports, keeping track of scattered files is inefficient. You need a way to **stitch them together** into a single, organized document.
+      intro: `Need to Merge PDF files or combine PDF documents into one? Managing multiple PDF files can be a nightmare. Whether you are a student submitting a thesis with separate chapters, an accountant organizing monthly invoices, or a professional combining reports, keeping track of scattered files is inefficient. You need a way to **stitch them together** into a single, organized document.
 
-GoPDFGo’s **Merge PDF** tool is the ultimate solution to combine unlimited PDF files online. Unlike other platforms that restrict you to 10 or 20 files per day, our tool offers **unlimited merging** capabilities completely for free. We utilize advanced **Browser-Based Technology** (WebAssembly), which means the merging process happens entirely on your device (laptop or mobile). We do not upload your documents to any cloud server, ensuring that your sensitive contracts, bank statements, and personal IDs remain 100% private.
+GoPDFGo’s **Merge PDF** tool is the ultimate solution to combine unlimited PDF files online. Unlike other platforms that restrict you to 10 or 20 files per day, our tool offers **unlimited merging** capabilities completely for free. We use advanced browser-based technology, which means the merging process happens entirely on your device (laptop or mobile). We do not upload your documents to any cloud server, ensuring that your sensitive contracts, bank statements, and personal IDs remain 100% private.
 
 **Why is our Client-Side Merger better?**
 Traditional PDF websites work by uploading your files, processing them on a remote server, and sending them back. This is slow and risky.
@@ -204,6 +208,10 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
         {
           q: "Does this tool work on mobile?",
           a: "Yes, our interface is fully **mobile-optimized**. You can select files from your Android or iPhone storage, rearrange them with a touch, and download the merged PDF directly to your phone."
+        },
+        {
+          q: "Can I reorder files before I combine PDF documents together?",
+          a: "Yes. After you add your files, drag and drop them into the exact sequence you want before merging, the file at the top becomes the first page. When the order looks right, hit Merge PDF to stitch them into one clean document."
         }
       ]
     }
@@ -220,11 +228,11 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
       sectionHeadings: {
         features: "Advantages of Lossless Extraction",
         useCases: "Ideal Scenarios for Extracting Pages",
-        steps: "How to Pull Pages from a PDF",
+        steps: "How to Extract PDF Pages Online",
         faq: "Extraction FAQs"
       },
       // 1. INTRO SECTION (SEO Optimized Long Form)
-      intro: `Dealing with a massive 500-page document when you only need a single page? We have all been there. Whether you are a student trying to isolate your name from a giant university merit list, a lawyer extracting a specific signature page from a corporate contract, or a patient trying to send only the latest lab results from a heavy medical file, scrolling through hundreds of pages is frustrating.
+      intro: `Need to Extract PDF Pages from a massive 500-page document when you only need a single page? We have all been there. Whether you are a student trying to isolate your name from a giant university merit list, a lawyer extracting a specific signature page from a corporate contract, or a patient trying to send only the latest lab results from a heavy medical file, scrolling through hundreds of pages is frustrating.
 
 GoPDFGo’s **Extract PDF Pages** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your highly sensitive files to a remote cloud server, our tool utilizes cutting-edge **Serverless Client-Side Technology**. This means the extraction engine runs locally within your own browser's memory. Your personal documents never leave your device, guaranteeing 100% privacy.
 
@@ -239,7 +247,7 @@ Taking a screenshot of a page destroys its quality and makes the text unsearchab
         },
         {
           title: "Ultimate Privacy Guarantee",
-          desc: "Your files never touch our servers. Because the processing happens locally via WebAssembly, you can extract pages from confidential legal or financial documents without risking data leaks."
+          desc: "Your files never touch our servers. Because the processing happens locally in your browser, you can extract pages from confidential legal or financial documents without risking data leaks."
         },
         {
           title: "Custom Range Selection",
@@ -274,8 +282,8 @@ Taking a screenshot of a page destroys its quality and makes the text unsearchab
           a: "Yes, it is safer than using offline software. GoPDFGo operates entirely in your browser. No upload happens, meaning we physically cannot see, copy, or store your private financial data."
         },
         {
-          q: "Can I extract multiple different page ranges at once?",
-          a: "Yes! You can type complex ranges into our tool. For example, typing '1, 5, 10-15' will instantly create a single new PDF containing exactly those 8 pages."
+          q: "Can I extract PDF pages from several ranges into one file?",
+          a: "Yes! Type complex ranges like '1, 5, 10-15' and the tool instantly combines every selected page into ONE new PDF, not a ZIP of separate files. You get a single, clean document ready to email or print."
         },
         {
           q: "Is there a file size limit for the PDF I want to extract from?",
@@ -300,16 +308,16 @@ Taking a screenshot of a page destroys its quality and makes the text unsearchab
       sectionHeadings: {
         features: "Why Use a Precision Splitter?",
         useCases: "Real-World Uses for Splitting PDFs",
-        steps: "Guide to Separating PDF Pages",
+        steps: "How to Split PDF Online",
         faq: "PDF Splitting Questions Answered"
       },
       // 1. INTRO SECTION (Deep SEO Content)
-      intro: `Have you ever downloaded a massive 100-page PDF document just to use **one single page**? It is a common frustration. You might have a large bank statement but only need the last month's transaction history, or a heavy textbook where you only need chapter 5. Sharing the entire file is unprofessional, slow, and confusing for the receiver. You need a tool to **extract exactly what you need**.
+      intro: `Need to Split PDF files so you can pull out just the pages that matter? Ever downloaded a massive 100-page PDF just to use **one single page**? It is a common frustration. You might have a large bank statement but only need the last month's transaction history, or a heavy textbook where you only need chapter 5. Sharing the entire file is unprofessional, slow, and confusing for the receiver. You need a tool to **extract exactly what you need**.
 
 GoPDFGo’s **Split PDF** tool gives you surgical precision over your documents. It allows you to separate PDF pages, extract specific ranges, or remove unwanted sections instantly. Unlike traditional splitters that require you to upload your sensitive file to a server, wait for processing, and then download the result, our tool works **locally on your device**.
 
 **The Power of Client-Side Splitting:**
-We utilize cutting-edge **WebAssembly technology** to bring desktop-class performance to your browser.
+We use a fast, browser-based engine to bring desktop-class performance right to your device.
 1.  **Instant Extraction:** Since we don't upload your file, the splitting happens the moment you click the button. No buffering, no waiting.
 2.  **100% Privacy:** Your legal contracts, medical reports, or financial data never leave your computer. The splitting engine runs inside your browser (Chrome, Edge, Safari, etc.), ensuring your data remains invisible to the internet.
 3.  **Flexible Control:** Whether you want to extract a single page (e.g., "5"), a range (e.g., "1-10"), or a mix of both, GoPDFGo handles it with ease.
@@ -355,8 +363,8 @@ Take control of your documents. Stop sharing bulky files and start sharing only 
           a: "No, absolutely not. Your original file on your computer remains **untouched and safe**. GoPDFGo creates a *new* copy containing only the pages you selected. You will end up with two files: your original (full) PDF and your new (extracted) PDF."
         },
         {
-          q: "Can I extract non-consecutive pages (e.g., Page 1 and Page 5)?",
-          a: "Yes. Our tool is flexible. You can often perform multiple splits to get exactly the combination you need, or define custom ranges depending on the specific mode selected."
+          q: "How does the output work when I Split PDF into multiple ranges?",
+          a: "You define page ranges and each range becomes its own separate PDF. Enter a single range like '1-10' and you get one clean PDF. Enter several ranges like '1-10, 11-20, 21-30' and each one is saved as its own PDF, delivered together in a single ZIP file. It is range-grouped output, never a pile of one-page-per-file scraps, unless you choose Extract All, which saves every page as its own PDF."
         },
         {
           q: "Is it safe to split password-protected PDFs?",
@@ -389,16 +397,16 @@ Take control of your documents. Stop sharing bulky files and start sharing only 
       sectionHeadings: {
         features: "Why Permanently Rotate Pages?",
         useCases: "When is Rotation Necessary?",
-        steps: "How to Fix Upside-Down PDFs",
+        steps: "How to Rotate a PDF Online",
         faq: "Orientation Fix FAQs"
       },
       // 1. INTRO SECTION (Focus on "Permanent Save" vs "View Only")
-      intro: `There is nothing more annoying than opening a PDF document and realizing it is upside down or sideways. You crane your neck, turn your head, or rotate your laptop screen just to read it. While most PDF viewers allow you to "view" the file correctly, they often **fail to save** that rotation. The moment you close and reopen the file, it reverts to the wrong orientation.
+      intro: `Need to **rotate a PDF** and have the fix stay saved? There is nothing more annoying than opening a PDF document and realizing it is upside down or sideways. You crane your neck, turn your head, or rotate your laptop screen just to read it. While most PDF viewers allow you to "view" the file correctly, they often **fail to save** that rotation. The moment you close and reopen the file, it reverts to the wrong orientation.
 
 GoPDFGo’s **Rotate PDF** tool is designed to fix this problem once and for all. It allows you to change the orientation of your PDF pages permanently. Whether you have scanned a document upside down, merged landscape and portrait pages incorrectly, or converted mobile photos that are rotated 90 degrees, our tool corrects the layout instantly.
 
 **The GoPDFGo Privacy Advantage:**
-Unlike other online tools that ask you to upload your private files to a server just to rotate them, we use **Client-Side Processing**. Your PDF never leaves your browser. The rotation logic runs locally on your device using WebAssembly technology.
+Unlike other online tools that ask you to upload your private files to a server just to rotate them, we use **Client-Side Processing**. Your PDF never leaves your browser. The rotation logic runs locally on your device, right inside your browser.
 1.  **Permanent Fix:** We rewrite the file's internal structure so that when you send it to someone else, it opens correctly on their device too.
 2.  **No Uploads:** Rotate legal contracts, medical scans, or personal IDs without fear. Your data stays invisible to the internet.
 3.  **Instant Result:** Since there is no heavy processing or uploading involved, the rotation happens in the blink of an eye.
@@ -478,13 +486,13 @@ Stop struggling with sideways documents. Make your PDFs professional and readabl
       sectionHeadings: {
         features: "Benefits of Numbering Documents",
         useCases: "When to Stamp Page Numbers",
-        steps: "How to Add Pagination",
+        steps: "How to Add Page Numbers to PDF Online",
         faq: "Numbering Tool FAQs"
       },
       // 1. INTRO SECTION (Focus on Organization & Professionalism)
       intro: `Imagine printing a 50-page contract or a university thesis, and accidentally dropping the papers on the floor. If those pages aren't numbered, putting them back in the correct order is a nightmare. Page numbers are not just a design element; they are the backbone of document organization. They make your files referable, professional, and easy to navigate.
 
-GoPDFGo’s **Add Page Numbers** tool allows you to insert professional numbering into your PDF documents instantly. Whether you have a scanned file, a converted Word document, or a merged report, our tool calculates the total page count and stamps sequential numbers (e.g., "1", "2", "3" or "Page 1 of 50") directly onto the footer.
+GoPDFGo’s **Add Page Numbers to PDF** tool lets you insert professional numbering into your PDF documents online, instantly. Whether you have a scanned file, a converted Word document, or a merged report, our tool calculates the total page count and stamps sequential numbers (e.g., "1", "2", "3" or "Page 1 of 50") in the position you choose — bottom or top of the page.
 
 **Why choose Client-Side Numbering?**
 Most online tools force you to upload your document to a server just to add a tiny number. This is a huge privacy risk for legal contracts or unpublished research papers.
@@ -499,11 +507,11 @@ Turn your chaotic pile of digital pages into a structured, professional document
       features: [
         {
           title: "Smart Positioning",
-          desc: "We don't just stamp numbers randomly. Our tool targets the **Footer Center**—the international standard for page numbering. This ensures your document looks professional and consistent, whether it's for a court submission, a corporate report, or a book publishing."
+          desc: "You control exactly where the numbers sit. Pick **Bottom Center** (the international standard), Bottom Left, Bottom Right, or Top Right — plus set your own **starting number** and choose the **format**, either plain '1, 2, 3' or 'Page 1 of N'. This keeps your document consistent whether it is a court submission, a corporate report, or a book."
         },
         {
           title: "Safe Margin Tech",
-          desc: "Worried about the number covering your text? Our engine identifies the **safe whitespace** at the bottom of the page. It inserts the number cleanly in the margin, ensuring that your original content, signatures, and footnotes remain 100% visible and untouched."
+          desc: "Worried about the number covering your text? Our engine identifies the **safe whitespace** in the page margin. It places the number cleanly there, ensuring that your original content, signatures, and footnotes remain 100% visible and untouched."
         },
         {
           title: "Confidential, Local Numbering",
@@ -522,7 +530,7 @@ Turn your chaotic pile of digital pages into a structured, professional document
       // 4. STEPS (4 Steps)
       steps: [
         "**Upload PDF:** Select the document that needs numbering. You can drag and drop it directly from your desktop or mobile file manager.",
-        "**Configure:** The tool automatically sets the numbering to the standard 'Bottom-Center' position for maximum readability.",
+        "**Choose Your Options:** Pick the position (Bottom Center, Bottom Left, Bottom Right or Top Right), set the starting number, choose the format ('1, 2, 3' or 'Page 1 of N'), and tick **Skip first page** if your document has a cover page.",
         "**Apply Numbering:** Click the **'Add Page Numbers'** button. Our engine calculates the total count and stamps each page sequentially.",
         "**Download:** Your organized document is ready. Download it immediately. The file size remains optimized, and the quality stays original."
       ],
@@ -568,13 +576,13 @@ Turn your chaotic pile of digital pages into a structured, professional document
       sectionHeadings: {
         features: "Why Convert Photos to PDF?",
         useCases: "Perfect Situations for Image Compilations",
-        steps: "How to Combine Images into a PDF",
+        steps: "How to Convert Images to PDF Online",
         faq: "Conversion Tool FAQs"
       },
       // 1. INTRO SECTION (Focus on Convenience & Organization)
       intro: `A picture is worth a thousand words, but sending twenty separate picture files in an email is a nightmare. It looks unprofessional, clutters the recipient's inbox, and makes printing a hassle. Whether you are a designer sharing a portfolio, a student submitting handwritten notes, or an employee filing expense receipts, you need a way to **combine these images into a single, professional document**.
 
-GoPDFGo’s **Image to PDF** converter is the fastest way to turn your chaotic collection of JPG, PNG, or WebP photos into a polished PDF file. Unlike other tools that stretch your images or ruin the aspect ratio, our smart engine **auto-scales** your photos to fit perfectly on standard page sizes while maintaining their original quality.
+GoPDFGo’s **Image to PDF** converter — also the fastest **JPG to PDF** converter online — turns your chaotic collection of JPG, PNG, or WebP photos into a polished PDF file. Unlike other tools that stretch your images or ruin the aspect ratio, our smart engine **auto-scales** your photos to fit perfectly on standard page sizes while maintaining their original quality.
 
 **The Privacy Revolution:**
 Most "free" converters require you to upload your personal photos to a cloud server. This is risky, especially for personal photos or ID proofs.
@@ -658,13 +666,13 @@ Stop zipping files. Start creating professional PDFs instantly.`,
       sectionHeadings: {
         features: "Why Use Our Visual Organizer?",
         useCases: "Best Times to Reorder Pages",
-        steps: "How to Change PDF Page Sequence",
+        steps: "How to Rearrange PDF Pages Online",
         faq: "Reordering Tool FAQs"
       },
       // 1. INTRO SECTION (High SEO Value)
-      intro: `Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
+      intro: `Need to **rearrange PDF pages** or reorder a document? Have you ever scanned a 50-page document only to realize page 12 is at the very end? Or maybe you need to move the executive summary of a business report to the front. Fixing the page order of a PDF usually requires expensive desktop software, but GoPDFGo's **Rearrange PDF** tool lets you do it effortlessly right in your browser.
 
-Unlike other online tools that force you to upload your sensitive files to their servers just to change the page order, our platform uses advanced **WebAssembly Technology**. This means the entire reordering process happens locally on your device. Your files never leave your computer, ensuring total data privacy.
+Unlike other online tools that force you to upload your sensitive files to their servers just to change the page order, our platform uses advanced **browser-based technology**. This means the entire reordering process happens locally on your device. Your files never leave your computer, ensuring total data privacy.
 
 **Why choose our Client-Side Organizer?**
 Traditional tools are slow and compromise your privacy. **GoPDFGo changes the rules:**
@@ -751,9 +759,9 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
         steps: "How to Turn a PDF into Images",
         faq: "PDF to Image FAQs"
       },
-      intro: `Sometimes you don't need a whole PDF — you just need a picture of a page. Maybe a portal only accepts JPG uploads, you want to share a single page on WhatsApp, or you need to drop a page into a presentation. GoPDFGo's **PDF to JPG/PNG** tool turns every page of your PDF into a crisp, high-resolution image, right inside your browser.
+      intro: `Sometimes you don't need a whole PDF — you just need a picture of a page. Maybe a portal only accepts JPG uploads, you want to share a single page on WhatsApp, or you need to drop a page into a presentation. GoPDFGo's **PDF to JPG/PNG** tool turns your PDF pages — all of them, or just the ones you select — into crisp, high-resolution images, right inside your browser.
 
-Like all our tools, this runs **100% on your device** using WebAssembly — your document is never uploaded to a server. Choose JPG for small, share-friendly files or PNG for lossless, transparent-friendly quality. If your PDF has multiple pages, we neatly bundle all the images into a single ZIP for you.`,
+Like all our tools, this runs **100% on your device** right inside your browser — your document is never uploaded to a server. Choose JPG for small, share-friendly files or PNG for lossless, transparent-friendly quality. If your PDF has multiple pages, we neatly bundle all the images into a single ZIP for you.`,
       features: [
         {
           title: "High-Resolution Output",
@@ -776,7 +784,7 @@ Like all our tools, this runs **100% on your device** using WebAssembly — your
       ],
       steps: [
         "**Upload PDF:** Drag and drop your PDF or tap to select it. It loads instantly because nothing is uploaded.",
-        "**Pick a Format:** Choose JPG (smaller) or PNG (higher quality) for your images.",
+        "**Choose Pages, Format & Quality:** Every page is selected by default — untick any you don't need. Then pick JPG (smaller) or PNG (higher quality) and set the image quality level.",
         "**Convert:** Click convert — every page is rendered to an image in your browser.",
         "**Download:** Get a single image, or a ZIP of all pages if your PDF has more than one page."
       ],
@@ -817,15 +825,15 @@ Like all our tools, this runs **100% on your device** using WebAssembly — your
       },
       intro: `A watermark protects your work and your privacy. Whether you're a freelancer marking a proposal as **DRAFT**, a student writing "Submitted to XYZ only" across an ID copy, or a business stamping **CONFIDENTIAL** on a contract, a clear diagonal watermark tells everyone how a document should be used.
 
-GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — diagonally and semi-transparent so it's visible without hiding the content. It runs entirely in your browser, so your sensitive documents never touch a server. Add your watermark and download in seconds, with no signup and no watermark from us.`,
+GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — you choose the position (diagonal, tiled, footer, or center) plus the size, color, and opacity, so it stays visible without hiding the content. It runs entirely in your browser, so your sensitive documents never touch a server. Add your watermark and download in seconds, with no signup and no watermark from us.`,
       features: [
         {
           title: "Custom Text Stamp",
           desc: "Type anything — CONFIDENTIAL, DRAFT, your name, a website, or 'For KYC use only'. The text is applied across every page in one go."
         },
         {
-          title: "Adjustable Opacity",
-          desc: "Control how strong the watermark looks. Keep it light so the document stays readable, or make it bold to clearly mark ownership and intent."
+          title: "Full Control: Opacity, Size, Color & Position",
+          desc: "Tune the **opacity** (light or bold), pick a **size** (small, normal, or large), choose a **color** (gray, red, or blue), and set the **position** — a diagonal stamp, a repeating tiled pattern, a footer line, or a single center mark. Make it match exactly what the document needs."
         },
         {
           title: "Secure & Local",
@@ -841,13 +849,13 @@ GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — d
       steps: [
         "**Upload PDF:** Drop your document in — it loads instantly and privately.",
         "**Enter Watermark Text:** Type the text you want stamped on every page.",
-        "**Adjust Opacity:** Slide to make the watermark lighter or darker to taste.",
+        "**Style It:** Set the position (diagonal, tiled, footer, or center), size, color, and opacity to get the exact look you want.",
         "**Apply & Download:** Click to stamp every page and download your watermarked PDF."
       ],
       faq: [
         {
           q: "Will the watermark cover my text?",
-          a: "No. The watermark is placed diagonally and semi-transparent, so your original content stays fully readable underneath it. You can also lower the opacity."
+          a: "No. The watermark is semi-transparent, so your original content stays fully readable underneath it — and you can lower the opacity or change the position and size to keep everything clear."
         },
         {
           q: "Is the watermark added to every page?",
@@ -876,10 +884,10 @@ GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — d
       sectionHeadings: {
         features: "Why Use a Page Remover?",
         useCases: "When to Delete PDF Pages",
-        steps: "How to Remove Pages from a PDF",
+        steps: "How to Delete Pages from a PDF Online",
         faq: "Page Deletion FAQs"
       },
-      intro: `Scanned a document and ended up with a blank page at the end? Downloaded a form with instruction pages you don't need? GoPDFGo's **Delete PDF Pages** tool lets you remove any pages from a PDF visually — just tap the pages you want gone and download a clean, trimmed document.
+      intro: `Need to **delete pages from a PDF**? Scanned a document and ended up with a blank page at the end? Downloaded a form with instruction pages you don't need? GoPDFGo's **Delete PDF Pages** tool lets you remove any pages from a PDF visually — just tap the pages you want gone and download a clean, trimmed document.
 
 It's the fastest way to tidy up a PDF before uploading or printing. Everything happens **inside your browser** with zero quality loss on the pages you keep, and your file is never sent to a server.`,
       features: [
@@ -940,7 +948,7 @@ It's the fastest way to tidy up a PDF before uploading or printing. Everything h
       sectionHeadings: {
         features: "Why Unlock a PDF?",
         useCases: "When to Remove a PDF Password",
-        steps: "How to Unlock a PDF",
+        steps: "How to Unlock a PDF Online",
         faq: "Unlock PDF FAQs"
       },
       intro: `Bank and card statements in India usually arrive password-protected (often your PAN + date of birth), and many portals won't accept a locked PDF for KYC or loan uploads. GoPDFGo's **Unlock PDF** tool removes that password — for a file you already have the password to — so you get a clean, openable PDF you can upload anywhere.
@@ -1004,7 +1012,7 @@ This is **not a password cracker**: you simply enter the password you already kn
       sectionHeadings: {
         features: "Why Extract PDF Text in Your Browser?",
         useCases: "When You Need the Text Out of a PDF",
-        steps: "How to Convert PDF to Text",
+        steps: "How to Convert PDF to Text Online",
         faq: "PDF to Text FAQs"
       },
       intro: `Sometimes you don't need the whole PDF — you just need the words inside it. Maybe you want to copy a few paragraphs from a report into an email, pull the question text out of a question paper, quote a clause from an agreement, or feed some content into another document without retyping it line by line.
@@ -1074,7 +1082,7 @@ GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it bac
       sectionHeadings: {
         features: "Why Organize PDF Pages Visually?",
         useCases: "When You Need to Reorganize a PDF",
-        steps: "How to Organize PDF Pages",
+        steps: "How to Organize a PDF Online",
         faq: "Organize PDF FAQs"
       },
       intro: `Some PDFs come out of the scanner or the export button in a mess. Pages in the wrong order. A blank sheet in the middle. One page lying sideways because it was scanned the wrong way. Normally you'd need three separate tools to fix that — one to reorder, one to rotate, one to delete — and you'd run the file through each one in turn.
@@ -1145,7 +1153,7 @@ And like everything on GoPDFGo, it runs **entirely in your browser**. Your pages
       sectionHeadings: {
         features: "Why Sign PDFs in Your Browser?",
         useCases: "When You Need to Sign a PDF",
-        steps: "How to Sign a PDF",
+        steps: "How to Sign a PDF Online",
         faq: "Sign PDF FAQs"
       },
       intro: `Someone emails you a form, a letter, or an agreement and asks you to "sign and send it back." The old way was painful: print it, sign with a pen, scan it, hope the scan isn't crooked, and email it back. GoPDFGo's **Sign PDF** tool skips all of that. You add your signature to the PDF right on screen and download the signed file — no printer, no scanner, no app.
@@ -1178,7 +1186,7 @@ One honest note: this adds a **visual (ink) signature** — the kind that's perf
       steps: [
         "**Upload your PDF:** Drop in the file you need to sign. It stays on your device.",
         "**Create your signature:** Draw it, type your name in a handwriting style, or upload an image of your signature.",
-        "**Place it:** Drag the signature onto the right page and spot, then resize it to fit.",
+        "**Place it:** Drag the signature onto the right page and spot, then resize it to fit. Need it on every page? Tick **'Place this signature on all pages'** to sign the whole document at once.",
         "**Download:** Click to add the signature and download your signed PDF."
       ],
       faq: [
@@ -1195,8 +1203,8 @@ One honest note: this adds a **visual (ink) signature** — the kind that's perf
           a: "Yes. You can draw your signature with your finger and drag it into place right on a phone or tablet — no app needed."
         },
         {
-          q: "Can I place the signature on any page?",
-          a: "Yes. Move between pages and drop the signature on whichever page needs it, exactly where you want it."
+          q: "Can I place the signature on any page — or on every page?",
+          a: "Both. Move between pages and drop the signature on whichever page needs it, or tick 'Place this signature on all pages' to stamp it on every page at once — handy when you need to initial each page of an agreement."
         },
         {
           q: "What's the best way to upload my real signature?",
@@ -1221,17 +1229,17 @@ One honest note: this adds a **visual (ink) signature** — the kind that's perf
       sectionHeadings: {
         features: "The Power of Intelligent Compression",
         useCases: "When to Optimize Your JPGs",
-        steps: "How to Shrink JPEG Files",
+        steps: "How to Compress JPG Online",
         faq: "JPG Optimization FAQs"
       },
       // 1. INTRO SECTION (Focus on Speed & Storage)
       intro: `In the digital age, speed is everything. High-resolution photos are beautiful, but they are also heavy. A single 5MB JPG image can slow down your website, clog your email outbox, and eat up your phone's storage in no time. If you are a web developer, a photographer, or just someone trying to send a holiday album to family, you know the struggle of the "File Too Large" error.
 
-GoPDFGo’s **Compress JPG** tool is the ultimate solution to optimize your images instantly. We use advanced compression algorithms to significantly reduce the file size of your JPEG photos (often by up to 80%) while maintaining excellent visual quality.
+GoPDFGo’s **Compress JPG** tool is the ultimate solution to optimize your images instantly — and to shrink a photo or signature under a strict **20KB, 50KB or 100KB** limit for SSC, UPSC, IBPS and other exam forms. We use advanced compression algorithms to significantly reduce the file size of your JPEG photos (often by up to 80%) while maintaining excellent visual quality.
 
 **The GoPDFGo Difference: Client-Side Compression**
 Most online compressors work by uploading your photos to a remote server. This is slow and raises privacy concerns—who else is seeing your personal photos?
-**We do it differently.** Our tool uses **WebAssembly technology** to compress images directly inside your browser.
+**We do it differently.** Our tool uses **advanced browser-based technology** to compress images directly inside your browser.
 1.  **Maximum Privacy:** Your photos never leave your device. The compression happens on your CPU, not our servers.
 2.  **Unbeatable Speed:** Since there is no upload time, you can compress 50 images in the time it takes other sites to upload just one.
 3.  **Custom Control:** You decide the balance. Use our quality slider to find the perfect sweet spot between file size and image clarity.
@@ -1249,6 +1257,10 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
           desc: "Have a folder full of vacation photos or product shots? Don't waste time doing them one by one. Select **multiple JPG files** at once. Our tool processes them sequentially in your browser, allowing you to optimize an entire album in seconds."
         },
         {
+          title: "Compress to an Exact KB (Great for Exam Forms)",
+          desc: "Switch to **Target Size (KB)** mode and pick a preset — **20, 50, 100, 200, or 500 KB** — or type your own number. The tool automatically lowers quality and, if needed, resizes the image so it lands under that limit. Perfect for SSC, UPSC, IBPS and other government form uploads that demand a photo or signature below a strict size like 20KB or 50KB."
+        },
+        {
           title: "100% Secure & Private",
           desc: "Security is built into our architecture. Whether you are compressing personal family photos or confidential product prototypes, **no data is ever uploaded**. The processing is local to your device, making it the safest way to compress images online."
         }
@@ -1256,6 +1268,7 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
 
       // 3. USE CASES (4 Checkpoints)
       useCases: [
+        "**Exam & Government Form Photos:** SSC, UPSC, IBPS, NEET and state portals demand a photo or signature under a strict size — often **20KB, 50KB, or 100KB**. Use Target Size mode to hit the exact limit in one click, no photo studio needed.",
         "**Web Development & SEO:** Large images are the #1 killer of website speed. Compressing your JPG assets improves your **Core Web Vitals** scores, leading to better Google rankings and a happier user experience.",
         "**Social Media Uploads:** Platforms like Twitter, Facebook, and Instagram compress your images aggressively, often making them look bad. **Compress them yourself** first to maintain control over the final look while ensuring faster uploads.",
         "**Email Attachments:** Trying to send 10 photos in an email? You will likely hit the 25MB limit. Compress your JPGs to attach **more photos** in a single email without using third-party links.",
@@ -1265,7 +1278,7 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
       // 4. STEPS (4 Steps)
       steps: [
         "**Select Images:** Click 'Upload' or drag and drop your JPG/JPEG files. You can process multiple images simultaneously.",
-        "**Adjust Quality:** Use the **Quality Slider** to choose your compression level. (Recommended: 80% offers the best balance of size and quality).",
+        "**Pick a Mode:** Drag the **Quality Slider** for a size-vs-clarity balance, or switch to **Target Size (KB)** and choose 20, 50, 100, 200 or 500 KB (or a custom value) to hit an exact limit.",
         "**Process:** The tool instantly calculates the new file size. You will see the reduction percentage (e.g., '-75%').",
         "**Download:** Click to download your optimized images individually or save them all at once. Your original files remain untouched."
       ],
@@ -1275,6 +1288,10 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
         {
           q: "Is there a difference between JPG and JPEG?",
           a: "No. **JPG and JPEG are the same format.** The only difference is the letter count in the extension. Our tool handles both extensions perfectly and treats them as the exact same file type."
+        },
+        {
+          q: "How do I compress a JPG under 20KB or 50KB for an SSC/UPSC form?",
+          a: "Switch to **Target Size (KB)** mode and pick 20 KB or 50 KB (or type any number). The tool lowers the quality and, if needed, gently resizes the photo until it fits under that limit — ideal for SSC, UPSC, IBPS, NEET and other online form uploads, while keeping the photo clear and recognisable."
         },
         {
           q: "Will my photos look pixelated or blurry?",
@@ -1311,16 +1328,16 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
       sectionHeadings: {
         features: "Why Use Adaptive JPEG Control?",
         useCases: "Best Uses for JPEG Optimization",
-        steps: "Steps to Reduce JPEG Size",
+        steps: "How to Compress JPEG Online",
         faq: "JPEG Compression FAQs"
       },
       // 1. INTRO SECTION (Focus on "JPEG" specifics & Photography)
       intro: `You have likely noticed that some image files end in ".jpg" while others end in ".jpeg". While they are technically the same format, handling heavy JPEG files can still be a massive headache. A single raw JPEG from a modern DSLR or smartphone can easily exceed 10MB. Whether you are a photographer trying to upload a portfolio, an e-commerce store owner managing product images, or a student submitting scanned notes, file size limits are everywhere.
 
-GoPDFGo’s **Compress JPEG** tool is precision-engineered to shrink these files without ruining their beauty. We understand that JPEG users often care deeply about image quality. That is why our tool provides a **customizable quality slider**, giving you full control over the balance between file size and visual fidelity.
+GoPDFGo’s **Compress JPEG** tool is precision-engineered to shrink these files without ruining their beauty — including down to a strict **20KB, 50KB or 100KB** limit for SSC, UPSC and other exam-form uploads. We understand that JPEG users often care deeply about image quality. That is why our tool provides a **customizable quality slider**, giving you full control over the balance between file size and visual fidelity.
 
 **Why trust GoPDFGo with your JPEGs?**
-Unlike standard compressors that blindly crush your images into pixelated messes, our tool uses **Intelligent Perceptual Compression**. It runs directly in your browser using WebAssembly.
+Unlike standard compressors that blindly crush your images into pixelated messes, our tool uses **Intelligent Perceptual Compression**. It runs directly in your browser on your own device.
 1.  **Photographer-Friendly Privacy:** Professional photographers worry about image theft. With GoPDFGo, your high-res originals never touch a server. Processing happens on your machine, protecting your intellectual property.
 2.  **Web-Ready Speed:** We optimize JPEGs specifically for faster web loading, helping you pass Google's Core Web Vitals assessments.
 3.  **No Limits:** Batch compress unlimited JPEG files instantly.
@@ -1348,13 +1365,13 @@ Shrink your files, not your quality. Experience the safest JPEG compressor onlin
         "**E-Commerce & Retail:** Online stores with slow-loading product images lose customers. Compressing your JPEGs ensures your **product pages load instantly**, reducing bounce rates and increasing sales conversions.",
         "**Real Estate Listings:** Real estate agents deal with hundreds of high-res property photos. Use this tool to shrink them so they can be easily uploaded to listing portals like **Zillow or MagicBricks** without hitting size limits.",
         "**Photography Portfolios:** Photographers need to showcase their work online without theft risks. Compressing high-res JPEGs reduces the file size enough to deter printing theft while keeping them sharp enough for **digital display**.",
-        "**Government Forms:** Many official forms specifically ask for `.jpeg` format under 50KB. Our tool lets you fine-tune the quality to hit that exact **target file size** for successful submission."
+        "**Government & Exam Forms:** SSC, UPSC, IBPS and many official portals ask for a `.jpeg` photo or signature under 50KB. Switch to **Target Size (KB)** mode and pick the exact limit — the tool auto-adjusts quality and, if needed, dimensions to fit."
       ],
 
       // 4. STEPS (4 Steps)
       steps: [
         "**Select JPEGs:** Click 'Upload' or drag your `.jpeg` files into the tool. You can mix `.jpg` and `.jpeg` files; the tool handles both.",
-        "**Fine-Tune:** Adjust the **Quality Slider**. Lowering the percentage reduces size but may lower quality. We recommend **80%** for the best balance.",
+        "**Fine-Tune or Target a Size:** Adjust the **Quality Slider** for a size-vs-quality balance, or switch to **Target Size (KB)** and pick 20, 50, 100, 200 or 500 KB (or a custom value) to hit an exact limit — handy for forms that require a JPEG under 50KB.",
         "**Compress:** The tool instantly recalculates the pixel data to discard invisible details. You will see the new size immediately.",
         "**Download:** Save your optimized JPEGs. You can download them individually or as a bulk ZIP file if supported."
       ],
@@ -1364,6 +1381,10 @@ Shrink your files, not your quality. Experience the safest JPEG compressor onlin
         {
           q: "What is the difference between JPG and JPEG?",
           a: "Technically, **there is no difference**. Older Windows systems required 3-letter extensions (.jpg), while Mac/Unix used 4 letters (.jpeg). Today, they are interchangeable. Our tool works perfectly with both."
+        },
+        {
+          q: "How do I compress a JPEG under 50KB for a government or exam form?",
+          a: "Switch to **Target Size (KB)** mode and choose 50 KB (or type any number). The tool lowers the quality and, if needed, resizes the photo until it fits below that limit — ideal for SSC, UPSC, IBPS and other portals that cap the `.jpeg` upload size."
         },
         {
           q: "Will this change my file extension?",
@@ -1400,7 +1421,7 @@ Shrink your files, not your quality. Experience the safest JPEG compressor onlin
       sectionHeadings: {
         features: "Why Optimize Next-Gen WebP?",
         useCases: "Ideal Scenarios for WebP Shrinking",
-        steps: "How to Compress WebP Images",
+        steps: "How to Compress WebP Online",
         faq: "WebP Optimization FAQs"
       },
       // 1. INTRO SECTION (Focus on Modern Web & Speed)
@@ -1410,7 +1431,7 @@ GoPDFGo’s **Compress WebP** tool is designed for the modern web. It allows you
 
 **Why optimize WebP with GoPDFGo?**
 Unlike generic image compressors that treat all files the same, our engine is tuned for WebP's unique algorithms. Plus, we use **Client-Side Processing**:
-1.  **Zero Server Latency:** We don't upload your assets to a slow backend. The optimization happens instantly on your device using WebAssembly.
+1.  **Zero Server Latency:** We don't upload your assets to a slow backend. The optimization happens instantly on your device, right inside your browser.
 2.  **Transparency Support:** Unlike JPG compression which turns transparent backgrounds black or white, our tool **preserves the Alpha Channel** (transparency), making it perfect for logos and product cutouts.
 3.  **Developer-Grade Privacy:** Working on confidential client assets or unreleased app designs? Keep them safe. Your files never leave your computer.
 
@@ -1437,13 +1458,13 @@ Maximize your site speed and SEO rankings by serving the lightest possible WebP 
         "**Web Developers & SEO:** Speed is money. Compressing WebP images ensures your site loads instantly on 4G mobile networks, lowering bounce rates and improving your **Google Search Rankings**.",
         "**Mobile App Development:** APK and IPA file sizes matter. Compressing your app's WebP assets reduces the download size for users, leading to **more installs** and fewer uninstalls due to storage concerns.",
         "**E-Commerce Stores:** Product images need to be sharp but fast. Use our tool to compress thousands of product thumbnails so your customers can browse your catalog without waiting for images to load.",
-        "**Digital Marketing:** Ad banners and email graphics often have strict file size limits (e.g., Google Ads < 150KB). Shrink your high-quality WebP creatives to meet these requirements without compromising visual impact."
+        "**Digital Marketing:** Ad banners and email graphics often have strict file size limits (e.g., Google Ads < 150KB). Switch to **Target Size (KB)** mode to force your WebP creative under the exact cap without compromising visual impact."
       ],
 
       // 4. STEPS (4 Steps)
       steps: [
         "**Select WebP Files:** Click 'Upload' or drag your `.webp` images into the dashboard. Batch processing is supported.",
-        "**Set Compression Level:** Use the slider to control the quality. We recommend **80%** for web use, which offers significant savings with virtually no visual loss.",
+        "**Set Quality or Target Size:** Use the slider to control quality (**80%** is great for web), or switch to **Target Size (KB)** and pick 20, 50, 100, 200 or 500 KB to force each file under an exact limit.",
         "**Analyze:** Watch as the tool recalculates the file size instantly. You will see the new size and the percentage saved.",
         "**Download:** Save your optimized WebP files. They are now ready to be uploaded to your CMS, app, or server."
       ],
@@ -1489,7 +1510,7 @@ Maximize your site speed and SEO rankings by serving the lightest possible WebP 
       sectionHeadings: {
         features: "Why Use Pixel-Perfect Resizing?",
         useCases: "When Do You Need Exact Dimensions?",
-        steps: "How to Change Image Resolution",
+        steps: "How to Resize an Image Online",
         faq: "Image Resizing FAQs"
       },
       // 1. INTRO SECTION (Focus on Precision & Social Media)
@@ -1525,7 +1546,7 @@ Stop struggling with complex software like Photoshop. Resize your images instant
       useCases: [
         "**Social Media Graphics:** Every platform has strict rules. Resize your photos to **1080x1080** for Instagram posts, **1200x630** for Facebook links, or **2560x1440** for YouTube channel art to ensure they look perfect on all devices.",
         "**E-Commerce Listings:** Amazon, Flipkart, and Shopify require product images to be at least **1000 pixels wide** for their zoom features to work. Use our tool to standardize all your product shots to the correct resolution.",
-        "**Official Documents:** Applying for a visa or exam? You often need to resize your passport photo and signature to exact dimensions (e.g., **3.5cm x 4.5cm** or specific pixel counts). Do it here with zero privacy risk.",
+        "**Exam & Official Documents:** Applying for SSC, UPSC, IBPS, NEET, a visa or a passport? These forms demand your photo and signature at exact dimensions — a photo is often around **200×230 px** and a signature around **140×60 px** (always check your form's own notification). Type the exact numbers here with zero privacy risk.",
         "**Web Performance:** Don't make your website load a 4000-pixel image in a 300-pixel box. Resizing images to their **display size** significantly improves page load speed and Google Core Web Vitals scores."
       ],
 
@@ -1560,6 +1581,10 @@ Stop struggling with complex software like Photoshop. Resize your images instant
           a: "For a standard square post, set the width and height to **1080 x 1080** pixels. For a portrait post, use **1080 x 1350**. Our tool lets you type these exact numbers."
         },
         {
+          q: "How do I resize a photo and signature for an SSC or UPSC form?",
+          a: "Turn off 'Lock Aspect Ratio' if your form needs an exact width and height, then type the required pixels — many exam portals expect a photo around **200×230 px** and a signature around **140×60 px**, but the exact size is always listed in your official notification. Resize it here, then use our Compress JPG tool to bring it under the KB limit if needed."
+        },
+        {
           q: "Will this remove transparency?",
           a: "If you upload a transparent PNG and resize it as a PNG, transparency is **preserved**. If you convert it to JPG during resizing, the background will become white."
         }
@@ -1578,11 +1603,11 @@ Stop struggling with complex software like Photoshop. Resize your images instant
       sectionHeadings: {
         features: "Advantages of Local Image Cropping",
         useCases: "When to Trim Your Photos",
-        steps: "How to Reframe Your Pictures",
+        steps: "How to Crop an Image Online",
         faq: "Cropping Tool FAQs"
       },
       // 1. INTRO SECTION (Focus on Composition & Privacy)
-      intro: `We take hundreds of photos, but rarely is the raw shot perfect. Maybe there is a stranger photobombing the background, too much empty sky above your subject, or clutter on the desk that ruins a professional product shot. Often, the best picture is hiding *inside* the bigger picture. You need a tool to **trim the fat** and focus on what matters.
+      intro: `Want to **crop an image** down to just what matters? We take hundreds of photos, but rarely is the raw shot perfect. Maybe there is a stranger photobombing the background, too much empty sky above your subject, or clutter on the desk that ruins a professional product shot. Often, the best picture is hiding *inside* the bigger picture. You need a tool to **trim the fat** and focus on what matters.
 
 GoPDFGo’s **Crop Image** tool is the simplest and safest way to re-frame your photos online. Forget complicated desktop software like Photoshop just for a simple cut. Our intuitive **Visual Editor** allows you to draw a box over the area you want to keep and discard the rest instantly.
 
@@ -1668,11 +1693,11 @@ Take control of your photo's composition and create the perfect frame with GoPDF
       sectionHeadings: {
         features: "Why Upgrade to WebP Format?",
         useCases: "Best Uses for WebP Conversion",
-        steps: "How to Change Images to WebP",
+        steps: "How to Convert to WebP Online",
         faq: "WebP Conversion FAQs"
       },
       // 1. INTRO SECTION (Focus on Modern Web Standards & Speed)
-      intro: `Is your website loading slowly? Are your high-quality PNGs and JPGs taking up too much storage space? It is time to upgrade to the future of digital imagery. **WebP** is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web.
+      intro: `Need to **convert an image to WebP**? Is your website loading slowly? Are your high-quality PNGs and JPGs taking up too much storage space? It is time to upgrade to the future of digital imagery. **WebP** is a modern image format developed by Google that provides superior lossless and lossy compression for images on the web.
 
 GoPDFGo’s **Convert to WebP** tool allows you to transform your legacy image files (JPG, PNG, JPEG) into the next-generation WebP format instantly. Why does this matter? Because WebP images are typically **25% to 35% smaller** than comparable JPGs and PNGs while maintaining the exact same visual quality.
 
@@ -1758,7 +1783,7 @@ Make the switch to WebP today and watch your digital assets become lighter and f
       sectionHeadings: {
         features: "Why Standardize to JPEG?",
         useCases: "When to Switch Formats",
-        steps: "How to Transform Images to JPG",
+        steps: "How to Convert to JPG Online",
         faq: "JPG Conversion FAQs"
       },
       // 1. INTRO SECTION (Focus on Compatibility & Standardization)
@@ -1848,11 +1873,11 @@ Stop worrying about "File Format Not Supported" errors. Switch to JPG with GoPDF
       sectionHeadings: {
         features: "Benefits of Lossless PNGs",
         useCases: "When Quality Matters Most",
-        steps: "How to Upgrade to PNG",
+        steps: "How to Convert to PNG Online",
         faq: "PNG Conversion FAQs"
       },
       // 1. INTRO SECTION (Focus on Quality & Graphics)
-      intro: `Have you ever saved a logo or a screenshot as a JPG, only to see it become blurry, pixelated, or surrounded by "noise" artifacts? That is the price of compression. When quality matters more than file size, there is only one clear winner: **PNG (Portable Network Graphics)**.
+      intro: `Need to **convert an image to PNG**? Have you ever saved a logo or a screenshot as a JPG, only to see it become blurry, pixelated, or surrounded by "noise" artifacts? That is the price of compression. When quality matters more than file size, there is only one clear winner: **PNG (Portable Network Graphics)**.
 
 GoPDFGo’s **Convert to PNG** tool is the ultimate solution for preserving visual fidelity. Whether you have a compressed JPG photograph or a modern WebP graphic, our tool transforms it into the **Lossless PNG format**. This means every single pixel is preserved exactly as it is, with zero quality degradation. It is the gold standard for designers, photographers, and anyone who refuses to compromise on clarity.
 
@@ -1943,10 +1968,10 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
       sectionHeadings: {
         features: "Why Convert HEIC in Your Browser?",
         useCases: "When You Need to Convert HEIC Photos",
-        steps: "How to Convert HEIC to JPG",
+        steps: "How to Convert HEIC to JPG Online",
         faq: "HEIC to JPG FAQs"
       },
-      intro: `You took a photo on your iPhone, went to upload it somewhere — a job portal, a college form, a website, your Windows laptop — and it just wouldn't open. Or it uploaded but nobody else could see it. The culprit is almost always the same: **HEIC**, the format iPhones save photos in by default.
+      intro: `Need to **convert HEIC to JPG**? You took a photo on your iPhone, went to upload it somewhere — a job portal, a college form, a website, your Windows laptop — and it just wouldn't open. Or it uploaded but nobody else could see it. The culprit is almost always the same: **HEIC**, the format iPhones save photos in by default.
 
 HEIC (High Efficiency Image Container) is genuinely clever — it keeps photos sharp while using roughly half the space of a JPG. The catch is that most of the world hasn't caught up. Android phones, Windows, a lot of government and exam portals, and countless websites still expect a plain old **JPG**. So an iPhone photo that looks perfect on your phone becomes a headache the moment it leaves it.
 
@@ -2019,10 +2044,10 @@ GoPDFGo's **HEIC to JPG** tool fixes that in seconds. Drop in your iPhone photos
       sectionHeadings: {
         features: "Why Convert HEIC to PNG?",
         useCases: "When PNG Is the Right Choice",
-        steps: "How to Convert HEIC to PNG",
+        steps: "How to Convert HEIC to PNG Online",
         faq: "HEIC to PNG FAQs"
       },
-      intro: `When you convert an iPhone photo, the format you pick decides what you can do with it afterwards. **PNG** is the one to choose when quality is the priority. Unlike JPG, PNG is **lossless** — it doesn't throw away any image data to save space, so what you get is a pixel-perfect copy of the original HEIC, with no compression blur, no blocky artifacts, nothing lost.
+      intro: `Converting **HEIC to PNG**? When you convert an iPhone photo, the format you pick decides what you can do with it afterwards. **PNG** is the one to choose when quality is the priority. Unlike JPG, PNG is **lossless** — it doesn't throw away any image data to save space, so what you get is a pixel-perfect copy of the original HEIC, with no compression blur, no blocky artifacts, nothing lost.
 
 That matters the moment you plan to **edit** the photo. Every time a JPG is opened, edited, and re-saved, it loses a little more quality. A PNG doesn't. So if you're going to retouch the image, drop it into a design, crop it repeatedly, or keep it as a clean master copy, PNG is the safer format. It's also the format virtually every image editor, design tool, and document app accepts without complaint.
 
@@ -2095,10 +2120,10 @@ GoPDFGo's **HEIC to PNG** converter does this **entirely in your browser** — y
       sectionHeadings: {
         features: "Why Convert HEIC to WebP?",
         useCases: "When WebP Is the Right Choice",
-        steps: "How to Convert HEIC to WebP",
+        steps: "How to Convert HEIC to WebP Online",
         faq: "HEIC to WebP FAQs"
       },
-      intro: `If your iPhone photos are headed for a **website** — a blog, an online store, a portfolio, a CMS — then **WebP** is the format built for the job. WebP is Google's modern image format, and its whole purpose is to look as good as JPG or PNG while weighing **significantly less**. Smaller images mean pages that load faster, and faster pages mean happier visitors and better Google rankings (page speed is a real ranking signal).
+      intro: `Converting **HEIC to WebP**? If your iPhone photos are headed for a **website** — a blog, an online store, a portfolio, a CMS — then **WebP** is the format built for the job. WebP is Google's modern image format, and its whole purpose is to look as good as JPG or PNG while weighing **significantly less**. Smaller images mean pages that load faster, and faster pages mean happier visitors and better Google rankings (page speed is a real ranking signal).
 
 The problem WebP solves is specific: a raw iPhone HEIC won't display on most websites at all, and a converted JPG, while compatible, is often heavier than it needs to be. WebP gives you web-ready images that are both **universally supported by modern browsers** and noticeably lighter — frequently 25–35% smaller than the same JPG at comparable quality.
 
@@ -2165,11 +2190,11 @@ GoPDFGo's **HEIC to WebP** converter runs **entirely in your browser**, so your 
       sectionHeadings: {
         features: "Why Permanently Fix Image Orientation?",
         useCases: "Common Rotation Scenarios",
-        steps: "How to Turn Your Photos",
+        steps: "How to Rotate an Image Online",
         faq: "Image Rotation FAQs"
       },
       // 1. INTRO SECTION (Focus on Orientation & Permanence)
-      intro: `Taking a great photo is satisfying, but opening it on your computer only to find it is sideways or upside down is frustrating. This often happens with photos taken on smartphones or documents scanned in a hurry. While image viewers let you "turn" the image to see it, they often fail to **save that orientation permanently**. The moment you upload that photo to a website or email it, it reverts to being sideways.
+      intro: `Need to **rotate an image**? Taking a great photo is satisfying, but opening it on your computer only to find it is sideways or upside down is frustrating. This often happens with photos taken on smartphones or documents scanned in a hurry. While image viewers let you "turn" the image to see it, they often fail to **save that orientation permanently**. The moment you upload that photo to a website or email it, it reverts to being sideways.
 
 GoPDFGo’s **Rotate Image** tool is the permanent fix for your orientation woes. It allows you to rotate your JPG, PNG, or WebP images by **90 degrees clockwise or counter-clockwise** instantly. Unlike basic viewers, our tool rewrites the image data to ensure that "Up" is truly "Up," no matter where you view the file next.
 
@@ -2254,11 +2279,11 @@ Stop craning your neck. Fix your photo's orientation instantly with GoPDFGo.`,
       sectionHeadings: {
         features: "Why Use Our Mirroring Tool?",
         useCases: "Best Uses for Flipped Images",
-        steps: "How to Reverse Your Photos",
+        steps: "How to Flip an Image Online",
         faq: "Image Flipping FAQs"
       },
       // 1. INTRO SECTION (Focus on Selfies & Symmetry)
-      intro: `Have you ever taken the perfect selfie, only to realize later that the text on your T-shirt is backwards? Or perhaps you have scanned an old photo negative and it looks reversed? This happens because cameras and mirrors often flip our perspective. To fix this, you don't need to retake the shot—you simply need to **mirror it back**.
+      intro: `Want to **flip an image** or fix a mirrored selfie? Have you ever taken the perfect selfie, only to realize later that the text on your T-shirt is backwards? Or perhaps you have scanned an old photo negative and it looks reversed? This happens because cameras and mirrors often flip our perspective. To fix this, you don't need to retake the shot—you simply need to **mirror it back**.
 
 GoPDFGo’s **Flip Image** tool is the easiest way to create a mirror image online. Whether you need to flip a photo **Horizontally** (left to right) to fix a selfie, or **Vertically** (top to bottom) for a creative reflection effect, our tool handles it instantly.
 
@@ -2344,11 +2369,11 @@ Correct your perspective and create stunning symmetrical art with GoPDFGo.`,
       sectionHeadings: {
         features: "Why Extract Colors Locally?",
         useCases: "When to Use a Digital Eyedropper",
-        steps: "How to Grab Exact Color Codes",
+        steps: "How to Pick Colors from an Image Online",
         faq: "Color Picker FAQs"
       },
       // 1. INTRO SECTION (Focus on Precision & Design Utility)
-      intro: `Have you ever looked at a beautiful sunset photo, a corporate logo, or a website design and wondered, "What is that exact shade of blue?" Color precision is often the defining factor that separates a polished masterpiece from a chaotic draft. Whether you are a web developer trying to match a button to a background, or a designer building a brand palette, guessing the color isn't enough—you need the exact code.
+      intro: `Need to **pick a color from an image**? Have you ever looked at a beautiful sunset photo, a corporate logo, or a website design and wondered, "What is that exact shade of blue?" Color precision is often the defining factor that separates a polished masterpiece from a chaotic draft. Whether you are a web developer trying to match a button to a background, or a designer building a brand palette, guessing the color isn't enough—you need the exact code.
 
 GoPDFGo’s **Image Color Picker** is your digital eyedropper. It allows you to upload any image and extract the precise **Hex, RGB, or HSL** color code from any pixel. No need to take a screenshot, open Photoshop, and use the eyedropper tool there. We bring that professional functionality directly to your browser.
 
@@ -2434,7 +2459,7 @@ Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
       sectionHeadings: {
         features: "Why Redact Sensitive IDs?",
         useCases: "When to Share a Masked Aadhaar",
-        steps: "How to Hide Your Digits",
+        steps: "How to Mask an Aadhaar Card Online",
         faq: "ID Masking FAQs"
       },
       // 1. INTRO SECTION (Focus on Security, Identity Theft & Compliance)
@@ -2442,7 +2467,7 @@ Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
 
 The UIDAI (Unique Identification Authority of India) and RBI explicitly recommend using a **"Masked Aadhaar"**—a version of your card where the first 8 digits are hidden, and only the last 4 digits are visible. This is valid for proof of identity but useless for hackers trying to steal your data.
 
-GoPDFGo’s **ID Masking Tool** allows you to create a valid Masked Aadhaar instantly and securely. Unlike other editors that might save a copy of your ID, our tool is built with a **Privacy-First Architecture**.
+GoPDFGo’s **Aadhaar masking tool** lets you mask your Aadhaar online and create a valid Masked Aadhaar instantly and securely. Unlike other editors that might save a copy of your ID, our tool is built with a **Privacy-First Architecture**.
 1.  **Zero-Knowledge Processing:** We do not know who you are. Your ID card is loaded directly into your browser's memory.
 2.  **No Server Uploads:** We never upload your sensitive documents to a cloud server. The masking happens locally on your device (laptop or mobile).
 3.  **Permanent Redaction:** We don't just put a removable layer on top. Our tool replaces the pixels of the first 8 digits with solid black color, permanently destroying the data in the file so it cannot be recovered.
@@ -2453,7 +2478,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
       features: [
         {
           title: "Visual Redaction Tool",
-          desc: "You don't need to be a Photoshop expert. Our intuitive interface lets you simply **click and drag** a black box over the sensitive areas of your document. You can resize and move the mask precisely to cover the first 8 digits while keeping the name and photo visible."
+          desc: "You don't need to be a Photoshop expert. Our intuitive interface lets you simply **click and drag** to place one or more black boxes over the sensitive areas of your document. Add as many boxes as you need — cover the first 8 digits, the QR code, and any other detail — then undo the last box or clear them all with one tap. Resize and move each mask precisely while keeping the name and photo visible."
         },
         {
           title: "Permanent Data Destruction",
@@ -2461,7 +2486,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
         },
         {
           title: "100% Client-Side Safety",
-          desc: "This is the most secure way to edit an ID card. Because we use **WebAssembly**, the code runs on your own computer. Your Aadhaar card never travels over the internet, eliminating the risk of 'Man-in-the-Middle' attacks or server data breaches."
+          desc: "This is the most secure way to edit an ID card. Because everything runs **right inside your browser**, the code executes on your own computer. Your Aadhaar card never travels over the internet, eliminating the risk of 'Man-in-the-Middle' attacks or server data breaches."
         }
       ],
 
@@ -2476,7 +2501,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
       // 4. STEPS (4 Steps)
       steps: [
         "**Upload ID:** Select the image of your Aadhaar card (or any other ID). JPG, PNG, and WebP formats are supported.",
-        "**Draw Mask:** Use your mouse (or finger on mobile) to draw a black box over the **first 8 digits** of the UID number. You can also mask the QR code if needed.",
+        "**Draw Mask(s):** Use your mouse (or finger on mobile) to draw one or more black boxes over the **first 8 digits** of the UID number. Add a box over the **QR code** too — it can still hold your full details even after the number is hidden. Made a mistake? Undo the last box or clear them all.",
         "**Apply:** Click the button to burn the mask into the image. The hidden area turns permanently black.",
         "**Download:** Save your secured ID card. It is now safe to share via email, WhatsApp, or upload portals."
       ],
@@ -2497,7 +2522,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
         },
         {
           q: "What part of the Aadhaar should I mask?",
-          a: "Standard practice is to mask the **first 8 digits** of the 12-digit number. The last 4 digits must remain visible so the verification officer can match it with their records."
+          a: "Standard practice is to mask the **first 8 digits** of the 12-digit number, keeping the last 4 visible so a verification officer can match their records. Important: also cover the **QR code** — it can still contain your full Aadhaar details, so masking only the printed number is not always enough."
         },
         {
           q: "Can I mask other documents like PAN Card?",
@@ -2526,7 +2551,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
         faq: "QR Generator FAQs"
       },
       // 1. INTRO SECTION (Focus on Permanence & Privacy)
-      intro: `From restaurant menus to digital payments, QR codes have become the bridge between the physical and digital worlds. Whether you want to share your Wi-Fi password without spelling it out, direct customers to your website, or share your contact details instantly, a QR code is the fastest way to do it. But not all generators are created equal. Many online tools trick you into creating "Dynamic" QR codes that expire after a week unless you pay a subscription fee.
+      intro: `From restaurant menus to Wi-Fi sharing, QR codes have become the bridge between the physical and digital worlds. Whether you want to share your Wi-Fi password without spelling it out, direct customers to your website, or share your contact details instantly, a QR code is the fastest way to do it. But not all generators are created equal. Many online tools trick you into creating "Dynamic" QR codes that expire after a week unless you pay a subscription fee.
 
 GoPDFGo’s **Free QR Code Generator** is different. We generate **Static QR Codes**. This ensures the data is embedded directly within the visual matrix of the code.
 1.  **No Expiration:** Your QR code will work forever. It will never "stop working" because you didn't pay a monthly fee.
@@ -2543,26 +2568,26 @@ Create professional, high-resolution QR codes instantly without signing up.`,
         },
         {
           title: "Instant & Private",
-          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because we use **Client-Side Technology**, you can even generate secure QR codes for sensitive data (like crypto wallet addresses) without fear of leaks."
+          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because we use **Client-Side Technology**, you can even generate secure QR codes for sensitive data (like a private Wi-Fi password or a personal note) without fear of leaks."
         },
         {
-          title: "High-Resolution Download",
-          desc: "Need a QR code for a giant billboard or a tiny business card? GoPDFGo ensures crisp, clean lines. Download your code as a high-quality image that remains scannable even when printed at different sizes or displayed on screens."
+          title: "Choose Size & Error Correction",
+          desc: "Need a QR code for a giant billboard or a tiny business card? Pick your download size — **256px (S), 512px (M), or 1024px (L)** — for crisp, clean lines at any scale. You can also set the **error-correction level (M, Q, or H)**: a higher level keeps the code scannable even if part of it gets smudged, printed small, or slightly damaged."
         }
       ],
 
       // 3. USE CASES (4 Checkpoints)
       useCases: [
         "**Instant Wi-Fi Access:** Stop the struggle of dictating long, case-sensitive passwords to your visitors. Create a QR code containing your **Wi-Fi credentials**. Guests can simply scan it with their camera to connect instantly without typing a single character.",
-        "**Marketing & Print Ads:** Adding a QR code to your flyers, brochures, or product packaging bridges the gap to your digital content. Direct customers to your **website, Instagram page, or Google Maps** location instantly.",
+        "**Marketing & Print Ads:** Adding a QR code to your flyers, brochures, or product packaging bridges the gap to your digital content. Direct customers to your **website, WhatsApp chat, Instagram page, or Google Maps** location instantly.",
         "**Business Cards (vCard):** Modern networking requires speed. Embed a scannable link on your printed card. When scanned, it can instantly save your **Name, Number, and Email** to the client's phone contacts.",
         "**Smart Classroom Integration:** Empower digital learning by linking physical worksheets to online resources. Teachers can direct students to quizzes, video lectures, or reference PDFs instantly, eliminating the chaos of manual URL entry."
       ],
 
       // 4. STEPS (4 Steps)
       steps: [
-        "**Enter Content:** Paste the website URL, type the text, or enter the Wi-Fi details you want to encode.",
-        "**Live Preview:** The tool instantly translates your text into a unique matrix barcode pattern. You will see it appear immediately.",
+        "**Enter Content:** Paste a website or WhatsApp link, type the text, or enter the Wi-Fi details you want to encode.",
+        "**Pick Size & Preview:** Choose your size (256, 512, or 1024px) and error-correction level, then watch the QR code appear instantly as a unique matrix barcode pattern.",
         "**Test Scan:** Open your phone's camera and scan the screen to verify the code works as expected.",
         "**Download:** Click the button to save the QR code image to your device. Your file is finalized and primed for printing or digital distribution."
       ],

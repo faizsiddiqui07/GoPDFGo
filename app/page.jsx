@@ -109,15 +109,16 @@ export default function Home() {
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-            Manage Your Files <br className="hidden md:block" />
-            <span className="text-[#FF9933]">Simply & Securely</span>
+            Free Online PDF &amp; Image Tools{" "}
+            <br className="hidden md:block" />
+            <span className="text-[#FF9933]">Simple &amp; Secure</span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-            We've rebuilt online PDF tools from the ground up.
-            <strong> GoPDFGo</strong> processes your files directly on your
-            device, giving you the privacy of offline software with the
-            convenience of the web.
+            We&apos;ve rebuilt online PDF tools from the ground up.
+            <strong> GoPDFGo</strong> lets you merge, split, compress and convert
+            PDFs and images directly on your device — the privacy of offline
+            software with the convenience of the web. No upload, no sign-up.
           </p>
 
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
@@ -218,8 +219,8 @@ export default function Home() {
               </p>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 <strong>GoPDFGo is different.</strong> We use advanced
-                technologies like <em>WebAssembly</em> to run the processing
-                engine right inside your web browser.
+                browser-based technology to run the processing engine right
+                inside your web browser.
               </p>
 
               <div className="space-y-4">
@@ -380,8 +381,9 @@ export default function Home() {
                 Govt. Aspirants
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed">
-                Resize photos and signatures to exact dimensions (e.g.
-                20kb-50kb) required for online application forms instantly.
+                Resize and compress photos and signatures to the exact size
+                (e.g. 20KB–50KB) that SSC, UPSC, IBPS, NEET and other online
+                exam and government application forms demand — instantly.
               </p>
             </div>
 
@@ -415,12 +417,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Why use our tools?
+              Why use our free PDF &amp; image tools?
             </h2>
 
             <p className="text-slate-600">
-              We make working with PDF files and Images easy, fast, and
-              secure.
+              We make working with PDF files and images easy, fast, and secure
+              — free, with no upload and no sign-up.
             </p>
           </div>
 
