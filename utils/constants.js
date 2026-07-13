@@ -621,7 +621,7 @@ Stop zipping files. Start creating professional PDFs instantly.`,
       steps: [
         "**Select Images:** Click 'Upload' or drag and drop your photos. You can select multiple images at once (JPG, PNG, etc.).",
         "**Reorder Pages:** This is crucial. Drag the thumbnails to change the sequence. The first image will be Page 1, the second will be Page 2, and so on.",
-        "**Convert:** Click the **'Convert to PDF'** button. Our browser engine instantly places each image onto a separate PDF page.",
+        "**Choose Page Size & Convert:** Pick **A4**, **US Letter**, or **Fit to Image** (a borderless page that matches each photo exactly), set portrait or landscape, then click **'Convert to PDF'**. Our browser engine places each image onto its own PDF page.",
         "**Download:** Your new document is ready. Download it immediately. The file is optimized for sharing but retains high visual quality."
       ],
 
@@ -833,7 +833,7 @@ GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — y
         },
         {
           title: "Full Control: Opacity, Size, Color & Position",
-          desc: "Tune the **opacity** (light or bold), pick a **size** (small, normal, or large), choose a **color** (gray, red, or blue), and set the **position** — a diagonal stamp, a repeating tiled pattern, a footer line, or a single center mark. Make it match exactly what the document needs."
+          desc: "Tune the **opacity** (light or bold), pick a **size** (small, normal, or large), choose a **color** (gray, red, or blue), and set the **position** — a diagonal stamp, a repeating tiled pattern, a footer line, or a single center mark. A **live preview of page 1** updates instantly as you adjust, so you see exactly how it will look before you download."
         },
         {
           title: "Secure & Local",
@@ -1019,7 +1019,7 @@ This is **not a password cracker**: you simply enter the password you already kn
 
 GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it back to you as clean, copyable plain text. You can copy it with one tap or download it as a **.txt** file. It runs **entirely in your browser** — your PDF is never uploaded to any server, which matters when you're pulling text out of contracts, statements, or anything with personal details.
 
-**One honest limitation:** this works on PDFs that actually contain real text (the kind where you can already select words with your cursor). If your PDF is a **scanned image** — a photo of a page saved as a PDF — there is no text layer to read, and you'll need OCR instead, which is a different kind of tool.`,
+**Scanned PDFs are handled too:** if your PDF has a real text layer (the kind where you can already select words with your cursor), extraction is instant. If it is a **scanned image** — a photo of a page saved as a PDF — the tool automatically switches to built-in **OCR**, reading the text straight off the page images right in your browser. OCR takes a few seconds per page and the engine downloads only once. It works best on clear printed text; very blurry or handwritten scans may come out imperfect.`,
       features: [
         {
           title: "Keeps Your Reading Order",
@@ -1044,12 +1044,12 @@ GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it bac
         "**Upload your PDF:** Drag and drop the file or tap to select it. It stays on your device.",
         "**Extract:** Click the button and the tool reads the text layer of every page.",
         "**Copy or Download:** Read the extracted text on screen, tap Copy to grab it all, or download it as a .txt file.",
-        "**Scanned file?** If nothing comes out, your PDF is a scanned image with no text layer — you'll need an OCR tool for that."
+        "**Scanned PDF?** No problem — if there is no text layer, the tool automatically runs **OCR** to read the text from the page images. Just give it a few seconds per page."
       ],
       faq: [
         {
-          q: "Why did I get no text / empty result?",
-          a: "Your PDF is almost certainly a scanned document — basically a picture of a page. There's no real text inside it to extract, only an image. Reading text from a picture needs OCR, which is a separate technology from plain text extraction."
+          q: "Does it work on scanned PDFs (OCR)?",
+          a: "Yes. When a PDF has no text layer — like a scanned document or a photo of a page — the tool automatically runs **OCR** (optical character recognition) in your browser, rendering each page and reading the text off the image. It is excellent for clear printed text; blurry or handwritten scans may not be perfect. Nothing is uploaded — the OCR runs on your own device."
         },
         {
           q: "Does the formatting (bold, tables, columns) come through?",
@@ -2500,7 +2500,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
 
       // 4. STEPS (4 Steps)
       steps: [
-        "**Upload ID:** Select the image of your Aadhaar card (or any other ID). JPG, PNG, and WebP formats are supported.",
+        "**Upload ID:** Select your Aadhaar card (or any other ID) as an image or a **PDF** — JPG, PNG, WebP and PDF are all supported. A PDF opens on its first page, ready to mask.",
         "**Draw Mask(s):** Use your mouse (or finger on mobile) to draw one or more black boxes over the **first 8 digits** of the UID number. Add a box over the **QR code** too — it can still hold your full details even after the number is hidden. Made a mistake? Undo the last box or clear them all.",
         "**Apply:** Click the button to burn the mask into the image. The hidden area turns permanently black.",
         "**Download:** Save your secured ID card. It is now safe to share via email, WhatsApp, or upload portals."
@@ -2530,7 +2530,7 @@ Protect your identity today. Mask your Aadhaar before you share it.`,
         },
         {
           q: "Does this work on PDF files?",
-          a: "Currently, this specific tool is optimized for **Image files** (scans/photos). If you have a PDF Aadhaar, please use our 'PDF to Image' converter first, mask it, and then save it back as a PDF."
+          a: "Yes. You can upload a **PDF Aadhaar** directly (for example one saved from DigiLocker or mAadhaar) — the tool renders its first page so you can draw your mask boxes right away. The masked result downloads as an image."
         }
       ]
     }

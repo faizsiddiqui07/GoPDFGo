@@ -341,6 +341,62 @@ const ImageEditor = ({ toolId }) => {
     }
   };
 
+  // Load pdf.js on demand — only needed when an ID-mask PDF is dropped in.
+  const ensurePdfJs = () =>
+    new Promise((resolve, reject) => {
+      if (window.pdfjsLib) return resolve(true);
+      const existing = document.getElementById("pdfjs-cdn");
+      if (existing) existing.remove();
+      const script = document.createElement("script");
+      script.id = "pdfjs-cdn";
+      script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js";
+      script.async = true;
+      script.onload = () => {
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+          "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+        resolve(true);
+      };
+      script.onerror = () => {
+        script.remove();
+        reject(new Error("pdfjs load failed"));
+      };
+      document.body.appendChild(script);
+    });
+
+  // Render page 1 of a PDF into a PNG File so the masking canvas can use it.
+  const pdfFirstPageToImageFile = async (file) => {
+    await ensurePdfJs();
+    const buf = await file.arrayBuffer();
+    const pdf = await window.pdfjsLib.getDocument(buf).promise;
+    try {
+      const page = await pdf.getPage(1);
+      const viewport = page.getViewport({ scale: 2 }); // 2x for a crisp, maskable image
+      const canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      const blob = await new Promise((res) => canvas.toBlob(res, "image/png"));
+      canvas.width = 0;
+      canvas.height = 0;
+      if (!blob) throw new Error("render failed");
+      const name = file.name.replace(/\.pdf$/i, "") + ".png";
+      return new File([blob], name, { type: "image/png" });
+    } finally {
+      try {
+        await pdf.destroy();
+      } catch (e) {
+        /* ignore */
+      }
+    }
+  };
+
+  const isPdfFile = (f) =>
+    !!f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name));
+
   const handleFileChange = (selectedFiles) => {
     let fileList = Array.from(selectedFiles);
 
@@ -364,12 +420,32 @@ const ImageEditor = ({ toolId }) => {
       }
       fileList = validFiles;
     } else {
-      fileList = fileList.filter((f) => f.type.startsWith("image/"));
+      fileList = fileList.filter(
+        (f) => f.type.startsWith("image/") || (isMaskingTool && isPdfFile(f)),
+      );
     }
 
     if (fileList.length === 0) return;
 
     setImgError(null);
+
+    // ID Masking accepts a PDF Aadhaar too — render page 1 to an image first,
+    // then re-enter this flow with the rendered PNG.
+    if (isMaskingTool && isPdfFile(fileList[0])) {
+      setIsProcessing(true);
+      pdfFirstPageToImageFile(fileList[0])
+        .then((imgFile) => {
+          setIsProcessing(false);
+          handleFileChange([imgFile]);
+        })
+        .catch(() => {
+          setIsProcessing(false);
+          setImgError(
+            "Could not read that PDF. Try exporting the Aadhaar page as an image, or check your connection.",
+          );
+        });
+      return;
+    }
 
     // HEIC needs decoding first (browsers can't read it natively)
     if (isHeic) {
@@ -1224,7 +1300,10 @@ const ImageEditor = ({ toolId }) => {
                 id="fileInput"
                 multiple={tool.config.allowBatch}
                 className="hidden"
-                accept={tool.config.accept || "image/*"}
+                accept={
+                  tool.config.accept ||
+                  (isMaskingTool ? "image/*,application/pdf,.pdf" : "image/*")
+                }
                 onChange={(e) => handleFileChange(e.target.files)}
               />
               {heicDecoding ? (

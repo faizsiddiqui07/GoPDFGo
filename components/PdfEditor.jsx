@@ -95,6 +95,7 @@ const PdfEditor = ({ toolId }) => {
   // State
   const [files, setFiles] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [ocrStatus, setOcrStatus] = useState(null); // pdf-to-text OCR progress
   const [isUploading, setIsUploading] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
@@ -113,6 +114,7 @@ const PdfEditor = ({ toolId }) => {
   const [generatingThumbnails, setGeneratingThumbnails] = useState(false);
   const [compressionStats, setCompressionStats] = useState(null);
   const [pdfOrientation, setPdfOrientation] = useState("portrait");
+  const [pdfPageSize, setPdfPageSize] = useState("a4"); // a4 | letter | fit (Image to PDF)
   const [pageRotations, setPageRotations] = useState([]);
 
   // New tools: PDF→image format, watermark text/opacity, unlock password
@@ -123,6 +125,15 @@ const PdfEditor = ({ toolId }) => {
   const [watermarkPos, setWatermarkPos] = useState("diagonal");
   const [watermarkSize, setWatermarkSize] = useState("normal"); // small | normal | large
   const [watermarkColor, setWatermarkColor] = useState("gray"); // gray | red | blue
+  // Live-preview reflections of the watermark size + colour (match the pdf-lib output)
+  const wmSizeMul =
+    watermarkSize === "small" ? 0.7 : watermarkSize === "large" ? 1.35 : 1;
+  const wmPreviewColor =
+    watermarkColor === "red"
+      ? "#d12929"
+      : watermarkColor === "blue"
+        ? "#2959c7"
+        : "#808080";
 
   // Page numbers: position / start / format / skip-cover options
   const [pageNumPos, setPageNumPos] = useState("bottom-center");
@@ -639,6 +650,63 @@ const PdfEditor = ({ toolId }) => {
     }
   };
 
+  // Load tesseract.js on demand — only when a scanned PDF needs OCR.
+  const ensureTesseract = () =>
+    new Promise((resolve, reject) => {
+      if (window.Tesseract) return resolve(true);
+      const existing = document.getElementById("tesseract-cdn");
+      if (existing) existing.remove();
+      const s = document.createElement("script");
+      s.id = "tesseract-cdn";
+      s.src =
+        "https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js";
+      s.async = true;
+      s.onload = () => resolve(true);
+      s.onerror = () => {
+        s.remove();
+        reject(new Error("tesseract load failed"));
+      };
+      document.body.appendChild(s);
+    });
+
+  // OCR fallback for scanned PDFs (no text layer). Renders each page to an
+  // image and reads it with tesseract.js — all inside the browser.
+  const runOcrOnPdf = async (pdf) => {
+    setOcrStatus("Loading OCR engine…");
+    await ensureTesseract();
+    const worker = await window.Tesseract.createWorker("eng");
+    try {
+      let out = "";
+      for (let i = 1; i <= pdf.numPages; i++) {
+        setOcrStatus(
+          `Reading scanned text with OCR… page ${i} of ${pdf.numPages}`,
+        );
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale: 2 });
+        const canvas = document.createElement("canvas");
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        await page.render({ canvasContext: ctx, viewport }).promise;
+        const { data } = await worker.recognize(canvas);
+        const pageText = (data.text || "").trim();
+        canvas.width = 0;
+        canvas.height = 0;
+        if (pdf.numPages > 1) out += `===== Page ${i} =====\n${pageText}\n\n`;
+        else out += pageText;
+      }
+      return out.replace(/\n{3,}/g, "\n\n").trim();
+    } finally {
+      try {
+        await worker.terminate();
+      } catch (e) {
+        /* ignore */
+      }
+    }
+  };
+
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
     const { PDFDocument, degrees, StandardFonts, rgb } =
@@ -692,10 +760,11 @@ const PdfEditor = ({ toolId }) => {
         // 2. IMAGE TO PDF
       } else if (tool.id === "image-to-pdf") {
         const newPdf = await PDFDocument.create();
-        const A4_WIDTH = 595.28;
-        const A4_HEIGHT = 841.89;
-        const pageWidth = pdfOrientation === "portrait" ? A4_WIDTH : A4_HEIGHT;
-        const pageHeight = pdfOrientation === "portrait" ? A4_HEIGHT : A4_WIDTH;
+        // Page size presets (in points). "fit" makes each page match its image.
+        const PAGE_SIZES = { a4: [595.28, 841.89], letter: [612, 792] };
+        const [baseW, baseH] = PAGE_SIZES[pdfPageSize] || PAGE_SIZES.a4;
+        const pageWidth = pdfOrientation === "portrait" ? baseW : baseH;
+        const pageHeight = pdfOrientation === "portrait" ? baseH : baseW;
 
         // Re-encode via canvas honoring EXIF orientation — phone JPEGs otherwise
         // land sideways in the PDF even though the on-screen preview looks fine.
@@ -752,17 +821,25 @@ const PdfEditor = ({ toolId }) => {
             }
 
             if (image) {
-              const page = newPdf.addPage([pageWidth, pageHeight]);
-              const margin = 20;
-              const availableWidth = pageWidth - margin * 2;
-              const availableHeight = pageHeight - margin * 2;
-              const imgDims = image.scaleToFit(availableWidth, availableHeight);
-              page.drawImage(image, {
-                x: (pageWidth - imgDims.width) / 2,
-                y: (pageHeight - imgDims.height) / 2,
-                width: imgDims.width,
-                height: imgDims.height,
-              });
+              if (pdfPageSize === "fit") {
+                // Page matches the image exactly — no borders, no whitespace.
+                const w = image.width;
+                const h = image.height;
+                const page = newPdf.addPage([w, h]);
+                page.drawImage(image, { x: 0, y: 0, width: w, height: h });
+              } else {
+                const page = newPdf.addPage([pageWidth, pageHeight]);
+                const margin = 20;
+                const availableWidth = pageWidth - margin * 2;
+                const availableHeight = pageHeight - margin * 2;
+                const imgDims = image.scaleToFit(availableWidth, availableHeight);
+                page.drawImage(image, {
+                  x: (pageWidth - imgDims.width) / 2,
+                  y: (pageHeight - imgDims.height) / 2,
+                  width: imgDims.width,
+                  height: imgDims.height,
+                });
+              }
             }
           } catch (e) {
             skipped.push(item.file.name);
@@ -1479,12 +1556,29 @@ const PdfEditor = ({ toolId }) => {
             fullText += pageText;
           }
         }
+        let cleaned = fullText.replace(/\n{3,}/g, "\n\n").trim();
+
+        // Scanned PDF (no text layer) — read it with in-browser OCR.
+        if (!cleaned) {
+          try {
+            cleaned = await runOcrOnPdf(pdf);
+          } catch (e) {
+            setOcrStatus(null);
+            if (pdf.destroy) pdf.destroy();
+            setErrorMsg(
+              "This looks like a scanned PDF and OCR could not read it. Check your connection and try again, or use a clearer scan.",
+            );
+            setIsProcessing(false);
+            return;
+          }
+          setOcrStatus(null);
+        }
+
         if (pdf.destroy) pdf.destroy();
 
-        const cleaned = fullText.replace(/\n{3,}/g, "\n\n").trim();
         if (!cleaned) {
           setErrorMsg(
-            "No selectable text found. This looks like a scanned PDF (an image of a page), which has no text layer to extract — you'd need an OCR tool for that.",
+            "No readable text found in this PDF, even after OCR. The scan may be too blurry or the page may be blank.",
           );
           setIsProcessing(false);
           return;
@@ -1840,32 +1934,67 @@ const PdfEditor = ({ toolId }) => {
 
           {/* Image to PDF Controls */}
           {files.length > 0 && tool.id === "image-to-pdf" && (
-            <div className="mb-8">
-              <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
-                Page Orientation
-              </label>
-              <div className="flex gap-4 justify-center">
-                <button
-                  onClick={() => setPdfOrientation("portrait")}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
-                    pdfOrientation === "portrait"
-                      ? "bg-[#FF9933] text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <Smartphone size={20} /> Portrait
-                </button>
-                <button
-                  onClick={() => setPdfOrientation("landscape")}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
-                    pdfOrientation === "landscape"
-                      ? "bg-[#FF9933] text-white shadow-lg"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                  }`}
-                >
-                  <Monitor size={20} /> Landscape
-                </button>
+            <div className="mb-8 space-y-6">
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
+                  Page Size
+                </label>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {[
+                    { v: "a4", label: "A4" },
+                    { v: "letter", label: "US Letter" },
+                    { v: "fit", label: "Fit to Image" },
+                  ].map((o) => (
+                    <button
+                      key={o.v}
+                      onClick={() => setPdfPageSize(o.v)}
+                      className={`px-5 py-2.5 rounded-xl font-bold transition cursor-pointer ${
+                        pdfPageSize === o.v
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      {o.label}
+                    </button>
+                  ))}
+                </div>
+                {pdfPageSize === "fit" && (
+                  <p className="text-xs text-slate-500 text-center mt-2">
+                    Each page matches its image exactly — no borders or extra
+                    whitespace.
+                  </p>
+                )}
               </div>
+
+              {pdfPageSize !== "fit" && (
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
+                    Page Orientation
+                  </label>
+                  <div className="flex gap-4 justify-center">
+                    <button
+                      onClick={() => setPdfOrientation("portrait")}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
+                        pdfOrientation === "portrait"
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <Smartphone size={20} /> Portrait
+                    </button>
+                    <button
+                      onClick={() => setPdfOrientation("landscape")}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
+                        pdfOrientation === "landscape"
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <Monitor size={20} /> Landscape
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 
@@ -2656,11 +2785,12 @@ const PdfEditor = ({ toolId }) => {
                           {Array.from({ length: 12 }).map((_, i) => (
                             <span
                               key={i}
-                              className="font-extrabold text-slate-600 whitespace-nowrap"
+                              className="font-extrabold whitespace-nowrap"
                               style={{
                                 opacity: watermarkOpacity,
+                                color: wmPreviewColor,
                                 transform: "rotate(-45deg)",
-                                fontSize: "0.7rem",
+                                fontSize: `${0.7 * wmSizeMul}rem`,
                               }}
                             >
                               {watermarkText}
@@ -2669,29 +2799,35 @@ const PdfEditor = ({ toolId }) => {
                         </div>
                       ) : watermarkPos === "footer" ? (
                         <span
-                          className="absolute bottom-3 left-1/2 -translate-x-1/2 font-extrabold text-slate-600 whitespace-nowrap"
-                          style={{ opacity: watermarkOpacity, fontSize: "0.8rem" }}
+                          className="absolute bottom-3 left-1/2 -translate-x-1/2 font-extrabold whitespace-nowrap"
+                          style={{
+                            opacity: watermarkOpacity,
+                            color: wmPreviewColor,
+                            fontSize: `${0.8 * wmSizeMul}rem`,
+                          }}
                         >
                           {watermarkText}
                         </span>
                       ) : watermarkPos === "center" ? (
                         <span
-                          className="absolute top-1/2 left-1/2 font-extrabold text-slate-600 whitespace-nowrap"
+                          className="absolute top-1/2 left-1/2 font-extrabold whitespace-nowrap"
                           style={{
                             opacity: watermarkOpacity,
+                            color: wmPreviewColor,
                             transform: "translate(-50%, -50%)",
-                            fontSize: "1.4rem",
+                            fontSize: `${1.4 * wmSizeMul}rem`,
                           }}
                         >
                           {watermarkText}
                         </span>
                       ) : (
                         <span
-                          className="absolute top-1/2 left-1/2 font-extrabold text-slate-600 whitespace-nowrap"
+                          className="absolute top-1/2 left-1/2 font-extrabold whitespace-nowrap"
                           style={{
                             opacity: watermarkOpacity,
+                            color: wmPreviewColor,
                             transform: "translate(-50%, -50%) rotate(-45deg)",
-                            fontSize: "1.4rem",
+                            fontSize: `${1.4 * wmSizeMul}rem`,
                           }}
                         >
                           {watermarkText}
@@ -2762,7 +2898,8 @@ const PdfEditor = ({ toolId }) => {
               >
                 {isProcessing ? (
                   <>
-                    <Loader2 className="animate-spin" /> Processing...
+                    <Loader2 className="animate-spin" />{" "}
+                    {ocrStatus ? "Running OCR…" : "Processing..."}
                   </>
                 ) : tool.id === "compress-pdf" ? (
                   <>
@@ -2779,6 +2916,17 @@ const PdfEditor = ({ toolId }) => {
                   </>
                 )}
               </button>
+            )}
+
+            {ocrStatus && (
+              <p className="mt-3 text-sm text-slate-500 text-center max-w-md">
+                {ocrStatus}
+                <br />
+                <span className="text-xs text-slate-400">
+                  Scanned pages are read right on your device — the OCR engine
+                  downloads once, then takes a few seconds per page.
+                </span>
+              </p>
             )}
 
             {/* Results */}
