@@ -4821,4 +4821,65 @@ export const blogsData = [
   //     A: Yes. The QR is built right in your browser, so your link isn't uploaded anywhere and there's no login at the generator step. Note that this only covers making the code. Once someone scans it and opens your channel, YouTube logs that visit like any normal channel view.</p>
   //   `
   // },
+
+  // {
+  //   id: "compress-png-reduce-size-keep-transparency",
+  //   title: "How to Compress PNG Files Without Losing Quality (or Transparency)",
+  //   seoTitle: "Compress PNG Without Losing Quality – Free Online | GoPDFGo",
+  //   keywords: "compress png, compress png without losing quality, reduce png size, png compressor, compress png with transparency, reduce png file size online, shrink png file, optimize png online",
+  //   excerpt: "PNG files are huge because they are lossless. Here is how to compress a PNG by up to 80 percent — keeping transparency and sharp edges — free, right in your browser.",
+  //   date: "July 13, 2026",
+  //   imageUrl: "/images/blogs/compress-png-reduce-size-keep-transparency.webp",
+  //   content: `
+  //     <p>You export a logo, a screenshot, or a UI mockup as a PNG and suddenly it is <strong>1.5MB</strong> — for a single image. You try to email it, attach it to a report, or upload it to a website, and it is either rejected for being too big or it slows everything to a crawl. The frustrating part? The image does not even look like it should weigh that much. Welcome to the world of PNG, a format that trades file size for perfection.</p>
+
+  //     <p>The good news: you can shrink a PNG dramatically — often by <strong>60% to 80%</strong> — without your eyes noticing, and without losing the transparent background that made you choose PNG in the first place. This guide explains why PNGs get so heavy, why most "compressors" barely help, and how to actually <a href="/compress-png">compress a PNG</a> the right way, for free, right in your browser.</p>
+
+  //     <h2>Why PNG files are so large</h2>
+
+  //     <p>PNG is a <strong>lossless</strong> format. That means it stores your image perfectly, pixel for pixel, with zero quality loss — every colour, every sharp edge, every transparent area kept exactly as it is. That is fantastic for logos, icons, screenshots, and graphics with text. But storing everything perfectly is expensive: a detailed PNG can easily be 5 to 10 times larger than a JPG of the same picture.</p>
+
+  //     <h2>Why "just re-saving" a PNG barely shrinks it</h2>
+
+  //     <p>Here is the trap most online tools fall into. Because PNG is lossless, there is no simple "quality" slider like JPG has. Many so-called PNG compressors just decode your file and re-save it — and the result is almost the same size, because nothing was actually thrown away. If you have ever run a PNG through a compressor and watched it drop from 1.5MB to 1.45MB, this is why.</p>
+
+  //     <h2>The real fix: smart colour quantization</h2>
+
+  //     <p>Proper PNG compression uses a technique called <strong>colour quantization</strong> — the same method behind well-known tools like pngquant and TinyPNG. Instead of storing millions of individual colours, the image is remapped to a smaller, carefully chosen palette (say 256 or 128 colours). For logos, screenshots, and flat graphics, your eye genuinely cannot tell the difference, but the file gets <strong>far</strong> smaller. It is technically "lossy", yet visually it looks the same.</p>
+
+  //     <p>To put real numbers on it: a colourful 800x500 graphic that is around 90KB as a lossless PNG drops to roughly 32KB at 256 colours, and about 22KB at 64 colours — a 64% to 76% saving — while still looking crisp.</p>
+
+  //     <h2>How to compress a PNG on GoPDFGo</h2>
+
+  //     <div class="tool-box"><h3>Step by step (nothing is uploaded):</h3><ul><li><strong>Step 1:</strong> Open the <a href="/compress-png">Compress PNG</a> tool and drag in your image (or several at once).</li><li><strong>Step 2:</strong> Drag the quality slider to balance file size against colour detail, or switch to <strong>Target Size (KB)</strong> mode to hit an exact limit like 100KB.</li><li><strong>Step 3:</strong> The tool quantizes the colours right in your browser and shows you the new size and the percentage saved.</li><li><strong>Step 4:</strong> Download your lighter PNG — with its transparency fully intact.</li></ul></div>
+
+  //     <h2>Will the transparent background survive?</h2>
+
+  //     <p>Yes. This is the part people worry about most, and it is exactly why a proper tool matters. Quantization keeps the <strong>alpha channel</strong> (the transparency information), so a logo or a cut-out stays see-through after compression — it just weighs a fraction of what it did. That means you can drop it onto any coloured background, slide, or website and it still blends in cleanly.</p>
+
+  //     <h2>PNG or JPG — which should you actually use?</h2>
+
+  //     <p>Choose the format that fits the image, and you win before you even compress:</p>
+
+  //     <ul><li><strong>Use PNG</strong> for logos, icons, screenshots, text graphics, and anything that needs a transparent background. Compress it with quantization.</li><li><strong>Use JPG</strong> for photographs and realistic images — it is almost always much smaller. For those, our <a href="/compress-jpg">Compress JPG</a> tool is the right choice.</li></ul>
+
+  //     <p>A quick rule of thumb: if the image is a photo, JPG will beat PNG on size every time. If it has sharp edges, flat colours, or transparency, PNG is right — and quantization makes it light.</p>
+
+  //     <h2>Getting a PNG under a strict size limit</h2>
+
+  //     <p>Some forms and portals accept PNG but cap the size at 100KB or 200KB. Switch the tool to <strong>Target Size (KB)</strong> mode, type your limit, and it reduces the colour palette (and, if it still has to, gently resizes) until the file fits. If the image also needs exact pixel dimensions, set those first with our <a href="/resize">Resize Image</a> tool, then compress.</p>
+
+  //     <h2>Frequently Asked Questions</h2>
+
+  //     <p><strong>Q: How do I compress a PNG without losing quality?</strong><br>A: For logos, screenshots, and graphics, colour quantization shrinks the file with no visible loss — your eye cannot tell the difference. Keep the quality slider high for the safest result, or lower it for even smaller files.</p>
+
+  //     <p><strong>Q: Does compressing a PNG remove transparency?</strong><br>A: No. A proper PNG compressor preserves the alpha channel, so transparent backgrounds stay transparent.</p>
+
+  //     <p><strong>Q: How do I compress a PNG under 100KB?</strong><br>A: Use Target Size (KB) mode in the <a href="/compress-png">Compress PNG</a> tool, enter 100 KB, and it reduces the palette (and resizes if needed) to land under that limit.</p>
+
+  //     <p><strong>Q: Is it safe to compress private images?</strong><br>A: Yes. Everything runs inside your browser on your own device — your PNGs are never uploaded to any server.</p>
+
+  //     <p>Stop letting oversized PNGs slow your site and choke your uploads. Compress them properly, keep the transparency, and move on. <a href="/compress-png">Try the free Compress PNG tool</a> and see how much lighter your images can get.</p>
+  //   `
+  // },
 ];

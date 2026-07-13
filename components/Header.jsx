@@ -28,7 +28,7 @@ const Header = () => {
   const imageTools = TOOLS_CONFIG.filter((t) => t.type === "image");
 
   const imgEssentials = imageTools.filter((t) =>
-    ["compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
+    ["compress-png", "compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
   );
 
   const imgConverters = imageTools.filter(
@@ -39,7 +39,7 @@ const Header = () => {
     (t) =>
       !t.id.includes("convert") &&
       !t.id.startsWith("heic-to-") &&
-      !["compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
+      !["compress-png", "compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
   );
 
   // Left column = organize/manage pages; right column = edit, optimize & convert.

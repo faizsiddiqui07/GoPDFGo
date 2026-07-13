@@ -34,6 +34,17 @@
       transform: translateY(0);
     }
   }
+
+  --animate-line-flow: lineFlow 2.8s linear infinite;
+
+  @keyframes lineFlow {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
 }
 
 body {

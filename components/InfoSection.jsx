@@ -146,9 +146,7 @@ const InfoSection = ({ info }) => {
             </div>
           </div>
 
-          {/* DESKTOP: zigzag timeline.
-              ✅ Pehle text top aur bottom dono jagah render hota tha (ek invisible).
-              Ab text sirf uss jagah render hota hai jahan dikhana hai — no duplicate content. */}
+          {/* DESKTOP: zigzag timeline with an animated left-to-right connector line. */}
           <div
             className={`relative hidden sm:grid gap-2 sm:gap-8 mx-auto
           ${
@@ -159,7 +157,15 @@ const InfoSection = ({ info }) => {
                 : "grid-cols-2 max-w-4xl"
           }`}
           >
-            <div className="absolute top-1/2 left-4 right-4 sm:left-10 sm:right-10 h-0.5 sm:h-1 bg-slate-100 -translate-y-1/2 rounded-full z-0" />
+            {/* connector line — gray track with an orange highlight flowing left → right */}
+            <div
+              className="absolute top-1/2 left-4 right-4 sm:left-10 sm:right-10 h-0.5 sm:h-1 -translate-y-1/2 rounded-full z-0 animate-line-flow"
+              style={{
+                backgroundImage:
+                  "linear-gradient(90deg, #e2e8f0 0%, #e2e8f0 38%, #FF9933 50%, #e2e8f0 62%, #e2e8f0 100%)",
+                backgroundSize: "200% 100%",
+              }}
+            />
 
             {info.steps.map((step, idx) => {
               const isTextTop = idx % 2 === 0;
@@ -167,10 +173,10 @@ const InfoSection = ({ info }) => {
               return (
                 <div
                   key={idx}
-                  className="relative flex flex-col items-center justify-center group h-32 sm:h-64"
+                  className="relative flex flex-col group h-32 sm:h-64"
                 >
-                  {/* Top slot */}
-                  <div className="flex flex-1 w-full items-end justify-center pb-2 sm:pb-6">
+                  {/* Top text region (equal half — never pushes the number) */}
+                  <div className="flex-1 min-h-0 flex items-end justify-center pb-5 sm:pb-9">
                     {isTextTop && (
                       <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
                         {parseText(step)}
@@ -178,20 +184,18 @@ const InfoSection = ({ info }) => {
                     )}
                   </div>
 
-                  {/* Number */}
-                  <div className="relative z-10 shrink-0">
-                    <div className="w-8 h-8 sm:w-10 md:w-12 sm:h-10 md:h-12 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg shadow-md sm:shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
-                      {idx + 1}
-                    </div>
-                  </div>
-
-                  {/* Bottom slot */}
-                  <div className="flex flex-1 w-full items-start justify-center pt-2 sm:pt-6">
+                  {/* Bottom text region (equal half) */}
+                  <div className="flex-1 min-h-0 flex items-start justify-center pt-5 sm:pt-9">
                     {!isTextTop && (
                       <p className="text-slate-700 font-medium text-center px-0.5 text-[10px] sm:text-sm lg:text-base leading-3 sm:leading-normal">
                         {parseText(step)}
                       </p>
                     )}
+                  </div>
+
+                  {/* Number — pinned dead-center ON the line, no matter how long the text is */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 md:w-12 sm:h-10 md:h-12 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg shadow-md sm:shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
+                    {idx + 1}
                   </div>
                 </div>
               );

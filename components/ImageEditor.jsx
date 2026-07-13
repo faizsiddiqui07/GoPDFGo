@@ -118,6 +118,7 @@ const ImageEditor = ({ toolId }) => {
     "compress-webp",
     "compress-jpg",
     "compress-jpeg",
+    "compress-png",
   ].includes(tool.id);
   const isHeic = tool.id.startsWith("heic-to-");
   const isConverter = tool.id.includes("convert") || isHeic;
@@ -545,6 +546,126 @@ const ImageEditor = ({ toolId }) => {
   // (the worker may fall back to PNG for formats canvases can't encode).
   const lastBlobTypeRef = useRef(null);
 
+  // --- Real PNG compression (canvas PNG is lossless; we quantize colours) ---
+  // Load UPNG.js + pako from CDN on demand (only for the Compress PNG tool).
+  const ensureUpng = () =>
+    new Promise((resolve, reject) => {
+      if (window.UPNG && window.pako) return resolve(true);
+      const loadScript = (id, src) =>
+        new Promise((res, rej) => {
+          const existing = document.getElementById(id);
+          if (existing) existing.remove();
+          const s = document.createElement("script");
+          s.id = id;
+          s.src = src;
+          s.async = true;
+          s.onload = () => res();
+          s.onerror = () => {
+            s.remove();
+            rej(new Error(id + " failed"));
+          };
+          document.body.appendChild(s);
+        });
+      // pako must exist before UPNG (UPNG reads the pako global in browsers)
+      (window.pako
+        ? Promise.resolve()
+        : loadScript(
+            "pako-cdn",
+            "https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js",
+          )
+      )
+        .then(() =>
+          window.UPNG
+            ? Promise.resolve()
+            : loadScript(
+                "upng-cdn",
+                "https://cdn.jsdelivr.net/npm/upng-js@2.1.0/UPNG.js",
+              ),
+        )
+        .then(() => resolve(true))
+        .catch(reject);
+    });
+
+  // quality slider (0.05–1) → UPNG colour count. 1.0 = lossless, lower = fewer colours.
+  const qualityToCnum = (q) => (q >= 0.98 ? 0 : Math.max(8, Math.round(256 * q)));
+
+  const drawToRgba = (bmp, w, h) => {
+    let c;
+    if (typeof OffscreenCanvas !== "undefined") c = new OffscreenCanvas(w, h);
+    else {
+      c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+    }
+    const cx = c.getContext("2d");
+    cx.imageSmoothingQuality = "high";
+    cx.drawImage(bmp, 0, 0, w, h);
+    return cx.getImageData(0, 0, w, h).data;
+  };
+
+  // Re-encode an already-edited PNG blob with colour quantization to shrink it.
+  const pngQuantize = async (pngBlob, cnum) => {
+    if (!cnum) return pngBlob; // lossless requested — keep as-is
+    await ensureUpng();
+    const bitmap = await createImageBitmap(pngBlob);
+    const rgba = drawToRgba(bitmap, bitmap.width, bitmap.height);
+    const out = window.UPNG.encode(
+      [rgba.buffer],
+      bitmap.width,
+      bitmap.height,
+      cnum,
+    );
+    if (bitmap.close) bitmap.close();
+    const quantized = new Blob([out], { type: "image/png" });
+    // Never hand back something larger than what we started with.
+    return quantized.size < pngBlob.size ? quantized : pngBlob;
+  };
+
+  // Target-size PNG: binary-search the colour count, then downscale if needed.
+  const compressPngToTarget = async (file, targetBytes) => {
+    await ensureUpng();
+    const bitmap = await createImageBitmap(file, {
+      imageOrientation: "from-image",
+    });
+    let W = bitmap.width;
+    let H = bitmap.height;
+    const encode = (rgba, w, h, cnum) =>
+      new Blob([window.UPNG.encode([rgba.buffer], w, h, cnum)], {
+        type: "image/png",
+      });
+
+    let rgba = drawToRgba(bitmap, W, H);
+    let lo = 2;
+    let hi = 256;
+    let best = null;
+    let bestCnum = 2;
+    for (let i = 0; i < 8; i++) {
+      const mid = Math.round((lo + hi) / 2);
+      const b = encode(rgba, W, H, mid);
+      if (b.size <= targetBytes) {
+        best = b;
+        bestCnum = mid;
+        lo = mid;
+      } else {
+        hi = mid;
+      }
+    }
+    if (!best) best = encode(rgba, W, H, 2);
+    let targetHit = best.size <= targetBytes;
+
+    const MIN_SIDE = 200;
+    while (!targetHit && Math.min(W, H) > MIN_SIDE) {
+      W = Math.round(W * 0.8);
+      H = Math.round(H * 0.8);
+      rgba = drawToRgba(bitmap, W, H);
+      const b = encode(rgba, W, H, 64);
+      if (b.size < best.size) best = b;
+      if (best.size <= targetBytes) targetHit = true;
+    }
+    if (bitmap.close) bitmap.close();
+    return { blob: best, quality: bestCnum / 256, targetHit };
+  };
+
   const processSingleImage = async (qualityOverride = null) => {
     if (!files[0] || !originalImageRef.current) return;
     const run = ++processRunRef.current;
@@ -582,6 +703,12 @@ const ImageEditor = ({ toolId }) => {
       // ✅ BUG FIX 3 applied here (bitmap param removed)
       let blob = await runWorkerTask(taskData);
       if (run !== processRunRef.current) return; // a newer file/run took over
+
+      // Canvas PNG is lossless — quantize colours to actually shrink it.
+      if (tool.id === "compress-png") {
+        blob = await pngQuantize(blob, qualityToCnum(activeQuality));
+        if (run !== processRunRef.current) return;
+      }
 
       let finalBlob = blob;
       let isReverted = false;
@@ -636,6 +763,10 @@ const ImageEditor = ({ toolId }) => {
   // ✅ NEW: Reusable — binary-search the best quality to hit a target byte size.
   // Returns { blob, quality, targetHit }. Works for any File (single + batch).
   const compressBlobToTarget = async (file, targetBytes) => {
+    // PNG needs colour quantization, not a JPEG-style quality knob.
+    if (tool.id === "compress-png") {
+      return await compressPngToTarget(file, targetBytes);
+    }
     // Decode the source ONCE, then only re-encode per iteration (no repeated decodes)
     const bitmap = await createImageBitmap(file, {
       imageOrientation: "from-image",
@@ -869,6 +1000,10 @@ const ImageEditor = ({ toolId }) => {
             };
             // ✅ BUG FIX 3 applied here
             blob = await runWorkerTask(taskData);
+            // PNG is lossless — quantize colours so batch PNGs actually shrink.
+            if (tool.id === "compress-png") {
+              blob = await pngQuantize(blob, qualityToCnum(batchQuality));
+            }
             // Never ship a bigger file when the format isn't changing.
             // (For compressors `format` is a concrete MIME, so the old
             // `format === "original"` guard never fired and an already

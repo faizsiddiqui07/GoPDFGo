@@ -15,16 +15,16 @@ export const metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/images/logo.webp",
-        width: 1063,
-        height: 235,
+        url: "/images/icon.png",
+        width: 1200,
+        height: 1200,
         alt: "GoPDFGo – Free, private PDF & image tools",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/logo.webp"],
+    images: ["/images/icon.png"],
   },
 };
 
