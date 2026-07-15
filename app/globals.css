@@ -55,6 +55,48 @@
     }
   }
 
+  /* Rejection feedback for a blocked submit. translateX only, so it stays on
+     the compositor; `scale` is a separate property in v4, so this does not
+     fight the button's active:scale press state. The site-wide reduced-motion
+     guard zeroes the duration, which is the right outcome here — the scroll
+     still delivers the message, only the shake is dropped. */
+  /* One-shot settle for a compression number that has just landed. Kept on its
+     own element, never on the one carrying the stale dim: this is `both`-filled
+     from opacity 0.4, so it would pin opacity and silently no-op the dim. */
+  --animate-stat-settle: statSettle 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes statSettle {
+    from {
+      opacity: 0.4;
+      transform: translateY(3px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-shake: shake 0.32s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(-6px);
+    }
+    40% {
+      transform: translateX(5px);
+    }
+    60% {
+      transform: translateX(-3px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+  }
+
   --animate-line-flow: lineFlow 2.8s linear infinite;
 
   @keyframes lineFlow {

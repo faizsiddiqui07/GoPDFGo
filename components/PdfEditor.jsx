@@ -102,6 +102,10 @@ const PdfEditor = ({ toolId }) => {
   // pdf-lib save() has no fraction to report, and a faked bar is a lie.
   const [pdfProgress, setPdfProgress] = useState(null);
   const [pdfEta, setPdfEta] = useState(0); // seconds; 0 hides it in the overlay
+  // Bumped on every blocked submit so the CTA's shake replays even when the
+  // same validation fails twice in a row (a re-render alone wouldn't restart it).
+  const [shakeKey, setShakeKey] = useState(0);
+  const errorBannerRef = useRef(null);
   const [isUploading, setIsUploading] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
@@ -730,6 +734,27 @@ const PdfEditor = ({ toolId }) => {
     }
   };
 
+  // A blocked submit used to be silent: the error banner renders at the top of
+  // the panel, but the CTA sits below every page thumbnail, so on split/extract
+  // with a real PDF loaded the explanation lands well off-screen and the button
+  // just appears dead. Shake where the thumb already is, then bring the reason
+  // to the user.
+  const rejectSubmit = (msg) => {
+    setErrorMsg(msg);
+    setShakeKey((k) => k + 1);
+    // Wait a frame so the banner is mounted before we scroll to it.
+    requestAnimationFrame(() => {
+      errorBannerRef.current?.scrollIntoView({
+        block: "center",
+        // scrollIntoView's own behavior overrides CSS scroll-behavior, so the
+        // reduced-motion guard in globals.css can't reach it — check here.
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    });
+  };
+
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
     const { PDFDocument, degrees, StandardFonts, rgb } =
@@ -947,7 +972,7 @@ const PdfEditor = ({ toolId }) => {
           pagesToExtract = [...new Set(pagesToExtract)].sort((a, b) => a - b);
 
           if (pagesToExtract.length === 0) {
-            setErrorMsg("Please select at least one page to extract.");
+            rejectSubmit("Please select at least one page to extract.");
             setIsProcessing(false);
             return;
           }
@@ -970,7 +995,7 @@ const PdfEditor = ({ toolId }) => {
           }
 
           if (groups.length === 0) {
-            setErrorMsg("Please select at least one page to split.");
+            rejectSubmit("Please select at least one page to split.");
             setIsProcessing(false);
             return;
           }
@@ -1316,7 +1341,7 @@ const PdfEditor = ({ toolId }) => {
           .filter((p) => p >= 1 && p <= pdf.numPages)
           .sort((a, b) => a - b);
         if (wantedPages.length === 0) {
-          setErrorMsg("Select at least one page to convert.");
+          rejectSubmit("Select at least one page to convert.");
           if (pdf.destroy) pdf.destroy();
           setIsProcessing(false);
           return;
@@ -1373,7 +1398,7 @@ const PdfEditor = ({ toolId }) => {
         const file = files[0].file;
         const text = (watermarkText || "").trim();
         if (!text) {
-          setErrorMsg("Please enter the watermark text.");
+          rejectSubmit("Please enter the watermark text.");
           setIsProcessing(false);
           return;
         }
@@ -1476,12 +1501,12 @@ const PdfEditor = ({ toolId }) => {
 
         // selectedPages = pages (1-based) the user marked for DELETION
         if (selectedPages.size === 0) {
-          setErrorMsg("Select at least one page to delete.");
+          rejectSubmit("Select at least one page to delete.");
           setIsProcessing(false);
           return;
         }
         if (selectedPages.size >= pageCount) {
-          setErrorMsg("You can't delete every page — keep at least one.");
+          rejectSubmit("You can't delete every page — keep at least one.");
           setIsProcessing(false);
           return;
         }
@@ -1768,8 +1793,14 @@ const PdfEditor = ({ toolId }) => {
 
         <div className="p-4 sm:p-6 md:p-8">
           {errorMsg && (
-            <div className="mb-6 bg-red-50 text-red-600 p-4 rounded-lg flex items-center gap-2 text-sm border border-red-100">
-              <AlertCircle size={18} /> {errorMsg}
+            // key={errorMsg} so a second, different error re-mounts and
+            // re-announces itself instead of silently swapping its text.
+            <div
+              key={errorMsg}
+              ref={errorBannerRef}
+              className="mb-6 bg-red-50 text-red-600 p-4 rounded-lg flex items-center gap-2 text-sm border border-red-100 animate-fade-in"
+            >
+              <AlertCircle size={18} className="shrink-0" /> {errorMsg}
             </div>
           )}
 
@@ -2939,6 +2970,10 @@ const PdfEditor = ({ toolId }) => {
           <div className="flex flex-col items-center">
             {!isDone && (
               <button
+                // Re-keyed on every rejection so the shake actually replays when
+                // the same validation fails twice — a keyframe won't restart on
+                // a plain re-render.
+                key={shakeKey}
                 onClick={processPdf}
                 disabled={
                   files.length === 0 ||
@@ -2947,6 +2982,8 @@ const PdfEditor = ({ toolId }) => {
                   isUploading
                 }
                 className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all active:scale-[0.98] touch-manipulation ${
+                  shakeKey > 0 ? "animate-shake" : ""
+                } ${
                   files.length === 0 ||
                   isProcessing ||
                   generatingThumbnails ||
