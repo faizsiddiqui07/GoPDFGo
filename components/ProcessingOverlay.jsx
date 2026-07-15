@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { X } from "lucide-react";
 
 /**
  * Full-screen processing indicator.
@@ -18,15 +17,12 @@ import { X } from "lucide-react";
  * compositor thread while pdf-lib / canvas block the main thread.
  *
  * @param progress  0..100 for a real determinate bar, or null for indeterminate
- * @param onCancel  optional — renders a Cancel button that actually stops work
  */
 export default function ProcessingOverlay({
   show,
   title,
   progress = null,
   eta = 0,
-  onCancel = null,
-  cancelling = false,
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -73,11 +69,7 @@ export default function ProcessingOverlay({
           </div>
         </div>
 
-        <p className="gpg-proc-title">
-          {cancelling
-            ? "Cancelling — finishing the last few…"
-            : title || "Processing your file…"}
-        </p>
+        <p className="gpg-proc-title">{title || "Processing your file…"}</p>
 
         {determinate ? (
           <>
@@ -104,20 +96,6 @@ export default function ProcessingOverlay({
               <span>Almost done…</span>
             </div>
           </>
-        )}
-
-        {/* Hidden once cancelling: the work already in flight cannot be torn
-            out of a blocking encode, so we keep the overlay up (rather than
-            handing back a page that just silently freezes) until it drains. */}
-        {onCancel && !cancelling && (
-          <button
-            type="button"
-            onClick={onCancel}
-            className="gpg-proc-cancel"
-            aria-label="Cancel processing"
-          >
-            <X size={15} /> Cancel
-          </button>
         )}
       </div>
     </div>,

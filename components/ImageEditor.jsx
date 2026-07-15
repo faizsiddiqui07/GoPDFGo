@@ -45,7 +45,6 @@ const ImageEditor = ({ toolId }) => {
   // Debounced live-preview runs (slider/settings tweaks) must NOT raise the
   // modal — it would cover and block the very slider being dragged.
   const [liveTweak, setLiveTweak] = useState(false);
-  const [cancelling, setCancelling] = useState(false);
   const [batchResults, setBatchResults] = useState([]);
   const [isBatchMode, setIsBatchMode] = useState(false);
   const [jsZipLoaded, setJsZipLoaded] = useState(false);
@@ -111,12 +110,14 @@ const ImageEditor = ({ toolId }) => {
   const cropContainerRef = useRef(null);
   const sliderContainerRef = useRef(null);
   const workerRef = useRef(null);
-  const cancelRef = useRef(false); // set by the overlay's Cancel button
   const currentUrlsRef = useRef({ preview: null, converted: null, batch: [] });
   const pickerCanvasRef = useRef(null);
   const debounceTimerRef = useRef(null);
 
-  const CONCURRENCY_LIMIT = 5;
+  // One shared Worker serialises every task anyway, and PNG quantization runs
+  // on the main thread — so a higher limit bought no parallelism, it only made
+  // progress jump 5 at a time (React cannot paint while the thread is blocked).
+  const CONCURRENCY_LIMIT = 1;
 
   // --- IDENTIFY TOOL TYPE ---
   const isMaskingTool = tool.id.includes("mask");
@@ -963,8 +964,6 @@ const ImageEditor = ({ toolId }) => {
   }, [masks]);
 
   const processBatch = async () => {
-    cancelRef.current = false;
-    setCancelling(false);
     setIsProcessing(true);
     setBatchResults([]);
     currentUrlsRef.current.batch.forEach((url) => URL.revokeObjectURL(url));
@@ -973,7 +972,6 @@ const ImageEditor = ({ toolId }) => {
     let processedCount = 0;
 
     for (let i = 0; i < files.length; i++) {
-      if (cancelRef.current) break; // Cancel pressed — stop queueing more files
       const file = files[i];
       setBatchProgress((prev) => ({
         ...prev,
@@ -1050,16 +1048,14 @@ const ImageEditor = ({ toolId }) => {
 
           processedCount++;
 
-          // ETA. Files run CONCURRENCY_LIMIT at a time, so the remaining work
-          // takes roughly (remaining / concurrency) * avgTime — the old math
-          // multiplied by every remaining file and over-estimated ~5x.
+          // ETA. Files now run one at a time, so average-per-file × remaining
+          // is the honest estimate.
           setProcessingTimes((prevTimes) => {
             const newTimes = [...prevTimes, (Date.now() - startTime) / 1000];
             const avgTime =
               newTimes.reduce((a, b) => a + b, 0) / newTimes.length;
             const remainingFiles = files.length - processedCount;
-            const lanes = Math.min(CONCURRENCY_LIMIT, files.length);
-            const newEta = Math.round((avgTime * remainingFiles) / lanes);
+            const newEta = Math.round(avgTime * remainingFiles);
 
             setBatchProgress((p) => ({
               ...p,
@@ -1080,17 +1076,12 @@ const ImageEditor = ({ toolId }) => {
       executing.push(wrappedPromise);
       if (executing.length >= CONCURRENCY_LIMIT) await Promise.race(executing);
     }
-    // In-flight files finish here — the overlay stays up ("Cancelling…") until
-    // they drain, so the page is never handed back while it is still blocked.
     await Promise.all(executing);
-    const wasCancelled = cancelRef.current;
     setIsProcessing(false);
-    setCancelling(false);
     setBatchProgress((prev) => ({
       ...prev,
-      // on cancel, keep the real counts — don't claim every file was done
-      current: wasCancelled ? prev.processed : files.length,
-      processed: wasCancelled ? prev.processed : files.length,
+      current: files.length,
+      processed: files.length,
       eta: 0,
     }));
   };
@@ -1152,18 +1143,6 @@ const ImageEditor = ({ toolId }) => {
     link.click();
     // Give the browser a moment to start the download, then free the blob
     setTimeout(() => URL.revokeObjectURL(zipUrl), 30000);
-  };
-
-  // Cancel: stop queueing new files. The handful already in flight are blocking
-  // encodes (UPNG quantization runs on the main thread) that cannot be torn out
-  // mid-call — so we do NOT drop the overlay here. Hiding it would hand back a
-  // page that silently freezes for a few seconds, which is exactly what "the
-  // site hangs on cancel" was. processBatch clears both flags once it drains.
-  const handleCancelProcessing = () => {
-    cancelRef.current = true;
-    setCancelling(true);
-    setBatchProgress((p) => ({ ...p, eta: 0 }));
-    setImgError(null);
   };
 
   const handleClearAll = () => {
@@ -1460,8 +1439,6 @@ const ImageEditor = ({ toolId }) => {
               : null
           }
           eta={isBatchMode ? batchProgress.eta : 0}
-          onCancel={isBatchMode ? handleCancelProcessing : null}
-          cancelling={cancelling}
         />
         {/* LEFT PANEL */}
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
