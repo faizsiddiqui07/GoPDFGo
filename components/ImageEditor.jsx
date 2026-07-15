@@ -186,13 +186,16 @@ const ImageEditor = ({ toolId }) => {
   }, [files, tool.id, tool.config.defaultFormat]);
 
   // ✅ BUG FIX 3: Fixed runWorkerTask parameters to avoid duplicate bitmap param bug
-  const runWorkerTask = (taskData, transferList = []) => {
+  // `full` is opt-in: without it this still resolves the bare blob, so every
+  // existing caller behaves exactly as before. Only Compress PNG asks for the
+  // whole payload, because it needs the `quantized` flag.
+  const runWorkerTask = (taskData, transferList = [], full = false) => {
     return new Promise((resolve, reject) => {
       if (!workerRef.current) return reject("Worker not ready");
       const msgHandler = (e) => {
         if (e.data.fileId === taskData.fileId) {
           workerRef.current.removeEventListener("message", msgHandler);
-          if (e.data.success) resolve(e.data.blob);
+          if (e.data.success) resolve(full ? e.data : e.data.blob);
           else reject(e.data.error);
         }
       };
@@ -711,13 +714,20 @@ const ImageEditor = ({ toolId }) => {
         originalMimeType: file.type,
       };
 
+      // Canvas PNG is lossless, so compress-png has to quantize colours to
+      // actually shrink. Ask the worker to do it inline (off the main thread).
+      const cnum = tool.id === "compress-png" ? qualityToCnum(activeQuality) : 0;
+      if (cnum) taskData.quantizeCnum = cnum;
+
       // ✅ BUG FIX 3 applied here (bitmap param removed)
-      let blob = await runWorkerTask(taskData);
+      const res = await runWorkerTask(taskData, [], !!cnum);
+      let blob = cnum ? res.blob : res;
       if (run !== processRunRef.current) return; // a newer file/run took over
 
-      // Canvas PNG is lossless — quantize colours to actually shrink it.
-      if (tool.id === "compress-png") {
-        blob = await pngQuantize(blob, qualityToCnum(activeQuality));
+      // Worker couldn't load UPNG (offline/CDN blocked) — quantize here instead,
+      // so the tool keeps compressing rather than silently returning a plain PNG.
+      if (cnum && !res.quantized) {
+        blob = await pngQuantize(blob, cnum);
         if (run !== processRunRef.current) return;
       }
 
@@ -1020,11 +1030,20 @@ const ImageEditor = ({ toolId }) => {
               isMasking: false,
               originalMimeType: file.type,
             };
-            // ✅ BUG FIX 3 applied here
-            blob = await runWorkerTask(taskData);
             // PNG is lossless — quantize colours so batch PNGs actually shrink.
-            if (tool.id === "compress-png") {
-              blob = await pngQuantize(blob, qualityToCnum(batchQuality));
+            // The worker does it inline; this is what keeps a big batch from
+            // freezing the page.
+            const cnum =
+              tool.id === "compress-png" ? qualityToCnum(batchQuality) : 0;
+            if (cnum) taskData.quantizeCnum = cnum;
+
+            // ✅ BUG FIX 3 applied here
+            const res = await runWorkerTask(taskData, [], !!cnum);
+            blob = cnum ? res.blob : res;
+            // Worker had no UPNG (offline/CDN blocked) — fall back to the main
+            // thread so the tool still compresses.
+            if (cnum && !res.quantized) {
+              blob = await pngQuantize(blob, cnum);
             }
             // Never ship a bigger file when the format isn't changing.
             // (For compressors `format` is a concrete MIME, so the old
