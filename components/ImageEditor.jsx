@@ -25,6 +25,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
+import ProcessingOverlay from "./ProcessingOverlay";
 import RelatedBlogs from "./RelatedBlogs";
 import { formatBytes } from "../utils/helpers";
 import { WORKER_CODE } from "../utils/worker";
@@ -1405,7 +1406,15 @@ const ImageEditor = ({ toolId }) => {
       )}
 
 
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
+      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
+        <ProcessingOverlay
+          show={isProcessing}
+          title={
+            isBatchMode && batchProgress.total > 1
+              ? `Processing image ${Math.max(1, batchProgress.current)} of ${batchProgress.total}…`
+              : "Processing your image…"
+          }
+        />
         {/* LEFT PANEL */}
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
           {files.length === 0 ? (

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
+import ProcessingOverlay from "./ProcessingOverlay";
 import {
   ArrowLeft,
   Upload,
@@ -542,7 +543,8 @@ export default function SignPdf() {
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2">
+          <ProcessingOverlay show={isProcessing} title="Signing your PDF…" />
           {/* LEFT: signature builder + controls */}
           <div className="p-5 md:p-7 border-b lg:border-b-0 lg:border-r border-slate-200 space-y-5">
             <div className="flex gap-1 p-1 bg-slate-100 rounded-lg">

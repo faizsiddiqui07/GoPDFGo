@@ -27,6 +27,7 @@ import {
   EyeOff,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
+import ProcessingOverlay from "./ProcessingOverlay";
 import { formatBytes } from "../utils/helpers";
 import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
@@ -1663,7 +1664,11 @@ const PdfEditor = ({ toolId }) => {
         </h1>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+        <ProcessingOverlay
+          show={isProcessing}
+          title={ocrStatus || "Working on your PDF…"}
+        />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">
           <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 hover:bg-white hover:border-[#FF9933] transition-colors cursor-pointer relative group">

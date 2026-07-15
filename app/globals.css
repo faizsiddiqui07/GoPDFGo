@@ -52,3 +52,196 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ===== Processing overlay ==============================================
+   Every animation here uses ONLY transform/opacity so it runs on the
+   browser's compositor thread and keeps moving even while pdf-lib blocks
+   the main thread. Do not animate width/left/background-position here. */
+
+/* Sits INSIDE the tool card (which is .relative + overflow-hidden), so the
+   animation appears exactly where the work is happening — not miles down the
+   page. NOTE: position:fixed is unusable here because the page root carries
+   `animate-fade-in-up`, and a transformed ancestor becomes the containing
+   block for fixed children. */
+.gpg-proc-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(248, 250, 252, 0.92);
+  /* purely visual — never steal clicks (e.g. mid-drag on a quality slider) */
+  pointer-events: none;
+  /* delay the fade-in so sub-200ms jobs never flash the overlay */
+  animation: gpgProcFade 0.3s ease-out 0.18s both;
+}
+
+@keyframes gpgProcFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gpg-proc-card {
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.18);
+  padding: 36px 40px 30px;
+  width: min(92vw, 380px);
+  text-align: center;
+  /* A tall card (a PDF with many page thumbnails) would otherwise centre the
+     animation off-screen — sticky keeps it in view, still inside the card. */
+  position: sticky;
+  top: 96px;
+}
+
+/* --- animated document ------------------------------------------------ */
+.gpg-proc-stage {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+}
+
+.gpg-proc-orbit {
+  position: absolute;
+  inset: 0;
+  animation: gpgProcSpin 3.2s linear infinite;
+}
+
+.gpg-proc-dot {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: #ff9933;
+}
+
+.gpg-proc-dot2 {
+  top: auto;
+  bottom: -4px;
+  background: #ffd8ab;
+}
+
+@keyframes gpgProcSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.gpg-proc-doc {
+  position: absolute;
+  inset: 18px 28px;
+  background: #fff7ef;
+  border: 2px solid #ffd8ab;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px 12px;
+  animation: gpgProcBob 2.4s ease-in-out infinite;
+}
+
+@keyframes gpgProcBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.gpg-proc-line {
+  height: 6px;
+  border-radius: 3px;
+  background: #ffe3c2;
+}
+.gpg-proc-line.w1 { width: 85%; }
+.gpg-proc-line.w2 { width: 65%; }
+.gpg-proc-line.w3 { width: 75%; }
+
+.gpg-proc-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 26px;
+  background: linear-gradient(180deg, rgba(255, 153, 51, 0) 0%, rgba(255, 153, 51, 0.28) 55%, rgba(255, 153, 51, 0.55) 100%);
+  border-bottom: 2px solid #ff9933;
+  animation: gpgProcScan 1.9s ease-in-out infinite;
+}
+
+@keyframes gpgProcScan {
+  0%, 100% { transform: translateY(-28px); }
+  50% { transform: translateY(88px); }
+}
+
+/* --- text + bar --------------------------------------------------------- */
+.gpg-proc-title {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 16px;
+  margin-bottom: 14px;
+  min-height: 24px;
+}
+
+.gpg-proc-bar {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.gpg-proc-bar span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb866, #ff9933);
+  animation: gpgProcSlide 1.4s ease-in-out infinite;
+}
+
+@keyframes gpgProcSlide {
+  0% { transform: translateX(-110%); }
+  60% { transform: translateX(180%); }
+  100% { transform: translateX(280%); }
+}
+
+.gpg-proc-msgs {
+  position: relative;
+  height: 20px;
+}
+
+.gpg-proc-msgs span {
+  position: absolute;
+  inset: 0;
+  font-size: 13px;
+  color: #64748b;
+  opacity: 0;
+  animation: gpgProcMsg 7.5s linear infinite;
+}
+
+.gpg-proc-msgs span:nth-child(2) { animation-delay: 2.5s; }
+.gpg-proc-msgs span:nth-child(3) { animation-delay: 5s; }
+
+@keyframes gpgProcMsg {
+  0% { opacity: 0; transform: translateY(6px); }
+  5%, 28% { opacity: 1; transform: translateY(0); }
+  33%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gpg-proc-orbit,
+  .gpg-proc-doc,
+  .gpg-proc-scan {
+    animation: none;
+  }
+  .gpg-proc-msgs span {
+    animation-duration: 15s;
+  }
+}
