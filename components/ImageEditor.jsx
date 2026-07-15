@@ -91,6 +91,9 @@ const ImageEditor = ({ toolId }) => {
     total: 0,
     processed: 0,
     eta: 0, // ✅ BUG FIX 7: ETA Logic added in processBatch
+    activeIndex: -1, // file currently being worked on (index into `files`)
+    activeName: "", // its filename, shown in the overlay
+    saved: 0, // bytes saved so far across the batch
   });
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
@@ -970,13 +973,23 @@ const ImageEditor = ({ toolId }) => {
     currentUrlsRef.current.batch = [];
     const executing = [];
     let processedCount = 0;
+    let savedTotal = 0;
 
-    for (let i = 0; i < files.length; i++) {
+    // Smallest first: the first result lands almost immediately, so the wait
+    // feels shorter than watching a 12MB photo go first. `srcIndex` still
+    // points at the original row, so the list order on screen never changes.
+    const order = files
+      .map((_, i) => i)
+      .sort((a, b) => files[a].size - files[b].size);
+
+    for (const i of order) {
       const file = files[i];
       setBatchProgress((prev) => ({
         ...prev,
-        current: i + 1,
+        current: processedCount + 1,
         processed: processedCount,
+        activeIndex: i,
+        activeName: file.name,
       }));
 
       const p = (async () => {
@@ -1031,6 +1044,7 @@ const ImageEditor = ({ toolId }) => {
           const original = file.size;
           const saved = original - blob.size;
           const percent = saved > 0 ? ((saved / original) * 100).toFixed(0) : 0;
+          if (saved > 0) savedTotal += saved; // running total for the overlay
 
           setBatchResults((prev) => [
             ...prev,
@@ -1061,6 +1075,7 @@ const ImageEditor = ({ toolId }) => {
               ...p,
               processed: processedCount,
               eta: newEta,
+              saved: savedTotal,
             }));
             return newTimes;
           });
@@ -1083,6 +1098,8 @@ const ImageEditor = ({ toolId }) => {
       current: files.length,
       processed: files.length,
       eta: 0,
+      activeIndex: -1,
+      activeName: "",
     }));
   };
 
@@ -1429,9 +1446,19 @@ const ImageEditor = ({ toolId }) => {
         <ProcessingOverlay
           show={isProcessing && !liveTweak}
           title={
-            isBatchMode && batchProgress.total > 0
-              ? `Processing image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}…`
+            isBatchMode && batchProgress.activeName
+              ? `${isConverter ? "Converting" : "Compressing"} ${batchProgress.activeName}`
               : "Processing your image…"
+          }
+          subtitle={
+            isBatchMode && batchProgress.total > 0
+              ? `Image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}`
+              : null
+          }
+          note={
+            isBatchMode && batchProgress.saved > 0
+              ? `Saved ${formatBytes(batchProgress.saved)} so far`
+              : null
           }
           progress={
             isBatchMode && batchProgress.total > 0
@@ -1548,9 +1575,12 @@ const ImageEditor = ({ toolId }) => {
                             {formatBytes(f.size)}
                           </p>
                         </div>
+                        {/* Files are processed smallest-first, so the spinner
+                            follows activeIndex — `i < current` would light up
+                            the wrong rows now that order != index. */}
                         {batchResults.find((r) => r.srcIndex === i) ? (
                           <CheckCircle size={16} className="text-green-500" />
-                        ) : isProcessing && i < batchProgress.current ? (
+                        ) : isProcessing && batchProgress.activeIndex === i ? (
                           <Loader2
                             size={14}
                             className="text-blue-500 animate-spin"
