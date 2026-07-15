@@ -92,8 +92,6 @@ const ImageEditor = ({ toolId }) => {
     processed: 0,
     eta: 0, // ✅ BUG FIX 7: ETA Logic added in processBatch
     activeIndex: -1, // file currently being worked on (index into `files`)
-    activeName: "", // its filename, shown in the overlay
-    saved: 0, // bytes saved so far across the batch
   });
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
@@ -973,7 +971,6 @@ const ImageEditor = ({ toolId }) => {
     currentUrlsRef.current.batch = [];
     const executing = [];
     let processedCount = 0;
-    let savedTotal = 0;
 
     // Smallest first: the first result lands almost immediately, so the wait
     // feels shorter than watching a 12MB photo go first. `srcIndex` still
@@ -989,7 +986,6 @@ const ImageEditor = ({ toolId }) => {
         current: processedCount + 1,
         processed: processedCount,
         activeIndex: i,
-        activeName: file.name,
       }));
 
       const p = (async () => {
@@ -1044,7 +1040,6 @@ const ImageEditor = ({ toolId }) => {
           const original = file.size;
           const saved = original - blob.size;
           const percent = saved > 0 ? ((saved / original) * 100).toFixed(0) : 0;
-          if (saved > 0) savedTotal += saved; // running total for the overlay
 
           setBatchResults((prev) => [
             ...prev,
@@ -1075,7 +1070,6 @@ const ImageEditor = ({ toolId }) => {
               ...p,
               processed: processedCount,
               eta: newEta,
-              saved: savedTotal,
             }));
             return newTimes;
           });
@@ -1099,7 +1093,6 @@ const ImageEditor = ({ toolId }) => {
       processed: files.length,
       eta: 0,
       activeIndex: -1,
-      activeName: "",
     }));
   };
 
@@ -1446,19 +1439,9 @@ const ImageEditor = ({ toolId }) => {
         <ProcessingOverlay
           show={isProcessing && !liveTweak}
           title={
-            isBatchMode && batchProgress.activeName
-              ? `${isConverter ? "Converting" : "Compressing"} ${batchProgress.activeName}`
-              : "Processing your image…"
-          }
-          subtitle={
             isBatchMode && batchProgress.total > 0
-              ? `Image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}`
-              : null
-          }
-          note={
-            isBatchMode && batchProgress.saved > 0
-              ? `Saved ${formatBytes(batchProgress.saved)} so far`
-              : null
+              ? `Processing image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}…`
+              : "Processing your image…"
           }
           progress={
             isBatchMode && batchProgress.total > 0
@@ -2297,9 +2280,40 @@ const ImageEditor = ({ toolId }) => {
           {isBatchMode ? (
             batchResults.length > 0 ? (
               <div className="w-full h-full flex flex-col">
-                <h3 className="text-lg font-bold text-slate-700 mb-4 flex items-center justify-center gap-2">
+                <h3 className="text-lg font-bold text-slate-700 mb-2 flex items-center justify-center gap-2">
                   <CheckCircle className="text-green-500" /> Batch Complete
                 </h3>
+
+                {/* Total savings, summed from the results actually on screen so
+                    it always matches the rows below (and stays correct if a
+                    file came back unchanged). */}
+                {(() => {
+                  const totalSaved = batchResults.reduce(
+                    (sum, r) => sum + Math.max(0, r.stats?.saved || 0),
+                    0,
+                  );
+                  const totalOriginal = batchResults.reduce(
+                    (sum, r) => sum + (r.stats?.original || 0),
+                    0,
+                  );
+                  if (totalSaved <= 0) return null;
+                  const pct = Math.round((totalSaved / totalOriginal) * 100);
+                  return (
+                    <div className="mb-4 mx-auto bg-green-50 border border-green-100 rounded-xl px-4 py-2.5 text-center">
+                      <p className="text-sm font-bold text-green-700">
+                        Saved {formatBytes(totalSaved)} in total
+                        <span className="font-semibold text-green-600">
+                          {" "}
+                          ({pct}% smaller)
+                        </span>
+                      </p>
+                      <p className="text-[11px] text-green-600/80 font-medium mt-0.5">
+                        across {batchResults.length}{" "}
+                        {batchResults.length === 1 ? "image" : "images"}
+                      </p>
+                    </div>
+                  );
+                })()}
                 <div className="flex-1 overflow-y-auto max-h-75 mb-4 space-y-2 pr-2">
                   {batchResults.map((res) => {
                     const ext = res.blob.type.split("/")[1];

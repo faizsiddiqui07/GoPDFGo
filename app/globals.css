@@ -195,27 +195,6 @@ body {
   min-height: 24px;
 }
 
-/* A filename can be very long — keep it on one line so the card never grows */
-.gpg-proc-name {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 2px;
-}
-
-.gpg-proc-sub {
-  font-size: 12px;
-  font-weight: 600;
-  color: #94a3b8;
-  margin-bottom: 14px;
-}
-
-.gpg-proc-note {
-  margin-top: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #16a34a;
-}
 
 .gpg-proc-bar {
   position: relative;

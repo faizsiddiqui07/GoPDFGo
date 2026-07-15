@@ -17,14 +17,10 @@ import { createPortal } from "react-dom";
  * compositor thread while pdf-lib / canvas block the main thread.
  *
  * @param progress  0..100 for a real determinate bar, or null for indeterminate
- * @param subtitle  small line under the title, e.g. "Image 3 of 8"
- * @param note      reassurance line, e.g. "Saved 4.2 MB so far"
  */
 export default function ProcessingOverlay({
   show,
   title,
-  subtitle = null,
-  note = null,
   progress = null,
   eta = 0,
 }) {
@@ -73,11 +69,7 @@ export default function ProcessingOverlay({
           </div>
         </div>
 
-        {/* the filename can be long — clamp it rather than stretch the card */}
-        <p className="gpg-proc-title gpg-proc-name">
-          {title || "Processing your file…"}
-        </p>
-        {subtitle && <p className="gpg-proc-sub">{subtitle}</p>}
+        <p className="gpg-proc-title">{title || "Processing your file…"}</p>
 
         {determinate ? (
           <>
@@ -92,7 +84,6 @@ export default function ProcessingOverlay({
               <span>{pct}%</span>
               {eta > 0 && <span>~{eta}s left</span>}
             </div>
-            {note && <p className="gpg-proc-note">{note}</p>}
           </>
         ) : (
           <>
