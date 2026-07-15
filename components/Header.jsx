@@ -316,8 +316,7 @@ const Header = () => {
 
           <button
             onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
-            className="md:hidden text-slate-600 p-2 hover:bg-slate-100 rounded-lg"
+            className="md:hidden text-slate-600 p-2 hover:bg-slate-100 rounded-lg active:scale-90 transition-transform duration-100 touch-manipulation"
             aria-label="Open Menu"
           >
             <Menu size={24} />
@@ -340,7 +339,7 @@ const Header = () => {
             <button
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
-              className="p-2 text-slate-500 hover:bg-slate-100 rounded-full"
+              className="p-2 text-slate-500 hover:bg-slate-100 rounded-full active:scale-90 transition-transform duration-100 touch-manipulation"
             >
               <X size={24} />
             </button>
@@ -348,14 +347,14 @@ const Header = () => {
           <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
             <Link
               href="/merge-pdf"
-              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
               <Layers size={20} className="text-[#FF9933]" /> Merge PDF
             </Link>
             <Link
               href="/qr-generator"
-              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
               <QrCode size={20} className="text-[#FF9933]" /> QR Code Generator
@@ -364,7 +363,7 @@ const Header = () => {
             <div className="border border-slate-200 rounded-xl overflow-hidden">
               <button
                 onClick={() => toggleMobileAccordion("pdf")}
-                className="w-full flex items-center justify-between p-4 bg-white font-bold text-slate-800"
+                className="w-full flex items-center justify-between p-4 bg-white font-bold text-slate-800 active:bg-slate-50 transition-colors duration-100 touch-manipulation"
               >
                 <div className="flex items-center gap-2">
                   <FileText size={20} className="text-blue-500" /> PDF Tools
@@ -382,7 +381,7 @@ const Header = () => {
                     <Link
                       key={tool.id}
                       href={`/${tool.id}`}
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-white transition text-left"
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-white active:bg-white active:scale-[0.98] touch-manipulation transition text-left"
                       onClick={toggleMobileMenu}
                     >
                       <div className="text-slate-500">
@@ -400,7 +399,7 @@ const Header = () => {
             <div className="border border-slate-200 rounded-xl overflow-hidden">
               <button
                 onClick={() => toggleMobileAccordion("image")}
-                className="w-full flex items-center justify-between p-4 bg-white font-bold text-slate-800"
+                className="w-full flex items-center justify-between p-4 bg-white font-bold text-slate-800 active:bg-slate-50 transition-colors duration-100 touch-manipulation"
               >
                 <div className="flex items-center gap-2">
                   <ImageIcon size={20} className="text-green-500" /> Image Tools
@@ -418,7 +417,7 @@ const Header = () => {
                     <Link
                       key={tool.id}
                       href={`/${tool.id}`}
-                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-white transition text-left"
+                      className="flex items-center gap-3 p-3 rounded-lg hover:bg-white active:bg-white active:scale-[0.98] touch-manipulation transition text-left"
                       onClick={toggleMobileMenu}
                     >
                       <div className="text-slate-500">

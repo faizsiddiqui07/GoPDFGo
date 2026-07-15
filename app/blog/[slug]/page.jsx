@@ -168,7 +168,7 @@ export default function BlogDetailPage() {
                 <Link
                   href={`/blog/${relatedBlog.id}`}
                   key={relatedBlog.id}
-                  className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md hover:border-orange-200 transition-all duration-300 group flex flex-col cursor-pointer"
+                  className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md hover:border-orange-200 active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 group flex flex-col cursor-pointer"
                 >
                   {/* Image Area */}
                   <div className="relative overflow-hidden bg-slate-100">

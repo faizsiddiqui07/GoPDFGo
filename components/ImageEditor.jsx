@@ -1599,7 +1599,7 @@ const ImageEditor = ({ toolId }) => {
                       <div className="flex gap-1 p-1 bg-slate-200 rounded-lg">
                         <button
                           onClick={() => setSizeMode("quality")}
-                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "quality"
                               ? "bg-white text-[#FF9933] shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
@@ -1609,7 +1609,7 @@ const ImageEditor = ({ toolId }) => {
                         </button>
                         <button
                           onClick={() => setSizeMode("target")}
-                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "target"
                               ? "bg-white text-[#FF9933] shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
@@ -1647,7 +1647,7 @@ const ImageEditor = ({ toolId }) => {
                             <button
                               key={kb}
                               onClick={() => setTargetKB(kb)}
-                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 Number(targetKB) === kb
                                   ? "bg-[#FF9933] text-white border-[#FF9933]"
                                   : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
@@ -1844,7 +1844,7 @@ const ImageEditor = ({ toolId }) => {
                                   });
                                 }
                               }}
-                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 cropAspect === r.val
                                   ? "bg-[#FF9933] text-white border-[#FF9933]"
                                   : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
@@ -1998,7 +1998,11 @@ const ImageEditor = ({ toolId }) => {
                                   setWidth(p.w);
                                   setHeight(p.h);
                                 }}
-                                className="text-[11px] font-medium px-2.5 py-1 rounded-full border border-slate-200 bg-slate-50 text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] transition cursor-pointer"
+                                className={`text-[11px] font-medium px-2.5 py-1 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
+                                  width === p.w && height === p.h
+                                    ? "bg-[#FF9933] text-white border-[#FF9933]"
+                                    : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                }`}
                               >
                                 {p.label}
                               </button>
@@ -2066,7 +2070,7 @@ const ImageEditor = ({ toolId }) => {
                                 userPickedFormatRef.current = true;
                                 setFormat(opt.v);
                               }}
-                              className={`flex-1 py-2.5 text-sm font-bold rounded-lg border transition cursor-pointer ${
+                              className={`flex-1 py-2.5 text-sm font-bold rounded-lg border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 format === opt.v
                                   ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
                                   : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
@@ -2089,7 +2093,7 @@ const ImageEditor = ({ toolId }) => {
                       <div className="flex gap-1 p-1 bg-slate-200 rounded-lg">
                         <button
                           onClick={() => setSizeMode("quality")}
-                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "quality"
                               ? "bg-white text-[#FF9933] shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
@@ -2099,7 +2103,7 @@ const ImageEditor = ({ toolId }) => {
                         </button>
                         <button
                           onClick={() => setSizeMode("target")}
-                          className={`flex-1 py-2 text-xs font-bold rounded-md transition cursor-pointer ${
+                          className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "target"
                               ? "bg-white text-[#FF9933] shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
@@ -2149,7 +2153,7 @@ const ImageEditor = ({ toolId }) => {
                             <button
                               key={kb}
                               onClick={() => setTargetKB(kb)}
-                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
+                              className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 Number(targetKB) === kb
                                   ? "bg-[#FF9933] text-white border-[#FF9933]"
                                   : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"

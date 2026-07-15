@@ -144,7 +144,7 @@ const QrGenerator = ({ toolId }) => {
           <div className="flex gap-2 mb-6 p-1 bg-slate-200 rounded-lg">
             <button
               onClick={() => setMode("text")}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition active:scale-95 touch-manipulation ${
                 mode === "text"
                   ? "bg-white text-[#FF9933] shadow-sm"
                   : "text-slate-600 hover:text-slate-800"
@@ -154,7 +154,7 @@ const QrGenerator = ({ toolId }) => {
             </button>
             <button
               onClick={() => setMode("wifi")}
-              className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition ${
+              className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition active:scale-95 touch-manipulation ${
                 mode === "wifi"
                   ? "bg-white text-[#FF9933] shadow-sm"
                   : "text-slate-600 hover:text-slate-800"
@@ -251,7 +251,7 @@ const QrGenerator = ({ toolId }) => {
                     key={s.v}
                     onClick={() => setQrSize(s.v)}
                     title={`${s.v}×${s.v}px`}
-                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
+                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition active:scale-95 touch-manipulation cursor-pointer ${
                       qrSize === s.v
                         ? "bg-[#FF9933] text-white shadow"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
@@ -278,7 +278,7 @@ const QrGenerator = ({ toolId }) => {
                   <button
                     key={l.v}
                     onClick={() => setQrLevel(l.v)}
-                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
+                    className={`flex-1 py-2 rounded-lg font-bold text-sm transition active:scale-95 touch-manipulation cursor-pointer ${
                       qrLevel === l.v
                         ? "bg-[#FF9933] text-white shadow"
                         : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
@@ -303,7 +303,7 @@ const QrGenerator = ({ toolId }) => {
           <button
             onClick={generateQR}
             disabled={isGenerateDisabled}
-            className={`w-full text-white font-bold py-3 rounded-lg shadow-md transition flex items-center justify-center gap-2 cursor-pointer ${
+            className={`w-full text-white font-bold py-3 rounded-lg shadow-md transition active:scale-[0.98] touch-manipulation flex items-center justify-center gap-2 cursor-pointer ${
               isGenerateDisabled
                 ? "bg-slate-400 cursor-not-allowed"
                 : "bg-[#FF9933] hover:bg-[#e68a2e]"

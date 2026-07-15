@@ -2896,7 +2896,7 @@ const PdfEditor = ({ toolId }) => {
                   generatingThumbnails ||
                   isUploading
                 }
-                className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all ${
+                className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all active:scale-[0.98] touch-manipulation ${
                   files.length === 0 ||
                   isProcessing ||
                   generatingThumbnails ||
@@ -3013,7 +3013,7 @@ const PdfEditor = ({ toolId }) => {
                       </span>
                       <button
                         onClick={copyExtractedText}
-                        className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition cursor-pointer ${
+                        className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition active:scale-95 touch-manipulation cursor-pointer ${
                           copied
                             ? "bg-green-100 text-green-700"
                             : "bg-orange-100 text-[#e68a2e] hover:bg-orange-200"
@@ -3043,7 +3043,7 @@ const PdfEditor = ({ toolId }) => {
                   <a
                     href={downloadUrl}
                     download={downloadName}
-                    className="bg-[#FF9933] text-white px-8 py-3.5 rounded-full hover:bg-[#e68a2e] transition font-bold shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer text-lg"
+                    className="bg-[#FF9933] text-white px-8 py-3.5 rounded-full hover:bg-[#e68a2e] transition active:scale-[0.98] touch-manipulation font-bold shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer text-lg"
                   >
                     <Download size={22} />{" "}
                     {tool.id === "pdf-to-text" ? "Download .txt" : "Download Result"}

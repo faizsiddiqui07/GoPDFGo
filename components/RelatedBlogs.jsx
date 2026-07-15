@@ -196,7 +196,7 @@ const RelatedBlogs = ({ toolId }) => {
           <Link
             href={`/blog/${post.id}`}
             key={post.id}
-            className="group bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 transition-all duration-300 flex flex-col h-full"
+            className="group bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
           >
             <h3 className="font-bold text-slate-800 mb-2 line-clamp-2 group-hover:text-[#FF9933] transition-colors">
               {post.title}

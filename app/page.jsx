@@ -124,13 +124,13 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             <Link
               href="/merge-pdf"
-              className="bg-[#FF9933] text-white px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#e68a2e] transition shadow-xl shadow-orange-200 hover:-translate-y-1"
+              className="bg-[#FF9933] text-white px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#e68a2e] transition shadow-xl shadow-orange-200 hover:-translate-y-1 active:scale-95 active:translate-y-0 touch-manipulation"
             >
               Start Merging PDFs
             </Link>
             <Link
               href="/split-pdf"
-              className="bg-white text-slate-700 border border-slate-200 px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-slate-50 transition shadow-sm hover:shadow-md"
+              className="bg-white text-slate-700 border border-slate-200 px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-slate-50 transition shadow-sm hover:shadow-md active:scale-95 touch-manipulation"
             >
               Split PDF
             </Link>
@@ -164,7 +164,7 @@ export default function Home() {
                   <Link
                     href={`/${tool.id}`}
                     key={tool.id}
-                    className="group bg-white rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-200 transition-all duration-300 relative overflow-hidden flex flex-col  h-full"
+                    className="group bg-white rounded-2xl p-4 sm:p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-200 active:scale-[0.97] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 relative overflow-hidden flex flex-col  h-full"
                   >
                     <div className="absolute top-0 right-0 w-24 h-24 bg-slate-50 rounded-bl-[80px] -mr-4 -mt-4 transition-transform group-hover:scale-150 duration-500 opacity-50"></div>
 

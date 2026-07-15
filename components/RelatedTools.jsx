@@ -37,9 +37,13 @@ const RelatedTools = ({ currentToolId, toolType }) => {
         </h3>
         <Link
           href="/" // Changed from 'to'
-          className="text-sm sm:text-base text-[#FF9933] font-medium hover:underline flex items-center gap-1"
+          className="group text-sm sm:text-base text-[#FF9933] font-medium hover:underline flex items-center gap-1"
         >
-          View All <ArrowRight size={16} />
+          View All{" "}
+          <ArrowRight
+            size={16}
+            className="group-hover:translate-x-1 transition-transform"
+          />
         </Link>
       </div>
 
@@ -48,7 +52,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
           <Link
             href={`/${tool.id}`} // Changed from 'to'
             key={tool.id}
-            className="group bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 transition-all duration-300 flex flex-col h-full"
+            className="group bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
             // Removed onClick scroll to top as Next.js handles it automatically
           >
             <div className="flex items-center gap-x-3 mb-2 sm:mb-0">

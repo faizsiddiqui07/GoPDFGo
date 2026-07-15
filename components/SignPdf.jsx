@@ -682,7 +682,7 @@ export default function SignPdf() {
               <button
                 onClick={signAndDownload}
                 disabled={!signature || isProcessing}
-                className={`w-full py-3.5 rounded-full font-bold text-white flex items-center justify-center gap-2 transition ${
+                className={`w-full py-3.5 rounded-full font-bold text-white flex items-center justify-center gap-2 transition active:scale-[0.98] touch-manipulation ${
                   !signature || isProcessing
                     ? "bg-slate-300 cursor-not-allowed"
                     : "bg-[#FF9933] hover:bg-[#e68a2e] shadow-lg shadow-orange-200 cursor-pointer"
