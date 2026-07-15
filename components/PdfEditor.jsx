@@ -97,6 +97,11 @@ const PdfEditor = ({ toolId }) => {
   const [files, setFiles] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [ocrStatus, setOcrStatus] = useState(null); // pdf-to-text OCR progress
+  // 0..100 for the overlay's determinate bar, or null for the indeterminate one.
+  // Only branches with a genuinely known page/file count set this — a single
+  // pdf-lib save() has no fraction to report, and a faked bar is a lie.
+  const [pdfProgress, setPdfProgress] = useState(null);
+  const [pdfEta, setPdfEta] = useState(0); // seconds; 0 hides it in the overlay
   const [isUploading, setIsUploading] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
@@ -682,6 +687,10 @@ const PdfEditor = ({ toolId }) => {
     const worker = await window.Tesseract.createWorker("eng");
     try {
       let out = "";
+      // OCR is the slowest job on the site (60s+ on a low-end phone) and it was
+      // already computing the page fraction — it just threw it into a string.
+      // tesseract runs in its own worker, so these ticks genuinely paint.
+      const ocrStart = performance.now();
       for (let i = 1; i <= pdf.numPages; i++) {
         setOcrStatus(
           `Reading scanned text with OCR… page ${i} of ${pdf.numPages}`,
@@ -701,6 +710,15 @@ const PdfEditor = ({ toolId }) => {
         canvas.height = 0;
         if (pdf.numPages > 1) out += `===== Page ${i} =====\n${pageText}\n\n`;
         else out += pageText;
+        // Set after the page finishes, so the bar can't read 100% while the
+        // last page is still being recognised. Pages vary a lot in cost, so the
+        // ETA is a running mean over completed pages (same as ImageEditor).
+        setPdfProgress(Math.round((i / pdf.numPages) * 100));
+        setPdfEta(
+          Math.round(
+            (((performance.now() - ocrStart) / i) * (pdf.numPages - i)) / 1000,
+          ),
+        );
       }
       return out.replace(/\n{3,}/g, "\n\n").trim();
     } finally {
@@ -724,13 +742,18 @@ const PdfEditor = ({ toolId }) => {
     }
 
     setIsProcessing(true);
+    // Reset here, at the single entry point, rather than at each exit: processPdf
+    // has ~8 early-return bailouts plus two terminal paths, and resetting at the
+    // top is what stops run N+1 from opening at run N's percentage.
+    setPdfProgress(null);
+    setPdfEta(0);
     setErrorMsg(null);
     try {
       // 1. MERGE
       if (tool.id === "merge-pdf") {
         const newPdf = await PDFDocument.create();
         const failed = [];
-        for (const item of files) {
+        for (const [idx, item] of files.entries()) {
           try {
             const arrayBuffer = await item.file.arrayBuffer();
             const pdf = await PDFDocument.load(arrayBuffer, {
@@ -748,6 +771,10 @@ const PdfEditor = ({ toolId }) => {
           } catch (e) {
             failed.push(item.file.name);
           }
+          // Completed count, not the loop index — the bar must not read 100%
+          // while the last file is still copying. Capped at 90: newPdf.save()
+          // below is a single blocking call with no fraction to report.
+          setPdfProgress(Math.round(((idx + 1) / files.length) * 90));
         }
         if (newPdf.getPageCount() === 0) {
           throw new Error(
@@ -1009,7 +1036,11 @@ const PdfEditor = ({ toolId }) => {
 
         // Rasterize the whole PDF at a resolution cap + JPEG quality → new PDF bytes.
         // (A fresh byte copy each call because pdf.js detaches the buffer it's given.)
-        const rasterizeToBytes = async (scaleCap, quality) => {
+        // onPage is opt-in on purpose. The target-size path calls this in a
+        // search loop that runs 1..9 times and breaks as soon as it fits, so its
+        // total work is unknowable in advance — reporting from in here would
+        // rewind the bar on every pass. Only the single-shot path passes it.
+        const rasterizeToBytes = async (scaleCap, quality, onPage) => {
           const pdf = await window.pdfjsLib.getDocument({
             data: originalBytes.slice(0),
           }).promise;
@@ -1051,6 +1082,7 @@ const PdfEditor = ({ toolId }) => {
             canvas.width = 0;
             canvas.height = 0;
             canvas.remove();
+            if (onPage) onPage(i, pdf.numPages);
           }
 
           const rasterBytes = await rasterPdf.save();
@@ -1134,7 +1166,12 @@ const PdfEditor = ({ toolId }) => {
 
           // Candidate 2: rasterize pages (best for scanned / image-heavy PDFs)
           try {
-            const rasterBytes = await rasterizeToBytes(1.5, 0.8);
+            // Single pass with a known page count — the one compress path that
+            // can report honestly. Capped at 90 for the save() and the
+            // candidate comparison that follow.
+            const rasterBytes = await rasterizeToBytes(1.5, 0.8, (i, total) =>
+              setPdfProgress(Math.round((i / total) * 90)),
+            );
             if (rasterBytes.byteLength < bestSize) {
               bestBytes = rasterBytes;
               bestSize = rasterBytes.byteLength;
@@ -1285,7 +1322,12 @@ const PdfEditor = ({ toolId }) => {
           return;
         }
 
-        for (const i of wantedPages) {
+        // `i` is a sparse 1-based PAGE NUMBER from wantedPages, not an index —
+        // so the fraction has to come from `idx` over wantedPages.length. Using
+        // i / pdf.numPages would be wrong twice over: converting only page 7 of
+        // a 10-page PDF would jump the bar to 70% and stop there, and picking
+        // pages 1-3 of a 100-page PDF would cap it at 3%.
+        for (const [idx, i] of wantedPages.entries()) {
           const page = await pdf.getPage(i);
           const baseViewport = page.getViewport({ scale: 1.0 });
           const maxSide = Math.max(baseViewport.width, baseViewport.height);
@@ -1307,6 +1349,9 @@ const PdfEditor = ({ toolId }) => {
           canvas.width = 0;
           canvas.height = 0;
           canvas.remove();
+          // Capped at 90 — zipping multiple images below is a single blocking
+          // call with no fraction to report.
+          setPdfProgress(Math.round(((idx + 1) / wantedPages.length) * 90));
         }
         if (pdf.destroy) pdf.destroy();
 
@@ -1511,6 +1556,9 @@ const PdfEditor = ({ toolId }) => {
           canvas.width = 0;
           canvas.height = 0;
           canvas.remove();
+          // Capped at 90: newPdf.save() below rebuilds the whole document in one
+          // blocking call, so the bar must not be sitting at 100% through it.
+          setPdfProgress(Math.round((i / pdf.numPages) * 90));
         }
         if (pdf.destroy) pdf.destroy();
 
@@ -1672,6 +1720,8 @@ const PdfEditor = ({ toolId }) => {
         <ProcessingOverlay
           show={isProcessing}
           title={ocrStatus || "Working on your PDF…"}
+          progress={pdfProgress}
+          eta={pdfEta}
         />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">

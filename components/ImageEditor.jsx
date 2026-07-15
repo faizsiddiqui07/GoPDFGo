@@ -556,6 +556,7 @@ const ImageEditor = ({ toolId }) => {
   // Run token: an in-flight worker result from file A must not overwrite
   // state after file B has been loaded.
   const processRunRef = useRef(0);
+  const batchRunRef = useRef(0);
   // Actual MIME of the last produced blob — used for a truthful file extension
   // (the worker may fall back to PNG for formats canvases can't encode).
   const lastBlobTypeRef = useRef(null);
@@ -975,6 +976,10 @@ const ImageEditor = ({ toolId }) => {
   }, [masks]);
 
   const processBatch = async () => {
+    // Run token, mirroring processSingleImage's processRunRef. The hold at the
+    // end of this function awaits a timer, so without a token a Clear All or a
+    // second batch started during that hold would get stomped by the stale run.
+    const run = ++batchRunRef.current;
     setIsProcessing(true);
     setBatchResults([]);
     currentUrlsRef.current.batch.forEach((url) => URL.revokeObjectURL(url));
@@ -1105,7 +1110,10 @@ const ImageEditor = ({ toolId }) => {
       if (executing.length >= CONCURRENCY_LIMIT) await Promise.race(executing);
     }
     await Promise.all(executing);
-    setIsProcessing(false);
+    // Order matters here. This used to set isProcessing(false) FIRST and 100%
+    // second, in the same synchronous block — React batched both into one commit,
+    // so the overlay unmounted on the very commit that told the bar to finish.
+    // Nobody batching 13 images ever saw the bar reach the end.
     setBatchProgress((prev) => ({
       ...prev,
       current: files.length,
@@ -1113,6 +1121,14 @@ const ImageEditor = ({ toolId }) => {
       eta: 0,
       activeIndex: -1,
     }));
+    if (batchRunRef.current === run) {
+      // A real macrotask, so React actually flushes and paints 100%, then long
+      // enough for .gpg-proc-fill's 0.35s transition to travel there. It costs
+      // ~420ms, but it is honest time: the bar is already on screen promising
+      // to finish.
+      await new Promise((r) => setTimeout(r, 420));
+      if (batchRunRef.current === run) setIsProcessing(false);
+    }
   };
 
   const handleDownloadClick = () => {
