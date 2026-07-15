@@ -58,20 +58,22 @@ body {
    browser's compositor thread and keeps moving even while pdf-lib blocks
    the main thread. Do not animate width/left/background-position here. */
 
-/* Sits INSIDE the tool card (which is .relative + overflow-hidden), so the
-   animation appears exactly where the work is happening — not miles down the
-   page. NOTE: position:fixed is unusable here because the page root carries
-   `animate-fade-in-up`, and a transformed ancestor becomes the containing
-   block for fixed children. */
+/* The component portals this into <body>, which is what makes position:fixed
+   mean "the viewport" — inside the page tree it would inherit the containing
+   block of `animate-fade-in-up` (a transformed ancestor) and land halfway down
+   a very tall page. Portalled + fixed = perfectly centred on every screen. */
 .gpg-proc-overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
-  background: rgba(248, 250, 252, 0.92);
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.4);
+  /* let the build add vendor prefixes — hand-writing -webkit- here made the
+     minifier drop the unprefixed property (no blur in Firefox) */
+  backdrop-filter: blur(4px);
   /* purely visual — never steal clicks (e.g. mid-drag on a quality slider) */
   pointer-events: none;
   /* delay the fade-in so sub-200ms jobs never flash the overlay */
@@ -85,16 +87,46 @@ body {
 
 .gpg-proc-card {
   background: #ffffff;
-  border: 1px solid #f1f5f9;
   border-radius: 24px;
-  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.18);
-  padding: 36px 40px 30px;
-  width: min(92vw, 380px);
+  box-shadow: 0 24px 70px -12px rgba(15, 23, 42, 0.35);
+  padding: 34px 36px 28px;
+  width: min(90vw, 360px);
   text-align: center;
-  /* A tall card (a PDF with many page thumbnails) would otherwise centre the
-     animation off-screen — sticky keeps it in view, still inside the card. */
-  position: sticky;
-  top: 96px;
+  /* the backdrop stays click-through (so a slider drag is never interrupted),
+     but the card itself must accept the Cancel click */
+  pointer-events: auto;
+  animation: gpgProcPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
+}
+
+.gpg-proc-cancel {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.gpg-proc-cancel:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+@keyframes gpgProcPop {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* --- animated document ------------------------------------------------ */
@@ -192,10 +224,23 @@ body {
   border-radius: 999px;
   background: #f1f5f9;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
-.gpg-proc-bar span {
+/* Determinate: scaleX stays on the compositor, so the bar still eases smoothly
+   between files instead of triggering layout on every progress tick. */
+.gpg-proc-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb866, #ff9933);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Indeterminate: used when there is no real percentage to show. */
+.gpg-proc-indet {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -210,6 +255,25 @@ body {
   0% { transform: translateX(-110%); }
   60% { transform: translateX(180%); }
   100% { transform: translateX(280%); }
+}
+
+.gpg-proc-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #64748b;
+  min-height: 20px;
+}
+
+.gpg-proc-meta span:first-child {
+  font-weight: 700;
+  color: #ff9933;
+}
+
+/* keep the % centred when there is no ETA yet */
+.gpg-proc-meta:has(span:only-child) {
+  justify-content: center;
 }
 
 .gpg-proc-msgs {
@@ -233,6 +297,24 @@ body {
   0% { opacity: 0; transform: translateY(6px); }
   5%, 28% { opacity: 1; transform: translateY(0); }
   33%, 100% { opacity: 0; transform: translateY(-6px); }
+}
+
+/* Phones: tighter card so it never dominates a small screen. Scaling the whole
+   stage keeps every keyframe proportional (no need to retune the scan range). */
+@media (max-width: 640px) {
+  .gpg-proc-card {
+    width: min(86vw, 310px);
+    padding: 22px 20px 18px;
+    border-radius: 20px;
+  }
+  .gpg-proc-stage {
+    transform: scale(0.78);
+    margin-bottom: 6px;
+  }
+  .gpg-proc-title {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -107,6 +107,7 @@ const ImageEditor = ({ toolId }) => {
   const cropContainerRef = useRef(null);
   const sliderContainerRef = useRef(null);
   const workerRef = useRef(null);
+  const cancelRef = useRef(false); // set by the overlay's Cancel button
   const currentUrlsRef = useRef({ preview: null, converted: null, batch: [] });
   const pickerCanvasRef = useRef(null);
   const debounceTimerRef = useRef(null);
@@ -952,6 +953,7 @@ const ImageEditor = ({ toolId }) => {
   }, [masks]);
 
   const processBatch = async () => {
+    cancelRef.current = false;
     setIsProcessing(true);
     setBatchResults([]);
     currentUrlsRef.current.batch.forEach((url) => URL.revokeObjectURL(url));
@@ -960,6 +962,7 @@ const ImageEditor = ({ toolId }) => {
     let processedCount = 0;
 
     for (let i = 0; i < files.length; i++) {
+      if (cancelRef.current) break; // Cancel pressed — stop queueing more files
       const file = files[i];
       setBatchProgress((prev) => ({
         ...prev,
@@ -1036,13 +1039,16 @@ const ImageEditor = ({ toolId }) => {
 
           processedCount++;
 
-          // ✅ BUG FIX 7: Calculate ETA accurately
+          // ETA. Files run CONCURRENCY_LIMIT at a time, so the remaining work
+          // takes roughly (remaining / concurrency) * avgTime — the old math
+          // multiplied by every remaining file and over-estimated ~5x.
           setProcessingTimes((prevTimes) => {
             const newTimes = [...prevTimes, (Date.now() - startTime) / 1000];
             const avgTime =
               newTimes.reduce((a, b) => a + b, 0) / newTimes.length;
             const remainingFiles = files.length - processedCount;
-            const newEta = Math.round(avgTime * remainingFiles);
+            const lanes = Math.min(CONCURRENCY_LIMIT, files.length);
+            const newEta = Math.round((avgTime * remainingFiles) / lanes);
 
             setBatchProgress((p) => ({
               ...p,
@@ -1130,6 +1136,16 @@ const ImageEditor = ({ toolId }) => {
     link.click();
     // Give the browser a moment to start the download, then free the blob
     setTimeout(() => URL.revokeObjectURL(zipUrl), 30000);
+  };
+
+  // Cancel: stop queueing further work and hand the UI straight back. Anything
+  // already in flight finishes into a result we simply no longer show.
+  const handleCancelProcessing = () => {
+    cancelRef.current = true;
+    processRunRef.current++; // invalidate any in-flight single-image result
+    setIsProcessing(false);
+    setBatchProgress((p) => ({ ...p, eta: 0 }));
+    setImgError(null);
   };
 
   const handleClearAll = () => {
@@ -1407,13 +1423,24 @@ const ImageEditor = ({ toolId }) => {
 
 
       <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
+        {/* Title AND bar are both derived from `processed` (files actually
+            finished) so they can never disagree. `batchProgress.current` is the
+            QUEUED index — with 5 lanes it races ahead and used to read
+            "13 of 13" while the bar sat at 77%. */}
         <ProcessingOverlay
           show={isProcessing}
           title={
-            isBatchMode && batchProgress.total > 1
-              ? `Processing image ${Math.max(1, batchProgress.current)} of ${batchProgress.total}…`
+            isBatchMode && batchProgress.total > 0
+              ? `Processing image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}…`
               : "Processing your image…"
           }
+          progress={
+            isBatchMode && batchProgress.total > 0
+              ? (batchProgress.processed / batchProgress.total) * 100
+              : null
+          }
+          eta={isBatchMode ? batchProgress.eta : 0}
+          onCancel={isBatchMode ? handleCancelProcessing : null}
         />
         {/* LEFT PANEL */}
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
@@ -1507,37 +1534,8 @@ const ImageEditor = ({ toolId }) => {
 
               {isBatchMode ? (
                 <>
-                  {/* Batch UI */}
-                  {isProcessing && (
-                    <div className="space-y-3 bg-blue-50 p-4 rounded-lg border border-blue-100">
-                      <div className="flex justify-between items-center">
-                        <span className="text-sm font-medium text-blue-700">
-                          Processing {batchProgress.current}/
-                          {batchProgress.total}
-                          {batchProgress.eta > 0 &&
-                            ` (~${batchProgress.eta}s left)`}
-                        </span>
-                        <span className="text-xs text-blue-600 font-medium">
-                          {Math.round(
-                            (batchProgress.processed / batchProgress.total) *
-                              100,
-                          )}
-                          %
-                        </span>
-                      </div>
-                      <div className="w-full bg-blue-100 rounded-full h-2">
-                        <div
-                          className="bg-blue-600 h-2 rounded-full transition-all duration-300"
-                          style={{
-                            width: `${
-                              (batchProgress.processed / batchProgress.total) *
-                              100
-                            }%`,
-                          }}
-                        ></div>
-                      </div>
-                    </div>
-                  )}
+                  {/* Batch progress now lives in the ProcessingOverlay (count,
+                      %, ETA) — the old inline blue bar duplicated it. */}
                   <div className="flex-1 overflow-y-auto border border-slate-100 rounded-lg bg-slate-50 p-2 space-y-2 max-h-50">
                     {files.map((f, i) => (
                       <div

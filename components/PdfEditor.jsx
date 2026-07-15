@@ -154,6 +154,7 @@ const PdfEditor = ({ toolId }) => {
 
   // Refs for Scroll and Image URLs
   const blobUrlsRef = useRef(new Set());
+  const cancelRef = useRef(false); // set by the overlay's Cancel button
   const scrollContainerRef = useRef(null);
 
   // ✅ BUG FIX 1: Split the cleanup logic so thumbnails don't break when downloadUrl changes
@@ -651,6 +652,16 @@ const PdfEditor = ({ toolId }) => {
     }
   };
 
+  // Cancel is only offered for OCR: it is the one PDF job long enough to want
+  // out of, and its page loop can genuinely stop between pages. The other
+  // pdf-lib calls are single blocking operations that cannot be interrupted,
+  // so offering a button that only hides the spinner would be a lie.
+  const handleCancelProcessing = () => {
+    cancelRef.current = true;
+    setOcrStatus(null);
+    setIsProcessing(false);
+  };
+
   // Load tesseract.js on demand — only when a scanned PDF needs OCR.
   const ensureTesseract = () =>
     new Promise((resolve, reject) => {
@@ -679,6 +690,7 @@ const PdfEditor = ({ toolId }) => {
     try {
       let out = "";
       for (let i = 1; i <= pdf.numPages; i++) {
+        if (cancelRef.current) break; // Cancel pressed — stop before the next page
         setOcrStatus(
           `Reading scanned text with OCR… page ${i} of ${pdf.numPages}`,
         );
@@ -719,6 +731,7 @@ const PdfEditor = ({ toolId }) => {
       return;
     }
 
+    cancelRef.current = false;
     setIsProcessing(true);
     setErrorMsg(null);
     try {
@@ -1668,6 +1681,7 @@ const PdfEditor = ({ toolId }) => {
         <ProcessingOverlay
           show={isProcessing}
           title={ocrStatus || "Working on your PDF…"}
+          onCancel={ocrStatus ? handleCancelProcessing : null}
         />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">
