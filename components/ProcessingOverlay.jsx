@@ -26,6 +26,7 @@ export default function ProcessingOverlay({
   progress = null,
   eta = 0,
   onCancel = null,
+  cancelling = false,
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -72,7 +73,11 @@ export default function ProcessingOverlay({
           </div>
         </div>
 
-        <p className="gpg-proc-title">{title || "Processing your file…"}</p>
+        <p className="gpg-proc-title">
+          {cancelling
+            ? "Cancelling — finishing the last few…"
+            : title || "Processing your file…"}
+        </p>
 
         {determinate ? (
           <>
@@ -101,7 +106,10 @@ export default function ProcessingOverlay({
           </>
         )}
 
-        {onCancel && (
+        {/* Hidden once cancelling: the work already in flight cannot be torn
+            out of a blocking encode, so we keep the overlay up (rather than
+            handing back a page that just silently freezes) until it drains. */}
+        {onCancel && !cancelling && (
           <button
             type="button"
             onClick={onCancel}

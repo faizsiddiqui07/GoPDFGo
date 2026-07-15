@@ -74,8 +74,13 @@ body {
   /* let the build add vendor prefixes — hand-writing -webkit- here made the
      minifier drop the unprefixed property (no blur in Firefox) */
   backdrop-filter: blur(4px);
-  /* purely visual — never steal clicks (e.g. mid-drag on a quality slider) */
-  pointer-events: none;
+  /* A real modal: swallow every click and hover so nothing behind it can be
+     pressed, and stop the page text underneath being selected/dragged.
+     (Safe because the overlay is gated to committed jobs — the debounced
+     live-preview never raises it, so a quality-slider drag is untouched.) */
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
   /* delay the fade-in so sub-200ms jobs never flash the overlay */
   animation: gpgProcFade 0.3s ease-out 0.18s both;
 }
@@ -92,9 +97,6 @@ body {
   padding: 34px 36px 28px;
   width: min(90vw, 360px);
   text-align: center;
-  /* the backdrop stays click-through (so a slider drag is never interrupted),
-     but the card itself must accept the Cancel click */
-  pointer-events: auto;
   animation: gpgProcPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both;
 }
 

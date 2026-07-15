@@ -97,6 +97,7 @@ const PdfEditor = ({ toolId }) => {
   const [files, setFiles] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [ocrStatus, setOcrStatus] = useState(null); // pdf-to-text OCR progress
+  const [cancelling, setCancelling] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [isDone, setIsDone] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState(null);
@@ -656,10 +657,12 @@ const PdfEditor = ({ toolId }) => {
   // out of, and its page loop can genuinely stop between pages. The other
   // pdf-lib calls are single blocking operations that cannot be interrupted,
   // so offering a button that only hides the spinner would be a lie.
+  // Only flips the flag — the OCR loop breaks before its next page and the
+  // normal completion path tears the overlay down. Dropping it here would let
+  // the current page's blocking recognize() freeze a page with no indicator.
   const handleCancelProcessing = () => {
     cancelRef.current = true;
-    setOcrStatus(null);
-    setIsProcessing(false);
+    setCancelling(true);
   };
 
   // Load tesseract.js on demand — only when a scanned PDF needs OCR.
@@ -732,6 +735,7 @@ const PdfEditor = ({ toolId }) => {
     }
 
     cancelRef.current = false;
+    setCancelling(false);
     setIsProcessing(true);
     setErrorMsg(null);
     try {
@@ -1578,6 +1582,7 @@ const PdfEditor = ({ toolId }) => {
             cleaned = await runOcrOnPdf(pdf);
           } catch (e) {
             setOcrStatus(null);
+            setCancelling(false);
             if (pdf.destroy) pdf.destroy();
             setErrorMsg(
               "This looks like a scanned PDF and OCR could not read it. Check your connection and try again, or use a clearer scan.",
@@ -1586,6 +1591,16 @@ const PdfEditor = ({ toolId }) => {
             return;
           }
           setOcrStatus(null);
+
+          // Cancelled part-way: the loop broke early, so `cleaned` is partial
+          // text for only some pages. Drop it rather than passing off half a
+          // document as the result.
+          if (cancelRef.current) {
+            if (pdf.destroy) pdf.destroy();
+            setIsProcessing(false);
+            setCancelling(false);
+            return;
+          }
         }
 
         if (pdf.destroy) pdf.destroy();
@@ -1638,6 +1653,7 @@ const PdfEditor = ({ toolId }) => {
       console.error(err);
       setErrorMsg(err.message || "Error processing file.");
       setIsProcessing(false);
+      setCancelling(false);
     }
   };
 
@@ -1648,6 +1664,7 @@ const PdfEditor = ({ toolId }) => {
     setDownloadName(name);
     setIsDone(true);
     setIsProcessing(false);
+    setCancelling(false);
   };
 
   // Visitors landing straight from Google have no in-site history —
@@ -1682,6 +1699,7 @@ const PdfEditor = ({ toolId }) => {
           show={isProcessing}
           title={ocrStatus || "Working on your PDF…"}
           onCancel={ocrStatus ? handleCancelProcessing : null}
+          cancelling={cancelling}
         />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">

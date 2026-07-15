@@ -42,6 +42,10 @@ const ImageEditor = ({ toolId }) => {
   const [convertedUrl, setConvertedUrl] = useState(null);
   const [fileSize, setFileSize] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  // Debounced live-preview runs (slider/settings tweaks) must NOT raise the
+  // modal — it would cover and block the very slider being dragged.
+  const [liveTweak, setLiveTweak] = useState(false);
+  const [cancelling, setCancelling] = useState(false);
   const [batchResults, setBatchResults] = useState([]);
   const [isBatchMode, setIsBatchMode] = useState(false);
   const [jsZipLoaded, setJsZipLoaded] = useState(false);
@@ -206,7 +210,10 @@ const ImageEditor = ({ toolId }) => {
 
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
 
-    if (!isInstantTool) setIsProcessing(true);
+    if (!isInstantTool) {
+      setLiveTweak(true); // keeps the modal down while the user drags
+      setIsProcessing(true);
+    }
 
     debounceTimerRef.current = setTimeout(() => {
       processSingleImage();
@@ -757,7 +764,10 @@ const ImageEditor = ({ toolId }) => {
         );
       }
     } finally {
-      if (run === processRunRef.current) setIsProcessing(false);
+      if (run === processRunRef.current) {
+        setIsProcessing(false);
+        setLiveTweak(false);
+      }
     }
   };
 
@@ -954,6 +964,7 @@ const ImageEditor = ({ toolId }) => {
 
   const processBatch = async () => {
     cancelRef.current = false;
+    setCancelling(false);
     setIsProcessing(true);
     setBatchResults([]);
     currentUrlsRef.current.batch.forEach((url) => URL.revokeObjectURL(url));
@@ -1069,12 +1080,17 @@ const ImageEditor = ({ toolId }) => {
       executing.push(wrappedPromise);
       if (executing.length >= CONCURRENCY_LIMIT) await Promise.race(executing);
     }
+    // In-flight files finish here — the overlay stays up ("Cancelling…") until
+    // they drain, so the page is never handed back while it is still blocked.
     await Promise.all(executing);
+    const wasCancelled = cancelRef.current;
     setIsProcessing(false);
+    setCancelling(false);
     setBatchProgress((prev) => ({
       ...prev,
-      current: files.length,
-      processed: files.length,
+      // on cancel, keep the real counts — don't claim every file was done
+      current: wasCancelled ? prev.processed : files.length,
+      processed: wasCancelled ? prev.processed : files.length,
       eta: 0,
     }));
   };
@@ -1138,12 +1154,14 @@ const ImageEditor = ({ toolId }) => {
     setTimeout(() => URL.revokeObjectURL(zipUrl), 30000);
   };
 
-  // Cancel: stop queueing further work and hand the UI straight back. Anything
-  // already in flight finishes into a result we simply no longer show.
+  // Cancel: stop queueing new files. The handful already in flight are blocking
+  // encodes (UPNG quantization runs on the main thread) that cannot be torn out
+  // mid-call — so we do NOT drop the overlay here. Hiding it would hand back a
+  // page that silently freezes for a few seconds, which is exactly what "the
+  // site hangs on cancel" was. processBatch clears both flags once it drains.
   const handleCancelProcessing = () => {
     cancelRef.current = true;
-    processRunRef.current++; // invalidate any in-flight single-image result
-    setIsProcessing(false);
+    setCancelling(true);
     setBatchProgress((p) => ({ ...p, eta: 0 }));
     setImgError(null);
   };
@@ -1427,8 +1445,10 @@ const ImageEditor = ({ toolId }) => {
             finished) so they can never disagree. `batchProgress.current` is the
             QUEUED index — with 5 lanes it races ahead and used to read
             "13 of 13" while the bar sat at 77%. */}
+        {/* `!liveTweak` keeps the blocking modal off the debounced preview runs
+            so dragging the quality slider is never covered or interrupted. */}
         <ProcessingOverlay
-          show={isProcessing}
+          show={isProcessing && !liveTweak}
           title={
             isBatchMode && batchProgress.total > 0
               ? `Processing image ${Math.min(batchProgress.processed + 1, batchProgress.total)} of ${batchProgress.total}…`
@@ -1441,6 +1461,7 @@ const ImageEditor = ({ toolId }) => {
           }
           eta={isBatchMode ? batchProgress.eta : 0}
           onCancel={isBatchMode ? handleCancelProcessing : null}
+          cancelling={cancelling}
         />
         {/* LEFT PANEL */}
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
