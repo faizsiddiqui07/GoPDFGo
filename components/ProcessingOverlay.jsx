@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
  * Full-screen processing indicator.
  *
  * Rendered through a PORTAL into <body> on purpose: the tool pages are wrapped
- * in `animate-fade-in-up`, and a transformed ancestor becomes the containing
+ * in `animate-rise`, and a transformed ancestor becomes the containing
  * block for position:fixed — which would drop this into the middle of the tall
  * page instead of the viewport. Portalling out of that subtree makes
  * position:fixed mean "the viewport" again, so it is always perfectly centred

@@ -35,6 +35,26 @@
     }
   }
 
+  /* Same entrance as fade-in-up, minus the opacity. Used on the tool page
+     roots: fading a whole page subtree forces a transparency group over it
+     for 500ms at exactly the moment hydration and the pdf.js/UPNG CDN loads
+     are contending for a cheap Android's CPU. The movement reads the same
+     without it. (This is cheap hygiene, not an LCP rescue — the fade cost
+     roughly one frame, since the keyframe has no delay.)
+     The `to` transform is deliberate: it keeps these containers a containing
+     block for position:fixed, which is the behaviour ProcessingOverlay.jsx
+     documents and portals around. Dropping it would change more than opacity. */
+  --animate-rise: rise 0.5s ease-out both;
+
+  @keyframes rise {
+    from {
+      transform: translateY(12px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
   --animate-line-flow: lineFlow 2.8s linear infinite;
 
   @keyframes lineFlow {
@@ -60,7 +80,7 @@ body {
 
 /* The component portals this into <body>, which is what makes position:fixed
    mean "the viewport" — inside the page tree it would inherit the containing
-   block of `animate-fade-in-up` (a transformed ancestor) and land halfway down
+   block of `animate-rise` (a transformed ancestor) and land halfway down
    a very tall page. Portalled + fixed = perfectly centred on every screen. */
 .gpg-proc-overlay {
   position: fixed;
@@ -295,13 +315,57 @@ body {
   }
 }
 
+/* ===== Reduced motion ===================================================
+   This block used to name only .gpg-proc-*, so someone who asked their OS to
+   stop motion still got every page entrance and an infinite steps-timeline
+   loop on all 32 tool pages. This is the site-wide guard.
+
+   `.01ms` rather than `animation: none`: fadeIn/fadeInUp are `both`-filled
+   from opacity:0, so `none` would strand them invisible and hide indexed
+   copy. .01ms lets them finish instantly on their end state instead.
+
+   The exceptions below are deliberate, not oversights. A spinner is not
+   decoration — while pdf-lib or tesseract owns the main thread for a minute
+   it is the only evidence the app is alive. Freezing it would read as a
+   crash: worse than the motion being removed. Reduced motion targets
+   vestibular displacement, not all feedback. These selectors are (0,1,0) and
+   beat the `*` reset on specificity, so source order is not load-bearing. */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Vestibular offenders: stop outright. */
   .gpg-proc-orbit,
   .gpg-proc-doc,
   .gpg-proc-scan {
-    animation: none;
+    animation: none !important;
   }
+
+  /* State signals: keep alive, just calmer. */
+  .animate-spin {
+    animation-duration: 1.4s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .animate-pulse {
+    animation-duration: 3s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .gpg-proc-indet {
+    animation-duration: 2.2s !important;
+    animation-iteration-count: infinite !important;
+  }
+  /* Without this the `*` reset runs one 0.01ms cycle, and because this rule
+     carries no fill-mode each span snaps back to its base opacity:0 — which
+     would delete the "nothing is uploaded" trust message for precisely the
+     users who opted into reduced motion. */
   .gpg-proc-msgs span {
-    animation-duration: 15s;
+    animation-duration: 15s !important;
+    animation-iteration-count: infinite !important;
   }
 }

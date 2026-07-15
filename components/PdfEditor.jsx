@@ -1655,7 +1655,7 @@ const PdfEditor = ({ toolId }) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-8 animate-fade-in-up">
+    <div className="max-w-7xl mx-auto px-4 pt-8 animate-rise">
       <div className="mb-6">
         <button
           onClick={goBackToTools}
