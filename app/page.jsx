@@ -103,7 +103,11 @@ export default function Home() {
         ========================================= */}
       <div className="relative overflow-hidden py-10">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[20%] w-150 h-150 bg-orange-200/20 rounded-full blur-[120px] animate-pulse"></div>
+          {/* No animate-pulse: a 600px blob under a 120px blur repainting
+              forever is real GPU work on the LCP viewport, for a shape nobody
+              can consciously see move. The static sibling below proves the
+              hero reads fine without it. */}
+          <div className="absolute top-[-10%] left-[20%] w-150 h-150 bg-orange-200/20 rounded-full blur-[120px]"></div>
           <div className="absolute bottom-[10%] right-[-5%] w-125 h-125 bg-blue-200/20 rounded-full blur-[100px]"></div>
         </div>
 

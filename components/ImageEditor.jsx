@@ -23,6 +23,7 @@ import {
   Copy,
   ShieldAlert,
   AlertCircle,
+  Info,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
 import ProcessingOverlay from "./ProcessingOverlay";
@@ -96,6 +97,7 @@ const ImageEditor = ({ toolId }) => {
   const [processingTimes, setProcessingTimes] = useState([]);
   const [compressionStats, setCompressionStats] = useState(null);
   const [imgError, setImgError] = useState(null);
+  const [infoMsg, setInfoMsg] = useState(null); // partial-success notice, e.g. a batch that skipped files
   const [heicDecoding, setHeicDecoding] = useState(false);
 
   // ID Masking: list of redaction boxes (in original-image coordinates)
@@ -134,6 +136,10 @@ const ImageEditor = ({ toolId }) => {
   const isColorPicker = tool.id === "color-picker";
   const isGeneralTool =
     !isCompressor && !isConverter && !isInstantTool && !isColorPicker;
+  // The stats on screen describe the last finished encode. `liveTweak` covers
+  // the quality-slider path, which deliberately runs without the overlay — so
+  // there is nothing else telling the user those numbers are about to change.
+  const statsStale = isProcessing || liveTweak;
 
   // --- CLEANUP ---
   const cleanupUrls = useCallback(() => {
@@ -705,7 +711,9 @@ const ImageEditor = ({ toolId }) => {
         cy: crop.y,
         cw: crop.w,
         ch: crop.h,
-        rot: rotation,
+        // `rotation` accumulates so the preview's CSS transition always turns
+        // the way the button points; the worker only ever wants 0..359.
+        rot: ((rotation % 360) + 360) % 360,
         flipH,
         flipV,
         filter,
@@ -739,7 +747,7 @@ const ImageEditor = ({ toolId }) => {
       const isModified =
         width !== originalImageRef.current.width ||
         height !== originalImageRef.current.height ||
-        rotation !== 0 ||
+        ((rotation % 360) + 360) % 360 !== 0 ||
         crop.w !== 0 ||
         flipH ||
         flipV;
@@ -982,10 +990,15 @@ const ImageEditor = ({ toolId }) => {
     const run = ++batchRunRef.current;
     setIsProcessing(true);
     setBatchResults([]);
+    setImgError(null);
+    setInfoMsg(null);
     currentUrlsRef.current.batch.forEach((url) => URL.revokeObjectURL(url));
     currentUrlsRef.current.batch = [];
     const executing = [];
     let processedCount = 0;
+    // Names of files that threw. `processed` counts attempts, not successes, so
+    // this list is the only record of what didn't make it into batchResults.
+    const failed = [];
 
     // Smallest first: the first result lands almost immediately, so the wait
     // feels shorter than watching a 12MB photo go first. `srcIndex` still
@@ -1098,6 +1111,8 @@ const ImageEditor = ({ toolId }) => {
             return newTimes;
           });
         } catch (e) {
+          console.error(e);
+          failed.push(file.name);
           processedCount++;
           setBatchProgress((prev) => ({ ...prev, processed: processedCount }));
         }
@@ -1110,6 +1125,21 @@ const ImageEditor = ({ toolId }) => {
       if (executing.length >= CONCURRENCY_LIMIT) await Promise.race(executing);
     }
     await Promise.all(executing);
+
+    // Reaching 100% only means every file was ATTEMPTED. Say out loud which ones
+    // failed, or a batch of 13 quietly returns 9 and the user has to diff the list.
+    if (batchRunRef.current === run && failed.length > 0) {
+      if (failed.length === files.length) {
+        setImgError(
+          "We couldn't process any of the selected images. They may be corrupted or in an unsupported format.",
+        );
+      } else {
+        setInfoMsg(
+          `Processed ${files.length - failed.length} of ${files.length} images. Skipped ${failed.length} we couldn't read: ${failed.join(", ")}.`,
+        );
+      }
+    }
+
     // Order matters here. This used to set isProcessing(false) FIRST and 100%
     // second, in the same synchronous block — React batched both into one commit,
     // so the overlay unmounted on the very commit that told the bar to finish.
@@ -1207,6 +1237,7 @@ const ImageEditor = ({ toolId }) => {
     setFilter("none");
     setMasks([]);
     setImgError(null);
+    setInfoMsg(null);
     setCropAspect(null);
     setCompressionStats(null);
     userPickedFormatRef.current = false;
@@ -1463,6 +1494,12 @@ const ImageEditor = ({ toolId }) => {
         </div>
       )}
 
+      {infoMsg && (
+        <div className="mb-6 bg-blue-50 text-blue-700 p-4 rounded-lg flex items-center gap-2 text-sm border border-blue-100">
+          <Info size={18} className="shrink-0" /> {infoMsg}
+        </div>
+      )}
+
 
       <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
         {/* Title AND bar are both derived from `processed` (files actually
@@ -1489,7 +1526,7 @@ const ImageEditor = ({ toolId }) => {
         <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
           {files.length === 0 ? (
             <div
-              className={`flex-1 border-2 border-dashed rounded-xl flex flex-col items-center justify-center p-8 transition-all cursor-pointer ${
+              className={`flex-1 border-2 border-dashed rounded-xl flex flex-col items-center justify-center p-8 transition-colors cursor-pointer ${
                 isDragging
                   ? "border-[#FF9933] bg-orange-50"
                   : "border-slate-300 hover:border-[#FF9933] hover:bg-orange-50"
@@ -1500,7 +1537,13 @@ const ImageEditor = ({ toolId }) => {
               }}
               onDragLeave={(e) => {
                 e.preventDefault();
-                setIsDragging(false);
+                // dragleave bubbles, and this zone has children (the icon
+                // circle, the heading, the accept-types pill). Without this
+                // guard, dragging across them fires dragleave on the container
+                // and the orange highlight strobes on and off as the cursor
+                // moves around inside the zone it is supposed to be lighting up.
+                if (!e.currentTarget.contains(e.relatedTarget))
+                  setIsDragging(false);
               }}
               onDrop={(e) => {
                 e.preventDefault();
@@ -1961,13 +2004,13 @@ const ImageEditor = ({ toolId }) => {
                     {tool.config.showRotate && (
                       <div className="flex gap-2 justify-center bg-slate-50 p-2 rounded border">
                         <button
-                          onClick={() => setRotation((r) => (r - 90) % 360)}
+                          onClick={() => setRotation((r) => r - 90)}
                           className="p-2 rounded hover:bg-slate-200 text-slate-600"
                         >
                           <RotateCcw size={20} />
                         </button>
                         <button
-                          onClick={() => setRotation((r) => (r + 90) % 360)}
+                          onClick={() => setRotation((r) => r + 90)}
                           className="p-2 rounded hover:bg-slate-200 text-slate-600"
                         >
                           <RotateCw size={20} />
@@ -2227,25 +2270,49 @@ const ImageEditor = ({ toolId }) => {
                               {formatBytes(compressionStats.original)}
                             </p>
                           </div>
+                          {/* "Before" never goes stale — it's the source file.
+                              These two do: while a re-encode is in flight they
+                              describe the PREVIOUS quality setting, and this tool's
+                              whole value proposition is that number. Dim them so
+                              they read as pending rather than as fact, then settle
+                              the new value in. The dim lives on the wrapper because
+                              animate-stat-settle is `both`-filled and would
+                              otherwise pin opacity and no-op it. */}
                           <div>
                             <p className="text-[10px] text-slate-400">After</p>
-                            <p className="text-xs font-bold text-[#FF9933]">
-                              {formatBytes(compressionStats.compressed)}
-                            </p>
+                            <div
+                              className={`transition-opacity duration-150 ${
+                                statsStale ? "opacity-45" : "opacity-100"
+                              }`}
+                            >
+                              <p
+                                key={compressionStats.compressed}
+                                className="text-xs font-bold text-[#FF9933] animate-stat-settle"
+                              >
+                                {formatBytes(compressionStats.compressed)}
+                              </p>
+                            </div>
                           </div>
                           <div>
                             <p className="text-[10px] text-slate-400">Saved</p>
-                            <p
-                              className={`text-xs font-bold ${
-                                compressionStats.isReverted
-                                  ? "text-slate-400"
-                                  : "text-green-400"
+                            <div
+                              className={`transition-opacity duration-150 ${
+                                statsStale ? "opacity-45" : "opacity-100"
                               }`}
                             >
-                              {compressionStats.isReverted
-                                ? "No Change"
-                                : `-${compressionStats.percent}%`}
-                            </p>
+                              <p
+                                key={`${compressionStats.compressed}-${compressionStats.percent}`}
+                                className={`text-xs font-bold animate-stat-settle ${
+                                  compressionStats.isReverted
+                                    ? "text-slate-400"
+                                    : "text-green-400"
+                                }`}
+                              >
+                                {compressionStats.isReverted
+                                  ? "No Change"
+                                  : `-${compressionStats.percent}%`}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>

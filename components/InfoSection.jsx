@@ -1,5 +1,5 @@
 import React from "react";
-import { Zap, Shield, ThumbsUp, CheckCircle2 } from "lucide-react";
+import { Zap, Shield, ThumbsUp, CheckCircle2, ChevronDown } from "lucide-react";
 
 // **text** ko bold karne ke liye (sirf UI display ke liye)
 const parseText = (text) => {
@@ -211,19 +211,33 @@ const InfoSection = ({ info }) => {
             {info.sectionHeadings?.faq || "Frequently Asked Questions"}
           </h2>
 
-          <div className="space-y-4">
+          {/* Native <details>, deliberately: this file is a server component, so
+              the accordion ships ZERO JavaScript and every answer stays in the
+              static HTML for crawlers. The first one opens so the block never
+              reads as empty. Until now these were plain divs — six always-open
+              answers per tool — while still carrying a hover:border affordance
+              that promised an interaction that didn't exist. */}
+          <div className="space-y-3">
             {info.faq.map((item, idx) => (
-              <div
+              <details
                 key={idx}
-                className="bg-white border border-slate-200 rounded-xl p-5 sm:p-6 shadow-sm hover:border-orange-200 transition"
+                open={idx === 0}
+                className="gpg-faq bg-white border border-slate-200 rounded-xl shadow-sm hover:border-orange-200 transition-colors"
               >
-                <h3 className="font-bold text-lg text-slate-800 mb-2">
-                  {item.q}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {parseText(item.a)}
-                </p>
-              </div>
+                <summary className="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer select-none rounded-xl active:bg-slate-50 touch-manipulation">
+                  <h3 className="font-bold text-lg text-slate-800">{item.q}</h3>
+                  <ChevronDown
+                    size={20}
+                    className="shrink-0 text-slate-400"
+                    aria-hidden="true"
+                  />
+                </summary>
+                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                  <p className="text-slate-600 leading-relaxed">
+                    {parseText(item.a)}
+                  </p>
+                </div>
+              </details>
             ))}
           </div>
         </section>

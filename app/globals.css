@@ -115,6 +115,50 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ===== FAQ accordion ====================================================
+   Native <details>, so InfoSection stays a server component, the block ships
+   zero JS, and all 182 answers across the 32 tools stay in the static HTML
+   where crawlers can read them.
+
+   This is the one place on the site that animates a layout property. It is
+   allowed here precisely because it can only ever run on an idle screen: the
+   processing overlay portals to <body>, covers the viewport, swallows pointer
+   events and locks scroll, so nobody can open an FAQ while pdf-lib has the
+   main thread. Everything else must stay on transform/opacity. */
+.gpg-faq summary::-webkit-details-marker {
+  display: none;
+}
+.gpg-faq summary::marker {
+  content: "";
+}
+
+.gpg-faq summary svg {
+  transition: transform 0.25s ease;
+}
+.gpg-faq[open] summary svg {
+  transform: rotate(180deg);
+}
+
+/* Progressive enhancement. Where ::details-content is supported the panel
+   eases open; everywhere else it simply snaps — same accordion, no ease, no
+   JavaScript either way. interpolate-size is scoped to the card rather than
+   :root so it can't quietly make every height:auto on the site animatable. */
+@supports selector(::details-content) {
+  .gpg-faq {
+    interpolate-size: allow-keywords;
+  }
+  .gpg-faq::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 0.28s ease,
+      content-visibility 0.28s allow-discrete;
+  }
+  .gpg-faq[open]::details-content {
+    block-size: auto;
+  }
+}
+
 /* ===== Processing overlay ==============================================
    Every animation here uses ONLY transform/opacity so it runs on the
    browser's compositor thread and keeps moving even while pdf-lib blocks
