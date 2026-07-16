@@ -221,19 +221,24 @@ const InfoSection = ({ info }) => {
             {info.faq.map((item, idx) => (
               <details
                 key={idx}
+                name="gpg-faq"
                 open={idx === 0}
                 className="gpg-faq bg-white border border-slate-200 rounded-xl shadow-sm hover:border-orange-200 transition-colors"
               >
-                <summary className="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer select-none rounded-xl active:bg-slate-50 touch-manipulation">
-                  <h3 className="font-bold text-lg text-slate-800">{item.q}</h3>
+                <summary className="flex items-start justify-between gap-3 sm:gap-4 p-4 sm:p-6 cursor-pointer select-none rounded-xl active:bg-slate-50 touch-manipulation">
+                  <h3 className="font-bold text-base sm:text-lg text-slate-800 leading-snug">
+                    {item.q}
+                  </h3>
+                  {/* mt-0.5 keeps the chevron on the first line of a question
+                      that wraps to two or three lines on a phone. */}
                   <ChevronDown
                     size={20}
-                    className="shrink-0 text-slate-400"
+                    className="shrink-0 mt-0.5 text-slate-400"
                     aria-hidden="true"
                   />
                 </summary>
-                <div className="px-5 sm:px-6 pb-5 sm:pb-6">
-                  <p className="text-slate-600 leading-relaxed">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                  <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
                     {parseText(item.a)}
                   </p>
                 </div>
