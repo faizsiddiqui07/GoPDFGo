@@ -98,7 +98,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
         },
         {
           q: "Is it safe to upload private documents like Bank Statements?",
-          a: "Yes, GoPDFGo is safer than offline software. Why? Because **no upload happens.** Your file stays in your browser's memory (RAM) and is processed by your own CPU. We physically cannot see, copy, or store your data. It vanishes when you close the tab."
+          a: "There is **nothing to upload** — that is the whole point. The moment you pick a file it is read into your browser and compressed by your own device's processor; it is never sent to us, and it clears the moment you close the tab. That makes a password-protected bank statement or an Aadhaar scan safer here than on any tool that copies it to a server first."
         },
         {
           q: "Can I compress PDF on Mac, iPhone, or Android?",
@@ -205,7 +205,7 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
         },
         {
           q: "Is it safe to merge confidential legal documents?",
-          a: "Yes. Since we use **Client-Side Processing**, your confidential legal agreements or financial records are never sent to a cloud server. It is as safe as using offline software like Adobe Acrobat, but free and without installation."
+          a: "Yes. The files are opened and stitched together **right on your device**, so a set of contracts or salary slips is never copied to a cloud server. It is as private as merging them in desktop software like Acrobat — just free, with nothing to install."
         },
         {
           q: "Does this tool work on mobile?",
@@ -466,7 +466,7 @@ Stop struggling with sideways documents. Make your PDFs professional and readabl
         },
         {
           q: "Is it safe to upload confidential scans?",
-          a: "Absolutely. With GoPDFGo, **uploading never happens**. The file is loaded into your browser's memory, rotated by your processor, and saved back to your disk. It never travels over the internet."
+          a: "There is **no upload step at all**. A scanned page is loaded into the browser, turned by your processor, and written straight back to your disk — it never leaves the machine you are sitting at. So even a signed agreement or an ID scan stays entirely with you."
         },
         {
           q: "Can I rotate multiple times?",
@@ -557,7 +557,7 @@ Turn your chaotic pile of digital pages into a structured, professional document
         },
         {
           q: "Is it safe for confidential papers?",
-          a: "Yes. GoPDFGo uses **Client-Side Processing**. Your legal agreements or thesis papers are processed in your browser's memory. We never see, store, or copy your files."
+          a: "Yes. The numbers are drawn onto the pages **by your own browser**, so a legal draft or an unpublished thesis is never sent anywhere. Nothing about the document — its text, its contents, its filename — reaches us."
         },
         {
           q: "Does it restart numbering for every file?",
@@ -652,7 +652,7 @@ Stop zipping files. Start creating professional PDFs instantly.`,
         },
         {
           q: "Is it safe for private photos?",
-          a: "Absolutely. We use **Client-Side Technology**. Your photos are processed in your browser's temporary memory and are wiped as soon as you close the tab. No one else ever sees them."
+          a: "Completely. Your photos are assembled into the PDF **inside the browser tab** and discarded the instant you close it. Nobody else ever sees them, which matters when the images are ID copies, medical reports, or personal documents."
         },
         {
           q: "Does it work on mobile?",
@@ -726,7 +726,7 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
       faq: [
         {
           q: "Is it safe to rearrange sensitive or confidential PDFs here?",
-          a: "Yes, absolutely. GoPDFGo utilizes strict **client-side processing**, meaning your PDF is processed using your device's own memory (RAM). It is never uploaded to the cloud, making it 100% safe for legal and financial documents."
+          a: "Yes. Reordering only shuffles pages within the copy **held in your device's memory** — the file is never sent to a server to be edited. That keeps it safe for anything sensitive, from financial records to legal filings."
         },
         {
           q: "Will changing the page order reduce the quality of my PDF?",
@@ -1322,7 +1322,7 @@ Make your web pages load faster and your emails send instantly with GoPDFGo.`,
         },
         {
           q: "Is it safe for private photos?",
-          a: "Yes. We use **Client-Side Technology**. Your photos are processed in your browser's temporary memory. We physically cannot see, copy, or sell your photos because they never touch our servers."
+          a: "Yes. Each photo is shrunk **by your own device** and never leaves the browser tab, so we cannot see, keep, or sell it — there is simply no copy on our side. Personal pictures and scanned documents stay yours."
         },
         {
           q: "Can I revert the compression?",
@@ -1502,7 +1502,7 @@ Maximize your site speed and SEO rankings by serving the lightest possible WebP 
         },
         {
           q: "Can I process confidential assets?",
-          a: "Yes. We use **Client-Side Technology**. If you are working on a secret project or an NDA-protected website, you can safely use GoPDFGo because the files are processed locally on your machine, never uploaded."
+          a: "Yes. Because the optimisation runs **on your own machine**, an unreleased design or an NDA-covered asset is never uploaded anywhere. You can compress a whole folder of client images without a single one leaving your computer."
         },
         {
           q: "How does this affect image quality?",
@@ -1667,7 +1667,7 @@ Stop struggling with complex software like Photoshop. Resize your images instant
         },
         {
           q: "Is it safe to resize personal photos?",
-          a: "Absolutely. With GoPDFGo, **no file transfer occurs**. Your photos are resized in your browser's memory. We never see, copy, or store your images."
+          a: "Absolutely. Resizing happens **entirely on your device** — no file is transferred, so there is no copy for anyone to see or store. A passport photo or a family picture is resized and handed straight back to you."
         },
         {
           q: "How do I resize for Instagram?",
@@ -1762,7 +1762,7 @@ Take control of your photo's composition and create the perfect frame with GoPDF
         },
         {
           q: "Is it safe to crop private photos here?",
-          a: "Yes. GoPDFGo uses **Client-Side Processing**. Your photo is loaded into your browser's memory, edited there, and saved back to your disk. It never travels over the internet to a server."
+          a: "Yes. The crop is applied **by your browser** and the trimmed image saved straight back to your disk, so the photo never reaches a server. Whatever you cut out — a background, a document edge — stays on your device."
         },
         {
           q: "How do I crop into a perfect square?",
@@ -1853,7 +1853,7 @@ Make the switch to WebP today and watch your digital assets become lighter and f
         },
         {
           q: "Is it safe to convert private images?",
-          a: "Absolutely. GoPDFGo uses **Client-Side Processing**. Your images are converted by your own computer's processor within the browser window. They are never sent to any external server."
+          a: "Yes. The re-encoding to WebP is done **by your own computer** inside the browser window; the images are never sent to an external service. Private or client-owned pictures stay entirely with you."
         },
         {
           q: "Can I convert WebP back to JPG later?",
@@ -1948,7 +1948,7 @@ Stop worrying about "File Format Not Supported" errors. Switch to JPG with GoPDF
         },
         {
           q: "Is it safe for personal photos?",
-          a: "Absolutely. We use **Client-Side Processing**. Your photos are converted in your browser's memory and saved back to your disk. They are never sent to the cloud, so your privacy is guaranteed."
+          a: "Yes. Each image is converted to JPG **on your device** and written back locally — nothing goes to the cloud. So converting a personal photo or a scanned ID exposes it to no one but you."
         },
         {
           q: "Why convert WebP to JPG?",
@@ -2034,7 +2034,7 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
         },
         {
           q: "Is it safe to convert private scans?",
-          a: "Yes. GoPDFGo uses **Client-Side Processing**. Your scanned IDs or contracts are converted inside your browser's memory and saved back to your disk. We never see or store your files."
+          a: "Yes. A scanned ID or contract is converted to PNG **inside your browser** and saved straight back to you; no copy is uploaded or kept. The tool never sees the contents of what you convert."
         },
         {
           q: "Can I print PNG files?",
@@ -2355,7 +2355,7 @@ Stop craning your neck. Fix your photo's orientation instantly with GoPDFGo.`,
         },
         {
           q: "Is it safe to rotate private photos?",
-          a: "Yes. GoPDFGo uses **Client-Side Processing**. Your family photos or private scans are edited in your browser's memory. We never upload, store, or view your images."
+          a: "Yes. Rotating happens **on your own device**, so family photos or private scans are never uploaded, stored, or viewed by us. The corrected image is written straight back to your disk."
         },
         {
           q: "Can I rotate multiple images at once?",
@@ -2446,7 +2446,7 @@ Correct your perspective and create stunning symmetrical art with GoPDFGo.`,
         },
         {
           q: "Is it safe to edit personal photos?",
-          a: "Yes. GoPDFGo uses **Browser-Based Processing**. Your image is loaded into your browser's memory, flipped there, and saved back. It never travels over the internet to a server."
+          a: "Yes. The mirror is applied **inside your browser** and the result saved back locally — the photo never travels to a server. Whatever you are flipping stays entirely on your device."
         },
         {
           q: "Can I flip multiple images at once?",
@@ -2537,7 +2537,7 @@ Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
         },
         {
           q: "Is it safe to upload client work?",
-          a: "Yes. GoPDFGo uses **Client-Side Technology**. Your client's logos or UI mockups are analyzed in your browser's memory. We never upload or store these images, protecting your intellectual property."
+          a: "Yes. A logo or mockup is read by the browser **only to sample its colours**; the image itself is never uploaded or stored, so a client's unreleased work and your NDA stay intact."
         },
         {
           q: "What formats do you support?",
