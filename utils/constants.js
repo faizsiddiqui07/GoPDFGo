@@ -59,6 +59,30 @@ Our advanced algorithm uses a multi-layered approach to shrink files by up to 90
 Experience the fastest, safest, and most efficient way to optimize your documents with GoPDFGo.`,
 
       // 2. WHY USE THIS TOOL? (Matches Screenshot 2 - 3 Cards)
+      walkthrough: {
+        heading: "A real example: shrinking a scanned statement",
+        body: `GoPDFGo compresses a PDF in two different ways and picks the right one for your file. For a normal text PDF it does a **lossless re-save** — stripping metadata, unused fonts, and duplicated data — so the text stays fully selectable and the size drops with no visible change. For a scanned or image-heavy PDF, where most of the weight is pictures, it optimises those page images instead, and that is where the big reductions come from.
+
+Here is what that looks like in practice. Take a 4 MB scanned statement. In **Best compression** mode you will usually get it down to a few hundred kilobytes with the pages still crisp on screen — a typical scan loses somewhere around 60-80% of its size. If a form insists on a hard limit, switch to **Target size** mode, tap a preset like 200 KB or type your own number, and the tool works down toward that figure. To hit a very small target it flattens each page into an image, so the text stops being selectable and goes slightly softer — a fair trade when a portal simply refuses anything above the cap.
+
+One guarantee runs through both modes: GoPDFGo never hands you a file bigger than the one you started with. If your PDF is already optimised, or is pure text with no images, there is little to remove — and the tool tells you so instead of inflating it.
+
+Working with several files? [Merge them into one PDF](/merge-pdf) first, or [extract just the pages you need](/extract-pdf-pages) before compressing — a smaller starting document almost always compresses better. If your file is a scanned image set, [converting your photos to a PDF](/image-to-pdf) cleanly before compression also helps.`,
+        troubleshooting: [
+          {
+            problem: "The file barely got smaller",
+            fix: "That usually means it is already a lean, text-only PDF with no heavy images to optimise. Compression saves the most on scans and photo-heavy files, often 40-80%; a plain text report may only lose a little.",
+          },
+          {
+            problem: "My text is no longer selectable after compressing",
+            fix: "You were in Target size mode and asked for a very small limit, so the tool flattened the pages into images to reach it. If you need the text to stay selectable, use Best compression mode instead, or set a more generous target.",
+          },
+          {
+            problem: "It says it could not reach my target size",
+            fix: "Some documents cannot shrink to a tiny number without becoming unreadable, so the tool stops at the smallest clear version it can produce rather than wrecking the file. Try a slightly larger target.",
+          },
+        ],
+      },
       features: [
         {
           title: "Smart Hybrid Compression",
@@ -154,6 +178,28 @@ Traditional PDF websites work by uploading your files, processing them on a remo
 Stop wasting time with slow uploads and daily limits. Combine your PDFs securely and instantly with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: building one application PDF from three files",
+        body: `Say you are assembling a job or visa application: a cover letter exported from your word processor, a scanned ID, and a two-page marksheet. Drop all three in, then drag them into the order the form expects — cover letter first, ID second, marksheet last. The file sitting at the top becomes page one of the output. GoPDFGo stitches them in that exact sequence, entirely inside your browser, and hands back a single PDF.
+
+Mixed formats are fine. Your cover letter might be Letter size and portrait while the marksheet scan is A4 — the tool keeps each page at its own size and orientation instead of stretching everything to match, so nothing gets distorted.
+
+One thing worth knowing: if one of your files is password-protected or unreadable, Merge PDF does not fail the whole job. It skips that file, finishes the rest, and tells you by name which ones it left out. If a locked file has to be in there, [remove its password first](/unlock-pdf) and merge again. Once everything is combined, you can [reorder or remove individual pages](/organize-pdf) if something landed out of sequence, or [shrink the finished PDF](/compress-pdf) when the merged result is too heavy for an upload form.`,
+        troubleshooting: [
+          {
+            problem: "A file is missing from the merged PDF",
+            fix: "It was password-protected or corrupted, so the tool skipped it rather than fail everything — check the list of skipped names it shows. Unlock or re-export that file, then merge again.",
+          },
+          {
+            problem: "The pages came out in the wrong order",
+            fix: "The sequence follows the file list top to bottom, not the file names. Drag the files into the order you want before merging; whatever sits at the top becomes page one.",
+          },
+          {
+            problem: "The combined file is very large",
+            fix: "Merging keeps every page at full quality, so several scans stack up fast. Run the result through Compress PDF afterward, or leave out any files you do not actually need in the final document.",
+          },
+        ],
+      },
       features: [
         {
           title: "Visual Drag & Drop Editor",
@@ -243,6 +289,28 @@ With GoPDFGo you open the PDF, tick the pages you actually want, and download th
 Taking a screenshot of a page destroys its quality and makes the text unsearchable. Using the browser's "Print to PDF" function often ruins the formatting, strips clickable links, and bloats the file size. Our tool structurally splits the PDF at the code level, ensuring that the extracted pages retain their exact original quality, vector graphics, and crystal-clear text without any loss.`,
 
       // 2. WHY USE THIS TOOL?
+      walkthrough: {
+        heading: "A real example: pulling your page out of a 500-page merit list",
+        body: `Say a university posts results as one 500-page PDF and your roll number sits on page 213. Open the file in GoPDFGo, scroll the thumbnail view, tick page 213, and download it as a fresh one-page PDF. Or skip the scrolling and type 213 straight into the page box — same result. The extraction is a **lossless copy**: your name, the seal, and the vector text come across exactly as they were, still selectable and print-sharp, unlike a screenshot.
+
+The tool handles two shapes of selection. A **continuous range** like 10-25 pulls a whole block — handy for lifting one chapter out of a heavy textbook. Scattered hand-picks such as 1, 5, 8-12 gather pages from all over the document into a single new PDF, not a zip of loose files. The original stays untouched on your device the whole time, so you can open a confidential contract just to pull its signature page without copying the rest.
+
+Extraction pairs well with the next step. If you would rather cut a few unwanted pages and keep everything else, [delete the pages you do not need](/delete-pdf-pages) instead. Pulling scattered sections out of several documents? [Merge them into one PDF](/merge-pdf) first, then extract across the combined file. And if the finished PDF is still too heavy to email, [compress the extracted file](/compress-pdf) before you send it.`,
+        troubleshooting: [
+          {
+            problem: "The page I extracted was not the one I expected",
+            fix: "The tool counts every physical page from 1, including cover sheets, blank pages, and roman-numeral front matter, so the printed page number often runs ahead of the real one. Use the visual thumbnail view and tick the actual page rather than trusting the number printed on it.",
+          },
+          {
+            problem: "My single extracted page is still a big file",
+            fix: "That is expected. Extraction is a lossless copy, so a page carrying a full-size scan or high-resolution photo keeps its full weight instead of shrinking. Run the result through the Compress PDF tool afterwards if you need it lighter for an upload or email.",
+          },
+          {
+            problem: "I wanted each page saved as its own separate file",
+            fix: "Extraction always stitches your chosen pages into ONE new PDF, never a folder of loose files. If you need one file per page, use the Split PDF tool instead, which is built to break a document into several separate outputs.",
+          },
+        ],
+      },
       features: [
         {
           title: "100% Lossless Extraction",
@@ -329,6 +397,28 @@ We use a fast, browser-based engine to bring desktop-class performance right to 
 Take control of your documents. Stop sharing bulky files and start sharing only what matters.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: emailing a report that is over the limit",
+        body: `Split PDF works two ways, and the output depends on what you type. Give it a single page range like 1-20 and you get back one smaller PDF. Give it several ranges like 1-20, 21-40, 41-60 and each range becomes its own PDF, bundled together in a single ZIP. Either way the pages are copied across untouched — nothing is re-rendered — so text stays fully selectable and the layout is identical to the original.
+
+Say you have a 40 MB annual report that Gmail rejects because attachments cap at 25 MB. Open the file, type two ranges — 1-30 and 31-60 — and split. You get a ZIP holding two roughly 20 MB PDFs, each small enough to attach. If one half still lands over the limit, run that part through [Compress PDF](/compress-pdf) to shrink the heavy scanned pages. Prefer one file per page instead of ranges? Choose **Extract All** and every page is saved as its own PDF inside the ZIP.
+
+When the recipient needs the whole document back later, [merge the parts into one PDF](/merge-pdf) in original order. And if the report is locked and the tool cannot read it, [remove the password first](/unlock-pdf) so the splitter can see the pages — since everything runs on your device, that password never leaves it.`,
+        troubleshooting: [
+          {
+            problem: "I expected one PDF but got a ZIP file",
+            fix: "That happens whenever you enter more than one range. A single range like 1-20 downloads as one plain PDF; multiple ranges, or Extract All, are packaged together in a ZIP so nothing gets lost.",
+          },
+          {
+            problem: "The split grabbed the wrong pages",
+            fix: "Ranges follow the PDF's real page order, which can differ from the numbers printed on the page. A cover or blank page shifts everything, so count from the first page of the file, not from the printed page number.",
+          },
+          {
+            problem: "The parts are still too big to email",
+            fix: "Splitting divides page count, not file weight. If your pages are heavy scans, each part can stay large. Split into smaller ranges, or compress the oversized part before you send it.",
+          },
+        ],
+      },
       features: [
         {
           title: "Precision Extraction",
@@ -601,6 +691,28 @@ Most "free" converters require you to upload your personal photos to a cloud ser
 Stop zipping files. Start creating professional PDFs instantly.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: turning phone photos into one PDF",
+        body: `GoPDFGo places each image on its own PDF page and lets you decide how that page is shaped. Pick **A4** or **US Letter** and every photo is centred and auto-scaled to fit inside standard margins, so nothing gets stretched or cut off — handy when the document has to print cleanly later. Pick **Fit to image** and each page is sized to match that exact photo, with no border, which suits screenshots or artwork where a white frame would look wrong. You can also set portrait or landscape for the whole batch.
+
+Say you are photographing the front and back of an ID for an upload slot that only accepts one file. Add both shots, then check the order — the thumbnails run top to bottom, so the first one becomes page 1. Drag them if the back ended up first. Choose A4 portrait, convert, and you get a single two-page PDF with both sides centred on the page. The same flow works for a stack of taxi and meal receipts shot on your phone: drop them all in, drag them into date order, and export one tidy document instead of ten loose images.
+
+A couple of steps pair well with this. If a photo has your desk or a dark edge in the frame, [crop the image first](/crop) so the page looks deliberate. If the finished PDF is too heavy for a portal that caps uploads, [compress the PDF](/compress-pdf) before sending. And if you already have a PDF to attach it to, [merge the two into one file](/merge-pdf) afterwards.`,
+        troubleshooting: [
+          {
+            problem: "The pages came out in the wrong order",
+            fix: "Order follows the thumbnails, and the first thumbnail is always page 1. Drag them into the sequence you want before you convert — the tool does not sort by filename or capture time.",
+          },
+          {
+            problem: "There is a lot of white space around my image",
+            fix: "A4 and US Letter add margins so the page prints cleanly, which leaves a border around smaller or oddly shaped photos. Switch to Fit to image for a borderless page that matches each photo exactly.",
+          },
+          {
+            problem: "A photo shows up sideways in the PDF",
+            fix: "The converter reads each photo orientation tag and turns it upright on its own. If one still looks rotated, that tag was likely stripped by a screenshot or edit — set the batch to landscape, or rotate the image before adding it.",
+          },
+        ],
+      },
       features: [
         {
           title: "Smart Auto-Fit Layout",
@@ -771,6 +883,28 @@ Stop struggling with messy documents. Reorder your PDF pages securely and instan
       intro: `Sometimes you don't need a whole PDF — you just need a picture of a page. Maybe a portal only accepts JPG uploads, you want to share a single page on WhatsApp, or you need to drop a page into a presentation. GoPDFGo's **PDF to JPG/PNG** tool turns your PDF pages — all of them, or just the ones you select — into crisp, high-resolution images, right inside your browser.
 
 Like all our tools, this runs **100% on your device** right inside your browser — your document is never uploaded to a server. Choose JPG for small, share-friendly files or PNG for lossless, transparent-friendly quality. If your PDF has multiple pages, we neatly bundle all the images into a single ZIP for you.`,
+      walkthrough: {
+        heading: "A real example: pulling one page out of a PDF as a JPG",
+        body: `Say you have a 10-page contract but a job portal only wants a JPG of the signature page. Drop the PDF in and every page starts selected — untick the nine you don't need so only the last page converts. Pick JPG, and because a single page produces a single image, you get one file straight back. Leave several pages ticked and GoPDFGo bundles them into one ZIP instead, so nothing gets lost in a long download list.
+
+The format switch matters more than it looks. **JPG** gives you the smallest file, which is what most upload forms and chat apps prefer. Switch to **PNG** when you need crisp edges or a transparent background — a logo page, or a diagram you'll drop into a slide. Both render at a high DPI, so text stays sharp when someone zooms in; the real difference is file size, not clarity. If a form still rejects your JPG for being too large, nudge the quality level down a notch before re-exporting.
+
+Once you have the images you can keep going. [Shrink the JPG a bit more](/compress-jpg) before uploading, or [turn a batch of images back into one PDF](/image-to-pdf) if the portal changes its mind. And if what you actually wanted was the wording rather than a picture, [pull the text straight out of the PDF](/pdf-to-text) instead of converting to an image.`,
+        troubleshooting: [
+          {
+            problem: "I got a ZIP when I only wanted one image",
+            fix: "More than one page was still selected. Untick every page except the one you need — a single selected page comes back as a single image, no ZIP.",
+          },
+          {
+            problem: "The JPG is still too big for the upload form",
+            fix: "Lower the quality level and re-export, and make sure you are on JPG rather than PNG. PNG files are lossless and usually much larger than the same page as a JPG.",
+          },
+          {
+            problem: "Fine text looks soft when I zoom into the image",
+            fix: "JPG compression can soften small text at lower quality settings. Raise the quality level, or switch to PNG, which is lossless and keeps edges crisp.",
+          },
+        ],
+      },
       features: [
         {
           title: "High-Resolution Output",
@@ -1262,6 +1396,28 @@ Most online compressors work by uploading your photos to a remote server. This i
 Make your web pages load faster and your emails send instantly with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a 2 MB photo down under 1 MB",
+        body: `Compress JPG gives you two ways to shrink a photo, and the right one depends on why you are compressing. Drag the **quality slider** when you just want a smaller file — the live before/after preview lets you stop the moment the image still looks sharp. In our own test a 2.15 MB JPEG dropped to about 977 KB, well under half, with no obvious change on screen. The tool never hands back a file larger than the one you put in, so you can push the slider without it ever backfiring.
+
+The second mode is **Target Size (KB)**. Pick a preset — 20, 50, 100, 200 or 500 KB — or type your own number, and the tool lowers quality and, if it has to, downscales the image until it lands under that limit. This is the mode for exam and government forms, where many portals cap a photo or signature at a specific KB and reject anything larger. One aggressive pass also strips the EXIF metadata, so the GPS location and camera model your phone baked into the file are gone — a quiet privacy win.
+
+A couple of things worth knowing. This tool only outputs JPEG, so if your source is an iPhone HEIC file, [convert HEIC to JPG first](/heic-to-jpg), and for screenshots saved as PNG reach for [the dedicated PNG compressor](/compress-png) instead. Batch-compressing a set of shots for a single upload? You can [combine the images into one PDF](/image-to-pdf) afterwards.`,
+        troubleshooting: [
+          {
+            problem: "Target Size mode left the photo looking soft or blocky",
+            fix: "A very small cap like 20 KB forces heavy quality loss and downscaling on a large image. Crop or resize the photo down to the dimensions the form actually needs first, then the tool has far less to throw away to hit the limit.",
+          },
+          {
+            problem: "The file barely got smaller",
+            fix: "It is already a lean, heavily compressed JPEG with little left to remove. Because the tool refuses to output anything bigger than the original, it simply stops rather than bloat the file back up.",
+          },
+          {
+            problem: "The location and camera details vanished after compressing",
+            fix: "That is expected. Aggressive compression strips the EXIF metadata, including GPS coordinates and camera model, which is a privacy feature rather than a bug. If you need that data, keep a copy of the original before you compress.",
+          },
+        ],
+      },
       features: [
         {
           title: "Intelligent Lossy Compression",
@@ -1620,6 +1776,28 @@ Resizing often involves personal photos or sensitive documents like signatures. 
 Stop struggling with complex software like Photoshop. Resize your images instantly and securely right here.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a phone photo into a 400x400 profile picture",
+        body: `Say you have a photo straight off your phone and a site that wants a **400x400** profile picture. That photo is several thousand pixels on each side — far bigger than the slot needs. Tap the **Profile 400x400** preset (or **Passport 200x230**, **HD 1280x720**, **Square 1080**, or just type your own width and height), then click **Apply Changes** and download. For a picture that is already square, that is the whole job.
+
+The catch is that a phone photo is usually a tall rectangle, not a square. With **Lock aspect ratio** on, setting the width to 400 leaves the height taller than 400, so you never get a true 400x400. Turn the lock off and you do get exactly 400x400 — but the face looks squashed. The clean fix is to [crop the photo to a square first](/crop), then resize that square down to 400x400 with the lock on, so nothing distorts. If the photo came off an iPhone as a HEIC file, [convert it to JPG first](/heic-to-jpg) so the resizer can open it.
+
+Resizing also changes format on the way out: load a PNG and save the smaller copy as a JPG to shed weight, or keep it as PNG to protect a transparent background. Fewer pixels means a smaller file on its own, but if a form still caps the upload in kilobytes, run the result through [Compress JPG](/compress-jpg) to land under the limit.`,
+        troubleshooting: [
+          {
+            problem: "The resized photo looks stretched or squashed.",
+            fix: "You forced a rectangular image into a different shape — usually a square target with Lock aspect ratio turned off. Crop the image to the shape you need first, then resize with the lock on so the proportions stay correct.",
+          },
+          {
+            problem: "I typed new dimensions but the image did not change.",
+            fix: "Entering a width and height only sets the target. You have to click Apply Changes to actually redraw the image at the new size before you download it.",
+          },
+          {
+            problem: "My transparent PNG came out with a white background.",
+            fix: "You saved it as a JPG, and JPG cannot store transparency. Choose PNG as the output format instead and the transparent background is preserved.",
+          },
+        ],
+      },
       features: [
         {
           title: "Lock Aspect Ratio",
@@ -1715,6 +1893,28 @@ Cropping often involves personal photos—your selfies, family pictures, or docu
 Take control of your photo's composition and create the perfect frame with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: cropping a selfie into a square profile picture",
+        body: `GoPDFGo crops entirely in your browser with a visual selector, so there are no numbers to guess at. You open a photo, then click and drag a box over the part you want to keep. Everything outside the box dims so you can see exactly what will be removed, and small handles on the corners and sides let you nudge the edges until the frame is right.
+
+Take a rectangular phone selfie you want to use as a square profile picture. Drag a box around your face, grab a corner handle, and pull until the width and height look roughly equal, then apply the crop and download. Because cropping only discards the outer pixels, the part you keep stays at its original sharpness — nothing is stretched or re-compressed. That is the real difference from [resizing an image](/resize), which scales the whole photo up or down instead of cutting anything away.
+
+The same move tightens a cluttered product shot or trims a photobomber out of the edge of a frame. Cropped photos are often headed somewhere with a size limit, so once you have the framing you want you can [compress the JPG](/compress-jpg) to shrink the file, or [convert it to a lossless PNG](/convert-png) if you plan to keep editing it. The tool works on JPG, PNG, and WebP, and your image never leaves your device.`,
+        troubleshooting: [
+          {
+            problem: "The crop box will not lock to a perfect square",
+            fix: "There is no numeric aspect-ratio lock — drag the corner handles and watch the box until the width and height look equal. For a profile picture, eyeball a square frame around your subject before you apply.",
+          },
+          {
+            problem: "The cropped image is still a fairly large file",
+            fix: "Cropping removes the outer pixels but a high-resolution photo can still be heavy. Run the trimmed image through the compress tool afterwards to bring the file size down.",
+          },
+          {
+            problem: "I trimmed off too much and want it back",
+            fix: "Once you apply and download, the removed areas are gone from that new file. Your original on disk is untouched, so open it again and draw a wider crop box.",
+          },
+        ],
+      },
       features: [
         {
           title: "Intuitive Visual Editor",
@@ -2074,6 +2274,28 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
 HEIC (High Efficiency Image Container) is genuinely clever — it keeps photos sharp while using roughly half the space of a JPG. The catch is that most of the world hasn't caught up. Android phones, Windows, a lot of government and exam portals, and countless websites still expect a plain old **JPG**. So an iPhone photo that looks perfect on your phone becomes a headache the moment it leaves it.
 
 GoPDFGo's **HEIC to JPG** tool fixes that in seconds. Drop in your iPhone photos and get back universal **JPG, PNG, or WebP** files that open and upload anywhere. And because everything runs **inside your browser**, your photos are never uploaded to a server — which matters, because the photos you're converting are often personal ones.`,
+      walkthrough: {
+        heading: "A real example: getting an iPhone photo onto a job portal",
+        body: `GoPDFGo decodes your HEIC or HEIF photo on your own device and re-encodes it to the format you pick. The default is **JPG at high quality**, which is the sweet spot for almost every photo — visually the same as the original, but a file that opens and uploads anywhere. You can switch the output to PNG or WebP, though for forms, portals, and sharing, plain JPG is the safe choice. Dropping in a whole folder of iPhone shots works too; you get them back as a single ZIP.
+
+Take a photo you need to attach to a job application. It looks perfect on your phone, but your Windows laptop won't preview it and the portal rejects the .heic upload. Drop it here, leave the format on JPG, convert, and you get a file every uploader accepts. If that portal also enforces a size cap, run the result through [Compress JPG](/compress-jpg). If the form wants a single document instead of separate images, send your converted photos through [Image to PDF](/image-to-pdf), or [resize them to the required dimensions](/resize) first.
+
+Most HEIC files convert cleanly, but a few won't decode in the browser — usually Live Photos and some HDR or 10-bit HEIC files. When one fails, the reliable fix is on the phone: open the photo, tap Share, and export it as JPG, or set your iPhone camera to Most Compatible so new shots save as JPG from the start.`,
+        troubleshooting: [
+          {
+            problem: "A photo failed to convert or came out blank",
+            fix: "It is very likely a Live Photo or an HDR/10-bit HEIC that the browser cannot decode. Open it on your iPhone, tap Share, and export it as a JPG, or set Settings > Camera > Formats to Most Compatible and re-export.",
+          },
+          {
+            problem: "The portal still rejects the converted file",
+            fix: "It is probably enforcing a size or dimension limit, not a format one. Shrink the JPG with Compress JPG or resize it smaller, then upload the lighter file.",
+          },
+          {
+            problem: "My file ends in .heif, not .heic — will it work?",
+            fix: "Yes. The tool accepts both .heic and .heif, which are the same underlying format. Drop it in and convert exactly the same way.",
+          },
+        ],
+      },
       features: [
         {
           title: "JPG, PNG, or WebP — Your Choice",
@@ -2308,6 +2530,28 @@ We prioritize speed, quality, and privacy using **Client-Side Technology**:
 Stop craning your neck. Fix your photo's orientation instantly with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a photo that keeps reverting sideways",
+        body: `GoPDFGo rotates in fixed quarter-turns — 90, 180, or 270 degrees — and, crucially, it bakes that turn into the exported file instead of only spinning it on screen. That distinction is the whole point. A photo viewer or gallery app often just displays the image rotated and quietly reverts the moment you upload it to a form or email it to someone, undoing your fix.
+
+Take a page you scanned in a hurry that came out lying on its side. Open it here, turn it 90 degrees the right way, and if something is fully upside down, two turns gives you the 180. Because the tool rewrites the actual pixels and re-exports the file, it stays the right way up wherever it lands next — an exam portal, an email attachment, a printed sheet. You can also change format on the way out: rotate a PNG screenshot and save it as a JPG in the same step, which keeps things simple when a form wants a specific type.
+
+Only need a mirror rather than a turn? Flip it horizontally with the [flip image tool](/flip). If the orientation is right but the edges are messy, [crop the image](/crop) afterward, or [convert it to JPG](/convert-jpg) if a portal only accepts that format.`,
+        troubleshooting: [
+          {
+            problem: "It looks upright in my phone gallery but shows up sideways on the website.",
+            fix: "Your camera saved the orientation as a hidden EXIF tag that some apps read and others ignore. Rotating here bakes the turn into the pixels themselves, so every app shows it the same way.",
+          },
+          {
+            problem: "My photo is only slightly tilted, not turned a full quarter.",
+            fix: "This tool works in fixed 90, 180, and 270 degree steps, so it fixes camera and scanner quarter-turns, not small leans. It cannot straighten an arbitrary angle.",
+          },
+          {
+            problem: "I have a whole folder of sideways scans to fix at once.",
+            fix: "The rotate tool handles one image at a time by design, so rotate and download each in turn. There is no batch mode on this page.",
+          },
+        ],
+      },
       features: [
         {
           title: "Standard Angle Control",
@@ -2666,6 +2910,28 @@ GoPDFGo’s **Free QR Code Generator** is different. We generate **Static QR Cod
 Create professional, high-resolution QR codes instantly without signing up.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a Wi-Fi sign for the reception desk",
+        body: `Say you want guests to join your **Wi-Fi** without reading out a long password. Pick the Wi-Fi option, type the network name and password exactly as they appear (both are case-sensitive), then hit **Generate** and the code appears in the preview panel. The data lives inside the pattern itself, so the code never expires behind a subscription and no server sits between the scanner and your details. If the Generate button looks greyed out for a second, that is just the QR engine loading from a CDN — give it a moment and it wakes up.
+
+For a small laminated card on the desk, **512px** is plenty; for a poster on the wall, download the **1024px** version so the squares stay crisp when blown up. Error correction is the trade-off worth knowing: raising it from M up to H lets the code still scan after it gets scuffed or a coffee ring lands on it, but it packs in more squares, so print it a little larger to keep them readable. Always test-scan the screen with your phone before you send anything to the printer.
+
+Once you download the PNG, [drop it onto a printable page](/image-to-pdf) next to your logo to make a finished sign. If the code points to a hosted file like a menu, [compress that PDF first](/compress-pdf) so it opens fast on a phone, and [shrink the PNG itself](/compress-png) when you only need it small on a web page.`,
+        troubleshooting: [
+          {
+            problem: "The printed code will not scan, or only reads when the camera is very close.",
+            fix: "A high error-correction level like H packs more squares into the same area, so it needs more room. Drop to M or Q, or print a larger size such as 1024px, so each square stays big enough for a phone camera to pick out.",
+          },
+          {
+            problem: "The Generate button is greyed out and clicking does nothing.",
+            fix: "The QR engine loads from a CDN the first time you open the tool, so the button stays disabled for a second or two on a slow connection. Wait for it to enable, or refresh the page if it never becomes clickable.",
+          },
+          {
+            problem: "I already printed the code and now my link has changed, so it is dead.",
+            fix: "These are static codes — the destination is baked into the pattern and cannot be edited after generating, so you will need to make a fresh one. Next time, encode a short redirect link you control rather than the raw URL, then repoint that link without reprinting.",
+          },
+        ],
+      },
       features: [
         {
           title: "Static & Permanent",

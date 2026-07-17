@@ -1,10 +1,12 @@
 import React from "react";
+import Link from "next/link";
 import { Zap, Shield, ThumbsUp, CheckCircle2, ChevronDown } from "lucide-react";
 
-// **text** ko bold karne ke liye (sirf UI display ke liye)
+// Renders **bold** and [anchor text](/internal-route) inside content strings.
+// The link form is used for SEO-rich internal linking between related tools.
 const parseText = (text) => {
   if (!text || typeof text !== "string") return text;
-  const parts = text.split(/(\*\*.*?\*\*)/g);
+  const parts = text.split(/(\*\*.*?\*\*|\[[^\]]+\]\([^)]+\))/g);
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
@@ -13,13 +15,27 @@ const parseText = (text) => {
         </strong>
       );
     }
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      return (
+        <Link
+          key={index}
+          href={link[2]}
+          className="text-[#FF9933] font-semibold hover:underline"
+        >
+          {link[1]}
+        </Link>
+      );
+    }
     return part;
   });
 };
 
-// JSON-LD ke liye markdown stars hata kar plain text
+// JSON-LD ke liye markdown hata kar plain text (bold + link syntax dono)
 const plainText = (text) =>
-  typeof text === "string" ? text.replace(/\*\*/g, "") : "";
+  typeof text === "string"
+    ? text.replace(/\*\*/g, "").replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    : "";
 
 const InfoSection = ({ info }) => {
   if (!info) return null;
@@ -57,6 +73,46 @@ const InfoSection = ({ info }) => {
           <p className="whitespace-pre-line text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
             {parseText(info.intro)}
           </p>
+        </section>
+      )}
+
+      {/* 🔹 WALKTHROUGH — a real worked example + common problems and fixes.
+          Unique, tool-specific reference content (not templated marketing copy),
+          which is what a page needs to read as genuinely useful. */}
+      {info.walkthrough && (
+        <section className="max-w-4xl mx-auto mt-10 sm:mt-14">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-4 sm:mb-6">
+            {info.walkthrough.heading || "A real example, step by step"}
+          </h2>
+          {info.walkthrough.body && (
+            <div className="whitespace-pre-line text-slate-600 leading-relaxed space-y-4">
+              {parseText(info.walkthrough.body)}
+            </div>
+          )}
+
+          {info.walkthrough.troubleshooting &&
+            info.walkthrough.troubleshooting.length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-lg font-bold text-slate-800 mb-4">
+                  Common problems and how to fix them
+                </h3>
+                <div className="space-y-3">
+                  {info.walkthrough.troubleshooting.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5"
+                    >
+                      <p className="font-bold text-slate-800 mb-1">
+                        {item.problem}
+                      </p>
+                      <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
+                        {parseText(item.fix)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
         </section>
       )}
 
