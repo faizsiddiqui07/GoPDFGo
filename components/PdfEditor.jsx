@@ -1739,6 +1739,15 @@ const PdfEditor = ({ toolId }) => {
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
           <tool.icon size={28} className="text-orange-500" /> {tool.title}
         </h1>
+        {/* A real lead paragraph above the widget: the first screen used to be
+            "title + tool UI" with all editorial content below the fold, which is
+            what makes a tool page read as low-value. Renders only when the tool
+            defines it, so tools without one degrade cleanly. */}
+        {tool.leadIn && (
+          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+            {tool.leadIn}
+          </p>
+        )}
       </div>
 
       <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">

@@ -1486,6 +1486,12 @@ const ImageEditor = ({ toolId }) => {
           <tool.icon size={28} className="text-blue-500" />
           {tool.title}
         </h1>
+        {/* Lead paragraph above the widget — see PdfEditor for the why. */}
+        {tool.leadIn && (
+          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+            {tool.leadIn}
+          </p>
+        )}
       </div>
 
       {imgError && (

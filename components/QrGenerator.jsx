@@ -136,6 +136,12 @@ const QrGenerator = ({ toolId }) => {
           <tool.icon size={28} className="text-purple-500" /> {/* Ensure icon renders properly */}
           {tool.title}
         </h1>
+        {/* Lead paragraph above the widget — see PdfEditor for the why. */}
+        {tool.leadIn && (
+          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+            {tool.leadIn}
+          </p>
+        )}
       </div>
 
       <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-125">

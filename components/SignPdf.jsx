@@ -500,6 +500,16 @@ export default function SignPdf() {
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
           <PenTool size={28} className="text-orange-500" /> Sign PDF
         </h1>
+        {/* Lead paragraph above the widget. Hardcoded here (unlike the other
+            tools' tool.leadIn) because SignPdf is a single-tool component with
+            no tool config object. */}
+        <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+          Sign a PDF on screen and download it — no printer, no scanner, no app.
+          Create your signature three ways: draw it with a finger or mouse, type
+          your name in a handwriting style, or upload a photo of your real one.
+          Then drag it onto the page exactly where it belongs and resize it. The
+          whole thing happens in your browser.
+        </p>
       </div>
 
       {errorMsg && (
