@@ -1744,7 +1744,7 @@ const PdfEditor = ({ toolId }) => {
             what makes a tool page read as low-value. Renders only when the tool
             defines it, so tools without one degrade cleanly. */}
         {tool.leadIn && (
-          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             {tool.leadIn}
           </p>
         )}

@@ -1277,6 +1277,30 @@ const ImageEditor = ({ toolId }) => {
     }
   };
 
+  // Designers work in HSL when they need to nudge a shade lighter or more
+  // saturated, which is awkward to do in hex — so the picker reports all three.
+  const rgbToHsl = (r, g, b) => {
+    const rn = r / 255;
+    const gn = g / 255;
+    const bn = b / 255;
+    const max = Math.max(rn, gn, bn);
+    const min = Math.min(rn, gn, bn);
+    const l = (max + min) / 2;
+    let h = 0;
+    let s = 0;
+    if (max !== min) {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      if (max === rn) h = (gn - bn) / d + (gn < bn ? 6 : 0);
+      else if (max === gn) h = (bn - rn) / d + 2;
+      else h = (rn - gn) / d + 4;
+      h /= 6;
+    }
+    return `hsl(${Math.round(h * 360)}, ${Math.round(s * 100)}%, ${Math.round(
+      l * 100,
+    )}%)`;
+  };
+
   const handleMouseMove = (e) => {
     if (tool.config.mode !== "picker" || !originalImageRef.current) return;
     if (!pickerCanvasRef.current) {
@@ -1312,8 +1336,9 @@ const ImageEditor = ({ toolId }) => {
       .slice(1)
       .toUpperCase()}`;
     const rgb = `rgb(${r}, ${g}, ${b})`;
+    const hsl = rgbToHsl(r, g, b);
 
-    setHoverColor({ hex, rgb });
+    setHoverColor({ hex, rgb, hsl });
     setMagnifier({
       x,
       y,
@@ -1488,7 +1513,7 @@ const ImageEditor = ({ toolId }) => {
         </h1>
         {/* Lead paragraph above the widget — see PdfEditor for the why. */}
         {tool.leadIn && (
-          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             {tool.leadIn}
           </p>
         )}
@@ -1788,13 +1813,41 @@ const ImageEditor = ({ toolId }) => {
                                 className="w-16 h-16 rounded-full border-4 border-white shadow-lg transition-colors"
                                 style={{ backgroundColor: hoverColor.hex }}
                               ></div>
-                              <div className="bg-slate-100 px-4 py-2 rounded-lg border border-slate-200">
-                                <p className="text-lg font-mono font-bold text-slate-800">
-                                  {hoverColor.hex}
-                                </p>
-                                <p className="text-xs text-slate-500 font-mono">
-                                  {hoverColor.rgb}
-                                </p>
+                              {/* Each format gets its own copy button — you
+                                  paste hex into CSS, rgb into canvas code and
+                                  hsl when tuning a shade, so copying the wrong
+                                  one is the common annoyance. */}
+                              <div className="w-full bg-slate-100 px-3 py-2 rounded-lg border border-slate-200 space-y-1">
+                                {[
+                                  { label: "HEX", value: hoverColor.hex, big: true },
+                                  { label: "RGB", value: hoverColor.rgb },
+                                  { label: "HSL", value: hoverColor.hsl },
+                                ].map((row) => (
+                                  <div
+                                    key={row.label}
+                                    className="flex items-center justify-between gap-2"
+                                  >
+                                    <span className="text-[10px] font-bold text-slate-400 w-8 shrink-0">
+                                      {row.label}
+                                    </span>
+                                    <span
+                                      className={`font-mono text-slate-800 truncate ${
+                                        row.big
+                                          ? "text-base font-bold"
+                                          : "text-xs text-slate-600"
+                                      }`}
+                                    >
+                                      {row.value}
+                                    </span>
+                                    <button
+                                      onClick={() => copyToClipboard(row.value)}
+                                      title={`Copy ${row.label}`}
+                                      className="p-1 shrink-0 rounded text-slate-400 hover:text-[#FF9933] hover:bg-white active:scale-90 transition touch-manipulation cursor-pointer"
+                                    >
+                                      <Copy size={13} />
+                                    </button>
+                                  </div>
+                                ))}
                               </div>
                               <p className="text-xs text-blue-500 animate-pulse">
                                 Click image to save
@@ -1839,6 +1892,11 @@ const ImageEditor = ({ toolId }) => {
                                       <p className="text-[10px] text-slate-400">
                                         {col.rgb}
                                       </p>
+                                      {col.hsl && (
+                                        <p className="text-[10px] text-slate-400">
+                                          {col.hsl}
+                                        </p>
+                                      )}
                                     </div>
                                   </div>
                                   <button

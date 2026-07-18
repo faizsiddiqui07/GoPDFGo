@@ -138,7 +138,7 @@ const QrGenerator = ({ toolId }) => {
         </h1>
         {/* Lead paragraph above the widget — see PdfEditor for the why. */}
         {tool.leadIn && (
-          <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             {tool.leadIn}
           </p>
         )}
