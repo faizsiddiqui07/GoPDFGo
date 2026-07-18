@@ -320,7 +320,7 @@ const Header = () => {
               href="/blogs"
               className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-[#FF9933] hover:bg-orange-50 rounded-full transition-all duration-200 active:scale-[0.97] touch-manipulation"
             >
-              Guides
+              Blog
             </Link>
           </nav>
 
@@ -374,7 +374,7 @@ const Header = () => {
               className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
-              <BookOpen size={20} className="text-[#FF9933]" /> Guides &amp; Blog
+              <BookOpen size={20} className="text-[#FF9933]" /> Blog
             </Link>
 
             <div className="border border-slate-200 rounded-xl overflow-hidden">

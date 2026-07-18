@@ -76,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/blogs" className="hover:text-[#FF9933] transition">
-                  Blogs
+                  Blog
                 </Link>
               </li>
               <li>
@@ -162,7 +162,7 @@ const Footer = () => {
                     href="/blogs"
                     className="hover:text-[#FF9933] transition"
                   >
-                    Blogs
+                    Blog
                   </Link>
                 </li>
                 <li>
