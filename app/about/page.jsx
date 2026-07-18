@@ -326,6 +326,22 @@ export default function AboutPage() {
               to keep GoPDFGo completely free without relying on aggressive
               ads or selling user data.
             </p>
+            <p className="pt-2 border-t border-slate-200">
+              GoPDFGo is built and maintained by{" "}
+              <strong className="text-slate-900">Faiz Siddiqui</strong>, a
+              developer from India. It is an independent project, which is what
+              makes the promise above workable: because your files are
+              processed by your own browser, there are no servers to pay for
+              and no reason to put everyday document tools behind a paywall. If
+              something breaks or a tool you need is missing,{" "}
+              <Link
+                href="/contact"
+                className="text-[#FF9933] font-semibold hover:underline"
+              >
+                the contact page
+              </Link>{" "}
+              reaches him directly.
+            </p>
           </div>
         </div>
         {/* Section 2 */}
