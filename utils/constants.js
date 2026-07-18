@@ -509,6 +509,28 @@ Unlike other online tools that ask you to upload your private files to a server 
 Stop struggling with sideways documents. Make your PDFs professional and readable with a single click.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: fixing a scan that opens sideways",
+        body: `Say you scanned a three-page agreement and the middle page came out sideways because it fed through the scanner the wrong way. GoPDFGo fixes it by rewriting that page's actual **rotation flag**, not just turning it on screen. You rotate the one bad page **90 degrees** until the preview sits upright, leave the other two alone, and process. The saved file then opens correctly everywhere — on a reviewer's laptop, on a phone, for whoever you forward it to next — because the fix is written into the file, not into your viewer.
+
+Since it only updates the orientation tag, the operation is **lossless**: text stays selectable and searchable, and scanned images keep their original sharpness. Nothing gets re-compressed. If 90 degrees is not enough you can keep clicking to reach 180 or 270, and a document that mixes portrait and landscape pages is no problem — you turn each page on its own.
+
+This one runs entirely on your device, so a signed contract or an ID scan never gets uploaded. Turning phone photos into a document? [convert your images into a PDF](/image-to-pdf) first, then straighten any that came out on their side here. And if you are lining up several documents, [combine them into one PDF](/merge-pdf) once every page faces the same direction, so the finished file reads cleanly start to finish.`,
+        troubleshooting: [
+          {
+            problem: "The whole file rotated when only a couple of pages were actually wrong.",
+            fix: "Rotate page by page instead of the whole document. The tool handles a mix of orientations, so turn only the offending pages and leave the rest as they are — check each one in the preview before you process.",
+          },
+          {
+            problem: "The scanned page is tilted by a few degrees, not a clean quarter turn.",
+            fix: "Rotation works in 90 degree steps (90, 180, 270), so it straightens pages that are a full quarter or half turn off, not a slight slant. A small skew usually means re-scanning the page squarely; this tool cannot nudge it by tiny angles.",
+          },
+          {
+            problem: "You rotated the wrong way and now the page is upside down.",
+            fix: "Nothing is locked in until you process. Keep clicking to cycle through 180 and 270, or use the counter-clockwise button, and watch the on-screen preview until the page sits upright before you download.",
+          },
+        ],
+      },
       features: [
         {
           title: "Permanent Rotation Save",
@@ -600,6 +622,28 @@ Most online tools force you to upload your document to a server just to add a ti
 Turn your chaotic pile of digital pages into a structured, professional document in seconds.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: numbering a merged 50-page report",
+        body: `Say you have just combined a cover sheet, a Word export, and three scanned appendices into one report. GoPDFGo counts the pages for you — no need to tell it there are 50 — then stamps each one in the position you pick: **Bottom Center**, Bottom Left, Bottom Right, or Top Right. The numbers land in the footer margin, so nothing overlaps your text, signatures, or footnotes.
+
+Because the first page is a cover, tick **Skip first page** so numbering starts on the actual content. Choose the format too: plain '1, 2, 3', or 'Page 1 of N' when you want readers to see how much is left. On the scanned appendices the number is drawn on top of the image layer, which is why it still appears even though that text is not selectable. Everything runs in your browser, so a confidential draft never leaves your device.
+
+Building the report first? [Merge your files into one PDF](/merge-pdf) before numbering, or [reorder the pages](/organize-pdf) so the sequence is right — otherwise the numbers follow whatever order the pages are in. If the scanned appendices make the file heavy, [compress the finished PDF](/compress-pdf) afterward so it is easy to email.`,
+        troubleshooting: [
+          {
+            problem: "The page number shows up on my cover sheet",
+            fix: "Tick Skip first page and apply again. Numbering then starts on the first real content page, leaving the cover clean, and you can set the starting number so that page reads as 1.",
+          },
+          {
+            problem: "On a tightly cropped scan the number sits close to the content",
+            fix: "The number goes in the safe margin, but scans vary and some leave little whitespace. Try a different position — for example switch from Bottom Center to Top Right — to a corner that is empty on your particular scan.",
+          },
+          {
+            problem: "The numbers do not line up with my Table of Contents",
+            fix: "The tool numbers the physical PDF pages in their current order. Reorder or merge the pages first so the sequence is correct, use Skip first page for front matter, and set the starting number so body page 1 matches your contents.",
+          },
+        ],
+      },
       features: [
         {
           title: "Smart Positioning",
@@ -803,6 +847,28 @@ Traditional tools are slow and compromise your privacy. **GoPDFGo changes the ru
 Stop struggling with messy documents. Reorder your PDF pages securely and instantly with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: moving a summary to the front",
+        body: `GoPDFGo shows every page of your PDF as a thumbnail, then lets you drag them into any order you want. Nothing re-renders or re-compresses — it is a **lossless** reshuffle, so the text stays sharp and the file size barely moves. The whole process runs on your device, so a confidential file never leaves your browser.
+
+Say you have a 20-page report where the executive summary ended up as the last page. Open the file, wait for the thumbnails to finish loading, then drag that page from the end up to the first position. You can nudge several pages in the same session — pull a stray appendix out of the middle, group all the invoices together — and the thumbnail view updates live, so you can see the sequence before you commit. When it looks right, export, and you get one clean file in the new order.
+
+Because this tool works on a **single PDF** at a time, [combine separate files into one document](/merge-pdf) first if your pages are spread across several PDFs, then reorder them together. If reordering is only half the job, [organize, rotate and reorder in one view](/organize-pdf) instead, or [remove the pages you no longer need](/delete-pdf-pages) before setting the final order.`,
+        troubleshooting: [
+          {
+            problem: "The thumbnails take a while to appear on a large or scanned PDF",
+            fix: "Every page is drawn locally on your device, so a long or image-heavy file needs a moment to render each preview. Let all the thumbnails finish loading before you start dragging; if it stays sluggish, delete pages you do not need first to lighten the file.",
+          },
+          {
+            problem: "A password-protected PDF will not open for reordering",
+            fix: "An encrypted PDF cannot be read to generate thumbnails until the protection is removed. Run it through the Unlock PDF tool first, then bring the unlocked copy back here to rearrange the pages.",
+          },
+          {
+            problem: "The exported file looks unchanged even though the thumbnails were in the right order",
+            fix: "You likely exported a split-second before the last drag registered, or saved the original by mistake. Re-check that the thumbnail sequence reflects the order you want, then export again and open the freshly downloaded file to confirm.",
+          },
+        ],
+      },
       features: [
         {
           title: "Intuitive Drag & Drop",
@@ -970,6 +1036,28 @@ Once you have the images you can keep going. [Shrink the JPG a bit more](/compre
       intro: `A watermark protects your work and your privacy. Whether you're a freelancer marking a proposal as **DRAFT**, a student writing "Submitted to XYZ only" across an ID copy, or a business stamping **CONFIDENTIAL** on a contract, a clear diagonal watermark tells everyone how a document should be used.
 
 GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — you choose the position (diagonal, tiled, footer, or center) plus the size, color, and opacity, so it stays visible without hiding the content. It runs entirely in your browser, so your sensitive documents never touch a server. Add your watermark and download in seconds, with no signup and no watermark from us.`,
+      walkthrough: {
+        heading: "A real example: stamping an ID copy before you send it",
+        body: `GoPDFGo stamps your text across every page of a PDF in one pass, on your own device. Say you are sending a scanned copy of your Aadhaar or PAN to a company for a KYC check. Type something like 'Submitted to Acme only' as the watermark text, pick the **diagonal** position so the mark crosses the whole page and is awkward to crop out, and set the colour to gray at a medium opacity. The live preview of page 1 updates as you type, so you can nudge the size and opacity until the stamp reads clearly while the ID details underneath stay legible, then apply and download.
+
+The position you choose changes the job. **Diagonal** makes the strongest visible claim; **tiled** repeats the text so there is no clean corner to crop away; **footer** puts a discreet line at the bottom; **centre** drops a single mark in the middle. Whatever you pick is applied to every page at once and baked into the file permanently, so keep your original if you will ever need an unmarked copy.
+
+For an ID copy you can go further: [black out the number itself with the ID masking tool](/aadhaar-masking) before you stamp it. Working with several loose scans? [Merge them into one PDF](/merge-pdf) first so a single watermark covers the lot, or [add your signature to the same document](/sign-pdf) once the mark is in place.`,
+        troubleshooting: [
+          {
+            problem: "The watermark is too dark and makes the text underneath hard to read.",
+            fix: "Lower the opacity, drop to a smaller size, or switch to the footer position. Gray sits lighter on the page than red or blue, and the live preview shows the effect before you download.",
+          },
+          {
+            problem: "You are worried someone could crop the watermark off a corner of the page.",
+            fix: "Use the tiled position so the text repeats across the whole sheet, or diagonal so it runs through the middle. Both leave no clean margin to trim away without cutting into the content.",
+          },
+          {
+            problem: "You already downloaded the file and now need it without the watermark, or want to change the text.",
+            fix: "The mark is baked into the page content and cannot be lifted out, so redo it from your original PDF. Always keep an unstamped copy before you apply a watermark.",
+          },
+        ],
+      },
       features: [
         {
           title: "Custom Text Stamp",
@@ -1035,6 +1123,28 @@ GoPDFGo's **Watermark PDF** tool stamps your chosen text across every page — y
       intro: `Need to **delete pages from a PDF**? Scanned a document and ended up with a blank page at the end? Downloaded a form with instruction pages you don't need? GoPDFGo's **Delete PDF Pages** tool lets you remove any pages from a PDF visually — just tap the pages you want gone and download a clean, trimmed document.
 
 It's the fastest way to tidy up a PDF before uploading or printing. Everything happens **inside your browser** with zero quality loss on the pages you keep, and your file is never sent to a server.`,
+      walkthrough: {
+        heading: "A real example: cutting the blank page a scanner adds",
+        body: `Say you scan a 6-page contract and the scanner tacks a blank sheet onto the end, plus a page of boilerplate terms you do not need. Open the PDF in GoPDFGo and you get a **thumbnail of every page**. Tap the blank page and the terms page — selected pages are clearly marked — then hit delete and download a clean 4-page file. You are choosing pages by sight, not by number, so there is no counting cover sheets or guessing where the empty one landed.
+
+The pages you keep are a **lossless copy**: nothing is re-compressed, so text stays sharp and selectable and any photos keep full quality. It all runs inside your browser, which matters when you are trimming a bank statement or a signed contract — the file never leaves your device, and your original stays untouched while the tool builds a fresh trimmed copy for you. You can select as many pages as you like across the whole document and remove them in a single click.
+
+Deleting is the right move when you want to drop a few pages and keep the rest. If instead you only need a handful of pages out of a big file, [extract just the pages you need](/extract-pdf-pages) — the cleaner inverse. Want to reorder while you tidy up? [Organize the whole document](/organize-pdf). And if the trimmed PDF is still too heavy for a portal, [compress it before uploading](/compress-pdf).`,
+        troubleshooting: [
+          {
+            problem: "I deleted a page by mistake and want it back",
+            fix: "Nothing is truly lost. The tool builds a brand-new trimmed copy and leaves your original untouched on your device. Just re-open the original PDF, and this time tap only the pages you actually want gone before downloading again.",
+          },
+          {
+            problem: "The thumbnails are slow to appear on a big scan",
+            fix: "Every page is rendered as a preview inside your browser, so a heavy scanned file with hundreds of high-resolution pages needs a moment to draw them all. Let it finish rather than re-dropping the file — nothing is uploading, it is just your device building the previews.",
+          },
+          {
+            problem: "My trimmed PDF is barely smaller than the original",
+            fix: "Deleting only removes the pages you picked; the pages you keep are copied losslessly, so a file full of large scans stays heavy even after you cut a few. If you need it lighter for an upload, run the result through the Compress PDF tool afterwards.",
+          },
+        ],
+      },
       features: [
         {
           title: "Visual Page Selection",
@@ -1100,6 +1210,28 @@ It's the fastest way to tidy up a PDF before uploading or printing. Everything h
       intro: `Bank and card statements in India usually arrive password-protected (often your PAN + date of birth), and many portals won't accept a locked PDF for KYC or loan uploads. GoPDFGo's **Unlock PDF** tool removes that password — for a file you already have the password to — so you get a clean, openable PDF you can upload anywhere.
 
 This is **not a password cracker**: you simply enter the password you already know, and we produce an unlocked copy. As always, everything runs in your browser — your statement is never uploaded to a server, which matters a lot for financial documents.`,
+      walkthrough: {
+        heading: "A real example: a bank statement a KYC portal keeps rejecting",
+        body: `Say your bank emails a monthly statement that only opens after you type a password — often your PAN plus your date of birth. A loan or KYC portal then rejects the upload because the file is protected. Open that same statement here, type **the password you already use**, and unlock it. You get back a clean copy that opens with no prompt, ready to upload anywhere.
+
+Here is the honest part: to strip the encryption inside your browser, each page is rebuilt as a high-quality image. The unlocked copy views, prints, and uploads everywhere, but its text is no longer selectable — so **keep your original locked file** if you ever need to copy figures out of it later. Because everything runs on your device, neither the statement nor the password ever leaves your machine, which is exactly what you want for a financial document.
+
+Working through a whole year of statements at once? If the unlocked file ends up heavier than the portal allows, [shrink it with Compress PDF](/compress-pdf). If you only need a couple of months, [pull out just those pages](/extract-pdf-pages) before uploading, or [combine several statements into one PDF](/merge-pdf) when a portal asks for a single document.`,
+        troubleshooting: [
+          {
+            problem: "It says my password is incorrect",
+            fix: "Bank passwords are case-sensitive and follow the exact format your bank sets, usually your PAN in capital letters joined to your date of birth. Check the pattern in the email or notice that came with the statement, then enter it exactly, with no spaces. Nothing is processed until the correct password opens the file.",
+          },
+          {
+            problem: "The unlocked file opens as images and I cannot select the text",
+            fix: "That is expected. To remove the encryption in your browser, each page is rebuilt as a high-quality image, which drops the selectable text layer. The copy is fine for viewing, printing, and uploading. If you need to copy text or figures, keep and use your original locked PDF for that.",
+          },
+          {
+            problem: "The portal still rejects my file after I unlocked it",
+            fix: "The password is gone, so the rejection is now about something else, most often size. Rebuilt image pages can be larger than the original, and many portals cap the upload. Run the unlocked file through Compress PDF to bring it down, then upload it again.",
+          },
+        ],
+      },
       features: [
         {
           title: "Password Removed for Good",
@@ -1167,6 +1299,28 @@ This is **not a password cracker**: you simply enter the password you already kn
 GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it back to you as clean, copyable plain text. You can copy it with one tap or download it as a **.txt** file. It runs **entirely in your browser** — your PDF is never uploaded to any server, which matters when you're pulling text out of contracts, statements, or anything with personal details.
 
 **Scanned PDFs are handled too:** if your PDF has a real text layer (the kind where you can already select words with your cursor), extraction is instant. If it is a **scanned image** — a photo of a page saved as a PDF — the tool automatically switches to built-in **OCR**, reading the text straight off the page images right in your browser. OCR takes a few seconds per page and the engine downloads only once. It works best on clear printed text; very blurry or handwritten scans may come out imperfect.`,
+      walkthrough: {
+        heading: "A real example: pulling a clause out of an agreement",
+        body: `GoPDFGo reads a PDF two ways depending on what is inside it. For a normal PDF it pulls straight from the **text layer** — the selectable characters already baked into the file — so a 20-page report comes back almost instantly, in reading order, with page breaks marked. Copy the paragraph you need with one tap, or download the whole thing as a .txt file.
+
+A scanned PDF is different. If someone photographed or scanned the pages there is no text layer, just pictures of words, so the tool runs **OCR** to read the letters off the image. That is slower, and faint scans or unusual fonts can come back with a few wrong characters, so give the result a quick read before you trust it. Everything runs on your device, which matters when the file is an offer letter, a statement, or a contract.
+
+Once you have the words you can keep going. If the PDF asks for a password on open, [remove the protection first](/unlock-pdf) so the text is actually readable. If you wanted the pages as pictures rather than words, [turn each page into a JPG](/pdf-to-image) instead. And when you only need a section, [pull those pages out](/extract-pdf-pages) before extracting, so you are not scrolling past everything else to find the part you want.`,
+        troubleshooting: [
+          {
+            problem: "The text came out jumbled or in the wrong order",
+            fix: "The tool follows each page line by line, but multi-column layouts and tables don't always flow the way they look on screen — the columns can interleave. Check against the original and re-order the copied text by hand for tricky pages.",
+          },
+          {
+            problem: "It returned nothing, or just odd symbols",
+            fix: "Your PDF is most likely scanned with no text layer, so OCR has to read the words off the images. That takes longer than a normal extract, so give it a moment. Very faint or skewed scans read worst; a cleaner scan gives cleaner text.",
+          },
+          {
+            problem: "OCR read some words wrong",
+            fix: "OCR can misread unusual fonts, handwriting, or low-resolution scans, and there is no way around a blurry source. Rescan at a higher quality if you can, and always proofread OCR output before you rely on it.",
+          },
+        ],
+      },
       features: [
         {
           title: "Keeps Your Reading Order",
@@ -1238,6 +1392,28 @@ GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it bac
 GoPDFGo's **Organize PDF** tool puts all of that on a single screen. You see every page of your PDF as a thumbnail. **Drag** them into the right order, **rotate** the sideways ones upright, and **remove** the blank or unwanted pages — then export one clean PDF. No going back and forth between tools, no re-uploading between steps.
 
 And like everything on GoPDFGo, it runs **entirely in your browser**. Your pages are rendered and rebuilt on your own device, so even a contract, an answer sheet, or a set of bank statements never gets uploaded to a server.`,
+      walkthrough: {
+        heading: "A real example: fixing a messy scan in one pass",
+        body: `Say a scanner hands you a 12-page document where two pages landed out of order, one came out sideways, and there's a blank separator sheet in the middle. Drop that PDF into Organize PDF and every page appears as a thumbnail on one screen, still on your device — nothing gets uploaded.
+
+Now work straight through it. **Drag** the two stray pages into place; the 'New Position' number on each page updates as you move them, so you can see the running order before you commit. **Rotate** the sideways page 90 degrees until it sits upright, and because each rotation travels with its own page, you can fix the orientation first and reorder afterwards without anything scrambling. **Remove** the blank sheet — it greys out rather than vanishing, so you can restore it right up until you export. When the layout matches what you want, export one clean PDF with the new order, rotations, and deletions all baked in.
+
+If you only need a single change, it's often quicker to [rotate specific pages upright](/rotate-pdf) or [delete the pages you don't want](/delete-pdf-pages) on their own. And when you've just [merged several PDFs into one file](/merge-pdf), this is the natural next step for putting every page in the right place and dropping anything that slipped in by mistake.`,
+        troubleshooting: [
+          {
+            problem: "The thumbnails take a while to appear for a large PDF",
+            fix: "Every page is rendered on your own device rather than a server, so a long or heavily scanned file needs a moment to draw all its thumbnails. Give it time on the first load, and close other heavy browser tabs if your device is low on memory. Splitting a very large file into parts first also helps.",
+          },
+          {
+            problem: "I deleted the wrong page",
+            fix: "Nothing is final until you export. A removed page stays visible greyed out with a restore option, so bring it back before you download. If you already exported the file, just re-open your original PDF in the tool and organize it again from scratch.",
+          },
+          {
+            problem: "Text on a page still isn't selectable after organizing",
+            fix: "Reordering, rotating, and deleting keep the original page content intact, but they can't add text that was never there. If a page came from a scanner it's a flat image, so there is no selectable text to preserve — the organizing worked, the source page simply has none.",
+          },
+        ],
+      },
       features: [
         {
           title: "Everything on One Screen",
@@ -1311,6 +1487,28 @@ You can create your signature three ways: **draw** it with your finger or mouse,
 Everything happens **inside your browser** — your document is never uploaded to a server. That matters, because the PDFs people sign are often the sensitive ones: offer letters, rental agreements, consent forms, bank paperwork. With GoPDFGo, your file and your signature stay on your own device.
 
 One honest note: this adds a **visual (ink) signature** — the kind that's perfect for everyday forms, approvals, and letters. It is not a legally certified digital signature (the DSC/PKI kind issued by a certifying authority), so for documents that specifically demand that, you'll need a registered digital signature instead.`,
+      walkthrough: {
+        heading: "A real example: signing a rental agreement",
+        body: `Say a landlord emails you a two-page rental agreement and asks you to sign and send it back. Upload the PDF, then build your signature one of three ways: **draw** it with your finger or mouse, **type** your name and pick a handwriting style, or **upload** a photo of your real signature. A photo sits most naturally when it's a clean, background-removed PNG. Drag the signature onto the line near the bottom of page two, resize it to fit, and download the signed file — no printer, no scanner.
+
+Many agreements also ask you to initial every page. Instead of placing the signature over and over, tick **Place this signature on all pages** and it stamps across the whole document at once. All of this runs inside your browser, so the PDF and your signature never leave your device — which matters for the sensitive stuff like offer letters and bank paperwork. One honest note: this adds a **visual ink signature**, ideal for everyday forms, letters, and approvals, but it is not a certified DSC/PKI signature issued by a certifying authority, so use a registered one where that is specifically demanded.
+
+Once it's signed, you can [shrink the file before emailing](/compress-pdf) if scan-heavy pages make it large. If the agreement arrived as separate files, [combine them into one PDF](/merge-pdf) first, or [reorder the pages](/organize-pdf) before you sign.`,
+        troubleshooting: [
+          {
+            problem: "Your uploaded signature shows a white or grey box around it",
+            fix: "The tool places the image exactly as it is, so a plain photo keeps its background. Sign on white paper, take a clear photo, and remove the background so it's a transparent PNG before uploading. It then sits cleanly on the page instead of covering the text underneath.",
+          },
+          {
+            problem: "The signature looks blurry or pixelated when you make it bigger",
+            fix: "A drawn or typed signature scales cleanly at any size, but an uploaded photo has a fixed resolution. Start from a sharp, well-lit image and avoid stretching it much larger than its natural size. If it still looks rough, draw or type the signature instead.",
+          },
+          {
+            problem: "It landed on the wrong page or slightly off the signature line",
+            fix: "Nothing is committed until you download, so just drag it to reposition or move to the correct page first. Only tick Place this signature on all pages when you genuinely want it everywhere, otherwise it stamps pages you did not mean to sign.",
+          },
+        ],
+      },
       features: [
         {
           title: "Draw, Type, or Upload",
@@ -1517,6 +1715,28 @@ Unlike standard compressors that blindly crush your images into pixelated messes
 Shrink your files, not your quality. Experience the safest JPEG compressor online.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: getting a phone photo under 50 KB",
+        body: `GoPDFGo compresses a JPEG two ways, and you choose which. Drag the **quality slider** and a live preview updates as you go, so you can trade sharpness against size by eye. Or switch to **Target size** mode and name a strict figure in kilobytes. JPG and JPEG are the same format with a different extension, so this runs the exact same engine as our JPG compressor and treats both identically.
+
+Take a 6 MB photo straight off a phone or DSLR. At around 80% quality it usually drops to a few hundred kilobytes while still looking crisp on screen — most of what gets removed is data your eye never sees. When a form demands the file sit under a hard limit like 50 KB, Target size mode lowers the quality and, if it has to, gently shrinks the dimensions until the file fits. Aggressive compression also strips EXIF metadata such as GPS and camera details, which trims a little more weight and keeps private information out of shared photos. The tool never hands back a file bigger than the one you put in, and you can run a whole batch in one pass.
+
+If a photo still will not reach a tiny target while staying clear, [resize the image](/resize) smaller first so the same budget covers fewer pixels. For a website, [converting it to WebP](/convert-webp) usually squeezes further than JPEG. And if you only need part of the frame, [crop it down](/crop) before compressing.`,
+        troubleshooting: [
+          {
+            problem: "The compressed JPEG looks soft or blocky",
+            fix: "You have pushed the quality too low, or the target KB is very small for the photo's dimensions. Nudge the slider back toward 70-80%, or resize the image smaller first so the same size budget covers fewer pixels and each one stays sharper.",
+          },
+          {
+            problem: "Target size mode cannot reach a very small number like 20 KB on a large photo",
+            fix: "A big image simply holds too many pixels to stay legible at that few KB. Cut the dimensions with Resize Image first, then compress — fewer pixels hit small targets far more cleanly than crushing quality alone.",
+          },
+          {
+            problem: "The output is barely smaller than the original",
+            fix: "The file is probably already heavily compressed, so there is little left to remove. Try Target size mode for a firm number. The tool never returns a file larger than your original, so if nothing more can be saved it simply hands back the smaller of the two.",
+          },
+        ],
+      },
       features: [
         {
           title: "Adaptive Quality Control",
@@ -1611,6 +1831,28 @@ Unlike generic image compressors that treat all files the same, our engine is tu
 Maximize your site speed and SEO rankings by serving the lightest possible WebP images.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: slimming a hero image for PageSpeed",
+        body: `GoPDFGo re-encodes a WebP through your browser at the quality you choose — the default is **0.8**, a sensible balance for most web images. Because the format stays locked to WebP, you are optimising the same file type rather than converting it, and the alpha channel survives, so logos and product cut-outs keep their transparent background instead of turning white.
+
+Take a hero banner you exported from Canva or Photoshop at full quality. Slide the Quality control down toward 0.8 and the new size appears straight away, often **30 to 70 percent smaller** with no visible change. There is no fixed target-size mode here, so nudge the slider and watch the number until the weight looks right — those are the kilobytes that Largest Contentful Paint and PageSpeed actually measure. Push much below 0.6 and softer edges or gradient banding start to show, so eyeball detailed images before you ship them.
+
+Working on a whole asset folder? Load the batch and each file is processed in turn, right on your device, nothing uploaded. If some sources are still PNG or JPG, [convert them to WebP first](/convert-webp) and then compress, or shrink oversized artwork with the [image resize tool](/resize) before optimising. For flat graphics without transparency, it is worth comparing your result against a [compressed PNG](/compress-png) to see which format ships lighter.`,
+        troubleshooting: [
+          {
+            problem: "The file barely got smaller",
+            fix: "Your WebP was probably already optimised — exports from a CDN or a previous compression pass have little left to give. Drag the Quality slider lower and watch the size update; if it still holds steady, you are near the format floor and further squeezing only costs sharpness.",
+          },
+          {
+            problem: "Edges look soft or I see colour banding",
+            fix: "Quality is set too low for that image. Photos of skies, gradients and fine text need more headroom, so raise the slider back toward 0.8 or higher. Re-run and compare — the goal is the smallest size where the change stays invisible at normal viewing distance.",
+          },
+          {
+            problem: "The tab slows or stalls on a big batch",
+            fix: "Everything runs locally using your device memory, so a large batch of high-resolution assets is demanding. Split the folder into smaller groups, close other heavy tabs, and let each set finish before loading the next instead of dropping hundreds of files at once.",
+          },
+        ],
+      },
       features: [
         {
           title: "Transparency Preservation",
@@ -1692,6 +1934,28 @@ Maximize your site speed and SEO rankings by serving the lightest possible WebP 
 Here is the catch most "PNG compressors" hide: PNG is a **lossless** format, so simply re-saving it (which is all a basic tool does) barely changes the size. GoPDFGo does it properly. Our tool uses **smart colour quantization** — the same technique behind pngquant and TinyPNG — to intelligently reduce the number of colours in the image to a carefully chosen palette. Your eyes barely notice the difference, but the file gets **up to 80% smaller**, and the **transparent background is fully preserved**.
 
 And like every GoPDFGo tool, it runs **entirely in your browser**. Your screenshots, designs, and ID images are never uploaded to any server — the whole thing happens on your own device.`,
+      walkthrough: {
+        heading: "A real example: a 2.73 MB screenshot down to 265 KB",
+        body: `PNG is a lossless format, so simply re-saving it barely changes the size — that is the trick most PNG compressors quietly rely on. GoPDFGo does it properly. It uses **colour quantization** to remap the image's colours down to a smaller, carefully chosen palette, which cuts the file substantially while keeping sharp edges and any transparent background fully intact.
+
+Take a 2.73 MB PNG screenshot. Drag the **quality slider** down from the top and the quantization kicks in — in our own test that file dropped to about 265 KB, roughly a 90% saving, with no obvious change on screen. Keep it pinned at the very top and the image stays lossless, so it hardly shrinks; that is expected, and easing the slider down a notch is where the real savings begin. Need to meet a hard cap? Switch to **Target size** mode and the tool trims the palette, gently resizing only if it has to, until the file lands under your KB limit. You can batch a whole folder at once, and every image is processed on your own device.
+
+A couple of pointers on picking the right tool. For an actual photograph, PNG is the wrong format — [compress it as a JPG instead](/compress-jpg), which is almost always far smaller. If those screenshots are headed for a web page, [convert the PNG to WebP](/convert-webp) for an even lighter file. And when you are gathering several shots for one upload, [combine the images into a single PDF](/image-to-pdf) once they are compressed.`,
+        troubleshooting: [
+          {
+            problem: "The PNG barely got smaller",
+            fix: "At the very top of the quality slider the image is kept lossless, and that is just how PNG works — there is almost nothing to remove. Ease the slider down so colour quantization can remap the palette; that is where the real reduction happens.",
+          },
+          {
+            problem: "Colours look banded or patchy after compressing",
+            fix: "Quantization maps many colours onto a smaller palette, which can show as banding on smooth gradients or photo-like images. Raise the quality so the palette keeps more colours, or if the source is really a photograph, compress it as a JPG instead where gradients hold up better.",
+          },
+          {
+            problem: "Target size mode left the image soft or fuzzy",
+            fix: "A very small cap forces the tool to shrink the pixel dimensions once palette reduction alone cannot reach the limit. Raise the target, or crop and resize the PNG to the size the form actually needs first, so it has far less to throw away.",
+          },
+        ],
+      },
       features: [
         {
           title: "Real Compression, Not Just Re-Saving",
@@ -2006,6 +2270,28 @@ Many developers and designers hesitate to use online converters because of priva
 Make the switch to WebP today and watch your digital assets become lighter and faster.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a transparent logo and a batch of photos",
+        body: `GoPDFGo re-encodes each image into WebP right in your browser, and the target format is locked, so you never have to pick anything. Take a transparent PNG logo sitting at a few hundred kilobytes. Drop it in and it comes back as WebP with the **transparent background intact** — no white box behind it — usually a quarter to a third smaller. Every file you add is queued and converted on your own device, with nothing uploaded to a server.
+
+Got a folder of JPG product shots instead? Select the whole **batch** at once and each one is re-encoded in turn, typically shedding 25-35% at the same visible quality. The conversion is lossy, though, so the new pixels are not byte-for-byte identical to the source — keep your originals if you might re-edit later. Accepted inputs include JPG, PNG, JPEG, GIF and BMP, so most of a mixed folder just works.
+
+If a single file is still heavy after converting, [compress the PNG](/compress-png) first, since the two steps stack cleanly. Shooting on an iPhone? You can [turn HEIC photos straight into WebP](/heic-to-webp) in a single pass instead of converting twice. And if an older upload portal refuses WebP, just [convert the file back to JPG](/convert-jpg).`,
+        troubleshooting: [
+          {
+            problem: "The converted WebP looks soft or shows blocky artifacts",
+            fix: "WebP conversion is lossy by default, so heavily re-encoding a file that was already compressed several times can smear fine detail. Start from the highest-quality original you have — not a screenshot or a re-saved copy — and the WebP stays crisp.",
+          },
+          {
+            problem: "The WebP came out the same size or larger than the source",
+            fix: "This happens when the input is already tightly optimised or is a simple flat-colour graphic that PNG and JPG handle efficiently. WebP wins most on photos and detailed images; for a tiny icon the old format can already be smaller, so keep whichever file is actually lighter.",
+          },
+          {
+            problem: "A website or upload portal will not accept the WebP file",
+            fix: "Some older CMS uploaders and government or exam portals only allow JPG or PNG. Nothing is wrong with the file itself — run it through the To JPG tool and submit that copy instead.",
+          },
+        ],
+      },
       features: [
         {
           title: "Superior Compression Efficiency",
@@ -2097,6 +2383,28 @@ Most converters force you to upload your files to the cloud. This takes time and
 Stop worrying about "File Format Not Supported" errors. Switch to JPG with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: a PNG a portal keeps rejecting",
+        body: `GoPDFGo takes a common image — a PNG, WebP, GIF or BMP — and re-encodes it as JPG, the one format almost every upload portal and older program will accept. The detail that trips up other converters is transparency. JPG has no concept of a see-through pixel, so when your PNG logo or screenshot has transparent areas, GoPDFGo fills them with **white** rather than black, which is the usual bug that leaves ugly dark boxes behind the image.
+
+Say a job or government portal rejects your screenshot because it is a PNG and it only takes JPG. Drop the file in here and it comes back as a JPG that uploads cleanly — and usually much smaller, since JPG discards data that PNG stores losslessly. Got a whole folder of mixed PNG and WebP downloads? Select them all and get JPGs back in one batch. Every file is converted on your own device, so nothing is sent to a server.
+
+Photos straight off an iPhone arrive as HEIC, which this picker does not take — use the dedicated [HEIC to JPG converter](/heic-to-jpg) for those. If your new JPG is still over a size cap, [compress the JPG](/compress-jpg) afterward. And when the portal actually wants a document rather than a picture, [turn the image into a PDF](/image-to-pdf) instead.`,
+        troubleshooting: [
+          {
+            problem: "The transparent background on my PNG came out solid white.",
+            fix: "JPG cannot store transparency at all, so some fill is unavoidable. White is chosen because it is the safe neutral for portal photos and documents. If you need the transparency kept, leave the file as PNG or convert it to WebP instead.",
+          },
+          {
+            problem: "Fine text or sharp lines look slightly soft or blocky in the JPG.",
+            fix: "JPG is a lossy format tuned for photographs, so hard-edged graphics and screenshots can show faint artefacts. For crisp text you may prefer to keep the PNG; for a portal upload the softening is usually invisible at normal zoom.",
+          },
+          {
+            problem: "My iPhone HEIC or a TIFF will not select in the file picker.",
+            fix: "This page accepts PNG, WebP, GIF and BMP. For Apple's HEIC photos use the dedicated HEIC to JPG tool, which is built to read that format directly.",
+          },
+        ],
+      },
       features: [
         {
           title: "Universal Compatibility",
@@ -2187,6 +2495,28 @@ While many online converters are slow and insecure, we utilize **Client-Side Tec
 Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instantly.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: turning a WebP logo into a clean PNG",
+        body: `GoPDFGo re-encodes your JPG or WebP into **PNG**, a lossless format, so nothing is thrown away in the save. The output is fixed to PNG here — you drop files in and get PNGs back, with no quality slider to tune. It reads JPG, WebP, GIF and BMP, and you can convert a single file or a whole batch entirely on your device.
+
+Say you downloaded a company logo as a WebP but your slide software or a print shop only accepts PNG. Drop it in, convert, and you get a PNG that opens everywhere — and if that WebP had a transparent background, the transparency is kept, so the logo still sits cleanly on any background. Screenshots and diagrams with fine text are the other big win: PNG holds letters and thin lines razor-sharp instead of smearing them the way JPG does.
+
+One honest limit: converting a JPG to PNG cannot undo blur that is already baked in. PNG stops any *further* loss as you keep editing and re-saving, but it will not rescue detail a lossy JPG has already discarded. And because PNG keeps every pixel, the files run large — that is normal. If size becomes a problem, [shrink the PNG afterwards](/compress-png), or [convert it back to JPG](/convert-jpg) for uploads with a tight cap. Need transparency going the other way? [Export to WebP](/convert-webp) instead.`,
+        troubleshooting: [
+          {
+            problem: "The PNG is much bigger than the JPG or WebP I started with",
+            fix: "That is expected — PNG is lossless, so it stores every pixel instead of discarding data to save space. If the size is a problem, run the result through Compress PNG, or convert to JPG when a portal enforces a small limit.",
+          },
+          {
+            problem: "My JPG still looks blurry after converting it to PNG",
+            fix: "PNG cannot restore detail a JPG already threw away; it only prevents new loss from here on. Convert from the highest-quality or original source you have, not from a JPG that was already heavily compressed.",
+          },
+          {
+            problem: "I converted a JPG but the background did not turn transparent",
+            fix: "A plain JPG has no transparency to keep, so converting cannot create it — you would need a background remover for that. Converting a WebP or GIF that already has a transparent area will preserve that transparency in the PNG.",
+          },
+        ],
+      },
       features: [
         {
           title: "Lossless Compression",
@@ -2373,6 +2703,28 @@ Most HEIC files convert cleanly, but a few won't decode in the browser — usual
 That matters the moment you plan to **edit** the photo. Every time a JPG is opened, edited, and re-saved, it loses a little more quality. A PNG doesn't. So if you're going to retouch the image, drop it into a design, crop it repeatedly, or keep it as a clean master copy, PNG is the safer format. It's also the format virtually every image editor, design tool, and document app accepts without complaint.
 
 GoPDFGo's **HEIC to PNG** converter does this **entirely in your browser** — your photos are decoded and saved on your own device and never uploaded anywhere. The trade-off to know up front: because PNG keeps everything, the files are larger than JPG. If your goal is simply to upload to a form or share quickly, JPG is lighter; if it's quality you're after, PNG wins.`,
+      walkthrough: {
+        heading: "A real example: prepping an iPhone photo to edit",
+        body: `GoPDFGo decodes your iPhone HEIC and re-encodes it to PNG right in the browser, so the photo is never uploaded. Because PNG is **lossless**, you get a pixel-perfect copy of the original — no compression blur, no blocky artifacts, nothing discarded. That is the whole reason to pick PNG over JPG: the moment you plan to **edit** the image.
+
+Take a photo you want to retouch. Convert it to PNG, open it in your editor, crop it repeatedly, tweak the colours and re-save — the quality holds, because PNG does not lose a little more each time it is saved the way JPG does. Working through a camera roll? Drop in many HEIC files at once and download the whole batch as a ZIP. The trade-off to expect: a PNG is noticeably larger than the same photo as JPG, since keeping every pixel costs space.
+
+If you only need a light file to upload to a form, [convert HEIC to JPG instead](/heic-to-jpg) — it is far smaller. If you do want PNG but the size is awkward, [shrink it with the PNG compressor](/compress-png) after editing, or [crop it down to just the part you need](/crop) first. One honest limit: some HEICs — Live Photos and certain HDR or 10-bit shots — cannot always be decoded in-browser.`,
+        troubleshooting: [
+          {
+            problem: "A few photos fail to convert",
+            fix: "Live Photos and some HDR or 10-bit HEICs cannot always be decoded in the browser. On your iPhone, open the photo and use Share to export it as a JPG, or set Camera to Most Compatible so future shots save in a format that converts cleanly.",
+          },
+          {
+            problem: "The PNG is much bigger than the original HEIC",
+            fix: "That is expected — HEIC is heavily compressed and PNG is lossless, so it keeps every pixel. If you are not editing the image, JPG is far lighter. If you need PNG, run it through the PNG compressor after you finish editing.",
+          },
+          {
+            problem: "A large batch is slow or the phone heats up",
+            fix: "All decoding happens on your own device, so big batches take longer on older phones. Convert in smaller groups and keep the tab in the foreground so the browser does not pause the work.",
+          },
+        ],
+      },
       features: [
         {
           title: "Truly Lossless",
@@ -2450,6 +2802,28 @@ GoPDFGo's **HEIC to PNG** converter does this **entirely in your browser** — y
 The problem WebP solves is specific: a raw iPhone HEIC won't display on most websites at all, and a converted JPG, while compatible, is often heavier than it needs to be. WebP gives you web-ready images that are both **universally supported by modern browsers** and noticeably lighter — frequently 25–35% smaller than the same JPG at comparable quality.
 
 GoPDFGo's **HEIC to WebP** converter runs **entirely in your browser**, so your photos are never uploaded to a server. If you're a blogger, a small-business owner adding product shots, or a developer optimising a site, this turns your iPhone photos into fast-loading web images in seconds. (Sharing with a friend or uploading to a form instead? Plain JPG is the safer pick there.)`,
+      walkthrough: {
+        heading: "A real example: putting iPhone photos on a blog",
+        body: `Say you have shot a dozen photos on your iPhone for a new post, and they all landed as HEIC files. A raw HEIC will not display on most websites, so it needs converting — and for anything headed to a page, WebP is the format built for it. WebP looks the same as JPG or PNG but weighs noticeably less, typically 25-35% smaller than JPG at similar quality, so your pages load faster.
+
+Drop the whole set in at once. **WebP is preselected**, and the quality slider sits at 0.85 by default, which keeps photos sharp while staying light. Every file is decoded and re-encoded on your device — nothing is uploaded. Convert, then download a single file or grab the entire batch as a ZIP. Because WebP supports transparency, a logo or cutout with a see-through background keeps it, which a JPG cannot do.
+
+One catch: the HEIC decoder can stumble on Live Photos and some HDR shots. If a file refuses to convert, open it on your iPhone and export it as a JPG first, then bring that in. Aiming for a genuinely fast page? [Resize the photos for the web](/resize) before converting, or [shrink existing WebP files further](/compress-webp). Sharing with a friend or uploading to a form instead? [Convert them to JPG](/heic-to-jpg) for the widest compatibility.`,
+        troubleshooting: [
+          {
+            problem: "A photo refuses to convert or throws an error.",
+            fix: "It is almost always a Live Photo or an HDR shot the HEIC decoder cannot read. Open the photo on your iPhone, export or save it as a JPG, then convert that file instead.",
+          },
+          {
+            problem: "The WebP file gets rejected by a form, email, or an older app.",
+            fix: "WebP is built for websites, not universal sharing. For those uses, switch the output format to JPG in the tool, or use the HEIC to JPG converter, which nearly every app accepts.",
+          },
+          {
+            problem: "A large batch is slow or seems to hang on an older phone.",
+            fix: "Decoding runs entirely on your device, so big batches take longer on older hardware. Convert in smaller groups and give each set a moment to finish rather than reloading the tab.",
+          },
+        ],
+      },
       features: [
         {
           title: "Built for Fast Websites",
@@ -2643,6 +3017,28 @@ Most online editors demand that you upload your files to their servers just to a
 Correct your perspective and create stunning symmetrical art with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: making backwards text readable",
+        body: `The most common job here is a selfie where a logo, T-shirt slogan, or street sign reads backwards. Front cameras save a mirrored view, so the text comes out reversed. Load the photo, pick **Flip Horizontal**, and the live preview mirrors it left to right on the spot — the letters read the right way round again. Flipping is a lossless pixel rearrangement, not a re-compression, so the image stays exactly as sharp as the original unless you choose to change the format.
+
+There are two directions, and they do different things. **Horizontal** mirrors left to right, which fixes selfies and mirrors a design before transfer-paper printing so it lands correctly on fabric. **Vertical** mirrors top to bottom, for a water-reflection effect or an upside-down scan. A vertical flip is not the same as a 180-degree turn, so if you actually need to rotate the image rather than mirror it, use the [rotate image tool](/rotate) instead. You can also flip and change format in one pass — say, mirror a WebP and save it as a JPG.
+
+Because it works on one image at a time, you get a clean preview before you commit. Tidy up messy borders afterward by [cropping the image](/crop), or [convert the result to JPG](/convert-jpg) if a site or portal only accepts that format.`,
+        troubleshooting: [
+          {
+            problem: "You flipped the selfie but the text still looks wrong or the photo looks stranger than before.",
+            fix: "You likely picked the wrong direction. Horizontal is the one that fixes backwards text, since it mirrors left to right; Vertical mirrors top to bottom. Toggle the button back and forth and watch the live preview until the letters read correctly, then save.",
+          },
+          {
+            problem: "You wanted to stand a sideways or upside-down photo upright, but flipping made it look worse.",
+            fix: "Flipping mirrors an image, it does not turn it. For orientation problems from a camera or scanner, use the Rotate Image tool instead. Remember a 180-degree rotation gives a different result from a vertical flip.",
+          },
+          {
+            problem: "The flipped image downloaded in a format a website will not accept.",
+            fix: "The tool keeps your original format by default, but it can flip and convert in the same step. Set the output to JPG, PNG, or WebP before you download so you get the right file the first time, with no second tool needed.",
+          },
+        ],
+      },
       features: [
         {
           title: "Horizontal & Vertical Control",
@@ -2734,6 +3130,28 @@ Color picking often involves proprietary brand assets or personal photos.
 Stop guessing colors. Get the exact code instantly with GoPDFGo.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: matching a button to your logo blue",
+        body: `Say you have a company logo and need the exact blue for a website button, but the brand guide is long gone. Upload the logo as JPG, PNG or WebP and move your cursor over the blue mark. The **magnifier** pops up and zooms into individual pixels, so you can land on the flat centre of the shape rather than the softer, blended edge. Click to freeze the colour, then copy the **Hex** for your CSS — or switch the reading to RGB or HSL if your design tool prefers those.
+
+To rebuild a small palette, click several points in turn: the primary blue, a darker shade for hover states, the off-white background. Note each code as you go, since the tool samples one pixel at a time rather than grouping colours for you. Because the reading is the raw pixel value, a gradient gives a different code at every point — pick the start and end rather than expecting one code for the whole sweep. Everything runs on the canvas inside your browser, so a confidential mockup is only ever read to sample colours, never uploaded.
+
+A couple of prep steps help. iPhone screenshots often save as HEIC, which this picker does not open, so [convert them to JPG first](/heic-to-jpg). And if the shade you want is a tiny detail buried in a busy image, [crop down to just that area](/crop) so the magnifier has more room to work.`,
+        troubleshooting: [
+          {
+            problem: "The colour I picked looks slightly off from the shape I clicked",
+            fix: "You are probably sampling an anti-aliased edge, where the browser blends the shape into whatever is behind it. Use the zoom to move a pixel or two into the solid middle of the area and click again — the flat centre gives the true colour.",
+          },
+          {
+            problem: "My image will not load into the tool",
+            fix: "The picker works on standard web image formats your browser can decode. An iPhone HEIC will not open directly — convert it to JPG first, then sample it. A corrupted or partly downloaded file will also fail, so re-download it and try again.",
+          },
+          {
+            problem: "The Hex I copied does not match the original design file",
+            fix: "A JPG screenshot is lossy, so compression can nudge nearby pixels and shift the colour a little. Where you can, pick from the original asset or a PNG export rather than a re-saved JPG copy, since PNG keeps the pixels exact.",
+          },
+        ],
+      },
       features: [
         {
           title: "Precision Magnifier Tool",
@@ -2823,6 +3241,28 @@ GoPDFGo’s **Aadhaar masking tool** lets you mask your Aadhaar online and creat
 Protect your identity today. Mask your Aadhaar before you share it.`,
 
       // 2. FEATURES (3 Cards)
+      walkthrough: {
+        heading: "A real example: masking an Aadhaar for a SIM form",
+        body: `Say you have a phone photo of your Aadhaar and a SIM shop wants a copy. Draw a box over the first 8 digits of the 12-digit number, leaving the last 4 visible so a verification officer can still match their records. Then draw a second box over the QR code — it can carry your full details even after the printed number is hidden. The tool never finds anything for you, so you cover every sensitive part yourself before you download.
+
+When you apply, each box is flattened into the pixels, so the covered data is genuinely gone from the saved file — not sitting under a layer someone can peel back. Add as many boxes as you need, resize or move each one, and undo the last box or clear them all if one drifts onto your name. A PDF Aadhaar, say one saved from DigiLocker, opens on its first page so you can mask it the same way; the masked result downloads as an image.
+
+Since the output is an image, [turn the masked card into a PDF](/image-to-pdf) if an upload portal wants that format. If the file sits over a size cap, [compress the JPG](/compress-jpg) first, or [crop the card](/crop) down to just the ID before you share it over email or WhatsApp.`,
+        troubleshooting: [
+          {
+            problem: "A sliver of a digit still shows at the edge of the black box",
+            fix: "Before you apply, drag the box larger or nudge it into place, and overlap a second box across the same spot if needed. Once you apply, the covered pixels turn solid black permanently, so check the preview and confirm full coverage before downloading.",
+          },
+          {
+            problem: "I hid the printed number but the QR code is still visible",
+            fix: "Masking the 8 digits alone is not always enough — the QR code can still encode your full Aadhaar details. The tool does not auto-detect anything, so draw a separate box over the QR code yourself before you save the file.",
+          },
+          {
+            problem: "A mask drifted and covered my name or the last 4 digits",
+            fix: "Nothing is burned in until you apply, so undo the last box or clear them all and redraw. Keep the last 4 digits and the verifying name visible so the card still works as valid identity and address proof.",
+          },
+        ],
+      },
       features: [
         {
           title: "Visual Redaction Tool",
