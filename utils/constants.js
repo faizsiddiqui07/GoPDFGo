@@ -48,7 +48,7 @@ export const TOOLS_CONFIG = [
       // Design Note: Ye text aapke Hero section ke niche ya page ke bottom me SEO footer ki tarah aa sakta hai.
       intro: `Struggling with large PDF files that refuse to upload? You need to **Compress PDF** files fast, and you are not alone. Whether you are a student trying to submit an assignment, a job seeker applying on a government portal, or a professional sending a report via email, file size limits are a constant hurdle. Most platforms restrict uploads to 100KB, 2MB, or 25MB, leaving you stuck with heavy documents.
 
-GoPDFGo’s **Compress PDF** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your personal files to a remote server, our tool utilizes **Serverless Client-Side Technology**. This means the compression engine is downloaded to your browser and runs directly on your device (laptop or mobile). Your sensitive bank statements, Aadhaar cards, and contracts never leave your system, guaranteeing 100% privacy.
+GoPDFGo’s **Compress PDF** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your personal files to a remote server, our tool does the whole job inside the page you are already on. This means the compression engine is downloaded to your browser and runs directly on your device (laptop or mobile). Your sensitive bank statements, Aadhaar cards, and contracts never leave your system, guaranteeing 100% privacy.
 
 **How does GoPDFGo achieve high compression without quality loss?**
 Our advanced algorithm uses a multi-layered approach to shrink files by up to 90%:
@@ -501,7 +501,7 @@ When the recipient needs the whole document back later, [merge the parts into on
 GoPDFGo’s **Rotate PDF** tool is designed to fix this problem once and for all. It allows you to change the orientation of your PDF pages permanently. Whether you have scanned a document upside down, merged landscape and portrait pages incorrectly, or converted mobile photos that are rotated 90 degrees, our tool corrects the layout instantly.
 
 **The GoPDFGo Privacy Advantage:**
-Unlike other online tools that ask you to upload your private files to a server just to rotate them, we use **Client-Side Processing**. Your PDF never leaves your browser. The rotation logic runs locally on your device, right inside your browser.
+Unlike other online tools that ask you to upload your private files to a server just to rotate them, the work happens where the file already is. Your PDF never leaves your browser. The rotation logic runs locally on your device, right inside your browser.
 1.  **Permanent Fix:** We rewrite the file's internal structure so that when you send it to someone else, it opens correctly on their device too.
 2.  **No Uploads:** Rotate legal contracts, medical scans, or personal IDs without fear. Your data stays invisible to the internet.
 3.  **Instant Result:** Since there is no heavy processing or uploading involved, the rotation happens in the blink of an eye.
@@ -614,7 +614,7 @@ GoPDFGo’s **Add Page Numbers to PDF** tool lets you insert professional number
 
 **Why choose Client-Side Numbering?**
 Most online tools force you to upload your document to a server just to add a tiny number. This is a huge privacy risk for legal contracts or unpublished research papers.
-**GoPDFGo is different.** We use **Browser-Based Processing**.
+**GoPDFGo is different.** The stamping is done by your own machine.
 1.  **100% Private:** Your document never leaves your device. The numbering engine runs inside your browser.
 2.  **No Overwriting:** Our smart algorithm places numbers in the safe margin areas (headers/footers) so they don't overlap with your text.
 3.  **Universal Compatibility:** Works on scanned PDFs, digital PDFs, and even files that previously had no margins.
@@ -727,7 +727,7 @@ GoPDFGo’s **Image to PDF** converter — also the fastest **JPG to PDF** conve
 
 **The Privacy Revolution:**
 Most "free" converters require you to upload your personal photos to a cloud server. This is risky, especially for personal photos or ID proofs.
-**GoPDFGo works differently.** We use **Client-Side Processing**.
+**GoPDFGo works differently.** The whole conversion runs inside your browser tab.
 1.  **Zero Uploads:** Your photos never leave your device. The conversion happens directly in your browser using your computer's power.
 2.  **Lightning Fast:** Since there is no upload time, you can convert 50 images in seconds, even on a slow internet connection.
 3.  **High Quality:** We don't compress your images unless you ask. Your PDF will look as crisp as the original photos.
@@ -1823,7 +1823,7 @@ If a photo still will not reach a tiny target while staying clear, [resize the i
 GoPDFGo’s **Compress WebP** tool is designed for the modern web. It allows you to squeeze the maximum performance out of your next-gen images. By intelligently adjusting the compression quality, we can often reduce WebP file sizes by an additional **30% to 70%** without any noticeable difference to the human eye.
 
 **Why optimize WebP with GoPDFGo?**
-Unlike generic image compressors that treat all files the same, our engine is tuned for WebP's unique algorithms. Plus, we use **Client-Side Processing**:
+Unlike generic image compressors that treat all files the same, our engine is tuned for WebP's unique algorithms. Plus, the optimisation runs on your own hardware:
 1.  **Zero Server Latency:** We don't upload your assets to a slow backend. The optimization happens instantly on your device, right inside your browser.
 2.  **Transparency Support:** Unlike JPG compression which turns transparent backgrounds black or white, our tool **preserves the Alpha Channel** (transparency), making it perfect for logos and product cutouts.
 3.  **Developer-Grade Privacy:** Working on confidential client assets or unreleased app designs? Keep them safe. Your files never leave your computer.
@@ -2190,7 +2190,7 @@ The same move tightens a cluttered product shot or trims a photobomber out of th
         },
         {
           title: "Secure & Private Cropping",
-          desc: "Editing personal photos should not mean sharing them with the world. Because we use **Serverless Client-Side Technology**, your photos remain on your computer or phone throughout the entire editing process. It's as safe as editing offline."
+          desc: "Editing personal photos should not mean sharing them with the world. Because the cropping is done by your own machine, your photos remain on your computer or phone throughout the entire editing process. It's as safe as editing offline."
         }
       ],
 
@@ -2487,7 +2487,7 @@ Photos straight off an iPhone arrive as HEIC, which this picker does not take �
 GoPDFGo’s **Convert to PNG** tool is the ultimate solution for preserving visual fidelity. Whether you have a compressed JPG photograph or a modern WebP graphic, our tool transforms it into the **Lossless PNG format**. This means every single pixel is preserved exactly as it is, with zero quality degradation. It is the gold standard for designers, photographers, and anyone who refuses to compromise on clarity.
 
 **Why choose GoPDFGo for PNG conversion?**
-While many online converters are slow and insecure, we utilize **Client-Side Technology** to offer a superior experience:
+While many online converters are slow and insecure, we hand the conversion to your own device to offer a superior experience:
 1.  **Pixel-Perfect Accuracy:** We re-encode your images into PNG without adding any compression artifacts. We guarantee 100% visual fidelity in the final output.
 2.  **Privacy Guaranteed:** Your high-value assets (like brand logos or legal scans) never leave your computer. The conversion happens locally in your browser.
 3.  **Modern Format Support:** Easily convert newer formats like WebP (or older ones like BMP) into the universally supported PNG standard.
@@ -2896,7 +2896,7 @@ One catch: the HEIC decoder can stumble on Live Photos and some HDR shots. If a 
 GoPDFGo’s **Rotate Image** tool is the permanent fix for your orientation woes. It allows you to rotate your JPG, PNG, or WebP images by **90 degrees clockwise or counter-clockwise** instantly. Unlike basic viewers, our tool rewrites the image data to ensure that "Up" is truly "Up," no matter where you view the file next.
 
 **Why Rotate with GoPDFGo?**
-We prioritize speed, quality, and privacy using **Client-Side Technology**:
+We prioritize speed, quality, and privacy by keeping the work on your own device:
 1.  **Permanent Correction:** We don't just rotate the view; we rotate the pixels. Your image stays fixed forever.
 2.  **Lossless Rotation:** Concerned about quality? Our engine performs rotation without unnecessary re-compression, keeping your image crisp.
 3.  **100% Private:** Your personal photos, selfies, and scanned documents never leave your device. The rotation happens right in your browser.
@@ -3009,7 +3009,7 @@ GoPDFGo’s **Flip Image** tool is the easiest way to create a mirror image onli
 
 **The GoPDFGo Privacy Promise:**
 Most online editors demand that you upload your files to their servers just to apply a simple effect. We believe that is unnecessary and unsafe.
-**We use Client-Side Technology:**
+**The mirroring happens on your device:**
 1.  **Instant Mirroring:** Your image loads directly in your browser. When you click "Flip," the change happens instantly on your screen using your device's power.
 2.  **Zero Quality Loss:** Flipping is a mathematical operation. We rearrange the pixels without compressing them, ensuring your photo stays sharp.
 3.  **100% Private:** Your photos, selfies, and designs never leave your computer. You can flip confidential images safely because no one else can see them.
@@ -3379,7 +3379,7 @@ Once you download the PNG, [drop it onto a printable page](/image-to-pdf) next t
         },
         {
           title: "Instant & Private",
-          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because we use **Client-Side Technology**, you can even generate secure QR codes for sensitive data (like a private Wi-Fi password or a personal note) without fear of leaks."
+          desc: "Speed meets security. Type your text or paste your URL, and watch the QR code generate in real-time on your screen. Because the code is drawn by your own browser, you can even generate secure QR codes for sensitive data (like a private Wi-Fi password or a personal note) without fear of leaks."
         },
         {
           title: "Choose Size & Error Correction",

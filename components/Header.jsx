@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Changed from react-router-dom
 import {
   Layers, FileText, Menu, X, ChevronDown, ImageIcon,
-  QrCode, Maximize2, RefreshCw, Palette, Wand2,
+  QrCode, Maximize2, RefreshCw, Palette, Wand2, BookOpen,
 } from "lucide-react";
 import { TOOLS_CONFIG } from "../utils/constants";
 import { getToolIcon } from "../utils/icons";
@@ -312,6 +312,16 @@ const Header = () => {
                 </div>
               </div>
             </div>
+
+            {/* The guides are the richest content on the site and were reachable
+                only from the footer, so nobody landing on the homepage — a
+                reviewer included — ever saw them. */}
+            <Link
+              href="/blogs"
+              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-[#FF9933] hover:bg-orange-50 rounded-full transition-all duration-200 active:scale-[0.97] touch-manipulation"
+            >
+              Guides
+            </Link>
           </nav>
 
           <button
@@ -358,6 +368,13 @@ const Header = () => {
               onClick={toggleMobileMenu}
             >
               <QrCode size={20} className="text-[#FF9933]" /> QR Code Generator
+            </Link>
+            <Link
+              href="/blogs"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
+              onClick={toggleMobileMenu}
+            >
+              <BookOpen size={20} className="text-[#FF9933]" /> Guides &amp; Blog
             </Link>
 
             <div className="border border-slate-200 rounded-xl overflow-hidden">
