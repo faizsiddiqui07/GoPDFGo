@@ -42,21 +42,32 @@ const Header = () => {
       !["compress-png", "compress-webp", "compress-jpg", "compress-jpeg", "resize", "crop"].includes(t.id)
   );
 
-  // Left column = organize/manage pages; right column = edit, optimize & convert.
-  // Kept roughly balanced (6 / 7) so the dropdown doesn't look lopsided.
+  // Three columns, split by what the user is trying to DO rather than by
+  // whatever balances the count. Two columns meant one of them ran to nine
+  // rows, which is where the menu started to read as a wall.
   const pdfManageIds = [
     "merge-pdf",
     "split-pdf",
     "extract-pdf-pages",
-    "organize-pdf",
-    "rearrange-pdf",
     "delete-pdf-pages",
-    "rotate-pdf",
+    "rearrange-pdf",
+    "organize-pdf",
+  ];
+  const pdfConvertIds = [
+    "image-to-pdf",
+    "pdf-to-image",
+    "pdf-to-text",
+    "ocr-pdf",
   ];
 
   const pdfManageTools = pdfTools.filter((t) => pdfManageIds.includes(t.id));
-
-  const pdfEditTools = pdfTools.filter((t) => !pdfManageIds.includes(t.id));
+  const pdfConvertTools = pdfTools.filter((t) => pdfConvertIds.includes(t.id));
+  // Everything left over — compress, rotate, page numbers, watermark, sign,
+  // unlock. Left as the remainder so a newly added PDF tool still shows up
+  // somewhere instead of silently vanishing from the menu.
+  const pdfEditTools = pdfTools.filter(
+    (t) => !pdfManageIds.includes(t.id) && !pdfConvertIds.includes(t.id),
+  );
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen((prev) => !prev);
@@ -120,13 +131,13 @@ const Header = () => {
                 />
               </button>
               <div
-                className={`absolute top-full left-0 -translate-x-1/2 w-150 pt-4 transition-all duration-200 transform z-50 ${
+                className={`absolute top-full left-0 -translate-x-1/2 w-[min(47rem,calc(80vw_-_3rem))] pt-4 transition-all duration-200 transform z-50 ${
                   activeDropdown === "pdf"
                     ? "opacity-100 visible translate-y-0"
                     : "opacity-0 invisible translate-y-2"
                 }`}
               >
-                <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 grid grid-cols-2 gap-8 relative overflow-hidden">
+                <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-5 grid grid-cols-3 gap-5 relative overflow-hidden">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-2">
                       <div className="bg-orange-100 p-1.5 rounded-lg text-[#FF9933]">
@@ -146,11 +157,11 @@ const Header = () => {
                         <div className="text-slate-400 group-hover/item:text-[#FF9933] transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span className="font-bold text-slate-700 text-sm block group-hover/item:text-[#FF9933] transition-colors">
                             {tool.title}
                           </span>
-                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate max-w-45">
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
                             {tool.desc}
                           </span>
                         </div>
@@ -176,11 +187,43 @@ const Header = () => {
                         <div className="text-slate-400 group-hover/item:text-blue-500 transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span className="font-bold text-slate-700 text-sm block group-hover/item:text-blue-500 transition-colors">
                             {tool.title}
                           </span>
-                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate max-w-45">
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
+                            {tool.desc}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Convert & Extract */}
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-2">
+                      <div className="bg-green-100 p-1.5 rounded-lg text-green-600">
+                        <RefreshCw size={16} />
+                      </div>
+                      <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">
+                        Convert & Extract
+                      </span>
+                    </div>
+                    {pdfConvertTools.map((tool) => (
+                      <Link
+                        key={tool.id}
+                        href={`/${tool.id}`}
+                        onClick={() => setActiveDropdown(null)}
+                        className="w-full text-left px-3 py-2.5 rounded-lg flex items-start gap-3 hover:bg-slate-50 group/item transition-colors"
+                      >
+                        <div className="text-slate-400 group-hover/item:text-green-600 transition-colors mt-0.5">
+                          {getToolIcon(tool.id)}
+                        </div>
+                        <div className="min-w-0">
+                          <span className="font-bold text-slate-700 text-sm block group-hover/item:text-green-600 transition-colors">
+                            {tool.title}
+                          </span>
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
                             {tool.desc}
                           </span>
                         </div>
