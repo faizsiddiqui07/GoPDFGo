@@ -2726,7 +2726,7 @@ export const blogsData = [
 
       <p>A watermark is one of those tiny touches that instantly makes a document look intentional, professional, and protected, whether you are guarding your identity, your designs, or your contracts. Now that you know how all four positions work and how to keep your file private while you do it, head over to the <a href="/watermark-pdf">Watermark PDF</a> tool, type the line that fits your situation, pick a position, and download a clean, labelled document in seconds. Stay safe, and keep your work yours.</p>
     `
-  }, 
+  },
   // {
   //   id: "convert-pdf-to-jpg-online-free",
   //   title: "Convert PDF to JPG Online Free: Turn Pages into Images (No Upload)",
@@ -3549,7 +3549,7 @@ export const blogsData = [
   //       <h2>The one thing to understand: the text layer</h2>
   //       <p>Every PDF created from a real document, a Word export, an e-book, a generated question paper, an invoice from accounting software, carries a hidden <strong>text layer</strong>. That is the actual selectable text sitting behind what you see on the page. Our tool reads that layer and hands it to you, formatting stripped, ready to use.</p>
 
-  //       <p>There is one honest catch. If your PDF is a <strong>scan</strong>, where someone photographed or scanned a printed page, that page is just an <em>image</em>. To your eyes it looks like text, but there is no text layer under it. It is a picture of words. Nothing can copy text that does not exist in the file as text. For a pure scan you would need OCR (optical character recognition), and GoPDFGo does not do OCR yet, so this tool will come back empty on those.</p>
+  //       <p>There is one honest catch. If your PDF is a <strong>scan</strong>, where someone photographed or scanned a printed page, that page is just an <em>image</em>. To your eyes it looks like text, but there is no text layer under it. It is a picture of words. Nothing can copy text that does not exist in the file as text. For a pure scan you need OCR (optical character recognition), which reads the letters off the picture. This tool will come back empty on those, so use the <a href="/ocr-pdf">OCR PDF</a> tool for them instead.</p>
 
   //       <p>You can check in two seconds. Open the PDF and try to select a single word with your mouse or finger. If a word highlights, you have a real text layer and extraction will work cleanly. If your cursor just draws a box over the whole page and nothing highlights, it is a scanned image. Good news for one common worry though: even PDFs that block copying through restrictions usually still have a readable text layer, and our reader pulls the text from those restricted-but-text-based files just fine.</p>
 
@@ -3578,7 +3578,7 @@ export const blogsData = [
   //       </div>
 
   //       <h2>If your PDF turns out to be a scan</h2>
-  //       <p>Say you ran the highlight test and confirmed it is a scanned image, so nothing extracts. You are not fully stuck, you just need a different path. For a short clause, retyping the few lines you need is often faster than people expect. For a longer file, a dedicated OCR service can handle it. And if the scan is what you are working with anyway, you can still keep it tidy with our other tools, like cropping the dark edges off a scan with <a href="/crop">Crop</a>, or fixing pages that came out sideways using <a href="/rotate-pdf">Rotate PDF</a> before you share it.</p>
+  //       <p>Say you ran the highlight test and confirmed it is a scanned image, so nothing extracts. You are not fully stuck, you just need a different path. For a short clause, retyping the few lines you need is often faster than people expect. For a longer file, run it through <a href="/ocr-pdf">OCR PDF</a>, which reads the words off each page image and hands you back plain text in English, Hindi, or both. And if the scan is what you are working with anyway, you can still keep it tidy with our other tools, like cropping the dark edges off a scan with <a href="/crop">Crop</a>, or fixing pages that came out sideways using <a href="/rotate-pdf">Rotate PDF</a> before you share it.</p>
 
   //       <p>One more thing worth separating out: if your real goal was to grab a single page out of a giant report rather than its text, that is a different job. For pulling a page out as its own file, the <a href="/split-pdf">Split PDF</a> tool is the right fit, not this one. This tool is purely about getting the words out so you can copy, paste, or save them as text.</p>
 
@@ -3595,7 +3595,7 @@ export const blogsData = [
   //       <h2>Frequently Asked Questions</h2>
   //       <p><strong>Q: Does my PDF get uploaded to a server?</strong><br> A: No. The whole process runs inside your browser on your own device. The file never leaves your phone or computer, which is why it is safe for agreements, salary slips, and anything personal.</p>
 
-  //       <p><strong>Q: Why is the extracted text empty even though I can clearly see the words?</strong><br> A: Your PDF is almost certainly a scanned image, a picture of a page with no real text layer underneath. The words are visible but they are not actual text in the file, so there is nothing to copy. That case needs OCR, which this tool does not do yet.</p>
+  //       <p><strong>Q: Why is the extracted text empty even though I can clearly see the words?</strong><br> A: Your PDF is almost certainly a scanned image, a picture of a page with no real text layer underneath. The words are visible but they are not actual text in the file, so there is nothing to copy. That case needs OCR, so run the file through <a href="/ocr-pdf">OCR PDF</a> instead, which reads the words off the page images.</p>
 
   //       <p><strong>Q: Does it work on my phone?</strong><br> A: Yes. The tool runs in the browser on both Android and iPhone the same way it does on a laptop. Open the PDF, let it read, then copy the part you need or download the .txt. Handy when you only have your phone and a question paper.</p>
 
@@ -4325,7 +4325,7 @@ export const blogsData = [
   //         <h2>When the notification is a scan, this will not work</h2>
   //         <p>Some notices, usually older ones or those from smaller state boards, are not real text PDFs at all. They are scanned images of a printed page saved as a PDF. It looks like text to your eye, but underneath there is nothing to select. It is basically a photograph.</p>
 
-  //         <p>Quick check: open the PDF and try to drag-select a line. If a highlight follows your cursor over the words, the text layer is there and the extraction will work. If nothing selects, or the whole page selects like one big picture, it is a scan. Those need OCR, the technology that reads text out of an image, and <strong>GoPDFGo does not offer OCR yet</strong>, so a purely scanned notification will not give you copyable text through our tool. The notifications from the big central bodies, the ones most people are chasing, are almost always proper text PDFs, so the tool works for them.</p>
+  //         <p>Quick check: open the PDF and try to drag-select a line. If a highlight follows your cursor over the words, the text layer is there and the extraction will work. If nothing selects, or the whole page selects like one big picture, it is a scan. Those need OCR, the technology that reads text out of an image, so run them through the <a href="/ocr-pdf">OCR PDF</a> tool instead — it handles Hindi and English, which matters for notifications printed in both. The notifications from the big central bodies, the ones most people are chasing, are almost always proper text PDFs, so the tool works for them.</p>
 
   //         <h2>While you are at it</h2>
   //         <p>Working with a heavy notification PDF often comes with a few related jobs, and these run locally on your device too:</p>
@@ -4339,7 +4339,7 @@ export const blogsData = [
 
   //         <p><strong>Q: Will the copied text keep the table layout, like the age-relaxation grid?</strong><br> A: No. The tool reads the text stream, not the visual columns, so tables come out as plain text without their alignment. The numbers are all there, but a vacancy or age-relaxation grid will read as a flattened list. Copy it, then check it against the original PDF before you rely on it.</p>
 
-  //         <p><strong>Q: How do I know if my notification is a scan or real text?</strong><br> A: Open it and drag your cursor across a line. If the words highlight, it is real text and you can copy it. If nothing selects or the page acts like one image, it is a scanned PDF and would need OCR, which GoPDFGo does not offer yet.</p>
+  //         <p><strong>Q: How do I know if my notification is a scan or real text?</strong><br> A: Open it and drag your cursor across a line. If the words highlight, it is real text and you can copy it. If nothing selects or the page acts like one image, it is a scanned PDF and needs OCR — use the <a href="/ocr-pdf">OCR PDF</a> tool for that one.</p>
 
   //         <p><strong>Q: Can I copy a regional-language notification PDF?</strong><br> A: Yes, as long as it is a real text PDF and not a scan. The tool reads whatever text layer is there, whether the notice is in English, Hindi or another script, and gives it back as copyable text.</p>
 
@@ -4881,6 +4881,8 @@ export const blogsData = [
   //         <p>Stop letting oversized PNGs slow your site and choke your uploads. Compress them properly, keep the transparency, and move on. <a href="/compress-png">Try the free Compress PNG tool</a> and see how much lighter your images can get.</p>
   //         `
   // },
+
+  // 18-07-2027
   // {
   //   id: "send-photos-whatsapp-without-losing-quality",
   //   title: "How to Send Photos on WhatsApp Without WhatsApp Ruining the Quality",
@@ -4891,14 +4893,14 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/send-photos-whatsapp-without-losing-quality.webp",
   //   content: `
   // <p>You take a clear photo of a cheque, an admission receipt, a marksheet, or a saree you are selling, and you send it on WhatsApp. The photo looks perfectly sharp in your own gallery. Ten minutes later the person on the other end sends back a voice note: <em>"Bhai, the account number is not readable, send it again."</em> So you send it again, from the same gallery, and it arrives just as unreadable the second time.</p>
-  //
+  
   // <p>Your camera is not the problem. WhatsApp is doing exactly what it was designed to do. Every image you attach through the <strong>Photo</strong> or gallery option gets re-compressed by WhatsApp before it leaves your phone, which keeps the file light enough to move quickly on a weak connection. That trade-off is fine for a selfie. It is a disaster for anything with small text in it: account numbers, roll numbers, IFSC codes, fine print on an offer letter, the pin code on a delivery address.</p>
-  //
+  
   // <p>The usual advice is to send the photo as a <strong>Document</strong> instead, which stops WhatsApp from touching the file at all. That advice is correct but incomplete, because a raw phone photo is often 4MB or 5MB, and a 5MB document is slow to upload on patchy network, slow for the receiver to download, and quietly fills their phone storage. The genuinely practical answer sits in the middle: shrink the photo yourself to a sensible size <em>first</em>, then send it as a Document. That way you decide how much quality is given up, instead of letting WhatsApp decide for you.</p>
-  //
+  
   // <h2>What Actually Happens When You Tap "Photo"</h2>
   // <p>When you attach an image through the gallery or Photos option, WhatsApp re-encodes it before sending. The file that lands on the other phone is not the file you picked. It is a rebuilt, lighter version of it. This is stable, long-standing behaviour on both Android and iPhone. Quality settings inside WhatsApp change how much is thrown away, but the Photo route always re-encodes the file.</p>
-  //
+  
   // <p>You will notice the damage most in these situations:</p>
   // <ul>
   //   <li><strong>Documents and text.</strong> Bank statements, cheques, mark sheets, ID cards. Thin black strokes on white are exactly what compression struggles with, so digits start to smear into each other. A 5 and a 6 become an argument.</li>
@@ -4906,19 +4908,19 @@ export const blogsData = [
   //   <li><strong>Product photos.</strong> Shopkeepers sending catalogue images to customers lose fabric texture, stitching detail and true colour, which is the entire reason the customer asked for the photo.</li>
   //   <li><strong>Anything already sent once.</strong> <strong>Anything already sent once.</strong> A photo that was received on WhatsApp has already been compressed once. Save it to your gallery and send it on again and it goes through compression a second time, which is why heavily circulated images end up looking like they were photographed off a television.</li>
   // </ul>
-  //
+  
   // <h2>Sending as "Document" Is Right, But Not Free</h2>
   // <p>Attaching the same image through the paperclip, then <strong>Document</strong>, then browsing to the image file, sends the original bytes through untouched. Nothing is re-encoded. The receiver downloads the exact file you had.</p>
-  //
+  
   // <p>The catch is size. The catch is size. A full-resolution phone photo is often several megabytes, and sending a handful of them as documents to a group means everyone in that group has a heavy download waiting for them. On a slow connection the upload crawls, and on the receiver's side the file simply sits there with a download arrow that nobody taps.</p>
-  //
+  
   // <p>There is also a small but real courtesy issue. There is also a small but real courtesy issue. A document shows up in the chat as a file card with its name on it rather than as a full picture, so the name is doing a lot of the work. If you send <em>IMG_20260718_113402.jpg</em>, they have no idea whether it is worth downloading. Rename it to something like <em>Cheque-HDFC-Rent-July.jpg</em> before you attach it and the difference is immediate.</p>
-  //
+  
   // <h2>The Middle Path: Compress It Yourself, Then Send as Document</h2>
   // <p>This is the part most people never try. Instead of choosing between "WhatsApp wrecks it" and "the file is too heavy", you compress the photo deliberately to a size you choose, look at the result before you commit, and then send that as a Document. You keep control of the one thing that matters: how readable the important part of the image stays.</p>
-  //
+  
   // <p>The <a href="/compress-jpg">Compress JPG</a> tool is built for exactly this. It runs entirely inside your browser, so the photo never leaves your phone — no upload, no account, no watermark stamped across your document. That matters more than it sounds when the image is a cheque or a PAN card, because you are not handing a copy of it to some random server on the way.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>How to Prepare a Photo Before Sending It on WhatsApp:</h3>
   //   <ul>
@@ -4930,7 +4932,7 @@ export const blogsData = [
   //     <li><strong>Step 6: Send as Document.</strong> In WhatsApp, tap the paperclip, choose <strong>Document</strong>, browse to the file you just saved, and send. WhatsApp will not touch it.</li>
   //   </ul>
   // </div>
-  //
+  
   // <h2>What Size Should You Actually Aim For?</h2>
   // <p>There is no single correct number, but there are sensible habits.</p>
   // <ul>
@@ -4938,24 +4940,24 @@ export const blogsData = [
   //   <li><strong>A product photo for a customer</strong> — a lighter file is fine, because the customer is looking at shape and colour, not reading anything. Push the slider lower and check the texture.</li>
   //   <li><strong>A casual photo</strong> — honestly, just send it as a Photo. WhatsApp's compression is fine for faces and scenery. Save the Document route for things that matter.</li>
   // </ul>
-  //
+  
   // <p>One useful side effect of compressing hard: aggressive compression strips the EXIF metadata out of the image. That metadata can carry the GPS coordinates of where the photo was taken and the exact device model. If you are sending a photo of your rented flat's meter reading to a landlord, or a document to a stranger on a marketplace, removing that trail is a genuine privacy win, not a technicality.</p>
-  //
+  
   // <h2>If the Photo Is Huge Because It Is Huge</h2>
   // <p>Sometimes the file is heavy not because of quality but because of sheer dimensions. A 4000 x 3000 pixel photo of a single A4 page is far more pixels than anyone needs to read it. Dropping the dimensions cuts the size dramatically while leaving the visible sharpness intact on a phone screen.</p>
-  //
+  
   // <p>Use the <a href="/resize">Resize Image</a> tool for this. Keep <strong>Lock Aspect Ratio</strong> switched on so nothing gets stretched, set a sensible width, and remember to click <strong>Apply Changes</strong> — the download is of the applied result, not the preview. There are preset buttons too, including HD 1280x720 and Square 1080, which are usually more than enough for anything being viewed on a phone. If the edges of a scan are full of table top and shadow, run it through <a href="/crop">Crop Image</a> first and throw that away; you are shrinking the file and improving the photo at the same time. We covered this pairing in more depth in our guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping the junk out of scanned documents</a>.</p>
-  //
+  
   // <h2>Screenshots and PNGs Are a Separate Problem</h2>
   // <p>Screenshots on most phones are saved as PNG. PNG is lossless, which is great for quality and terrible for size — a single full-screen screenshot can be several megabytes for what is basically flat colour and text.</p>
-  //
+  
   // <p>You have two sensible routes. If the screenshot has no transparency and you just want it small, run it through <a href="/convert-jpg">Convert to JPG</a> and then compress it. Be aware that JPG cannot store transparency at all, so any transparent area gets filled with white — for a normal screenshot that is exactly what you want, but for a logo with a see-through background it will look wrong. If you need to keep it a PNG, use <a href="/compress-png">Compress PNG</a> instead, which shrinks the file by reducing the colour palette rather than pretending a plain re-save will help. Transparency survives that. If you are unsure which format your image should be in at all, our <a href="/blog/jpg-vs-png-format-guide">plain-English comparison of JPG and PNG</a> settles it in a couple of minutes.</p>
-  //
+  
   // <h2>Sending Several Photos? Send One PDF Instead</h2>
   // <p>If you are sending six photographed pages of an assignment, a rent agreement, or a set of bills, sending six separate images is the wrong shape of solution. They arrive out of order, they are easy to lose in a busy chat, and the receiver has to save every one of them individually.</p>
-  //
+  
   // <p>Combine them into a single file with <a href="/image-to-pdf">Image to PDF</a>. You can reorder the pages before exporting and choose A4, Letter, or fit-to-image for the page size. A4 is the safe pick for anything that will eventually be printed or forwarded to an office. One tidy PDF, one download, in the right order, and it opens the same way on every phone. Compress each photo first and the resulting PDF stays light too. If your pages started life as photos taken at odd angles, our guide on <a href="/blog/combine-assignment-photos-into-one-pdf-mobile">combining assignment photos into one PDF from a phone</a> walks through the whole sequence.</p>
-  //
+  
   // <h2>A Short Checklist Before You Hit Send</h2>
   // <ul>
   //   <li>Zoom into the most important detail in the compressed file. If you cannot read it, the receiver definitely cannot.</li>
@@ -4963,30 +4965,29 @@ export const blogsData = [
   //   <li>Attach it through <strong>Document</strong>, not Photo, whenever the content includes text.</li>
   //   <li>For anything genuinely large, or a multi-page PDF, see our notes on <a href="/blog/best-way-to-share-large-pdfs-on-whatsapp">sharing heavy PDF files on WhatsApp</a> before you reach for a Drive link.</li>
   // </ul>
-  //
+  
   // <p>The habit worth building is small. Two minutes in <a href="/compress-jpg">Compress JPG</a>, one rename, and one extra tap to choose Document instead of Photo. Do that, and the person on the other end reads the number the first time you send it — which saves you the follow-up message, the re-send, and the voice note asking you to try again.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
   // <p><strong>Q: Does WhatsApp really reduce the quality of every photo I send?</strong><br>
   // A: Every image sent through the Photo or gallery option is re-compressed by WhatsApp before it goes out. Quality settings change how heavy that compression is, but the Photo route always re-encodes the file. Images attached through the Document option are sent untouched, which is why that route is the one to use for anything containing text.</p>
-  //
+  
   // <p><strong>Q: If sending as Document keeps full quality, why compress at all?</strong><br>
   // A: Because a raw phone photo is often several megabytes, and a heavy document is slow to upload on weak network, slow to download, and eats the receiver's storage. Compressing it yourself first with <a href="/compress-jpg">Compress JPG</a> lets you pick the trade-off instead of sending an unnecessarily large file or letting WhatsApp make the choice.</p>
-  //
+  
   // <p><strong>Q: How do I stop a photo of a document from becoming unreadable?</strong><br>
   // A: Use the live before-and-after preview and zoom into the smallest text while you move the quality slider. Stop the moment those characters start to soften. Also resize the image with <a href="/resize">Resize Image</a> if the dimensions are far larger than anyone needs — that often removes most of the weight without touching visible sharpness.</p>
-  //
+  
   // <p><strong>Q: Is it safe to compress a cheque or an ID photo on an online tool?</strong><br>
   // A: On GoPDFGo it is, because the processing runs inside your own browser. The image is never uploaded to a server, there is no account, and nothing is stored. Aggressive compression also strips EXIF metadata, so the GPS location and camera details recorded in the original photo do not travel with the file.</p>
-  //
+  
   // <p><strong>Q: My screenshot is huge. What is the fastest way to shrink it?</strong><br>
   // A: Screenshots are usually PNG. If there is no transparency involved, run it through <a href="/convert-jpg">Convert to JPG</a> and compress the result. If transparency has to be preserved, use <a href="/compress-png">Compress PNG</a>, which shrinks the file by reducing the colour palette while keeping transparent areas intact.</p>
-  //
+  
   // <p><strong>Q: Can I prepare several photos at once?</strong><br>
   // A: Yes. The compression tools handle a batch, so you can load all the pages of a document or a full set of product shots together, apply the same settings, and download them in one go before sending.</p>
   //   `
   // },
-
   // {
   //   id: "compress-multiple-photos-at-once-bulk",
   //   title: "How to Compress 100+ Photos at Once Without Doing Them One by One",
@@ -4997,11 +4998,11 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/compress-multiple-photos-at-once-bulk.webp",
   //   content: `
   //       <p>You just got back from a wedding, a college fest, or your cousin's engagement, and your phone is sitting on 480 photos that together weigh more than three gigabytes. Or you run a small shop and you have shot 120 product pictures for your catalogue, every one of them a fat 4MB file that your website builder chokes on. Or you are a student who photographed 60 pages of borrowed notes and now needs to send the whole lot to a friend on a data pack that is already running thin.</p>
-  //
+  
   //       <p>Whatever the folder is, the problem is the same. Each individual photo is far heavier than it needs to be, and there are far too many of them to fix by hand. Compressing one image takes maybe fifteen seconds. Doing that a hundred times, one file at a time, opening the tool again and again, is close to an hour of your evening gone on something a computer should be doing for you.</p>
-  //
+  
   //       <p>The good news is you do not have to. The <a href="/compress-jpg">Compress JPG</a> tool takes a whole batch of images at once, works through the entire pile, and hands them all back lighter. This guide walks you through the batch flow properly, including the one decision that matters most for a big folder: whether to compress by quality or by target size.</p>
-  //
+  
   //       <h2>Why the One-at-a-Time Habit Falls Apart at Scale</h2>
   //       <p>Most people learn image compression the single-file way. You have a passport photo that must go under 20KB for an exam form, so you open a compressor, drag the slider until the number looks right, download, done. That habit works beautifully for one file and completely collapses at a hundred.</p>
   //       <p>Here is what actually goes wrong when you try to scale it manually:</p>
@@ -5012,10 +5013,10 @@ export const blogsData = [
   //         <li><strong>You give up halfway.</strong> This is the honest one. Most people quit around the twentieth file and just send the rest uncompressed, which defeats the entire purpose.</li>
   //       </ul>
   //       <p>Batch compression solves all four at once. One set of settings, applied uniformly to every file, in a single pass.</p>
-  //
+  
   //       <h2>The Batch Flow, Start to Finish</h2>
   //       <p>The tool runs completely inside your browser. That is not a marketing line, it is the reason batch work is practical here at all. Nothing is being uploaded, so you are not waiting for three gigabytes of wedding photos to crawl up a mobile connection before anything can even begin. Your phone or laptop does the work directly, which means the speed depends on your own device and not on somebody's server queue. It also means your photos, your customers' product shots, and your scanned documents never leave your hands.</p>
-  //
+  
   //       <div class="tool-box">
   //         <h3>How to Compress a Whole Folder of Photos at Once</h3>
   //         <ul>
@@ -5026,20 +5027,20 @@ export const blogsData = [
   //           <li><strong>Step 5: Let it run, then collect the results.</strong> The tool works through the files and shows you each finished image with its new size. Each finished image appears with its old and new size, and you get a running total of how much you saved across the batch. Grab files individually from the list, or hit <strong>Download All ZIP</strong> to take the whole batch down in one archive.</li>
   //         </ul>
   //       </div>
-  //
+  
   //       <h2>Quality Mode or Target Size Mode? This Is the Whole Decision</h2>
   //       <p>For a single photo, the difference between these two modes barely matters. For a hundred photos it changes the outcome completely, because the two modes treat a mixed folder in very different ways.</p>
-  //
+  
   //       <h3>Quality mode keeps your look consistent</h3>
   //       <p>When you drag the quality slider to, say, 70 percent, every image in the batch gets compressed by the same amount of visual effort. The resulting file sizes will vary. A simple photo of a plain wall against a clean background will come out far smaller than a busy crowd shot with a thousand tiny details, even though both were compressed at the same setting. That variation is correct behaviour, not a bug. Detailed images genuinely need more data to look the same.</p>
   //       <p>Use quality mode when the album is what matters and no one is enforcing a size rule. Wedding and event photos, holiday pictures, a portfolio, a gallery you are handing over to a client. Everything looks uniformly good, and the sizes land where they naturally should.</p>
-  //
+  
   //       <h3>Target size mode enforces a hard ceiling</h3>
   //       <p>Switch to target size and you type an exact figure in KB instead. The tool then works backwards on each file, pushing the quality down until that file fits under your number. There are preset chips for the common small sizes so you do not have to type when you are aiming low.</p>
   //       <p>Now the sizes are consistent and the quality varies. Your simple wall photo will look untouched because it barely had to be squeezed, while your busy crowd shot will have worked much harder to hit the same figure and will show it. That trade is exactly what you want when a rule is being enforced by a machine on the other end.</p>
   //       <p>Use target size mode when something downstream will actually reject an oversized file: an upload portal, a marketplace listing form, a website theme with an image budget, a client who told you nothing above 200KB. Also use it when you have a total budget to hit. If you need 100 photos to fit comfortably inside Gmail's well known 25MB attachment limit, a 200KB cap per photo gets you to roughly 20MB with room to spare, and it gets you there predictably.</p>
   //       <p>If you are chasing a very small number for a form rather than a folder, we cover that case in detail in our guide to <a href="/blog/compress-jpg-under-20kb-online-forms">compressing a JPG under 20KB for online forms</a>. Many portals cap uploads at surprisingly tight limits, and the same target size mode handles it.</p>
-  //
+  
   //       <h2>How Many Files Should You Do in One Go?</h2>
   //       <p>There is no file count limit built into the tool, and no file size cap either. The real limit is your device's memory, because everything is being processed right there on your phone or laptop.</p>
   //       <p>A desktop or laptop with a reasonable amount of RAM will chew through a large batch without complaint. A mid-range phone with a dozen other apps open in the background is a different story. If your phone browser feels sluggish or the tab reloads itself midway, that is memory pressure, not a broken tool.</p>
@@ -5051,12 +5052,12 @@ export const blogsData = [
   //         <li><strong>Plug in if the batch is big.</strong> Compressing a few hundred photos is genuine processing work and it will draw power.</li>
   //       </ul>
   //       <p>One thing worth knowing about a mixed folder: the tool will never hand you back a file bigger than the original. If a photo in your batch is already small and well optimised, squeezing it further would make no sense, so you keep the original. You can drop a whole messy folder in without worrying that the already-tidy files will get worse.</p>
-  //
+  
   //       <h2>A Quiet Privacy Win: Metadata Goes With It</h2>
   //       <p>Every photo your phone takes carries hidden EXIF metadata: the camera model, the exact date and time, and often the precise GPS coordinates of where you stood when you pressed the shutter. Most people have no idea it is there.</p>
   //       <p>This matters more than it sounds when you are sharing in bulk. Post 40 product photos to a marketplace and you may be publishing your home address in coordinate form, over and over, to anyone who bothers to look. Send a batch of holiday pictures to a group and the location history rides along.</p>
   //       <p>When compression is aggressive enough, that metadata gets stripped out along with the excess image data. You get lighter files and cleaner ones in the same pass. It is not a substitute for deliberate redaction when you are handling identity documents, but for a folder of ordinary photos heading out into the world, it is a genuine bonus.</p>
-  //
+  
   //       <h2>Choosing the Right Tool for What Is Actually in Your Folder</h2>
   //       <p>Batch compression works best when the batch is reasonably uniform in type. Sort your folder before you start:</p>
   //       <ul>
@@ -5065,12 +5066,12 @@ export const blogsData = [
   //         <li><strong>Images going onto a website.</strong> Consider converting to WebP first with <a href="/convert-webp">Convert to WebP</a>, then batch compressing. Google's own published figure puts WebP at roughly 25 to 35 percent smaller than JPG at comparable quality, and it supports transparency too.</li>
   //       </ul>
   //       <p>If you are unsure which format you are even holding, our <a href="/blog/jpg-vs-png-format-guide">guide to JPG versus PNG</a> sorts it out in a couple of minutes.</p>
-  //
+  
   //       <h2>Resize Before You Compress, Not Instead of It</h2>
   //       <p>Here is the single biggest saving most people miss on a big batch. File size in KB and image dimensions in pixels are two separate things, and compression only touches the first one.</p>
   //       <p>A modern phone shoots photos several thousand pixels wide. A product picture on a website is displayed at maybe 800 pixels. A photo in a WhatsApp catalogue is smaller still. You are compressing enormous images down to a small file size when you could have made them the right dimensions first and had far less to squeeze in the first place.</p>
   //       <p>Resize is a one-image-at-a-time tool, so it is worth doing on the shots that matter most rather than on all 400. For a website or a catalogue, resize the key images with <a href="/resize">Resize Image</a> first, then batch-compress the whole folder. If you are typing your own dimensions, keep Lock Aspect Ratio switched on so nothing gets stretched, set your width, and remember to click Apply Changes. There are also fixed presets — Passport 200x230, Profile 400x400, HD 1280x720 and Square 1080 — which set both dimensions exactly and so switch the aspect lock off by design. A resized photo then needs far less compression to reach your target, which means it comes out looking noticeably better at the same final size.</p>
-  //
+  
   //       <h2>What to Do With the Batch Once It Is Compressed</h2>
   //       <p>Lighter files are usually a means to an end. A few common next steps:</p>
   //       <ul>
@@ -5079,9 +5080,9 @@ export const blogsData = [
   //         <li><strong>Share on WhatsApp without a second round of damage.</strong> When you send a picture as a Photo, WhatsApp re-compresses it again on top of your compression, and the result can look rough. If the images need to arrive exactly as you made them, send them as a Document instead.</li>
   //         <li><strong>Upload to your website.</strong> Compressed images before upload beat any plugin trying to fix it afterwards, and your pages load faster on the patchy mobile connections most of your visitors are on.</li>
   //       </ul>
-  //
+  
   //       <p>Set aside ten minutes, sort your folder by type, pick quality mode or target size based on whether anything is enforcing a limit, and let <a href="/compress-jpg">Compress JPG</a> work through the whole pile while you make tea. It is the same job you were dreading doing a hundred times, done once.</p>
-  //
+  
   //       <h2>Frequently Asked Questions</h2>
   //       <p><strong>Q: How many photos can I compress at once?</strong><br>
   //       A: There is no built-in limit on file count or file size. The practical ceiling is your device's memory, since everything runs locally in your browser. On a desktop you can push a large batch comfortably; on a phone, batches of 20 to 30 are more reliable.</p>
@@ -5097,7 +5098,6 @@ export const blogsData = [
   //       A: It helps, but note that <a href="/resize">Resize Image</a> works on one image at a time, so it is practical for a handful of important shots rather than a whole folder. Resize those with Lock Aspect Ratio on, then batch-compress everything. At the same final file size, a resized photo looks better.</p>
   //   `
   // },
-
   // {
   //   id: "webp-to-jpg-file-not-accepted-upload",
   //   title: "Image Saved as WebP and the Upload Form Will Not Take It? Convert to JPG",
@@ -5108,59 +5108,59 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/webp-to-jpg-file-not-accepted-upload.webp",
   //   content: `
   // <p>You needed exactly one image. A logo for the shop banner the printer is waiting on, a product photo for your catalogue, a scanned photo somebody shared with you through a website link. You long-pressed it on your phone, tapped Download, and it landed in your gallery or Downloads folder. Then you opened the upload form — a college portal, a job application, a seller panel, an old office website — picked the file, and the page threw it right back at you: <strong>Only JPG, JPEG or PNG files are allowed.</strong></p>
-  //
+  
   // <p>You check the filename. It ends in <code>.webp</code>. Not .jpg, not .png. Possibly a file extension you have never seen in your life, and now an entire form is stuck behind it. You try renaming it to photo.jpg, because that feels like it should work, and the portal rejects it again — this time with something ruder, like Invalid image or Corrupt file.</p>
-  //
+  
   // <p>Nothing is broken. Your phone is fine, the image is fine, the download worked. The web quietly changed image formats a few years ago and a large number of upload forms, older billing software and print shop machines never got the memo. The fix takes about ten seconds: convert the file to JPG. But there is one behaviour worth understanding before you do it, because it catches people out badly with logos and cut-out photos.</p>
-  //
+  
   // <h2>Where the .webp file came from in the first place</h2>
-  //
+  
   // <p>WebP is an image format made by Google. It exists for one reason — to make web pages load faster on slow connections. A WebP file holds roughly the same visual quality as a JPG at a noticeably smaller size. Google's own published figure is that WebP runs about <strong>25 to 35 percent smaller than a comparable JPG</strong>. On a patchy connection in a small town, that difference is the gap between a page loading and a page giving up.</p>
-  //
+  
   // <p>So websites adopted it in bulk. Plenty of WordPress sites, e-commerce stores, news portals and image-heavy blogs now serve WebP automatically to any browser that can display it. Chrome on Android can display it. So when you save an image from a site on your phone, what you get is the WebP version the site actually served you — not a JPG, because a JPG was never sent to your phone at all.</p>
-  //
+  
   // <p>That is the whole mystery. You did not do anything unusual. The site gave your browser the modern file, and your browser saved the modern file.</p>
-  //
+  
   // <h2>Why so many forms and machines still reject it</h2>
-  //
+  
   // <p>Displaying an image and accepting an upload are two different jobs, handled by two different pieces of software, updated on two completely different schedules.</p>
-  //
+  
   // <ul>
   //   <li><strong>Government and institutional portals.</strong> A lot of these were built years ago and are maintained conservatively. The upload validation checks against a short list of allowed types — usually jpg, jpeg, png, sometimes pdf — and on portals that have been running for years, that list rarely gets revisited to add a newer format.</li>
   //   <li><strong>Older CMS and admin panels.</strong> Legacy WordPress installations, custom-built dealer portals, school ERP systems, clinic software. If the platform has not been updated in a few years, its media library simply does not recognise the format.</li>
   //   <li><strong>Print shops and Xerox counters.</strong> The desktop machine at the shop is often running an old Windows build with old printing software. The shopkeeper plugs in your pen drive, double-clicks your file, and gets a blank window. He is not being difficult. His software genuinely cannot open it.</li>
   //   <li><strong>Office software.</strong> Older versions of Word and PowerPoint, along with plenty of billing and editing software, may refuse a WebP without explaining why.</li>
   // </ul>
-  //
+  
   // <p>The answer in every one of these cases is the same. Give them a JPG. JPG has been readable everywhere for three decades, and it is the one format upload forms, print shops and old software can be relied on to accept. Drop the file into <a href="/convert-jpg">Convert to JPG</a> and you have a file every one of those systems accepts.</p>
-  //
+  
   // <h2>Renaming the file does not convert it</h2>
-  //
+  
   // <p>This deserves its own section because it is the single most common mistake. Changing <code>logo.webp</code> to <code>logo.jpg</code> in your file manager does not change the image. The file extension is just a label on the outside of the box. The bytes inside are still WebP-structured data, and every piece of software that opens the file reads the actual bytes, not the label.</p>
-  //
+  
   // <p>What you get is worse than the original problem. Some portals accept the upload because the name passed their check, then fail later when something actually tries to read the image — so you end up with a broken thumbnail or a missing photo on your submitted form, often without being told why. A genuine conversion rewrites the image data into JPG structure. That is what a converter does and a rename does not.</p>
-  //
+  
   // <h2>The transparency trap: WebP can hold transparency, JPG cannot</h2>
-  //
+  
   // <p>Here is the part that bites people, and it is worth reading before you convert anything with a logo in it.</p>
-  //
+  
   // <p>WebP supports transparent backgrounds, the same way PNG does. That is one of the reasons designers and websites like it. JPG, on the other hand, has no ability to store transparency at all — the format simply has no space for it. It never had it and it never will.</p>
-  //
+  
   // <p>So when you convert a WebP that has a transparent background into a JPG, the transparent area has to become <em>something</em>. It becomes <strong>white</strong>. This is not a bug in the tool; it is the only thing JPG can do with a pixel that has no background. Some converters fill the gap with black instead, which looks far worse — this tool fills it with white.</p>
-  //
+  
   // <p>Most of the time this is completely fine, and often it is exactly what you want. A company logo with a transparent background, converted to JPG and placed on a white letterhead or a white invoice, looks identical to the transparent version. Nobody can tell.</p>
-  //
+  
   // <p>Where it goes wrong is when the logo is going onto something that is not white. If you convert your transparent-background logo to JPG and then drop it onto a dark blue banner, a coloured visiting card, or a festival greeting graphic for WhatsApp, you get an ugly white rectangle sitting behind the logo. Every designer has been sent one of these by a client at least once.</p>
-  //
+  
   // <p>So decide first, based on where the image is going:</p>
-  //
+  
   // <ul>
   //   <li><strong>Going into an upload form, or to a print shop, or into old software?</strong> Convert to JPG. Forms almost always print or display on white anyway, and JPG has the widest acceptance of any format.</li>
   //   <li><strong>Going onto a coloured background, or into a design you or somebody else will edit?</strong> Use <a href="/convert-png">Convert to PNG</a> instead. PNG keeps the transparency and is accepted by almost every portal that accepts JPG.</li>
   // </ul>
-  //
+  
   // <p>If you are not sure whether your image has transparency, open it and look. If the background shows as a checkerboard pattern in an editor, or the subject looks like it is floating with no background at all, it is transparent. If it has a solid white background baked in already, converting to JPG changes nothing visually. For a longer look at when each format is the right call, our <a href="/blog/jpg-vs-png-format-guide">JPG versus PNG format guide</a> walks through it properly.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>How to Convert Your WebP to JPG in Under a Minute</h3>
   //   <p>Everything below happens inside your browser on your own device. The image is never uploaded to a server, which matters when the file is an ID photo, a signed document or a client's unreleased product shot.</p>
@@ -5172,55 +5172,54 @@ export const blogsData = [
   //     <li><strong>Step 5: Download and rename.</strong> Save the JPG, then give it a sensible name before you upload it anywhere — Ravi_Kumar_Photo.jpg reads far better to a verification clerk than download(3).jpg.</li>
   //   </ul>
   // </div>
-  //
+  
   // <h2>The form still rejected it — now what?</h2>
-  //
+  
   // <p>Getting to JPG solves the format complaint. But a lot of Indian portals stack two or three more conditions on top, and they usually only tell you about one at a time. If the upload fails again after conversion, work through these in order.</p>
-  //
+  
   // <p><strong>The file is too heavy.</strong> Many portals cap uploads at a small figure, and a converted JPG from a full-size web image can easily sit well above that. Run it through <a href="/compress-jpg">Compress JPG</a> and use the target size mode, where you type the exact KB figure the portal demands instead of guessing with a slider. There is also a live before-and-after preview on the quality slider, so you can see what you are giving up before you commit. If you are dealing with a really tight limit, our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">compressing a JPG under 20KB for online forms</a> covers the whole approach.</p>
-  //
+  
   // <p><strong>The dimensions are wrong.</strong> File weight in KB and image dimensions in pixels are two separate things, and portals check both. If the notification says the photo must be 200x230 pixels, compressing it will never satisfy that check — you need to actually change the pixel dimensions. Use <a href="/resize">Resize Image</a>, which has a preset button for exactly that passport size, plus a Lock Aspect Ratio toggle so your face does not come out stretched. Remember to click Apply Changes. The correct order is always: convert, then resize to the required pixels, then compress to the required KB. Doing it in that sequence saves you redoing the work twice. There is a full walkthrough in our post on <a href="/blog/resize-passport-photo-signature-200x230">resizing a passport photo and signature to exactly 200x230</a>.</p>
-  //
+  
   // <p><strong>There is extra area around the image.</strong> If you saved a screenshot of the image rather than the image itself, you are carrying page borders and stray whitespace along with it. Trim it with <a href="/crop">Crop Image</a> before you resize, so the subject fills the frame properly.</p>
-  //
+  
   // <p><strong>The portal wants a PDF, not an image.</strong> Some forms ask for supporting documents as PDF even when what you have is a photo. Feed the converted JPGs into <a href="/image-to-pdf">Image to PDF</a>, choose A4 or fit-to-image, arrange them in the right order, and export one clean PDF.</p>
-  //
+  
   // <h2>The phone-specific version of this problem</h2>
-  //
+  
   // <p>On Android, images you save from Chrome land in your Downloads folder, and depending on your phone's gallery app they may not show up there at all — which is why people often cannot find the file and assume the download failed. Open your Files app, go to Downloads, sort by date, and it will be sitting at the top with the .webp extension visible.</p>
-  //
+  
   // <p>A second wrinkle: if you send that WebP to yourself on WhatsApp hoping it will come back as a JPG, be careful how you send it. Sending it through the normal Photo option means WhatsApp re-compresses it, and you get a softer, lower-quality image back. Sending it as a Document preserves the original file untouched, which also means it stays a WebP. Neither route is a conversion. Converting it properly on your device is faster, and at good quality settings the result looks the same as what you started with.</p>
-  //
+  
   // <h2>Doing the opposite: when you actually want WebP</h2>
-  //
+  
   // <p>Everything above assumes you are stuck with a WebP and need a JPG. If you run a website, a small business page or a WordPress store, the arrow points the other way. Serving your product photos as WebP is one of the cheapest page-speed wins available to you, particularly for visitors on mobile data. In that case take your heavy JPGs and PNGs and put them through <a href="/convert-webp">Convert to WebP</a> before uploading them to your site.</p>
-  //
+  
   // <p>The rule of thumb is simple. Between systems that only display images — websites, apps, modern browsers — WebP wins on speed. Anywhere a file has to be handed to an upload form, a print shop or a piece of old software, JPG wins on acceptance, and <a href="/convert-jpg">converting to JPG</a> is the shortest path to getting your work through.</p>
-  //
+  
   // <p>One last practical note. Whatever the image is — an ID photo, a signed letter, a client's design file — it should not have to travel to somebody else's server just to change format. Conversion is arithmetic on pixel data, and your own phone or laptop can do it perfectly well, in a fraction of a second, without an internet round trip. If you want the longer argument for why that matters, we made the case in <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local processing versus cloud tools</a>.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
-  //
+  
   // <p><strong>Q: Why does my downloaded image say .webp instead of .jpg?</strong><br>
   // A: Because the website served your browser a WebP file to make the page load faster, and your browser saved exactly what it received. It is common practice on modern sites. Run the file through <a href="/convert-jpg">Convert to JPG</a> and you will have a standard image that any form or software accepts.</p>
-  //
+  
   // <p><strong>Q: Can I just rename the file from .webp to .jpg?</strong><br>
   // A: No. Renaming changes the label, not the image data inside. Software reads the actual file contents, so a renamed file will either be rejected as corrupt or upload as a broken thumbnail. You need a real conversion.</p>
-  //
+  
   // <p><strong>Q: My logo had a transparent background and now it has a white box behind it. Why?</strong><br>
   // A: JPG cannot store transparency at all, so any transparent area is filled with white during conversion. That is normal and unavoidable with JPG. If you need the transparency kept, use <a href="/convert-png">Convert to PNG</a> instead.</p>
-  //
+  
   // <p><strong>Q: Will converting WebP to JPG make the image blurry?</strong><br>
   // A: For normal use — forms, printing, presentations — you will not notice a difference. WebP is already a compressed format, and converting it to a good-quality JPG looks visually the same. Blurring comes from over-compressing afterwards, not from the conversion itself.</p>
-  //
+  
   // <p><strong>Q: The form accepted my JPG but says the file is too large. What next?</strong><br>
   // A: Use <a href="/compress-jpg">Compress JPG</a> and switch to target size mode, where you type the exact KB limit the portal asks for. If the form also specifies pixel dimensions, resize with <a href="/resize">Resize Image</a> first, then compress.</p>
-  //
+  
   // <p><strong>Q: Is it safe to convert my ID photo or signed document here?</strong><br>
   // A: Yes. The conversion runs entirely inside your browser on your own device. No file is uploaded anywhere, there is no account to create, and nothing is stored after you close the tab.</p>
   //   `
   // },
-
   // {
   //   id: "convert-jpg-to-png-online-free",
   //   title: "Convert JPG to PNG Online Free (When a Site or Printer Will Only Take PNG)",
@@ -5231,11 +5230,11 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/convert-jpg-to-png-online-free.webp",
   //   content: `
   //       <p>You are on an upload page — a scholarship portal, a college admission form, a bank KYC screen, a vendor or GST registration page — and under the browse button there is a single line of grey text: <strong>Only .png files are accepted.</strong> Your photo is a JPG. Your scanned signature is a JPG. Every picture your phone has ever taken is a JPG. You click upload anyway, hoping, and the field turns red.</p>
-  //
+  
   //       <p>Or it is a print job. You send your shop logo to the flex banner fellow or the T-shirt printing guy on WhatsApp and he replies with three words: send PNG file. Or a freelance designer asks for it, or the person building your website, or a marketplace listing that wants catalogue images in one specific format. Same wall, different door.</p>
-  //
+  
   //       <p>Converting a JPG to PNG takes about five seconds, and you can do it right now with the <a href="/convert-png">Convert to PNG</a> tool. But before you do, there are two things about this particular direction of conversion that almost every other article quietly skips. If nobody tells you, you end up with a file that looks exactly as rough as the one you started with and is several times heavier. So let us do the conversion, and be honest about what it fixes and what it cannot.</p>
-  //
+  
   //       <h2>Why would a site or a printer insist on PNG?</h2>
   //       <p>It is rarely arbitrary. There are three normal reasons, and knowing which one applies to you changes what you should do next.</p>
   //       <ul>
@@ -5244,17 +5243,17 @@ export const blogsData = [
   //         <li><strong>The developer just picked one format.</strong> Plenty of upload forms, especially older government and institutional ones, accept exactly one extension because that is what somebody wrote into the validation code years ago. There is no deeper logic. The file simply has to end in .png or the form will not move.</li>
   //       </ul>
   //       <p>Reasons one and three are solved completely by converting. Reason two is where people get hurt, and it deserves its own section.</p>
-  //
+  
   //       <h2>The honest part: PNG cannot bring back detail your JPG already lost</h2>
   //       <p>This is the most important paragraph in this article. JPG is a <strong>lossy</strong> format. Every time an image is saved as a JPG, the algorithm permanently deletes colour and edge information it judges your eye will not miss. Save it again, and it deletes a bit more. That is why a photo that has been forwarded on WhatsApp a dozen times, saved, re-shared and screenshotted eventually looks blocky and smeared around text and edges.</p>
   //       <p>Converting that file to PNG stops the bleeding. It does not undo it. PNG is a lossless container, so from the moment you convert, nothing further is discarded — but the details already deleted by earlier JPG saves are gone from the file, and there is nothing left for any tool to rebuild them from. A blurry JPG becomes a blurry PNG. A photo with visible blocky squares around the letters becomes a PNG with the exact same blocky squares, just stored more faithfully and in a bigger file.</p>
   //       <p>So if your goal is to sharpen a bad scan or rescue a low-quality forwarded photo, changing the format will not do it. What actually helps is going back to the source: rescan the document, ask the sender to share the original as a WhatsApp <strong>Document</strong> rather than as a <strong>Photo</strong> (sending as Photo re-compresses it, sending as Document does not), or simply retake the picture in better light. Then convert that clean original to PNG.</p>
-  //
+  
   //       <h2>PNG also cannot create transparency that was not there</h2>
   //       <p>Here is the second trap, and it catches shop owners and small business people constantly. You have your logo as a JPG. The printer asks for a PNG. You convert it, send it, and he writes back: this still has a white box around it.</p>
   //       <p>He is right. Transparency is stored as an extra channel of information inside the file, and JPG has no such channel — it physically cannot hold the idea of an empty pixel. When your logo was saved as a JPG at some point in its life, whatever transparent area it once had was filled in with solid white, permanently, and those white pixels are now real image content, no different from any other white in the picture. This works the same way in the opposite direction: converting a transparent PNG with the <a href="/convert-jpg">Convert to JPG</a> tool fills the transparent area with white, which is exactly why designers hate receiving logos as JPGs.</p>
   //       <p>Converting back to PNG gives the file a transparency channel again, but that channel arrives empty of any useful instruction — the white is already baked into the pixels. No format conversion, on any website, can look at a white rectangle and correctly decide which white belongs to your logo and which is background. If you genuinely need a transparent logo, the honest answer is to get the original layered file from whoever designed it, or have it redrawn. If you only need to remove a plain outer margin — a scan with a big white border, for instance — that is a different and much easier problem, and the <a href="/crop">Crop Image</a> tool handles it by letting you drag a box around the part you want to keep.</p>
-  //
+  
   //       <h2>Expect the file to get bigger — sometimes much bigger</h2>
   //       <p>A JPG photograph can easily come out several times larger as a PNG. This shocks people, but it is the format working correctly. JPG achieved that small size by discarding data; PNG refuses to discard anything, so it has to write down every pixel. For photographs, with their millions of subtle colour shifts, that is a lot of writing.</p>
   //       <p>This matters because the same portal that demands PNG often also caps the upload size, and many portals do cap uploads. Converting to PNG can push you straight past that cap. If it does, do not go back to JPG — you will just fail the format check again. Instead do one or both of these:</p>
@@ -5263,7 +5262,7 @@ export const blogsData = [
   //         <li><strong>Compress the PNG properly.</strong> Because PNG is lossless, simply re-saving it changes nothing at all — this is why so many generic compressors appear to do nothing to a PNG. The <a href="/compress-png">Compress PNG</a> tool works differently: it reduces the colour palette, which is what actually shrinks a PNG, and it preserves transparency while doing so. There is a quality slider that starts at 80 percent, and a target-size mode if you have a specific KB figure to hit. On screenshots and flat graphics the saving is usually large.</li>
   //       </ul>
   //       <p>Do the resize first, then the compression. That order almost always beats compressing a huge image and then wondering why it looks so bad — a mistake we unpack in our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">compressing images under a strict KB limit for online forms</a>.</p>
-  //
+  
   //       <div class="tool-box">
   //         <h3>How to Convert a JPG to PNG:</h3>
   //         <ul>
@@ -5274,7 +5273,7 @@ export const blogsData = [
   //           <li><strong>Step 5: Check the weight before you upload.</strong> Look at the file size. If it is comfortably inside the portal's limit, upload it. If it is not, resize it and then run it through <a href="/compress-png">Compress PNG</a> before trying again.</li>
   //         </ul>
   //       </div>
-  //
+  
   //       <h2>When converting JPG to PNG is genuinely the right call</h2>
   //       <p>Given everything above, it is fair to ask whether this conversion is ever worth doing. It is, in these situations:</p>
   //       <ul>
@@ -5284,11 +5283,11 @@ export const blogsData = [
   //         <li><strong>Something downstream needs a lossless input.</strong> Some design, print and archival workflows simply require it, and handing over a PNG saves an argument.</li>
   //       </ul>
   //       <p>And when is it the wrong call? When the image is an ordinary photograph headed for a website. There, PNG will bloat your page for no visual benefit — WebP is the better answer, being roughly 25 to 35 percent smaller than JPG at similar quality according to Google's own published figures, while still supporting transparency. Our comparison of <a href="/blog/jpg-vs-png-format-guide">JPG versus PNG for logos and documents</a> walks through choosing between the three, and the reverse journey is covered in <a href="/blog/convert-webp-to-png-for-photoshop">converting WebP back to PNG for Photoshop</a>.</p>
-  //
+  
   //       <h2>One more thing: check whether the portal actually wanted a PDF</h2>
   //       <p>It is worth re-reading the upload instructions before you convert anything. A surprising number of Indian portals ask for a single PDF containing several pages — marksheets, ID front and back, address proof — and applicants send loose images instead, or one image per upload slot, and get rejected for it. If that is your situation, the image format is beside the point. Put the pictures in the right order and use the <a href="/image-to-pdf">Image to PDF</a> tool, which takes several JPG, PNG or WebP files into one PDF with a choice of A4, Letter or fit-to-image page size, and lets you reorder them before exporting.</p>
   //       <p>Everything described here runs locally in your browser. Your photo, your signature, your ID scan and your shop logo never leave your phone or laptop, there is no account, no watermark and no waiting in a queue. That is not a marketing line — it is simply how a client-side tool works, and it is the reason to be wary of any converter that insists on uploading your documents to its server first.</p>
-  //
+  
   //       <h2>Frequently Asked Questions</h2>
   //       <p><strong>Q: How do I convert a JPG to PNG for free?</strong><br>
   //       A: Open the <a href="/convert-png">Convert to PNG</a> tool, add your JPG, and download the PNG. It runs inside your browser, so there is no upload, no account and no watermark, and it works the same on a phone as on a desktop.</p>
@@ -5302,10 +5301,9 @@ export const blogsData = [
   //       A: Yes. The conversion happens on your own device inside the browser and the file is never sent anywhere. If you also need to hide part of an ID number before sharing it, there is a dedicated <a href="/aadhaar-masking">Aadhaar Masking</a> tool that also runs entirely on your own device.</p>
   //       <p><strong>Q: Can I convert several JPGs to PNG one after another?</strong><br>
   //       A: Yes, you can work through a set of images in a single session without reloading anything. If what you actually need is those images combined into one document rather than separate files, use <a href="/image-to-pdf">Image to PDF</a> instead.</p>
-  //
+  
   //   `
   // },
-
   // {
   //   id: "combine-front-and-back-scans-into-one-pdf-correct-order",
   //   title: "Double-Sided Scan Saved as Two PDFs? How to Merge Odd and Even Pages Into the Right Order",
@@ -5316,38 +5314,38 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/combine-front-and-back-scans-into-one-pdf-correct-order.webp",
   //   content: `
   // <p>You had a stack of double-sided papers to scan. Maybe it was a rent agreement, a set of marksheets printed back-to-back, an old service record, or a twenty-page contract. The office scanner or the app on your phone does not do both sides in one pass, so you did what everybody does: you fed the whole stack through once to capture all the fronts, then flipped the stack over and fed it through again to capture all the backs.</p>
-  //
+  
   // <p>Now you are staring at two PDFs. One has pages 1, 3, 5, 7 and so on. The other has pages 2, 4, 6, 8 - and there is a good chance they are in reverse, with the back of the very last sheet sitting at position one. Merging them end to end gives you a document where every front comes first and every back comes after, which is unreadable for anybody who has to verify it.</p>
-  //
+  
   // <p>This is a completely fixable problem, and you do not need to rescan anything. You need to merge the two files and then interleave the pages, which is exactly what the <a href="/organize-pdf">Organize PDF</a> tool is built for - reordering, rotating and deleting pages on a single screen of draggable thumbnails.</p>
-  //
+  
   // <h2>Why the Back Pages Come Out in Reverse</h2>
-  //
+  
   // <p>This trips up almost everyone the first time, and once you see why it happens it stops being mysterious.</p>
-  //
+  
   // <p>Think about a five-sheet stack sitting face up in the feeder, sheet 1 on top. The scanner pulls sheet 1 first, then 2, 3, 4, 5. Your fronts file is in perfect order. Now you pick up the whole stack and flip it over as one block. Sheet 5 is now on top, and sheet 1 is at the bottom. The scanner pulls the back of sheet 5 first, then 4, 3, 2, 1. Your backs file is a mirror image of the order you actually want.</p>
-  //
+  
   // <p>So before you touch anything, open the second PDF and look at its first page. If that page clearly belongs with the <strong>last</strong> sheet of the document - the signature page, the final clause, the last row of a table - your evens file is reversed. If it obviously belongs with sheet 1, you are lucky and the scanner or app already handled the flip for you. Ten seconds of checking here saves you a lot of confused dragging later.</p>
-  //
+  
   // <p>There is a second, related surprise. If you flipped the stack the wrong way round - end over end rather than sideways, for a normal portrait document - the back pages will come out upside down. That is not a scanning fault, it is just geometry. It is also fixable on the same screen.</p>
-  //
+  
   // <h2>Do the Page Maths Before You Start</h2>
-  //
+  
   // <p>Spend a minute on arithmetic and the whole job becomes mechanical instead of guesswork.</p>
-  //
+  
   // <ul>
   //   <li><strong>Count the physical sheets.</strong> If you scanned 12 sheets, your fronts file should have 12 pages.</li>
   //   <li><strong>Compare the two page counts.</strong> If the fronts file has 12 pages and the backs file has 12 pages, everything got captured. If the backs file has 11, one sheet did not feed properly and you need to rescan just that one side.</li>
   //   <li><strong>Expect blanks.</strong> Plenty of double-sided documents have a blank reverse on some sheets. Those blanks will still appear in the backs file as empty pages, and they will need to be removed, not shuffled.</li>
   //   <li><strong>Know your final target.</strong> Twelve sheets, all printed both sides, means a 24-page final PDF in the order front 1, back 1, front 2, back 2, and so on.</li>
   // </ul>
-  //
+  
   // <p>If the numbers do not add up, fix that first. Interleaving a file that is already missing a page just produces a neatly ordered document with a hole in it, and that is the kind of thing a verification officer notices immediately.</p>
-  //
+  
   // <h2>Merge First, Then Interleave</h2>
-  //
+  
   // <p>The instinct is to try to fix the order and then combine. Do it the other way round. Combine the two files into one document first, because you cannot drag a page from one PDF into another - you can only reorder pages within a single file. Once both halves are inside one PDF, every page is available to move.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>How to Combine Front and Back Scans in the Correct Order</h3>
   //   <p>Everything below runs inside your browser on your own phone or computer. The scans never get uploaded, which matters when the pages are an agreement or an ID document.</p>
@@ -5361,23 +5359,23 @@ export const blogsData = [
   //     <li><strong>Step 7: Scroll through and export.</strong> Read the thumbnails in order once, top to bottom, and confirm the document actually flows. Then save. The result is one correctly sequenced PDF on your device.</li>
   //   </ul>
   // </div>
-  //
+  
   // <h2>The Rhythm That Makes Dragging Fast</h2>
-  //
+  
   // <p>Interleaving twenty-four thumbnails sounds tedious, and it is if you do it randomly. It stops being tedious once you notice the pattern.</p>
-  //
+  
   // <p>After every single move, the block of remaining back pages shrinks by one and the correctly ordered block at the top grows by two. The target position also moves by a predictable amount: 2, then 4, then 6, then 8. You are not making judgement calls page by page, you are repeating one identical action a fixed number of times. On a long document it helps to say the target number out loud as you drag, because losing your place is the only real way to make a mistake here.</p>
-  //
+  
   // <p>If you only need to reorder and there is nothing to rotate or delete, the leaner <a href="/rearrange-pdf">Rearrange PDF</a> tool does the same drag-and-drop reordering with fewer controls on screen. Our guide on <a href="/blog/rearrange-scanned-pdf-page-order">fixing the page order of a scanned document</a> walks through that side of it in more detail.</p>
-  //
+  
   // <h2>What About Just Two Pages, Like an ID Card?</h2>
-  //
+  
   // <p>The same problem shows up in a much smaller form all the time. You photograph the front of an Aadhaar card, PAN card, driving licence or passport, then the back, and you end up with two images or two tiny PDFs that a portal wants as one file.</p>
-  //
+  
   // <p>For that, skip the merge entirely. Put both photos through <a href="/image-to-pdf">Image to PDF</a>, which takes several JPG, PNG or WebP images into one PDF and lets you reorder them before you export. Choose A4 if the portal expects a document-shaped page, or fit-to-image if you want the page to hug the card. If your photos have a lot of table or bedsheet around the edges, trim them first with <a href="/crop">Crop Image</a> so the card fills the frame - a tightly cropped ID photo is easier to read than a card floating in the middle of a dark desk, and it keeps the file smaller too.</p>
-  //
+  
   // <h2>Common Traps With Two-Pass Scans</h2>
-  //
+  
   // <ul>
   //   <li><strong>Double feeds.</strong> The feeder pulls two sheets together and one side never gets captured. This is why comparing page counts before you start matters so much.</li>
   //   <li><strong>Assuming the app fixed it.</strong> Some phone scanner apps do reverse the second pass for you and some do not. Never assume - look at the first page of the backs file.</li>
@@ -5385,49 +5383,48 @@ export const blogsData = [
   //   <li><strong>Uploading the unmerged files anyway.</strong> A portal that asks for one document and receives two may reject the submission, or accept only the file you attached last. Either way you often will not find out until somebody tells you the application is incomplete, so send one combined file when one is asked for.</li>
   //   <li><strong>Forgetting to check the last page.</strong> The end of the document is where a wrongly placed page hides best, because most people verify the first few pages and stop.</li>
   // </ul>
-  //
+  
   // <h2>Finish the Job Properly</h2>
-  //
+  
   // <p>A correctly ordered document is not automatically a submittable one. Two more things usually need attention.</p>
-  //
+  
   // <p>Scans are heavy, especially colour scans at high resolution. A 24-page double-sided scan can easily be too big for a government portal or for a Gmail attachment, which caps out at 25 MB. Run the finished file through <a href="/compress-pdf">Compress PDF</a> to bring the weight down while keeping the text readable. Many portals cap uploads well below that, so check the instruction line on the upload page before you assume the file will go through. Our piece on <a href="/blog/why-government-websites-reject-perfectly-fine-pdfs">why government websites reject perfectly fine PDFs</a> covers the other reasons a valid file gets bounced.</p>
-  //
+  
   // <p>If the portal wants separate documents rather than one combined file - the agreement as one upload and the annexures as another - use <a href="/split-pdf">Split PDF</a> on your corrected master. Splitting copies pages rather than re-rendering them, so nothing gets blurrier in the process. A single range comes back as one PDF; multiple ranges come back as a ZIP.</p>
-  //
+  
   // <p>And if some pages still sit sideways after everything else, <a href="/rotate-pdf">Rotate PDF</a> will lock the orientation permanently rather than just turning it in your viewer. There is a full walkthrough in our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a>.</p>
-  //
+  
   // <h2>Why Doing This Locally Matters</h2>
-  //
+  
   // <p>The documents that get scanned double-sided are almost never trivial. They are agreements, salary records, property papers, education certificates, bank correspondence. Handing that stack to a random website that uploads it to a server you know nothing about, purely to shuffle some page thumbnails, is a bad trade.</p>
-  //
+  
   // <p>Everything described here runs inside your browser. The PDF is opened in your device's memory, the pages are reordered there, and the finished file is written back to your device. Nothing is uploaded, there is no account to create, no watermark is stamped on the output, and there is no artificial file-size cap beyond what your own phone or laptop can hold. If you want the longer argument, read <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local PDF processing is safer than cloud tools</a>.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
-  //
+  
   // <p><strong>Q: Is there a button that automatically interleaves two PDFs?</strong><br>
   // A: No. You merge the two files and then drag the back pages into position yourself in <a href="/organize-pdf">Organize PDF</a>. It sounds slower than it is - because the target position moves by a fixed step each time, the whole thing becomes one repeated action rather than a decision per page.</p>
-  //
+  
   // <p><strong>Q: How do I know for certain that my back pages are reversed?</strong><br>
   // A: Open the second PDF and look at page one. If it is the content that belongs at the very end of the document - the signatures, the last clause, the final table row - the file is reversed. Checking the first page of that file is quicker and more reliable than checking the last.</p>
-  //
+  
   // <p><strong>Q: Will reordering the pages make my scan blurrier?</strong><br>
   // A: No. Reordering only changes the sequence pages are stored in. The page content itself is untouched, so a scan that was sharp before is exactly as sharp afterwards. Quality only changes if you deliberately compress the file.</p>
-  //
+  
   // <p><strong>Q: My back pages are all upside down. Do I have to fix each one separately?</strong><br>
   // A: You can rotate pages on the same screen where you reorder them, so it is one continuous session rather than a separate round trip. Sort out the sequence first, then go through and rotate the pages that need it before you export.</p>
-  //
+  
   // <p><strong>Q: Some sheets were blank on the back. Should I keep those pages?</strong><br>
   // A: Remove them. Blank pages add file size, make the document longer than it needs to be, and can make a reviewer think a page failed to scan. Delete them at the end, after interleaving, so they do not disrupt the ordering rhythm.</p>
-  //
+  
   // <p><strong>Q: One of my two files is password-protected. Can I still merge it?</strong><br>
   // A: Not directly - a protected file gets skipped during merging and named so you know which one it was. Remove the password first with <a href="/unlock-pdf">Unlock PDF</a>, using the password you already know, then merge the unlocked copy.</p>
-  //
+  
   // <h3>One Stack, One File, One Pass</h3>
-  //
+  
   // <p>Two-pass scanning of a double-sided stack is normal and the mess it produces is normal too. Check which half is reversed, confirm the page counts match, merge the halves into one file, interleave with a steady rhythm, rotate and delete what needs it, then compress. Ten minutes of careful dragging beats half an hour of rescanning, and the person on the other end gets a document they can read straight through.</p>
   //   `
   // },
-
   // {
   //   id: "split-one-scanned-pdf-into-separate-documents-for-upload",
   //   title: "You Scanned Everything Into One PDF But the Portal Wants Each Document Separately",
@@ -5438,21 +5435,21 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/split-one-scanned-pdf-into-separate-documents-for-upload.webp",
   //   content: `
   //       <p>You did the sensible thing. You sat down once with the whole pile — 10th marksheet, 12th marksheet, degree certificate, caste certificate, Aadhaar, PAN — and scanned or photographed the lot in a single sitting. One session, one file, everything safe in one place. Then you opened the application portal and found something you did not expect: not one upload button, but eight. A separate slot for each document, each with its own label.</p>
-  //
+  
   //       <p>Slot 1 says Upload 10th Marksheet. Slot 2 says Upload 12th Marksheet. Slot 3 says Upload Graduation Certificate. And what you have is a single 14-page PDF where the 10th marksheet is pages 1 and 2, the 12th is pages 3 and 4, and the degree is page 5. There is no way to tell the portal that it is all in there and please look at page 5. The slot wants one file, containing one document, and nothing else.</p>
-  //
+  
   //       <p>This is not a mistake you made. Scanning everything in one go is the right instinct — it is faster, and you are less likely to miss a page. You just need one extra step before you upload: cut that single PDF at the document boundaries so each slot gets exactly what it is asking for. That takes about three minutes with the <a href="/split-pdf">Split PDF</a> tool, and none of your documents have to leave your phone or laptop to do it.</p>
-  //
+  
   //       <h2>Why One Scan Session Always Produces One File</h2>
   //       <p>Most phone scanner apps work this way by default. You open it, keep tapping the shutter, and it keeps adding pages to the same document until you press Save. Flatbed scanners in a cyber cafe behave the same way — the operator feeds sheet after sheet and hands you one PDF at the end, often on a pen drive with a name like SCAN_0001.pdf.</p>
   //       <p>The operator is not being careless. From their side, one file is the tidy outcome. Nobody at the scanning counter knows that the portal you are applying to has separate slots, and honestly, you often do not know either until you reach the upload page and see it for yourself. So the single combined file is what almost everyone ends up holding.</p>
-  //
+  
   //       <h2>Why the Portal Insists on Separate Slots</h2>
   //       <p>It helps to understand what is happening on the other side, because it tells you how carefully you need to split.</p>
   //       <p>When a verifying officer opens your application, they do not scroll through one long file hunting for your degree certificate. Their screen shows labelled fields, and clicking the Graduation Certificate field opens whatever you put in that slot. If you uploaded the full 14-page combined scan into every slot, the officer sees the same fat file eight times and has to search inside it eight times. Uploading the same combined file into every slot also makes it far harder for the officer to confirm each individual requirement, which is exactly what the labelled fields exist to avoid.</p>
   //       <p>There is a second reason too. Separate files make it possible to pass along only the document that actually needs checking, rather than handing over your entire personal document set every time. Separate files let them route your papers without sending your entire personal document set to everyone. Splitting is genuinely in your interest here.</p>
   //       <p>And there is a third, more practical reason: size caps. Many portals cap each upload at a small figure. A 14-page combined scan is much heavier than a single two-page marksheet, so it is far more likely to run into that cap. We wrote more about that pattern in our guide on <a href="/blog/why-government-websites-reject-perfectly-fine-pdfs">why government websites reject perfectly fine PDFs</a>.</p>
-  //
+  
   //       <h2>Step One: Write Down Where Each Document Starts and Ends</h2>
   //       <p>Do not open any tool yet. Open your combined PDF, scroll from page 1 to the last page, and write down the page numbers on a piece of paper or in your phone notes app. Something like this:</p>
   //       <ul>
@@ -5468,10 +5465,10 @@ export const blogsData = [
   //       </ul>
   //       <p>Two minutes on this list saves you from the most common splitting mistake, which is cutting one page early and sending a marksheet whose back side, carrying the subject-wise marks, is missing. The officer sees an incomplete document and rejects it, and you find out weeks later.</p>
   //       <p>Pay special attention to two-sided documents. Aadhaar, PAN, driving licence, degree certificates with attestation on the reverse — these all have a front and a back, and the slot almost always expects both in one file. Keep them together in the same range.</p>
-  //
+  
   //       <h2>Step Two: Cut the File at Those Boundaries</h2>
   //       <p>Now open the tool. Because these are your marksheets, your Aadhaar and your PAN, it matters a great deal that the file is never uploaded anywhere. GoPDFGo runs entirely inside your browser — the PDF is read by your own device, cut by your own device, and saved back to your own device. Nothing is sent to a server, there is no account, and there is no file-size limit beyond what your phone or laptop can hold in memory.</p>
-  //
+  
   //       <div class="tool-box">
   //         <h3>How to Split One Scan into Separate Uploadable Documents:</h3>
   //         <ul>
@@ -5483,55 +5480,54 @@ export const blogsData = [
   //           <li><strong>Step 6:</strong> Open every new file once before you go near the portal. Confirm the marksheet file has both sides, the Aadhaar file has front and back, and nothing landed in the wrong file.</li>
   //         </ul>
   //       </div>
-  //
+  
   //       <p>The pages are copied, not re-rendered, so the split is lossless. Whatever sharpness your scan had, the separated files keep exactly. If you only need to pull out one page and leave the rest alone, our guide on <a href="/blog/extract-single-page-from-large-pdf">extracting a single page from a large PDF</a> covers that shorter version of the same job.</p>
-  //
+  
   //       <h2>One Range Gives a PDF, Several Ranges Give a ZIP</h2>
   //       <p>This trips up a lot of people on phones, so it is worth stating plainly. Ask for one range and you get one PDF, ready to upload immediately. Ask for several ranges and you get a ZIP archive, which is a container holding all the separate PDFs.</p>
   //       <p>A ZIP cannot be dropped into a document slot. A document slot expects a PDF, so unpack the ZIP first and upload the individual PDFs from inside it. On Android, tap the ZIP in your Files app and extract it; on iPhone, tap it in the Files app and it unpacks into a folder of the same name. Then upload the individual PDFs from inside that folder.</p>
   //       <p>If you are doing this on a phone with limited patience, the simpler route is one range at a time. Six downloads, six clearly named files, no unzipping.</p>
-  //
+  
   //       <h2>Name Every File Before You Upload It</h2>
   //       <p>Once the split is done you will be sitting on files called something like GoPDFGo_SCAN_0001_pages-1-2.pdf and GoPDFGo_SCAN_0001_pages-3-4.pdf. Upload those and two things go wrong. First, you will pick the wrong one at some point yourself, because the names tell you nothing. Second, at the verification stage a file named split_3.pdf looks careless next to one named Priya_Sharma_Degree_Certificate.pdf.</p>
   //       <p>Use a simple pattern: your name, then the document, then nothing else. Avoid spaces if you can — underscores keep the name readable and predictable once the file is uploaded. Avoid special characters like commas, hashes and ampersands entirely. This and a few related habits are covered in our list of <a href="/blog/common-pdf-mistakes-online-job-applications">common PDF mistakes in online job applications</a>.</p>
-  //
+  
   //       <h2>When the Boundaries Do Not Line Up Neatly</h2>
   //       <p>Real scans are rarely as tidy as the example list. Three situations come up again and again.</p>
   //       <p><strong>Two documents on the same page.</strong> The cyber cafe operator placed your PAN and your Aadhaar side by side on the glass and scanned them together. Splitting cannot help here, because the boundary is inside a page, not between pages. Convert that page to an image with the <a href="/pdf-to-image">PDF to Image</a> tool, use <a href="/crop">Crop</a> to keep only the document you want, then rebuild a fresh PDF from the cropped image using <a href="/image-to-pdf">Image to PDF</a>. Do it twice and you have two clean single-document files.</p>
   //       <p><strong>The pages are in the wrong order.</strong> If the back of a certificate ended up three pages away from its front, splitting by range would produce a mess. Fix the order first with <a href="/organize-pdf">Organize PDF</a>, where you drag page thumbnails into the right sequence and can rotate or delete pages on the same screen, then split the corrected file.</p>
   //       <p><strong>A page is sideways.</strong> Very common when someone scans a landscape certificate. You cannot count on whoever checks it to rotate it on their screen, and a sideways document reads as sloppy either way. Straighten it in the same organise step before splitting, so the correction is baked into every file you create.</p>
-  //
+  
   //       <h2>Check the Size of Each Piece Before Uploading</h2>
   //       <p>Splitting reduces the page count but not the per-page weight. If your original scan was made at a high resolution, a two-page marksheet extracted from it can still be several megabytes — comfortably over what many portals accept per slot.</p>
   //       <p>Check each file size in your Files app after splitting. If any of them is too heavy for the slot, run it through <a href="/compress-pdf">Compress PDF</a> and use the target size mode to aim at the exact figure the portal asks for. Our walkthrough on <a href="/blog/optimize-pdf-under-50kb-government-recruitment-forms">getting a PDF under 50KB for recruitment forms</a> goes through that in detail, including how to keep the text legible while doing it.</p>
   //       <p>Do the compression after splitting, never before. Compressing the big combined file first and then cutting it means every piece carries the damage, and you have no clean master to go back to.</p>
-  //
+  
   //       <h2>Keep the Original Combined Scan</h2>
   //       <p>Do not delete the master file once the split is done. Portals ask for the same documents in different combinations all the time — this one wants each certificate separately, the next one wants all your educational documents merged into a single PDF. If you still have the full scan, both requests are two minutes of work: split it one way today, and if a later form wants them joined, use <a href="/merge-pdf">Merge PDF</a> to put the relevant pieces back together in the order that form specifies.</p>
   //       <p>Save the master scan and the split files in one folder named after the application, with the date. When you apply again in six months, you will not be back at the cyber cafe re-scanning the same marksheets.</p>
-  //
+  
   //       <h2>Frequently Asked Questions</h2>
-  //
+  
   //       <p><strong>Q: Will splitting reduce the quality of my scanned marksheet?</strong><br>
   //       A: No. The pages are copied into a new file exactly as they were, not re-rendered or re-compressed. Whatever sharpness your original scan had is preserved in each separated file.</p>
-  //
+  
   //       <p><strong>Q: I got a ZIP file instead of a PDF. Did something go wrong?</strong><br>
   //       A: Nothing went wrong. A single range downloads as one PDF, but multiple ranges come back as a ZIP holding each piece separately. Extract the ZIP in your phone Files app and upload the individual PDFs from inside it, never the ZIP itself.</p>
-  //
+  
   //       <p><strong>Q: Is it safe to split a PDF containing my Aadhaar and PAN online?</strong><br>
   //       A: On GoPDFGo it is, because nothing is uploaded. The file is opened and split by your own browser on your own device, so your identity documents never travel to a server. There is no account and no copy left behind.</p>
-  //
+  
   //       <p><strong>Q: My combined scan has two different documents printed on the same page. Can splitting separate them?</strong><br>
   //       A: Not by itself, since splitting works between pages rather than within one. Convert that page with <a href="/pdf-to-image">PDF to Image</a>, trim to a single document using <a href="/crop">Crop</a>, then turn it back into a PDF with <a href="/image-to-pdf">Image to PDF</a>. Repeat for the second document.</p>
-  //
+  
   //       <p><strong>Q: The portal rejected my split file for being too large. What now?</strong><br>
   //       A: Splitting cuts the page count, not the resolution of each page. Run the individual file through <a href="/compress-pdf">Compress PDF</a> and set the exact size the slot allows in target size mode. Always compress after splitting, so you keep a clean original.</p>
-  //
+  
   //       <p><strong>Q: Can I do all of this on my phone, or do I need a computer?</strong><br>
   //       A: Your phone is enough. The <a href="/split-pdf">Split PDF</a> tool runs in the mobile browser, and since the scan is usually sitting on your phone already, you can split, rename and upload without ever moving the file to a laptop.</p>
   //   `
   // },
-
   // {
   //   id: "reduce-screenshot-file-size",
   //   title: "Screenshot Too Large to Attach? How to Shrink It Without Blurring the Text",
@@ -5542,43 +5538,43 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/reduce-screenshot-file-size.webp",
   //   content: `
   // <p>You take a screenshot of a UPI payment confirmation to send to a shopkeeper, or a screenshot of your exam admit card, or a screenshot of an error message from a government portal that you want to show to a helpdesk. It is one flat, boring screen. It should weigh almost nothing. Then you go to attach it and the file is 2.4 MB, the upload form says the limit is 500 KB, and you are standing there wondering how a picture of some grey boxes and black text got heavier than an actual photograph of a mountain.</p>
-  //
+  
   // <p>Then you try the obvious fix. You open the screenshot, save it again, maybe run it through some app that promises to compress images, and the file comes back exactly the same size. Or the app quietly turns it into a JPG and now the text has fuzzy grey smudges around every letter, which is the one thing you needed to avoid, because the entire point of the screenshot was that somebody has to read the text in it.</p>
-  //
+  
   // <p>Both of those problems come from the same cause: screenshots are usually saved as PNG, and PNG behaves very differently from the JPGs your camera produces. Once you understand that difference, shrinking a screenshot without blurring the text stops being guesswork. The tool that does the actual work here is <a href="/compress-png">Compress PNG</a>, and the rest of this post explains what it is doing and when you should use something else instead.</p>
-  //
+  
   // <h2>Why Screenshots Are So Much Heavier Than Photos</h2>
-  //
+  
   // <p>Most phones and laptops save a screenshot as a PNG file, and PNG is a <strong>lossless</strong> format. That word is the whole story. Lossless means the file stores every single pixel exactly as it appeared on your screen, with nothing thrown away and nothing approximated. When you open it, you get back the identical image, pixel for pixel, forever.</p>
-  //
+  
   // <p>JPG works the opposite way. It is <strong>lossy</strong>. When your camera saves a photo, the JPG encoder looks at the scene and deliberately discards detail that your eye is bad at noticing, like subtle shifts in a blue sky or fine noise in a shadow. That is why a 12-megapixel holiday photo can sit at 2 MB while a plain screenshot of a settings page sits at 2.4 MB. The photo has been aggressively thinned out. The screenshot has not been touched.</p>
-  //
+  
   // <p>Modern phone screens make this worse. A high-end phone has a very dense display, so a full-screen screenshot might be 1440 pixels wide by 3200 tall. That is over four and a half million pixels, all stored losslessly. Desktop screenshots on a large or high-DPI monitor are worse still. You are not saving a simple image, you are saving a complete record of a very large screen.</p>
-  //
+  
   // <p>There is one more thing that inflates screenshots specifically. PNG compresses well when an image has large flat areas of identical colour, so a plain white background shrinks to almost nothing. But real screenshots are rarely flat. App interfaces are full of subtle gradients, soft drop shadows under cards, blurred translucent bars, wallpaper showing through, and anti-aliased text where every letter edge is a blend of dozens of near-identical greys. All of those tiny colour variations defeat PNG's compression method, because it works by spotting repetition, and there is far less exact repetition than your eye assumes.</p>
-  //
+  
   // <h2>Why Simply Re-Saving the PNG Does Nothing</h2>
-  //
+  
   // <p>This is the part that frustrates people most, and it is worth being precise about it.</p>
-  //
+  
   // <p>When you compress a JPG, you turn a quality dial and the encoder throws away more information. Go from quality 90 to quality 60 and the file genuinely gets much smaller, because you have permitted it to lose more. That is a real lever, and it is why our <a href="/compress-jpg">Compress JPG</a> tool can take a heavy camera photo down to a few dozen kilobytes.</p>
-  //
+  
   // <p>PNG has no such dial, because PNG is not allowed to lose anything. All a PNG encoder can do is look for smarter ways to describe the same exact pixels. If your screenshot was already saved by your phone using a decent encoder, and it was, then re-saving it finds almost nothing new to improve. You get back a file that is the same size, or a couple of percent smaller, or occasionally slightly larger. Nothing useful happened, which is exactly what you observed.</p>
-  //
+  
   // <p>So if lossless re-saving cannot shrink a screenshot, and turning it into a JPG ruins the text, what actually works?</p>
-  //
+  
   // <h2>Palette Quantisation: The Method That Actually Shrinks Screenshots</h2>
-  //
+  
   // <p>There is a third option, and it is the one built into our <a href="/compress-png">Compress PNG</a> tool. Instead of trying to describe the same pixels more cleverly, it reduces <strong>how many distinct colours</strong> the image contains. This is called quantisation, and it suits screenshots almost perfectly.</p>
-  //
+  
   // <p>Think about what is actually in your screenshot. A white or dark background. A header bar in your app's brand colour. Black or grey body text. A couple of buttons. To your eye, that is maybe fifteen colours. To the file, it is often tens of thousands of colours, because every anti-aliased letter edge, every soft shadow, and every gradient introduces hundreds of shades that differ from their neighbours by an amount you could never perceive.</p>
-  //
+  
   // <p>Quantisation goes through the image, works out the small set of colours that best represents the whole picture, and maps every pixel onto that reduced set. The file then only has to store a compact colour table plus an index per pixel, instead of a full colour value per pixel. That is a genuine, structural reduction in how much data there is, and it is why the saving on a typical screenshot is large, usually well over half the original size, sometimes far more, depending on how busy the interface is.</p>
-  //
+  
   // <p>The reason this keeps text readable is the key insight. Body text in a screenshot is high contrast: near-black letters on a near-white background, or the reverse. Those two colours survive quantisation untouched, because they are the most important colours in the image and any sensible palette keeps them. What gets simplified are the intermediate greys along the letter edges, the anti-aliasing. Reduce those from forty shades to eight and the letter still has a smooth-looking edge at normal viewing size, but the file gets dramatically lighter.</p>
-  //
+  
   // <p>Compare that to what JPG does to the same text. JPG works in blocks and smears energy across them, so around every sharp black-on-white edge it creates a halo of grey speckle, the classic ringing artefact. That is why a JPG-ed screenshot of a paragraph looks dirty even at high quality, while a quantised PNG of the same paragraph looks clean. Screenshots are graphics, not photographs, and they need graphics-appropriate compression.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>How to Shrink a Screenshot Without Blurring the Text</h3>
   //   <ul>
@@ -5589,51 +5585,51 @@ export const blogsData = [
   //     <li><strong>Step 5: Check the text before you send.</strong> Download the result and open it at full size. Read the smallest text in the image, an account number, a reference ID, a date. If that is legible, you are done. If it is not, redo it at a higher quality setting.</li>
   //   </ul>
   // </div>
-  //
+  
   // <p>One useful safety behaviour: the tool never hands you back a file larger than the one you put in. If an image genuinely cannot be improved, you keep your original rather than accidentally making things worse. Transparency is also preserved, so a screenshot or graphic with a see-through background stays see-through.</p>
-  //
+  
   // <h2>When Converting to JPG Is Actually the Better Answer</h2>
-  //
+  
   // <p>Everything above assumes the screenshot is mostly interface and text. Sometimes it is not, and then the honest advice is to stop defending PNG.</p>
-  //
+  
   // <p>Convert the screenshot to JPG when:</p>
-  //
+  
   // <ul>
   //   <li><strong>The screenshot is mostly a photograph.</strong> A screenshot of someone's social media post, a product image from a shopping app, a video paused mid-frame. That content is photographic, so JPG's compression is the right match and will beat a quantised PNG comfortably. Use <a href="/convert-jpg">Convert to JPG</a>, then <a href="/compress-jpg">Compress JPG</a> if you still need it smaller.</li>
   //   <li><strong>The upload form only accepts JPG.</strong> Plenty of older portals and application forms accept nothing else, and no amount of PNG optimisation helps if the file is rejected on its extension alone.</li>
   //   <li><strong>You need an extremely small file and the text in it is large.</strong> If the only text is a big heading, a moderate-quality JPG will hold it well enough and get very small.</li>
   // </ul>
-  //
+  
   // <p>Stay with PNG when the screenshot contains paragraphs of small text, a table of numbers, a code or reference number somebody has to type out, a chart with thin lines, or a receipt. In all those cases JPG's edge artefacts are exactly what you cannot afford. If you want the longer version of this trade-off, our <a href="/blog/jpg-vs-png-format-guide">guide to JPG versus PNG</a> goes through it format by format.</p>
-  //
+  
   // <p>Two warnings about converting. First, <strong>JPG cannot store transparency</strong>, so any transparent area becomes solid white. For an ordinary phone screenshot that is irrelevant, but for a cropped graphic with a transparent background it changes how the image looks when placed on a coloured page. Second, converting back the other way does not undo anything. Running a JPG through <a href="/convert-png">Convert to PNG</a> gives you a lossless copy of an already-damaged image, but it cannot rebuild detail the JPG threw away, and it cannot invent transparency that was never there. Convert in the direction you need once, and keep the original.</p>
-  //
+  
   // <p>There is also a third format worth knowing about if the screenshot is headed for a website rather than a form. WebP is roughly 25 to 35 percent smaller than JPG at similar quality, according to Google's own published figure, and unlike JPG it supports transparency. If you are putting screenshots into a blog post or product page, <a href="/convert-webp">Convert to WebP</a> is usually the better destination than JPG.</p>
-  //
+  
   // <h2>Before You Compress: Do You Need the Whole Screen?</h2>
-  //
+  
   // <p>The cheapest kilobytes are the ones you never send. A full-screen screenshot includes the status bar, the notification icons, the navigation bar, and usually a lot of empty space above and below the part that actually matters.</p>
-  //
+  
   // <p>Open the image in the <a href="/crop">Crop Image</a> tool, drag a box around just the transaction details or just the error message, and download. You often remove half the pixels before any compression has happened, and you have also removed your battery percentage, your notification previews, and whatever else was sitting in the status bar. That is a small privacy win when you are sending a screenshot to a stranger on a support chat.</p>
-  //
+  
   // <p>If the image is still physically enormous because of a high-density screen, the <a href="/resize">Resize Image</a> tool lets you set an exact pixel width. Dropping a 1440-pixel-wide screenshot to 800 pixels wide keeps it perfectly readable on any phone or laptop while cutting the pixel count sharply. Keep <strong>Lock Aspect Ratio</strong> switched on so the proportions stay correct, and remember to click Apply Changes before you download. Crop, then resize, then compress, in that order, gives you the smallest file for the least visible damage. The same crop-then-resize discipline is what makes exam portal photos work, as covered in our guide to <a href="/blog/resize-passport-photo-signature-200x230">resizing a passport photo and signature to exact pixels</a>.</p>
-  //
+  
   // <h2>Several Screenshots? Send One PDF Instead</h2>
-  //
+  
   // <p>A very common situation: you need to show a sequence. Six screenshots of a chat for a written complaint, four screenshots of a failed transaction for a bank dispute, three screenshots of your fee payment for the college office.</p>
-  //
+  
   // <p>Attaching six separate image files is a bad experience for whoever receives them. They arrive out of order, get opened in whatever sequence the mail client feels like, and clog up the attachment list. Compress them all first with <a href="/compress-png">Compress PNG</a> using batch mode, then feed them into <a href="/image-to-pdf">Image to PDF</a>, arrange them into the correct order, choose A4, Letter or fit-to-image as the page size, and export a single PDF. One attachment, correct sequence, easy for the other person to print. Our walkthrough on <a href="/blog/combine-assignment-photos-into-one-pdf-mobile">combining photos into one PDF on a phone</a> covers the same workflow in more detail, and if the finished PDF is still heavy, run it through <a href="/compress-pdf">Compress PDF</a>.</p>
-  //
+  
   // <p>This also solves the Gmail problem. Gmail caps attachments at 25 MB, and a dozen raw phone screenshots can get uncomfortably close to that on their own. Compressed and bundled into a single PDF, the same evidence becomes one much lighter attachment instead of a dozen heavy ones.</p>
-  //
+  
   // <h2>Sending Screenshots on WhatsApp Without Losing the Text</h2>
-  //
+  
   // <p>This trips up a lot of people. When you send an image through WhatsApp as a <strong>Photo</strong>, the app re-compresses it before sending so that it travels quickly on slow connections. For a holiday snap nobody notices. For a screenshot of small text, that extra round of compression is applied on top of whatever you already did, and fine text can end up soft on the other side.</p>
-  //
+  
   // <p>If the recipient has to read numbers or a reference code, attach the file as a <strong>Document</strong> instead of a Photo. WhatsApp sends documents as they are, so the file that lands on their phone is the file you made. Compress it properly first with <a href="/compress-png">Compress PNG</a> so it is not a burden to download, then send it as a document. This is also the reason a PDF is often the better container for anything official, and you can read more about that in our guide to <a href="/blog/best-way-to-share-large-pdfs-on-whatsapp">sharing large PDFs on WhatsApp</a>.</p>
-  //
+  
   // <h2>A Quick Sanity Checklist</h2>
-  //
+  
   // <ul>
   //   <li>Screenshot too big? It is a PNG, and PNG stores everything. That is normal, not a fault in your phone.</li>
   //   <li>Re-saving it changed nothing? Correct. Lossless re-saving cannot shrink an already-optimised PNG, so you need palette reduction instead.</li>
@@ -5642,31 +5638,30 @@ export const blogsData = [
   //   <li>Text still has to be readable at the other end? Open the finished file and read the smallest characters yourself before sending it.</li>
   //   <li>Several screenshots? Batch compress, then combine them into a single PDF.</li>
   // </ul>
-  //
+  
   // <p>None of this requires an account, an app install, or handing your screen contents to somebody else's server. Everything runs locally in your browser, which is rather the point. A screenshot is often the most revealing file on your phone, showing balances, addresses, chat contents and identity details all at once. If you are curious about why that matters, we wrote about <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local processing versus cloud tools</a> in more depth.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
-  //
+  
   // <p><strong>Q: Why is my screenshot bigger than a real photo?</strong><br>
   // A: Screenshots are saved as PNG, which is lossless and stores every pixel exactly. Camera photos are saved as JPG, which throws away detail your eye will not miss. On top of that, high-density phone and laptop screens produce very large pixel dimensions, so a screenshot has a lot of pixels to store.</p>
-  //
+  
   // <p><strong>Q: I compressed my PNG and the size did not change. What went wrong?</strong><br>
   // A: Nothing went wrong, that is simply how PNG works. A plain lossless re-save cannot shrink a file your phone already saved efficiently. To get a real reduction you need palette quantisation, which is what our <a href="/compress-png">Compress PNG</a> tool does by reducing the number of distinct colours in the image.</p>
-  //
+  
   // <p><strong>Q: Will compressing blur the text in my screenshot?</strong><br>
   // A: Not the way JPG does. Palette reduction keeps the high-contrast black and white of the text and simplifies only the near-identical shades along the letter edges. Lower the quality slider gradually and check the smallest text in the result before you send it.</p>
-  //
+  
   // <p><strong>Q: Should I convert my screenshot to JPG instead?</strong><br>
   // A: Only if it is mostly photographic content, or the upload form accepts JPG only. For paragraphs, tables, numbers and receipts, stay with PNG, because JPG creates grey speckle around sharp text edges. Note that JPG also cannot hold transparency, so any transparent area turns white.</p>
-  //
+  
   // <p><strong>Q: How do I hit an exact KB limit for an upload form?</strong><br>
   // A: Use the target-size mode in <a href="/compress-png">Compress PNG</a> and type the number of kilobytes required. If that forces the quality too low, crop away the parts of the screen you do not need with <a href="/crop">Crop Image</a> first, so that fewer pixels have to fit inside the same budget.</p>
-  //
+  
   // <p><strong>Q: Is it safe to compress screenshots that show my bank balance or OTP?</strong><br>
   // A: Yes. The tool runs entirely inside your browser on your own device. The image is never uploaded, there is no account, and nothing is stored anywhere once you close the tab.</p>
   //   `
   // },
-
   // {
   //   id: "webp-vs-jpg-website-images",
   //   title: "WebP vs JPG: Which Format Should Your Website Images Actually Be?",
@@ -5677,18 +5672,18 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/webp-vs-jpg-website-images.webp",
   //   content: `
   //       <p>Somebody has told you to switch your website images to WebP. Maybe it was a PageSpeed report flashing "Serve images in next-gen formats" in red. Maybe it was a developer you hired for two weeks who left the advice behind and nothing else. Maybe your theme documentation mentions it in passing. So now you are sitting with a folder of JPGs from your product shoot, wondering whether converting all of them is worth an evening of your life, and whether something will quietly break if you do.</p>
-  //
+  
   //       <p>This is a genuinely confusing decision because both answers you find online are stated as absolute truth. One camp says WebP is smaller and everyone should have moved years ago. The other camp says JPG works everywhere and you should not fix what is not broken. Both are correct about their own half of the story, and neither tells you what to do on a Tuesday afternoon with 300 product photos sitting in a folder.</p>
-  //
+  
   //       <p>So here is the honest version, written for someone running a small store, a portfolio, a coaching class site, or a WordPress blog — not for a team with a build pipeline and a dedicated image CDN. The short answer is that WebP wins for images that live on your website, JPG wins for images that leave your website, and knowing which is which saves you from almost every problem people run into.</p>
-  //
+  
   //       <h2>What Actually Separates the Two Formats</h2>
   //       <p>JPG has been the default photograph format since the early nineties. Phones, cameras, printers, upload portals, WhatsApp forwards and even ancient copies of Microsoft Office all handle it without being asked. That universality is not a small feature — it is the entire reason JPG has survived thirty years of people trying to replace it.</p>
-  //
+  
   //       <p>WebP is Google's newer format, built specifically to make web pages load faster. It does two things JPG cannot. First, it produces a smaller file for the same visible quality — Google's own published figure puts WebP at roughly <strong>25 to 35 percent smaller than a comparable JPG</strong>. Second, WebP supports transparency, the thing that has historically forced you to reach for PNG and accept a much heavier file. One format covering both photographs and transparent graphics is genuinely useful.</p>
-  //
+  
   //       <p>That size difference sounds modest until you multiply it out. A product listing page with forty thumbnails at 90KB each is roughly 3.6MB of images. The same page in WebP might land closer to 2.5MB. On a fibre connection nobody notices the difference. On a phone with two bars of signal in a market lane, that is the gap between a page that appears and a page the visitor gives up on. If you have never checked the mobile share of your traffic, go and look in your analytics — for most small sites a large part of it arrives on phones, and those are exactly the visitors with the least patience and the tightest data pack.</p>
-  //
+  
   //       <h2>Where WebP Clearly Wins</h2>
   //       <p>Use WebP when the image is being displayed by a browser on a page you control. That covers most of what a small site actually publishes:</p>
   //       <ul>
@@ -5697,9 +5692,9 @@ export const blogsData = [
   //         <li><strong>Logos, icons and cutouts that need transparency.</strong> This is where WebP really pays off, because the alternative is a heavy PNG. Transparent logos and cutouts have traditionally meant PNG, which is lossless and therefore heavy. WebP gives you the same transparency in a lossy format, so it sits cleanly over any background colour without carrying PNG's weight.</li>
   //         <li><strong>Gallery pages, team photos, testimonial avatars.</strong> Anything that appears many times on the same page multiplies whatever weight you saved.</li>
   //       </ul>
-  //
+  
   //       <p>To move an existing folder across, run the files through <a href="/convert-webp">Convert to WebP</a>. It takes JPG and PNG inputs and hands back WebP, and because everything happens inside your own browser there is no upload queue and no waiting for a server in another country to get around to your files.</p>
-  //
+  
   //       <h2>Where JPG Still Wins, and It Is Not Close</h2>
   //       <p>The moment an image has to leave your website and be handled by some other system, JPG stops being the old format and starts being the safe one. Do not convert these:</p>
   //       <ul>
@@ -5709,9 +5704,9 @@ export const blogsData = [
   //         <li><strong>Images you are sending to a client, a printer or a vendor.</strong> You have no idea what software is on the other end. Sending a format someone has to Google is a bad first impression.</li>
   //         <li><strong>Photos going to a customer on WhatsApp.</strong> Stick to JPG. WhatsApp re-compresses anything sent as a Photo anyway, and sending as a Document to avoid that only helps if the format is one everyone's phone opens natively.</li>
   //       </ul>
-  //
+  
   //       <p>For all of those, keep or make a JPG using <a href="/convert-jpg">Convert to JPG</a>. One important thing to understand before you do: <strong>JPG cannot store transparency</strong>. Convert a transparent logo to JPG and the empty area gets filled with solid white. Sometimes that is exactly what you want. Sometimes it produces an ugly white rectangle around a logo meant to sit on a coloured header. Know which one you are doing before you batch a hundred files.</p>
-  //
+  
   //       <div class="tool-box">
   //         <h3>The Practical Workflow for a Small Site:</h3>
   //         <ul>
@@ -5722,24 +5717,24 @@ export const blogsData = [
   //           <li><strong>Step 5: Keep a JPG set for everything else.</strong> Take those same resized originals, run them through <a href="/convert-jpg">Convert to JPG</a>, and keep that folder for portals, print, WhatsApp and email. Two output folders, one set of source images, no panic later.</li>
   //         </ul>
   //       </div>
-  //
+  
   //       <h2>The Mistake That Quietly Ruins Image Quality</h2>
   //       <p>Both JPG and WebP are lossy by default, which means each save permanently throws away a little detail to save space. Convert once and you will never see it. Convert repeatedly and it accumulates.</p>
-  //
+  
   //       <p>The pattern that causes real damage looks like this: you take a JPG, convert it to WebP for the site, later need a JPG again so you convert it back, then compress that JPG hard for a form, then someone asks for a larger version so you scale it up. By the fourth round the photo has visible blockiness in the sky, smeared edges around any text, and colour banding across gradients. Nothing warned you, because every individual step looked fine on a phone screen.</p>
-  //
+  
   //       <p>This is why the first step above matters more than it sounds. Always branch from the untouched original. Original to WebP and original to JPG, done separately, gives you two clean files. Original to WebP to JPG to WebP gives you mush. And no tool can undo it — converting a damaged JPG with <a href="/convert-png">Convert to PNG</a> makes it lossless from that point forward, but it cannot recover detail that was already discarded, and it cannot create transparency that was never there.</p>
-  //
+  
   //       <h2>What About Browser Support?</h2>
   //       <p>This used to be the standard objection to WebP and it no longer holds. Chrome, Firefox, Edge, Safari and every current mobile browser handle WebP fine. Given how much Indian traffic arrives through Chrome on Android, browser support is not a real risk for a normal site today.</p>
-  //
+  
   //       <p>The remaining risk is not browsers at all — it is everything that is not a browser. Old desktop software, poorly maintained upload portals, print shop machines, some email clients previewing attachments, the occasional plugin. Which is exactly the line drawn above: if a browser is showing it, use WebP; if anything else is handling it, use JPG.</p>
-  //
+  
   //       <h2>Where PNG Fits Into This</h2>
   //       <p>PNG is not really competing with either format for photographs. It is lossless, which is excellent for screenshots, charts, diagrams and text-heavy graphics where sharp edges matter, and terrible for photographs, where it produces enormous files for no visible benefit. If you are still working out the traditional choice, our <a href="/blog/jpg-vs-png-format-guide">full JPG versus PNG comparison</a> goes through it in detail.</p>
-  //
+  
   //       <p>For a website today, PNG's main remaining job is compatibility — a transparent asset that has to work in software which will not accept WebP. If you are stuck with heavy PNGs and cannot switch formats yet, <a href="/compress-png">Compress PNG</a> reduces the colour palette to genuinely shrink the file while keeping transparency intact. That matters because PNG is lossless, so simply re-saving one does nothing at all to its size.</p>
-  //
+  
   //       <h2>A Realistic Plan If You Already Have Hundreds of Images</h2>
   //       <p>Do not attempt to convert your entire media library in one sitting. You will get bored, make mistakes, and break links. Do this instead:</p>
   //       <ul>
@@ -5748,32 +5743,31 @@ export const blogsData = [
   //         <li><strong>Change your habit for new uploads starting today.</strong> Every image you add from now on goes resize, convert, compress. That stops the pile growing while you clean up the backlog.</li>
   //         <li><strong>Leave the archive alone.</strong> A blog post from three years ago that gets forty visits a month is not worth an hour of your evening.</li>
   //       </ul>
-  //
+  
   //       <p>If the images are photographs headed for the site, the sequence is <a href="/resize">Resize</a>, then <a href="/convert-webp">Convert to WebP</a>, then <a href="/compress-webp">Compress WebP</a> for anything still heavy. If they are documents or form uploads, the sequence is crop or resize, then <a href="/compress-jpg">Compress JPG</a> to hit whatever size the portal is asking for — that tool has a live before-and-after preview so you can see the damage before you commit, and a target-size mode when a form demands an exact KB figure. For the WordPress side of all this, our post on <a href="/blog/compress-webp-images-speed-up-wordpress">compressing WebP images to speed up a WordPress site</a> goes further into the performance details.</p>
-  //
+  
   //       <p>Every one of these tools runs inside your own browser. Your product photos, client work and unreleased assets never leave your device, there is no account to create, no watermark on the output, and no queue to wait in. That matters more than it sounds when you are processing a shoot you have not announced yet.</p>
-  //
+  
   //       <h2>Frequently Asked Questions</h2>
   //       <p><strong>Q: Is WebP always better than JPG?</strong><br>
   //       A: For images displayed on a web page, usually yes — Google's published figure puts WebP at roughly 25 to 35 percent smaller at similar quality, and it supports transparency. For images leaving your site to a portal, printer, client or older software, JPG is the safer choice because it is accepted everywhere.</p>
-  //
+  
   //       <p><strong>Q: Will converting JPG to WebP lose quality?</strong><br>
   //       A: A single conversion at a sensible quality setting is visually indistinguishable. What causes visible damage is repeated round trips between formats. Always convert from your untouched original rather than from a copy that has already been through the process.</p>
-  //
+  
   //       <p><strong>Q: Can I upload a WebP file to a government or exam portal?</strong><br>
   //       A: Often not. Many portals only accept JPG and PNG, and some return a vague error instead of telling you the format is the problem. Convert it with <a href="/convert-jpg">Convert to JPG</a> first, then compress it if there is a size limit.</p>
-  //
+  
   //       <p><strong>Q: Does WebP keep a transparent background?</strong><br>
   //       A: Yes, WebP supports transparency just like PNG. JPG does not — converting a transparent image to JPG fills the empty area with solid white.</p>
-  //
+  
   //       <p><strong>Q: Should I convert my logo to WebP?</strong><br>
   //       A: For your website, yes — WebP keeps the transparency you need without PNG's lossless file weight. But keep a PNG and a JPG copy of the same logo for invoices, print jobs, vendor emails and anything else that leaves the browser.</p>
-  //
+  
   //       <p><strong>Q: Do I need to install anything to convert these files?</strong><br>
   //       A: No. <a href="/convert-webp">Convert to WebP</a> and the other tools run entirely in your browser, on a phone or a desktop. Nothing is uploaded to a server, there is no account, and there is no watermark on what you download.</p>
   //   `
   // },
-
   // {
   //   id: "crop-photo-to-square-before-resizing-profile-picture",
   //   title: "How to Crop a Phone Photo to a Perfect Square Without Squashing the Face",
@@ -5784,37 +5778,37 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/crop-photo-to-square-before-resizing-profile-picture.webp",
   //   content: `
   // <p>You upload a decent photo of yourself as a profile picture, and the result on screen looks wrong in a way you cannot immediately name. Your face is a little too wide. Your nose looks flatter. Your chin is doing something odd. It is recognisably you, but it is a slightly compressed, slightly unwell-looking you, and everyone on the team page or the HR portal is going to see it.</p>
-  //
+  
   // <p>Nothing is wrong with your camera and nothing is wrong with your face. What happened is simple geometry. Your phone shot a tall rectangle, roughly three units wide by four tall. The profile picture slot wants a square, one by one. Something in between had to give, and either the website or the resize tool you used squeezed that rectangle sideways until it fit.</p>
-  //
+  
   // <p><strong>The fix is an ordering fix, not a settings fix. Crop the photo to a square first, then resize the square down to the pixel size you need.</strong> Do it in that order and the face keeps its real proportions. Do it in the other order, or skip the crop entirely, and you get the squashed look no slider can undo.</p>
-  //
+  
   // <h2>Why a Rectangle Turns Into a Squashed Face</h2>
   // <p>Every photo has an aspect ratio, which is just the relationship between its width and its height. Phone cameras in normal portrait mode usually give you something around 3:4. A selfie can be 9:16, which is very tall and narrow. A square is 1:1, meaning width and height are identical numbers.</p>
-  //
+  
   // <p>Now think about what has to happen when a 3:4 photo is asked to become 1:1. Some of it must be thrown away, or some of it must be deformed. There is no third option. Pixels cannot fold. The only question is who decides which of those two things happens: you, or a piece of software that has never seen your face.</p>
-  //
+  
   // <p>When you open a basic resizer, type 400 into width and 400 into height, and hit go with the aspect lock switched off, you have chosen deformation. The tool obediently takes a photo that was 1200 wide and 1600 tall and crams all 1600 rows of height into 400 while the 1200 columns of width also become 400. The height shrank by four times, the width by three. That mismatch is exactly what you see in the version of your face that does not look like your face.</p>
-  //
+  
   // <h2>The Two Things a Square Box Can Do To Your Photo</h2>
   // <p>Different sites handle the mismatch differently, which is why the same photo can look fine in one place and terrible on a company portal.</p>
   // <ul>
   //   <li><strong>Crop to fill.</strong> The better-built platforms keep your proportions and just cut off whatever does not fit, usually from the top and bottom. Your face is not squashed, but the automatic centre point rarely matches where your head actually is. This is how you end up with a profile picture of your forehead, or one where your chin is sliced off at the jaw.</li>
   //   <li><strong>Stretch to fill.</strong> The lazier implementations simply force the whole image into the square frame. Nothing is lost, but everything is deformed. This is the classic squashed-face result, and it is the one people notice without knowing why.</li>
   // </ul>
-  //
+  
   // <p>Either way, you lose control. The way to take control back is to hand the site a photo that is already square, so there is no mismatch left for it to resolve. A square going into a square box comes out untouched, whichever method the site uses.</p>
-  //
+  
   // <h2>Why Crop Comes First and Resize Comes Second</h2>
   // <p>There are two solid reasons the order matters, and neither is fussiness.</p>
-  //
+  
   // <p>The first is composition. Cropping is the only step where you get to decide what stays in the frame. You choose where your head sits, how much room is above it, how much shoulder shows. Do that on the full-resolution original, where the crop box is large and easy to place accurately with your thumb. A resizer cannot make that decision for you, because it has no idea which part of the picture is the point.</p>
-  //
+  
   // <p>The second is image quality. Every pixel you keep is a pixel that survives into the final file. If you resize the tall original down to something small and then crop a square out of the middle, you are cutting a square out of an image that is already low resolution, and the result is soft and blocky. Crop the square out of the big original instead, and you are still working with plenty of detail when the resize finally shrinks it. Same two operations, opposite quality outcome, purely because of sequence. The same logic drives the workflow in our guide on <a href="/blog/resize-passport-photo-signature-200x230">resizing a passport photo to exactly 200x230 pixels</a>.</p>
-  //
+  
   // <h2>Doing It: Crop Square, Then Resize</h2>
   // <p>Both steps run entirely inside your browser on GoPDFGo. Your photo is never uploaded to any server, which matters more than people assume when the picture is going onto a KYC form or a job application alongside your name and phone number. There is no account, no watermark stamped across your face, and no queue.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>Step-by-Step: A Clean Square Profile Picture</h3>
   //   <ul>
@@ -5825,14 +5819,14 @@ export const blogsData = [
   //     <li><strong>Step 5: Set the exact pixels.</strong> Use the Profile 400x400 preset, or the Square 1080 preset for a larger version, or type your own matching numbers into width and height. Because your image is already square, the numbers agree with its shape and nothing gets deformed. Click <strong>Apply Changes</strong>, then download.</li>
   //   </ul>
   // </div>
-  //
+  
   // <h2>Checking the Crop Really Is Square</h2>
   // <p>You do not have to judge the shape by eye. With the 1:1 chip selected, the crop tool holds the box to an exact square as you drag, so what comes out is genuinely square rather than nearly square. That matters because the correction a raw 3:4 photo needs when a website squeezes it into a square slot is around twenty-five percent, and that much distortion on a human face is glaring.</p>
-  //
+  
   // <p>If you want to check your work, most phone galleries show an image's pixel dimensions in the details or info panel. Open your cropped file and look at the two numbers - with 1:1 selected they should be identical, or off by a pixel at most. If they are clearly different, the ratio was still set to Free, so go back to <a href="/crop">the cropper</a>, tap the 1:1 chip and draw the box again.</p>
-  //
+  
   // <p>One more thing to watch at the resize step. If the Lock Aspect Ratio toggle is on and you type 400 into width, the tool will fill in whatever height your real ratio dictates, and you will not get a true square. For a genuinely square output you want the lock off and both numbers identical. That is safe here precisely because you cropped first. Turning the lock off on an uncropped photo is what caused the problem in the first place.</p>
-  //
+  
   // <h2>What Should Actually Be Inside the Square</h2>
   // <p>Since you are choosing the framing, choose it deliberately. A profile picture is a small circle or square on someone else's screen, often no bigger than a thumbnail in a list of applicants.</p>
   // <ul>
@@ -5842,12 +5836,12 @@ export const blogsData = [
   //   <li><strong>Cut out the background clutter.</strong> The cropper is doing double duty here, the same way it does when you <a href="/blog/remove-unwanted-edges-crop-scanned-documents">trim messy edges off a scanned document</a>. A door frame, a drying rack or half a colleague behind your shoulder all vanish if you crop tighter.</li>
   //   <li><strong>Do not crop the top of the head off.</strong> Tight is good, decapitated is not - and if the photo is going onto an official or exam form, check that form's own photo instructions before you crop, since they usually spell out how the head should sit in the frame.</li>
   // </ul>
-  //
+  
   // <h2>Finishing the File: Size and Format</h2>
   // <p>A square at 400x400 is already a small file, but plenty of Indian portals impose their own upload cap in kilobytes on top of the dimension rule. If yours does, run the finished square through <a href="/compress-jpg">Compress JPG</a>. The target size mode lets you name an exact KB figure instead of guessing with a slider, and the live before and after preview shows you what you are giving up. There is a fuller walkthrough of that in our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under 20KB for online forms</a>. Compressing hard also strips the EXIF metadata, which quietly removes the GPS coordinates of wherever the photo was taken before a stranger downloads it.</p>
-  //
+  
   // <p>Format matters too. If your photo came out of a design app or a screenshot as a PNG and the portal insists on JPG, use <a href="/convert-jpg">Convert to JPG</a>. Be aware of one trap: JPG cannot store transparency, so any transparent area is filled with white during conversion. For a photograph that is a non-issue, but for a logo with a see-through background it is a real change, and it is worth understanding the trade-offs in our <a href="/blog/jpg-vs-png-format-guide">JPG versus PNG format guide</a>. If the transparency has to survive, stay on PNG and shrink it with <a href="/compress-png">Compress PNG</a> instead, which reduces the colour palette rather than re-saving pointlessly.</p>
-  //
+  
   // <h2>Mistakes That Undo All of This</h2>
   // <p>A few habits will quietly reintroduce the squash after you have done everything right.</p>
   // <ul>
@@ -5856,9 +5850,9 @@ export const blogsData = [
   //   <li><strong>Resizing twice.</strong> If the size was wrong, go back to the cropped square and resize that once, rather than resizing the already-resized version again.</li>
   //   <li><strong>Letting the site crop for you after all your work.</strong> If the upload preview still cuts your chin, your square was not quite square. Check the dimensions and redo the crop.</li>
   // </ul>
-  //
+  
   // <p>It sounds like a lot written down, but in practice it is a crop box, a preset button and two downloads, and it takes under a minute on a phone. Crop to square, then resize. That single ordering rule is the difference between a photo that looks like you and one that does not.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
   // <p><strong>Q: Why does my profile picture look squashed after resizing?</strong><br>
   // A: Because a rectangular photo was forced into square dimensions, which compresses the width and height by different amounts. Crop the photo to a square with the <a href="/crop">Crop Image</a> tool first, then resize it, and the proportions stay correct.</p>
@@ -5874,7 +5868,6 @@ export const blogsData = [
   // A: Run it through <a href="/compress-jpg">Compress JPG</a> and use the target size mode to name the exact KB figure you need. The dimensions stay at 400x400 while the file gets lighter.</p>
   //   `
   // },
-
   // {
   //   id: "whatsapp-screenshots-to-pdf-for-complaint",
   //   title: "How to Turn WhatsApp Chat Screenshots Into One PDF for a Complaint",
@@ -5885,57 +5878,57 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/whatsapp-screenshots-to-pdf-for-complaint.webp",
   //   content: `
   // <p>Something has gone wrong and the whole story is sitting in a WhatsApp chat. Maybe a seller took your money for a phone that never arrived and then stopped replying. Maybe your manager sent you messages at 11pm that crossed a line. Maybe a neighbour or a landlord threatened you, or a lender's recovery agent started abusing you on chat. Now somebody official — a consumer forum, an HR team, a police station, a bank's grievance cell — has told you to submit the evidence.</p>
-  //
+  
   // <p>So you open the chat, take twenty screenshots on your phone, and then you are stuck. Do you email twenty separate images? WhatsApp them? Print them one by one at the shop near your house? Every one of those options makes your complaint look weaker than it is, and worse, makes it easy for the person reading it to miss the exact message that proves your point.</p>
-  //
+  
   // <p>The answer is boring and effective: one PDF, in order, page numbered, readable. That is the format every office in India is comfortable receiving. Below is how to get there from a phone, without installing anything, and without your private chat going to some stranger's server.</p>
-  //
+  
   // <h2>Why One PDF Beats a Folder of Screenshots</h2>
-  //
+  
   // <p>Put yourself on the other side of the desk. A grievance officer opens your email and sees <code>IMG_20260712_224511.jpg</code> through <code>IMG_20260712_224903.jpg</code>. Twenty attachments. No order. Some of them download sideways. Two of them are duplicates and one is a blurry retake. They now have to reconstruct your conversation before they can even judge it. Realistically, they will skim three, decide it is a mess, and put your file in the slow pile.</p>
-  //
+  
   // <p>A single PDF fixes all of that at once:</p>
-  //
+  
   // <ul>
   //   <li><strong>Order is locked in.</strong> Page 1 is the first message, page 12 is the last. Nobody has to guess the sequence, and nobody can accidentally read it backwards.</li>
   //   <li><strong>It survives forwarding.</strong> Complaints get forwarded internally — from the front desk to a supervisor to legal. Images scatter along the way. A PDF stays one attachment with one name.</li>
   //   <li><strong>It prints properly.</strong> Consumer forums and police stations still run on paper. A PDF prints as a clean numbered set. Twenty loose JPGs print as twenty random-sized sheets.</li>
   //   <li><strong>You can refer to it.</strong> In your written complaint you can say the threat appears on page 7. That single sentence does more work than any amount of explaining.</li>
   // </ul>
-  //
+  
   // <p>The tool that gets you there is <a href="/image-to-pdf">Image to PDF</a>, which takes several JPG, PNG or WebP images and stitches them into one document in the order you choose. It runs inside your browser on your own phone, so a chat about your salary, your loan or your family never leaves your device.</p>
-  //
+  
   // <h2>Take the Screenshots So They Can Actually Be Read</h2>
-  //
+  
   // <p>This is the step people rush, and it is the step that decides whether your evidence holds up. A screenshot that does not show who said it and when is close to useless.</p>
-  //
+  
   // <p>Before you start capturing, get these things into the frame:</p>
-  //
+  
   // <ul>
   //   <li><strong>The contact header.</strong> Your very first screenshot should show the top bar of the chat with the contact name and, ideally, the phone number. Tap the contact name to open their info screen and screenshot that too. A page of green and white bubbles with no name attached could be anyone.</li>
   //   <li><strong>Timestamps on every screen.</strong> WhatsApp shows a time under each message and a date divider when the day changes. Do not crop those off. If a whole day's conversation runs long, make sure at least one screenshot in that stretch clearly shows the date divider.</li>
   //   <li><strong>Overlap between shots.</strong> Do not scroll a full screen between screenshots. Scroll about two-thirds, so each new capture repeats the last message or two from the previous one. That overlap is what shows nothing was cut out in between. Skipping straight from one screen to the next invites the question of what you removed.</li>
   //   <li><strong>Payment and file messages in full.</strong> If money was involved, capture the payment confirmation message, the receipt, or the transaction reference. If they sent a document or a voice note, screenshot the bubble showing it exists.</li>
   // </ul>
-  //
+  
   // <p>One practical thing about appearance: if your WhatsApp is on dark mode, consider switching to light mode before capturing. Dark screenshots print terribly. On an office laser printer a dark-mode chat can come out as a near-black block with faint text, and the clerk reading your file will not go back and ask you for better copies. Light mode prints clean.</p>
-  //
+  
   // <p>Also turn off any theme, wallpaper or chat background that puts a busy image behind the text. Plain background, normal font size. If your font is set very large you will end up with more screenshots, but each one is easier to read, and for evidence that is a fair trade.</p>
-  //
+  
   // <h2>Trim the Junk, But Never the Content</h2>
-  //
+  
   // <p>A raw phone screenshot carries a lot of noise — your battery percentage, notification icons, the keyboard sitting at the bottom of the screen, the message input box. None of that helps, and the keyboard in particular eats a third of every page.</p>
-  //
+  
   // <p>Trimming the outer edges with the <a href="/crop">Crop</a> tool makes the finished PDF far tighter. You drag a box over the preview, cut away the parts you do not need, then download. Do it consistently — the same rough area on every screenshot — so the pages look like a set rather than a random pile. If you want more on this, the guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">removing unwanted edges from scanned documents</a> covers the same technique for paper.</p>
-  //
+  
   // <p>There is a hard line here, though. Crop the interface. Never crop the conversation. Cutting a message you find inconvenient, or trimming a reply that gives context, is the fastest way to destroy your own credibility — especially since the other side usually has the same chat sitting on their phone. If a message embarrasses you a little, include it anyway. A complete record with one awkward line reads as honest. A curated record reads as edited, and once a reviewer suspects editing, the whole file stops being worth anything.</p>
-  //
+  
   // <h2>Get the Order Right Before You Convert</h2>
-  //
+  
   // <p>Chronological order, oldest message first, is the only order that makes sense for a complaint. It lets the reader watch the situation develop exactly the way you experienced it — the polite request, the vague reply, the excuses, the silence, the threat.</p>
-  //
+  
   // <p>The catch is that phone galleries do not always sort the way you expect. They often sort by file name rather than by capture time, and if you retook a screenshot because your thumb was in the way, the retake can jump to the end of the list. So before you select anything, scroll through your gallery in sequence and delete the blurry duplicates right there. Half of all reordering trouble comes from having three versions of the same screen and not knowing which one got picked.</p>
-  //
+  
   // <div class="tool-box">
   //   <h3>How to Turn Your Chat Screenshots Into One PDF</h3>
   //   <ul>
@@ -5947,59 +5940,178 @@ export const blogsData = [
   //     <li><strong>Step 6: Export and rename.</strong> Download the PDF and give it a name a stranger can understand, such as <strong>Complaint_WhatsApp_Chat_Evidence_Ravi_Kumar.pdf</strong>, not Document(3).pdf.</li>
   //   </ul>
   // </div>
-  //
+  
   // <p>If the conversation spans several months and you have already built separate PDFs for each stretch, you do not have to start over. Combine them in the right sequence with <a href="/merge-pdf">Merge PDF</a>, dragging the files into order before you export. And if you notice a page sitting in the wrong place only after exporting, drag it into position with <a href="/organize-pdf">Organize PDF</a> instead of rebuilding the whole thing from scratch.</p>
-  //
+  
   // <h2>Number the Pages — This Matters More Than You Think</h2>
-  //
+  
   // <p>An evidence PDF without page numbers is hard to argue from. The moment you can write in your complaint letter that the abusive message appears on page 9 and the refund promise on page 4, your submission becomes something a busy officer can verify in thirty seconds instead of something they have to read end to end and hope they spot it.</p>
-  //
+  
   // <p>Run the finished file through <a href="/page-numbers">Add Page Numbers</a> before you send it. It also quietly protects you: if you hand over a numbered fifteen-page annexure, a missing page is easy to spot, because the gap in the numbering shows up to anyone flipping through. The same reasoning is spelled out in the piece on <a href="/blog/add-page-numbers-legal-documents-court-filings">adding page numbers to legal documents and court filings</a>.</p>
-  //
+  
   // <h2>Hide What Does Not Belong in the Complaint</h2>
-  //
+  
   // <p>Chats wander. Somewhere in that conversation there may be a photo of your Aadhaar card you shared with the seller, your account number, a family member's number, or something entirely personal that has nothing to do with the dispute. Once you submit the PDF, it gets photocopied, forwarded and filed by people you will never meet, and you have no control over where the copies end up.</p>
-  //
+  
   // <p>Two sensible habits here. First, only include the stretch of conversation that is actually relevant to the complaint — you are not obliged to hand over a year of chat because the dispute happened in March. Second, if an identity document appears in a screenshot you genuinely need, mask the sensitive digits with the <a href="/aadhaar-masking">Aadhaar Masking</a> tool before you build the PDF. The article on <a href="/blog/mask-aadhaar-card-safely-for-rent-agreements">masking an Aadhaar card safely</a> explains what to hide and what to leave visible so the document still serves its purpose.</p>
-  //
+  
   // <p>And do the whole job in a tool that does not upload anything anywhere. A chat you are submitting to HR or to a police station is exactly the kind of file that should never sit on some random company's server, which is the argument made at length in <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local PDF processing versus cloud tools</a>.</p>
-  //
+  
   // <h2>Size, Emailing and Actually Sending It</h2>
-  //
+  
   // <p>Screenshots are surprisingly heavy. Modern phones capture at high resolution, and thirty PNG screenshots can easily produce a PDF far too big to email. Gmail caps attachments at 25 MB, and plenty of grievance portals allow a great deal less than that.</p>
-  //
+  
   // <p>There are two ways to bring the size down, in order of preference. Shrink the images first, before converting — <a href="/compress-png">Compress PNG</a> for PNG screenshots and <a href="/compress-jpg">Compress JPG</a> for JPGs, both of which have a target size mode where you name the size you want. Lighter inputs make a lighter PDF. Compress PNG works by reducing the colour palette and Compress JPG by lowering quality, so push only as far as you need to and check a screenshot afterwards to confirm the message text is still sharp. Only if that is still not enough should you compress the finished PDF, and if you do, open it afterwards and read every page. Unreadable evidence is not evidence.</p>
-  //
+  
   // <p>If the office asks you to send it on WhatsApp, send it as a <strong>Document</strong>, not as a Photo. Attach it through the Document option. WhatsApp re-compresses images sent as a Photo, so if you ever send the screenshots themselves rather than the PDF, send them as a Document too and they arrive uncompressed. There is more on this in the guide to <a href="/blog/best-way-to-share-large-pdfs-on-whatsapp">sharing large PDFs on WhatsApp</a>.</p>
-  //
+  
   // <h2>A Last Word on Keeping the Original</h2>
-  //
+  
   // <p>Whatever you submit, do not delete the actual chat. Keep the conversation on your phone, keep the original uncropped screenshots in a separate album, and take a WhatsApp backup so an accidental reinstall does not wipe the lot. If the matter escalates, you may be asked to produce the phone itself or to show the messages live in front of someone.</p>
-  //
+  
   // <p>Electronic evidence in India can also require an additional written certificate depending on where the matter is filed, so if this is heading towards a court rather than a grievance desk, ask your lawyer what exactly they need alongside the printout. Your PDF is the readable copy for the file — the original chat on the original phone is the thing it points back to, and it needs to still be there.</p>
-  //
+  
   // <p>Build it once, build it properly, and the person deciding your complaint spends their time on your grievance instead of on your paperwork.</p>
-  //
+  
   // <h2>Frequently Asked Questions</h2>
-  //
+  
   // <p><strong>Q: How do I combine WhatsApp screenshots into one PDF on my phone?</strong><br>
   // A: Open the <a href="/image-to-pdf">Image to PDF</a> tool in your mobile browser, add all the screenshots from your gallery, drag them into chronological order, choose A4 or fit-to-image, and download a single PDF. No app to install, and nothing gets uploaded.</p>
-  //
+  
   // <p><strong>Q: Should the oldest message be first or last?</strong><br>
   // A: Oldest first, always. A complaint reads as a story, and the reader needs to see how the situation developed. Put the contact info screen at the very front so it is clear from page one whose chat this is.</p>
-  //
+  
   // <p><strong>Q: Can I crop out messages I do not want anyone to see?</strong><br>
   // A: Crop the keyboard, the status bar and the input box — that is just tidying. Do not cut out messages from the conversation itself. The other person usually has the same chat, and a record that looks edited undermines your entire complaint.</p>
-  //
+  
   // <p><strong>Q: My screenshot PDF is too large to email. What do I do?</strong><br>
   // A: Shrink the images before converting rather than after. Use <a href="/compress-png">Compress PNG</a> or <a href="/compress-jpg">Compress JPG</a> in target size mode, then rebuild the document with <a href="/image-to-pdf">Image to PDF</a>. Check afterwards that every message is still readable.</p>
-  //
+  
   // <p><strong>Q: How do I add page numbers so I can refer to specific messages?</strong><br>
   // A: Run the finished file through <a href="/page-numbers">Add Page Numbers</a>. Then you can write in your complaint that the relevant message appears on a specific page, which makes it far quicker for an officer to verify your claim.</p>
-  //
+  
   // <p><strong>Q: Is it safe to make this PDF online when the chat is private?</strong><br>
   // A: On GoPDFGo, yes — everything runs inside your browser on your own device. Your screenshots are never uploaded to any server, which matters a great deal when the conversation involves your salary, your loan or a police matter.</p>
   //   `
   // },
 
+
+  // {
+  //   id: "ocr-pdf-scanned-document-to-text-hindi-english",
+  //   title: "Scanned PDF You Cannot Copy From? How to Read It as Text (Hindi and English)",
+  //   seoTitle: "Scanned PDF to Text Free: Hindi & English OCR | GoPDFGo",
+  //   keywords: "ocr pdf online free, scanned pdf to text, extract text from scanned pdf, hindi ocr online free, hindi english ocr, copy text from scanned document, ocr hindi pdf, image pdf to text converter, read text from scanned form, bilingual form ocr india",
+  //   excerpt: "You can see the words in the PDF but you cannot select a single one, because the page is a picture. Here is how to tell in five seconds, how OCR reads it back as text in Hindi, English or both, and exactly where the limits are.",
+  //   date: "July 18, 2026",
+  //   imageUrl: "/images/blogs/ocr-pdf-scanned-document-to-text-hindi-english.webp",
+  //   content: `
+  //
+  //       <p>You have a PDF open on your phone. You can see the words perfectly well — a name, a registration number, an address, a whole paragraph you need to paste into a form. You press and hold to select it, and nothing happens. The selection handle just drags a rectangle across the page as though you were trying to highlight a photograph. Which, as it turns out, is exactly what you are doing.</p>
+  //
+  //       <p>This is one of the most familiar dead ends in Indian paperwork. Someone scanned your certificate at a cyber cafe. You photographed a form lying on your desk and saved it as a PDF. A department emailed you a notice that was clearly typed, printed, signed, and then run back through a scanner. The file opens, it looks like a document, and it will not give up a single copyable word.</p>
+  //
+  //       <p>The technology that fixes this is called <strong>OCR</strong>, and GoPDFGo now has a free <a href="/ocr-pdf">OCR PDF</a> tool that runs entirely inside your own browser — including the bilingual Hindi-and-English case that most Indian forms actually use. Here is how to tell what kind of file you are holding, how to read it, and exactly where the limits are, because there are limits and you should know them before you start.</p>
+  //
+  //       <h2>The Five-Second Test That Tells You Which Tool You Need</h2>
+  //       <p>Before you do anything else, run this test. Open the PDF and try to select one single word with your mouse or your finger.</p>
+  //       <ul>
+  //         <li><strong>If a word highlights</strong>, your PDF has a real text layer. The characters are genuinely inside the file. You do not need OCR at all — use <a href="/pdf-to-text">PDF to Text</a>, which lifts that layer out instantly and exactly, every character just as it was typed. It is far faster, so always prefer it when it works.</li>
+  //         <li><strong>If nothing highlights</strong>, and your cursor simply paints a blue box over the whole page, the page is an image. There is no text inside the file to copy — only a picture of text. That is a scan, and a scan needs <a href="/ocr-pdf">OCR PDF</a>.</li>
+  //       </ul>
+  //       <p>You will occasionally meet a mixed file, and now you will recognise it: a few typed pages that highlight normally plus a signed page that was scanned back in and does not. The typed pages extract with the text tool, the scanned page needs OCR, and neither tool is broken.</p>
+  //
+  //       <h2>What OCR Actually Is, in Plain Language</h2>
+  //       <p>To understand why a scan behaves this way, it helps to know what is actually stored inside the two kinds of PDF.</p>
+  //       <p>When a PDF is generated from a Word file, a billing system, or a government publishing tool, the words are stored as <strong>characters</strong>. The letter R is recorded as the letter R, with a font, a size and a position on the page. That invisible set of real characters is the text layer, and it is the only reason you can select, search and copy inside a normal PDF.</p>
+  //       <p>A scan is built completely differently. A scanner or a phone camera does not read anything. It measures light and colour and hands over a grid of coloured dots that happens to look like a page. Nowhere in that file does the letter R exist. There is only a dark shape roughly in the form of an R sitting on a lighter background. Your eyes do the recognising, and software cannot copy something that only happened inside your head.</p>
+  //       <p><strong>OCR</strong> stands for optical character recognition, and it is the software that does that recognising on your behalf. It examines every dark shape on the page, compares it against what it knows letters look like, and writes out its best guess as real characters. Pictures of letters go in, actual text comes out. That is the whole idea.</p>
+  //       <p>Notice the word <em>guess</em>. Hold on to it, because we come back to it further down.</p>
+  //
+  //       <h2>The Language Choice That Decides Everything</h2>
+  //       <p>Here is where Indian documents make life difficult in a way that most OCR tools were never built for. Our paperwork is bilingual, and not politely bilingual on separate pages — bilingual on the same printed line. A form header reads <strong>आवेदन पत्र / Application Form</strong>. The field label reads <strong>नाम / Name</strong>. The next one reads <strong>जन्म तिथि / Date of Birth</strong>. Devanagari and Latin script sit side by side, centimetres apart, all the way down the page.</p>
+  //       <p>Most people assume that if you point an English OCR engine at a Hindi line, you get poor-quality Hindi. That is not what happens. You get garbage, because the engine has no Devanagari in its vocabulary at all and is forced to approximate every shape with the closest Latin letter it owns.</p>
+  //       <p>We measured this on a rendered bilingual form line before the tool was built. The line read आवेदन पत्र / Application Form, नाम / Name: Rajesh Kumar, Reg No: SSC2026. Here is what came back:</p>
+  //       <ul>
+  //         <li><strong>English-only model:</strong> it read आवेदन पत्र as <em>"3Tde ual"</em>. Not a worse version of the Hindi — complete nonsense that carries no information at all.</li>
+  //         <li><strong>Hindi-only model:</strong> it read the English half as <em>"फएपटाणा रिणाए"</em>. Exactly the same failure in the other direction.</li>
+  //         <li><strong>Hindi + English together:</strong> the entire line came back correctly, both scripts, in our own testing. It took roughly <strong>17 percent longer</strong> than a single-language pass.</li>
+  //       </ul>
+  //       <p>Seventeen percent more time for a result that is readable instead of unusable is not a difficult trade. That is why <strong>Hindi + English is the default</strong> on the tool, and why you should generally leave it alone. Pick a single language only when you are certain the page carries just one script — an English-only office letter, or a purely Devanagari circular. In those cases the single-language pass is a little quicker.</p>
+  //       <p>If the output comes back looking like the nonsense above, you almost certainly have the wrong language selected. Do not conclude the tool cannot read your document. Switch the language and run it again.</p>
+  //
+  //       <div class="tool-box">
+  //         <h3>How to Read a Scanned PDF as Text on GoPDFGo</h3>
+  //         <ul>
+  //           <li><strong>Step 1:</strong> Open the <a href="/ocr-pdf">OCR PDF</a> tool on your phone or laptop. Nothing to install, no account to create, no watermark on anything you get back.</li>
+  //           <li><strong>Step 2:</strong> Drag in your scanned PDF or tap to select it. The file is loaded into your browser's own memory, not sent anywhere, so even a heavy scan opens without waiting on an upload.</li>
+  //           <li><strong>Step 3:</strong> Choose the language that is actually printed on the page. <strong>Hindi + English</strong> is the default and is the right answer for almost every Indian form. Choose English or Hindi alone only if the page genuinely uses one script.</li>
+  //           <li><strong>Step 4:</strong> Start the OCR and let it work through the document. Each page is rendered to an image and read in turn, and the progress bar shows the real page count so you can watch it move. On the very first run it also downloads the language data, so give it a moment before deciding something is stuck.</li>
+  //           <li><strong>Step 5:</strong> Read the text on screen, copy the whole thing with one tap, or download it as a <strong>.txt</strong> file. Then proofread anything you intend to act on, especially numbers.</li>
+  //         </ul>
+  //       </div>
+  //
+  //       <h2>What You Get Back, and What You Do Not</h2>
+  //       <p>This part deserves to be said plainly rather than buried, because a lot of tools are vague about it and people waste time finding out the hard way.</p>
+  //       <p>GoPDFGo's OCR gives you <strong>plain text</strong>. You can copy it or download it as a .txt file. That is the output.</p>
+  //       <p>It does <strong>not</strong> hand you back a searchable PDF. It does not rebuild your scan with an invisible text layer tucked behind the page images so that Ctrl+F works inside the original file. If your requirement is specifically a searchable PDF — because an archive system needs one, or a lawyer asked for one — this tool is not that, and we would rather tell you now than after you have sat through a long scan.</p>
+  //       <p>For the overwhelming majority of real jobs, plain text is what you actually wanted anyway. Getting a name and a number off a scanned form so you can type them into an online application. Pulling the questions out of a photographed question paper. Lifting an address off an old utility bill. Copying two lines of a circular into a WhatsApp group instead of forwarding a heavy file nobody opens. In every one of those cases you needed the words, not another document.</p>
+  //
+  //       <h2>Proofread the Numbers. Every Single Time.</h2>
+  //       <p>Remember that OCR guesses. It is very good at guessing, and it is still guessing.</p>
+  //       <p>In our own testing on a clean Devanagari image — good contrast, straight, printed, close to a best case — the tool read everything on the page correctly except for one thing. It dropped the 1 from <strong>12345</strong> and returned <strong>2345</strong>.</p>
+  //       <p>Look closely at why that matters. It did not produce a mangled string of symbols that you would instantly spot as broken. It produced 2345, which is a perfectly ordinary, perfectly plausible number that simply is not the number on your page. Nothing in the output flags it. If you paste that into a form without checking, the error travels with you.</p>
+  //       <p>So treat numbers as the thing you always verify: roll numbers, account numbers, amounts, dates, PIN codes, percentages, GST numbers, reference IDs. Read them back against the original scan with your own eyes. Prose is much more forgiving — a misread word inside a sentence usually looks wrong the moment you read it, and you fix it without thinking. A wrong digit hides in plain sight.</p>
+  //       <p>The related habit worth building: similar shapes get confused with each other. A 1 and a lowercase l. A 0 and a capital O. Those are the pairs to look at twice.</p>
+  //
+  //       <h2>Why It Is the Slowest Tool on the Site</h2>
+  //       <p>We will be direct about this too, because it saves you from thinking your phone has frozen.</p>
+  //       <p>OCR is by a wide margin the heaviest job on GoPDFGo. Every single page has to be rendered into an image and then examined shape by shape by a recognition engine running on your own processor. Compare that with <a href="/pdf-to-text">PDF to Text</a>, which just reads characters that are already sitting in the file and comes back almost immediately. One is reading; the other is looking at a picture and working out what it says.</p>
+  //       <p>Two practical consequences follow:</p>
+  //       <ul>
+  //         <li><strong>A phone is slower than a laptop.</strong> Same tool, same file, less processing power. If you have a laptop handy and the document is long, use it. If you only have a phone, it still works — just leave the tab open and in the foreground while it runs, rather than switching apps.</li>
+  //         <li><strong>The first run downloads the language data.</strong> English is about 2.8 MB and Hindi is about 1.3 MB. This happens once and is then cached on your device, so every run after the first skips it. If your mobile data is limited, do the first run on Wi-Fi.</li>
+  //       </ul>
+  //       <p>None of this is a flaw to apologise for. It is simply the honest cost of reading letters off a picture instead of copying characters out of a file, and it is why the five-second selection test at the top of this article matters so much. If your PDF has a text layer, use the fast tool. Save OCR for the files that genuinely need it.</p>
+  //
+  //       <h2>Give the Engine a Clean Page and It Reads Far Better</h2>
+  //       <p>OCR accuracy depends enormously on what you feed it. Clear, straight, high-contrast printed text reads best. Faint, skewed and handwritten pages read worst. Nothing you can change inside the tool will improve the result as much as improving the scan itself.</p>
+  //       <ul>
+  //         <li><strong>Straighten crooked pages first.</strong> A page that sits at an angle makes every letter harder to identify, because the engine expects text to run along a horizontal line. <strong>Fix sideways and upside-down pages first.</strong> A page the engine has to read at right angles is a page it reads badly. <a href="/rotate-pdf">Rotate PDF</a> turns pages in 90-degree steps and writes the fix into the file — our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a> explains why a viewer's temporary rotation does not count. It will not straighten a small slant, though; for a page that is a few degrees off, rephotograph it squarely rather than expecting the tool to correct it. — our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a> explains why a viewer's temporary rotation does not count.</li>
+  //         <li><strong>Crop away the desk, the shadow and your thumb.</strong> A dark border or a fingertip at the edge of the frame gives the engine shapes to misinterpret that were never text at all. If the scan started life as phone photos, tighten the frame with the <a href="/crop">Crop</a> tool on each image before you assemble them into a PDF — <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping the mess off a phone scan</a> walks through it. Crop works on images, not on a finished PDF, so this is a step to do first rather than afterwards.</li>
+  //         <li><strong>Shoot flat and in even light.</strong> If the scan started as a phone photo, curl at the bottom of the page and a shadow falling across one half are the two things that quietly ruin recognition. Lay the page flat, light it evenly, shoot straight down, and assemble the photos with the <a href="/image-to-pdf">Image to PDF</a> tool before you run OCR on the result.</li>
+  //         <li><strong>Do not expect handwriting to work.</strong> OCR is built for printed type. A handwritten note, a signature or a filled-in form field written by hand will not come back reliably, and it is better to know that upfront than to keep retrying.</li>
+  //       </ul>
+  //
+  //       <h2>Where People Actually Use This</h2>
+  //       <p>Once you know the tool exists, the situations start appearing everywhere:</p>
+  //       <ul>
+  //         <li><strong>Scanned forms and certificates.</strong> Lift the name, the registration number or the address off a scanned bilingual form instead of typing it out and risking a typo in the one field that matters.</li>
+  //         <li><strong>Documents that only exist on paper.</strong> An old degree certificate, a rent agreement, a decade-old bill. Scan it once, run OCR, and keep a text copy you can search and paste from forever.</li>
+  //         <li><strong>Photographed notes and question papers.</strong> A friend sends a photo of printed notes. OCR turns it into text you can reformat, translate, or drop into your own study file.</li>
+  //         <li><strong>Anything a text extractor returned empty.</strong> If <a href="/pdf-to-text">PDF to Text</a> came back with nothing, that is not a failure — it is the diagnosis. The file is a scan, and <a href="/ocr-pdf">OCR PDF</a> is the tool that reads it.</li>
+  //         <li><strong>Translating a Hindi document.</strong> A scan gives a translator nothing to paste, and nothing to edit afterwards. Recognise the Devanagari first, then translate the output.</li>
+  //       </ul>
+  //
+  //       <h2>Your Scan Never Leaves Your Device</h2>
+  //       <p>This matters more for OCR than for almost any other tool, and it is worth pausing on. Think about which documents people actually need to read text off: Aadhaar copies, PAN cards, salary slips, medical reports, bank letters, signed agreements, marksheets. The scanned files sitting on your phone are, almost by definition, the most sensitive ones you own.</p>
+  //       <p>On GoPDFGo the recognition engine is downloaded into your browser and runs on your own processor. Your PDF is never uploaded. The page images are never uploaded. The text that comes out is never uploaded either. There is no account, no sign-up, and no watermark stamped on your result. If you want the longer argument for why that architecture matters, we wrote about <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local PDF processing beats cloud tools</a> — but the short version is that a document that never travels cannot leak in transit or sit forgotten on somebody else's server.</p>
+  //
+  //       <p>So the next time a PDF shows you words it refuses to let you copy, you already know the drill. Try to select one word. If it highlights, use the fast text tool. If it does not, you are holding a picture of a page, and <a href="/ocr-pdf">OCR PDF</a> will read it for you — in Hindi, in English, or in both at once the way your form is actually printed. Give it a clean, straight page, be patient with it, check the numbers, and you will never retype a scanned document again.</p>
+  //
+  //       <h2>Frequently Asked Questions</h2>
+  //       <p><strong>Q: How do I know whether my PDF needs OCR at all?</strong><br>
+  //       A: Try to select a single word in it. If the word highlights, the PDF has a real text layer and you should use <a href="/pdf-to-text">PDF to Text</a>, which is instant and exact. If nothing highlights and your cursor just draws a box over the page, the page is an image and you need <a href="/ocr-pdf">OCR PDF</a>.</p>
+  //       <p><strong>Q: Does it work on Hindi documents and bilingual forms?</strong><br>
+  //       A: Yes, and this is the part worth getting right. You can read a page as Hindi, English, or <strong>Hindi + English together</strong>, which is the default. In our own testing, an English-only pass read आवेदन पत्र as "3Tde ual" and a Hindi-only pass read the English half as "फएपटाणा रिणाए" — both nonsense rather than merely inaccurate. The combined pass read the whole line correctly and took about 17 percent longer.</p>
+  //       <p><strong>Q: Will I get a searchable PDF back?</strong><br>
+  //       A: No. You get plain text that you can copy or download as a .txt file. The tool does not rebuild your scan into a PDF with an invisible text layer behind the images. If the words are what you need, this does the job; if you specifically need a searchable PDF, this is not that tool.</p>
+  //       <p><strong>Q: Is my scanned Aadhaar or salary slip uploaded anywhere?</strong><br>
+  //       A: No. The recognition engine is downloaded to your browser and runs on your own device. The file, the page images and the resulting text all stay with you. There is no account and no watermark on the output.</p>
+  //       <p><strong>Q: Why is it taking so long compared to the other tools?</strong><br>
+  //       A: Because every page has to be rendered as an image and examined shape by shape, which makes this the heaviest job on the site, and a phone is slower at it than a laptop. The first run also downloads the language data — roughly 2.8 MB for English and 1.3 MB for Hindi — which is then cached, so later runs skip that step. Keep the tab open and in the foreground while it works.</p>
+  //       <p><strong>Q: How accurate is it, and what should I double-check?</strong><br>
+  //       A: Good on clear printed text, and imperfect by nature, because OCR recognises shapes rather than reading. On one clean Devanagari test image it read everything correctly except that it dropped the 1 from "12345" and gave us "2345" — a plausible-looking number that was simply wrong. Always proofread digits: roll numbers, amounts, dates and account numbers. A straighter, sharper, higher-contrast scan improves accuracy more than anything else you can change.</p>
+  //
+  //   `
+  // },
 ];
