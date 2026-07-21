@@ -21,7 +21,8 @@ import {
   Type,
   ImageDown,
   LayoutGrid,
-  PenTool
+  PenTool,
+  ScanText
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -1279,6 +1280,113 @@ Working through a whole year of statements? Unlock them one at a time, then tidy
     }
   },
   {
+    id: "ocr-pdf",
+    type: "pdf",
+    title: "OCR PDF",
+    desc: "Read text off a scanned PDF, in English or Hindi.",
+    leadIn: "Turn a scanned PDF back into text you can actually select, search and paste. Photographed pages, a scanner copy, an old certificate — the tool reads the words straight off the page images, in English, Hindi, or both together for the bilingual forms most Indian paperwork uses. It runs inside your browser, so the document never leaves your device.",
+    icon: ScanText,
+    color: "blue",
+    config: { mode: "ocr-pdf", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Run OCR in Your Own Browser?",
+        useCases: "When You Need OCR on a Scanned PDF",
+        steps: "How to OCR a PDF Online",
+        faq: "OCR PDF FAQs"
+      },
+      intro: `You have a PDF, but you cannot copy a single word out of it. Try to select a line and nothing highlights — the cursor just drags a blue box over what looks like text. That file is a **scan**: someone photographed the pages or ran them through a scanner, so what you are looking at is a picture of words, not words.
+
+**OCR** — optical character recognition — is what turns those pictures back into text. It looks at the shapes on the page, recognises them as letters, and gives you characters you can select, search, paste and edit. It is how you get the address off a scanned utility bill without retyping it, or the questions out of a photographed question paper.
+
+GoPDFGo's **OCR PDF** tool does this **inside your browser**. The recognition engine is downloaded to your device and runs on your own processor, so a scanned Aadhaar card, salary slip or agreement is never uploaded to anyone's server. And because most Indian paperwork is bilingual, it reads **Hindi and English together** — not one or the other.`,
+      walkthrough: {
+        heading: "A real example: getting the text off a bilingual government form",
+        body: `Say you have a scanned application form where the labels are printed in both scripts — **आवेदन पत्र / Application Form**, **नाम / Name**, and so on. Open the PDF, and before you run anything, choose the language that is actually on the page.
+
+This choice matters more than people expect. Reading a Hindi line with the English model does not give you slightly worse Hindi — it gives you nonsense, because the engine tries to force Devanagari shapes into Latin letters. The reverse is just as bad. That is why **Hindi + English** is the default here: it recognises both scripts in one pass, which is what a bilingual form needs, at the cost of being a little slower than a single language.
+
+Then it works page by page. Each page is rendered to an image and read, so a long document takes real time — this is the slowest tool on the site, and a phone will be slower than a laptop. The progress bar shows the actual page count so you know where you are. When it finishes you get plain text you can copy with one tap or download as a **.txt** file.
+
+Two things to know before you rely on the output. First, OCR is never perfect: a **1** can go missing from a long number, and faint or skewed scans read worst — always check anything that matters, like an amount or a roll number, against the original. Second, if your PDF is not a scan at all and you can already select its text, skip this entirely and use [PDF to Text](/pdf-to-text), which lifts the real characters exactly and takes a fraction of the time. If the scan is crooked or has a big dark border, [straighten the pages first](/rotate-pdf) or [crop the edges off the images](/crop) — OCR reads a clean, upright page far better than a tilted one.`,
+        troubleshooting: [
+          {
+            problem: "The Hindi came out as random Latin letters",
+            fix: "The English-only model was selected. It cannot read Devanagari at all, so it approximates the shapes with Latin characters and the result is unusable. Switch to Hindi, or Hindi + English if the page has both, and run it again.",
+          },
+          {
+            problem: "It is taking a very long time",
+            fix: "That is expected, and it is the honest cost of reading every page as an image. A long scan on a phone can take a minute or more, and the first run also downloads the language data. Leave the tab open and in the foreground; the progress bar shows the real page count so you can see it moving.",
+          },
+          {
+            problem: "A few characters or digits are wrong",
+            fix: "OCR guesses from shapes, so it confuses similar ones — a 1 with an l, a 0 with an O — and loses accuracy on faint, blurry or handwritten text. Proofread anything you will act on. A sharper, straighter, higher-contrast scan is the single biggest improvement you can make.",
+          },
+          {
+            problem: "Nothing came back at all",
+            fix: "Either the page is genuinely blank, or the scan is too faint or too skewed for the engine to find any letters. Rescan at a higher quality if you can. If the first run failed outright, check your connection too — the language data is fetched once on first use.",
+          },
+        ],
+      },
+      features: [
+        {
+          title: "Hindi and English, Together",
+          desc: "Most Indian forms print both scripts on the same line, and a single-language pass mangles whichever one it was not built for. This reads **Hindi and English in one go**, so a bilingual application form comes back readable end to end instead of half nonsense."
+        },
+        {
+          title: "The Scan Never Leaves Your Device",
+          desc: "The recognition engine is downloaded to your browser and runs on your own processor. That matters here more than anywhere: the documents people OCR are exactly the sensitive ones — Aadhaar copies, salary slips, agreements, medical reports — and none of them are uploaded."
+        },
+        {
+          title: "Plain Text You Can Actually Use",
+          desc: "The result is clean text, not another locked-up file. Copy it straight into WhatsApp, an email or a form, or download it as a .txt to keep. Page breaks are marked so you can tell where each page ends."
+        }
+      ],
+      useCases: [
+        "**Scanned Government Forms & Certificates:** Pull the name, number or address off a scanned form without retyping it, whether the labels are in Hindi, English, or both.",
+        "**Old Documents You Only Have on Paper:** A degree certificate, a rent agreement, an old bill — scan it once and get a searchable text copy you can keep and paste from.",
+        "**Photographed Notes & Question Papers:** Turn a phone photo of printed notes or a question paper into text you can reformat, translate, or share.",
+        "**Anything a Text Extractor Returned Empty:** If PDF to Text gave you nothing, the file is a scan — this is the tool that reads it."
+      ],
+      steps: [
+        "**Upload the scanned PDF:** Drag and drop the file or tap to select. It stays on your device the whole time.",
+        "**Pick the language on the page:** Hindi + English is the default and suits most Indian paperwork. Choose English or Hindi alone if the page is only one script — it is a little faster.",
+        "**Run the OCR:** Each page is rendered and read in turn. The first run also downloads the language data, so give it a moment.",
+        "**Copy or download:** Read the text on screen, copy it all with one tap, or download it as a .txt file. Proofread anything important before you rely on it."
+      ],
+      faq: [
+        {
+          q: "Does it work on Hindi documents?",
+          a: "Yes. You can read a page as **Hindi**, **English**, or **Hindi + English together** — the last one is the default, because most Indian forms print both scripts on the same page. Picking the right language matters: the English model cannot read Devanagari at all, and will return nonsense rather than imperfect Hindi."
+        },
+        {
+          q: "What is the difference between this and PDF to Text?",
+          a: "**PDF to Text** lifts the text layer that is already inside a normal PDF — instant and exact, but it needs that layer to exist. **OCR PDF** is for scans, where the pages are images and there is no text layer, so the words have to be recognised visually. If you can select text in your PDF with a cursor, use PDF to Text; if you cannot, use this."
+        },
+        {
+          q: "Is my scanned document uploaded anywhere?",
+          a: "No. The OCR engine is downloaded to your browser and runs on your own device. Nothing about the file — not the images, not the text it produces — is sent to us. That is the whole reason to run OCR here rather than on a site that wants your Aadhaar copy on its server."
+        },
+        {
+          q: "Does it give me back a searchable PDF?",
+          a: "No, and it is worth being clear about that. You get the **text** as plain text you can copy or download as a .txt file. It does not rebuild your scan into a PDF with an invisible text layer behind the images. If you need the words, this is what you want; if you specifically need a searchable PDF, this is not that tool."
+        },
+        {
+          q: "Why is it so slow compared to the other tools?",
+          a: "Because it does far more work. Every page is rendered to an image and then examined shape by shape, which is genuinely heavy — this is the slowest job on the site, and a phone takes longer than a laptop. The first run also downloads the language data (a few MB), though that is cached afterwards."
+        },
+        {
+          q: "How accurate is it?",
+          a: "Good on clear printed text, and imperfect by nature. Similar shapes get confused — a 1 with an l, a 0 with an O — and faint, skewed or handwritten pages read worst. Always proofread anything you will act on, especially numbers. A sharper, straighter scan improves the result more than anything else you can change."
+        },
+        {
+          q: "Does it work on my phone?",
+          a: "Yes, in Chrome, Safari and other modern browsers on Android and iPhone, with nothing to install. It will be slower than a laptop, and the first run downloads the language data, so use Wi-Fi if your data is limited."
+        }
+      ]
+    }
+  },
+  {
     id: "pdf-to-text",
     type: "pdf",
     title: "PDF to Text",
@@ -1298,12 +1406,12 @@ Working through a whole year of statements? Unlock them one at a time, then tidy
 
 GoPDFGo's **PDF to Text** tool reads the text layer of your PDF and hands it back to you as clean, copyable plain text. You can copy it with one tap or download it as a **.txt** file. It runs **entirely in your browser** — your PDF is never uploaded to any server, which matters when you're pulling text out of contracts, statements, or anything with personal details.
 
-**Scanned PDFs are handled too:** if your PDF has a real text layer (the kind where you can already select words with your cursor), extraction is instant. If it is a **scanned image** — a photo of a page saved as a PDF — the tool automatically switches to built-in **OCR**, reading the text straight off the page images right in your browser. OCR takes a few seconds per page and the engine downloads only once. It works best on clear printed text; very blurry or handwritten scans may come out imperfect.`,
+**This tool reads the text layer only.** If you can already select words in your PDF with a cursor, extraction is instant and exact — every character comes across as it was typed. If the pages are **scanned images** — a photo of a page saved as a PDF — there is no text layer to read, and this tool will tell you so rather than return an empty box. For those files use the [OCR PDF](/ocr-pdf) tool instead, which reads the letters off the page images and handles Hindi as well as English.`,
       walkthrough: {
         heading: "A real example: pulling a clause out of an agreement",
         body: `GoPDFGo reads a PDF two ways depending on what is inside it. For a normal PDF it pulls straight from the **text layer** — the selectable characters already baked into the file — so a long report comes back quickly, in roughly the order you read it on screen, with page breaks marked. Tap Copy all to grab the whole extract in one go, select just the paragraph you need from the text box, or download the lot as a .txt file.
 
-A scanned PDF is different. If someone photographed or scanned the pages there is no text layer, just pictures of words, so the tool runs **OCR** to read the letters off the image. That is slower, and faint scans or unusual fonts can come back with a few wrong characters, so give the result a quick read before you trust it. Everything runs on your device, which matters when the file is an offer letter, a statement, or a contract.
+A scanned PDF is a different job. If someone photographed the pages or ran them through a scanner there is no text layer at all — just pictures of words — so there is nothing here to lift, and the tool says so instead of handing you an empty box. Those files need [OCR, which reads the letters off the page images](/ocr-pdf); it is slower and never perfect, which is exactly why it is a separate tool rather than a surprise that quietly triples your wait. Everything runs on your device either way, which matters when the file is an offer letter, a statement, or a contract.
 
 Once you have the words you can keep going. If the PDF asks for a password on open, [remove the protection first](/unlock-pdf) so the text is actually readable. If you wanted the pages as pictures rather than words, [turn each page into a JPG](/pdf-to-image) instead. And when you only need a section, [pull those pages out](/extract-pdf-pages) before extracting, so you are not scrolling past everything else to find the part you want.`,
         troubleshooting: [
@@ -1313,15 +1421,15 @@ Once you have the words you can keep going. If the PDF asks for a password on op
           },
           {
             problem: "It returned nothing at all",
-            fix: "Your PDF is most likely scanned with no text layer, so the tool automatically switches to OCR and reads the words off the page images. That takes longer than a normal extract, so give it a moment. Very faint or skewed scans read worst; a cleaner scan gives cleaner text.",
+            fix: "Your PDF is almost certainly a scan, so there is no text layer to lift — the pages are images. Run it through the OCR PDF tool instead, which reads the letters off those images. A quick way to tell before you start: open the PDF and try to select a word with your cursor. If nothing highlights, it is a scan.",
           },
           {
-            problem: "OCR read some words wrong",
-            fix: "OCR can misread unusual fonts, handwriting, or low-resolution scans, and there is no way around a blurry source. Rescan at a higher quality if you can, and always proofread OCR output before you rely on it.",
+            problem: "Some pages came back empty and others worked",
+            fix: "That is a mixed PDF — a few typed pages plus some scanned ones, which is common when a signed page is scanned back into a digital document. The typed pages extract here; for the scanned ones, run the file through the OCR PDF tool.",
           },
           {
             problem: "I got text back, but it is full of odd symbols",
-            fix: "That is a broken font encoding rather than a missing text layer, so the automatic OCR fallback does not kick in — it only runs when nothing at all comes out. Convert the pages to images first and extract from that cleaner copy instead.",
+            fix: "That is a broken font encoding rather than a missing text layer: the characters are there, but the map from them to real letters is wrong, so the extract is technically successful and completely unusable. Convert the pages to images and read them with the OCR PDF tool instead — reading the page visually sidesteps the broken encoding entirely.",
           },
         ],
       },
@@ -1349,12 +1457,12 @@ Once you have the words you can keep going. If the PDF asks for a password on op
         "**Upload your PDF:** Drag and drop the file or tap to select it. It stays on your device.",
         "**Extract:** Click the button and the tool reads the text layer of every page.",
         "**Copy or Download:** Read the extracted text on screen, tap Copy to grab it all, or download it as a .txt file.",
-        "**Scanned PDF?** No problem — if there is no text layer, the tool automatically runs **OCR** to read the text from the page images. Just give it a few seconds per page."
+        "**Scanned PDF?** This tool needs a real text layer. If your pages are images, use the [OCR PDF](/ocr-pdf) tool, which reads the words off the page in English or Hindi."
       ],
       faq: [
         {
-          q: "Does it work on scanned PDFs (OCR)?",
-          a: "Yes. When a PDF has no text layer — like a scanned document or a photo of a page — the tool automatically runs **OCR** (optical character recognition) in your browser, rendering each page and reading the text off the image. It is excellent for clear printed text; blurry or handwritten scans may not be perfect. Nothing is uploaded — the OCR runs on your own device."
+          q: "Does it work on scanned PDFs?",
+          a: "Not this tool — it lifts an existing text layer, and a scan has none. Use the **OCR PDF** tool for scans: it renders each page and reads the letters off the image, in English, Hindi, or both together. Both tools run entirely in your browser, so nothing is uploaded either way."
         },
         {
           q: "Does the formatting (bold, tables, columns) come through?",
