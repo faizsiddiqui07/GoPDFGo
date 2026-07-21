@@ -255,13 +255,13 @@ const Header = () => {
                 />
               </button>
               <div
-                className={`absolute top-full right-0 w-212.5 pt-4 transition-all duration-200 transform z-50 ${
+                className={`absolute top-full right-0 w-[min(47rem,calc(80vw_-_3rem))] pt-4 transition-all duration-200 transform z-50 ${
                   activeDropdown === "image"
                     ? "opacity-100 visible translate-y-0"
                     : "opacity-0 invisible translate-y-2"
                 }`}
               >
-                <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-6 grid grid-cols-3 gap-6 relative overflow-hidden">
+                <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-5 grid grid-cols-3 gap-5 relative overflow-hidden">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-2">
                       <div className="bg-orange-100 p-1.5 rounded-lg text-[#FF9933]">
@@ -281,11 +281,11 @@ const Header = () => {
                         <div className="text-slate-400 group-hover/item:text-[#FF9933] transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span className="font-bold text-slate-700 text-sm block group-hover/item:text-[#FF9933] transition-colors">
                             {tool.title}
                           </span>
-                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate max-w-40">
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
                             {tool.desc}
                           </span>
                         </div>
@@ -311,11 +311,11 @@ const Header = () => {
                         <div className="text-slate-400 group-hover/item:text-green-500 transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span className="font-bold text-slate-700 text-sm block group-hover/item:text-green-500 transition-colors">
                             {tool.title}
                           </span>
-                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate max-w-40">
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
                             {tool.desc}
                           </span>
                         </div>
@@ -341,11 +341,11 @@ const Header = () => {
                         <div className="text-slate-400 group-hover/item:text-purple-500 transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <span className="font-bold text-slate-700 text-sm block group-hover/item:text-purple-500 transition-colors">
                             {tool.title}
                           </span>
-                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate max-w-40">
+                          <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
                             {tool.desc}
                           </span>
                         </div>
