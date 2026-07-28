@@ -140,6 +140,10 @@ const ImageEditor = ({ toolId }) => {
   // the quality-slider path, which deliberately runs without the overlay — so
   // there is nothing else telling the user those numbers are about to change.
   const statsStale = isProcessing || liveTweak;
+  // Crop with no selection yet — there is nothing to apply, so the button says
+  // so instead of producing a blank image.
+  const needsCropBox =
+    !!tool.config.showVisualCrop && (crop.w <= 0 || crop.h <= 0);
 
   // --- CLEANUP ---
   const cleanupUrls = useCallback(() => {
@@ -218,6 +222,10 @@ const ImageEditor = ({ toolId }) => {
     if (!files[0] || !originalImageRef.current || isBatchMode) return;
     if (tool.id === "color-picker") return;
     if (isCompressor && sizeMode === "target") return; // target mode is manual (button)
+    // Crop starts at w/h = 0. Processing that hands the worker a zero-sized
+    // source rectangle, which draws nothing — the user got a blank or broken
+    // image instead of being told to select an area first.
+    if (tool.config.showVisualCrop && (crop.w <= 0 || crop.h <= 0)) return;
 
     if (debounceTimerRef.current) clearTimeout(debounceTimerRef.current);
 
@@ -795,10 +803,32 @@ const ImageEditor = ({ toolId }) => {
   // ✅ NEW: Compress to a target file size (binary-search the best quality)
   // ✅ NEW: Reusable — binary-search the best quality to hit a target byte size.
   // Returns { blob, quality, targetHit }. Works for any File (single + batch).
+  // A compressor must never hand back something heavier than it was given, but
+  // re-encoding an already-optimised image easily does exactly that (a lean
+  // 15 KB JPEG asked to hit 100 KB comes back bigger). Only safe to revert when
+  // the output format is unchanged — otherwise the user asked for a conversion
+  // and the original is the wrong file to give them.
+  const keepSmallerOfTarget = (file, result, outFmt, targetBytes) => {
+    if (result?.blob && result.blob.size >= file.size && outFmt === file.type) {
+      return {
+        blob: file,
+        quality: 1,
+        targetHit: file.size <= targetBytes,
+        reverted: true,
+      };
+    }
+    return result;
+  };
+
   const compressBlobToTarget = async (file, targetBytes) => {
     // PNG needs colour quantization, not a JPEG-style quality knob.
     if (tool.id === "compress-png") {
-      return await compressPngToTarget(file, targetBytes);
+      return keepSmallerOfTarget(
+        file,
+        await compressPngToTarget(file, targetBytes),
+        "image/png",
+        targetBytes,
+      );
     }
     // Decode the source ONCE, then only re-encode per iteration (no repeated decodes)
     const bitmap = await createImageBitmap(file, {
@@ -912,7 +942,12 @@ const ImageEditor = ({ toolId }) => {
       }
     }
 
-    return { blob: bestBlob, quality: bestQ, targetHit };
+    return keepSmallerOfTarget(
+      file,
+      { blob: bestBlob, quality: bestQ, targetHit },
+      useFmt,
+      targetBytes,
+    );
   };
 
   // Single-image "compress to target size"
@@ -923,8 +958,12 @@ const ImageEditor = ({ toolId }) => {
 
     try {
       const file = files[0];
-      const { blob: bestBlob, quality: bestQ, targetHit } =
-        await compressBlobToTarget(file, targetBytes);
+      const {
+        blob: bestBlob,
+        quality: bestQ,
+        targetHit,
+        reverted,
+      } = await compressBlobToTarget(file, targetBytes);
 
       const newUrl = URL.createObjectURL(bestBlob);
       if (currentUrlsRef.current.converted)
@@ -944,7 +983,9 @@ const ImageEditor = ({ toolId }) => {
         original,
         compressed,
         percent,
-        isReverted: false,
+        // Was hardcoded false, so a reverted file still showed a saving
+        // percentage instead of the honest "No Change".
+        isReverted: !!reverted,
         targetHit,
       });
     } catch (err) {
@@ -2388,11 +2429,14 @@ const ImageEditor = ({ toolId }) => {
                           // General Tools: Show Apply Button if not yet processed
                           <button
                             onClick={() => requestProcessImage()}
-                            disabled={isProcessing}
-                            className="w-full bg-[#FF9933] hover:bg-[#e68a2e] text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition"
+                            disabled={isProcessing || needsCropBox}
+                            className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
                           >
                             {isProcessing ? (
                               <Loader2 className="animate-spin" />
+                            ) : needsCropBox ? (
+                              // Say what is missing rather than sit there dead
+                              "Draw a box on the image first"
                             ) : (
                               "Apply Changes"
                             )}

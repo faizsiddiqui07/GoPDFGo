@@ -82,6 +82,20 @@ function SortableItemWrapper({ id, children, className, disabled }) {
   );
 }
 
+// Shown when a page rendered but could not be turned into a preview image
+// (usually canvas OOM on a low-end phone). The page itself is intact and is
+// still exported -- only its picture is missing.
+const PAGE_PREVIEW_FALLBACK =
+  "data:image/svg+xml;charset=utf-8," +
+  encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160">' +
+      '<rect width="120" height="160" fill="#f1f5f9"/>' +
+      '<text x="60" y="76" text-anchor="middle" font-family="sans-serif" ' +
+      'font-size="9" fill="#94a3b8">Preview</text>' +
+      '<text x="60" y="90" text-anchor="middle" font-family="sans-serif" ' +
+      'font-size="9" fill="#94a3b8">unavailable</text></svg>',
+  );
+
 const PdfEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter();
@@ -313,6 +327,7 @@ const PdfEditor = ({ toolId }) => {
       setSelectedPages(tool.id === "delete-pdf-pages" ? new Set() : allPages);
 
       const CHUNK_SIZE = 3;
+      const failedPreviews = [];
 
       for (let i = 1; i <= numPages; i++) {
         if (gen !== thumbGenRef.current) return; // bail out of the stale loop
@@ -345,11 +360,28 @@ const PdfEditor = ({ toolId }) => {
           }
           return;
         }
-        if (url) setThumbnails((prev) => [...prev, { pageNum: i, url }]);
+        // Push even when url is null: rearrange and organize build the output
+        // PDF from this list, so skipping the entry silently deleted the page
+        // from the user's document.
+        if (!url) failedPreviews.push(i);
+        setThumbnails((prev) => [...prev, { pageNum: i, url }]);
 
         if (i % CHUNK_SIZE === 0) {
           await new Promise((resolve) => setTimeout(resolve, 15));
         }
+      }
+
+      if (failedPreviews.length > 0 && gen === thumbGenRef.current) {
+        const shown = failedPreviews.slice(0, 6).join(", ");
+        const more = failedPreviews.length > 6 ? " and more" : "";
+        setInfoMsg(
+          "Couldn't render a preview for " +
+            failedPreviews.length +
+            " page(s) (page " +
+            shown +
+            more +
+            "). Those pages are still included in your file - only the thumbnail is missing.",
+        );
       }
     } catch (e) {
       console.error("Error generating all thumbnails", e);
@@ -366,7 +398,11 @@ const PdfEditor = ({ toolId }) => {
       }
       if (gen === thumbGenRef.current) {
         setGeneratingThumbnails(false);
-        setInfoMsg(null); // Clear info once done
+        // Only clear the "rendering incrementally" notice. A failed-preview
+        // warning is set at the end of the loop and still matters, so keep it.
+        setInfoMsg((prev) =>
+          prev && prev.startsWith("Couldn't render a preview") ? prev : null,
+        );
       }
     }
   };
@@ -933,7 +969,12 @@ const PdfEditor = ({ toolId }) => {
         const file = files[0].file;
         const baseName = file.name.replace(/\.pdf$/i, "");
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer);
+        // ignoreEncryption matches every other branch: an owner-locked PDF
+        // (printing/editing restricted, but it opens without a password)
+        // renders thumbnails fine, so throwing here looked like a broken tool.
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
         const pageCount = pdf.getPageCount();
 
         // Parse the range input into PARTS ("1-5, 8, 10-12" → three groups).
@@ -1037,7 +1078,12 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "rotate-pdf") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer);
+        // ignoreEncryption matches every other branch: an owner-locked PDF
+        // (printing/editing restricted, but it opens without a password)
+        // renders thumbnails fine, so throwing here looked like a broken tool.
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
         const pages = pdf.getPages();
 
         pages.forEach((page, idx) => {
@@ -1166,7 +1212,12 @@ const PdfEditor = ({ toolId }) => {
                 break;
               }
             }
-            const finalBytes = chosen || originalBytes;
+            // Rasterising a text-only PDF can come out heavier than the file
+            // it replaced, so keep whichever is actually smaller — the same
+            // guarantee the "best compression" branch makes below.
+            const useCompressed =
+              !!chosen && chosen.byteLength < originalSize;
+            const finalBytes = useCompressed ? chosen : originalBytes;
             const finalSize = finalBytes.byteLength;
             const saved = originalSize - finalSize;
             const percent =
@@ -1175,8 +1226,11 @@ const PdfEditor = ({ toolId }) => {
               original: originalSize,
               compressed: finalSize,
               percent,
-              flattened: true,
-              unchanged: false,
+              // Both were hardcoded, so a reverted file still claimed its pages
+              // had been flattened to images — telling the user their text was
+              // no longer selectable when it actually still was.
+              flattened: useCompressed,
+              unchanged: !useCompressed,
               target: Number(pdfTargetKB),
               targetMissed: !hit,
             });
@@ -1319,7 +1373,12 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "rearrange-pdf") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer);
+        // ignoreEncryption matches every other branch: an owner-locked PDF
+        // (printing/editing restricted, but it opens without a password)
+        // renders thumbnails fine, so throwing here looked like a broken tool.
+        const pdf = await PDFDocument.load(arrayBuffer, {
+          ignoreEncryption: true,
+        });
         const newPdf = await PDFDocument.create();
 
         if (!thumbnails || thumbnails.length === 0) {
@@ -2220,7 +2279,7 @@ const PdfEditor = ({ toolId }) => {
                           }`}
                         >
                           <img
-                            src={thumb.url}
+                            src={thumb.url || PAGE_PREVIEW_FALLBACK}
                             alt={`Page ${thumb.pageNum}`}
                             className="w-full h-auto"
                           />
@@ -2289,11 +2348,13 @@ const PdfEditor = ({ toolId }) => {
                       <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg p-2 w-full">
                         <div className="w-full h-48 sm:h-72 flex items-center justify-center bg-slate-100 overflow-hidden rounded-lg">
                           <img
-                            src={thumb.url}
+                            src={thumb.url || PAGE_PREVIEW_FALLBACK}
                             alt={`Page ${thumb.pageNum}`}
                             className="max-w-full max-h-full object-contain transition-transform duration-300"
                             style={{
-                              transform: `rotate(${pageRotations[index] || 0}deg)`,
+                              transform: `rotate(${
+                                pageRotations[thumb.pageNum - 1] || 0
+                              }deg)`,
                             }}
                           />
                         </div>
@@ -2301,7 +2362,9 @@ const PdfEditor = ({ toolId }) => {
                         {/* ✅ BUG FIX: Hover effect changed to be permanent on mobile, but hover-only on Desktop */}
                         <div className="absolute inset-0 bg-slate-900/5 sm:bg-transparent sm:group-hover:bg-slate-900/20 transition-colors flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 backdrop-blur-[0.5px] rounded-xl">
                           <button
-                            onClick={() => rotateSinglePage(index, 90)}
+                            onClick={() =>
+                              rotateSinglePage(thumb.pageNum - 1, 90)
+                            }
                             className="bg-white/95 sm:bg-white text-slate-800 p-3 rounded-full shadow-lg hover:text-[#FF9933] transform hover:scale-110 transition cursor-pointer flex items-center justify-center"
                             title="Rotate Right"
                           >
@@ -2365,7 +2428,7 @@ const PdfEditor = ({ toolId }) => {
                             Original Page {thumb.pageNum}
                           </div>
                           <img
-                            src={thumb.url}
+                            src={thumb.url || PAGE_PREVIEW_FALLBACK}
                             alt={`Page`}
                             className="w-full h-auto pointer-events-none"
                           />
@@ -2472,7 +2535,7 @@ const PdfEditor = ({ toolId }) => {
 
                             <div className="h-40 flex items-center justify-center overflow-hidden bg-white">
                               <img
-                                src={thumb.url}
+                                src={thumb.url || PAGE_PREVIEW_FALLBACK}
                                 alt={`Page ${thumb.pageNum}`}
                                 style={{
                                   transform: `rotate(${thumb.rotation || 0}deg)`,
@@ -2662,7 +2725,7 @@ const PdfEditor = ({ toolId }) => {
                           </div>
                         )}
                         <img
-                          src={thumb.url}
+                          src={thumb.url || PAGE_PREVIEW_FALLBACK}
                           alt={`Page ${thumb.pageNum}`}
                           className="w-full h-auto"
                         />
@@ -2725,7 +2788,7 @@ const PdfEditor = ({ toolId }) => {
                         }`}
                       >
                         <img
-                          src={thumb.url}
+                          src={thumb.url || PAGE_PREVIEW_FALLBACK}
                           alt={`Page ${thumb.pageNum}`}
                           className={`w-full h-auto transition ${
                             marked ? "opacity-40" : ""

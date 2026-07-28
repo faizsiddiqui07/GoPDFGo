@@ -6,6 +6,7 @@ export const blogsData = [
     keywords: "compress pdf under 50kb, reduce pdf size for ssc, upsc document upload, compress pdf for govt job, reduce file size online, resize pdf for job portal, ssc cgl document size, how to compress pdf without losing quality",
     excerpt: "Missing your govt job deadline because of a 'File Size Too Large' error? Learn how to securely compress your PDFs under 50KB without losing quality.",
     date: "March 18, 2026",
+    publishedAt: "2026-03-18",
     imageUrl: "/images/blogs/optimize-pdf.webp",
     content: `
       <p>If you have ever applied for a government job in India—whether it is through the <strong>SSC (Staff Selection Commission)</strong>, <strong>UPSC</strong>, RRB (Railways), or IBPS (Banking)—you know this particular headache well. You spend hours meticulously filling out your details, double-checking your academic records, paying the application fee, and finally reaching the document upload page. You click "Upload," and boom: <em>"Error: File size must be under 50KB."</em></p>
@@ -68,6 +69,7 @@ export const blogsData = [
     keywords: "merge marksheets pdf, combine pdf for job application, join pdf certificates, merge pdf documents, combine academic records online, multiple documents into one pdf, attach multiple pdf files",
     excerpt: "Many university and job portals require you to upload your 10th, 12th, and Degree marksheets as a single file. Here is the easiest way to combine them.",
     date: "March 23, 2026",
+    publishedAt: "2026-03-23",
     imageUrl: "/images/blogs/merge-marksheets-pdf.webp",
     content: `
       <p>Applying for higher education abroad, a master's degree in India, or specialized corporate and banking jobs often comes with a unique set of document challenges. One of the most frustrating and common hurdles candidates face is the infamous "Single Upload Slot" problem.</p>
@@ -144,6 +146,7 @@ export const blogsData = [
     keywords: "image to pdf, convert photo to pdf, jpg to pdf, mobile photos to pdf, make pdf from photos, document scanner alternative online, scan with mobile camera",
     excerpt: "Don't have a scanner? Learn how to take high-quality photos of your documents with your smartphone and convert them into a professional PDF file.",
     date: "March 26, 2026",
+    publishedAt: "2026-03-26",
     imageUrl: "/images/blogs/convert-mobile-photos-to-clear-pdf.webp",
     content: `
       <p>Most of us no longer make a trip to the local cyber cafe just to get a single page scanned. Today, the camera on your smartphone is incredibly powerful—capable of capturing more detail and sharper text than most traditional flatbed scanners from a decade ago.</p>
@@ -218,6 +221,7 @@ export const blogsData = [
     keywords: "never upload bank statement, bank statement pdf privacy, are free pdf tools safe for bank statements, safe way to edit bank statement pdf, secure bank statement pdf, free pdf site data risk, aadhaar pdf privacy risk",
     excerpt: "Uploading your bank statements or Aadhaar to traditional free PDF sites is a massive privacy risk. Discover why serverless tools are the only safe option.",
     date: "March 28, 2026",
+    publishedAt: "2026-03-28",
     imageUrl: "/images/blogs/never-upload-bank-statements.webp",
     content: `
       <p>We have all been in this exact situation. You are applying for a home loan, setting up a new trading account, applying for a travel visa, or completing your KYC. The portal demands your last 6 months' bank statements. You download the official PDF from your net banking portal, but it's 3MB, and the website's upload limit is a strict 1MB.</p>
@@ -297,6 +301,7 @@ export const blogsData = [
     keywords: "compress pan card pdf, reduce pan card size online, kyc document compression, compress pdf to 2mb, reduce pdf size for bank kyc, pan card upload error, e-pan password unlock, zerodha kyc upload",
     excerpt: "Struggling to upload your PAN card for banking, mutual funds, or trading KYC? Learn how to compress your secure PAN PDF under 2MB without losing clarity or risking your data.",
     date: "April 2, 2026",
+    publishedAt: "2026-04-02",
     imageUrl: "/images/blogs/compress-pan-card-pdf-kyc-verification.webp",
     content: `
       <p>Whether you are opening a new bank account, starting a SIP on a mutual fund platform, applying for a credit card, or verifying your identity on a stock broking app, the <strong>KYC (Know Your Customer)</strong> process is absolutely mandatory. And the single most critical document in this entire digital onboarding process is your PAN (Permanent Account Number) Card.</p>
@@ -347,6 +352,7 @@ export const blogsData = [
     keywords: "combine photos to pdf mobile, images to pdf converter, multiple pictures to pdf, assignment photos to pdf, create pdf from phone gallery, convert handwritten assignment to pdf, ignou assignment pdf, aktu assignment upload",
     excerpt: "Submitting a handwritten assignment? Don't send 20 separate messy images to your professor. Learn how to convert your gallery photos into one clean PDF document right from your phone.",
     date: "April 4, 2026",
+    publishedAt: "2026-04-04",
     imageUrl: "/images/blogs/combine-assignment-photos-into-one-pdf-mobile.webp",
     content: `
       <p>In the modern era of digital classrooms, distance learning (like IGNOU or regular university portals), and online submissions, students frequently face a very tedious task: submitting long handwritten assignments digitally. You spend hours writing 15 or 20 pages of a project, and then you take photos of each page with your smartphone. Now, you have a phone gallery full of 20 separate, out-of-order images.</p>
@@ -423,6 +429,7 @@ export const blogsData = [
     keywords: "add page numbers to pdf, insert page numbers pdf online, paginate pdf document, add page numbers to college thesis, numbering pdf pages, format pdf for printing, add page numbers to merged pdf",
     excerpt: "Did you merge different files for your final year project and lose the page numbering? Learn how to automatically insert sequential page numbers into your PDF before binding.",
     date: "April 7, 2026",
+    publishedAt: "2026-04-07",
     imageUrl: "/images/blogs/add-page-numbers-to-college-project-pdf.webp",
     content: `
       <p>It is the night before your final year college project or master's thesis is due. You have spent months researching. You wrote the main chapters and literature review in MS Word, created your statistical charts in Excel, and designed a beautiful cover page in Canva. You exported them all as PDFs and successfully combined them using a <a href="/merge-pdf">PDF Merger</a> tool.</p>
@@ -488,6 +495,7 @@ export const blogsData = [
     keywords: "rotate pdf permanently, fix upside down pdf, rotate scanned pages, save rotated pdf, change pdf orientation online, pdf page turner, fix scanned document orientation",
     excerpt: "Are half of your scanned pages showing up sideways or upside down? Learn how to fix orientation issues permanently so your document opens correctly on every device.",
     date: "April 14, 2026",
+    publishedAt: "2026-04-14",
     imageUrl: "/images/blogs/rotate-scanned-assignment-pages-permanently.webp",
     content: `
       <p>We have all experienced this exact digital frustration. You use a mobile scanner app, a hardware flatbed scanner, or an office printer to digitize a 20-page legal document, a contract, or a handwritten assignment. You excitedly open the file on your computer to review it. While the first 10 pages look perfectly fine, page 11 is suddenly sideways, and page 15 is completely upside down.</p>
@@ -551,6 +559,7 @@ export const blogsData = [
     keywords: "merge invoices pdf, combine billing documents, accounting pdf tools, merge receipts online, combine tax documents pdf, organize business invoices, gst filing documents, ca tax prep",
     excerpt: "End-of-month accounting is stressful enough. Stop sending your CA 50 separate emails. Learn how to securely combine all your vendor invoices into one organized PDF file.",
     date: "April 18, 2026",
+    publishedAt: "2026-04-18",
     imageUrl: "/images/blogs/merge-multiple-vendor-invoices-pdf-accounting.webp",
     content: `
       <p>If you run a small business, manage a creative agency, or work as a freelancer, the end of the month usually means one highly stressful thing: <strong>Accounting and Tax Filing</strong> (like GST filing in India). Over the course of 30 days, your inbox gets flooded with software subscription receipts, Amazon equipment bills, vendor invoices, utility bills, and contractor payments.</p>
@@ -625,6 +634,7 @@ export const blogsData = [
     keywords: "free qr code generator for website, create qr code from link, url to qr code maker, permanent qr code generator, qr code without expiration, link to qr code free, convert url to qr, static qr code generator",
     excerpt: "Tired of QR codes that expire after 14 days or suddenly ask for a subscription? Learn how to generate permanent, 100% free QR codes for your website, portfolio, or menus.",
     date: "April 21, 2026",
+    publishedAt: "2026-04-21",
     imageUrl: "/images/blogs/generate-free-qr-codes-for-website.webp",
     content: `
       <p>Think about the last time you saw a poster with a long website link printed on it. Did you actually pull out your phone and type the whole thing in? Almost nobody does. That is exactly the gap a QR code fills. Whether you are printing business cards, designing a flyer for a local event, or sticking a discount label on your shop window, a customer just points their phone camera at the code and lands on your page — no typing, no spelling mistakes, no lost interest.</p>
@@ -680,6 +690,7 @@ export const blogsData = [
     keywords: "compress jpg under 20kb, reduce photo size online, compress image for ssc form, reduce signature size, image too large error fix, compress image to 50kb, resize photo for upsc, photo compressor without losing quality",
     excerpt: "Is your passport photo or signature failing to upload on government application forms? Discover how to compress your JPG images to exactly under 20KB without making them unrecognizably blurry.",
     date: "April 22, 2026",
+    publishedAt: "2026-04-22",
     imageUrl: "/images/blogs/compress-jpg-under-20kb-online-forms.webp",
     content: `
       <p>If you have recently applied for a highly competitive government job (like SSC, UPSC, or Railway recruitment), a university admission program, a new passport, or a banking examination in India, you know the exact drill. You put on a nice shirt, carefully scan your recent passport-sized photograph, and take a clean picture of your handwritten signature on a blank white piece of paper. You excitedly attempt to upload these critical files to the application portal, and the site immediately throws a harsh red error message on your screen: <em>"Upload Failed: Image file size must be strictly between 10KB and 20KB."</em></p>
@@ -735,6 +746,7 @@ export const blogsData = [
     keywords: "resize image online, resize photo to 200x230 pixels, signature resizer, crop image for ssc, passport photo dimensions online, resize signature for upsc, exact pixel resizer, change photo width and height",
     excerpt: "Online recruitment portals demand exact pixel dimensions for uploaded photos and signatures. Learn how to crop and resize your images accurately without stretching, squishing, or distorting them.",
     date: "April 23, 2026",
+    publishedAt: "2026-04-23",
     imageUrl: "/images/blogs/resize-passport-photo-signature-200x230.webp",
     content: `
       <p>Filling out online government applications, university admission forms, or professional certification portals can often feel like clearing one fiddly technical hurdle after another. And the one that trips up the most people is almost always the document upload section. You have finally managed to compress your files under the required KB limit using an image compressor, but now the portal aggressively rejects your file with a brand new red error message: <em>"Invalid Dimensions. Photograph must be exactly 200 pixels wide and 230 pixels high."</em></p>
@@ -798,6 +810,7 @@ export const blogsData = [
     keywords: "compress webp online, reduce webp file size, optimize images for wordpress, speed up website, next gen image formats, webp compressor, core web vitals, seo image optimization, lossless webp compression",
     excerpt: "Slow website? Learn why WebP is the future of web images and how compressing them locally can drastically improve your WordPress site's load time, Core Web Vitals, and SEO ranking.",
     date: "April 25, 2026",
+    publishedAt: "2026-04-25",
     imageUrl: "/images/blogs/compress-webp-images-speed-up-wordpress.webp",
     content: `
       <p>If you run a WordPress blog, an online store, a SaaS landing page, or a portfolio site, you already know the golden rule: <strong>speed is everything</strong>. When a page takes more than about three seconds to load, a large share of mobile visitors give up and hit the back button. And Google uses page load speed — specifically Core Web Vitals — as a real ranking factor, so a slow site quietly costs you rankings, traffic, and sales. Heavy images are usually the single biggest culprit.</p>
@@ -871,6 +884,7 @@ export const blogsData = [
     keywords: "jpg vs png, when to use png, difference between jpg and png, convert png to jpg, transparent background images, best format for logos, image formats explained, lossless vs lossy compression",
     excerpt: "Confused about which image format to use? Learn the critical technical differences between JPG and PNG, and exactly when to use each for your websites, logos, and official documents.",
     date: "April 27, 2026",
+    publishedAt: "2026-04-27",
     imageUrl: "/images/blogs/jpg-vs-png-format-guide.webp",
     content: `
       <p>If you work with digital content in any capacity—whether you are a university student submitting a final assignment, a small business owner uploading a new company logo, a frontend developer building a UI, or a blogger posting daily photos—you deal with image files constantly. And without a doubt, the two undisputed kings of the digital image ecosystem are <strong>JPG (or JPEG)</strong> and <strong>PNG</strong>.</p>
@@ -928,6 +942,7 @@ export const blogsData = [
     keywords: "crop image online, crop scanned document, remove background from scan, photo cropper tool, crop signature online, edit scanned image, crop marksheet for upload, secure document cropping",
     excerpt: "Did your smartphone camera capture your messy desk, bedsheet, or fingers? Learn how to professionally crop out unwanted backgrounds from your scanned documents and photos securely in your browser.",
     date: "April 29, 2026",
+    publishedAt: "2026-04-29",
     imageUrl: "/images/blogs/remove-unwanted-edges-crop-scanned-documents.webp",
     content: `
       <p>Using your smartphone camera as an everyday document scanner is genuinely handy. With modern high-resolution mobile lenses, you can digitize handwritten lecture notes, legal contracts, identity cards, and business receipts in a matter of seconds. However, this high-speed convenience often comes with a very messy and unprofessional side effect: <strong>capturing unwanted, distracting backgrounds</strong>.</p>
@@ -1010,6 +1025,7 @@ export const blogsData = [
     keywords: "find color from image, hex color picker online, get rgb from photo, extract color code from logo, identify color from picture, color code finder, web design color picker, find exact hex code, grab color from image",
     excerpt: "Need to perfectly match a specific color from a brand logo, UI design, or an inspiring photograph? Learn how to extract exact HEX and RGB codes instantly using our secure, browser-based color picker.",
     date: "April 30, 2026",
+    publishedAt: "2026-04-30",
     imageUrl: "/images/blogs/find-exact-color-code-hex-rgb.webp",
     content: `
       <p>A client sends you their logo and says "just match the blue for the buttons" with no brand guide attached, no hex code, nothing. You're left staring at a JPG, trying to reproduce one specific shade. Pick something that's only "close enough" and the mismatch is obvious the moment your button sits next to their logo on the same page.</p>
@@ -1064,6 +1080,7 @@ export const blogsData = [
     keywords: "mask aadhaar card online, hide aadhaar number, secure aadhaar for kyc, how to mask aadhaar digits, local aadhaar masking, protect identity online, rent agreement kyc safety, blur aadhaar card photo, adhaar masking tool",
     excerpt: "Sharing your full 12-digit Aadhaar number is a massive privacy risk. Learn how to securely mask your Aadhaar digits directly in your browser without uploading it to any server.",
     date: "May 1, 2026",
+    publishedAt: "2026-05-01",
     imageUrl: "/images/blogs/mask-aadhaar-card-safely-for-rent-agreements.webp",
     content: `
       <p>In India, your Aadhaar card sits at the centre of almost every identity check you go through. Whether you are signing a new rent agreement, checking into a hotel for a weekend getaway, buying a new prepaid SIM card, or completing a basic KYC verification for a digital wallet, the service provider will invariably ask you for a copy of your Aadhaar card.</p>
@@ -1075,7 +1092,9 @@ export const blogsData = [
       <h2>What Exactly is a Masked Aadhaar?</h2>
       <p>A Masked Aadhaar is simply a secure version of your identity document where the first 8 digits of your Aadhaar number are completely hidden, blacked out, or replaced with a series of 'XXXX' characters. This leaves only the last 4 digits visible for basic verification purposes.</p>
 
-      <p>When you mask the document correctly, your photograph, the central QR code, your demographic details (like Date of Birth and Gender), and your residential address remain completely visible and legally valid for establishing your identity.</p>
+      <p>When you mask the document correctly, your photograph, your demographic details (like Date of Birth and Gender) and your residential address stay visible, which is what keeps the copy usable as proof of identity and address.</p>
+
+      <p><strong>One thing people miss: cover the QR code as well.</strong> The square QR printed on your Aadhaar encodes your details, so anyone who scans it can read back what you just blacked out. Hiding the printed digits while leaving the QR scannable defeats the whole exercise. When you mask your own copy, draw a box over the QR too — the last 4 digits and your name are enough for the verifier to match their records. (This is different from the official pre-masked Aadhaar you can download from UIDAI, which carries its own signed QR generated with the number already hidden.)</p>
 
       <p>By actively hiding those first 8 digits, you create a powerful security barrier. Even if the hotel receptionist's computer is hacked, or the real estate broker accidentally leaks your document onto the internet, cybercriminals and hackers cannot use your incomplete ID to open fraudulent bank accounts, verify illegal SIM cards, or take out instant personal loans in your name.</p>
 
@@ -1137,6 +1156,7 @@ export const blogsData = [
     keywords: "extract page from pdf, extract pdf pages online, save one page of pdf, separate pdf pages, pdf page extractor, cut pdf file, isolate pdf page, extract merit list page, pdf post extraction workflow",
     excerpt: "Found your name on page 342 of a massive university merit list? Learn how to extract and save that single page as a new PDF document in seconds, without uploading it to a cloud server.",
     date: "May 2, 2026",
+    publishedAt: "2026-05-02",
     imageUrl: "/images/blogs/extract-single-page-from-large-pdf.webp",
     content: `
       <p>We all encounter massive, overwhelming PDF documents in our professional, personal, and academic lives. It could be a 500-page university merit list where you urgently need to isolate the single page proving your admission rank, a 200-page corporate master contract where you only need to sign the specific Annexure B, or a massive 50-page hospital medical record where you only want to send the latest blood test results to your specialist.</p>
@@ -1201,6 +1221,7 @@ export const blogsData = [
     keywords: "rearrange pdf pages, change pdf page order, reorder pdf online, fix scanned document order, move pdf pages, visual pdf organizer, sort pdf pages, swap pdf pages securely, organize pdf offline",
     excerpt: "Did you scan a 30-page document only to realize page 15 is at the very end? Learn how to visually drag and drop your PDF pages into the perfect sequence directly in your browser.",
     date: "May 4, 2026",
+    publishedAt: "2026-05-04",
     imageUrl: "/images/blogs/rearrange-scanned-pdf-page-order.webp",
     content: `
       <p>The transition from physical paper to digital files is rarely a flawless process. If you have ever been tasked with digitizing a massive stack of physical paperwork—like a company architectural portfolio, a complex legal case file, your family's medical records, or a semester's worth of handwritten college notes—you know exactly how easily things can go wrong.</p>
@@ -1256,6 +1277,7 @@ export const blogsData = [
     keywords: "convert webp to png, webp to jpg converter, open webp in photoshop, webp format error, how to use webp images, fix webp download, convert next gen images, webp unsupported format, webp transparent background",
     excerpt: "Tried to open a downloaded image in Photoshop or a presentation, only to get an 'Unsupported Format' error? Learn how to effortlessly convert modern WebP files back to standard PNG or JPG formats.",
     date: "May 5, 2026",
+    publishedAt: "2026-05-05",
     imageUrl: "/images/blogs/convert-webp-to-png-for-photoshop.webp",
     content: `
       <p>You're putting together slides for a Monday meeting, or pulling reference images off the web into a Photoshop file. You find the image you want, right-click, hit "Save Image As...", and glance at your downloads folder.</p>
@@ -1310,6 +1332,7 @@ export const blogsData = [
     keywords: "split pdf online, bypass 25mb email limit, file too large for gmail, divide pdf into smaller files, send large pdf via email, separate pdf pages, split pdf document securely, pdf chunking, bypass outlook attachment limit",
     excerpt: "Trying to email a heavy report but Gmail says 'File size exceeds 25MB'? Learn how to split your massive PDF into smaller, email-friendly chunks without losing any quality.",
     date: "May 6, 2026",
+    publishedAt: "2026-05-06",
     imageUrl: "/images/blogs/split-large-pdf-bypass-email-attachment-limits.webp",
     content: `
       <p>It is almost the end of the day and you finally have the monthly report ready to send. You open Gmail, write a quick note to your manager, click the paperclip to attach the PDF, and hit send.</p>
@@ -1373,6 +1396,7 @@ export const blogsData = [
     keywords: "paginate legal documents, add page numbers to court filings, insert page numbers pdf, legal pdf tools, secure pdf pagination, bates numbering alternative, court document format, secure pdf editing for lawyers, e-filing formatting, attorney-client privilege pdf",
     excerpt: "Court filings require strict sequential pagination. Learn why manually numbering pages is dangerous and how to automatically add page numbers to highly confidential legal PDFs securely without uploading them to the cloud.",
     date: "May 7, 2026",
+    publishedAt: "2026-05-07",
     imageUrl: "/images/blogs/add-page-numbers-legal-documents-court-filings.webp",
     content: `
       <p>In the legal profession, precision is everything. When advocates, paralegals, or corporate lawyers prepare a massive case file, a sworn affidavit, or a complex contract annexure, formatting rules are not just casual suggestions—they are strict procedural mandates enforced by court registries and senior judges.</p>
@@ -1437,6 +1461,7 @@ export const blogsData = [
     keywords: "create pdf catalog, image to pdf for whatsapp, product catalog pdf, whatsapp business catalog, combine product photos, make pdf portfolio, share photos as pdf, small business pdf maker, convert photos to catalog",
     excerpt: "Stop spamming your customers with 30 separate product photos on WhatsApp. Learn how to combine your images into a professional, easy-to-scroll PDF catalog in seconds.",
     date: "May 8, 2026",
+    publishedAt: "2026-05-08",
     imageUrl: "/images/blogs/create-product-catalog-pdf-whatsapp-sharing.webp",
     content: `
       <p>If you run a small business, a boutique, a home bakery, or a wholesale shop, WhatsApp is likely your primary sales channel. When a potential customer messages you asking for your latest collection, pricing, or product variations, what is your immediate reaction?</p>
@@ -1513,6 +1538,7 @@ export const blogsData = [
     keywords: "fix mirrored selfie, unmirror photo, flip image online, flip selfie horizontally, text backwards in photo, fix inverted image, unmirror picture online, flip ID card photo",
     excerpt: "Did your smartphone front camera flip your ID proof selfie backwards? Learn how to easily un-mirror and horizontally flip your photos online so the text is perfectly readable.",
     date: "May 9, 2026",
+    publishedAt: "2026-05-09",
     imageUrl: "/images/blogs/fix-mirrored-selfies-upside-down-photos-online.webp",
     content: `
       <p>Open a bank account from your phone, finish a video KYC for a Demat or trading app, or sign up on a freelance marketplace, and at some point you hit the same instruction: "Take a selfie while holding your ID card (Aadhaar, PAN, or Passport) next to your face."</p>
@@ -1589,6 +1615,7 @@ export const blogsData = [
     keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter",
     excerpt: "Returning from a business trip with a wallet full of crumpled receipts? Learn how to securely digitize and convert receipts to PDF for fast, hassle-free HR reimbursement.",
     date: "May 11, 2026",
+    publishedAt: "2026-05-11",
     imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
     content: `
       <p>Whether you are a sales executive returning from a week-long corporate travel trip, a freelancer buying project supplies, or a business owner taking clients out for a networking dinner, expense reimbursements are a critical part of professional life. By the end of the trip, you inevitably collect a massive, disorganized pile of physical paper—taxi receipts, hotel invoices, restaurant bills, and boarding passes.</p>
@@ -1644,6 +1671,7 @@ export const blogsData = [
     keywords: "wifi qr code generator, share wifi without password, scan to connect wifi, free wifi qr code, qr code for guest network, cafe wifi qr code, wpa2 qr code, secure wifi sharing, local qr code generator, no expiry qr code",
     excerpt: "Tired of spelling out your long, complicated WiFi password to every guest? Learn how to generate a secure, free, and permanent WiFi QR code that allows people to connect instantly.",
     date: "May 12, 2026",
+    publishedAt: "2026-05-12",
     imageUrl: "/images/blogs/share-wifi-without-passwords-free-qr-code.webp",
     content: `
       <p>Most of us hate this awkward moment: A friend comes over, or a customer walks into your cafe, and asks for the WiFi password. You end up spelling out a messy combination like "capital P, at symbol, 55..." and they still get it wrong twice. Then you have to take their phone, type it yourself, and hope you don't mess it up either.</p>
@@ -1709,6 +1737,7 @@ export const blogsData = [
     keywords: "ilovepdf alternative, smallpdf alternative, secure pdf tools, local pdf processing, best free pdf editor, offline pdf tools browser, privacy-first pdf tools, pdf merge alternative, gopdfgo vs ilovepdf, secure document processing",
     excerpt: "Still uploading sensitive documents to cloud websites? Discover why that is a massive privacy risk, and learn how to use next-generation, secure alternatives in 2026.",
     date: "May 13, 2026",
+    publishedAt: "2026-05-13",
     imageUrl: "/images/blogs/best-secure-alternatives-ilovepdf-smallpdf.webp",
     content: `
       <p>When you need to quickly shrink a PDF, split a document, or combine two files, your first instinct is probably to Google it and click on a popular site like iLovePDF or Smallpdf. It is incredibly fast, easy, and usually free.</p>
@@ -1778,6 +1807,7 @@ export const blogsData = [
     keywords: "static vs dynamic qr code, difference between static and dynamic qr, free qr code generator, permanent qr code, dynamic qr code generator, qr code for business, trackable qr codes, local qr generator, wifi qr code, qr code marketing",
     excerpt: "Confused about which QR code to print? Learn the real difference between static and dynamic codes, and avoid the trap of expensive monthly subscriptions.",
     date: "May 16, 2026",
+    publishedAt: "2026-05-16",
     imageUrl: "/images/blogs/static-vs-dynamic-qr-codes-difference.webp",
     content: `
       <p>So, you want to make a QR code for your business. Maybe for a restaurant menu, a wedding invitation, or a flyer. You go online, generate one, and print 1,000 copies. Two weeks later, you scan it, and instead of your website, a page pops up saying: <em>"Trial Expired. Please pay $15/month to reactivate."</em></p>
@@ -1836,6 +1866,7 @@ export const blogsData = [
     keywords: "local pdf processing, cloud pdf tools, browser based pdf, secure pdf editor, privacy friendly pdf tools, serverless pdf processing, offline pdf tools in browser, client-side document editing, data privacy, secure document management",
     excerpt: "Are you risking your confidential data by uploading documents to cloud PDF websites? Discover the massive security differences between legacy cloud tools and privacy-first browser processing.",
     date: "May 18, 2026",
+    publishedAt: "2026-05-18",
     imageUrl: "/images/blogs/local-pdf-processing-vs-cloud-tools-safer.webp",
     content: `
       <p>We share the most sensitive details of our entire lives through PDF files. Job contracts, hospital medical reports, bank statements, and tax audits all live in this digital format. Yet, when we need to edit, merge, or compress them, we blindly hand them over to random "free" websites.</p>
@@ -1908,6 +1939,7 @@ export const blogsData = [
     keywords: "merge documents for visa, combine visa documents pdf, vfs document upload, schengen visa pdf size, organize visa application, secure pdf merge, compress visa documents, bank statement merge, online visa upload limit, privacy safe pdf merger",
     excerpt: "Struggling to upload your visa documents? Learn how to safely organize, combine, and compress your passports and bank statements into a single file without risking identity theft.",
     date: "May 20, 2026",
+    publishedAt: "2026-05-20",
     imageUrl: "/images/blogs/organize-merge-documents-online-visa-applications.webp",
     content: `
       <p>Planning an international trip is exciting, right up until the moment you have to apply for the visa. Today, almost every embassy portal (like VFS Global or TLScontact) forces you to upload your entire life's history digitally. And they usually give you just one upload button for everything.</p>
@@ -1997,6 +2029,7 @@ export const blogsData = [
     keywords: "share large pdf on whatsapp, whatsapp pdf size limit 2026, compress pdf for whatsapp, split pdf for whatsapp, send heavy files on whatsapp, whatsapp document limit bypass, send large documents securely",
     excerpt: "Struggling with the 'File Too Large' error on WhatsApp? Learn the most professional and secure ways to compress, split, and share heavy PDF documents without relying on messy Google Drive links.",
     date: "May 26, 2026",
+    publishedAt: "2026-05-26",
     imageUrl: "/images/blogs/best-way-to-share-large-pdfs-on-whatsapp.webp",
     content: `
       <p>You finish a 60-page project report, attach it in a WhatsApp chat to your client, and WhatsApp throws back a red line: <strong>"The media file you have selected is larger than the maximum limit."</strong> For a lot of us, WhatsApp is now where work documents actually get sent, so hitting that wall on a deadline is its own special kind of annoying.</p>
@@ -2076,6 +2109,7 @@ export const blogsData = [
     keywords: "resume pdf format, merge resume and cover letter, job application document mistakes, pdf orientation fix, page numbers in resume, single pdf for job application, ats friendly pdf, optimize resume pdf, secure document upload",
     excerpt: "Are you getting rejected before the interview? Discover the top 5 document formatting mistakes candidates make on job portals and how to build the ultimate, ATS-friendly master application file.",
     date: "June 01, 2026",
+    publishedAt: "2026-06-01",
     imageUrl: "/images/blogs/common-pdf-mistakes-online-job-applications.webp",
     content: `
       <p>The modern job market is hyper-competitive. When a premium corporate role, a lucrative freelance gig, or a high-paying software engineering position opens up, HR departments and recruiters are instantly flooded with thousands of applications. A recruiter often spends just a few seconds on a first pass through an application before deciding whether to set it aside for a closer look or move on to the next one.</p>
@@ -2136,6 +2170,7 @@ export const blogsData = [
     keywords: "camscanner alternative without watermark, remove watermark from scanned pdf, image to pdf no watermark, free mobile scanner, scan document free, convert photo to pdf online, best free scanner app, secure document scanning, no app install scanner",
     excerpt: "Tired of aggressive mobile apps ruining your professional documents with ugly 'Scanned with...' watermarks? Learn the hidden cost of free scanner apps and how to convert your photos to a clean PDF without installing anything.",
     date: "June 06, 2026",
+    publishedAt: "2026-06-06",
     imageUrl: "/images/blogs/why-mobile-scanner-apps-add-watermarks-avoid.webp",
     content: `
       <p>You are at home, it is late, and someone needs a scan in the next ten minutes: a signed contract for your boss, a handwritten assignment for your professor, or a medical receipt for HR. You don't have a bulky, expensive physical flatbed scanner sitting on your desk, so you do what millions of others do: you open the Google Play Store or Apple App Store and download one of the top-rated "Free PDF Scanner" applications.</p>
@@ -2205,6 +2240,7 @@ export const blogsData = [
     keywords: "home loan document preparation, merge property documents pdf, property verification documents, combine property papers into one pdf, home loan application documents, single pdf for home loan",
     excerpt: "Learn how to prepare property documents in one PDF for home loan verification. Discover the best order, common mistakes, and secure ways to merge and compress.",
     date: "June 13, 2026",
+    publishedAt: "2026-06-13",
     imageUrl: "/images/blogs/prepare-property-documents-one-pdf-home-loan.webp",
     content: `
       <p>Buying a new house is one of life’s biggest milestones, but the loan that pays for it comes with a thick stack of paperwork. Whether this is your first home loan or you arrange them for clients as a property consultant, you will quickly find that banks and housing finance companies are strict about exactly how documents are submitted.</p>
@@ -2309,6 +2345,7 @@ export const blogsData = [
     keywords: "government website reject pdf, pdf upload failed, compress pdf for govt portal, resize image for online form, pdf format error, ssc upsc pdf upload, digital signature upload failed, fix invalid file format, reduce pdf size under 50kb",
     excerpt: "Keep getting 'Upload Failed' on official portals? Discover the hidden technical reasons government websites reject your documents and how to fix them instantly.",
     date: "June 20, 2026",
+    publishedAt: "2026-06-20",
     imageUrl: "/images/blogs/why-government-websites-reject-perfectly-fine-pdfs.webp",
     content: `
       <p>There are few things more anxiety-inducing than staring at a ticking countdown timer on a government job recruitment portal, a visa application site, or a tax filing system, only to have your document completely rejected. You have spent weeks preparing for the SSC, UPSC, or state-level exam. You click the final "Submit" button, and the screen abruptly flashes a vague, unhelpful red error message: <strong>"Upload Failed. Invalid File"</strong>, <strong>"File Format Not Supported,"</strong> or simply <strong>"Error 500."</strong></p>
@@ -2365,6 +2402,7 @@ export const blogsData = [
     keywords: "PDF Optimization vs PDF Compression, reduce PDF file size, optimize PDF, compress PDF, PDF performance, PDF storage management",
     excerpt: "Many people think PDF compression and optimization are the exact same thing. Learn the real technical difference, how they work, and when you should use each to manage your documents.",
     date: "June 28, 2026",
+    publishedAt: "2026-06-28",
     imageUrl: "/images/blogs/real-difference-pdf-optimization-vs-compression.webp",
     content: `
       <p>Have you ever tried to attach a document to an email, only to be stopped by a frustrating "File exceeds maximum size" error? When this happens, almost everyone immediately searches the internet for ways to reduce PDF file size. During your search, you will constantly see two technical terms popping up: <strong>PDF Compression</strong> and <strong>PDF Optimization</strong>.</p>
@@ -2492,6 +2530,7 @@ export const blogsData = [
     keywords: "paperless office, small business digital workflow, merge invoices pdf, free qr code generator for business, compress business documents, digital accounting workflow, b2b pdf tools, secure business document processing, mask aadhaar employee kyc",
     excerpt: "Drowning in paper receipts, physical contracts, and overflowing filing cabinets? Learn how to transition your small business to a highly efficient, secure, and 100% paperless digital workflow.",
     date: "July 04, 2026",
+    publishedAt: "2026-07-04",
     imageUrl: "/images/blogs/how-to-create-paperless-workflow-small-businesses.webp",
     content: `
       <p>If you run a small business, a consultancy, a real estate firm, or a creative agency, you likely understand the creeping, overwhelming chaos of paperwork. It always starts small: a few printed vendor invoices sitting on your desk, a physical contract signed with a new client in a folder, and a shoebox full of faded taxi receipts from a business trip. Fast forward six months, and your office is literally drowning in overflowing filing cabinets, messy desks, and lost documents.</p>
@@ -2549,6 +2588,7 @@ export const blogsData = [
     keywords: "break down annual reports into department-wise PDFs, split annual report PDF, department-wise PDF files, separate PDF sections, PDF document management, split large PDF",
     excerpt: "Learn how to break down annual reports into department-wise PDFs to boost corporate productivity, streamline communication, and enhance data security.",
     date: "July 11, 2026",
+    publishedAt: "2026-07-11",
     imageUrl: "/images/blogs/break-down-annual-reports-department-wise-pdfs.webp",
     content: `
   <p>Every fiscal year, corporate executives and department heads face the same monumental task: reviewing the company's annual report. These comprehensive documents are essential for transparency, stakeholder communication, and strategic planning. However, they are also massive—often spanning 150 to 300 pages of dense financial data, operational reviews, and compliance metrics.</p>
@@ -2672,6 +2712,7 @@ export const blogsData = [
     keywords: "how to add a watermark to a pdf, watermark pdf online free, add watermark to pdf, confidential watermark pdf, draft watermark pdf, watermark aadhaar before sharing, text watermark pdf, watermark pdf without uploading, free pdf watermark tool, stamp pdf online",
     excerpt: "Want to stamp CONFIDENTIAL, DRAFT, or \"Submitted to XYZ only\" across every page of a PDF? Learn how to add a text watermark online for free, fully in your browser, with no upload and no signup.",
     date: "July 18, 2026",
+    publishedAt: "2026-07-18",
     imageUrl: "/images/blogs/how-to-add-watermark-to-pdf-online-free.webp",
     content: `
       <p>You have a document that needs a label. Maybe it is a copy of your Aadhaar or PAN you are sending for a rent agreement or KYC, and you want to make it absolutely clear the copy is meant for that landlord or bank and nobody else. Maybe it is a design proposal or a quotation you are sharing with a client before they have paid, and you want every page to say <em>DRAFT</em> so it cannot be passed off as the final, paid version. Or maybe it is an internal report that should never leave the office without screaming <strong>CONFIDENTIAL</strong>. In every one of these cases, what you actually need is to add a watermark to a PDF.</p>
@@ -2734,6 +2775,7 @@ export const blogsData = [
     keywords: "ocr pdf online free, scanned pdf to text, extract text from scanned pdf, hindi ocr online free, hindi english ocr, copy text from scanned document, ocr hindi pdf, image pdf to text converter, read text from scanned form, bilingual form ocr india",
     excerpt: "You can see the words in the PDF but you cannot select a single one, because the page is a picture. Here is how to tell in five seconds, how OCR reads it back as text in Hindi, English or both, and exactly where the limits are.",
     date: "July 21, 2026",
+    publishedAt: "2026-07-21",
     imageUrl: "/images/blogs/ocr-pdf-scanned-document-to-text-hindi-english.webp",
     content: `
   
@@ -2807,7 +2849,7 @@ export const blogsData = [
         <h2>Give the Engine a Clean Page and It Reads Far Better</h2>
         <p>OCR accuracy depends enormously on what you feed it. Clear, straight, high-contrast printed text reads best. Faint, skewed and handwritten pages read worst. Nothing you can change inside the tool will improve the result as much as improving the scan itself.</p>
         <ul>
-          <li><strong>Straighten crooked pages first.</strong> A page that sits at an angle makes every letter harder to identify, because the engine expects text to run along a horizontal line. <strong>Fix sideways and upside-down pages first.</strong> A page the engine has to read at right angles is a page it reads badly. <a href="/rotate-pdf">Rotate PDF</a> turns pages in 90-degree steps and writes the fix into the file — our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a> explains why a viewer's temporary rotation does not count. It will not straighten a small slant, though; for a page that is a few degrees off, rephotograph it squarely rather than expecting the tool to correct it. — our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a> explains why a viewer's temporary rotation does not count.</li>
+          <li><strong>Fix sideways and upside-down pages first.</strong> A page the engine has to read at right angles is a page it reads badly. <a href="/rotate-pdf">Rotate PDF</a> turns pages in 90-degree steps and writes the fix into the file — our guide on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned pages so they stay rotated</a> explains why a viewer's temporary rotation does not count. It will not straighten a small slant, though; for a page that is a few degrees off, rephotograph it squarely rather than expecting the tool to correct it.</li>
           <li><strong>Crop away the desk, the shadow and your thumb.</strong> A dark border or a fingertip at the edge of the frame gives the engine shapes to misinterpret that were never text at all. If the scan started life as phone photos, tighten the frame with the <a href="/crop">Crop</a> tool on each image before you assemble them into a PDF — <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping the mess off a phone scan</a> walks through it. Crop works on images, not on a finished PDF, so this is a step to do first rather than afterwards.</li>
           <li><strong>Shoot flat and in even light.</strong> If the scan started as a phone photo, curl at the bottom of the page and a shadow falling across one half are the two things that quietly ruin recognition. Lay the page flat, light it evenly, shoot straight down, and assemble the photos with the <a href="/image-to-pdf">Image to PDF</a> tool before you run OCR on the result.</li>
           <li><strong>Do not expect handwriting to work.</strong> OCR is built for printed type. A handwritten note, a signature or a filled-in form field written by hand will not come back reliably, and it is better to know that upfront than to keep retrying.</li>
@@ -2852,6 +2894,7 @@ export const blogsData = [
     keywords: "convert pdf to jpg, pdf to image, pdf to jpg online free, pdf to png, pdf page to image, convert pdf page to jpg, pdf to jpg for whatsapp, pdf to image high resolution",
     excerpt: "That upload box only accepts JPG and your file is a PDF? Here is how to convert every PDF page into a sharp image right in your browser, no upload, no signup.",
     date: "July 25, 2026",
+    publishedAt: "2026-07-25",
     imageUrl: "/images/blogs/convert-pdf-to-jpg-online-free.webp",
     content: `
       <p>You are halfway through an application form. It asks for your signature, and right below the upload box it says, in tiny grey letters, <em>"Only .jpg or .jpeg files allowed, max 50KB."</em> But your signature is sitting inside a PDF the bank emailed you. The portal flat-out refuses the PDF. It wants a picture. And there is no obvious way to get one out.</p>
@@ -2934,6 +2977,7 @@ export const blogsData = [
   //   keywords: "qr code for google reviews, google review qr code, get more google reviews, google review link qr, restaurant google review qr code, salon google review qr, business profile review link, static qr code for reviews, scan to review on google, free google review qr generator",
   //   excerpt: "Want walk-in customers to leave a Google review before they leave your counter? Here is the honest, no-subscription way to turn your Google review link into a permanent printable QR code.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/qr-code-for-google-reviews.webp",
   //   content: `
   //     <p>Every shop owner figures this out the slow way. A happy customer means it when they say "lovely food, will come again" or "best haircut in months." But ask them to actually open Google and write a review, and that goodwill vanishes the second they step onto the road. They forget. You forget to ask. And the place two lanes down somehow has 340 reviews while you are stuck on 11.</p>
@@ -3008,6 +3052,7 @@ export const blogsData = [
   //   keywords: "delete pages from pdf, remove pages from pdf online, how to delete a page from a pdf, delete blank pages from scanned pdf, remove extra pages pdf, trim pdf pages free, delete pdf pages without software",
   //   excerpt: "Scanner threw in a blank back-side page? Bank PDF padded with terms-and-conditions pages? Here is the cleanest way to delete pages from a PDF online, free, without reuploading your file anywhere.",
   //   date: "June 18, 2026",
+  //   publishedAt: "2026-06-18",
   //   imageUrl: "/images/blogs/delete-pdf-pages-online-remove-blank-and-extra-pages.webp",
   //   content: `
   //     <p>You scan a 10-page document at the Xerox shop, walk home happy, open the PDF, and there it is. Page 2 is blank. So is page 6. The scanner picked up the empty back-sides of your sheets and dutifully added them in. Now your neat 10-page file is actually 14 pages, half of them white nothing.</p>
@@ -3085,6 +3130,7 @@ export const blogsData = [
   //   keywords: "remove password from pdf, unlock pdf, unlock bank statement pdf, remove pdf password online, password protected bank statement, unlock credit card statement pdf, pdf password remover, open locked pdf for kyc",
   //   excerpt: "Your bank statement opens with a password but the KYC portal still rejects it. Here is how to remove that password from a PDF you can already open, entirely on your own device.",
   //   date: "June 18, 2026",
+  //   publishedAt: "2026-06-18",
   //   imageUrl: "/images/blogs/unlock-bank-statement-pdf-remove-password.webp",
   //   content: `
   //     <p>You download your account statement from net banking. You go to open it, and your laptop asks for a password. By now you know the drill by heart: it's your PAN in capital letters, followed by your date of birth as DDMMYYYY. You type <em>ABCDE1234F15081990</em>, hit enter, and there it is. Your statement. Every transaction, neatly listed.</p>
@@ -3170,6 +3216,7 @@ export const blogsData = [
   //   keywords: "add cover page to pdf, title page for pdf project, prepend cover page pdf, add front page to pdf report, college project cover page pdf, internship report title page, merge cover page with pdf, add title page to pdf without word",
   //   excerpt: "Exported your whole report to PDF and only then noticed the title page is missing? Here is the quick way to stick a cover in front without redoing the entire export.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/add-cover-page-to-pdf-report-project.webp",
   //   content: `
   //     <p>You finished the report. Forty pages of a final-year project, an internship report, maybe a client proposal. You exported the whole thing to PDF and then noticed the obvious gap. There is no cover page. No title, no your name, no college logo, no "Submitted to Prof. So-and-so." Page one is just chapter one.</p>
@@ -3252,6 +3299,7 @@ export const blogsData = [
   //   keywords: "convert png to jpg online, png to jpg converter, fix black background png, png transparent background black, png to jpg for government form, screenshot png too large, convert png to jpeg, change png to jpg free, png to jpg for kyc upload, college erp jpg only",
   //   excerpt: "Your PNG screenshot shows up with a black box on the upload preview, or the portal only takes JPG, or the file is too heavy for a strict KB limit. Here is the simple, private fix.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/convert-png-to-jpg-online-fix-black-background.webp",
   //   content: `
   //     <p>You took a screenshot on your phone, cropped it neatly, and went to upload it to a government form or your college ERP. The preview loads and there is a big black box around your photo. Or the portal flat-out refuses the file: <em>"Only JPG/JPEG allowed."</em> Or it accepts the PNG but then complains the file is 4MB when the limit is 200KB. Same screenshot, three different walls.</p>
@@ -3334,6 +3382,7 @@ export const blogsData = [
   //   keywords: "linkedin profile photo size, youtube channel art size, whatsapp dp size, linkedin banner size, youtube profile picture size, social media image sizes 2026, resize image for linkedin, profile photo dimensions india, whatsapp business dp size",
   //   excerpt: "A fresher's LinkedIn, a small shop's YouTube channel, a WhatsApp Business DP, all ruined by blurry or badly cropped photos. Here are the exact pixel sizes for 2026 and how to hit them.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/linkedin-youtube-whatsapp-dp-image-sizes-2026.webp",
   //   content: `
   //     <p>You finished your degree, a senior told you to "make a proper LinkedIn for placements," and you uploaded a nice photo. On your phone it looked sharp. On the actual profile it came out soft, with the top of your head chopped off and your collar cut at a weird angle. You're not imagining it. You used the wrong size, and LinkedIn squeezed your photo into a box it was never shaped for.</p>
@@ -3406,6 +3455,7 @@ export const blogsData = [
   //   keywords: "vcard qr code generator, digital business card qr code, contact qr code, save contact qr code, vcard qr for visiting card, qr code that saves contact, business card qr code india, create vcard qr code free, scan to save contact, qr code for phone number and email",
   //   excerpt: "Stop printing your phone number in tiny text on your visiting card. Build a short vCard text block, turn it into a QR code, and let one scan drop your name, number, email and company straight into someone's phone.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/vcard-qr-code-generator-digital-business-card.webp",
   //   content: `
   //     <p>Picture the end of a meeting at a coffee shop in Koramangala, or a site visit for a 2BHK in Wakad. You hand over your visiting card. The other person looks at it, says "great, I'll save your number," and slips it into a shirt pocket. You both know what happens next. That card goes home, lands in a drawer with forty others, and your number never makes it into their phone. Three weeks later they are squinting at it trying to remember which broker you were.</p>
@@ -3490,6 +3540,7 @@ export const blogsData = [
   //   keywords: "extract text from pdf, copy text from pdf, pdf to text, get text out of pdf, copy paste from pdf, convert pdf to txt, pull text from pdf free, extract text without upload",
   //   excerpt: "You select text in a PDF, hit Ctrl+C, and paste only to get a jumbled mess or nothing at all. Here is how to pull clean, copyable text out of a PDF in seconds, fully in your browser.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/extract-text-from-pdf-copy-paste-free.webp",
   //   content: `
   //       <p>You are studying late, a chapter PDF from your coaching material open on one screen, and you just want two paragraphs from it in your study group's WhatsApp. You drag across the text, press Ctrl+C, paste, and out comes a jumbled mess: words glued together, line breaks in the wrong places, half a sentence missing. Or nothing pastes at all. Most of us have been there with a PDF at least once.</p>
@@ -3566,6 +3617,7 @@ export const blogsData = [
   //   keywords: "heic to jpg, what is heic, heic file won't open, convert heic to jpg, heic to png, heic to webp, iphone photo won't upload, heic not supported, convert iphone photos, heic file format",
   //   excerpt: "You sent a photo from your iPhone and the other person got a file that won't open. Or an exam portal rejected your upload. That's HEIC. Here is what it is and how to fix it in seconds.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/heic-to-jpg-iphone-photos-wont-open.webp",
   //   content: `
   //       <p>You take a photo on your iPhone and email it to your office, or upload it to an exam portal, and the file is suddenly called something like <em>IMG_4821.HEIC</em> that refuses to open. Your Android friend taps it and gets a grey box. The government website says "invalid file format." The photo looks fine on your phone, but nowhere else will read it.</p>
@@ -3651,6 +3703,7 @@ export const blogsData = [
   //   keywords: "sign pdf online, how to sign a pdf, sign pdf without printing, add signature to pdf, e sign pdf free, sign rent agreement pdf, draw signature on pdf, sign pdf on phone, electronic signature pdf india",
   //   excerpt: "Got a rent agreement or job form that needs your signature, but no printer at home? Here is how to sign a PDF straight from your phone or laptop, without printing a single page.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
   //   content: `
 
@@ -3727,6 +3780,7 @@ export const blogsData = [
   //   keywords: "qr code for restaurant menu, menu qr code free, digital menu qr code, restaurant menu qr code generator, cafe menu qr code, no monthly fee menu qr, free qr code for menu, qr code menu for restaurant india, cloud kitchen menu qr, tiffin service menu qr",
   //   excerpt: "Those menu QR apps charging 300 to 800 rupees a month are mostly selling you a redirect you can skip. The real skill is updating your menu without reprinting a single table card. Here is the trick.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/qr-code-for-restaurant-menu-no-monthly-fees.webp",
   //   content: `
   //     <p>Walk into any half-decent cafe in India now and there is a little sticker on the table. You scan it, the menu opens on your phone, the waiter doesn't have to wipe down laminated cards all day. The owner, though, is usually paying for that sticker. Quietly, every single month.</p>
@@ -3796,6 +3850,7 @@ export const blogsData = [
   //   keywords: "organize pdf pages, reorder rotate delete pdf, fix messy pdf, organize pdf online, edit pdf pages browser, clean up scanned pdf, organize pdf free",
   //   excerpt: "You scanned a rent agreement, the tenant's Aadhaar copy snuck in sideways, and there's a blank back-page riding along. Here's how to fix all three at once instead of running three separate tools.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/organize-pdf-pages-reorder-rotate-delete-one-screen.webp",
   //   content: `
   //       <p>You scanned a six-page rent agreement on your phone for the landlord, and somewhere in the rush the tenant's Aadhaar copy got pulled into the same file. Now the document is a small mess. The pages are out of sequence because you photographed them in the wrong order. The Aadhaar page sits sideways because the phone was held the wrong way that one time. And page 6 is completely blank, the back of a sheet the scanner picked up by accident. Three problems, one PDF.</p>
@@ -3883,6 +3938,7 @@ export const blogsData = [
   //   keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
   //   excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
   //   content: `
   //         <p>You download a 240-page PDF of previous-year questions, or a senior shares a fat question bank on the class group. The problem hits the first time you sit down to revise. You only want to do Chemistry tonight, but Physics, Maths and Biology are all stuffed into the same file, so you keep scrolling past sixty pages of other subjects just to reach the section you need. Then a friend pings you for "only Chemistry," and you end up forwarding an 80MB monster that takes ten minutes to load on their phone.</p>
@@ -3961,6 +4017,7 @@ export const blogsData = [
   //   keywords: "remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove",
   //   excerpt: "Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/remove-instruction-pages-government-form-pdf.webp",
   //   content: `
   //         <p>You download the application PDF for an SSC post, or a state PSC vacancy, or an NSP scholarship. You open it expecting boxes to fill. Instead, page 1 is a notice with the closing date and a helpline number. Page 2 is eligibility conditions. Page 3 is "Documents to be enclosed". The actual form, the one with your name, photo and signature, does not start until page 4 or 5.</p>
@@ -4039,6 +4096,7 @@ export const blogsData = [
   //   keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
   //   excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
   //   content: `
   //         <h2>The cheque looked fine on your phone. The bank saw it sideways.</h2>
@@ -4097,6 +4155,7 @@ export const blogsData = [
   //   keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
   //   excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
   //   content: `
   //         <h1>How to Put Aadhaar Front and Back in One PDF for KYC</h1>
@@ -4172,6 +4231,7 @@ export const blogsData = [
   //   keywords: "documents in one pdf for gst registration, gst registration document upload, combine address proof pan photo pdf, gst portal single pdf upload, image to pdf for gst, gst registration documents format",
   //   excerpt: "The GST portal often wants your address proof, PAN, photo and rent agreement as one neat PDF in a single slot. Here is how to combine them in the right sequence without tripping over the size limit.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/combine-documents-one-pdf-gst-registration.webp",
   //   content: `
   //         <p>You are halfway through your GST registration on the portal, you reach the "Documents Upload" section, and the page gives you exactly one slot for "Proof of Principal Place of Business." But your CA (or the YouTube tutorial you are following) told you to attach the electricity bill, the rent agreement, and a couple of other pages. One slot, four documents. Plenty of people freeze right here.</p>
@@ -4239,6 +4299,7 @@ export const blogsData = [
   //   keywords: "admit card pdf to image, hall ticket pdf to jpg, save admit card in gallery, ssc admit card to image, ibps hall ticket jpg, neet admit card image, rrb admit card download jpg, convert admit card pdf to photo",
   //   excerpt: "Your exam centre has no network and you are standing in a queue. Here is how to save your SSC, IBPS, NEET or RRB admit card PDF as a JPG straight in your phone gallery, so it opens offline in one tap.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/admit-card-pdf-to-image-save-gallery.webp",
   //   content: `
 
@@ -4307,6 +4368,7 @@ export const blogsData = [
   //   keywords: "copy text from government notification pdf, extract eligibility from ssc notification, copy syllabus from upsc pdf, govt notification pdf to text, translate government notification, copy vacancy details pdf, pdf to text govt jobs",
   //   excerpt: "SSC, UPSC and state notifications run 40-plus pages. Here is how to pull the age limit, eligibility, syllabus or vacancy lines out as plain text so you can search, translate or paste them into your notes instead of retyping every word.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/copy-text-from-government-notification-pdf.webp",
   //   content: `
   //         <p>The SSC CGL notification drops, you download the PDF, and it is 67 pages long. Somewhere in there is the one line that actually matters to you: the upper age limit for your category, or whether your B.Com counts for the post you want, or the exact Tier-1 syllabus. You scroll, you squint at a tiny table on page 41, and then you start typing it out into your WhatsApp study group word by word. Half an hour later you have made two spelling mistakes and you are not even sure you copied the right row.</p>
@@ -4379,6 +4441,7 @@ export const blogsData = [
   //   keywords: "reduce digilocker pdf size, compress digilocker marksheet, digilocker aadhaar pdf too large, shrink digilocker certificate, digilocker file size for upload, compress pdf from digilocker, digilocker document too heavy",
   //   excerpt: "DigiLocker marksheets and Aadhaar PDFs often cross a portal's upload cap. Here is how to shrink them to a specific size cap while keeping every line readable.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/reduce-digilocker-pdf-size.webp",
   //   content: `
   //         <p>Your 10th marksheet downloads cleanly from the DigiLocker app, verified copy and all. Then the exam board portal bounces it: <em>"File size should not exceed 200KB."</em> You check the file and it's 1.4MB. A government-issued, signed PDF that still won't fit through the upload box. The fix is straightforward, and you don't have to wreck the page to get there.</p>
@@ -4443,6 +4506,7 @@ export const blogsData = [
   //   keywords: "remove password from salary slip pdf, unlock salary slip pdf, payslip password remover, remove pdf password salary slip, password protected payslip, unlock payslip pdf for loan, open locked salary slip, salary slip pdf password",
   //   excerpt: "Your monthly payslip from HR opens with a password, but the loan officer wants a clean printable copy. Here is how to take that password off a salary slip you can already open, without uploading it anywhere.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/remove-password-from-salary-slip-pdf.webp",
   //   content: `
   //         <p>Payroll mail lands on the 1st: "Salary Slip - May 2026," PDF attached. You open it on your phone and it wants a password. You know the format because HR mentioned it on your first day, your first four name letters in capitals stuck to your employee ID. You type RAHU10472 and there it is: gross, the PF deduction, the bit that says net credited to your account.</p>
@@ -4518,6 +4582,7 @@ export const blogsData = [
   //   keywords: "convert heic to webp for wordpress, heic to webp, iphone photos wordpress, webp for wordpress, batch heic to webp, core web vitals images",
   //   excerpt: "Your iPhone shoots HEIC, and WordPress refuses the upload. Here is how to batch-convert those photos straight to lightweight WebP for a faster site and better Core Web Vitals.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/convert-heic-to-webp-for-wordpress.webp",
   //   content: `
   //         <p>You photographed a dozen products on your iPhone for a new post. You drag them into the WordPress media library and get back: <em>"Sorry, this file type is not permitted for security reasons."</em> Those are HEIC files, and WordPress won't take them. Most converters you find next will push you toward JPG. But you've heard WebP is lighter and better for speed, so the obvious question is whether you can skip the JPG step entirely and go straight from HEIC to WebP.</p>
@@ -4584,6 +4649,7 @@ export const blogsData = [
   //   keywords: "rotate sideways photo android save permanently, fix sideways photo upload form, android photo sideways on pc, exif orientation fix, rotate image online free",
   //   excerpt: "An Android photo can look upright in your gallery but turn sideways the moment you upload it to a form or open it on a PC. Here is why it happens and how to rotate it and save it permanently so it stays straight everywhere.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/rotate-sideways-android-photo-save-permanently.webp",
   //   content: `
   //         <h2>How to rotate a sideways Android photo and save it permanently</h2>
@@ -4641,6 +4707,7 @@ export const blogsData = [
   //   keywords: "hide roll number on marksheet before sharing, black out roll number result, mask marksheet registration number, hide details before whatsapp status, remove roll number from result image",
   //   excerpt: "Posting your result on WhatsApp status? Learn how to hide your roll number on a marksheet before sharing, properly removing the pixels under the black box instead of just covering them, all in your browser.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/hide-roll-number-marksheet-before-sharing.webp",
   //   content: `
   //         <h2>How to hide your roll number on a marksheet before sharing it online</h2>
@@ -4696,6 +4763,7 @@ export const blogsData = [
   //   keywords: "qr code for google form, google form qr code, qr code for survey, scan to fill google form, feedback form qr code, attendance qr code google form, admission form qr code, google form link to qr, event feedback qr code, free google form qr generator",
   //   excerpt: "Got a Google Form for feedback, attendance or admissions? Here is the honest, free way to turn its link into a QR code people can scan to open the form straight away. No app, no subscription.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/qr-code-for-google-form-scan-to-fill.webp",
   //   content: `
   //         <p>You built the form last night. Maybe it is a feedback form for the college fest, an attendance sheet for a training session, or an enquiry form for admissions. The questions are set. Now comes the annoying part: getting people to actually open it. Reading out a long link from the stage never works, and the WhatsApp group only reaches half the room. A <strong>QR code for a Google Form</strong> solves this in one move. You print it on the poster, show it on a slide, leave it on the registration desk, and people point their camera at it. The form opens on their phone and they fill it right there.</p>
@@ -4769,6 +4837,7 @@ export const blogsData = [
   //   keywords: "youtube channel qr code generator, qr code for youtube channel, subscribe qr code, youtube banner qr code, channel link qr code",
   //   excerpt: "Turn your YouTube channel link into a scannable QR code for banners, visiting cards and shop displays. Free, static, made right in your browser with no login.",
   //   date: "June 22, 2026",
+  //   publishedAt: "2026-06-22",
   //   imageUrl: "/images/blogs/youtube-channel-qr-code-for-banners-cards.webp",
   //   content: `
   //         <p>A YouTube channel QR code is the quickest fix for a problem every creator runs into: people see your stuff in the real world and have no easy way to find your channel. You hand a flyer to someone at your coaching centre, or your channel name flashes at the end of a video, and they have to remember a handle and type it correctly later. Most won't. A QR code lets them point their phone camera, tap the link that pops up, and land straight on your channel. No typing, no spelling, no missed visit.</p>
@@ -4852,6 +4921,7 @@ export const blogsData = [
   //   keywords: "compress png, compress png without losing quality, reduce png size, png compressor, compress png with transparency, reduce png file size online, shrink png file, optimize png online",
   //   excerpt: "PNG files are huge because they are lossless. Here is how to compress a PNG by up to 80 percent — keeping transparency and sharp edges — free, right in your browser.",
   //   date: "July 13, 2026",
+  //   publishedAt: "2026-07-13",
   //   imageUrl: "/images/blogs/compress-png-reduce-size-keep-transparency.webp",
   //   content: `
   //         <p>You export a logo, a screenshot, or a UI mockup as a PNG and suddenly it is <strong>1.5MB</strong> — for a single image. You try to email it, attach it to a report, or upload it to a website, and it is either rejected for being too big or it slows everything to a crawl. The frustrating part? The image does not even look like it should weigh that much. Welcome to the world of PNG, a format that trades file size for perfection.</p>
@@ -4914,6 +4984,7 @@ export const blogsData = [
   //   keywords: "send photos on whatsapp without losing quality, whatsapp reduces photo quality, send image as document whatsapp, whatsapp photo blurry fix, compress photo before sending whatsapp, send clear document photo on whatsapp, whatsapp image compression, reduce photo size for whatsapp, send screenshot without blur whatsapp",
   //   excerpt: "WhatsApp re-compresses every photo you send through the gallery, which is why account numbers and fine print turn unreadable. Here is the practical middle path: shrink the photo yourself to a size you choose, then send it as a Document so you control the quality instead of WhatsApp.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/send-photos-whatsapp-without-losing-quality.webp",
   //   content: `
   // <p>You take a clear photo of a cheque, an admission receipt, a marksheet, or a saree you are selling, and you send it on WhatsApp. The photo looks perfectly sharp in your own gallery. Ten minutes later the person on the other end sends back a voice note: <em>"Bhai, the account number is not readable, send it again."</em> So you send it again, from the same gallery, and it arrives just as unreadable the second time.</p>
@@ -5019,6 +5090,7 @@ export const blogsData = [
   //   keywords: "qr code for wedding invitation, wedding invitation qr code, qr code venue map wedding, rsvp qr code wedding, wedding photo album qr code, google maps qr code wedding, scan to rsvp wedding card, qr code on shaadi card, static qr code wedding, free wedding qr code generator",
   //   excerpt: "Guests getting lost between the mehendi, the sangeet hall and the farmhouse? Put one QR code on the printed card that opens a Google Maps pin, an RSVP form, or a shared photo album. Here is how to make it without the jargon.",
   //   date: "June 21, 2026",
+  //   publishedAt: "2026-06-21",
   //   imageUrl: "/images/blogs/qr-code-for-wedding-invitation.webp",
   //   content: `
   //     <p>Picture a proper Indian wedding. The mehendi is at the bride's house in one colony. The sangeet is at a banquet hall on the other side of the city. The actual wedding is at a farmhouse 40 minutes out on the highway, the one with no signboard and a turn that everybody misses. Now print all three addresses on a card in tiny gold font and watch what happens. By 8pm half your guests are calling your father, "bhaisaab, woh farmhouse hai kahaan exactly?"</p>
@@ -5113,6 +5185,7 @@ export const blogsData = [
   //   keywords: "compress multiple photos at once, bulk image compressor online, batch compress jpg, compress many photos together, reduce size of multiple images, batch photo compressor free, compress folder of photos, bulk resize and compress images, compress event photos in bulk",
   //   excerpt: "Sitting on a folder of 480 wedding photos, 120 product shots, or 60 scanned pages? Here is how to compress the whole pile in one pass, and how to choose between quality mode and target size for a big batch.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/compress-multiple-photos-at-once-bulk.webp",
   //   content: `
   //       <p>You just got back from a wedding, a college fest, or your cousin's engagement, and your phone is sitting on 480 photos that together weigh more than three gigabytes. Or you run a small shop and you have shot 120 product pictures for your catalogue, every one of them a fat 4MB file that your website builder chokes on. Or you are a student who photographed 60 pages of borrowed notes and now needs to send the whole lot to a friend on a data pack that is already running thin.</p>
@@ -5223,6 +5296,7 @@ export const blogsData = [
   //   keywords: "convert webp to jpg, webp file not supported, webp to jpg converter online free, portal not accepting webp, change webp to jpeg on mobile, downloaded image is webp, webp upload error fix, convert webp to jpg without losing quality, webp transparent background white",
   //   excerpt: "Saved an image from a website and got a .webp file that no upload form, print shop or old software will accept? Here is why it happens and how to convert it to JPG in seconds — including what happens to a transparent background.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/webp-to-jpg-file-not-accepted-upload.webp",
   //   content: `
   // <p>You needed exactly one image. A logo for the shop banner the printer is waiting on, a product photo for your catalogue, a scanned photo somebody shared with you through a website link. You long-pressed it on your phone, tapped Download, and it landed in your gallery or Downloads folder. Then you opened the upload form — a college portal, a job application, a seller panel, an old office website — picked the file, and the page threw it right back at you: <strong>Only JPG, JPEG or PNG files are allowed.</strong></p>
@@ -5345,6 +5419,7 @@ export const blogsData = [
   //   keywords: "convert jpg to png, jpg to png converter free, change jpg to png online, only png files accepted error, png file for printing logo, convert photo to png on mobile, jpg to png without losing quality, make logo png transparent background, image format not supported upload",
   //   excerpt: "A form says PNG only, or your printer wants the logo as a PNG. Converting takes five seconds — but PNG cannot sharpen a blurry JPG and cannot create transparency that was never there. Here is how to do it properly.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/convert-jpg-to-png-online-free.webp",
   //   content: `
   //       <p>You are on an upload page — a scholarship portal, a college admission form, a bank KYC screen, a vendor or GST registration page — and under the browse button there is a single line of grey text: <strong>Only .png files are accepted.</strong> Your photo is a JPG. Your scanned signature is a JPG. Every picture your phone has ever taken is a JPG. You click upload anyway, hoping, and the field turns red.</p>
@@ -5429,6 +5504,7 @@ export const blogsData = [
   //   keywords: "merge odd and even pages pdf, double sided scan two pdfs, interleave pdf pages, combine front and back scans, fix reversed scanned page order, organize pdf pages online, scanned pdf wrong order, merge two scanned pdf halves, back pages upside down scan",
   //   excerpt: "Scanned all the fronts, flipped the stack, scanned all the backs, and now you have two PDFs with the back pages in reverse? Here is how to merge them and interleave the pages into the correct order without rescanning a single sheet.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/combine-front-and-back-scans-into-one-pdf-correct-order.webp",
   //   content: `
   // <p>You had a stack of double-sided papers to scan. Maybe it was a rent agreement, a set of marksheets printed back-to-back, an old service record, or a twenty-page contract. The office scanner or the app on your phone does not do both sides in one pass, so you did what everybody does: you fed the whole stack through once to capture all the fronts, then flipped the stack over and fed it through again to capture all the backs.</p>
@@ -5550,6 +5626,7 @@ export const blogsData = [
   //   keywords: "split scanned pdf into separate documents, separate upload slot pdf, split pdf for job application, extract marksheet from combined pdf, one pdf multiple documents portal, split pdf on phone, separate aadhaar pan from scan, upload each document separately portal, split pdf without uploading",
   //   excerpt: "You scanned every certificate in one sitting and got one long PDF, but the application form has a separate upload slot for each document. Here is how to cut it at the document boundaries in three minutes, without uploading anything.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/split-one-scanned-pdf-into-separate-documents-for-upload.webp",
   //   content: `
   //       <p>You did the sensible thing. You sat down once with the whole pile — 10th marksheet, 12th marksheet, degree certificate, caste certificate, Aadhaar, PAN — and scanned or photographed the lot in a single sitting. One session, one file, everything safe in one place. Then you opened the application portal and found something you did not expect: not one upload button, but eight. A separate slot for each document, each with its own label.</p>
@@ -5653,6 +5730,7 @@ export const blogsData = [
   //   keywords: "reduce screenshot file size, compress png screenshot, screenshot too large to attach, shrink screenshot without losing quality, why are screenshots so big, compress png online free, screenshot file size reducer, convert screenshot to jpg, compress screenshot for upload form",
   //   excerpt: "A plain screenshot of some text can weigh more than a holiday photo, and re-saving it changes nothing. Here is why PNG screenshots are so heavy, how palette reduction actually shrinks them while keeping the text readable, and when converting to JPG is the smarter move.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/reduce-screenshot-file-size.webp",
   //   content: `
   // <p>You take a screenshot of a UPI payment confirmation to send to a shopkeeper, or a screenshot of your exam admit card, or a screenshot of an error message from a government portal that you want to show to a helpdesk. It is one flat, boring screen. It should weigh almost nothing. Then you go to attach it and the file is 2.4 MB, the upload form says the limit is 500 KB, and you are standing there wondering how a picture of some grey boxes and black text got heavier than an actual photograph of a mountain.</p>
@@ -5787,6 +5865,7 @@ export const blogsData = [
   //   keywords: "webp vs jpg, is webp better than jpg, convert jpg to webp, best image format for website, webp file size, does webp support transparency, next gen image formats, webp browser support, image format for online store, convert webp to jpg",
   //   excerpt: "A PageSpeed report told you to switch to WebP, but nobody explained what breaks if you do. Here is the practical rule: WebP for images that live on your site, JPG for images that leave it.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/webp-vs-jpg-website-images.webp",
   //   content: `
   //       <p>Somebody has told you to switch your website images to WebP. Maybe it was a PageSpeed report flashing "Serve images in next-gen formats" in red. Maybe it was a developer you hired for two weeks who left the advice behind and nothing else. Maybe your theme documentation mentions it in passing. So now you are sitting with a folder of JPGs from your product shoot, wondering whether converting all of them is worth an evening of your life, and whether something will quietly break if you do.</p>
@@ -5893,6 +5972,7 @@ export const blogsData = [
   //   keywords: "crop photo to square, square profile picture online, resize photo without stretching, why is my profile picture squashed, crop image 1:1 online, make photo square for upload, 400x400 profile photo, crop before resize, fix distorted profile picture",
   //   excerpt: "Your profile picture looks squashed because a rectangular photo was forced into a square box. The fix is an ordering fix: crop to a square first, then resize. Here is exactly how to do it on a phone in under a minute.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/crop-photo-to-square-before-resizing-profile-picture.webp",
   //   content: `
   // <p>You upload a decent photo of yourself as a profile picture, and the result on screen looks wrong in a way you cannot immediately name. Your face is a little too wide. Your nose looks flatter. Your chin is doing something odd. It is recognisably you, but it is a slightly compressed, slightly unwell-looking you, and everyone on the team page or the HR portal is going to see it.</p>
@@ -5993,6 +6073,7 @@ export const blogsData = [
   //   keywords: "whatsapp screenshots to pdf, chat screenshots as evidence pdf, convert screenshots to one pdf, whatsapp chat proof for consumer complaint, screenshots to pdf for police complaint, combine screenshots into single pdf mobile, hr complaint chat evidence pdf, whatsapp chat pdf for consumer forum, image to pdf screenshots phone",
   //   excerpt: "A consumer forum, HR team or police station has asked for your WhatsApp chat as proof — and you have twenty loose screenshots. Here is how to capture them properly, order them chronologically, and export one clean numbered PDF from your phone.",
   //   date: "July 18, 2026",
+  //   publishedAt: "2026-07-18",
   //   imageUrl: "/images/blogs/whatsapp-screenshots-to-pdf-for-complaint.webp",
   //   content: `
   // <p>Something has gone wrong and the whole story is sitting in a WhatsApp chat. Maybe a seller took your money for a phone that never arrived and then stopped replying. Maybe your manager sent you messages at 11pm that crossed a line. Maybe a neighbour or a landlord threatened you, or a lender's recovery agent started abusing you on chat. Now somebody official — a consumer forum, an HR team, a police station, a bank's grievance cell — has told you to submit the evidence.</p>

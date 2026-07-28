@@ -2354,7 +2354,7 @@ The same move tightens a cluttered product shot or trims a photobomber out of th
   {
     id: "convert-webp",
     type: "image",
-    title: "To WebP",
+    title: "Convert to WebP",
     desc: "Convert images to the modern WebP format.",
     leadIn: "Convert JPG, PNG, or JPEG images into WebP — Google's modern format that is typically 25–35% smaller at the same quality, so pages load faster. Transparency is carried over, and you can convert a whole batch at once. Everything runs on your device, with nothing uploaded.",
     icon: RefreshCw,
@@ -2467,7 +2467,7 @@ If a converted file is still heavier than you want, run it through the [WebP com
   {
     id: "convert-jpg",
     type: "image",
-    title: "To JPG",
+    title: "Convert to JPG",
     desc: "Convert PNG, WebP, and others to JPG.",
     leadIn: "Convert almost any image — PNG, WebP, HEIC, TIFF, BMP — into JPG, the format every portal and old device accepts. Transparent areas are filled cleanly instead of turning black, and the result is much smaller than a PNG. Convert one image or a batch, all inside your browser.",
     icon: RefreshCw,
@@ -2580,7 +2580,7 @@ Photos straight off an iPhone arrive as HEIC, which this picker does not take �
   {
     id: "convert-png",
     type: "image",
-    title: "To PNG",
+    title: "Convert to PNG",
     desc: "Convert JPG and WebP to PNG format.",
     leadIn: "Convert a JPG or WebP into PNG when quality matters more than size — a logo, a screenshot, a graphic with sharp text or lines. PNG is lossless, so every pixel is preserved with no compression blur, and transparency is kept. Convert one image or a batch, processed entirely on your device.",
     icon: RefreshCw,
@@ -3327,7 +3327,7 @@ A couple of prep steps help. iPhone screenshots often save as HEIC, which this p
   {
     id: "aadhaar-masking",
     type: "image",
-    title: "ID Masking",
+    title: "Aadhaar & ID Masking",
     desc: "Securely redact sensitive identity information.",
     leadIn: "Black out the sensitive parts of an ID before you share a copy — the first 8 digits of an Aadhaar number, a photo, or any detail you do not want exposed for a hotel check-in or SIM form. You draw boxes over what to hide, and the tool flattens them into the image so the covered data is genuinely gone, not just hidden. All of it happens on your device.",
     icon: ShieldAlert,
