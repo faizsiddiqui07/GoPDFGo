@@ -2264,7 +2264,7 @@ GoPDFGo's **Combine Images** tool does exactly the one job: you add your photos,
         heading: "A real example: front and back of an ID in one file",
         body: `Photograph both sides of the card, then add them in the order you want them read \u2014 front first, back second. The list is numbered, and if they came out the wrong way round you can move a photo up or down until the order is right. That ordering is the part most people need: a verifier expects to see the front first.
 
-Choose the arrangement next. **Stacked** puts one photo above the other and suits ID cards, cheques and anything a person will read top to bottom. **Side by side** places them left to right, which fits better when each photo is tall, or when you want the pair to sit neatly on a wide screen. Whichever you pick, each photo is scaled to the shared edge \u2014 the same width when stacking, the same height when side by side \u2014 so nothing is stretched out of shape, and a photo that is smaller than the other is centred rather than blown up.
+Choose the arrangement next. **Stacked** puts one photo above the other and suits ID cards, cheques and anything a person will read top to bottom. **Side by side** places them left to right, which fits better when each photo is tall, or when you want the pair to sit neatly on a wide screen. Whichever you pick, each photo is scaled to the shared edge \u2014 the same width when stacking, the same height when side by side \u2014 so nothing is stretched out of shape. A photo that is smaller than the other is enlarged in proportion until its edge matches, never squashed to fit.
 
 The **gap** control decides whether the two pictures touch or sit apart with white space between them. A small gap usually reads best for an ID, because it makes the two sides obviously separate rather than looking like one long card.
 
@@ -2299,7 +2299,7 @@ Then save it: **JPG** for the smallest file, which is what most upload forms wan
         },
         {
           title: "Nothing Gets Stretched",
-          desc: "Each photo is scaled so the joined edges line up \u2014 equal widths when stacked, equal heights when side by side \u2014 and a narrower photo is centred rather than distorted to fit. Your card keeps its proportions instead of looking squashed."
+          desc: "Each photo is scaled so the joined edges line up \u2014 equal widths when stacked, equal heights when side by side \u2014 and a narrower photo is enlarged in proportion rather than distorted to fit. Your card keeps its proportions instead of looking squashed."
         }
       ],
       useCases: [
@@ -2329,7 +2329,7 @@ Then save it: **JPG** for the smallest file, which is what most upload forms wan
         },
         {
           q: "Will my photos lose quality?",
-          a: "Each photo is scaled to line up with the others, so one may be resized a little. Saving as PNG keeps the result lossless; saving as JPG re-compresses it slightly to produce a smaller file, which is usually invisible for a document photo."
+          a: "Each photo is scaled so the joined edges line up, so a smaller photo is enlarged to match the larger one and can look a little softer as a result. Saving as PNG keeps the result lossless; saving as JPG re-compresses it slightly to produce a smaller file, which is usually invisible for a document photo."
         },
         {
           q: "Are my ID photos uploaded anywhere?",

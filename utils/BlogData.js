@@ -6193,4 +6193,239 @@ export const blogsData = [
   // A: On GoPDFGo, yes — everything runs inside your browser on your own device. Your screenshots are never uploaded to any server, which matters a great deal when the conversation involves your salary, your loan or a police matter.</p>
   //   `
   // },
+
+  // {
+  //   id: "front-and-back-of-id-in-one-image",
+  //   title: "Portal Wants Both Sides of Your ID in One File? Join Them Into a Single Image",
+  //   seoTitle: "Combine Front and Back of ID into One Image | GoPDFGo",
+  //   keywords: "combine front and back of aadhaar in one image, join two photos into one, both sides of id in one file, combine images online free, merge two photos into one picture, front and back of pan card one file, combine photos for kyc upload, single upload box two photos, stack two images into one, aadhaar front back single image",
+  //   excerpt: "You photographed the front and back of your Aadhaar, PAN or driving licence, and the form gives you exactly one upload box. Here is how to tell whether it wants an image or a PDF, and how to join both sides into one clean image on your phone.",
+  //   date: "August 5, 2026",
+  //   publishedAt: "2026-08-05",
+  //   imageUrl: "/images/blogs/front-and-back-of-id-in-one-image.webp",
+  //   content: `
+  //       <p>You have both sides of the card photographed and sitting in your gallery. The front with your photo and name, the back with the address and the QR square. The form on screen says <strong>Upload ID Proof</strong> and gives you exactly one box. One box, two photos. There is no second slot, no "add another file" link, and the last date is tonight.</p>
+  //
+  //       <p>This happens with nearly every ID that matters in India. Aadhaar, PAN, voter ID, driving licence, a cancelled cheque where the office wants the printed face and the signed back. Rent agreements, new SIM applications, bank KYC, hostel admission, gas connection transfer, a marketplace seller account, a scholarship portal — all of them want the whole document, and many of them hand you a single upload slot to put it in.</p>
+  //
+  //       <p>The fix is to join the two photos into one file before you upload. But there is a fork in the road that decides everything about how you do it: does the form want <strong>one image</strong> or <strong>one PDF</strong>? Get that right first and the rest takes about a minute on a phone. This guide covers both halves — how to tell which one the form is asking for, and then how to produce the image properly if that is the answer.</p>
+  //
+  //       <h2>Read the Accepted Formats Line Before You Do Anything</h2>
+  //       <p>Almost every upload box has a line of small grey text under it or beside it. It usually reads something like <em>"Upload JPG/JPEG/PNG, max 200KB"</em> or <em>"PDF only, max 1MB"</em>. That one line is the whole instruction, and most people scroll straight past it and then wonder why the portal keeps refusing a perfectly good file.</p>
+  //       <p>Here is how to read it:</p>
+  //       <ul>
+  //         <li><strong>It lists JPG, JPEG, PNG or "image":</strong> the form wants a picture. You need the two photos joined into a single image file. That is what the rest of this article is about.</li>
+  //         <li><strong>It lists PDF:</strong> the form wants a document. Joining the photos into a JPG will not help you here — the portal will reject the file type. You need to put both photos into a PDF instead.</li>
+  //         <li><strong>It lists both:</strong> either will be accepted, so pick whichever is easier. For a two-sided card, a single image is usually the simpler path and the lighter file.</li>
+  //         <li><strong>It says nothing at all:</strong> check the instructions page or the official notification the portal links to. That document almost always spells out the format and the size limit even when the upload page does not.</li>
+  //       </ul>
+  //       <p>If the answer is PDF, stop reading here and go to our <a href="/image-to-pdf">Image to PDF</a> tool, which puts each photo on its own page. Our guide on <a href="/blog/combine-assignment-photos-into-one-pdf-mobile">combining photos into one PDF from a phone</a> walks through that side of the job in detail, including reordering pages and keeping the file small.</p>
+  //       <p>If the answer is an image, carry on. You are in the right place.</p>
+  //
+  //       <h2>Why Not Just Send Both Photos Separately?</h2>
+  //       <p>Because usually you physically cannot. A single upload input takes one file, and choosing a second photo replaces the first rather than adding to it. People try all sorts of workarounds at this point — uploading the front and emailing the back afterwards, or pasting both into a document and screenshotting it, or worse, holding both sides of the card in one hand and taking a single wide photo where neither side is readable.</p>
+  //       <p>Even when a form does let you send two files, one image is still the better answer. Files get separated. The verifier downloads one, forgets the second is in a follow-up email, and your application sits in a pending queue while somebody waits for a document you already sent. One file with both sides in it removes that entire failure mode.</p>
+  //       <p>What you want is a single picture with the front on top and the back below it, at a readable size, in a format the form accepts. That is exactly the job the <a href="/combine-images">Combine Images</a> tool does — and nothing else, which is why it is quick.</p>
+  //
+  //       <h2>Order Matters: Front First, Always</h2>
+  //       <p>Whoever opens your file expects to see the front of the card first. It carries the photo, the name and the number, which is what they are matching against your form. The back is supporting detail. If you hand them a file where the address side appears first, nothing breaks, but it reads as careless — and at a verification desk, careless is the impression you least want to make.</p>
+  //       <p>In the tool, the photos you add appear in a <strong>numbered list</strong>. Number one comes first in the finished image — the top when stacked, the left when side by side — number two comes next, and so on. Each row has a move-up arrow, a move-down arrow and a remove button, so if your gallery handed them over in the wrong sequence you fix it with one tap. There is also an <strong>Add more photos</strong> button if you realise a third photo belongs in there — the back of a cheque, say, or a second address proof.</p>
+  //       <p>Do the check before you download, not after. Look at the numbered list, confirm that item 1 is the side with your photograph, and only then save the file.</p>
+  //
+  //       <h2>Stacked or Side by Side: Which One for an ID Card?</h2>
+  //       <p>You get two arrangements, and the choice is genuinely about the shape of your photos rather than taste.</p>
+  //       <ul>
+  //         <li><strong>Stacked</strong> puts one photo above the other. This is the right default for ID cards. An Aadhaar, PAN or driving licence photographed in landscape is wide and short, so stacking two of them produces a result that is roughly the shape of a page — easy to read on a phone screen and easy for a verifier to scroll through.</li>
+  //         <li><strong>Side by side</strong> places them left to right. Use this when your photos are tall and narrow — a portrait-orientation shot of a long certificate, two passbook pages, or a before-and-after comparison you are sending a customer. Stacking tall photos makes an absurdly long strip; placing them side by side keeps the result compact.</li>
+  //       </ul>
+  //       <p>There is a mechanical reason behind this, and it is worth understanding because it explains the one thing that surprises people. Each photo is scaled so the joined edges line up: <strong>equal widths when stacked, equal heights when side by side</strong>. Nothing is stretched or squashed — a photo that is narrower than the others is scaled up in proportion until its edge matches the widest one.</p>
+  //       <p>Here is a real measurement from our own testing. Take an 800x500 photo and a 600x400 photo and stack them with the small gap. The result comes out at exactly <strong>800x1049</strong>. The second photo was scaled up to 800 wide, which made it 800x533, so its top edge matches the bottom edge of the first one. Add 500 and 533 and the 16 pixel gap and you get 1049. Nothing was cropped and nothing was distorted; the smaller photo was simply brought up to the shared width.</p>
+  //       <p>The practical takeaway: if one of your two shots was taken from much closer than the other, it will look larger in the finished image. That is the scaling doing its job, not a bug. If you want the two sides to look evenly matched, photograph them from roughly the same distance, or trim the wider one first with the <a href="/crop">Crop</a> tool so both photos are a similar shape before you join them.</p>
+  //
+  //       <h2>The Gap Between the Two Sides</h2>
+  //       <p>You can set the gap to <strong>None</strong>, <strong>Small</strong> or <strong>Large</strong>. For an ID card, small is almost always the right call. With no gap at all, the bottom edge of the front and the top edge of the back touch, and at a glance the result can read as one long card rather than two sides of the same one. A small gap makes the separation obvious without wasting space.</p>
+  //       <p>Large is useful when the two photos have similar backgrounds and you want them clearly distinct — two pages of the same passbook, for instance, or a before-and-after pair where you want the eye to register two separate images. None works fine for joining two halves of a screenshot that were meant to be continuous.</p>
+  //
+  //       <h2>JPG or PNG for the Output?</h2>
+  //       <p>The tool saves as either, and the difference matters more than people assume when there is a size limit involved.</p>
+  //       <ul>
+  //         <li><strong>JPG</strong> gives you the smaller file. This is what you want for almost every upload form, because forms have size caps and JPG is the format they most commonly ask for. One thing to know: JPG cannot store transparency, so the canvas is filled with white before your photos are drawn. If either photo has a see-through background, that area comes out white rather than black or broken.</li>
+  //         <li><strong>PNG</strong> is lossless and keeps transparency. Pick it when the card carries small printed text you want kept as crisp as possible, or when one of your images genuinely has a transparent background you need preserved. The trade-off is a noticeably heavier file.</li>
+  //       </ul>
+  //       <p>If you are undecided, go with JPG and only switch to PNG if the text in the result looks soft when you zoom in. The short version of the rule: JPG for anything photographic and anything headed to an upload form, PNG when clean edges and small printed text matter more to you than file size.</p>
+  //
+  //       <div class="tool-box">
+  //         <h3>How to Put the Front and Back of Your ID in One Image</h3>
+  //         <ul>
+  //           <li><strong>Step 1:</strong> Photograph both sides of the card in good light, straight down, with the flash off. Fill the frame with the card so you are not capturing half your table. Daylight near a window beats a tubelight overhead every time.</li>
+  //           <li><strong>Step 2:</strong> Open the <a href="/combine-images">Combine Images</a> tool in your phone or laptop browser. Nothing to install, no account to make.</li>
+  //           <li><strong>Step 3:</strong> Add both photos. They appear in a numbered list — use the up and down arrows so the front sits at number 1 and the back at number 2. Remove anything you picked by mistake, and use <strong>Add more photos</strong> if a third image belongs in the file.</li>
+  //           <li><strong>Step 4:</strong> Choose <strong>Stacked</strong> for a normal landscape card, or <strong>Side by side</strong> if both photos are tall. Set the gap to <strong>Small</strong> so the two sides read as separate.</li>
+  //           <li><strong>Step 5:</strong> Pick your output format — <strong>JPG</strong> for the smaller file that most forms want, <strong>PNG</strong> if you need lossless quality or transparency — and download your single combined image.</li>
+  //           <li><strong>Step 6:</strong> Before you send it anywhere, mask the ID number. Details on that in the next section, and it is the step people skip.</li>
+  //         </ul>
+  //       </div>
+  //
+  //       <h2>The Safety Step Almost Everyone Forgets</h2>
+  //       <p>You now have one clean image with both sides of your Aadhaar in it, which is convenient for you and also extremely convenient for anyone who ends up with a copy. A joined file is a more complete package than a single side — front and back, photo, address and number, all in one download.</p>
+  //       <p>Unless the office genuinely needs your full number, mask it before you share. Open the combined image in our <a href="/aadhaar-masking">Aadhaar Masking</a> tool and draw a solid black box over the first 8 digits, leaving the last 4 visible so the copy is still verifiable. The masking is flattened into the image itself, so there is no layer anyone can click and delete to reveal what is underneath.</p>
+  //       <p><strong>Cover the QR code as well.</strong> The square QR printed on an Aadhaar can still carry your full details even after the printed number is hidden, so blacking out the digits and leaving a scannable QR can defeat the whole exercise — and the QR usually sits on the back, which is the half people forget to look at. Our full walkthrough on <a href="/blog/mask-aadhaar-card-safely-for-rent-agreements">masking an Aadhaar safely for rent agreements and KYC</a> covers when a masked copy is enough and when it is not.</p>
+  //       <p>The same logic applies to a cheque leaf. If you are joining both sides of a cheque for a bank mandate, look at what is visible in the finished image before you send it, and black out anything the recipient has no business having.</p>
+  //
+  //       <h2>When the Combined File Is Too Big</h2>
+  //       <p>Joining two photos means roughly twice the pixels, so the result is naturally heavier than either original. If the portal caps uploads at a specific KB figure and your combined JPG lands over it, you have one more step to do rather than a problem.</p>
+  //       <p>Save as JPG rather than PNG, then run the file through <a href="/compress-jpg">Compress JPG</a> and set the exact limit the form asks for. Do the compression <em>last</em>, after joining and after masking, so you are only shrinking once. If you compress each photo first and then join them, you have squeezed the quality twice for no reason. Our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under 20KB for online forms</a> goes through the tighter limits that exam portals tend to set.</p>
+  //       <p>One more thing worth knowing: the canvas is capped at 5000 pixels on its longest side. If you stack six or seven photos, the finished image is scaled down to stay within that cap rather than growing until your phone runs out of memory. For two sides of an ID card you will never come close to it, but it is why a very long stack comes back smaller than you might expect.</p>
+  //
+  //       <h2>Things That Go Wrong, and the Quick Fixes</h2>
+  //       <ul>
+  //         <li><strong>The result came out sideways.</strong> Phone photos carry an orientation tag and the tool reads it, so an upright photo stays upright. If a picture was genuinely saved rotated, fix it with the <a href="/rotate">Rotate Image</a> tool first — rotating there writes the change into the file, so it comes in the right way up.</li>
+  //         <li><strong>One side looks much bigger than the other.</strong> That is the edge-matching scaling. Photograph both sides from a similar distance, or crop the wider shot to a similar shape before joining.</li>
+  //         <li><strong>There is a lot of table and thumb around the card.</strong> Trim each photo with <a href="/crop">Crop</a> before you combine. A tighter crop also means fewer wasted pixels, which helps with the size limit.</li>
+  //         <li><strong>The background behind the photos is white, not transparent.</strong> That is JPG, which cannot store transparency. Switch the output to PNG if you need it kept.</li>
+  //         <li><strong>The form wants a specific pixel size.</strong> Combining does not let you dial in exact dimensions. Get the joined image first, then set the width and height you need with the <a href="/resize">Resize Image</a> tool.</li>
+  //         <li><strong>The form actually wanted a PDF.</strong> Go back to <a href="/image-to-pdf">Image to PDF</a> and feed it the two photos directly. You do not need to combine them into one image first.</li>
+  //       </ul>
+  //
+  //       <h2>Everything Stays on Your Device</h2>
+  //       <p>This matters more here than on almost any other tool, because of what people are joining. Aadhaar cards, PAN cards, cheques, passbooks, driving licences. If you search for a free tool to merge two photos, many of the results will upload your ID to a server you have never heard of, in a country you did not choose, and hand it back afterwards. The file is joined, and a copy of your unmasked ID now exists somewhere you cannot reach.</p>
+  //       <p><a href="/combine-images">Combine Images</a> does the joining inside your own browser. Your phone or laptop draws both photos onto one canvas and gives you the result. Nothing is uploaded, there is no account, and there is no watermark stamped across the corner. It also means it keeps working on a weak connection, because once the page has loaded the work happens on the device in your hand.</p>
+  //
+  //       <h2>Frequently Asked Questions</h2>
+  //       <p><strong>Q: How do I put the front and back of my Aadhaar in one image?</strong><br>
+  //       A: Open the <a href="/combine-images">Combine Images</a> tool, add both photos, keep the front at number 1 and the back at number 2, choose Stacked with a small gap, and download. That gives you one image file with both sides, which is what a single upload box needs. Mask the first 8 digits and the QR code with <a href="/aadhaar-masking">Aadhaar Masking</a> before you send it.</p>
+  //       <p><strong>Q: Does this create a PDF?</strong><br>
+  //       A: No. It produces one image — JPG or PNG — which is what most upload boxes ask for. If the form specifically wants a PDF, use <a href="/image-to-pdf">Image to PDF</a> instead, which puts your photos on proper pages.</p>
+  //       <p><strong>Q: How do I know whether the form wants an image or a PDF?</strong><br>
+  //       A: Read the accepted-formats line next to the upload box. If it lists JPG, JPEG or PNG, it wants an image. If it lists PDF, it wants a PDF. If nothing is written on the upload page, check the instructions page or the official notification, which almost always states the format and the size limit.</p>
+  //       <p><strong>Q: Should the front or the back come first?</strong><br>
+  //       A: Front first. The side with your photo, name and number is what a verifier matches against your application; the address side is supporting detail. The list in the tool is numbered, so move the front to position 1 before you download.</p>
+  //       <p><strong>Q: Can I combine more than two photos?</strong><br>
+  //       A: Yes. Add as many as you need and they are joined in the order shown in the numbered list. Bear in mind that a long stack becomes a very tall image, which is awkward to read on a phone and heavier to upload.</p>
+  //       <p><strong>Q: Are my ID photos uploaded to a server?</strong><br>
+  //       A: No. The joining happens inside your own browser and the finished image is handed straight back to you. Nothing about the photos leaves your device, which is the entire reason to do this here rather than on a site that wants your Aadhaar on its servers.</p>
+  //
+  //   `
+  // },
+
+  // {
+  //   id: "combine-screenshots-into-one-image",
+  //   title: "How to Join Several Screenshots Into One Long Image",
+  //   seoTitle: "Join Multiple Screenshots Into One Long Image | GoPDFGo",
+  //   keywords: "combine screenshots into one image, join screenshots online, merge screenshots into one picture, stack screenshots vertically, long screenshot from multiple screenshots, whatsapp chat screenshot combine, bank statement screenshots one image, stitch screenshots together free",
+  //   excerpt: "A chat, a bank statement or an order history that would not fit in one screen leaves you with four separate screenshots. Here is how to stack them into one image that previews inline instead of four files nobody opens in order.",
+  //   date: "August 5, 2026",
+  //   publishedAt: "2026-08-05",
+  //   imageUrl: "/images/blogs/combine-screenshots-into-one-image.webp",
+  //   content: `
+  //       <p>You wanted to show someone a WhatsApp conversation, and the conversation was longer than one screen. So you scrolled a bit and took a screenshot, scrolled again and took another, and by the time you reached the end there were four separate images sitting in your gallery. The same thing happens with a bank statement page, a long electricity bill, a Swiggy or Amazon order history, or a chat with a seller who promised a refund and then went quiet.</p>
+  //
+  //       <p>Then comes the awkward part. You send all four to your friend, your manager or a customer care agent, and they land as four separate bubbles. On a weak connection they load out of order. The person tapping through them loses the thread halfway and asks you which one comes first. If it is a complaint form, there is one upload box and you have four files. And if you turn them into a document instead, the receiver has to download it and open it in another app before they see anything at all.</p>
+  //
+  //       <p>What you actually want is <strong>one image</strong>: a single tall picture that shows the whole thing in one go, previews right there in the chat, and cannot possibly arrive in the wrong order. That is the entire job of the <a href="/combine-images">Combine Images</a> tool. You add your screenshots, put them in the order you took them, stack them one above the other, and download a single JPG or PNG. The joining happens inside your own browser, so a screenshot of your bank statement is never uploaded to anybody's server.</p>
+  //
+  //       <h2>Why One Image Beats Four Screenshots</h2>
+  //       <p>This is not just about tidiness. A single joined image behaves differently from a pile of separate files, and the difference shows up in every place you send it:</p>
+  //       <ul>
+  //         <li><strong>It shows up inline.</strong> An image sitting in a chat is visible as a preview. The person reads it without tapping, downloading or switching apps. A document attachment is a closed envelope by comparison, and plenty of people simply never open it.</li>
+  //         <li><strong>The order is locked in.</strong> Once the shots are joined, part two cannot arrive before part one. Nobody has to guess which screenshot is the top of the conversation.</li>
+  //         <li><strong>One upload slot, one file.</strong> Many portals and complaint forms give you exactly one box for a supporting image. Four files and one box is a problem you cannot argue your way out of.</li>
+  //         <li><strong>It survives being forwarded.</strong> When your friend forwards the evidence to somebody else, a single image goes as one piece. A set of four is four separate things to select, and one of them can easily be left behind.</li>
+  //       </ul>
+  //       <p>If the person on the other end has specifically asked for a PDF — a bank, an insurance company, a formal complaint desk — then send a PDF and do not fight it. Use <a href="/image-to-pdf">Image to PDF</a> for that and you are done. But for a WhatsApp message, an email, a chat with support or a form that just says "attach a screenshot", one long image is the friendlier answer.</p>
+  //
+  //       <h2>Take the Screenshots So They Actually Line Up</h2>
+  //       <p>Most of the work happens before you open any tool. Two screenshots taken carelessly will never join neatly, no matter what you stack them with. The goal is simple: every shot should look like it came from the same screen at the same moment, so the join is almost invisible.</p>
+  //       <ul>
+  //         <li><strong>Do not pinch-zoom between shots.</strong> If the second screenshot is at a slightly bigger text size than the first, the join will be obvious and the content widths will disagree. Set your zoom once and leave it alone until you have finished capturing.</li>
+  //         <li><strong>Keep the phone the same way up.</strong> Do not turn it sideways for one shot. A landscape screenshot mixed into a set of portrait ones is the fastest way to ruin a stack.</li>
+  //         <li><strong>Scroll in small steps and leave a slight overlap.</strong> Do not fling the list. Scroll so that the last two or three lines of the previous screenshot are still visible at the top of the next one. That overlap is your insurance: if you scroll too far, a line vanishes between the shots and nobody can tell it is missing except the person you are trying to convince.</li>
+  //         <li><strong>Close the keyboard first.</strong> An open keyboard eats half the screen, which means twice as many screenshots for the same conversation.</li>
+  //         <li><strong>Take them all in one sitting.</strong> Screenshots taken an hour apart may show a different battery level, a different time in the status bar or a new notification banner. Small things, but they make a joined image look edited.</li>
+  //       </ul>
+  //       <p>About that overlap: the tool joins your images exactly as they are. It does not look for repeated lines and it does not blend the seam, so an overlapping line appears twice in the finished picture. That is usually fine and reads as a natural join. If a duplicated line bothers you, trim the top of the later screenshot with the <a href="/crop">Crop</a> tool before you combine, so each piece starts where the previous one ended.</p>
+  //
+  //       <h2>Trim the Repeated Bits for a Cleaner Result</h2>
+  //       <p>Every phone screenshot carries furniture that has nothing to do with your content: the status bar with your battery and network, the app header with the contact name and the call buttons, the navigation bar at the bottom, and often a text input box. Stack four raw screenshots and that furniture repeats four times down the length of the image, which is exactly what makes a stack look stitched together rather than continuous.</p>
+  //       <p>The fix takes a minute. Keep the first screenshot whole — the header at the top is useful, because it shows whose chat this is or which account the statement belongs to. Then crop the header and the bottom bar off the remaining shots so only the content survives. Stack the trimmed versions and the result reads like one long scroll instead of four photos of a phone. Cropping also buys you height, which matters more than you would think once you get to the size limit further down this page. If you want the technique in detail, our guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping unwanted edges off a scan</a> covers the same moves.</p>
+  //
+  //       <div class="tool-box">
+  //         <h3>How to Join Your Screenshots Into One Long Image:</h3>
+  //         <ul>
+  //           <li><strong>Step 1: Get the shots ready.</strong> Take all your screenshots in one go, at the same zoom, with a small overlap between them. Optionally crop the repeated header and bottom bar off every shot except the first.</li>
+  //           <li><strong>Step 2:</strong> Open the <a href="/combine-images">Combine Images</a> tool in your phone or laptop browser. Nothing to install, no account to make.</li>
+  //           <li><strong>Step 3: Add your images.</strong> Tap the upload area and pick the screenshots from your gallery. JPG, PNG and WebP are all accepted, and they stay on your device the whole time.</li>
+  //           <li><strong>Step 4: Fix the order.</strong> The list is numbered, and the order in the list is the order in the finished image. Use the move-up and move-down buttons until the top of the conversation sits at number 1, and remove anything you added by mistake. There is an "Add more photos" button if you realise a shot is missing.</li>
+  //           <li><strong>Step 5: Choose Stacked.</strong> For screenshots that continue one from the other, you want them one above the other rather than left to right. Then set the gap to None or Small.</li>
+  //           <li><strong>Step 6: Pick your format and download.</strong> PNG for the sharpest text, JPG for a smaller file. You get one image, ready to send.</li>
+  //         </ul>
+  //       </div>
+  //
+  //       <h2>Stacked or Side by Side?</h2>
+  //       <p>The tool gives you two arrangements, and for this job the choice is nearly always the same one. <strong>Stacked</strong> puts each image below the previous one, which is how a chat, a statement or an order history reads — top to bottom, in sequence. That is what you want almost every time.</p>
+  //       <p><strong>Side by side</strong> places them left to right instead. It is the better choice when the two images are not a continuation of each other but a comparison: a price on one shopping app next to the price on another, a booking confirmation next to the debit message from your bank, or a settings screen before and after a change. Side by side also gives you a far less awkward shape when you have only two very tall screenshots, because a wide image fits a phone screen better than a skyscraper does.</p>
+  //       <p>One thing worth understanding about the scaling. When you stack, every image is scaled so the <strong>widths</strong> match. When you place them side by side, they are scaled so the <strong>heights</strong> match. Nothing is ever stretched out of shape — an image narrower than the others is scaled up in proportion until its width matches the widest one, rather than being distorted to fit. In practice this means screenshots from the same phone need no scaling at all, because they are already exactly the same width. Mixing a phone screenshot with a laptop screenshot is where you will actually see one of them resized.</p>
+  //
+  //       <h2>How Much Gap Between the Shots?</h2>
+  //       <p>There are three settings — None, Small and Large — and the right one depends on whether your shots are one continuous scroll or separate moments.</p>
+  //       <ul>
+  //         <li><strong>None</strong> is for a continuous scroll. A chat or a statement that flows from one shot into the next looks best with no band at all between the pieces, especially if you cropped the headers off. The joins nearly disappear.</li>
+  //         <li><strong>Small</strong> is the safe default. It puts a thin band between the pieces, which quietly tells the viewer where one screenshot ends and the next begins. Useful when the shots are from different screens or different days.</li>
+  //         <li><strong>Large</strong> is for genuinely separate items — three unrelated receipts, or shots from three different apps — where you want each one read as its own thing.</li>
+  //       </ul>
+  //       <p>Remember that the gap is filled with white in a JPG, because JPG cannot store transparency at all: the whole canvas is painted white before your images are drawn on it. If you needed a transparent background for something, PNG is the only option that keeps it.</p>
+  //
+  //       <h2>PNG or JPG? For Screenshots, Usually PNG</h2>
+  //       <p>This choice matters more for screenshots than for photographs, and it is the one people most often get wrong.</p>
+  //       <p>JPG is a lossy format. It was designed for photographs, where slightly softening the boundary between two shades of sky is invisible. Screenshots are the opposite kind of image: hard black text on a flat background, thin lines, sharp interface edges. Those are exactly the details JPG compression smudges. Save a stack of chat screenshots as JPG and the small type picks up a faint haze around the letters. Glancing at it on a phone you may not notice. Zoom in, or ask somebody to read a transaction ID off it, and you will.</p>
+  //       <p>PNG is lossless, so the text stays exactly as crisp as it was on your screen. The trade-off is weight: a PNG of a long stack of screenshots comes out noticeably heavier than the JPG of the same thing. Our full comparison of <a href="/blog/jpg-vs-png-format-guide">when to use JPG and when to use PNG</a> goes deeper, but the short rule for this job is:</p>
+  //       <ul>
+  //         <li><strong>Choose PNG</strong> when the screenshots contain small text somebody has to actually read — a transaction list, a chat with numbers in it, an error message, anything that might be used as proof.</li>
+  //         <li><strong>Choose JPG</strong> when the file has to be small: an upload box with a KB limit, or a long stack going out over a slow connection. If the JPG is still too heavy, run it through <a href="/compress-jpg">Compress JPG</a> and set the exact size the form is asking for. Our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under a strict KB limit</a> walks through that.</li>
+  //       </ul>
+  //       <p>If you are sending the image to a person rather than a portal, there is no size rule to satisfy, so default to PNG and stop worrying about it.</p>
+  //
+  //       <h2>The Real Ceiling: 5000 Pixels on the Long Side</h2>
+  //       <p>Here is the practical limit nobody thinks about until they hit it. The finished canvas is capped at <strong>5000 pixels on its longest side</strong>. That cap exists so a big stack cannot exhaust your phone's memory and crash the tab halfway through the job. If your stack would come out taller than 5000 pixels, the whole thing is scaled down to fit inside it.</p>
+  //       <p>Do the arithmetic and you can see what that means for you. A typical phone saves screenshots at something like 1080 pixels wide and 2400 tall — check your own, it varies by model. Two of those stacked come to roughly 4800 pixels tall, which slips under the cap untouched, at full quality. Add a third and you are at about 7200, so everything is shrunk to fit inside 5000 — and shrinking is exactly what makes small text start to look soft.</p>
+  //       <p>So the honest answer to "how many screenshots can I stack" is this. Two full-screen shots join at full quality if your phone saves screenshots around 2400 pixels tall. Plenty of phones save them taller than 2500, and two of those already cross the cap — so check the height of your own screenshots rather than assuming. Three or four still work well if you have cropped the headers and bottom bars off first, because that removes a surprising amount of height. Beyond that you are trading away the readability you were trying to preserve in the first place. If the entire point of the image is that somebody can read the text in it, a stack that has been scaled down by half has defeated itself.</p>
+  //       <p>For the curious, here is a measured example from our own testing that shows the scaling clearly. We combined an 800 by 500 image with a 600 by 400 image, stacked, with the Small gap. The result was exactly <strong>800 by 1049 pixels</strong>. The second image was scaled up to 800 wide, which made it 800 by 533, and the 16 pixel gap accounts for the rest. The widths were matched so the edges line up, and neither image was distorted to get there.</p>
+  //
+  //       <h2>When the Stack Gets Too Long, Split It</h2>
+  //       <p>A very long image is an awkward object. It is heavy to send, it takes a moment to load on a weak connection, and the person receiving it has to scroll a long way inside a small preview to reach the bottom. Past a certain length, one image stops being the convenient option and becomes the annoying one.</p>
+  //       <p>You have three sensible ways out, depending on what the image is for:</p>
+  //       <ul>
+  //         <li><strong>Split it into two or three images.</strong> Combine shots one to three into part one, four to six into part two. Two readable images beat one unreadable one, and each still previews inline in the chat.</li>
+  //         <li><strong>Send it as a document instead.</strong> If there is genuinely a lot of material, put the screenshots on proper pages with <a href="/image-to-pdf">Image to PDF</a>. You lose the inline preview, but the reader gets page-by-page navigation, which is far better than scrolling a two-metre-tall picture. That is also the right call any time somebody official is going to file it.</li>
+  //         <li><strong>Shrink it.</strong> Save as JPG and put it through <a href="/compress-jpg">Compress JPG</a>, or <a href="/resize">Resize</a> it to a sensible width first. Just check afterwards that the text is still readable — there is no point sending a light file nobody can decipher.</li>
+  //       </ul>
+  //       <p>One more thing on the sending side: if the image is going into a WhatsApp chat, be aware that chat apps re-compress images they send. That is another argument for keeping the stack short and the type large, so there is quality left to spare after the app has had its turn.</p>
+  //
+  //       <h2>One Last Look Before You Send It</h2>
+  //       <p>Screenshots capture everything on the screen, including the things you were not thinking about. Before this image leaves your phone, open it full size and actually look at it, from the top of the first shot to the bottom of the last.</p>
+  //       <ul>
+  //         <li><strong>Notification banners.</strong> A message from somebody else that slid down over your chat mid-capture is now permanently part of your evidence. Retake that shot.</li>
+  //         <li><strong>Account and card numbers.</strong> A bank statement screenshot usually carries a full account number, and an order history can carry your home address. If the person receiving it does not need those, black them out with the <a href="/aadhaar-masking">ID Masking</a> tool before you send anything.</li>
+  //         <li><strong>Other people's names and photos.</strong> A group chat screenshot exposes everyone in the group, not only the person you are complaining about. Crop or mask whatever is not relevant.</li>
+  //         <li><strong>The joins themselves.</strong> Read across each seam once. If a sentence is cut off mid-word and does not continue in the next piece, you scrolled too far while capturing and a line is missing. Take that one screenshot again rather than sending incomplete proof.</li>
+  //       </ul>
+  //       <p>All of this happens on your own device. Your screenshots are drawn onto a single canvas by your own browser and handed straight back to you — nothing is uploaded, there is no account to create, and no watermark is stamped across the result. Given that the things people most often need to stitch together are bank statements, salary messages and private conversations, that is not a small detail. If you want the longer argument, we wrote about <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local processing beats cloud tools for sensitive documents</a>.</p>
+  //
+  //       <p>Four screenshots is a problem you hand to somebody else. One image is an answer. Take the shots carefully, put them in order, stack them with <a href="/combine-images">Combine Images</a>, and send one file that tells the whole story in a single scroll.</p>
+  //
+  //       <h2>Frequently Asked Questions</h2>
+  //       <p><strong>Q: How do I join several screenshots into one long image?</strong><br>
+  //       A: Open the <a href="/combine-images">Combine Images</a> tool, add your screenshots, use the move-up and move-down buttons so they sit in the order you took them, choose the Stacked arrangement, and download the single image.</p>
+  //       <p><strong>Q: How many screenshots can I stack together?</strong><br>
+  //       A: As many as you like, but the finished canvas is capped at 5000 pixels on its longest side and anything taller is scaled down to fit. A: As many as you like, but the finished canvas is capped at 5000 pixels on its longest side and anything taller is scaled down to fit. Whether two full-screen shots fit depends on your phone — two 2400-pixel-tall screenshots do, but on a phone that saves them taller than 2500 even two will be scaled down. Three or four work well if you crop the headers and bottom bars off first. Beyond that, split the set into two images instead. Beyond that, split the set into two images instead.</p>
+  //       <p><strong>Q: Should I save the joined screenshots as JPG or PNG?</strong><br>
+  //       A: PNG for anything with small text somebody needs to read, because it is lossless and keeps the type sharp. Choose JPG only when the file has to be small, since JPG re-compresses text slightly and can leave a faint haze around the letters.</p>
+  //       <p><strong>Q: Does this create a PDF?</strong><br>
+  //       A: No, it produces one image — a JPG or a PNG. That is the point, because an image previews inline in a chat instead of having to be downloaded and opened. If the form or the person specifically wants a PDF, use the <a href="/image-to-pdf">Image to PDF</a> tool instead.</p>
+  //       <p><strong>Q: Will the tool remove the overlap between my screenshots?</strong><br>
+  //       A: No. The images are joined exactly as you supply them, so any repeated lines appear twice. If you want a seamless join, trim the top of each later screenshot with the <a href="/crop">Crop</a> tool before combining.</p>
+  //       <p><strong>Q: Are my screenshots uploaded anywhere?</strong><br>
+  //       A: No. The joining is done by your own browser and the finished image is handed straight back to you, so a bank statement or a private chat never leaves your device. No upload, no account, no watermark.</p>
+  //   `
+  // },
 ];
