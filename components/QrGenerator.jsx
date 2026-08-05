@@ -336,7 +336,9 @@ const QrGenerator = ({ toolId }) => {
               <a
                 href={qrUrl}
                 download={
-                  mode === "wifi" ? `${wifiSsid}-wifi-qr.png` : "qrcode.png"
+                  mode === "wifi"
+                    ? `GoPDFGo_${wifiSsid}-wifi-qr.png`
+                    : "GoPDFGo_qrcode.png"
                 }
                 className="bg-slate-800 text-white px-6 py-2 rounded-full font-bold shadow hover:bg-slate-900 transition flex items-center justify-center gap-2 mx-auto w-fit cursor-pointer"
               >

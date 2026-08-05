@@ -1439,7 +1439,7 @@ const ImageEditor = ({ toolId }) => {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `combined-a4.${combineFormat === "image/png" ? "png" : "jpg"}`;
+      link.download = `GoPDFGo_combined-a4.${combineFormat === "image/png" ? "png" : "jpg"}`;
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -1484,7 +1484,9 @@ const ImageEditor = ({ toolId }) => {
     }
 
     const baseName = files[0]?.name?.replace(/\.[^/.]+$/, "") || "image";
-    link.download = `${baseName}-gopdfgo.${ext}`;
+    // Brand first, the user's own filename right after, so every file that
+    // leaves the site carries GoPDFGo and is still recognisable to the owner.
+    link.download = `GoPDFGo_${baseName}.${ext}`;
     link.click();
   };
 
@@ -1495,10 +1497,10 @@ const ImageEditor = ({ toolId }) => {
     batchResults.forEach((res) => {
       const ext = res.blob.type.split("/")[1] || "jpg";
       const base = res.name.replace(/\.[^/.]+$/, "");
-      let fname = `${base}_processed.${ext}`;
+      let fname = `GoPDFGo_${base}.${ext}`;
       if (usedNames[fname]) {
         usedNames[fname] += 1;
-        fname = `${base}_processed_${usedNames[fname]}.${ext}`;
+        fname = `GoPDFGo_${base}_${usedNames[fname]}.${ext}`;
       } else {
         usedNames[fname] = 1;
       }

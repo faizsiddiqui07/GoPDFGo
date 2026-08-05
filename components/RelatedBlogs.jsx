@@ -41,6 +41,11 @@ const TOOL_BLOG_MAP = {
     "convert-mobile-photos-to-clear-pdf",
     "create-product-catalog-pdf-whatsapp-sharing",
   ],
+  "combine-images": [
+    "front-and-back-of-id-in-one-image",
+    "combine-assignment-photos-into-one-pdf-mobile",
+    "mask-aadhaar-card-safely-for-rent-agreements",
+  ],
   "rearrange-pdf": [
     "rearrange-scanned-pdf-page-order",
     "organize-merge-documents-online-visa-applications",

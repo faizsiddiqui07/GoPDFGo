@@ -718,7 +718,7 @@ export default function SignPdf() {
                 <div className="flex flex-col sm:flex-row gap-3">
                   <a
                     href={downloadUrl}
-                    download={`GoPDFGo_signed_${file?.name || "document.pdf"}`}
+                    download={`GoPDFGo_${file?.name || "document.pdf"}`}
                     className="flex-1 bg-[#FF9933] text-white px-6 py-3 rounded-full hover:bg-[#e68a2e] font-bold flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Download size={18} /> Download

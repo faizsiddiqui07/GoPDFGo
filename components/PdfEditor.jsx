@@ -1088,7 +1088,7 @@ const PdfEditor = ({ toolId }) => {
             for (const g of groups) {
               const pdfBytes = await buildPdfFromPages(g.pages);
               const safe = g.label.replace(/[^0-9-]/g, "");
-              zip.file(`${baseName}_pages-${safe}.pdf`, pdfBytes);
+              zip.file(`GoPDFGo_${baseName}_pages-${safe}.pdf`, pdfBytes);
             }
             const content = await zip.generateAsync({ type: "blob" });
             finalizePdf(
@@ -1480,7 +1480,7 @@ const PdfEditor = ({ toolId }) => {
           finalizePdf(images[0].blob, `GoPDFGo_${images[0].name}`, imgFormat);
         } else {
           const zip = new JSZip();
-          images.forEach((im) => zip.file(im.name, im.blob));
+          images.forEach((im) => zip.file(`GoPDFGo_${im.name}`, im.blob));
           const content = await zip.generateAsync({ type: "blob" });
           finalizePdf(
             content,
@@ -1684,7 +1684,7 @@ const PdfEditor = ({ toolId }) => {
         if (pdf.destroy) pdf.destroy();
 
         const pdfBytes = await newPdf.save();
-        finalizePdf(pdfBytes, `GoPDFGo_unlocked_${file.name}`);
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
 
         // 12a. OCR PDF — always reads the pages as images, whatever the file
         // contains. This is the opposite of pdf-to-text, which only lifts an
@@ -1792,7 +1792,7 @@ const PdfEditor = ({ toolId }) => {
 
         setExtractedText(cleaned);
         const baseName = file.name.replace(/\.pdf$/i, "");
-        finalizePdf(cleaned, `${baseName}.txt`, "text/plain;charset=utf-8");
+        finalizePdf(cleaned, `GoPDFGo_${baseName}.txt`, "text/plain;charset=utf-8");
 
         // 13. ORGANIZE PDF (reorder + rotate + delete in one pass)
       } else if (tool.id === "organize-pdf") {
@@ -1824,7 +1824,7 @@ const PdfEditor = ({ toolId }) => {
         });
 
         const pdfBytes = await outPdf.save();
-        finalizePdf(pdfBytes, `GoPDFGo_organized_${file.name}`);
+        finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
       }
     } catch (err) {
       console.error(err);
