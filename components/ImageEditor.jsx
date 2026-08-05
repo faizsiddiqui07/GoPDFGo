@@ -51,10 +51,14 @@ const ImageEditor = ({ toolId }) => {
   const [liveTweak, setLiveTweak] = useState(false);
   const [batchResults, setBatchResults] = useState([]);
   const [isBatchMode, setIsBatchMode] = useState(false);
-  // combine-images: stitch several photos into ONE image (front/back of an ID)
-  const [combineLayout, setCombineLayout] = useState("vertical");
-  const [combineGap, setCombineGap] = useState(16);
+  // combine-images: lay several photos onto ONE A4 page (front/back of an ID),
+  // dragging and resizing each freely. Placement is stored per file as
+  // fractions of the page, so it survives orientation changes and re-renders.
+  const [combineOrient, setCombineOrient] = useState("portrait"); // portrait | landscape
   const [combineFormat, setCombineFormat] = useState("image/jpeg");
+  const [combinePlace, setCombinePlace] = useState({}); // { [uid]: {x,y,w} }
+  const [combineMeta, setCombineMeta] = useState({}); // { [uid]: {natW,natH} }
+  const [combineSelected, setCombineSelected] = useState(null); // uid
   const [jsZipLoaded, setJsZipLoaded] = useState(false);
 
   // Editor States
@@ -595,6 +599,17 @@ const ImageEditor = ({ toolId }) => {
   const processRunRef = useRef(0);
   const batchRunRef = useRef(0);
   const combineRunRef = useRef(0);
+  // Stable id per File object for the combine A4 editor, so a placement stays
+  // attached to its photo across reorders, adds and removes. Keyed by object
+  // identity, so it needs no change to the shape of `files`.
+  const fileUidRef = useRef(new WeakMap());
+  const fileUidCounter = useRef(0);
+  // The A4 preview box, for pointer-to-fraction math during drag/resize.
+  const combineCanvasRef = useRef(null);
+  // A hidden file input that is always mounted while the combine tool has
+  // photos, so "Add more photos" never calls .click() on a missing element
+  // (the dropzone's own input unmounts once files exist).
+  const addMoreInputRef = useRef(null);
   // Actual MIME of the last produced blob — used for a truthful file extension
   // (the worker may fall back to PNG for formats canvases can't encode).
   const lastBlobTypeRef = useRef(null);
@@ -1238,118 +1253,27 @@ const ImageEditor = ({ toolId }) => {
   };
 
 
-  // Draw every selected photo onto one canvas, stacked or side by side.
-  // Each image is scaled to the shared edge (width when stacking, height when
-  // placing side by side) so nothing is stretched and the pieces line up.
-  const combineImages = async () => {
-    if (files.length < 2) return;
-    const runId = ++combineRunRef.current;
-    setIsProcessing(true);
-    setImgError(null);
-    try {
-      const bitmaps = [];
-      for (const f of files) {
-        bitmaps.push(
-          await createImageBitmap(f, { imageOrientation: "from-image" }),
-        );
-      }
-      if (runId !== combineRunRef.current) {
-        bitmaps.forEach((b) => b.close && b.close());
-        return;
-      }
-
-      const vertical = combineLayout === "vertical";
-      const gap = Math.max(0, Number(combineGap) || 0);
-
-      // Scale each piece to the shared edge
-      const edge = vertical
-        ? Math.max(...bitmaps.map((b) => b.width))
-        : Math.max(...bitmaps.map((b) => b.height));
-      const sized = bitmaps.map((b) => {
-        const scale = vertical ? edge / b.width : edge / b.height;
-        return { bmp: b, w: Math.round(b.width * scale), h: Math.round(b.height * scale) };
-      });
-
-      let totalW = vertical
-        ? edge
-        : sized.reduce((a, s2) => a + s2.w, 0) + gap * (sized.length - 1);
-      let totalH = vertical
-        ? sized.reduce((a, s2) => a + s2.h, 0) + gap * (sized.length - 1)
-        : edge;
-
-      // Keep the canvas inside what a phone can allocate
-      const MAX_SIDE = 5000;
-      const shrink = Math.min(1, MAX_SIDE / Math.max(totalW, totalH));
-
-      const canvas =
-        typeof OffscreenCanvas !== "undefined"
-          ? new OffscreenCanvas(Math.round(totalW * shrink), Math.round(totalH * shrink))
-          : Object.assign(document.createElement("canvas"), {
-              width: Math.round(totalW * shrink),
-              height: Math.round(totalH * shrink),
-            });
-      const ctx = canvas.getContext("2d");
-      ctx.imageSmoothingQuality = "high";
-      // JPG has no transparency, so a PNG with a see-through background would
-      // otherwise come out black.
-      if (combineFormat === "image/jpeg") {
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-      }
-
-      let cursor = 0;
-      for (const it of sized) {
-        const w = it.w * shrink;
-        const h = it.h * shrink;
-        if (vertical) {
-          // centre each piece when one is narrower than the widest
-          ctx.drawImage(it.bmp, (canvas.width - w) / 2, cursor, w, h);
-          cursor += h + gap * shrink;
-        } else {
-          ctx.drawImage(it.bmp, cursor, (canvas.height - h) / 2, w, h);
-          cursor += w + gap * shrink;
-        }
-      }
-      bitmaps.forEach((b) => b.close && b.close());
-
-      const blob = canvas.convertToBlob
-        ? await canvas.convertToBlob({ type: combineFormat, quality: 0.92 })
-        : await new Promise((res) => canvas.toBlob(res, combineFormat, 0.92));
-
-      if (runId !== combineRunRef.current) return;
-
-      const url = URL.createObjectURL(blob);
-      if (currentUrlsRef.current.converted)
-        URL.revokeObjectURL(currentUrlsRef.current.converted);
-      currentUrlsRef.current.converted = url;
-      lastBlobTypeRef.current = blob.type || combineFormat;
-      setConvertedUrl(url);
-      setFileSize(formatBytes(blob.size));
-    } catch (e) {
-      console.error(e);
-      if (runId === combineRunRef.current)
-        setImgError(
-          "Could not combine these images. One of them may be corrupted or in a format this browser cannot read.",
-        );
-    } finally {
-      if (runId === combineRunRef.current) setIsProcessing(false);
+  // Stable id for a File, assigned lazily and remembered by object identity.
+  const uidOf = (file) => {
+    let id = fileUidRef.current.get(file);
+    if (!id) {
+      id = `f${++fileUidCounter.current}`;
+      fileUidRef.current.set(file, id);
     }
+    return id;
   };
 
-  // Re-stitch whenever the files or the layout options change
-  useEffect(() => {
-    if (!isCombineTool) return;
-    if (files.length < 2) {
-      setConvertedUrl(null);
-      return;
-    }
-    combineImages();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [files, combineLayout, combineGap, combineFormat, isCombineTool]);
+  // A4 at ~150 DPI: crisp enough to read an ID, comfortably under the 5000px
+  // canvas cap a phone can allocate. The on-screen page uses the same ratio.
+  const A4_W = 1240;
+  const A4_H = 1754;
+  const pageWpx = combineOrient === "portrait" ? A4_W : A4_H;
+  const pageHpx = combineOrient === "portrait" ? A4_H : A4_W;
+  const pageAR = pageWpx / pageHpx; // width / height
 
-
-  // Thumbnails for the ordering list. Rebuilt whenever the file set changes,
-  // with the previous batch revoked so a long session cannot leak blob URLs.
+  // Thumbnails, one per file, used both by the left-panel list and as the
+  // draggable images on the page. Rebuilt when the file set changes, with the
+  // previous batch revoked so a long session cannot leak blob URLs.
   const [combineThumbs, setCombineThumbs] = useState([]);
   useEffect(() => {
     if (!isCombineTool) return;
@@ -1359,8 +1283,126 @@ const ImageEditor = ({ toolId }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [files, isCombineTool]);
 
-  // Order is the whole point of this tool -- front before back -- so moving a
-  // photo has to be possible after it is added.
+  // Measure every new photo and give it a starting spot on the page. Existing
+  // placements are preserved, so adding a third photo never disturbs the two
+  // already arranged. New photos cascade slightly so they don't land exactly
+  // on top of each other.
+  useEffect(() => {
+    if (!isCombineTool || files.length === 0) return;
+    let cancelled = false;
+    (async () => {
+      const measured = {};
+      for (const f of files) {
+        const id = uidOf(f);
+        if (combineMeta[id]) continue;
+        try {
+          const bmp = await createImageBitmap(f, {
+            imageOrientation: "from-image",
+          });
+          measured[id] = { natW: bmp.width, natH: bmp.height };
+          bmp.close && bmp.close();
+        } catch {
+          /* unreadable file — skip, download will skip it too */
+        }
+      }
+      if (cancelled) return;
+      if (Object.keys(measured).length)
+        setCombineMeta((prev) => ({ ...prev, ...measured }));
+      setCombinePlace((prev) => {
+        const next = { ...prev };
+        let added = 0;
+        files.forEach((f) => {
+          const id = uidOf(f);
+          if (next[id]) return;
+          const shift = (Object.keys(next).length % 5) * 0.05;
+          next[id] = { x: 0.08 + shift, y: 0.08 + shift, w: 0.5 };
+          added++;
+        });
+        return added ? next : prev;
+      });
+    })();
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [files, isCombineTool]);
+
+  // Drag to move, or drag the corner to resize — one photo at a time, in
+  // fractions of the page so the result is resolution-independent. Mirrors the
+  // Sign-PDF placement handles.
+  const combineDrag = (e, uid, mode) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const box = combineCanvasRef.current;
+    if (!box || !combinePlace[uid]) return;
+    setCombineSelected(uid);
+    const rect = box.getBoundingClientRect();
+    const m = combineMeta[uid];
+    const imgAR = m ? m.natW / m.natH : 1; // width / height of the photo
+    const orig = { ...combinePlace[uid] };
+    const startX = e.clientX;
+    const startY = e.clientY;
+    const pid = e.pointerId;
+    // Guard the call itself, not just its existence: setPointerCapture throws
+    // when the pointer isn't active, and an uncaught throw here would abort the
+    // drag before the move listeners below are attached.
+    try {
+      e.currentTarget.setPointerCapture?.(pid);
+    } catch {
+      /* capture is a nicety, not a requirement */
+    }
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    // Height as a fraction of the page, from a width fraction: the photo keeps
+    // its aspect ratio, and the page is taller than wide (or vice-versa).
+    const hFrac = (w) => (w * pageAR) / imgAR;
+    const move = (ev) => {
+      if (ev.pointerId !== pid) return;
+      const dxF = (ev.clientX - startX) / rect.width;
+      const dyF = (ev.clientY - startY) / rect.height;
+      setCombinePlace((prev) => {
+        const next = { ...prev };
+        if (mode === "move") {
+          const hF = hFrac(orig.w);
+          next[uid] = {
+            ...orig,
+            x: clamp(orig.x + dxF, 0, Math.max(0, 1 - orig.w)),
+            y: clamp(orig.y + dyF, 0, Math.max(0, 1 - hF)),
+          };
+        } else {
+          // Cap the width so the scaled height can't spill past the bottom edge.
+          const maxByBottom = ((1 - orig.y) * imgAR) / pageAR;
+          const w = clamp(
+            orig.w + dxF,
+            0.08,
+            Math.max(0.08, Math.min(1 - orig.x, maxByBottom)),
+          );
+          next[uid] = { ...orig, w };
+        }
+        return next;
+      });
+    };
+    const end = () => {
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerup", end);
+      window.removeEventListener("pointercancel", end);
+    };
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
+  };
+
+  // "Add more photos" must APPEND. The normal file flow replaces the whole set,
+  // which is right for every other tool but would wipe the page here.
+  const addCombineImages = (fileList) => {
+    const incoming = Array.from(fileList || []).filter((f) =>
+      f.type ? f.type.startsWith("image/") : /\.(jpe?g|png|webp)$/i.test(f.name),
+    );
+    if (incoming.length === 0) return;
+    setImgError(null);
+    setFiles((prev) => [...prev, ...incoming]);
+    if (addMoreInputRef.current) addMoreInputRef.current.value = "";
+  };
+
   const moveCombineFile = (index, dir) => {
     setFiles((prev) => {
       const next = [...prev];
@@ -1373,6 +1415,56 @@ const ImageEditor = ({ toolId }) => {
 
   const removeCombineFile = (index) => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  // Compose the A4 page at full resolution and hand back a single image.
+  const downloadCombinedA4 = async () => {
+    if (files.length === 0) return;
+    setIsProcessing(true);
+    setImgError(null);
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = pageWpx;
+      canvas.height = pageHpx;
+      const ctx = canvas.getContext("2d");
+      ctx.imageSmoothingQuality = "high";
+      // It's a sheet of paper: white behind everything, both formats.
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, pageWpx, pageHpx);
+      for (const f of files) {
+        const id = uidOf(f);
+        const p = combinePlace[id];
+        const m = combineMeta[id];
+        if (!p || !m) continue;
+        const bmp = await createImageBitmap(f, {
+          imageOrientation: "from-image",
+        });
+        const w = p.w * pageWpx;
+        const h = w * (m.natH / m.natW);
+        ctx.drawImage(bmp, p.x * pageWpx, p.y * pageHpx, w, h);
+        bmp.close && bmp.close();
+      }
+      const blob = await new Promise((res) =>
+        canvas.toBlob(res, combineFormat, 0.92),
+      );
+      if (!blob) throw new Error("encode failed");
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `combined-a4.${combineFormat === "image/png" ? "png" : "jpg"}`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 4000);
+      setFileSize(formatBytes(blob.size));
+    } catch (e) {
+      console.error(e);
+      setImgError(
+        "Could not build the page. One of the photos may be corrupted or in a format this browser cannot read.",
+      );
+    } finally {
+      setIsProcessing(false);
+    }
   };
 
   const handleDownloadClick = () => {
@@ -2050,10 +2142,21 @@ const ImageEditor = ({ toolId }) => {
                     ))}
                   </div>
 
-                  <button
-                    onClick={() =>
-                      document.getElementById("fileInput").click()
+                  {/* Always mounted while photos exist, so Add more never
+                      clicks a missing element. */}
+                  <input
+                    ref={addMoreInputRef}
+                    type="file"
+                    multiple
+                    className="hidden"
+                    accept={
+                      tool.config.accept ||
+                      ".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
                     }
+                    onChange={(e) => addCombineImages(e.target.files)}
+                  />
+                  <button
+                    onClick={() => addMoreInputRef.current?.click()}
                     className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-dashed border-slate-300 text-sm font-bold text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] active:scale-[0.98] transition touch-manipulation cursor-pointer"
                   >
                     <Plus size={16} /> Add more photos
@@ -2063,26 +2166,27 @@ const ImageEditor = ({ toolId }) => {
                     <div className="flex items-start gap-2 text-xs text-amber-700 bg-amber-50 border border-amber-100 rounded-lg p-3">
                       <Info size={15} className="shrink-0 mt-0.5" />
                       <span>
-                        Add at least 2 photos — the front and back of your ID,
-                        for example — and they will be joined into one image.
+                        Add another photo — the front and back of your ID, for
+                        example — then drag each one where you want it on the
+                        page.
                       </span>
                     </div>
                   )}
 
                   <div>
                     <span className="text-xs font-bold text-slate-500 uppercase tracking-wide block mb-2">
-                      Arrangement
+                      Page orientation
                     </span>
                     <div className="grid grid-cols-2 gap-2">
                       {[
-                        { v: "vertical", label: "Stacked", hint: "One above the other" },
-                        { v: "horizontal", label: "Side by side", hint: "Left to right" },
+                        { v: "portrait", label: "Portrait", hint: "Tall A4" },
+                        { v: "landscape", label: "Landscape", hint: "Wide A4" },
                       ].map((o) => (
                         <button
                           key={o.v}
-                          onClick={() => setCombineLayout(o.v)}
+                          onClick={() => setCombineOrient(o.v)}
                           className={`px-2 py-2.5 rounded-lg border text-center transition active:scale-95 touch-manipulation cursor-pointer ${
-                            combineLayout === o.v
+                            combineOrient === o.v
                               ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
                               : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
                           }`}
@@ -2092,38 +2196,13 @@ const ImageEditor = ({ toolId }) => {
                           </span>
                           <span
                             className={`block text-[11px] mt-0.5 ${
-                              combineLayout === o.v
+                              combineOrient === o.v
                                 ? "text-white/80"
                                 : "text-slate-400"
                             }`}
                           >
                             {o.hint}
                           </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wide block mb-2">
-                      Gap between photos
-                    </span>
-                    <div className="flex gap-2">
-                      {[
-                        { v: 0, label: "None" },
-                        { v: 16, label: "Small" },
-                        { v: 48, label: "Large" },
-                      ].map((g) => (
-                        <button
-                          key={g.v}
-                          onClick={() => setCombineGap(g.v)}
-                          className={`flex-1 py-2 rounded-lg border text-xs font-bold transition active:scale-95 touch-manipulation cursor-pointer ${
-                            combineGap === g.v
-                              ? "bg-[#FF9933] text-white border-[#FF9933]"
-                              : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
-                          }`}
-                        >
-                          {g.label}
                         </button>
                       ))}
                     </div>
@@ -2165,8 +2244,8 @@ const ImageEditor = ({ toolId }) => {
                   </div>
 
                   <button
-                    onClick={handleDownloadClick}
-                    disabled={!convertedUrl || isProcessing || files.length < 2}
+                    onClick={downloadCombinedA4}
+                    disabled={isProcessing || files.length < 1}
                     className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
                   >
                     {isProcessing ? (
@@ -2174,7 +2253,7 @@ const ImageEditor = ({ toolId }) => {
                     ) : (
                       <Download size={20} />
                     )}
-                    {isProcessing ? "Joining..." : "Download Combined Image"}
+                    {isProcessing ? "Building page..." : "Download A4 Page"}
                   </button>
                 </>
               ) : (
@@ -2932,35 +3011,74 @@ const ImageEditor = ({ toolId }) => {
               </div>
             )
           ) : isCombineTool ? (
-            convertedUrl ? (
+            files.length > 0 ? (
               <div className="w-full h-full flex flex-col items-center justify-center animate-fade-in gap-3">
-                {/* Checkerboard so a transparent PNG result is obvious */}
+                {/* The A4 page. Tapping empty space deselects. */}
                 <div
-                  className="max-h-100 w-auto rounded-lg overflow-hidden shadow-md border border-slate-200"
+                  ref={combineCanvasRef}
+                  onPointerDown={() => setCombineSelected(null)}
+                  className="relative bg-white rounded-lg shadow-md border border-slate-200 overflow-hidden select-none touch-none mx-auto"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(45deg,#e2e8f0 25%,transparent 25%),linear-gradient(-45deg,#e2e8f0 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#e2e8f0 75%),linear-gradient(-45deg,transparent 75%,#e2e8f0 75%)",
-                    backgroundSize: "16px 16px",
-                    backgroundPosition: "0 0,0 8px,8px -8px,-8px 0px",
+                    aspectRatio: `${pageWpx} / ${pageHpx}`,
+                    maxHeight: "70vh",
+                    maxWidth: "100%",
+                    height: combineOrient === "portrait" ? "70vh" : "auto",
+                    width: combineOrient === "landscape" ? "100%" : "auto",
                   }}
                 >
-                  <img
-                    src={convertedUrl}
-                    alt="Combined result"
-                    className="max-h-100 w-auto object-contain block"
-                  />
+                  {files.map((f, i) => {
+                    const id = uidOf(f);
+                    const p = combinePlace[id];
+                    if (!p) return null;
+                    const selected = combineSelected === id;
+                    return (
+                      <div
+                        key={id}
+                        onPointerDown={(e) => combineDrag(e, id, "move")}
+                        className={`absolute cursor-move ${
+                          selected
+                            ? "ring-2 ring-[#FF9933] z-30"
+                            : "ring-1 ring-slate-300/70"
+                        }`}
+                        style={{
+                          left: `${p.x * 100}%`,
+                          top: `${p.y * 100}%`,
+                          width: `${p.w * 100}%`,
+                          zIndex: selected ? 30 : i + 1,
+                          touchAction: "none",
+                        }}
+                      >
+                        {combineThumbs[i] && (
+                          <img
+                            src={combineThumbs[i]}
+                            alt={`Photo ${i + 1}`}
+                            draggable={false}
+                            className="w-full h-auto block pointer-events-none"
+                          />
+                        )}
+                        {/* Resize handle — its own 44px touch target. */}
+                        <div
+                          onPointerDown={(e) => combineDrag(e, id, "resize")}
+                          className="absolute -bottom-3 -right-3 w-11 h-11 flex items-center justify-center cursor-nwse-resize touch-manipulation"
+                          style={{ touchAction: "none" }}
+                        >
+                          <span className="w-5 h-5 bg-white border-2 border-[#FF9933] rounded-full shadow" />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-                <p className="text-sm text-slate-500">
-                  {files.length} photos joined
-                  {fileSize ? ` — ${fileSize}` : ""}
+                <p className="text-xs text-slate-500 text-center px-4">
+                  Drag a photo to move it · drag the orange corner to resize.
+                  {fileSize ? ` Last saved: ${fileSize}.` : ""}
                 </p>
               </div>
             ) : (
               <div className="text-slate-400 flex flex-col items-center">
                 <ImageIcon size={64} className="mb-4 opacity-30" />
-                <p className="font-medium">Add two or more photos</p>
+                <p className="font-medium">Add your photos</p>
                 <p className="text-xs mt-1">
-                  They will be joined into a single image
+                  Place them on an A4 page, then download
                 </p>
               </div>
             )
