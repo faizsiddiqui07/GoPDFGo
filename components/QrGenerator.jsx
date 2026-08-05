@@ -128,7 +128,7 @@ const QrGenerator = ({ toolId }) => {
               ? router.back()
               : router.push("/")
           } // Changed from navigate(-1)
-          className="text-slate-500 hover:text-brand-ink flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
+          className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
@@ -152,7 +152,7 @@ const QrGenerator = ({ toolId }) => {
               onClick={() => setMode("text")}
               className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition active:scale-95 touch-manipulation ${
                 mode === "text"
-                  ? "bg-white text-brand-ink shadow-sm"
+                  ? "bg-white text-[#FF9933] shadow-sm"
                   : "text-slate-600 hover:text-slate-800"
               }`}
             >
@@ -162,7 +162,7 @@ const QrGenerator = ({ toolId }) => {
               onClick={() => setMode("wifi")}
               className={`flex-1 flex items-center justify-center gap-2 py-2 text-sm font-bold rounded-md transition active:scale-95 touch-manipulation ${
                 mode === "wifi"
-                  ? "bg-white text-brand-ink shadow-sm"
+                  ? "bg-white text-[#FF9933] shadow-sm"
                   : "text-slate-600 hover:text-slate-800"
               }`}
             >
@@ -179,7 +179,7 @@ const QrGenerator = ({ toolId }) => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="https://example.com or Hello World"
-                className="w-full h-32 p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none resize-none mb-4"
+                className="w-full h-32 p-4 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none resize-none mb-4"
               ></textarea>
             </div>
           ) : (
@@ -193,7 +193,7 @@ const QrGenerator = ({ toolId }) => {
                   value={wifiSsid}
                   onChange={(e) => setWifiSsid(e.target.value)}
                   placeholder="e.g., Home_Network_5G"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none"
                 />
               </div>
 
@@ -206,7 +206,7 @@ const QrGenerator = ({ toolId }) => {
                   value={wifiPassword}
                   onChange={(e) => setWifiPassword(e.target.value)}
                   placeholder="Network Password"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none"
                 />
               </div>
 
@@ -218,7 +218,7 @@ const QrGenerator = ({ toolId }) => {
                   <select
                     value={wifiEncryption}
                     onChange={(e) => setWifiEncryption(e.target.value)}
-                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none bg-white"
+                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none bg-white"
                   >
                     <option value="WPA">WPA/WPA2/WPA3</option>
                     <option value="WEP">WEP</option>
@@ -232,7 +232,7 @@ const QrGenerator = ({ toolId }) => {
                       type="checkbox"
                       checked={wifiHidden}
                       onChange={(e) => setWifiHidden(e.target.checked)}
-                      className="w-4 h-4 text-brand-ink rounded focus:ring-brand-ink"
+                      className="w-4 h-4 text-[#FF9933] rounded focus:ring-[#FF9933]"
                     />
                     Hidden Network
                   </label>
@@ -259,8 +259,8 @@ const QrGenerator = ({ toolId }) => {
                     title={`${s.v}×${s.v}px`}
                     className={`flex-1 py-2 rounded-lg font-bold text-sm transition active:scale-95 touch-manipulation cursor-pointer ${
                       qrSize === s.v
-                        ? "bg-brand-ink text-white shadow"
-                        : "bg-white border border-slate-200 text-slate-600 hover:border-brand-ink"
+                        ? "bg-[#FF9933] text-white shadow"
+                        : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
                     }`}
                   >
                     {s.label}
@@ -286,8 +286,8 @@ const QrGenerator = ({ toolId }) => {
                     onClick={() => setQrLevel(l.v)}
                     className={`flex-1 py-2 rounded-lg font-bold text-sm transition active:scale-95 touch-manipulation cursor-pointer ${
                       qrLevel === l.v
-                        ? "bg-brand-ink text-white shadow"
-                        : "bg-white border border-slate-200 text-slate-600 hover:border-brand-ink"
+                        ? "bg-[#FF9933] text-white shadow"
+                        : "bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933]"
                     }`}
                   >
                     {l.label}
@@ -312,7 +312,7 @@ const QrGenerator = ({ toolId }) => {
             className={`w-full text-white font-bold py-3 rounded-lg shadow-md transition active:scale-[0.98] touch-manipulation flex items-center justify-center gap-2 cursor-pointer ${
               isGenerateDisabled
                 ? "bg-slate-400 cursor-not-allowed"
-                : "bg-brand-ink hover:bg-brand-ink-hover"
+                : "bg-[#FF9933] hover:bg-[#e68a2e]"
             }`}
           >
             {loading ? (

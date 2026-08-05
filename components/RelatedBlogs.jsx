@@ -181,11 +181,11 @@ const RelatedBlogs = ({ toolId }) => {
     <div className="max-w-7xl mx-auto px-4 mt-0 mb-12 border-t border-slate-200 pt-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
-          <BookOpen size={22} className="text-brand-ink" /> Related Guides
+          <BookOpen size={22} className="text-[#FF9933]" /> Related Guides
         </h2>
         <Link
           href="/blogs"
-          className="text-sm sm:text-base text-brand-ink font-medium hover:underline flex items-center gap-1"
+          className="text-sm sm:text-base text-[#FF9933] font-medium hover:underline flex items-center gap-1"
         >
           All Guides <ArrowRight size={16} />
         </Link>
@@ -196,15 +196,15 @@ const RelatedBlogs = ({ toolId }) => {
           <Link
             href={`/blog/${post.id}`}
             key={post.id}
-            className="group bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-brand-ink active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
+            className="group bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
           >
-            <h3 className="font-bold text-slate-800 mb-2 line-clamp-2 group-hover:text-brand-ink transition-colors">
+            <h3 className="font-bold text-slate-800 mb-2 line-clamp-2 group-hover:text-[#FF9933] transition-colors">
               {post.title}
             </h3>
             <p className="text-xs text-slate-500 line-clamp-2 flex-1">
               {post.excerpt}
             </p>
-            <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-brand-ink">
+            <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-[#FF9933]">
               Read Guide{" "}
               <ArrowRight
                 size={14}

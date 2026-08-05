@@ -115,7 +115,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
             Free Online PDF &amp; Image Tools{" "}
             <br className="hidden md:block" />
-            <span className="text-brand-ink">Simple &amp; Secure</span>
+            <span className="text-[#FF9933]">Simple &amp; Secure</span>
           </h1>
 
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
             <Link
               href="/merge-pdf"
-              className="bg-brand-ink text-white px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-brand-ink-hover transition shadow-xl shadow-orange-200 hover:-translate-y-1 active:scale-95 active:translate-y-0 touch-manipulation"
+              className="bg-[#FF9933] text-white px-5 sm:px-6 md:px-8 py-3 rounded-full font-bold text-sm sm:text-base hover:bg-[#e68a2e] transition shadow-xl shadow-orange-200 hover:-translate-y-1 active:scale-95 active:translate-y-0 touch-manipulation"
             >
               Start Merging PDFs
             </Link>
@@ -154,7 +154,7 @@ export default function Home() {
           return (
             <div key={cat.type}>
               <div className="flex items-center gap-4 mb-8 px-2">
-                <h2 className="text-2xl font-bold text-slate-800 border-l-4 border-brand-ink pl-3">
+                <h2 className="text-2xl font-bold text-slate-800 border-l-4 border-[#FF9933] pl-3">
                   {cat.title}
                 </h2>
 
@@ -176,7 +176,7 @@ export default function Home() {
                       <div
                         className={`w-12 sm:w-14 h-12 sm:h-14 rounded-2xl sm:mb-5 flex items-center justify-center transition-colors duration-300 shadow-sm ${
                           tool.color === "orange"
-                            ? "bg-orange-50 text-brand-ink group-hover:bg-brand-ink group-hover:text-white"
+                            ? "bg-orange-50 text-[#FF9933] group-hover:bg-[#FF9933] group-hover:text-white"
                             : tool.color === "blue"
                               ? "bg-blue-50 text-blue-500 group-hover:bg-blue-500 group-hover:text-white"
                               : "bg-purple-50 text-purple-500 group-hover:bg-purple-500 group-hover:text-white"
@@ -185,12 +185,12 @@ export default function Home() {
                         <tool.icon size={24} strokeWidth={2} />
                       </div>
 
-                      <h3 className="block sm:hidden text-lg font-bold text-slate-800 group-hover:text-brand-ink transition-colors">
+                      <h3 className="block sm:hidden text-lg font-bold text-slate-800 group-hover:text-[#FF9933] transition-colors">
                         {tool.title}
                       </h3>
                     </div>
 
-                    <h3 className="hidden sm:block text-lg font-bold text-slate-800 mb-2 group-hover:text-brand-ink transition-colors">
+                    <h3 className="hidden sm:block text-lg font-bold text-slate-800 mb-2 group-hover:text-[#FF9933] transition-colors">
                       {tool.title}
                     </h3>
 
@@ -214,7 +214,7 @@ export default function Home() {
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
                 Why Browser-Based PDF Tools Are{" "}
-                <span className="text-brand-ink">Safer</span>
+                <span className="text-[#FF9933]">Safer</span>
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 Most "free" PDF websites work by uploading your document to
@@ -292,18 +292,18 @@ export default function Home() {
                 {/* Good Way */}
                 <div className="bg-white p-6 rounded-xl border border-green-200 shadow-lg scale-105 ring-4 ring-green-50">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-bold text-brand-ink text-sm">
+                    <span className="font-bold text-[#FF9933] text-sm">
                       GOPDFGO (YOU)
                     </span>
-                    <span className="text-xs text-brand-ink font-bold">
+                    <span className="text-xs text-[#FF9933] font-bold">
                       Instant & Safe
                     </span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-500">
-                    <Laptop size={20} className="text-brand-ink" />
+                    <Laptop size={20} className="text-[#FF9933]" />
                     <span className="h-1 flex-1 bg-[#FF9933] rounded-full animate-pulse"></span>
                     <div className="p-2 rounded-full">
-                      <Lock size={20} className="text-brand-ink" />
+                      <Lock size={20} className="text-[#FF9933]" />
                     </div>
                   </div>
                   <p className="text-xs text-center mt-2 text-slate-500 font-medium">
@@ -475,7 +475,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Zap
                   size={64}
-                  className="text-brand-ink transform -rotate-12"
+                  className="text-orange-500 transform -rotate-12"
                 />
               </div>
 
@@ -656,7 +656,7 @@ export default function Home() {
                 className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
               >
                 <h3 className="font-bold text-slate-800 text-lg sm:text-xl mb-2 flex items-start">
-                  <span className="text-brand-ink mr-3 mt-1">Q.</span>
+                  <span className="text-[#FF9933] mr-3 mt-1">Q.</span>
                   {faq.question}
                 </h3>
                 <div className="text-slate-600 leading-relaxed pl-8">

@@ -35,7 +35,7 @@ export default function HowItWorksPage() {
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
             The Engine Under the Hood: <br />
-            <span className="text-brand-ink">Browser-Based Processing</span>
+            <span className="text-[#FF9933]">Browser-Based Processing</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">
             Most PDF websites function like a restaurant: You give them your
@@ -65,7 +65,7 @@ export default function HowItWorksPage() {
 
             {/* Step 1: Selection */}
             <div className="relative z-10 flex flex-col items-center text-center group">
-              <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-white border-4 border-brand-ink rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-white border-4 border-[#FF9933] rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <UploadCloud size={40} className="text-[#FF9933]" />
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-3">
@@ -135,11 +135,11 @@ export default function HowItWorksPage() {
                 inside your browser — with <strong>WebAssembly</strong> stepping
                 in for heavier formats such as iPhone HEIC photos. Together they
                 handle complex work like{" "}
-                <a href="/compress-pdf" className="text-brand-ink font-semibold underline underline-offset-2">
+                <a href="/compress-pdf" className="text-[#FF9933] font-semibold hover:underline">
                   compressing a large PDF
                 </a>{" "}
                 or{" "}
-                <a href="/merge-pdf" className="text-brand-ink font-semibold underline underline-offset-2">
+                <a href="/merge-pdf" className="text-[#FF9933] font-semibold hover:underline">
                   merging several files
                 </a>{" "}
                 without ever needing a backend server. This is why our tools
@@ -253,7 +253,7 @@ export default function HowItWorksPage() {
           <div className="grid gap-3 sm:gap-6">
             <div className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-sm">
               <h3 className="flex items-center gap-3 text-lg font-bold text-slate-900 mb-3">
-                <Zap className="text-brand-ink" size={20} />
+                <Zap className="text-[#FF9933]" size={20} />
                 Does this drain my battery?
               </h3>
               <p className="text-slate-600">
@@ -309,7 +309,7 @@ export default function HowItWorksPage() {
           <div className="flex gap-2 sm:gap-6 justify-center items-center">
             <Link
               href="/"
-              className="bg-brand-ink hover:bg-brand-ink-hover text-white text-sm sm:text-base font-bold py-3 px-5 sm:px-8 rounded-xl transition shadow-lg shadow-orange-500/30"
+              className="bg-[#FF9933] hover:bg-orange-600 text-white text-sm sm:text-base font-bold py-3 px-5 sm:px-8 rounded-xl transition shadow-lg shadow-orange-500/30"
             >
               Try Our Tools
             </Link>

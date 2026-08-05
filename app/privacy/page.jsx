@@ -29,15 +29,15 @@ export default function PrivacyPage() {
         </h1>
         <p className="text-base sm:text-lg text-slate-500">
           The short version:{" "}
-          <span className="text-brand-ink font-bold">
+          <span className="text-[#FF9933] font-bold">
             We don't see, store, or upload your files.
           </span>
         </p>
       </div>
 
       {/* Privacy Promise Box */}
-      <div className="bg-brand/10 border border-brand-ink rounded-2xl p-6 sm:p-8 mb-12 flex flex-col md:flex-row gap-6 items-center">
-        <div className="bg-white p-3 sm:p-4 rounded-full shadow-sm text-brand-ink">
+      <div className="bg-[#FF9933]/10 border border-[#FF9933] rounded-2xl p-6 sm:p-8 mb-12 flex flex-col md:flex-row gap-6 items-center">
+        <div className="bg-white p-3 sm:p-4 rounded-full shadow-sm text-[#FF9933]">
           <ShieldCheck className="w-8 sm:w-10 h-8 sm:h-10" />
         </div>
         <div>
@@ -104,7 +104,7 @@ export default function PrivacyPage() {
 
       {/* Mini FAQ for Long-tail SEO */}
       <div className="mt-6 sm:mt-10 bg-slate-100 rounded-xl p-4 sm:p-6 border border-slate-200 flex gap-4">
-        <HelpCircle className="w-6 h-6 text-brand-ink shrink-0 mt-1" />
+        <HelpCircle className="w-6 h-6 text-[#FF9933] shrink-0 mt-1" />
         <div>
           <h3 className="font-bold text-slate-800 mb-2">
             Does GoPDFGo store my files?
@@ -121,7 +121,7 @@ export default function PrivacyPage() {
       ========================================= */}
       <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-10 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200">
         <div className="flex items-center gap-2 mb-4">
-          <Cookie className="w-6 h-6 text-brand-ink shrink-0" />
+          <Cookie className="w-6 h-6 text-[#FF9933] shrink-0" />
           <h2 className="text-xl font-bold text-slate-900">
             Cookies and Advertising
           </h2>
@@ -156,7 +156,7 @@ export default function PrivacyPage() {
               href="https://adssettings.google.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-ink font-semibold underline underline-offset-2"
+              className="text-[#FF9933] font-semibold hover:underline"
             >
               Google Ads Settings
             </a>
@@ -168,7 +168,7 @@ export default function PrivacyPage() {
               href="https://www.aboutads.info/choices"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-ink font-semibold underline underline-offset-2"
+              className="text-[#FF9933] font-semibold hover:underline"
             >
               aboutads.info/choices
             </a>{" "}
@@ -177,7 +177,7 @@ export default function PrivacyPage() {
               href="https://www.youronlinechoices.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-brand-ink font-semibold underline underline-offset-2"
+              className="text-[#FF9933] font-semibold hover:underline"
             >
               youronlinechoices.com
             </a>
@@ -197,7 +197,7 @@ export default function PrivacyPage() {
             href="https://policies.google.com/technologies/partner-sites"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-ink font-semibold underline underline-offset-2"
+            className="text-[#FF9933] font-semibold hover:underline"
           >
             policies.google.com/technologies/partner-sites
           </a>
@@ -231,7 +231,7 @@ export default function PrivacyPage() {
         Last updated: 22 June 2026 &middot; Questions about your privacy?{" "}
         <a
           href="/contact"
-          className="text-brand-ink font-semibold underline underline-offset-2"
+          className="text-[#FF9933] font-semibold hover:underline"
         >
           Contact us
         </a>

@@ -21,7 +21,7 @@ const parseText = (text) => {
         <Link
           key={index}
           href={link[2]}
-          className="text-brand-ink font-semibold underline underline-offset-2"
+          className="text-[#FF9933] font-semibold hover:underline"
         >
           {link[1]}
         </Link>
@@ -132,7 +132,7 @@ const InfoSection = ({ info }) => {
                 {/* ✅ Title ab sirf EK baar render hota hai.
                     Mobile pe icon ke bagal (row), desktop pe icon ke neeche (column) */}
                 <div className="flex flex-row sm:flex-col items-center sm:items-start gap-x-4">
-                  <div className="w-12 h-12 bg-orange-50 text-brand-ink rounded-xl flex items-center justify-center mb-0 sm:mb-4 shrink-0">
+                  <div className="w-12 h-12 bg-orange-50 text-[#FF9933] rounded-xl flex items-center justify-center mb-0 sm:mb-4 shrink-0">
                     {idx === 0 ? (
                       <Zap size={24} />
                     ) : idx === 1 ? (
@@ -189,7 +189,7 @@ const InfoSection = ({ info }) => {
               <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-slate-100 z-0" />
               {info.steps.map((step, idx) => (
                 <div key={idx} className="relative flex items-start gap-5 z-10">
-                  <div className="w-8 h-8 shrink-0 bg-brand-ink text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md ring-4 ring-white">
+                  <div className="w-8 h-8 shrink-0 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-md ring-4 ring-white">
                     {idx + 1}
                   </div>
                   <div className="pt-1">
@@ -250,7 +250,7 @@ const InfoSection = ({ info }) => {
                   </div>
 
                   {/* Number — pinned dead-center ON the line, no matter how long the text is */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 md:w-12 sm:h-10 md:h-12 bg-brand-ink text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg shadow-md sm:shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-8 h-8 sm:w-10 md:w-12 sm:h-10 md:h-12 bg-[#FF9933] text-white rounded-full flex items-center justify-center font-bold text-sm sm:text-lg shadow-md sm:shadow-lg shadow-orange-500/30 group-hover:scale-110 transition-transform duration-300">
                     {idx + 1}
                   </div>
                 </div>
