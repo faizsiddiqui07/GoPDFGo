@@ -278,15 +278,25 @@ export default function SignPdf() {
     }
     const meas = document.createElement("canvas").getContext("2d");
     meas.font = css;
-    const tw = Math.ceil(meas.measureText(text).width);
+    const m = meas.measureText(text);
+    // Ask the font how far the glyphs really reach rather than assuming they
+    // sit inside the em box -- script faces do not. Where a browser does not
+    // report the bounding box, fall back to generous multiples.
+    const ascent = m.actualBoundingBoxAscent || fontSize * 1.1;
+    const descent = m.actualBoundingBoxDescent || fontSize * 1.1;
+    const inkLeft = m.actualBoundingBoxLeft || 0;
+    const inkRight = m.actualBoundingBoxRight || m.width;
+    const padX = 24;
+    const padY = 12;
     const canvas = document.createElement("canvas");
-    canvas.width = tw + 48;
-    canvas.height = Math.ceil(fontSize * 1.6);
+    canvas.width = Math.ceil(inkLeft + inkRight + padX * 2);
+    canvas.height = Math.ceil(ascent + descent + padY * 2);
     const ctx = canvas.getContext("2d");
     ctx.font = css;
     ctx.fillStyle = "#0b1f4d";
-    ctx.textBaseline = "middle";
-    ctx.fillText(text, 24, canvas.height / 2);
+    // Position by the baseline, the one line the metrics are measured from.
+    ctx.textBaseline = "alphabetic";
+    ctx.fillText(text, padX + inkLeft, padY + ascent);
     const trimmed = trimCanvas(canvas) || canvas;
     setSignature({ url: trimmed.toDataURL("image/png"), w: trimmed.width, h: trimmed.height });
     setPlace({ x: 0.34, y: 0.74, w: 0.32 });

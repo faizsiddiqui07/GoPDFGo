@@ -288,6 +288,30 @@ const PdfEditor = ({ toolId }) => {
   // loops appending thumbnails of DIFFERENT PDFs into the same grid.
   const thumbGenRef = useRef(0);
 
+  // Every pdf.js document opened during a processPdf run, so the finally can
+  // close any that an error left behind. Each pdf.js document holds a worker
+  // and the decoded page data; leaking one per failed attempt is what turns a
+  // few retries on a phone into a dead tab.
+  const openPdfDocsRef = useRef([]);
+  const openPdfDoc = async (source) => {
+    const doc = await window.pdfjsLib.getDocument(source).promise;
+    openPdfDocsRef.current.push(doc);
+    return doc;
+  };
+  const closeOpenPdfDocs = async () => {
+    const docs = openPdfDocsRef.current;
+    openPdfDocsRef.current = [];
+    for (const d of docs) {
+      try {
+        // already destroyed on the happy path -- destroy() is safe to repeat,
+        // but guard anyway so one bad document cannot block the rest
+        if (d && d.destroy) await d.destroy();
+      } catch (e) {
+        /* ignore */
+      }
+    }
+  };
+
   const generateAllThumbnails = async (file) => {
     if (!window.pdfjsLib) return;
     const gen = ++thumbGenRef.current;
@@ -815,6 +839,7 @@ const PdfEditor = ({ toolId }) => {
     }
 
     setIsProcessing(true);
+    openPdfDocsRef.current = [];
     // Reset here, at the single entry point, rather than at each exit: processPdf
     // has ~8 early-return bailouts plus two terminal paths, and resetting at the
     // top is what stops run N+1 from opening at run N's percentage.
@@ -1124,9 +1149,9 @@ const PdfEditor = ({ toolId }) => {
         // total work is unknowable in advance — reporting from in here would
         // rewind the bar on every pass. Only the single-shot path passes it.
         const rasterizeToBytes = async (scaleCap, quality, onPage) => {
-          const pdf = await window.pdfjsLib.getDocument({
+          const pdf = await openPdfDoc({
             data: originalBytes.slice(0),
-          }).promise;
+          });
           const rasterPdf = await PDFDocument.create();
 
           for (let i = 1; i <= pdf.numPages; i++) {
@@ -1400,9 +1425,9 @@ const PdfEditor = ({ toolId }) => {
         if (!window.pdfjsLib)
           throw new Error("PDF engine failed to load. Please retry.");
 
-        const pdf = await window.pdfjsLib.getDocument({
+        const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
-        }).promise;
+        });
         const ext = imgFormat === "image/png" ? "png" : "jpg";
         const baseName = file.name.replace(/\.pdf$/i, "");
         const images = [];
@@ -1603,10 +1628,10 @@ const PdfEditor = ({ toolId }) => {
 
         let pdf;
         try {
-          pdf = await window.pdfjsLib.getDocument({
+          pdf = await openPdfDoc({
             data: arrayBuffer.slice(0),
             password: pdfPassword || undefined,
-          }).promise;
+          });
         } catch (err) {
           if (err && err.name === "PasswordException") {
             setErrorMsg(
@@ -1671,9 +1696,9 @@ const PdfEditor = ({ toolId }) => {
         if (!window.pdfjsLib)
           throw new Error("PDF engine failed to load. Please retry.");
 
-        const pdf = await window.pdfjsLib.getDocument({
+        const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
-        }).promise;
+        });
 
         let ocrText = "";
         try {
@@ -1713,9 +1738,9 @@ const PdfEditor = ({ toolId }) => {
         if (!window.pdfjsLib)
           throw new Error("PDF engine failed to load. Please retry.");
 
-        const pdf = await window.pdfjsLib.getDocument({
+        const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
-        }).promise;
+        });
 
         let fullText = "";
         for (let i = 1; i <= pdf.numPages; i++) {
@@ -1805,6 +1830,10 @@ const PdfEditor = ({ toolId }) => {
       console.error(err);
       setErrorMsg(err.message || "Error processing file.");
       setIsProcessing(false);
+    } finally {
+      // Catches every early return and every throw, including the branches
+      // that free their document inline on success.
+      await closeOpenPdfDocs();
     }
   };
 
