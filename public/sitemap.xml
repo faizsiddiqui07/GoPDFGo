@@ -129,14 +129,14 @@
 
   <url>
     <loc>https://gopdfgo.com/organize-pdf</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/sign-pdf</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -177,7 +177,7 @@
 
   <url>
     <loc>https://gopdfgo.com/combine-images</loc>
-    <lastmod>2026-07-28</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -584,6 +584,12 @@
   <url>
     <loc>https://gopdfgo.com/blog/qr-code-for-google-reviews</loc>
     <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gopdfgo.com/blog/front-and-back-of-id-in-one-image</loc>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

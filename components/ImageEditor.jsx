@@ -24,8 +24,6 @@ import {
   ShieldAlert,
   AlertCircle,
   Info,
-  ChevronUp,
-  ChevronDown,
   Plus,
 } from "lucide-react";
 import InfoSection from "./InfoSection";
@@ -1403,16 +1401,6 @@ const ImageEditor = ({ toolId }) => {
     if (addMoreInputRef.current) addMoreInputRef.current.value = "";
   };
 
-  const moveCombineFile = (index, dir) => {
-    setFiles((prev) => {
-      const next = [...prev];
-      const to = index + dir;
-      if (to < 0 || to >= next.length) return prev;
-      [next[index], next[to]] = [next[to], next[index]];
-      return next;
-    });
-  };
-
   const removeCombineFile = (index) => {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
@@ -2111,24 +2099,6 @@ const ImageEditor = ({ toolId }) => {
                           </p>
                         </div>
                         <div className="flex items-center shrink-0">
-                          <button
-                            onClick={() => moveCombineFile(i, -1)}
-                            disabled={i === 0}
-                            aria-label="Move up"
-                            title="Move up"
-                            className="p-1.5 rounded text-slate-400 hover:text-[#FF9933] hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
-                          >
-                            <ChevronUp size={16} />
-                          </button>
-                          <button
-                            onClick={() => moveCombineFile(i, 1)}
-                            disabled={i === files.length - 1}
-                            aria-label="Move down"
-                            title="Move down"
-                            className="p-1.5 rounded text-slate-400 hover:text-[#FF9933] hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
-                          >
-                            <ChevronDown size={16} />
-                          </button>
                           <button
                             onClick={() => removeCombineFile(i)}
                             aria-label="Remove photo"

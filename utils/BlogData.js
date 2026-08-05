@@ -3080,22 +3080,17 @@ export const blogsData = [
   
         <h2>Order Matters: Front First, Always</h2>
         <p>Whoever opens your file expects to see the front of the card first. It carries the photo, the name and the number, which is what they are matching against your form. The back is supporting detail. If you hand them a file where the address side appears first, nothing breaks, but it reads as careless — and at a verification desk, careless is the impression you least want to make.</p>
-        <p>In the tool, the photos you add appear in a <strong>numbered list</strong>. Number one comes first in the finished image — the top when stacked, the left when side by side — number two comes next, and so on. Each row has a move-up arrow, a move-down arrow and a remove button, so if your gallery handed them over in the wrong sequence you fix it with one tap. There is also an <strong>Add more photos</strong> button if you realise a third photo belongs in there — the back of a cheque, say, or a second address proof.</p>
-        <p>Do the check before you download, not after. Look at the numbered list, confirm that item 1 is the side with your photograph, and only then save the file.</p>
+        <p>Because you place the photos yourself, getting this right is just a matter of where you drag them: drop the front onto the top of the page and the back below it. The photos you add also show up in a short list beside the page, each with a thumbnail and a remove button, plus an <strong>Add more photos</strong> button if a third one belongs in there — the back of a cheque, say, or a second address proof.</p>
+        <p>Do the check before you download, not after. Look at the page, confirm the side with your photograph is on top, and only then save the file.</p>
   
-        <h2>Stacked or Side by Side: Which One for an ID Card?</h2>
-        <p>You get two arrangements, and the choice is genuinely about the shape of your photos rather than taste.</p>
+        <h2>Arranging the Two Sides on the Page</h2>
+        <p>The tool gives you a blank A4 page and lets you decide how the two photos sit on it. There is no fixed template — you drag each photo where you want it and size it to taste, the same way you would lay two printouts on a desk before scanning them.</p>
+        <p>Two controls do all the work:</p>
         <ul>
-          <li><strong>Stacked</strong> puts one photo above the other. This is the right default for ID cards. An Aadhaar, PAN or driving licence photographed in landscape is wide and short, so stacking two of them produces a result that is roughly the shape of a page — easy to read on a phone screen and easy for a verifier to scroll through.</li>
-          <li><strong>Side by side</strong> places them left to right. Use this when your photos are tall and narrow — a portrait-orientation shot of a long certificate, two passbook pages, or a before-and-after comparison you are sending a customer. Stacking tall photos makes an absurdly long strip; placing them side by side keeps the result compact.</li>
+          <li><strong>Drag to move.</strong> Press a photo and slide it anywhere on the page. Put the front near the top and the back below it, and leave as much or as little space between them as you like — a small gap reads best for an ID, because it makes the two sides obviously separate rather than looking like one long card.</li>
+          <li><strong>Drag the corner to resize.</strong> Each photo has a small orange handle at its bottom-right. Pull it to make that photo bigger or smaller. The photo keeps its proportions the whole time, so nothing is ever stretched or squashed — you are only changing its size on the page. If one shot was taken closer than the other and looks larger, shrink it until the two match.</li>
         </ul>
-        <p>There is a mechanical reason behind this, and it is worth understanding because it explains the one thing that surprises people. Each photo is scaled so the joined edges line up: <strong>equal widths when stacked, equal heights when side by side</strong>. Nothing is stretched or squashed — a photo that is narrower than the others is scaled up in proportion until its edge matches the widest one.</p>
-        <p>Here is a real measurement from our own testing. Take an 800x500 photo and a 600x400 photo and stack them with the small gap. The result comes out at exactly <strong>800x1049</strong>. The second photo was scaled up to 800 wide, which made it 800x533, so its top edge matches the bottom edge of the first one. Add 500 and 533 and the 16 pixel gap and you get 1049. Nothing was cropped and nothing was distorted; the smaller photo was simply brought up to the shared width.</p>
-        <p>The practical takeaway: if one of your two shots was taken from much closer than the other, it will look larger in the finished image. That is the scaling doing its job, not a bug. If you want the two sides to look evenly matched, photograph them from roughly the same distance, or trim the wider one first with the <a href="/crop">Crop</a> tool so both photos are a similar shape before you join them.</p>
-  
-        <h2>The Gap Between the Two Sides</h2>
-        <p>You can set the gap to <strong>None</strong>, <strong>Small</strong> or <strong>Large</strong>. For an ID card, small is almost always the right call. With no gap at all, the bottom edge of the front and the top edge of the back touch, and at a glance the result can read as one long card rather than two sides of the same one. A small gap makes the separation obvious without wasting space.</p>
-        <p>Large is useful when the two photos have similar backgrounds and you want them clearly distinct — two pages of the same passbook, for instance, or a before-and-after pair where you want the eye to register two separate images. None works fine for joining two halves of a screenshot that were meant to be continuous.</p>
+        <p>Then pick the page shape to suit your photos. <strong>Portrait</strong> is a tall A4 and is the right default for ID cards, which are wide and short — two of them sit naturally one above the other. <strong>Landscape</strong> is a wide A4 and suits tall photos, like a long certificate or two passbook pages, placed next to each other. The page itself is plain white, like a sheet of paper, so the finished file looks like a proper scan rather than a collage.</p>
   
         <h2>JPG or PNG for the Output?</h2>
         <p>The tool saves as either, and the difference matters more than people assume when there is a size limit involved.</p>
@@ -3110,9 +3105,9 @@ export const blogsData = [
           <ul>
             <li><strong>Step 1:</strong> Photograph both sides of the card in good light, straight down, with the flash off. Fill the frame with the card so you are not capturing half your table. Daylight near a window beats a tubelight overhead every time.</li>
             <li><strong>Step 2:</strong> Open the <a href="/combine-images">Combine Images</a> tool in your phone or laptop browser. Nothing to install, no account to make.</li>
-            <li><strong>Step 3:</strong> Add both photos. They appear in a numbered list — use the up and down arrows so the front sits at number 1 and the back at number 2. Remove anything you picked by mistake, and use <strong>Add more photos</strong> if a third image belongs in the file.</li>
-            <li><strong>Step 4:</strong> Choose <strong>Stacked</strong> for a normal landscape card, or <strong>Side by side</strong> if both photos are tall. Set the gap to <strong>Small</strong> so the two sides read as separate.</li>
-            <li><strong>Step 5:</strong> Pick your output format — <strong>JPG</strong> for the smaller file that most forms want, <strong>PNG</strong> if you need lossless quality or transparency — and download your single combined image.</li>
+            <li><strong>Step 3:</strong> Add both photos. They drop onto a blank A4 page — drag the front to the top and the back below it. Remove anything you picked by mistake, and use <strong>Add more photos</strong> if a third image belongs on the page.</li>
+            <li><strong>Step 4:</strong> Size each photo by dragging its orange corner handle, and leave a little space between the two so they read as separate sides. Pick <strong>Portrait</strong> for a normal card or <strong>Landscape</strong> if both photos are tall.</li>
+            <li><strong>Step 5:</strong> Pick your output format — <strong>JPG</strong> for the smaller file that most forms want, <strong>PNG</strong> for the sharpest text — and download your A4 page as one image.</li>
             <li><strong>Step 6:</strong> Before you send it anywhere, mask the ID number. Details on that in the next section, and it is the step people skip.</li>
           </ul>
         </div>
@@ -3124,16 +3119,16 @@ export const blogsData = [
         <p>The same logic applies to a cheque leaf. If you are joining both sides of a cheque for a bank mandate, look at what is visible in the finished image before you send it, and black out anything the recipient has no business having.</p>
   
         <h2>When the Combined File Is Too Big</h2>
-        <p>Joining two photos means roughly twice the pixels, so the result is naturally heavier than either original. If the portal caps uploads at a specific KB figure and your combined JPG lands over it, you have one more step to do rather than a problem.</p>
+        <p>An A4 page saved as an image is a fixed, fairly large size, so the file can be heavier than a single phone photo. If the portal caps uploads at a specific KB figure and your page lands over it, you have one more step to do rather than a problem.</p>
         <p>Save as JPG rather than PNG, then run the file through <a href="/compress-jpg">Compress JPG</a> and set the exact limit the form asks for. Do the compression <em>last</em>, after joining and after masking, so you are only shrinking once. If you compress each photo first and then join them, you have squeezed the quality twice for no reason. Our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under 20KB for online forms</a> goes through the tighter limits that exam portals tend to set.</p>
-        <p>One more thing worth knowing: the canvas is capped at 5000 pixels on its longest side. If you stack six or seven photos, the finished image is scaled down to stay within that cap rather than growing until your phone runs out of memory. For two sides of an ID card you will never come close to it, but it is why a very long stack comes back smaller than you might expect.</p>
+        <p>One more thing worth knowing: the page is saved at a fixed A4 size — 1240 by 1754 pixels — whatever you put on it. That keeps the file predictable and is plenty of resolution to read an ID clearly, but it is why the result comes back at a set size rather than matching the dimensions of your original photos.</p>
   
         <h2>Things That Go Wrong, and the Quick Fixes</h2>
         <ul>
           <li><strong>The result came out sideways.</strong> Phone photos carry an orientation tag and the tool reads it, so an upright photo stays upright. If a picture was genuinely saved rotated, fix it with the <a href="/rotate">Rotate Image</a> tool first — rotating there writes the change into the file, so it comes in the right way up.</li>
-          <li><strong>One side looks much bigger than the other.</strong> That is the edge-matching scaling. Photograph both sides from a similar distance, or crop the wider shot to a similar shape before joining.</li>
+          <li><strong>One side looks much bigger than the other.</strong> You set the sizes here, so drag the smaller photo's corner handle until the two match. Nothing is resized automatically.</li>
           <li><strong>There is a lot of table and thumb around the card.</strong> Trim each photo with <a href="/crop">Crop</a> before you combine. A tighter crop also means fewer wasted pixels, which helps with the size limit.</li>
-          <li><strong>The background behind the photos is white, not transparent.</strong> That is JPG, which cannot store transparency. Switch the output to PNG if you need it kept.</li>
+          <li><strong>The background behind the photos is white, not transparent.</strong> The page is a sheet of white paper on purpose, so the space around your photos is white in both JPG and PNG. If you want a photo with no page around it, crop that photo rather than placing it on a page.</li>
           <li><strong>The form wants a specific pixel size.</strong> Combining does not let you dial in exact dimensions. Get the joined image first, then set the width and height you need with the <a href="/resize">Resize Image</a> tool.</li>
           <li><strong>The form actually wanted a PDF.</strong> Go back to <a href="/image-to-pdf">Image to PDF</a> and feed it the two photos directly. You do not need to combine them into one image first.</li>
         </ul>
@@ -3144,15 +3139,15 @@ export const blogsData = [
   
         <h2>Frequently Asked Questions</h2>
         <p><strong>Q: How do I put the front and back of my Aadhaar in one image?</strong><br>
-        A: Open the <a href="/combine-images">Combine Images</a> tool, add both photos, keep the front at number 1 and the back at number 2, choose Stacked with a small gap, and download. That gives you one image file with both sides, which is what a single upload box needs. Mask the first 8 digits and the QR code with <a href="/aadhaar-masking">Aadhaar Masking</a> before you send it.</p>
+        A: Open the <a href="/combine-images">Combine Images</a> tool, add both photos, drag the front to the top of the page and the back below it, resize each so they fit neatly with a little space between, and download. That gives you one image file with both sides, which is what a single upload box needs. Mask the first 8 digits and the QR code with <a href="/aadhaar-masking">Aadhaar Masking</a> before you send it.</p>
         <p><strong>Q: Does this create a PDF?</strong><br>
         A: No. It produces one image — JPG or PNG — which is what most upload boxes ask for. If the form specifically wants a PDF, use <a href="/image-to-pdf">Image to PDF</a> instead, which puts your photos on proper pages.</p>
         <p><strong>Q: How do I know whether the form wants an image or a PDF?</strong><br>
         A: Read the accepted-formats line next to the upload box. If it lists JPG, JPEG or PNG, it wants an image. If it lists PDF, it wants a PDF. If nothing is written on the upload page, check the instructions page or the official notification, which almost always states the format and the size limit.</p>
         <p><strong>Q: Should the front or the back come first?</strong><br>
-        A: Front first. The side with your photo, name and number is what a verifier matches against your application; the address side is supporting detail. The list in the tool is numbered, so move the front to position 1 before you download.</p>
+        A: Front first. The side with your photo, name and number is what a verifier matches against your application; the address side is supporting detail. Drag the front photo to the top of the page before you download.</p>
         <p><strong>Q: Can I combine more than two photos?</strong><br>
-        A: Yes. Add as many as you need and they are joined in the order shown in the numbered list. Bear in mind that a long stack becomes a very tall image, which is awkward to read on a phone and heavier to upload.</p>
+        A: Yes. Add as many as you need and arrange them all on the same page. Bear in mind that a crowded page gets cramped; for several photos, Landscape usually gives you more room.</p>
         <p><strong>Q: Are my ID photos uploaded to a server?</strong><br>
         A: No. The joining happens inside your own browser and the finished image is handed straight back to you. Nothing about the photos leaves your device, which is the entire reason to do this here rather than on a site that wants your Aadhaar on its servers.</p>
   

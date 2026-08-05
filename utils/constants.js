@@ -2244,7 +2244,7 @@ Resizing also changes format on the way out: load a PNG and save the smaller cop
     type: "image",
     title: "Combine Images",
     desc: "Join two or more photos into one image.",
-    leadIn: "Put two photos into a single picture \u2014 the front and back of an Aadhaar or PAN card, both sides of a cheque, or a screenshot split across two shots. Stack them one above the other or place them side by side, reorder them until it looks right, and download one JPG or PNG. Nothing is uploaded; the joining happens on your own device.",
+    leadIn: "Place your photos on a blank A4 page and arrange them by hand \u2014 the front and back of an Aadhaar or PAN card, both sides of a cheque, or two screenshots. Drag each photo anywhere on the page and resize it from the corner, choose portrait or landscape, and download one JPG or PNG. Nothing is uploaded; the page is built on your own device.",
     icon: Combine,
     color: "purple",
     config: { mode: "combine", allowBatch: true, accept: ".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" },
@@ -2259,20 +2259,20 @@ Resizing also changes format on the way out: load a PNG and save the smaller cop
 
 On a laptop people open an image editor and fight with it. On a phone, which is where most of this actually happens, there is usually no good answer at all \u2014 so people end up sending two files and hoping, or pasting them into a document and screenshotting that.
 
-GoPDFGo's **Combine Images** tool does exactly the one job: you add your photos, choose whether they sit **stacked** or **side by side**, and download a single image with both of them in it. It runs inside your browser, so an Aadhaar card, a cheque or a salary slip is never uploaded to anyone's server \u2014 which matters, because these are exactly the documents people are asked to combine.`,
+GoPDFGo's **Combine Images** tool does exactly the one job: you add your photos, drag each one where you want it on an A4 page, resize it to fit, and download a single image with both of them on it. It runs inside your browser, so an Aadhaar card, a cheque or a salary slip is never uploaded to anyone's server \u2014 which matters, because these are exactly the documents people are asked to combine.`,
       walkthrough: {
         heading: "A real example: front and back of an ID in one file",
-        body: `Photograph both sides of the card, then add them in the order you want them read \u2014 front first, back second. The list is numbered, and if they came out the wrong way round you can move a photo up or down until the order is right. That ordering is the part most people need: a verifier expects to see the front first.
+        body: `Photograph both sides of the card and add them. Each one lands on a blank A4 page as a movable box. Drag the front photo to the top of the page and the back below it \u2014 or wherever you want them. There is no fixed layout here, so you decide exactly what the finished sheet looks like.
 
-Choose the arrangement next. **Stacked** puts one photo above the other and suits ID cards, cheques and anything a person will read top to bottom. **Side by side** places them left to right, which fits better when each photo is tall, or when you want the pair to sit neatly on a wide screen. Whichever you pick, each photo is scaled to the shared edge \u2014 the same width when stacking, the same height when side by side \u2014 so nothing is stretched out of shape. A photo that is smaller than the other is enlarged in proportion until its edge matches, never squashed to fit.
+Resize each photo on its own by dragging the small orange handle at its bottom-right corner. The photo always keeps its proportions, so nothing is ever stretched \u2014 you are only making it bigger or smaller on the page. Make the front and back roughly the same width if you want them to read as a matched pair, or leave one larger if that suits the document better.
 
-The **gap** control decides whether the two pictures touch or sit apart with white space between them. A small gap usually reads best for an ID, because it makes the two sides obviously separate rather than looking like one long card.
+Pick the page shape to match your photos. **Portrait** is a tall A4 and suits ID cards placed one above the other; **Landscape** is a wide A4 and fits two tall photos sitting side by side. The whole page is plain white, like a sheet of paper, so the result looks like a proper scan rather than a collage.
 
-Then save it: **JPG** for the smallest file, which is what most upload forms want, or **PNG** when the photos contain small printed text you want kept as crisp as possible. Once you have the combined file, [black out the number before you share it](/aadhaar-masking) if this is an ID copy, [shrink it](/compress-jpg) if the portal has a size cap, or [turn it into a PDF](/image-to-pdf) if the form asks for one instead of an image.`,
+Then save it: **JPG** for the smallest file, which is what most upload forms want, or **PNG** when the photos contain small printed text you want kept as crisp as possible. Once you have the page, [black out the number before you share it](/aadhaar-masking) if this is an ID copy, [shrink it](/compress-jpg) if the portal has a size cap, or [turn it into a PDF](/image-to-pdf) if the form asks for one instead of an image.`,
         troubleshooting: [
           {
             problem: "One photo looks much bigger than the other",
-            fix: "That is the scaling doing its job. Each photo is resized so the joined edges match \u2014 equal widths when stacked, equal heights when side by side \u2014 so a photo taken from closer up fills more of the frame. If you want them to look the same size, crop the larger one to roughly the same shape first and add it again.",
+            fix: "You choose the size here, so this is easy to fix. Tap the photo and drag the orange corner handle to make it smaller or larger until the two match. Nothing is resized automatically \u2014 whatever size you leave a photo at is exactly what the page will show.",
           },
           {
             problem: "The result came out sideways",
@@ -2280,18 +2280,18 @@ Then save it: **JPG** for the smallest file, which is what most upload forms wan
           },
           {
             problem: "The background behind my photos is white, not transparent",
-            fix: "JPG cannot store transparency, so any see-through area is filled with white. Switch the output to PNG if you need the transparency kept.",
+            fix: "The page is a sheet of white paper on purpose, so the space around your photos is always white \u2014 in both JPG and PNG. If you want a photo with no page around it, use the Crop tool on that photo instead of this one.",
           },
           {
             problem: "The file is too big for the upload form",
-            fix: "Joining two photos means roughly twice the pixels, so the result is naturally heavier than either original. Save as JPG rather than PNG, then run it through Compress JPG and set the exact KB limit the form asks for.",
+            fix: "The page is saved at a fixed A4 size, so it can be heavier than a single phone photo. Save as JPG rather than PNG, then run it through Compress JPG and set the exact KB limit the form asks for.",
           },
         ],
       },
       features: [
         {
           title: "Built for the Front-and-Back Problem",
-          desc: "Most tools that join images are general-purpose collage makers. This one is shaped around the request Indian forms actually make \u2014 **both sides of an ID in one file** \u2014 so the ordering, the arrangement and the output are the three things you get, with nothing else in the way."
+          desc: "Most tools that join images are general-purpose collage makers buried in options. This one is shaped around the request Indian forms actually make \u2014 **both sides of an ID on one page** \u2014 so you add your photos, drag them into place, and download, with nothing else in the way."
         },
         {
           title: "Nothing Leaves Your Device",
@@ -2299,29 +2299,29 @@ Then save it: **JPG** for the smallest file, which is what most upload forms wan
         },
         {
           title: "Nothing Gets Stretched",
-          desc: "Each photo is scaled so the joined edges line up \u2014 equal widths when stacked, equal heights when side by side \u2014 and a narrower photo is enlarged in proportion rather than distorted to fit. Your card keeps its proportions instead of looking squashed."
+          desc: "You resize each photo by hand, and it always keeps its proportions \u2014 dragging the corner makes it bigger or smaller, never squashed or stretched. Your card looks like your card, at whatever size you place it on the page."
         }
       ],
       useCases: [
         "**KYC and Verification Uploads:** Banks, SIM forms and rental agreements often want the front and back of an ID as one file. Join them here, then mask the number before you send it.",
         "**College and Exam Applications:** Portals that give you a single upload slot for a two-sided certificate or a cheque leaf, with no way to attach a second image.",
-        "**Screenshots Split Across Two Shots:** A long chat, a bill or a bank statement that would not fit in one screen \u2014 stack the shots into one readable image instead of sending several.",
-        "**Before and After Photos:** Sellers, tailors and repair shops putting two pictures side by side to show a comparison in a single WhatsApp message."
+        "**Screenshots Split Across Two Shots:** A long chat, a bill or a bank statement that would not fit in one screen \u2014 place the shots on one page instead of sending several.",
+        "**Before and After Photos:** Sellers, tailors and repair shops placing two pictures on one page to show a comparison in a single WhatsApp message."
       ],
       steps: [
         "**Add your photos:** Drop in two or more images, or tap to pick them from your phone. They stay on your device.",
-        "**Put them in order:** The list is numbered \u2014 move a photo up or down so the front comes before the back, and remove anything you added by mistake.",
-        "**Choose the arrangement:** Stacked for ID cards and anything read top to bottom, or side by side for tall photos and comparisons. Set the gap between them.",
+        "**Arrange them on the page:** Drag each photo where you want it and resize it from the orange corner handle. There is no fixed layout \u2014 you decide.",
+        "**Pick the page shape:** Portrait for ID cards placed one above the other, or Landscape for tall photos sitting side by side.",
         "**Save it:** Pick JPG for the smallest file or PNG for the sharpest text, then download your single combined image."
       ],
       faq: [
         {
           q: "How do I put the front and back of my Aadhaar in one image?",
-          a: "Add both photos, keep the front at number 1 and the back at number 2, choose **Stacked**, and download. That gives you one image with both sides, which is what a single upload box needs. Before you send it anywhere, consider masking the first 8 digits with our **Aadhaar & ID Masking** tool \u2014 and cover the QR code too, since it carries the same details."
+          a: "Add both photos, drag the front to the top of the page and the back below it, resize each so they sit neatly, and download. That gives you one image with both sides, which is what a single upload box needs. Before you send it anywhere, consider masking the first 8 digits with our **Aadhaar & ID Masking** tool \u2014 and cover the QR code too, since it carries the same details."
         },
         {
           q: "Can I combine more than two photos?",
-          a: "Yes. Add as many as you need and they are joined in the order shown in the list. Bear in mind that a long stack becomes a very tall image, which can be awkward to view on a phone and heavier to upload."
+          a: "Yes. Add as many as you need and arrange them all on the same page. Bear in mind that a crowded page gets cramped, and fitting several photos on one sheet often reads better in Landscape."
         },
         {
           q: "Does this make a PDF?",
@@ -2329,7 +2329,7 @@ Then save it: **JPG** for the smallest file, which is what most upload forms wan
         },
         {
           q: "Will my photos lose quality?",
-          a: "Each photo is scaled so the joined edges line up, so a smaller photo is enlarged to match the larger one and can look a little softer as a result. Saving as PNG keeps the result lossless; saving as JPG re-compresses it slightly to produce a smaller file, which is usually invisible for a document photo."
+          a: "Only as much as the size you choose. A photo shown smaller than its original stays sharp; blown up much larger than it was taken, it can soften. Saving as PNG keeps the page lossless; saving as JPG re-compresses it slightly to produce a smaller file, which is usually invisible for a document photo."
         },
         {
           q: "Are my ID photos uploaded anywhere?",
