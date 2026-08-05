@@ -3153,104 +3153,7 @@ export const blogsData = [
   
     `
   },
-  {
-    id: "combine-screenshots-into-one-image",
-    title: "How to Combine Two Screenshots Into One Image",
-    seoTitle: "Combine Screenshots Into One Image Online Free | GoPDFGo",
-    keywords: "combine screenshots into one image, join two screenshots, put two screenshots together, whatsapp screenshot combine, screenshot comparison image, merge screenshots online, two screenshots side by side, combine screenshots on phone",
-    excerpt: "Two screenshots that belong together — a price comparison, a two-part message, before and after — should not arrive as two separate files. Here is how to place them on one image, and when a long chat is better off as a PDF instead.",
-    date: "August 5, 2026",
-    publishedAt: "2026-08-05",
-    imageUrl: "/images/blogs/combine-screenshots-into-one-image.webp",
-    content: `
-      <p>Some screenshots only make sense together. A price on one shopping app next to the price on another. A payment you sent next to the "not received" reply. A settings screen before a change and after it. The two halves of a short message that spilled onto a second screen. On their own each one is half a story; the point is in the pair.</p>
-
-      <p>Send them as two separate files, though, and the pairing falls apart. They arrive as two bubbles that can load out of order, a complaint form gives you one upload box for two images, and the person on the other end has to hold the first picture in their head while they open the second. What you want instead is <strong>one image</strong> with both screenshots on it, side by side or one above the other, that previews right there in the chat and travels as a single file. That is the job of the <a href="/combine-images">Combine Images</a> tool, and the joining happens inside your own browser, so a screenshot of your bank app never touches anybody's server.</p>
-
-      <h2>First, a Quick Fork: a Few Screenshots or a Long Chat?</h2>
-      <p>Before you start, be honest about how much you are joining, because the right tool depends on it.</p>
-      <ul>
-        <li><strong>Two or three screenshots that belong together</strong> — a comparison, a before-and-after, a two-part message — go into <strong>one image</strong> with this tool. They sit on a single page at a readable size and preview inline wherever you send them.</li>
-        <li><strong>A long conversation spread across many screenshots</strong> — a whole WhatsApp dispute, a full bank statement, a long order history — is better off as a <strong>PDF</strong>. Put each screenshot on its own page with <a href="/image-to-pdf">Image to PDF</a>. Trying to squeeze eight screenshots onto one page shrinks the text until nobody can read it, and a reader would rather flip pages than scroll a giant picture. Our guide on <a href="/blog/combine-assignment-photos-into-one-pdf-mobile">combining several photos into one PDF on a phone</a> walks through that side of it.</li>
-      </ul>
-      <p>The rest of this article is about the first case: getting two or three screenshots onto one clean image.</p>
-
-      <h2>Why One Image Beats Two Separate Files</h2>
-      <p>It is not only tidiness. A single joined image behaves differently from a pair of loose files everywhere you send it:</p>
-      <ul>
-        <li><strong>It shows up inline.</strong> An image in a chat is visible as a preview; the reader takes it in without tapping, downloading or switching apps. Two attachments are two closed envelopes, and plenty of people open neither.</li>
-        <li><strong>The pairing is locked.</strong> Once the two shots are on one image, they cannot arrive in the wrong order or get separated.</li>
-        <li><strong>One upload slot, one file.</strong> A form that gives you a single box for a supporting image cannot take two files, and no amount of arguing changes that.</li>
-        <li><strong>It survives forwarding.</strong> When somebody forwards it on, one image goes as one piece. A pair is two things to select, and one gets left behind.</li>
-      </ul>
-
-      <h2>Take the Screenshots So They Match</h2>
-      <p>Most of the work happens before you open any tool. Two screenshots captured carelessly never sit well together, however you arrange them. Aim to make them look like they came from the same phone at the same moment.</p>
-      <ul>
-        <li><strong>Do not pinch-zoom between shots.</strong> If one screenshot is at a bigger text size than the other, the pair looks mismatched. Set your zoom once and leave it.</li>
-        <li><strong>Keep the phone the same way up.</strong> Do not turn it sideways for one shot; a landscape screenshot next to a portrait one is the fastest way to spoil the pair.</li>
-        <li><strong>Close the keyboard first.</strong> An open keyboard eats half the screen and half your content with it.</li>
-        <li><strong>Take them in one sitting.</strong> Shots taken an hour apart can show a different time, battery level or notification in the status bar — small things that make a joined image look edited.</li>
-      </ul>
-
-      <h2>Trim the Furniture for a Cleaner Join</h2>
-      <p>Every screenshot carries things that are not your content: the status bar with your battery and network, the app header with the contact name and call buttons, the navigation bar at the bottom, often a text box. Put two raw screenshots together and that furniture repeats, which is exactly what makes a pair look stitched rather than deliberate.</p>
-      <p>The fix takes a minute. Keep the header on the first shot if it identifies whose chat or which account this is — that is useful context. Then crop the status bar, header and bottom bar off the rest with the <a href="/crop">Crop</a> tool so only the content survives. A tighter crop also leaves more room on the page for the part that matters. If you want the technique in detail, our guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping unwanted edges off a scan</a> covers the same moves.</p>
-
-      <div class="tool-box">
-        <h3>How to Combine Two Screenshots Into One Image:</h3>
-        <ul>
-          <li><strong>Step 1: Get the shots ready.</strong> Capture them at the same zoom, the same way up. Optionally crop the repeated header and bottom bar off each one.</li>
-          <li><strong>Step 2:</strong> Open the <a href="/combine-images">Combine Images</a> tool in your phone or laptop browser. Nothing to install, no account to make.</li>
-          <li><strong>Step 3: Add your screenshots.</strong> Tap the upload area and pick them from your gallery. JPG, PNG and WebP are all accepted, and they stay on your device.</li>
-          <li><strong>Step 4: Place them on the page.</strong> Each screenshot lands on a blank A4 page as a movable box. Drag one to the top and the other below it, or set them left and right — whatever tells the story best.</li>
-          <li><strong>Step 5: Size them and pick the shape.</strong> Drag the orange corner handle on each screenshot to size it, and choose <strong>Portrait</strong> for two stacked shots or <strong>Landscape</strong> for two tall shots placed side by side.</li>
-          <li><strong>Step 6: Download.</strong> PNG for the sharpest text, JPG for a smaller file. You get one image, ready to send.</li>
-        </ul>
-      </div>
-
-      <h2>Stacked or Side by Side: Placing the Two Shots</h2>
-      <p>Because you arrange the page yourself, the layout is a choice rather than a setting. Two ways cover almost everything:</p>
-      <ul>
-        <li><strong>One above the other</strong> suits shots that read in sequence — the two halves of a message, or a before-and-after where the order matters. A <strong>Portrait</strong> page gives you the height for it.</li>
-        <li><strong>Left and right</strong> suits a comparison, where you want both visible at a glance — two prices, two booking confirmations, two settings screens. A <strong>Landscape</strong> page is usually the better shape for it, and it also keeps two very tall screenshots from making an awkwardly narrow result.</li>
-      </ul>
-      <p>Dragging the corner only ever resizes a screenshot in proportion, so nothing is stretched or squashed — two shots from the same phone are already the same width, and you would only resize when mixing, say, a phone shot with a laptop one. Leave a little white space between the two so the join reads as deliberate; the page behind them is plain white, like a sheet of paper, so the result looks like a proper scan rather than a collage.</p>
-
-      <h2>PNG or JPG? For Screenshots, Usually PNG</h2>
-      <p>This choice matters more for screenshots than for photographs, and it is the one people most often get wrong.</p>
-      <p>JPG is lossy. It was designed for photographs, where softening the boundary between two shades of sky is invisible. Screenshots are the opposite — hard black text on a flat background, thin lines, sharp edges — and those are exactly the details JPG smudges. Save a pair of chat screenshots as JPG and small type picks up a faint haze around the letters. Glancing on a phone you may not notice; zoom in to read a transaction ID and you will.</p>
-      <p>PNG is lossless, so the text stays as crisp as it was on screen. The trade-off is weight: a PNG comes out heavier than the JPG of the same thing. Our full comparison of <a href="/blog/jpg-vs-png-format-guide">when to use JPG and when to use PNG</a> goes deeper, but the short rule for this job is:</p>
-      <ul>
-        <li><strong>Choose PNG</strong> when the screenshots contain small text somebody has to read — a transaction list, a chat with numbers, an error message, anything used as proof.</li>
-        <li><strong>Choose JPG</strong> when the file has to be small, such as an upload box with a KB limit. If the JPG is still too heavy, run it through <a href="/compress-jpg">Compress JPG</a> and set the exact size the form asks for; our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under a strict KB limit</a> walks through that.</li>
-      </ul>
-      <p>If you are sending it to a person rather than a portal, there is no size rule to satisfy, so default to PNG and stop worrying about it.</p>
-
-      <h2>One Last Look Before You Send It</h2>
-      <p>Screenshots capture everything on the screen, including the things you were not thinking about. Before this image leaves your phone, open it full size and actually look.</p>
-      <ul>
-        <li><strong>Notification banners.</strong> A message from somebody else that slid down mid-capture is now permanently part of your evidence. Retake that shot.</li>
-        <li><strong>Account and card numbers.</strong> A bank screenshot usually carries a full account number, and an order history can carry your home address. If the receiver does not need them, black them out with the <a href="/aadhaar-masking">ID Masking</a> tool first.</li>
-        <li><strong>Other people's names and photos.</strong> A group chat screenshot exposes everyone in the group, not only the person you mean. Crop or mask whatever is not relevant.</li>
-      </ul>
-      <p>All of this happens on your own device. Your screenshots are drawn onto one page by your own browser and handed straight back to you — nothing is uploaded, there is no account, and no watermark is stamped across the result. Given that what people most often join are bank messages, payment proofs and private conversations, that is not a small detail. If you want the longer argument, we wrote about <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local processing beats cloud tools for sensitive documents</a>.</p>
-
-      <p>Two screenshots is a small problem you hand to somebody else. One image is the answer. Line them up, place them on the page with <a href="/combine-images">Combine Images</a>, and send a single file that shows the whole thing at once.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <p><strong>Q: How do I combine two screenshots into one image?</strong><br>
-      A: Open the <a href="/combine-images">Combine Images</a> tool, add both screenshots, drag each one into place on the page — stacked or side by side — resize them with the corner handle, and download one JPG or PNG.</p>
-      <p><strong>Q: Can I join a long chat this way?</strong><br>
-      A: For more than two or three screenshots you are better off with a PDF. The page here is a fixed A4 size, so a lot of screenshots get shrunk until the text is hard to read. Use <a href="/image-to-pdf">Image to PDF</a> instead — it puts each screenshot on its own page at full size.</p>
-      <p><strong>Q: Should I save the joined screenshots as JPG or PNG?</strong><br>
-      A: PNG for anything with small text somebody needs to read, because it is lossless and keeps the type sharp. Choose JPG only when the file has to be small, since JPG re-compresses text slightly and can leave a faint haze around the letters.</p>
-      <p><strong>Q: Does this create a PDF?</strong><br>
-      A: No, it produces one image — a JPG or a PNG — which previews inline in a chat instead of having to be downloaded and opened. If the form or the person specifically wants a PDF, use the <a href="/image-to-pdf">Image to PDF</a> tool instead.</p>
-      <p><strong>Q: Are my screenshots uploaded anywhere?</strong><br>
-      A: No. The joining is done by your own browser and the finished image is handed straight back to you, so a bank screenshot or a private chat never leaves your device. No upload, no account, no watermark.</p>
-  `
-  },
+  
   // {
   //   id: "delete-pdf-pages-online-remove-blank-and-extra-pages",
   //   title: "How to Delete Pages From a PDF Online (Without Reprinting the Whole Thing)",
@@ -6398,6 +6301,105 @@ export const blogsData = [
   // <p><strong>Q: Is it safe to make this PDF online when the chat is private?</strong><br>
   // A: On GoPDFGo, yes — everything runs inside your browser on your own device. Your screenshots are never uploaded to any server, which matters a great deal when the conversation involves your salary, your loan or a police matter.</p>
   //   `
+  // },
+
+  // {
+  //   id: "combine-screenshots-into-one-image",
+  //   title: "How to Combine Two Screenshots Into One Image",
+  //   seoTitle: "Combine Screenshots Into One Image Online Free | GoPDFGo",
+  //   keywords: "combine screenshots into one image, join two screenshots, put two screenshots together, whatsapp screenshot combine, screenshot comparison image, merge screenshots online, two screenshots side by side, combine screenshots on phone",
+  //   excerpt: "Two screenshots that belong together — a price comparison, a two-part message, before and after — should not arrive as two separate files. Here is how to place them on one image, and when a long chat is better off as a PDF instead.",
+  //   date: "August 5, 2026",
+  //   publishedAt: "2026-08-05",
+  //   imageUrl: "/images/blogs/combine-screenshots-into-one-image.webp",
+  //   content: `
+  //     <p>Some screenshots only make sense together. A price on one shopping app next to the price on another. A payment you sent next to the "not received" reply. A settings screen before a change and after it. The two halves of a short message that spilled onto a second screen. On their own each one is half a story; the point is in the pair.</p>
+
+  //     <p>Send them as two separate files, though, and the pairing falls apart. They arrive as two bubbles that can load out of order, a complaint form gives you one upload box for two images, and the person on the other end has to hold the first picture in their head while they open the second. What you want instead is <strong>one image</strong> with both screenshots on it, side by side or one above the other, that previews right there in the chat and travels as a single file. That is the job of the <a href="/combine-images">Combine Images</a> tool, and the joining happens inside your own browser, so a screenshot of your bank app never touches anybody's server.</p>
+
+  //     <h2>First, a Quick Fork: a Few Screenshots or a Long Chat?</h2>
+  //     <p>Before you start, be honest about how much you are joining, because the right tool depends on it.</p>
+  //     <ul>
+  //       <li><strong>Two or three screenshots that belong together</strong> — a comparison, a before-and-after, a two-part message — go into <strong>one image</strong> with this tool. They sit on a single page at a readable size and preview inline wherever you send them.</li>
+  //       <li><strong>A long conversation spread across many screenshots</strong> — a whole WhatsApp dispute, a full bank statement, a long order history — is better off as a <strong>PDF</strong>. Put each screenshot on its own page with <a href="/image-to-pdf">Image to PDF</a>. Trying to squeeze eight screenshots onto one page shrinks the text until nobody can read it, and a reader would rather flip pages than scroll a giant picture. Our guide on <a href="/blog/combine-assignment-photos-into-one-pdf-mobile">combining several photos into one PDF on a phone</a> walks through that side of it.</li>
+  //     </ul>
+  //     <p>The rest of this article is about the first case: getting two or three screenshots onto one clean image.</p>
+
+  //     <h2>Why One Image Beats Two Separate Files</h2>
+  //     <p>It is not only tidiness. A single joined image behaves differently from a pair of loose files everywhere you send it:</p>
+  //     <ul>
+  //       <li><strong>It shows up inline.</strong> An image in a chat is visible as a preview; the reader takes it in without tapping, downloading or switching apps. Two attachments are two closed envelopes, and plenty of people open neither.</li>
+  //       <li><strong>The pairing is locked.</strong> Once the two shots are on one image, they cannot arrive in the wrong order or get separated.</li>
+  //       <li><strong>One upload slot, one file.</strong> A form that gives you a single box for a supporting image cannot take two files, and no amount of arguing changes that.</li>
+  //       <li><strong>It survives forwarding.</strong> When somebody forwards it on, one image goes as one piece. A pair is two things to select, and one gets left behind.</li>
+  //     </ul>
+
+  //     <h2>Take the Screenshots So They Match</h2>
+  //     <p>Most of the work happens before you open any tool. Two screenshots captured carelessly never sit well together, however you arrange them. Aim to make them look like they came from the same phone at the same moment.</p>
+  //     <ul>
+  //       <li><strong>Do not pinch-zoom between shots.</strong> If one screenshot is at a bigger text size than the other, the pair looks mismatched. Set your zoom once and leave it.</li>
+  //       <li><strong>Keep the phone the same way up.</strong> Do not turn it sideways for one shot; a landscape screenshot next to a portrait one is the fastest way to spoil the pair.</li>
+  //       <li><strong>Close the keyboard first.</strong> An open keyboard eats half the screen and half your content with it.</li>
+  //       <li><strong>Take them in one sitting.</strong> Shots taken an hour apart can show a different time, battery level or notification in the status bar — small things that make a joined image look edited.</li>
+  //     </ul>
+
+  //     <h2>Trim the Furniture for a Cleaner Join</h2>
+  //     <p>Every screenshot carries things that are not your content: the status bar with your battery and network, the app header with the contact name and call buttons, the navigation bar at the bottom, often a text box. Put two raw screenshots together and that furniture repeats, which is exactly what makes a pair look stitched rather than deliberate.</p>
+  //     <p>The fix takes a minute. Keep the header on the first shot if it identifies whose chat or which account this is — that is useful context. Then crop the status bar, header and bottom bar off the rest with the <a href="/crop">Crop</a> tool so only the content survives. A tighter crop also leaves more room on the page for the part that matters. If you want the technique in detail, our guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping unwanted edges off a scan</a> covers the same moves.</p>
+
+  //     <div class="tool-box">
+  //       <h3>How to Combine Two Screenshots Into One Image:</h3>
+  //       <ul>
+  //         <li><strong>Step 1: Get the shots ready.</strong> Capture them at the same zoom, the same way up. Optionally crop the repeated header and bottom bar off each one.</li>
+  //         <li><strong>Step 2:</strong> Open the <a href="/combine-images">Combine Images</a> tool in your phone or laptop browser. Nothing to install, no account to make.</li>
+  //         <li><strong>Step 3: Add your screenshots.</strong> Tap the upload area and pick them from your gallery. JPG, PNG and WebP are all accepted, and they stay on your device.</li>
+  //         <li><strong>Step 4: Place them on the page.</strong> Each screenshot lands on a blank A4 page as a movable box. Drag one to the top and the other below it, or set them left and right — whatever tells the story best.</li>
+  //         <li><strong>Step 5: Size them and pick the shape.</strong> Drag the orange corner handle on each screenshot to size it, and choose <strong>Portrait</strong> for two stacked shots or <strong>Landscape</strong> for two tall shots placed side by side.</li>
+  //         <li><strong>Step 6: Download.</strong> PNG for the sharpest text, JPG for a smaller file. You get one image, ready to send.</li>
+  //       </ul>
+  //     </div>
+
+  //     <h2>Stacked or Side by Side: Placing the Two Shots</h2>
+  //     <p>Because you arrange the page yourself, the layout is a choice rather than a setting. Two ways cover almost everything:</p>
+  //     <ul>
+  //       <li><strong>One above the other</strong> suits shots that read in sequence — the two halves of a message, or a before-and-after where the order matters. A <strong>Portrait</strong> page gives you the height for it.</li>
+  //       <li><strong>Left and right</strong> suits a comparison, where you want both visible at a glance — two prices, two booking confirmations, two settings screens. A <strong>Landscape</strong> page is usually the better shape for it, and it also keeps two very tall screenshots from making an awkwardly narrow result.</li>
+  //     </ul>
+  //     <p>Dragging the corner only ever resizes a screenshot in proportion, so nothing is stretched or squashed — two shots from the same phone are already the same width, and you would only resize when mixing, say, a phone shot with a laptop one. Leave a little white space between the two so the join reads as deliberate; the page behind them is plain white, like a sheet of paper, so the result looks like a proper scan rather than a collage.</p>
+
+  //     <h2>PNG or JPG? For Screenshots, Usually PNG</h2>
+  //     <p>This choice matters more for screenshots than for photographs, and it is the one people most often get wrong.</p>
+  //     <p>JPG is lossy. It was designed for photographs, where softening the boundary between two shades of sky is invisible. Screenshots are the opposite — hard black text on a flat background, thin lines, sharp edges — and those are exactly the details JPG smudges. Save a pair of chat screenshots as JPG and small type picks up a faint haze around the letters. Glancing on a phone you may not notice; zoom in to read a transaction ID and you will.</p>
+  //     <p>PNG is lossless, so the text stays as crisp as it was on screen. The trade-off is weight: a PNG comes out heavier than the JPG of the same thing. Our full comparison of <a href="/blog/jpg-vs-png-format-guide">when to use JPG and when to use PNG</a> goes deeper, but the short rule for this job is:</p>
+  //     <ul>
+  //       <li><strong>Choose PNG</strong> when the screenshots contain small text somebody has to read — a transaction list, a chat with numbers, an error message, anything used as proof.</li>
+  //       <li><strong>Choose JPG</strong> when the file has to be small, such as an upload box with a KB limit. If the JPG is still too heavy, run it through <a href="/compress-jpg">Compress JPG</a> and set the exact size the form asks for; our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">getting a JPG under a strict KB limit</a> walks through that.</li>
+  //     </ul>
+  //     <p>If you are sending it to a person rather than a portal, there is no size rule to satisfy, so default to PNG and stop worrying about it.</p>
+
+  //     <h2>One Last Look Before You Send It</h2>
+  //     <p>Screenshots capture everything on the screen, including the things you were not thinking about. Before this image leaves your phone, open it full size and actually look.</p>
+  //     <ul>
+  //       <li><strong>Notification banners.</strong> A message from somebody else that slid down mid-capture is now permanently part of your evidence. Retake that shot.</li>
+  //       <li><strong>Account and card numbers.</strong> A bank screenshot usually carries a full account number, and an order history can carry your home address. If the receiver does not need them, black them out with the <a href="/aadhaar-masking">ID Masking</a> tool first.</li>
+  //       <li><strong>Other people's names and photos.</strong> A group chat screenshot exposes everyone in the group, not only the person you mean. Crop or mask whatever is not relevant.</li>
+  //     </ul>
+  //     <p>All of this happens on your own device. Your screenshots are drawn onto one page by your own browser and handed straight back to you — nothing is uploaded, there is no account, and no watermark is stamped across the result. Given that what people most often join are bank messages, payment proofs and private conversations, that is not a small detail. If you want the longer argument, we wrote about <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">why local processing beats cloud tools for sensitive documents</a>.</p>
+
+  //     <p>Two screenshots is a small problem you hand to somebody else. One image is the answer. Line them up, place them on the page with <a href="/combine-images">Combine Images</a>, and send a single file that shows the whole thing at once.</p>
+
+  //     <h2>Frequently Asked Questions</h2>
+  //     <p><strong>Q: How do I combine two screenshots into one image?</strong><br>
+  //     A: Open the <a href="/combine-images">Combine Images</a> tool, add both screenshots, drag each one into place on the page — stacked or side by side — resize them with the corner handle, and download one JPG or PNG.</p>
+  //     <p><strong>Q: Can I join a long chat this way?</strong><br>
+  //     A: For more than two or three screenshots you are better off with a PDF. The page here is a fixed A4 size, so a lot of screenshots get shrunk until the text is hard to read. Use <a href="/image-to-pdf">Image to PDF</a> instead — it puts each screenshot on its own page at full size.</p>
+  //     <p><strong>Q: Should I save the joined screenshots as JPG or PNG?</strong><br>
+  //     A: PNG for anything with small text somebody needs to read, because it is lossless and keeps the type sharp. Choose JPG only when the file has to be small, since JPG re-compresses text slightly and can leave a faint haze around the letters.</p>
+  //     <p><strong>Q: Does this create a PDF?</strong><br>
+  //     A: No, it produces one image — a JPG or a PNG — which previews inline in a chat instead of having to be downloaded and opened. If the form or the person specifically wants a PDF, use the <a href="/image-to-pdf">Image to PDF</a> tool instead.</p>
+  //     <p><strong>Q: Are my screenshots uploaded anywhere?</strong><br>
+  //     A: No. The joining is done by your own browser and the finished image is handed straight back to you, so a bank screenshot or a private chat never leaves your device. No upload, no account, no watermark.</p>
+  // `
   // },
 
 ];
