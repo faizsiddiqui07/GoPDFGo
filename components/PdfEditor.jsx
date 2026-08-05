@@ -2527,42 +2527,27 @@ const PdfEditor = ({ toolId }) => {
                               Page {thumb.pageNum}
                             </div>
 
-                            <div className="absolute top-1 right-1 flex gap-1 z-20">
-                              <button
-                                onPointerDown={(e) => e.stopPropagation()}
-                                onClick={() => rotateOrganizeTile(thumb.pageNum)}
-                                className="bg-white/90 hover:bg-white text-slate-700 hover:text-[#FF9933] p-1.5 rounded-md shadow cursor-pointer"
-                                title="Rotate 90°"
-                                aria-label="Rotate page"
-                              >
-                                <RotateCw size={14} />
-                              </button>
-                              <button
-                                onPointerDown={(e) => e.stopPropagation()}
-                                onClick={() =>
-                                  toggleDeleteOrganizeTile(thumb.pageNum)
-                                }
-                                className={`p-1.5 rounded-md shadow cursor-pointer ${
-                                  thumb.deleted
-                                    ? "bg-green-500 text-white hover:bg-green-600"
-                                    : "bg-white/90 hover:bg-white text-slate-700 hover:text-red-500"
-                                }`}
-                                title={
-                                  thumb.deleted ? "Restore page" : "Remove page"
-                                }
-                                aria-label={
-                                  thumb.deleted ? "Restore page" : "Remove page"
-                                }
-                              >
-                                {thumb.deleted ? (
-                                  <RotateCcw size={14} />
-                                ) : (
-                                  <Trash2 size={14} />
-                                )}
-                              </button>
-                            </div>
+                            {/* Rotate and Remove used to sit side by side in
+                                this corner at a 26px hit area with 4px between
+                                them. On a phone that is a coin-flip between
+                                turning a page and deleting it, so they now take
+                                opposite corners at 44px each. The visible chip
+                                stays 32px; the extra 12px is transparent
+                                padding, which costs nothing visually and is
+                                what the thumb actually lands on. */}
+                            <button
+                              onPointerDown={(e) => e.stopPropagation()}
+                              onClick={() => rotateOrganizeTile(thumb.pageNum)}
+                              className="group/rot absolute top-0 right-0 z-20 w-11 h-11 inline-flex items-center justify-center cursor-pointer touch-manipulation"
+                              title="Rotate 90°"
+                              aria-label={`Rotate page ${thumb.pageNum}`}
+                            >
+                              <span className="w-8 h-8 inline-flex items-center justify-center rounded-md bg-white/90 shadow text-slate-700 transition group-hover/rot:bg-white group-hover/rot:text-[#FF9933] group-active/rot:scale-90">
+                                <RotateCw size={16} />
+                              </span>
+                            </button>
 
-                            <div className="h-40 flex items-center justify-center overflow-hidden bg-white">
+                            <div className="relative h-40 flex items-center justify-center overflow-hidden bg-white">
                               <img
                                 src={thumb.url || PAGE_PREVIEW_FALLBACK}
                                 alt={`Page ${thumb.pageNum}`}
@@ -2571,6 +2556,35 @@ const PdfEditor = ({ toolId }) => {
                                 }}
                                 className="max-h-40 max-w-full w-auto h-auto object-contain pointer-events-none transition-transform"
                               />
+                              <button
+                                onPointerDown={(e) => e.stopPropagation()}
+                                onClick={() =>
+                                  toggleDeleteOrganizeTile(thumb.pageNum)
+                                }
+                                className="group/del absolute bottom-0 right-0 z-20 w-11 h-11 inline-flex items-center justify-center cursor-pointer touch-manipulation"
+                                title={
+                                  thumb.deleted ? "Restore page" : "Remove page"
+                                }
+                                aria-label={
+                                  thumb.deleted
+                                    ? `Restore page ${thumb.pageNum}`
+                                    : `Remove page ${thumb.pageNum}`
+                                }
+                              >
+                                <span
+                                  className={`w-8 h-8 inline-flex items-center justify-center rounded-md shadow transition group-active/del:scale-90 ${
+                                    thumb.deleted
+                                      ? "bg-green-600 text-white group-hover/del:bg-green-700"
+                                      : "bg-white/90 text-slate-700 group-hover/del:bg-white group-hover/del:text-red-600"
+                                  }`}
+                                >
+                                  {thumb.deleted ? (
+                                    <RotateCcw size={16} />
+                                  ) : (
+                                    <Trash2 size={16} />
+                                  )}
+                                </span>
+                              </button>
                             </div>
 
                             <div

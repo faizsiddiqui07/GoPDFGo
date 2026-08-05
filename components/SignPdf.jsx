@@ -333,12 +333,6 @@ export default function SignPdf() {
   };
 
   // ---- Placement drag / resize ----
-  const sigHeightFrac = () => {
-    const sigAR = signature ? signature.w / signature.h : 3;
-    const pageAR = pageSize.w / pageSize.h;
-    return (place.w * pageAR) / sigAR;
-  };
-
   // A finished result belongs to the OLD signature/placement/page — hide the
   // stale "Signed!" download whenever any of those change.
   const invalidateResult = () => {
@@ -491,8 +485,6 @@ export default function SignPdf() {
     arrayBufRef.current = null;
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
-
-  const hF = sigHeightFrac();
 
   return (
     <div className="max-w-7xl mx-auto px-4 pt-8 animate-rise">

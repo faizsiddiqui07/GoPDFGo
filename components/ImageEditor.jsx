@@ -446,7 +446,14 @@ const ImageEditor = ({ toolId }) => {
         .split(",")
         .map((ext) => ext.trim().toLowerCase());
       const validFiles = fileList.filter((f) => {
-        if (tool.config.accept.includes(f.type)) return true;
+        // Android file providers and some cloud pickers hand back a File with
+        // an empty type. Testing that against the accept string matched
+        // everything, because "".includes-style membership is always true for
+        // an empty needle — an .exe with no MIME sailed through. Match the
+        // parsed entries exactly, and only when there is a type to match, so
+        // an unknown MIME falls through to the extension check below.
+        if (f.type && allowedExtensions.includes(f.type.toLowerCase()))
+          return true;
         const ext = "." + f.name.split(".").pop().toLowerCase();
         return allowedExtensions.includes(ext);
       });
@@ -1066,6 +1073,9 @@ const ImageEditor = ({ toolId }) => {
       .sort((a, b) => files[a].size - files[b].size);
 
     for (const i of order) {
+      // A Clear All or a second batch bumps the token. Without this the stale
+      // run keeps decoding files and driving the new run's progress bar.
+      if (batchRunRef.current !== run) break;
       const file = files[i];
       setBatchProgress((prev) => ({
         ...prev,
@@ -1129,6 +1139,13 @@ const ImageEditor = ({ toolId }) => {
             if (blob.size >= file.size && batchOutFmt === file.type) blob = file;
           }
 
+          // The awaits above can outlive the run: a Clear All or a second batch
+          // bumps the token while this file is still in the worker. Everything
+          // below writes to state, so a stale run stops here rather than
+          // appending its result into the new run's list. Bailing out before the
+          // object URL exists also leaves nothing orphaned to revoke.
+          if (batchRunRef.current !== run) return;
+
           const resultUrl = URL.createObjectURL(blob);
           currentUrlsRef.current.batch.push(resultUrl);
 
@@ -1170,6 +1187,7 @@ const ImageEditor = ({ toolId }) => {
           });
         } catch (e) {
           console.error(e);
+          if (batchRunRef.current !== run) return;
           failed.push(file.name);
           processedCount++;
           setBatchProgress((prev) => ({ ...prev, processed: processedCount }));
@@ -1202,14 +1220,14 @@ const ImageEditor = ({ toolId }) => {
     // second, in the same synchronous block — React batched both into one commit,
     // so the overlay unmounted on the very commit that told the bar to finish.
     // Nobody batching 13 images ever saw the bar reach the end.
-    setBatchProgress((prev) => ({
-      ...prev,
-      current: files.length,
-      processed: files.length,
-      eta: 0,
-      activeIndex: -1,
-    }));
     if (batchRunRef.current === run) {
+      setBatchProgress((prev) => ({
+        ...prev,
+        current: files.length,
+        processed: files.length,
+        eta: 0,
+        activeIndex: -1,
+      }));
       // A real macrotask, so React actually flushes and paints 100%, then long
       // enough for .gpg-proc-fill's 0.35s transition to travel there. It costs
       // ~420ms, but it is honest time: the bar is already on screen promising
