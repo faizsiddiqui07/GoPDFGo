@@ -495,12 +495,12 @@ export default function SignPdf() {
               ? router.back()
               : router.push("/")
           }
-          className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
+          className="text-slate-500 hover:text-brand-ink flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-          <PenTool size={28} className="text-orange-500" /> Sign PDF
+          <PenTool size={28} className="text-brand-ink" /> Sign PDF
         </h1>
         {/* Lead paragraph above the widget. Hardcoded here (unlike the other
             tools' tool.leadIn) because SignPdf is a single-tool component with
@@ -531,7 +531,7 @@ export default function SignPdf() {
 
       {!file ? (
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-4 sm:p-8">
-          <div className="border-2 border-dashed border-slate-300 rounded-xl p-10 hover:bg-slate-50 hover:border-[#FF9933] transition-colors cursor-pointer relative text-center">
+          <div className="border-2 border-dashed border-slate-300 rounded-xl p-10 hover:bg-slate-50 hover:border-brand-ink transition-colors cursor-pointer relative text-center">
             <input
               ref={fileInputRef}
               type="file"
@@ -570,7 +570,7 @@ export default function SignPdf() {
                   onClick={() => setSigMode(m.id)}
                   className={`flex-1 py-2 text-sm font-bold rounded-md transition cursor-pointer flex items-center justify-center gap-1.5 ${
                     sigMode === m.id
-                      ? "bg-white text-[#FF9933] shadow-sm"
+                      ? "bg-white text-brand-ink shadow-sm"
                       : "text-slate-500 hover:text-slate-700"
                   }`}
                 >
@@ -600,7 +600,7 @@ export default function SignPdf() {
                   </button>
                   <button
                     onClick={applyDrawn}
-                    className="text-xs font-bold bg-[#FF9933] text-white px-4 py-2 rounded-lg hover:bg-[#e68a2e] cursor-pointer"
+                    className="text-xs font-bold bg-brand-ink text-white px-4 py-2 rounded-lg hover:bg-brand-ink-hover cursor-pointer"
                   >
                     Use this signature
                   </button>
@@ -614,7 +614,7 @@ export default function SignPdf() {
                   value={typedText}
                   onChange={(e) => setTypedText(e.target.value)}
                   placeholder="Type your name"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none font-medium"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none font-medium"
                 />
                 <div className="grid grid-cols-3 gap-2">
                   {SIG_FONTS.map((f, i) => (
@@ -624,7 +624,7 @@ export default function SignPdf() {
                       style={{ fontFamily: f.css }}
                       className={`py-2 rounded-lg border text-lg truncate px-2 cursor-pointer transition ${
                         fontIdx === i
-                          ? "border-[#FF9933] bg-orange-50 text-[#e68a2e]"
+                          ? "border-brand-ink bg-orange-50 text-brand-ink"
                           : "border-slate-200 text-slate-600 hover:border-slate-300"
                       }`}
                     >
@@ -634,7 +634,7 @@ export default function SignPdf() {
                 </div>
                 <button
                   onClick={applyTyped}
-                  className="text-xs font-bold bg-[#FF9933] text-white px-4 py-2 rounded-lg hover:bg-[#e68a2e] cursor-pointer"
+                  className="text-xs font-bold bg-brand-ink text-white px-4 py-2 rounded-lg hover:bg-brand-ink-hover cursor-pointer"
                 >
                   Use this signature
                 </button>
@@ -643,7 +643,7 @@ export default function SignPdf() {
 
             {sigMode === "upload" && (
               <div>
-                <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-[#FF9933] cursor-pointer relative">
+                <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-brand-ink cursor-pointer relative">
                   <input
                     ref={sigUploadRef}
                     type="file"
@@ -651,7 +651,7 @@ export default function SignPdf() {
                     className="absolute inset-0 opacity-0 cursor-pointer z-10"
                     onChange={(e) => onSigUpload(e.target.files?.[0])}
                   />
-                  <ImageIcon className="w-7 h-7 text-[#FF9933] mx-auto mb-2" />
+                  <ImageIcon className="w-7 h-7 text-brand-ink mx-auto mb-2" />
                   <p className="text-sm font-bold text-slate-600">
                     Upload a signature image
                   </p>
@@ -682,7 +682,7 @@ export default function SignPdf() {
                     setSignAllPages(e.target.checked);
                     invalidateResult();
                   }}
-                  className="accent-[#FF9933] w-4 h-4"
+                  className="accent-brand-ink w-4 h-4"
                 />
                 <span className="text-sm font-bold text-slate-700">
                   Place this signature on all {numPages} pages
@@ -697,7 +697,7 @@ export default function SignPdf() {
                 className={`w-full py-3.5 rounded-full font-bold text-white flex items-center justify-center gap-2 transition active:scale-[0.98] touch-manipulation ${
                   !signature || isProcessing
                     ? "bg-slate-300 cursor-not-allowed"
-                    : "bg-[#FF9933] hover:bg-[#e68a2e] shadow-lg shadow-orange-200 cursor-pointer"
+                    : "bg-brand-ink hover:bg-brand-ink-hover shadow-lg shadow-orange-200 cursor-pointer"
                 }`}
               >
                 {isProcessing ? (
@@ -719,7 +719,7 @@ export default function SignPdf() {
                   <a
                     href={downloadUrl}
                     download={`GoPDFGo_signed_${file?.name || "document.pdf"}`}
-                    className="flex-1 bg-[#FF9933] text-white px-6 py-3 rounded-full hover:bg-[#e68a2e] font-bold flex items-center justify-center gap-2 cursor-pointer"
+                    className="flex-1 bg-brand-ink text-white px-6 py-3 rounded-full hover:bg-brand-ink-hover font-bold flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Download size={18} /> Download
                   </a>
@@ -741,7 +741,7 @@ export default function SignPdf() {
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage <= 1}
                 aria-label="Previous page"
-                className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-[#FF9933] cursor-pointer disabled:cursor-not-allowed"
+                className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-brand-ink cursor-pointer disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -752,7 +752,7 @@ export default function SignPdf() {
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage >= numPages}
                 aria-label="Next page"
-                className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-[#FF9933] cursor-pointer disabled:cursor-not-allowed"
+                className="p-2 rounded-lg bg-white border border-slate-200 text-slate-600 disabled:opacity-40 hover:border-brand-ink cursor-pointer disabled:cursor-not-allowed"
               >
                 <ChevronRight size={18} />
               </button>
@@ -775,7 +775,7 @@ export default function SignPdf() {
 
                 {signature && (
                   <div
-                    className="absolute border-2 border-[#FF9933]/70 border-dashed group"
+                    className="absolute border-2 border-brand-ink border-dashed group"
                     style={{
                       left: `${place.x * 100}%`,
                       top: `${place.y * 100}%`,
@@ -794,12 +794,12 @@ export default function SignPdf() {
                       className="absolute inset-0 cursor-move"
                       onPointerDown={(e) => onDragStart(e, "move")}
                     />
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FF9933] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 pointer-events-none">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-ink text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 pointer-events-none">
                       <Move size={10} /> drag
                     </div>
                     {/* resize handle */}
                     <div
-                      className="absolute -bottom-2 -right-2 w-5 h-5 bg-white border-2 border-[#FF9933] rounded-full cursor-nwse-resize shadow"
+                      className="absolute -bottom-2 -right-2 w-5 h-5 bg-white border-2 border-brand-ink rounded-full cursor-nwse-resize shadow"
                       onPointerDown={(e) => onDragStart(e, "resize")}
                     />
                   </div>

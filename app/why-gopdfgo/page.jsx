@@ -136,14 +136,14 @@ export default function WhyGoPdfGoPage() {
                 When you use our{" "}
                 <Link
                   href="/compress-pdf"
-                  className="text-[#FF9933] font-bold hover:underline"
+                  className="text-brand-ink font-bold underline underline-offset-2"
                 >
                   PDF Compressor
                 </Link>{" "}
                 or{" "}
                 <Link
                   href="/image-to-pdf"
-                  className="text-[#FF9933] font-bold hover:underline"
+                  className="text-brand-ink font-bold underline underline-offset-2"
                 >
                   Image Converter
                 </Link>
@@ -179,7 +179,7 @@ export default function WhyGoPdfGoPage() {
                 </li>
                 <li className="flex gap-4">
                   <div className="bg-white p-3 rounded-xl shadow-sm h-fit">
-                    <Zap className="text-[#FF9933]" size={22} />
+                    <Zap className="text-brand-ink" size={22} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900">
@@ -242,7 +242,7 @@ export default function WhyGoPdfGoPage() {
               <strong>Solution:</strong> Use GoPDFGo’s{" "}
               <Link
                 href="/aadhaar-masking"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 ID Masking
               </Link>{" "}
@@ -273,7 +273,7 @@ export default function WhyGoPdfGoPage() {
               Compress or{" "}
               <Link
                 href="/split-pdf"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Split heavy textbooks
               </Link>{" "}
@@ -303,7 +303,7 @@ export default function WhyGoPdfGoPage() {
               <strong>Solution:</strong> Use our{" "}
               <Link
                 href="/convert-png"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Lossless PNG Converter
               </Link>{" "}
@@ -366,7 +366,7 @@ export default function WhyGoPdfGoPage() {
           <div className="flex gap-2 sm:gap-6 justify-center items-center">
             <Link
               href="/"
-              className="bg-[#FF9933] text-white px-2 sm:px-6 md:px-10 py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-[#e68a2e] transition shadow-lg shadow-orange-500/30 w-auto"
+              className="bg-brand-ink text-white px-2 sm:px-6 md:px-10 py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-brand-ink-hover transition shadow-lg shadow-orange-500/30 w-auto"
             >
               Explore All Tools
             </Link>

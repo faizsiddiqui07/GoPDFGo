@@ -98,13 +98,13 @@ const Header = () => {
           <nav className="hidden md:flex items-center gap-1">
             <Link
               href="/merge-pdf"
-              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-[#FF9933] hover:bg-orange-50 rounded-full transition-all duration-200"
+              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-brand-ink hover:bg-orange-50 rounded-full transition-all duration-200"
             >
               Merge PDF
             </Link>
             <Link
               href="/qr-generator"
-              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-[#FF9933] hover:bg-orange-50 rounded-full transition-all duration-200"
+              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-brand-ink hover:bg-orange-50 rounded-full transition-all duration-200"
             >
               QR Code
             </Link>
@@ -122,7 +122,7 @@ const Header = () => {
                 }
                 aria-expanded={activeDropdown === "pdf"}
                 aria-haspopup="true"
-                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
+                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-brand-ink bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
               >
                 All PDF Tools{" "}
                 <ChevronDown
@@ -140,7 +140,7 @@ const Header = () => {
                 <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-5 grid grid-cols-3 gap-5 relative overflow-hidden">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-2">
-                      <div className="bg-orange-100 p-1.5 rounded-lg text-[#FF9933]">
+                      <div className="bg-orange-100 p-1.5 rounded-lg text-brand-ink">
                         <FileText size={16} />
                       </div>
                       <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">
@@ -154,11 +154,11 @@ const Header = () => {
                         onClick={() => setActiveDropdown(null)}
                         className="w-full text-left px-3 py-2.5 rounded-lg flex items-start gap-3 hover:bg-slate-50 group/item transition-colors"
                       >
-                        <div className="text-slate-400 group-hover/item:text-[#FF9933] transition-colors mt-0.5">
+                        <div className="text-slate-400 group-hover/item:text-brand-ink transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
                         <div className="min-w-0">
-                          <span className="font-bold text-slate-700 text-sm block group-hover/item:text-[#FF9933] transition-colors">
+                          <span className="font-bold text-slate-700 text-sm block group-hover/item:text-brand-ink transition-colors">
                             {tool.title}
                           </span>
                           <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
@@ -246,7 +246,7 @@ const Header = () => {
                 }
                 aria-expanded={activeDropdown === "image"}
                 aria-haspopup="true"
-                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-[#FF9933] bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
+                className="flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-slate-700 hover:text-brand-ink bg-white border border-slate-200 hover:border-orange-200 hover:bg-orange-50 rounded-full transition-all duration-200 shadow-sm hover:shadow-md group-hover:ring-2 ring-orange-100 ring-offset-2"
               >
                 Image Tools{" "}
                 <ChevronDown
@@ -264,7 +264,7 @@ const Header = () => {
                 <div className="bg-white border border-slate-100 shadow-2xl rounded-2xl p-5 grid grid-cols-3 gap-5 relative overflow-hidden">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 pb-3 border-b border-slate-100 mb-2">
-                      <div className="bg-orange-100 p-1.5 rounded-lg text-[#FF9933]">
+                      <div className="bg-orange-100 p-1.5 rounded-lg text-brand-ink">
                         <Maximize2 size={16} />
                       </div>
                       <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">
@@ -278,11 +278,11 @@ const Header = () => {
                         onClick={() => setActiveDropdown(null)}
                         className="w-full text-left px-3 py-2.5 rounded-lg flex items-start gap-3 hover:bg-slate-50 group/item transition-colors"
                       >
-                        <div className="text-slate-400 group-hover/item:text-[#FF9933] transition-colors mt-0.5">
+                        <div className="text-slate-400 group-hover/item:text-brand-ink transition-colors mt-0.5">
                           {getToolIcon(tool.id)}
                         </div>
                         <div className="min-w-0">
-                          <span className="font-bold text-slate-700 text-sm block group-hover/item:text-[#FF9933] transition-colors">
+                          <span className="font-bold text-slate-700 text-sm block group-hover/item:text-brand-ink transition-colors">
                             {tool.title}
                           </span>
                           <span className="text-[11px] text-slate-400 leading-tight block mt-0.5 truncate">
@@ -361,7 +361,7 @@ const Header = () => {
                 reviewer included — ever saw them. */}
             <Link
               href="/blogs"
-              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-[#FF9933] hover:bg-orange-50 rounded-full transition-all duration-200 active:scale-[0.97] touch-manipulation"
+              className="flex items-center gap-2 px-3 lg:px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-brand-ink hover:bg-orange-50 rounded-full transition-all duration-200 active:scale-[0.97] touch-manipulation"
             >
               Blog
             </Link>
@@ -400,24 +400,24 @@ const Header = () => {
           <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
             <Link
               href="/merge-pdf"
-              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-brand-ink transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
-              <Layers size={20} className="text-[#FF9933]" /> Merge PDF
+              <Layers size={20} className="text-brand-ink" /> Merge PDF
             </Link>
             <Link
               href="/qr-generator"
-              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-brand-ink transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
-              <QrCode size={20} className="text-[#FF9933]" /> QR Code Generator
+              <QrCode size={20} className="text-brand-ink" /> QR Code Generator
             </Link>
             <Link
               href="/blogs"
-              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-[#FF9933] transition active:scale-[0.97] touch-manipulation"
+              className="w-full flex items-center gap-3 p-4 bg-slate-50 rounded-xl font-bold text-slate-700 hover:bg-orange-50 hover:text-brand-ink transition active:scale-[0.97] touch-manipulation"
               onClick={toggleMobileMenu}
             >
-              <BookOpen size={20} className="text-[#FF9933]" /> Blog
+              <BookOpen size={20} className="text-brand-ink" /> Blog
             </Link>
 
             <div className="border border-slate-200 rounded-xl overflow-hidden">

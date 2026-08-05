@@ -97,7 +97,7 @@ export default function TermsAndConditionPage() {
               express or implied, regarding the operation of our tools (such as{" "}
               <Link
                 href="/image-to-pdf"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Image to PDF
               </Link>
@@ -175,7 +175,7 @@ export default function TermsAndConditionPage() {
             Questions regarding these terms? Please contact us at{" "}
             <a
               href="mailto:contact.gopdfgo@gmail.com"
-              className="text-[#FF9933] hover:underline font-medium"
+              className="text-brand-ink underline underline-offset-2 font-medium"
             >
               contact.gopdfgo@gmail.com
             </a>

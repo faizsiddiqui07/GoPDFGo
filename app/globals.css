@@ -10,6 +10,23 @@
   --color-foreground: var(--foreground);
 }
 
+/* ===== Brand colour roles ================================================
+   #FF9933 (flag saffron) measures 2.13:1 on white. That fails AA for text
+   (4.5:1) and the 3:1 floor for meaningful icons and borders -- and white ON
+   saffron is also 2.13:1, so filled buttons failed just as badly.
+
+   Saffron is still the brand: it fills decoration, gradients and large
+   ornamental icons, and on dark surfaces it already clears AA on its own.
+   brand-ink carries everything that has to be read or acted on -- body links,
+   small icons, state borders, focus rings, and the fill behind white button
+   labels. Measured: 5.18 on white, 4.95 on slate-50, 4.88 on orange-50,
+   4.52 on orange-100, and 5.18 for white text sitting on it. */
+@theme {
+  --color-brand: #ff9933;
+  --color-brand-ink: #c2410c;
+  --color-brand-ink-hover: #9a3412;
+}
+
 /* Entrance animations referenced across components (were undefined -> no-ops) */
 @theme {
   --animate-fade-in: fadeIn 0.4s ease-out both;
@@ -317,7 +334,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffb866, #ff9933);
+  background: linear-gradient(90deg, #ea580c, #c2410c);
   transform-origin: left center;
   transform: scaleX(0);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -331,7 +348,7 @@ body {
   left: 0;
   width: 40%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffb866, #ff9933);
+  background: linear-gradient(90deg, #ea580c, #c2410c);
   animation: gpgProcSlide 1.4s ease-in-out infinite;
 }
 
@@ -352,7 +369,7 @@ body {
 
 .gpg-proc-meta span:first-child {
   font-weight: 700;
-  color: #ff9933;
+  color: var(--color-brand-ink);
 }
 
 /* keep the % centred when there is no ETA yet */

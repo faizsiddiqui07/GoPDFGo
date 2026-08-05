@@ -32,7 +32,7 @@ export default function AboutPage() {
       ========================================= */}
       <div className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
-          We are redefining <span className="text-[#FF9933]">Privacy</span> in{" "}
+          We are redefining <span className="text-brand-ink">Privacy</span> in{" "}
           <br className="hidden md:block" />
           Document Processing.
         </h1>
@@ -45,21 +45,21 @@ export default function AboutPage() {
           . We empower students, legal professionals, and businesses to{" "}
           <Link
             href="/merge-pdf"
-            className="text-[#FF9933] font-medium hover:underline"
+            className="text-brand-ink font-medium underline underline-offset-2"
           >
             Merge
           </Link>
           ,{" "}
           <Link
             href="/compress-pdf"
-            className="text-[#FF9933] font-medium hover:underline"
+            className="text-brand-ink font-medium underline underline-offset-2"
           >
             Compress
           </Link>
           , and{" "}
           <Link
             href="/split-pdf" // Link corrected (assuming /split-pdf or similar exists, updated from /edit-pdf if needed, but left as your text requested)
-            className="text-[#FF9933] font-medium hover:underline"
+            className="text-brand-ink font-medium underline underline-offset-2"
           >
             Edit
           </Link>{" "}
@@ -133,7 +133,7 @@ export default function AboutPage() {
           </p>
           <div className="mt-6 p-4 bg-white rounded-xl border border-orange-200 shadow-sm">
             <p className="text-sm text-slate-500">
-              <span className="font-bold text-[#FF9933]">
+              <span className="font-bold text-brand-ink">
                 Our Architecture:
               </span>{" "}
               Your Browser (Chrome/Edge/Safari) acts as the server. The
@@ -159,10 +159,10 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-10 md:mb-14">
           {/* Card 1: Zero-Upload Policy */}
-          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-[#FF9933]/30 transition duration-300">
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-brand-ink transition duration-300">
             <div className="mb-2 sm:mb-0 flex items-center gap-x-4">
               <div className="bg-slate-50 w-12 sm:w-14 h-12 sm:h-14 rounded-xl flex items-center justify-center shadow-sm mb-0 sm:mb-6">
-                <Shield className="w-7 h-7 text-[#FF9933]" />
+                <Shield className="w-7 h-7 text-brand-ink" />
               </div>
               <h3 className="block sm:hidden text-xl font-bold text-slate-900">
                 Zero-Upload Policy
@@ -177,7 +177,7 @@ export default function AboutPage() {
               use our{" "}
               <Link
                 href="/aadhaar-masking"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Aadhaar Masking
               </Link>{" "}
@@ -189,10 +189,10 @@ export default function AboutPage() {
             </p>
           </div>
           {/* Card 2: Lightning Fast */}
-          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-[#FF9933]/30 transition duration-300">
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-brand-ink transition duration-300">
             <div className="mb-2 sm:mb-0 flex items-center gap-x-4">
               <div className="bg-slate-50 w-12 sm:w-14 h-12 sm:h-14 rounded-xl flex items-center justify-center shadow-sm mb-0 sm:mb-6">
-                <Zap className="w-7 h-7 text-[#FF9933]" />
+                <Zap className="w-7 h-7 text-brand-ink" />
               </div>
               <h3 className="block sm:hidden text-xl font-bold text-slate-900">
                 Lightning Fast
@@ -206,7 +206,7 @@ export default function AboutPage() {
               tools like{" "}
               <Link
                 href="/image-to-pdf"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Image to PDF
               </Link>{" "}
@@ -219,10 +219,10 @@ export default function AboutPage() {
           </div>
 
           {/* Card 3: Accessible to All */}
-          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-[#FF9933]/30 transition duration-300">
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border border-slate-100 hover:border-brand-ink transition duration-300">
             <div className="mb-2 sm:mb-0 flex items-center gap-x-4">
               <div className="bg-slate-50 w-12 sm:w-14 h-12 sm:h-14 rounded-xl flex items-center justify-center shadow-sm mb-0 sm:mb-6">
-                <Globe className="w-7 h-7 text-[#FF9933]" />
+                <Globe className="w-7 h-7 text-brand-ink" />
               </div>
               <h3 className="block sm:hidden text-xl font-bold text-slate-900">
                 Accessible to All
@@ -236,7 +236,7 @@ export default function AboutPage() {
               product. That's why high-end features like{" "}
               <Link
                 href="/compress-pdf"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 PDF Compression
               </Link>
@@ -273,7 +273,7 @@ export default function AboutPage() {
           <div className="flex gap-2 sm:gap-4 justify-center md:justify-start">
             <Link
               href="/contact"
-              className="text-sm sm:text-base inline-flex items-center gap-2 bg-[#FF9933] text-white px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 rounded-xl font-bold hover:bg-orange-600 transition shadow-lg shadow-orange-500/20"
+              className="text-sm sm:text-base inline-flex items-center gap-2 bg-brand-ink text-white px-3 sm:px-6 md:px-8 py-2.5 sm:py-3.5 rounded-xl font-bold hover:bg-brand-ink-hover transition shadow-lg shadow-orange-500/20"
             >
               Contact Our Team
             </Link>
@@ -336,7 +336,7 @@ export default function AboutPage() {
               something breaks or a tool you need is missing,{" "}
               <Link
                 href="/contact"
-                className="text-[#FF9933] font-semibold hover:underline"
+                className="text-brand-ink font-semibold underline underline-offset-2"
               >
                 the contact page
               </Link>{" "}

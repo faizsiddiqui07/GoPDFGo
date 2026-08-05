@@ -33,7 +33,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/merge-pdf"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Merge PDF
                 </Link>
@@ -41,7 +41,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/compress-pdf"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Compress PDF
                 </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/image-to-pdf"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Image to PDF
                 </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/aadhaar-masking"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Mask Aadhaar
                 </Link>
@@ -70,19 +70,19 @@ const Footer = () => {
             <h4 className="text-slate-900 font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li>
-                <Link href="/about" className="hover:text-[#FF9933] transition">
+                <Link href="/about" className="hover:text-brand-ink transition">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className="hover:text-[#FF9933] transition">
+                <Link href="/blogs" className="hover:text-brand-ink transition">
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
                   href="/why-gopdfgo"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Why GoPDFGo?
                 </Link>
@@ -90,7 +90,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/how-it-works"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   How it Works
                 </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Contact Us
                 </Link>
@@ -113,7 +113,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/merge-pdf"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Merge PDF
                   </Link>
@@ -121,7 +121,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/compress-pdf"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Compress PDF
                   </Link>
@@ -129,7 +129,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/image-to-pdf"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Image to PDF
                   </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/aadhaar-masking"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Mask Aadhaar
                   </Link>
@@ -152,7 +152,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/about"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     About Us
                   </Link>
@@ -160,7 +160,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/blogs"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Blog
                   </Link>
@@ -168,7 +168,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/why-gopdfgo"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Why GoPDFGo?
                   </Link>
@@ -176,7 +176,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/how-it-works"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     How it Works
                   </Link>
@@ -184,7 +184,7 @@ const Footer = () => {
                 <li>
                   <Link
                     href="/contact"
-                    className="hover:text-[#FF9933] transition"
+                    className="hover:text-brand-ink transition"
                   >
                     Contact Us
                   </Link>
@@ -200,13 +200,13 @@ const Footer = () => {
               <li>
                 <Link
                   href="/privacy"
-                  className="hover:text-[#FF9933] transition"
+                  className="hover:text-brand-ink transition"
                 >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="hover:text-[#FF9933] transition">
+                <Link href="/terms" className="hover:text-brand-ink transition">
                   Terms & Conditions
                 </Link>
               </li>
@@ -235,37 +235,37 @@ const Footer = () => {
           <div className="flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-sm text-slate-600">
             <Link
               href="/blog/never-upload-bank-statements-free-pdf-sites"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Never Upload Bank Statements to Free PDF Sites
             </Link>
             <Link
               href="/blog/best-secure-alternatives-ilovepdf-smallpdf"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Secure Alternatives to iLovePDF &amp; Smallpdf
             </Link>
             <Link
               href="/blog/optimize-pdf-under-50kb-government-recruitment-forms"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Optimize PDF Under 50KB for Govt Forms
             </Link>
             <Link
               href="/blog/compress-jpg-under-20kb-online-forms"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Compress JPG Under 20KB for Online Forms
             </Link>
             <Link
               href="/blog/local-pdf-processing-vs-cloud-tools-safer"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Local PDF Processing vs Cloud Tools
             </Link>
             <Link
               href="/blog/merge-marksheets-pdf-govt-jobs"
-              className="hover:text-[#FF9933] transition"
+              className="hover:text-brand-ink transition"
             >
               Merge Marksheets into One PDF
             </Link>
@@ -278,12 +278,12 @@ const Footer = () => {
           </h4>
           <ul className="space-y-2 text-sm text-slate-600 flex justify-around items-center gap-x-2 md:hidden">
             <li>
-              <Link href="/privacy" className="hover:text-[#FF9933] transition">
+              <Link href="/privacy" className="hover:text-brand-ink transition">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-[#FF9933] transition">
+              <Link href="/terms" className="hover:text-brand-ink transition">
                 Terms & Conditions
               </Link>
             </li>

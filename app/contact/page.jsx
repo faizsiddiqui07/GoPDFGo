@@ -35,7 +35,7 @@ export default function ContactPage() {
         <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
           GoPDFGo is built by developers who care about privacy. Whether you
           have a feature request for our{" "}
-          <Link href="/" className="text-[#FF9933] font-medium hover:underline">
+          <Link href="/" className="text-brand-ink font-medium underline underline-offset-2">
             PDF tools
           </Link>
           , found a bug, or just want to say hi, we are listening.
@@ -53,7 +53,7 @@ export default function ContactPage() {
           <div className="relative z-10">
             <div className="flex items-center gap-x-3 mb-3 md:mb-0">
               <div className="w-10 sm:w-14 h-10 sm:h-14 bg-orange-100 rounded-2xl flex items-center justify-center md:mb-6">
-                <Mail className="w-5 sm:w-7 h-5 sm:h-7 text-[#FF9933]" />
+                <Mail className="w-5 sm:w-7 h-5 sm:h-7 text-brand-ink" />
               </div>
               <h2 className="block md:hidden text-2xl font-bold text-slate-900">
                 General Support
@@ -76,7 +76,7 @@ export default function ContactPage() {
 
             <a
               href="mailto:contact.gopdfgo@gmail.com"
-              className="inline-flex items-center gap-2 text-[#FF9933] font-bold text-lg hover:underline"
+              className="inline-flex items-center gap-2 text-brand-ink font-bold text-lg hover:underline"
             >
               contact.gopdfgo@gmail.com
             </a>
@@ -192,7 +192,7 @@ export default function ContactPage() {
               Absolutely! Many of our tools, like the{" "}
               <Link
                 href="/image-to-pdf"
-                className="text-[#FF9933] hover:underline"
+                className="text-brand-ink underline underline-offset-2"
               >
                 Image to PDF converter
               </Link>

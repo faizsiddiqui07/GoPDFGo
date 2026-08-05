@@ -1864,12 +1864,12 @@ const PdfEditor = ({ toolId }) => {
       <div className="mb-6">
         <button
           onClick={goBackToTools}
-          className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
+          className="text-slate-500 hover:text-brand-ink flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
         <h1 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
-          <tool.icon size={28} className="text-orange-500" /> {tool.title}
+          <tool.icon size={28} className="text-brand-ink" /> {tool.title}
         </h1>
         {/* A real lead paragraph above the widget: the first screen used to be
             "title + tool UI" with all editorial content below the fold, which is
@@ -1891,7 +1891,7 @@ const PdfEditor = ({ toolId }) => {
         />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">
-          <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 hover:bg-white hover:border-[#FF9933] transition-colors cursor-pointer relative group">
+          <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 hover:bg-white hover:border-brand-ink transition-colors cursor-pointer relative group">
             <input
               ref={fileInputRef}
               key={files.length}
@@ -1961,7 +1961,7 @@ const PdfEditor = ({ toolId }) => {
                   onClick={() => setPdfSizeMode("best")}
                   className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
                     pdfSizeMode === "best"
-                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      ? "bg-white text-brand-ink shadow-sm"
                       : "text-slate-500 hover:text-slate-700"
                   }`}
                 >
@@ -1972,7 +1972,7 @@ const PdfEditor = ({ toolId }) => {
                   onClick={() => setPdfSizeMode("target")}
                   className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
                     pdfSizeMode === "target"
-                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      ? "bg-white text-brand-ink shadow-sm"
                       : "text-slate-500 hover:text-slate-700"
                   }`}
                 >
@@ -1994,7 +1994,7 @@ const PdfEditor = ({ toolId }) => {
                         onClick={() => setPdfTargetKB(kb)}
                         className={`px-4 py-2 rounded-lg text-sm font-bold border transition cursor-pointer ${
                           Number(pdfTargetKB) === kb
-                            ? "bg-orange-100 border-orange-300 text-[#e68a2e]"
+                            ? "bg-orange-100 border-orange-300 text-brand-ink"
                             : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
                         }`}
                       >
@@ -2088,7 +2088,7 @@ const PdfEditor = ({ toolId }) => {
                             </div>
                           )}
                           {isDraggable && (
-                            <div className="absolute -top-2 -left-2 w-6 h-6 bg-[#FF9933] text-white text-xs rounded-full flex items-center justify-center font-bold shadow-sm z-10">
+                            <div className="absolute -top-2 -left-2 w-6 h-6 bg-brand-ink text-white text-xs rounded-full flex items-center justify-center font-bold shadow-sm z-10">
                               {idx + 1}
                             </div>
                           )}
@@ -2181,7 +2181,7 @@ const PdfEditor = ({ toolId }) => {
                       onClick={() => setPdfPageSize(o.v)}
                       className={`px-5 py-2.5 rounded-xl font-bold transition cursor-pointer ${
                         pdfPageSize === o.v
-                          ? "bg-[#FF9933] text-white shadow-lg"
+                          ? "bg-brand-ink text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -2207,7 +2207,7 @@ const PdfEditor = ({ toolId }) => {
                       onClick={() => setPdfOrientation("portrait")}
                       className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
                         pdfOrientation === "portrait"
-                          ? "bg-[#FF9933] text-white shadow-lg"
+                          ? "bg-brand-ink text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -2217,7 +2217,7 @@ const PdfEditor = ({ toolId }) => {
                       onClick={() => setPdfOrientation("landscape")}
                       className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
                         pdfOrientation === "landscape"
-                          ? "bg-[#FF9933] text-white shadow-lg"
+                          ? "bg-brand-ink text-white shadow-lg"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -2246,7 +2246,7 @@ const PdfEditor = ({ toolId }) => {
                     onClick={() => changeSplitMode("all")}
                     className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
                       splitMode === "all"
-                        ? "bg-[#FF9933] text-white shadow-lg"
+                        ? "bg-brand-ink text-white shadow-lg"
                         : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                     }`}
                   >
@@ -2257,7 +2257,7 @@ const PdfEditor = ({ toolId }) => {
                     onClick={() => changeSplitMode("select")}
                     className={`text-sm px-4 sm:px-6 py-3 rounded-xl font-bold transition flex items-center gap-2 cursor-pointer ${
                       splitMode === "select"
-                        ? "bg-[#FF9933] text-white shadow-lg"
+                        ? "bg-brand-ink text-white shadow-lg"
                         : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                     }`}
                   >
@@ -2285,7 +2285,7 @@ const PdfEditor = ({ toolId }) => {
                           value={rangeInput}
                           onChange={handleRangeInput}
                           placeholder="Enter pages or select below..."
-                          className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none text-lg font-medium"
+                          className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none text-lg font-medium"
                         />
                       </div>
                     )}
@@ -2299,7 +2299,7 @@ const PdfEditor = ({ toolId }) => {
                           onClick={() => togglePageSelection(thumb.pageNum)}
                           className={`relative group rounded-lg overflow-hidden border-2 transition-all bg-white shadow-sm ${
                             selectedPages.has(thumb.pageNum)
-                              ? "border-[#FF9933] ring-4 ring-[#FF9933]/20"
+                              ? "border-brand-ink ring-4 ring-brand/30"
                               : "border-slate-200"
                           } ${
                             splitMode === "select"
@@ -2316,7 +2316,7 @@ const PdfEditor = ({ toolId }) => {
                             Page {thumb.pageNum}
                           </div>
                           {selectedPages.has(thumb.pageNum) && (
-                            <div className="absolute top-2 right-2 bg-[#FF9933] text-white rounded-full p-1 shadow-md">
+                            <div className="absolute top-2 right-2 bg-brand-ink text-white rounded-full p-1 shadow-md">
                               <Check size={16} strokeWidth={3} />
                             </div>
                           )}
@@ -2340,13 +2340,13 @@ const PdfEditor = ({ toolId }) => {
               <div className="flex gap-4 justify-center mb-6">
                 <button
                   onClick={() => rotateAllPages(-90)}
-                  className="px-6 py-3 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:text-[#FF9933] hover:border-[#FF9933] transition flex items-center gap-2 shadow-sm cursor-pointer"
+                  className="px-6 py-3 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:text-brand-ink hover:border-brand-ink transition flex items-center gap-2 shadow-sm cursor-pointer"
                 >
                   <RotateCcw size={18} /> Rotate All Left
                 </button>
                 <button
                   onClick={() => rotateAllPages(90)}
-                  className="px-6 py-3 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:text-[#FF9933] hover:border-[#FF9933] transition flex items-center gap-2 shadow-sm cursor-pointer"
+                  className="px-6 py-3 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:text-brand-ink hover:border-brand-ink transition flex items-center gap-2 shadow-sm cursor-pointer"
                 >
                   <RotateCw size={18} /> Rotate All Right
                 </button>
@@ -2354,7 +2354,7 @@ const PdfEditor = ({ toolId }) => {
 
               {/* ✅ BUG FIX: Mobile Instruction Hint */}
               <div className="sm:hidden flex justify-center mb-4 animate-fade-in">
-                <p className="text-xs font-bold bg-orange-50 text-[#FF9933] px-4 py-2 rounded-full flex items-center gap-2 border border-orange-100 shadow-sm">
+                <p className="text-xs font-bold bg-orange-50 text-brand-ink px-4 py-2 rounded-full flex items-center gap-2 border border-orange-100 shadow-sm">
                   <RotateCw size={14} /> Tap on any page to rotate it individually
                 </p>
               </div>
@@ -2394,7 +2394,7 @@ const PdfEditor = ({ toolId }) => {
                             onClick={() =>
                               rotateSinglePage(thumb.pageNum - 1, 90)
                             }
-                            className="bg-white/95 sm:bg-white text-slate-800 p-3 rounded-full shadow-lg hover:text-[#FF9933] transform hover:scale-110 transition cursor-pointer flex items-center justify-center"
+                            className="bg-white/95 sm:bg-white text-slate-800 p-3 rounded-full shadow-lg hover:text-brand-ink transform hover:scale-110 transition cursor-pointer flex items-center justify-center"
                             title="Rotate Right"
                           >
                             <RotateCw size={22} className="sm:w-6 sm:h-6" />
@@ -2422,7 +2422,7 @@ const PdfEditor = ({ toolId }) => {
           {isMounted && files.length > 0 && tool.id === "rearrange-pdf" && (
             <div className="mb-8 animate-fade-in">
               <div className="text-center mb-6">
-                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                <p className="text-sm font-bold bg-orange-50 text-brand-ink inline-block px-4 py-2 rounded-full">
                   <GripVertical size={16} className="inline mr-1 mb-0.5" />
                   Drag and Drop pages to reorder them
                 </p>
@@ -2451,7 +2451,7 @@ const PdfEditor = ({ toolId }) => {
                         <SortableItemWrapper
                           key={`page-${thumb.pageNum}`}
                           id={thumb.pageNum.toString()}
-                          className="relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
+                          className="relative group bg-white border-2 border-slate-200 hover:border-brand-ink rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
                         >
                           <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
                             Original Page {thumb.pageNum}
@@ -2483,7 +2483,7 @@ const PdfEditor = ({ toolId }) => {
           {isMounted && files.length > 0 && tool.id === "organize-pdf" && (
             <div className="mb-8 animate-fade-in">
               <div className="text-center mb-6">
-                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                <p className="text-sm font-bold bg-orange-50 text-brand-ink inline-block px-4 py-2 rounded-full">
                   <GripVertical size={16} className="inline mr-1 mb-0.5" />
                   Drag to reorder · rotate or remove any page
                 </p>
@@ -2520,7 +2520,7 @@ const PdfEditor = ({ toolId }) => {
                             className={`relative group bg-white border-2 rounded-lg overflow-hidden transition-all shadow-sm touch-none select-none ${
                               thumb.deleted
                                 ? "border-red-200 opacity-60"
-                                : "border-slate-200 hover:border-[#FF9933] cursor-grab active:cursor-grabbing"
+                                : "border-slate-200 hover:border-brand-ink cursor-grab active:cursor-grabbing"
                             }`}
                           >
                             <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
@@ -2542,7 +2542,7 @@ const PdfEditor = ({ toolId }) => {
                               title="Rotate 90°"
                               aria-label={`Rotate page ${thumb.pageNum}`}
                             >
-                              <span className="w-8 h-8 inline-flex items-center justify-center rounded-md bg-white/90 shadow text-slate-700 transition group-hover/rot:bg-white group-hover/rot:text-[#FF9933] group-active/rot:scale-90">
+                              <span className="w-8 h-8 inline-flex items-center justify-center rounded-md bg-white/90 shadow text-slate-700 transition group-hover/rot:bg-white group-hover/rot:text-brand-ink group-active/rot:scale-90">
                                 <RotateCw size={16} />
                               </span>
                             </button>
@@ -2623,7 +2623,7 @@ const PdfEditor = ({ toolId }) => {
                           prev.map((t) => ({ ...t, deleted: false })),
                         )
                       }
-                      className="ml-2 text-[#FF9933] font-bold hover:underline cursor-pointer"
+                      className="ml-2 text-brand-ink font-bold underline underline-offset-2 cursor-pointer"
                     >
                       Restore all
                     </button>
@@ -2653,8 +2653,8 @@ const PdfEditor = ({ toolId }) => {
                     onClick={() => setOcrLang(l.v)}
                     className={`px-2 py-3 rounded-xl border text-center transition active:scale-95 touch-manipulation cursor-pointer ${
                       ocrLang === l.v
-                        ? "bg-[#FF9933] text-white border-[#FF9933] shadow-md"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                        ? "bg-brand-ink text-white border-brand-ink shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink"
                     }`}
                   >
                     <span className="block text-sm font-bold">{l.label}</span>
@@ -2684,7 +2684,7 @@ const PdfEditor = ({ toolId }) => {
                   onClick={() => setImgFormat("image/jpeg")}
                   className={`px-8 py-3 rounded-xl font-bold transition cursor-pointer ${
                     imgFormat === "image/jpeg"
-                      ? "bg-[#FF9933] text-white shadow-lg"
+                      ? "bg-brand-ink text-white shadow-lg"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   }`}
                 >
@@ -2694,7 +2694,7 @@ const PdfEditor = ({ toolId }) => {
                   onClick={() => setImgFormat("image/png")}
                   className={`px-8 py-3 rounded-xl font-bold transition cursor-pointer ${
                     imgFormat === "image/png"
-                      ? "bg-[#FF9933] text-white shadow-lg"
+                      ? "bg-brand-ink text-white shadow-lg"
                       : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   }`}
                 >
@@ -2717,8 +2717,8 @@ const PdfEditor = ({ toolId }) => {
                       onClick={() => setImgQuality(q.v)}
                       className={`text-xs font-bold px-3 py-1.5 rounded-full border transition cursor-pointer ${
                         imgQuality === q.v
-                          ? "bg-[#FF9933] text-white border-[#FF9933]"
-                          : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                          ? "bg-brand-ink text-white border-brand-ink"
+                          : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink"
                       }`}
                     >
                       {q.label}
@@ -2728,7 +2728,7 @@ const PdfEditor = ({ toolId }) => {
               )}
 
               <div className="text-center mb-4">
-                <p className="text-sm font-bold bg-orange-50 text-[#FF9933] inline-block px-4 py-2 rounded-full">
+                <p className="text-sm font-bold bg-orange-50 text-brand-ink inline-block px-4 py-2 rounded-full">
                   Tap pages to include or exclude them —{" "}
                   {selectedPages.size} of {thumbnails.length || "…"} selected
                 </p>
@@ -2758,12 +2758,12 @@ const PdfEditor = ({ toolId }) => {
                         }
                         className={`relative rounded-lg overflow-hidden border-2 bg-white shadow-sm text-left cursor-pointer transition ${
                           isOn
-                            ? "border-[#FF9933]"
+                            ? "border-brand-ink"
                             : "border-slate-200 opacity-50"
                         }`}
                       >
                         {isOn && (
-                          <div className="absolute top-1 right-1 bg-[#FF9933] text-white rounded-full p-1 z-10">
+                          <div className="absolute top-1 right-1 bg-brand-ink text-white rounded-full p-1 z-10">
                             <Check size={12} />
                           </div>
                         )}
@@ -2873,7 +2873,7 @@ const PdfEditor = ({ toolId }) => {
                       onClick={() => setPageNumPos(p.id)}
                       className={`py-2.5 px-2 rounded-lg font-bold text-xs sm:text-sm transition cursor-pointer ${
                         pageNumPos === p.id
-                          ? "bg-[#FF9933] text-white shadow"
+                          ? "bg-brand-ink text-white shadow"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                       }`}
                     >
@@ -2898,7 +2898,7 @@ const PdfEditor = ({ toolId }) => {
                         onClick={() => setPageNumFormat(f.id)}
                         className={`flex-1 py-2 px-2 rounded-lg font-bold text-xs transition cursor-pointer ${
                           pageNumFormat === f.id
-                            ? "bg-[#FF9933] text-white shadow"
+                            ? "bg-brand-ink text-white shadow"
                             : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                         }`}
                       >
@@ -2918,7 +2918,7 @@ const PdfEditor = ({ toolId }) => {
                     onChange={(e) =>
                       setPageNumStart(parseInt(e.target.value) || 1)
                     }
-                    className="w-full p-2.5 border border-slate-300 rounded-lg text-center font-bold focus:ring-2 focus:ring-[#FF9933] outline-none"
+                    className="w-full p-2.5 border border-slate-300 rounded-lg text-center font-bold focus:ring-2 focus:ring-brand-ink outline-none"
                   />
                 </div>
                 <div className="flex items-end">
@@ -2927,7 +2927,7 @@ const PdfEditor = ({ toolId }) => {
                       type="checkbox"
                       checked={pageNumSkipFirst}
                       onChange={(e) => setPageNumSkipFirst(e.target.checked)}
-                      className="accent-[#FF9933] w-4 h-4"
+                      className="accent-brand-ink w-4 h-4"
                     />
                     <span className="text-sm font-bold text-slate-700">
                       Skip first page (cover)
@@ -2951,7 +2951,7 @@ const PdfEditor = ({ toolId }) => {
                     value={watermarkText}
                     onChange={(e) => setWatermarkText(e.target.value)}
                     placeholder="e.g. CONFIDENTIAL"
-                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none font-medium"
+                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none font-medium"
                   />
                 </div>
                 <div>
@@ -2970,7 +2970,7 @@ const PdfEditor = ({ toolId }) => {
                         onClick={() => setWatermarkPos(p.id)}
                         className={`py-2.5 rounded-lg font-bold text-sm transition cursor-pointer ${
                           watermarkPos === p.id
-                            ? "bg-[#FF9933] text-white shadow"
+                            ? "bg-brand-ink text-white shadow"
                             : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                         }`}
                       >
@@ -2984,7 +2984,7 @@ const PdfEditor = ({ toolId }) => {
                     <label className="text-sm font-bold text-slate-700">
                       Opacity
                     </label>
-                    <span className="text-xs font-mono bg-orange-100 text-[#FF9933] px-2 py-1 rounded">
+                    <span className="text-xs font-mono bg-orange-100 text-brand-ink px-2 py-1 rounded">
                       {Math.round(watermarkOpacity * 100)}%
                     </span>
                   </div>
@@ -2997,7 +2997,7 @@ const PdfEditor = ({ toolId }) => {
                     onChange={(e) =>
                       setWatermarkOpacity(parseFloat(e.target.value))
                     }
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
+                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-brand-ink cursor-pointer"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
@@ -3016,7 +3016,7 @@ const PdfEditor = ({ toolId }) => {
                           onClick={() => setWatermarkSize(s.id)}
                           className={`flex-1 py-2 rounded-lg font-bold text-sm transition cursor-pointer ${
                             watermarkSize === s.id
-                              ? "bg-[#FF9933] text-white shadow"
+                              ? "bg-brand-ink text-white shadow"
                               : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                           }`}
                         >
@@ -3041,7 +3041,7 @@ const PdfEditor = ({ toolId }) => {
                           aria-label={`${c.id} watermark`}
                           className={`flex-1 h-9 rounded-lg cursor-pointer transition ring-offset-2 ${c.cls} ${
                             watermarkColor === c.id
-                              ? "ring-2 ring-[#FF9933]"
+                              ? "ring-2 ring-brand-ink"
                               : "opacity-60 hover:opacity-100"
                           }`}
                         />
@@ -3144,12 +3144,12 @@ const PdfEditor = ({ toolId }) => {
                   value={pdfPassword}
                   onChange={(e) => setPdfPassword(e.target.value)}
                   placeholder="Enter the password you use to open this PDF"
-                  className="w-full p-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#FF9933] outline-none font-medium"
+                  className="w-full p-3 pr-12 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-ink outline-none font-medium"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((s) => !s)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#FF9933] cursor-pointer p-1"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-brand-ink cursor-pointer p-1"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   title={showPassword ? "Hide password" : "Show password"}
                 >
@@ -3161,7 +3161,7 @@ const PdfEditor = ({ toolId }) => {
                 cracker. For bank statements it&apos;s often your PAN + date of
                 birth.
               </p>
-              <p className="text-xs text-amber-600 mt-2 leading-snug">
+              <p className="text-xs text-amber-700 mt-2 leading-snug">
                 Note: the unlocked copy is rebuilt page-by-page as images, so
                 text inside it won&apos;t be selectable or searchable.
               </p>
@@ -3191,7 +3191,7 @@ const PdfEditor = ({ toolId }) => {
                   generatingThumbnails ||
                   isUploading
                     ? "bg-slate-300 cursor-not-allowed"
-                    : "bg-[#FF9933] hover:bg-[#e68a2e] shadow-lg shadow-orange-200 cursor-pointer"
+                    : "bg-brand-ink hover:bg-brand-ink-hover shadow-lg shadow-orange-200 cursor-pointer"
                 }`}
               >
                 {isProcessing ? (
@@ -3256,7 +3256,7 @@ const PdfEditor = ({ toolId }) => {
                       <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
                         Storage Saved
                       </span>
-                      <div className="flex items-center gap-1.5 text-[#FF9933] font-black text-lg">
+                      <div className="flex items-center gap-1.5 text-brand-ink font-black text-lg">
                         <TrendingDown size={20} /> {compressionStats.percent}%
                       </div>
                     </div>
@@ -3274,7 +3274,7 @@ const PdfEditor = ({ toolId }) => {
                         </p>
                       )}
                     {compressionStats.targetMissed && (
-                      <p className="text-xs text-amber-600 mt-3 leading-snug">
+                      <p className="text-xs text-amber-700 mt-3 leading-snug">
                         We couldn&apos;t reach {compressionStats.target} KB
                         without making the pages unreadable, so here&apos;s the
                         smallest clear version we could make.
@@ -3282,7 +3282,7 @@ const PdfEditor = ({ toolId }) => {
                     )}
                     {compressionStats.flattened &&
                       !compressionStats.targetMissed && (
-                        <p className="text-xs text-amber-600 mt-3 leading-snug">
+                        <p className="text-xs text-amber-700 mt-3 leading-snug">
                           Note: pages were flattened to images to shrink the
                           file, so text inside is no longer selectable.
                         </p>
@@ -3306,7 +3306,7 @@ const PdfEditor = ({ toolId }) => {
                         className={`flex items-center gap-1.5 text-sm font-bold px-3 py-1.5 rounded-lg transition active:scale-95 touch-manipulation cursor-pointer ${
                           copied
                             ? "bg-green-100 text-green-700"
-                            : "bg-orange-100 text-[#e68a2e] hover:bg-orange-200"
+                            : "bg-orange-100 text-brand-ink hover:bg-orange-200"
                         }`}
                       >
                         {copied ? (
@@ -3324,7 +3324,7 @@ const PdfEditor = ({ toolId }) => {
                       readOnly
                       value={extractedText}
                       onFocus={(e) => e.target.select()}
-                      className="w-full h-64 p-4 border border-slate-300 rounded-xl bg-slate-50 text-sm text-slate-700 font-mono leading-relaxed resize-y focus:ring-2 focus:ring-[#FF9933] outline-none"
+                      className="w-full h-64 p-4 border border-slate-300 rounded-xl bg-slate-50 text-sm text-slate-700 font-mono leading-relaxed resize-y focus:ring-2 focus:ring-brand-ink outline-none"
                     />
                   </div>
                 )}
@@ -3333,7 +3333,7 @@ const PdfEditor = ({ toolId }) => {
                   <a
                     href={downloadUrl}
                     download={downloadName}
-                    className="bg-[#FF9933] text-white px-8 py-3.5 rounded-full hover:bg-[#e68a2e] transition active:scale-[0.98] touch-manipulation font-bold shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer text-lg"
+                    className="bg-brand-ink text-white px-8 py-3.5 rounded-full hover:bg-brand-ink-hover transition active:scale-[0.98] touch-manipulation font-bold shadow-lg shadow-orange-200 flex items-center justify-center gap-2 cursor-pointer text-lg"
                   >
                     <Download size={22} />{" "}
                     {tool.id === "pdf-to-text" || tool.id === "ocr-pdf"
@@ -3349,7 +3349,7 @@ const PdfEditor = ({ toolId }) => {
                       setExtractedText("");
                       setErrorMsg(null);
                     }}
-                    className="bg-orange-50 text-[#e68a2e] border border-orange-200 px-8 py-3.5 rounded-full hover:bg-orange-100 transition font-bold cursor-pointer"
+                    className="bg-orange-50 text-brand-ink border border-orange-200 px-8 py-3.5 rounded-full hover:bg-orange-100 transition font-bold cursor-pointer"
                   >
                     Adjust &amp; Re-run
                   </button>

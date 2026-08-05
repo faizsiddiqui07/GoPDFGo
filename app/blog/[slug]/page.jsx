@@ -72,7 +72,7 @@ export default function BlogDetailPage() {
         </h2>
         <Link
           href="/blogs"
-          className="bg-[#FF9933] text-white px-6 py-3 rounded-full font-bold hover:bg-[#e68a2e] transition cursor-pointer"
+          className="bg-brand-ink text-white px-6 py-3 rounded-full font-bold hover:bg-brand-ink-hover transition cursor-pointer"
         >
           Back to Blogs
         </Link>
@@ -115,7 +115,7 @@ export default function BlogDetailPage() {
       <div className="max-w-5xl mx-auto">
         <Link
           href="/blogs"
-          className="text-slate-500 hover:text-[#FF9933] inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
+          className="text-slate-500 hover:text-brand-ink inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to all articles
         </Link>
@@ -138,7 +138,7 @@ export default function BlogDetailPage() {
           <div className="p-5 sm:p-8 md:p-10 lg:p-12">
             <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-medium text-slate-500 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-slate-100">
               <span className="flex items-center gap-1.5">
-                <Calendar size={16} className="text-[#FF9933]" /> {blog.date}
+                <Calendar size={16} className="text-brand-ink" /> {blog.date}
               </span>
             </div>
 
@@ -187,13 +187,13 @@ export default function BlogDetailPage() {
                     {/* Meta Info */}
                     <div className="flex items-center gap-4 text-xs font-medium text-slate-500 mb-3">
                       <span className="flex items-center gap-1">
-                        <Calendar size={14} className="text-[#FF9933]" />{" "}
+                        <Calendar size={14} className="text-brand-ink" />{" "}
                         {relatedBlog.date}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <div className="block group-hover:text-[#FF9933] transition-colors">
+                    <div className="block group-hover:text-brand-ink transition-colors">
                       <h3 className="text-xl font-bold text-slate-800 mb-3 line-clamp-2">
                         {relatedBlog.title}
                       </h3>
@@ -206,7 +206,7 @@ export default function BlogDetailPage() {
 
                     {/* Read More Text */}
                     <div className="mt-auto pt-4 border-t border-slate-100">
-                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#FF9933] group-hover:text-[#e68a2e] transition-colors">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink group-hover:underline transition-colors">
                         Read Article{" "}
                         <ArrowRight
                           size={16}
@@ -236,8 +236,8 @@ export default function BlogDetailPage() {
             @media (min-width: 640px) {
               .blog-content p { margin-bottom: 1.25rem; }
             }
-            .blog-content a { color: #FF9933; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s; cursor: pointer; }
-            .blog-content a:hover { color: #e68a2e; }
+            .blog-content a { color: var(--color-brand-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.2s; cursor: pointer; }
+            .blog-content a:hover { color: var(--color-brand-ink-hover); text-decoration-thickness: 2px; }
             .blog-content ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
             @media (min-width: 640px) {
                .blog-content ul { padding-left: 1.5rem; margin-bottom: 1.25rem; }
@@ -248,7 +248,7 @@ export default function BlogDetailPage() {
                .blog-content .tool-box { padding: 1.5rem; border-radius: 0.75rem; margin: 2rem 0; }
             }
             .blog-content strong { color: #0f172a; font-weight: 700; }
-            .blog-content code { background: #f1f5f9; color: #ef4444; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; font-family: monospace; }
+            .blog-content code { background: #f1f5f9; color: #b91c1c; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.875em; font-family: monospace; }
           `,
         }}
       />

@@ -16,7 +16,7 @@ export default function NotFound() {
       </p>
       <Link 
         href="/" 
-        className="text-[#FF9933] hover:text-[#e68a2e] hover:underline font-bold transition-colors"
+        className="text-brand-ink hover:text-brand-ink-hover hover:underline font-bold transition-colors"
       >
         Go back home
       </Link>

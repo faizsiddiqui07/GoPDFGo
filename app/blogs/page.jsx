@@ -54,13 +54,13 @@ export default function BlogsPage() {
                 {/* Meta Info */}
                 <div className="flex items-center gap-4 text-xs font-medium text-slate-500 mb-3">
                   <span className="flex items-center gap-1">
-                    <Calendar size={14} className="text-[#FF9933]" />{" "}
+                    <Calendar size={14} className="text-brand-ink" />{" "}
                     {blog.date}
                   </span>
                 </div>
 
                 {/* Title */}
-                <div className="block group-hover:text-[#FF9933] transition-colors">
+                <div className="block group-hover:text-brand-ink transition-colors">
                   <h2 className="text-xl font-bold text-slate-800 mb-3 line-clamp-2">
                     {blog.title}
                   </h2>
@@ -72,7 +72,7 @@ export default function BlogsPage() {
 
                 {/* Read More Text */}
                 <div className="mt-auto pt-4 border-t border-slate-100">
-                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#FF9933] group-hover:text-[#e68a2e] transition-colors">
+                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-brand-ink group-hover:underline transition-colors">
                     Read Article{" "}
                     <ArrowRight
                       size={16}

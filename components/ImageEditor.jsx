@@ -1717,7 +1717,7 @@ const ImageEditor = ({ toolId }) => {
               ? router.back()
               : router.push("/")
           }
-          className="text-slate-500 hover:text-[#FF9933] flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
+          className="text-slate-500 hover:text-brand-ink flex items-center gap-1 text-sm font-medium mb-3 transition cursor-pointer"
         >
           <ArrowLeft size={16} /> Back to Tools
         </button>
@@ -1773,8 +1773,8 @@ const ImageEditor = ({ toolId }) => {
             <div
               className={`flex-1 border-2 border-dashed rounded-xl flex flex-col items-center justify-center p-8 transition-colors cursor-pointer ${
                 isDragging
-                  ? "border-[#FF9933] bg-orange-50"
-                  : "border-slate-300 hover:border-[#FF9933] hover:bg-orange-50"
+                  ? "border-brand-ink bg-orange-50"
+                  : "border-slate-300 hover:border-brand-ink hover:bg-orange-50"
               }`}
               onDragOver={(e) => {
                 e.preventDefault();
@@ -1905,7 +1905,7 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setSizeMode("quality")}
                           className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "quality"
-                              ? "bg-white text-[#FF9933] shadow-sm"
+                              ? "bg-white text-brand-ink shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
                           }`}
                         >
@@ -1915,7 +1915,7 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setSizeMode("target")}
                           className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "target"
-                              ? "bg-white text-[#FF9933] shadow-sm"
+                              ? "bg-white text-brand-ink shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
                           }`}
                         >
@@ -1938,7 +1938,7 @@ const ImageEditor = ({ toolId }) => {
                           onChange={(e) =>
                             setBatchQuality(parseFloat(e.target.value))
                           }
-                          className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
+                          className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-brand-ink cursor-pointer"
                         />
                       </>
                     ) : (
@@ -1953,8 +1953,8 @@ const ImageEditor = ({ toolId }) => {
                               onClick={() => setTargetKB(kb)}
                               className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 Number(targetKB) === kb
-                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
-                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                  ? "bg-brand-ink text-white border-brand-ink"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-brand-ink hover:text-brand-ink"
                               }`}
                             >
                               {kb} KB
@@ -1984,7 +1984,7 @@ const ImageEditor = ({ toolId }) => {
                         isProcessing ||
                         (isCompressor && sizeMode === "target" && !targetKB)
                       }
-                      className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-400 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full bg-brand-ink hover:bg-brand-ink-hover disabled:bg-slate-400 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
                     >
                       <Zap size={20} /> Start Batch
                     </button>
@@ -2024,7 +2024,7 @@ const ImageEditor = ({ toolId }) => {
                             disabled={i === 0}
                             aria-label="Move up"
                             title="Move up"
-                            className="p-1.5 rounded text-slate-400 hover:text-[#FF9933] hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
+                            className="p-1.5 rounded text-slate-400 hover:text-brand-ink hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
                           >
                             <ChevronUp size={16} />
                           </button>
@@ -2033,7 +2033,7 @@ const ImageEditor = ({ toolId }) => {
                             disabled={i === files.length - 1}
                             aria-label="Move down"
                             title="Move down"
-                            className="p-1.5 rounded text-slate-400 hover:text-[#FF9933] hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
+                            className="p-1.5 rounded text-slate-400 hover:text-brand-ink hover:bg-slate-50 disabled:opacity-30 disabled:hover:text-slate-400 active:scale-90 transition touch-manipulation cursor-pointer"
                           >
                             <ChevronDown size={16} />
                           </button>
@@ -2054,7 +2054,7 @@ const ImageEditor = ({ toolId }) => {
                     onClick={() =>
                       document.getElementById("fileInput").click()
                     }
-                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-dashed border-slate-300 text-sm font-bold text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] active:scale-[0.98] transition touch-manipulation cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-dashed border-slate-300 text-sm font-bold text-slate-600 hover:border-brand-ink hover:text-brand-ink active:scale-[0.98] transition touch-manipulation cursor-pointer"
                   >
                     <Plus size={16} /> Add more photos
                   </button>
@@ -2083,8 +2083,8 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setCombineLayout(o.v)}
                           className={`px-2 py-2.5 rounded-lg border text-center transition active:scale-95 touch-manipulation cursor-pointer ${
                             combineLayout === o.v
-                              ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
-                              : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                              ? "bg-brand-ink text-white border-brand-ink shadow-sm"
+                              : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink"
                           }`}
                         >
                           <span className="block text-sm font-bold">
@@ -2119,8 +2119,8 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setCombineGap(g.v)}
                           className={`flex-1 py-2 rounded-lg border text-xs font-bold transition active:scale-95 touch-manipulation cursor-pointer ${
                             combineGap === g.v
-                              ? "bg-[#FF9933] text-white border-[#FF9933]"
-                              : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                              ? "bg-brand-ink text-white border-brand-ink"
+                              : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink"
                           }`}
                         >
                           {g.label}
@@ -2143,8 +2143,8 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setCombineFormat(f2.v)}
                           className={`flex-1 py-2 rounded-lg border transition active:scale-95 touch-manipulation cursor-pointer ${
                             combineFormat === f2.v
-                              ? "bg-[#FF9933] text-white border-[#FF9933]"
-                              : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                              ? "bg-brand-ink text-white border-brand-ink"
+                              : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink"
                           }`}
                         >
                           <span className="block text-sm font-bold">
@@ -2167,7 +2167,7 @@ const ImageEditor = ({ toolId }) => {
                   <button
                     onClick={handleDownloadClick}
                     disabled={!convertedUrl || isProcessing || files.length < 2}
-                    className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
+                    className="w-full bg-brand-ink hover:bg-brand-ink-hover disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
                   >
                     {isProcessing ? (
                       <Loader2 className="animate-spin" />
@@ -2243,7 +2243,7 @@ const ImageEditor = ({ toolId }) => {
                                     <button
                                       onClick={() => copyToClipboard(row.value)}
                                       title={`Copy ${row.label}`}
-                                      className="p-1 shrink-0 rounded text-slate-400 hover:text-[#FF9933] hover:bg-white active:scale-90 transition touch-manipulation cursor-pointer"
+                                      className="p-1 shrink-0 rounded text-slate-400 hover:text-brand-ink hover:bg-white active:scale-90 transition touch-manipulation cursor-pointer"
                                     >
                                       <Copy size={13} />
                                     </button>
@@ -2302,7 +2302,7 @@ const ImageEditor = ({ toolId }) => {
                                   </div>
                                   <button
                                     onClick={() => copyToClipboard(col.hex)}
-                                    className="p-2 hover:bg-slate-100 rounded-full text-slate-500 hover:text-[#FF9933] transition-colors"
+                                    className="p-2 hover:bg-slate-100 rounded-full text-slate-500 hover:text-brand-ink transition-colors"
                                     title="Copy HEX"
                                   >
                                     <Copy size={16} />
@@ -2370,8 +2370,8 @@ const ImageEditor = ({ toolId }) => {
                               }}
                               className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 cropAspect === r.val
-                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
-                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                  ? "bg-brand-ink text-white border-brand-ink"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-brand-ink hover:text-brand-ink"
                               }`}
                             >
                               {r.label}
@@ -2423,7 +2423,7 @@ const ImageEditor = ({ toolId }) => {
                             <div className="flex gap-2">
                               <button
                                 onClick={undoLastMask}
-                                className="text-xs font-bold px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-[#FF9933] hover:text-[#FF9933] cursor-pointer transition"
+                                className="text-xs font-bold px-3 py-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:border-brand-ink hover:text-brand-ink cursor-pointer transition"
                               >
                                 Undo last
                               </button>
@@ -2451,7 +2451,7 @@ const ImageEditor = ({ toolId }) => {
                         <button
                           onClick={() => setFlipH(!flipH)}
                           className={`p-2 rounded hover:bg-slate-200 ${
-                            flipH ? "text-[#FF9933]" : "text-slate-600"
+                            flipH ? "text-brand-ink" : "text-slate-600"
                           }`}
                         >
                           <FlipHorizontal size={20} />
@@ -2459,7 +2459,7 @@ const ImageEditor = ({ toolId }) => {
                         <button
                           onClick={() => setFlipV(!flipV)}
                           className={`p-2 rounded hover:bg-slate-200 ${
-                            flipV ? "text-[#FF9933]" : "text-slate-600"
+                            flipV ? "text-brand-ink" : "text-slate-600"
                           }`}
                         >
                           <FlipVertical size={20} />
@@ -2493,7 +2493,7 @@ const ImageEditor = ({ toolId }) => {
                               setMaintainAspectRatio(e.target.checked)
                             }
                             id="aspect-lock"
-                            className="accent-[#FF9933] cursor-pointer"
+                            className="accent-brand-ink cursor-pointer"
                           />
                           <label
                             htmlFor="aspect-lock"
@@ -2524,8 +2524,8 @@ const ImageEditor = ({ toolId }) => {
                                 }}
                                 className={`text-[11px] font-medium px-2.5 py-1 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                   width === p.w && height === p.h
-                                    ? "bg-[#FF9933] text-white border-[#FF9933]"
-                                    : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                    ? "bg-brand-ink text-white border-brand-ink"
+                                    : "bg-slate-50 text-slate-600 border-slate-200 hover:border-brand-ink hover:text-brand-ink"
                                 }`}
                               >
                                 {p.label}
@@ -2596,8 +2596,8 @@ const ImageEditor = ({ toolId }) => {
                               }}
                               className={`flex-1 py-2.5 text-sm font-bold rounded-lg border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 format === opt.v
-                                  ? "bg-[#FF9933] text-white border-[#FF9933] shadow-sm"
-                                  : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                  ? "bg-brand-ink text-white border-brand-ink shadow-sm"
+                                  : "bg-white text-slate-600 border-slate-200 hover:border-brand-ink hover:text-brand-ink"
                               }`}
                             >
                               {opt.label}
@@ -2619,7 +2619,7 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setSizeMode("quality")}
                           className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "quality"
-                              ? "bg-white text-[#FF9933] shadow-sm"
+                              ? "bg-white text-brand-ink shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
                           }`}
                         >
@@ -2629,7 +2629,7 @@ const ImageEditor = ({ toolId }) => {
                           onClick={() => setSizeMode("target")}
                           className={`flex-1 py-2 text-xs font-bold rounded-md transition active:scale-95 touch-manipulation cursor-pointer ${
                             sizeMode === "target"
-                              ? "bg-white text-[#FF9933] shadow-sm"
+                              ? "bg-white text-brand-ink shadow-sm"
                               : "text-slate-600 hover:text-slate-800"
                           }`}
                         >
@@ -2648,7 +2648,7 @@ const ImageEditor = ({ toolId }) => {
                           <label className="text-sm font-bold text-slate-700">
                             Quality
                           </label>
-                          <span className="text-xs font-mono bg-orange-100 text-[#FF9933] px-2 py-1 rounded">
+                          <span className="text-xs font-mono bg-orange-100 text-brand-ink px-2 py-1 rounded">
                             {Math.round(quality * 100)}%
                           </span>
                         </div>
@@ -2661,7 +2661,7 @@ const ImageEditor = ({ toolId }) => {
                           onChange={(e) =>
                             setQuality(parseFloat(e.target.value))
                           }
-                          className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-[#FF9933] cursor-pointer"
+                          className="w-full h-2 bg-slate-200 rounded-lg appearance-none accent-brand-ink cursor-pointer"
                         />
                       </div>
                     )}
@@ -2679,8 +2679,8 @@ const ImageEditor = ({ toolId }) => {
                               onClick={() => setTargetKB(kb)}
                               className={`text-xs font-bold px-3 py-1.5 rounded-full border transition active:scale-95 touch-manipulation cursor-pointer ${
                                 Number(targetKB) === kb
-                                  ? "bg-[#FF9933] text-white border-[#FF9933]"
-                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-[#FF9933] hover:text-[#FF9933]"
+                                  ? "bg-brand-ink text-white border-brand-ink"
+                                  : "bg-slate-50 text-slate-600 border-slate-200 hover:border-brand-ink hover:text-brand-ink"
                               }`}
                             >
                               {kb} KB
@@ -2704,7 +2704,7 @@ const ImageEditor = ({ toolId }) => {
                         <button
                           onClick={processToTargetSize}
                           disabled={isProcessing || !targetKB}
-                          className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-400 text-white font-bold py-3 rounded-lg shadow-md flex items-center justify-center gap-2 cursor-pointer transition"
+                          className="w-full bg-brand-ink hover:bg-brand-ink-hover disabled:bg-slate-400 text-white font-bold py-3 rounded-lg shadow-md flex items-center justify-center gap-2 cursor-pointer transition"
                         >
                           {isProcessing ? (
                             <Loader2 className="animate-spin" size={20} />
@@ -2717,7 +2717,7 @@ const ImageEditor = ({ toolId }) => {
                         </button>
                         {compressionStats &&
                           compressionStats.targetHit === false && (
-                            <p className="text-xs text-amber-600 leading-snug">
+                            <p className="text-xs text-amber-700 leading-snug">
                               Couldn&apos;t reach {targetKB} KB without destroying
                               the image — this is the smallest clear version we
                               could produce.
@@ -2790,7 +2790,7 @@ const ImageEditor = ({ toolId }) => {
                           <button
                             onClick={() => requestProcessImage()}
                             disabled={isProcessing || needsCropBox}
-                            className="w-full bg-[#FF9933] hover:bg-[#e68a2e] disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
+                            className="w-full bg-brand-ink hover:bg-brand-ink-hover disabled:bg-slate-300 disabled:cursor-not-allowed text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition active:scale-[0.98] touch-manipulation"
                           >
                             {isProcessing ? (
                               <Loader2 className="animate-spin" />
@@ -2807,7 +2807,7 @@ const ImageEditor = ({ toolId }) => {
                             <button
                               onClick={handleDownloadClick}
                               disabled={!convertedUrl || isProcessing}
-                              className="w-full bg-[#FF9933] hover:bg-[#e68a2e] text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition"
+                              className="w-full bg-brand-ink hover:bg-brand-ink-hover text-white font-bold py-3 rounded-lg shadow-lg flex items-center justify-center gap-2 cursor-pointer transition"
                             >
                               {isProcessing ? (
                                 <Loader2 className="animate-spin" />
@@ -2909,7 +2909,7 @@ const ImageEditor = ({ toolId }) => {
                         <a
                           href={res.url}
                           download={downloadName}
-                          className="text-[#FF9933] p-2 hover:bg-orange-50 rounded"
+                          className="text-brand-ink p-2 hover:bg-orange-50 rounded"
                         >
                           <Download size={18} />
                         </a>
@@ -3027,7 +3027,7 @@ const ImageEditor = ({ toolId }) => {
 
                   {/* SLIDER HANDLE BUTTON */}
                   <div
-                    className="absolute top-1/2 -ml-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-[#FF9933] pointer-events-none z-20"
+                    className="absolute top-1/2 -ml-4 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center text-brand-ink pointer-events-none z-20"
                     style={{
                       left: `${compareSliderPos}%`,
                       transform: "translateY(-50%)",

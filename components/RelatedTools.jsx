@@ -37,7 +37,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
         </h3>
         <Link
           href="/" // Changed from 'to'
-          className="group text-sm sm:text-base text-[#FF9933] font-medium hover:underline flex items-center gap-1"
+          className="group text-sm sm:text-base text-brand-ink font-medium hover:underline flex items-center gap-1"
         >
           View All{" "}
           <ArrowRight
@@ -52,14 +52,14 @@ const RelatedTools = ({ currentToolId, toolType }) => {
           <Link
             href={`/${tool.id}`} // Changed from 'to'
             key={tool.id}
-            className="group bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#FF9933]/30 active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
+            className="group bg-white rounded-xl p-4 sm:p-5 border border-slate-200 shadow-sm hover:shadow-lg hover:border-brand-ink active:scale-[0.98] touch-manipulation transition-[scale,box-shadow,border-color] duration-200 flex flex-col h-full"
             // Removed onClick scroll to top as Next.js handles it automatically
           >
             <div className="flex items-center gap-x-3 mb-2 sm:mb-0">
               <div
                 className={`w-10 h-10 rounded-lg mb-0 sm:mb-3 flex items-center justify-center transition-colors duration-300 ${
                   tool.color === "orange"
-                    ? "bg-orange-50 text-[#FF9933] group-hover:bg-[#FF9933] group-hover:text-white"
+                    ? "bg-orange-50 text-brand-ink group-hover:bg-brand-ink group-hover:text-white"
                     : tool.color === "blue"
                     ? "bg-blue-50 text-blue-500 group-hover:bg-blue-500 group-hover:text-white"
                     : "bg-purple-50 text-purple-500 group-hover:bg-purple-500 group-hover:text-white"
@@ -68,11 +68,11 @@ const RelatedTools = ({ currentToolId, toolType }) => {
                 <tool.icon size={18} />
               </div>
 
-              <h4 className="block sm:hidden font-bold text-slate-800 group-hover:text-[#FF9933] transition-colors">
+              <h4 className="block sm:hidden font-bold text-slate-800 group-hover:text-brand-ink transition-colors">
                 {tool.title}
               </h4>
             </div>
-            <h4 className="hidden sm:block font-bold text-slate-800 mb-1 group-hover:text-[#FF9933] transition-colors">
+            <h4 className="hidden sm:block font-bold text-slate-800 mb-1 group-hover:text-brand-ink transition-colors">
               {tool.title}
             </h4>
             <p className="text-xs text-slate-500 line-clamp-2">{tool.desc}</p>
