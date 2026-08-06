@@ -159,8 +159,11 @@ export default function HowItWorksPage() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-xl shadow-xl z-20 flex items-center gap-3 border border-slate-100">
                 <FileCode className="text-[#FF9933]" size={32} />
                 <div>
+                  {/* "Processing..." alone read as a stranded widget
+                      placeholder in text form; two more words make the
+                      illustration card read sensibly even as plain text. */}
                   <div className="text-xs text-slate-400 font-bold uppercase">
-                    Processing...
+                    Processing on your device
                   </div>
                   <div className="font-bold text-slate-900">
                     100% Client-Side

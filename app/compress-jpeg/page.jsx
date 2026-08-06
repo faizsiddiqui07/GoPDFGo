@@ -8,7 +8,11 @@ export const metadata = {
     "Compress JPEG images online without quality loss. Optimize photos for web, email, and storage instantly.",
   keywords: "compress jpeg, jpeg compressor, reduce jpeg size",
   alternates: {
-    canonical: "https://gopdfgo.com/compress-jpeg",
+    // Same engine as /compress-jpg, and the page says so. Two indexable
+    // self-canonical URLs for one intent reads as a doorway pair to Google's
+    // quality systems -- exactly what an AdSense re-review does not need.
+    // The page stays for direct traffic; /compress-jpg is the indexed one.
+    canonical: "https://gopdfgo.com/compress-jpg",
   },
 };
 
