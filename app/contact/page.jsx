@@ -96,28 +96,59 @@ export default function ContactPage() {
           <h2 className="hidden md:block text-2xl font-bold text-slate-900 mb-3">
             Before you email...
           </h2>
+          {/* This block used to promise a "Help Center" that never existed
+              and list three unanswered, unclickable questions. Each entry now
+              carries its answer inline, so the section keeps its promise. */}
           <p className="text-slate-600 mb-6 leading-relaxed">
-            Most questions are answered instantly in our Help Center. Check
-            these common topics first:
+            These are the questions we get most often — the short answers may
+            save you an email:
           </p>
 
           <ul className="space-y-3">
-            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition cursor-default">
+            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
               <ShieldAlert className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-              <span className="text-sm font-medium">
-                I can't open my processed file.
+              <span className="text-sm">
+                <span className="font-medium block">
+                  I can&apos;t open my processed file.
+                </span>
+                <span className="text-slate-500">
+                  Make sure the download finished completely, and open it with
+                  a standard app (Adobe Reader for PDFs, your gallery for
+                  images). If it still fails, run the tool once more — then
+                  email us with the tool name.
+                </span>
               </span>
             </li>
-            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition cursor-default">
+            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
               <FileText className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-              <span className="text-sm font-medium">
-                Why is the conversion taking time?
+              <span className="text-sm">
+                <span className="font-medium block">
+                  Why is the conversion taking time?
+                </span>
+                <span className="text-slate-500">
+                  Everything runs on your own device, so a large scanned file
+                  on an older phone can take a little while. Keep the tab open
+                  and in the foreground — see{" "}
+                  <Link
+                    href="/how-it-works"
+                    className="text-[#FF9933] underline underline-offset-2"
+                  >
+                    how it works
+                  </Link>
+                  .
+                </span>
               </span>
             </li>
-            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg hover:bg-slate-100 transition cursor-default">
+            <li className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
               <HeartHandshake className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-              <span className="text-sm font-medium">
-                Is GoPDFGo really free?
+              <span className="text-sm">
+                <span className="font-medium block">
+                  Is GoPDFGo really free?
+                </span>
+                <span className="text-slate-500">
+                  Yes — every tool, with no signup and no watermark. A small
+                  amount of advertising keeps it that way.
+                </span>
               </span>
             </li>
           </ul>

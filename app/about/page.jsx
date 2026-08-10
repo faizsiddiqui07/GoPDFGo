@@ -37,12 +37,14 @@ export default function AboutPage() {
           Document Processing.
         </h1>
         <p className="text-slate-600 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-          GoPDFGo isn't just another PDF tool website; it is a paradigm shift
-          in how the internet handles sensitive data. We are a pioneer in{" "}
+          GoPDFGo does one thing differently from most PDF sites: your files
+          are{" "}
           <span className="font-semibold text-slate-800">
-            Serverless Document Technology
+            never uploaded to a server
           </span>
-          . We empower students, legal professionals, and businesses to{" "}
+          . Every tool runs on open-source libraries — pdf-lib, pdf.js,
+          tesseract.js — working entirely inside your own browser. We built it
+          so students, legal professionals, and businesses can{" "}
           <Link
             href="/merge-pdf"
             className="text-[#FF9933] font-medium hover:underline"
@@ -183,9 +185,9 @@ export default function AboutPage() {
               </Link>{" "}
               tool for identity protection or our converters for business
               documents, the processing happens locally on your device, right
-              inside your browser. There is no database to hack, no cloud
-              storage to breach, and no server logs to track you. Your data
-              stays on your own hardware.
+              inside your browser. There is no file database to hack and no
+              cloud storage to breach, because your documents are never
+              uploaded anywhere. Your files stay on your own hardware.
             </p>
           </div>
           {/* Card 2: Lightning Fast */}
@@ -213,8 +215,8 @@ export default function AboutPage() {
               to run instantly. By running{" "}
               <strong>high-performance code directly in your browser</strong>,
               heavy tasks like compression and merging happen on your own
-              device, eliminating network latency entirely. A 100-page document
-              merges in milliseconds, not minutes.
+              device, eliminating upload and download waits entirely. A
+              100-page document merges in seconds, not minutes.
             </p>
           </div>
 
@@ -260,15 +262,17 @@ export default function AboutPage() {
             Our Mission for the Future
           </h2>
           <p className="text-slate-300 text-lg leading-relaxed mb-8">
-            We are on a mission to build a{" "}
-            <strong className="text-white">Decentralized Digital Utility</strong>
-            . We envision a web where users don&apos;t have to trade their
-            privacy for convenience.
+            The goal is simple:{" "}
+            <strong className="text-white">
+              a web where you don&apos;t trade privacy for convenience
+            </strong>
+            . Basic document work should not require an account, an upload, or
+            a subscription.
             <br />
             <br />
-            We are constantly evolving our tech stack to bring desktop-class
-            features—like OCR, PDF Editing, and Digital Signing—to the web
-            browser, making expensive software obsolete.
+            The tool set keeps growing — OCR, PDF editing, and digital signing
+            already run right in the browser, jobs that used to need paid
+            desktop software.
           </p>
           <div className="flex gap-2 sm:gap-4 justify-center md:justify-start">
             <Link

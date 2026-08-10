@@ -218,8 +218,8 @@ const Footer = () => {
               title="Listed on Sell With Boost"
             >
               <img
-                src="https://sellwithboost.com/badge/listing.svg"
-                alt="Listed on Sell With boost"
+                src="/sellwithboost-badge.svg"
+                alt="Listed on Sell With Boost"
                 style={{ height: "40px", width: "auto" }}
                 className="mt-2"
               />
@@ -295,8 +295,8 @@ const Footer = () => {
               title="Listed on Sell With Boost"
             >
               <img
-                src="https://sellwithboost.com/badge/listing.svg"
-                alt="Listed on Sell With boost"
+                src="/sellwithboost-badge.svg"
+                alt="Listed on Sell With Boost"
                 style={{ height: "40px", width: "auto" }}
                 className="mt-2 mx-auto"
               />

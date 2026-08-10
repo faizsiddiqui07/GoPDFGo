@@ -19,7 +19,7 @@ import {
 export const metadata = {
   title: "Why GoPDFGo? The Future of Private & Secure PDF Tools",
   description:
-    "Discover the technology behind GoPDFGo. We provide 100% serverless, browser-based PDF tools. Learn why millions trust our privacy-first architecture for secure document processing.",
+    "Discover the technology behind GoPDFGo. We provide 100% browser-based PDF tools. Learn why privacy-conscious users choose our no-upload architecture for secure document processing.",
   keywords:
     "why gopdfgo, secure pdf editor, serverless document tools, client side pdf processing, privacy first pdf tools, free online pdf converter, no upload pdf tools, browser based pdf technology",
   alternates: {
@@ -269,7 +269,9 @@ export default function WhyGoPdfGoPage() {
               textbooks that exceed the "100MB limit" on other sites.
             </p>
             <p className="text-sm font-medium text-slate-800">
-              <strong>Solution:</strong> GoPDFGo has no file size limits.
+              <strong>Solution:</strong> GoPDFGo has no arbitrary upload
+              limits — you are bound only by your own device&apos;s memory,
+              not our servers.
               Compress or{" "}
               <Link
                 href="/split-pdf"
@@ -335,7 +337,9 @@ export default function WhyGoPdfGoPage() {
             <p>
               We spent months optimizing open-source libraries to run in the
               browser environment. We removed the backend database entirely.
-              We stripped away the tracking cookies.
+              We never see, store, or track your files — the only cookies
+              here are the standard advertising cookies disclosed in our
+              Privacy Policy, which keep the tools free.
             </p>
             <p>
               Today, GoPDFGo stands as a testament to the{" "}

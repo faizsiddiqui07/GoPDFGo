@@ -142,9 +142,10 @@ export default function HowItWorksPage() {
                 <a href="/merge-pdf" className="text-[#FF9933] font-semibold hover:underline">
                   merging several files
                 </a>{" "}
-                without ever needing a backend server. This is why our tools
-                keep working even if you disconnect your internet after the page
-                loads.
+                without ever needing a backend server. This is why most of our
+                tools keep working even if you disconnect your internet after
+                the page loads — only a few engines, like OCR&apos;s language
+                data, download once on first use.
               </p>
             </div>
           </div>
@@ -216,7 +217,7 @@ export default function HowItWorksPage() {
                     Requires trust in the server admin
                   </td>
                   <td className="py-2.5 sm:py-5 px-3 sm:px-6 font-bold text-slate-800">
-                    Zero Trust required (Mathematically secure)
+                    No trust needed — your file never leaves your browser
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition">
@@ -227,7 +228,8 @@ export default function HowItWorksPage() {
                     Fails on slow internet; Upload limits apply
                   </td>
                   <td className="py-2.5 sm:py-5 px-3 sm:px-6 font-bold text-slate-800">
-                    Works instantly; No size limits
+                    No upload limits — bounded only by your device&apos;s
+                    memory
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50 transition">
@@ -238,7 +240,7 @@ export default function HowItWorksPage() {
                     Impossible
                   </td>
                   <td className="py-2.5 sm:py-5 px-3 sm:px-6 font-bold text-slate-800">
-                    Yes (Once page is loaded)
+                    Yes for most tools (once the page is loaded)
                   </td>
                 </tr>
               </tbody>
@@ -276,8 +278,9 @@ export default function HowItWorksPage() {
               <p className="text-slate-600">
                 Yes. Our architecture literally has no database to store user
                 files. Even if we wanted to see your document, we couldn't.
-                You can verify this by disconnecting your internet after the
-                page loads—the tools will still work perfectly!
+                You can verify this yourself: load a tool, disconnect your
+                internet, and process a file — for most tools it completes
+                anyway, because your file is never uploaded.
               </p>
             </div>
 

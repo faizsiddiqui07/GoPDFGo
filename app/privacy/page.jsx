@@ -96,7 +96,13 @@ export default function PrivacyPage() {
               our own tracking or analytics cookies. To see how our pages perform
               in Google Search, we use Google Search Console, which reports only
               anonymous, aggregated data and does not place cookies on your
-              device.
+              device. Like every website, our hosting provider keeps standard
+              server access logs (IP address, browser type, pages requested)
+              for security and uptime — these are never linked to your identity
+              or your files. Some tools also load open-source processing
+              libraries and fonts from public CDNs (such as cdnjs and Google
+              Fonts); those requests carry only standard technical data, never
+              your files.
             </p>
           </div>
         </div>
@@ -214,10 +220,11 @@ export default function PrivacyPage() {
         </h2>
 
         <p className="text-slate-600 leading-relaxed mb-3">
-          GoPDFGo does not knowingly collect any Personal Identifiable Information
-          from children under the age of 13. If you believe that your child has
-          provided personal information on our website, please contact us and we will
-          promptly remove such information from our records.
+          GoPDFGo does not knowingly collect any Personally Identifiable
+          Information from children under the age of 13. Because we store no
+          files or personal data on any server, there are normally no records
+          to remove — but if you have any concern about your child&rsquo;s use
+          of the site, please contact us and we will help.
         </p>
 
         <p className="text-slate-600 leading-relaxed">

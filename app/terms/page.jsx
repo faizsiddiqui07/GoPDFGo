@@ -23,9 +23,15 @@ export const metadata = {
 export default function TermsAndConditionPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 sm:py-16">
-      <h1 className="text-[26px] sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 sm:mb-10">
+      <h1 className="text-[26px] sm:text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">
         Terms & Conditions
       </h1>
+      {/* Section 5 reserves the right to modify these terms; an undated
+          legal page gives users no way to tell which version they read.
+          Same format as the Privacy page's date line. */}
+      <p className="text-sm text-slate-500 mb-6 sm:mb-10">
+        Last updated: 7 August 2026
+      </p>
 
       <div className="space-y-10 sm:space-y-12">
         {/* Section 1 */}
