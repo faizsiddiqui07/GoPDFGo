@@ -712,7 +712,7 @@ export const blogsData = [
         <h3>Step-by-Step Guide to Compressing Your Image:</h3>
         <ul>
           <li><strong>Step 1: Access the Tool.</strong> Open your web browser and go to the <a href="/compress-jpg">Compress JPG</a> or <a href="/compress-jpeg">Compress JPEG</a> tool on GoPDFGo, depending on your original file extension.</li>
-          <li><strong>Step 2: Upload Your Photo Securely.</strong> Select the image from your phone's photo gallery or drag and drop it from your desktop computer. Our tools are designed to process everything locally inside your browser. Your personal identification photo remains completely private and is never uploaded to an external server.</li>
+          <li><strong>Step 2: Upload Your Photo Securely.</strong> Select the image from your phone's photo gallery or drag and drop it from your desktop computer — if it came off an iPhone as a .HEIC, the compressor only accepts JPGs, so convert it with <a href="/heic-to-jpg">HEIC to JPG</a> first and compress that file. Our tools are designed to process everything locally inside your browser. Your personal identification photo remains completely private and is never uploaded to an external server.</li>
           <li><strong>Step 3: Adjust the Quality Slider.</strong> Unlike basic one-click tools that guess what you want, we give you manual control. You can adjust the compression slider to find the absolute perfect sweet spot between file size (getting it under 20KB) and visual clarity. Watch the estimated output size change in real-time.</li>
           <li><strong>Step 4: Download and Verify.</strong> Once the tool confirms the output size is within your required 10KB to 20KB limit, click download. Open the downloaded file to ensure your face and signature are still easily identifiable.</li>
         </ul>
@@ -902,7 +902,7 @@ export const blogsData = [
       <p>PNG stands for Portable Network Graphics. It was designed specifically as a web-friendly alternative for digital art, flat graphics, UI icons, and images containing sharp text.</p>
       <ul>
         <li><strong>The Good (Lossless & Transparent):</strong> PNG utilizes "lossless" compression, meaning absolutely zero image data is lost when the file is saved. It keeps hard edges, sharp lines, and digital text crystal clear. Most importantly, <strong>PNG fully supports transparency</strong>. This is exactly why high-quality brand logos, website icons, and UI elements are almost always PNGs—they can be placed seamlessly over any colored background, video, or website div without an ugly white bounding box appearing.</li>
-        <li><strong>The Bad (Massive File Sizes):</strong> Because the PNG format stubbornly retains every single pixel of detail without discarding anything, PNG files are significantly heavier than JPGs. Saving a highly complex, 24-megapixel nature photograph as a PNG will result in a massive file that will eat up your hard drive space and drastically slow down your website.</li>
+        <li><strong>The Bad (Massive File Sizes):</strong> Because the PNG format stubbornly retains every single pixel of detail without discarding anything, PNG files are significantly heavier than JPGs. Saving a highly complex, 24-megapixel nature photograph as a PNG will result in a massive file that will eat up your hard drive space and drastically slow down your website — and when the image has to stay a PNG, our <a href="/compress-png">Compress PNG</a> tool cuts that weight down without giving up transparency.</li>
       </ul>
 
       <div class="tool-box">
@@ -1122,7 +1122,7 @@ export const blogsData = [
         <h3>How to Mask Your ID Securely in 4 Steps:</h3>
         <ul>
           <li><strong>Step 1: Open the Tool.</strong> Navigate directly to the <a href="/aadhaar-masking">Aadhaar Masking</a> utility on the GoPDFGo website using your preferred browser.</li>
-          <li><strong>Step 2: Upload Locally.</strong> Select the photograph of your Aadhaar card (JPG or PNG — if you only have it as a PDF, convert it to an image first with our PDF to JPG tool). You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
+          <li><strong>Step 2: Upload Locally.</strong> Select the photograph of your Aadhaar card (JPG or PNG — if you only have it as a PDF, convert it to an image first with our <a href="/pdf-to-image">PDF to JPG</a> tool). You will notice that it loads instantly. That is because it is not uploading to our web servers; it is securely loading directly into your browser's local sandbox memory.</li>
           <li><strong>Step 3: Apply the Solid Mask.</strong> Use our intuitive, drag-and-drop interface to draw a secure, solid black box specifically over the first 8 digits of your Aadhaar number. Ensure you leave the last 4 digits visible so the document remains verifiable.</li>
           <li><strong>Step 4: Save and Export.</strong> Click the apply button. The tool will permanently flatten the black box over the image data, ensuring that the hidden numbers cannot be recovered, selected, or "un-blurred" by reverse-engineering the downloaded file. Download your securely masked document to your local drive.</li>
         </ul>
@@ -1200,7 +1200,7 @@ export const blogsData = [
       </ul>
 
       <h2>Professional Benefits of Extracting Pages</h2>
-      <p>Beyond just saving storage space and email bandwidth, extracting pages serves a vital professional and security purpose. For example, if you are a freelancer signing a Non-Disclosure Agreement (NDA) that is part of a larger 50-page client briefing document, you should only return the one signed signature page. Sending the entire 50-page document back, especially if you accidentally modified it or left a digital footprint, opens up the risk of altering other critical clauses without realizing it.</p>
+      <p>Beyond just saving storage space and email bandwidth, extracting pages serves a vital professional and security purpose. For example, if you are a freelancer <a href="/sign-pdf">signing a Non-Disclosure Agreement (NDA)</a> that is part of a larger 50-page client briefing document, you should only return the one signed signature page. Sending the entire 50-page document back, especially if you accidentally modified it or left a digital footprint, opens up the risk of altering other critical clauses without realizing it.</p>
 
       <p>Furthermore, extracting exactly what you need makes your digital communication significantly clearer. It shows clients, professors, and colleagues that you value their time by giving them exactly the information they requested, and nothing more.</p>
 
@@ -1302,7 +1302,7 @@ export const blogsData = [
       <div class="tool-box">
         <h3>How to Convert Your Images in Seconds:</h3>
         <ul>
-          <li><strong>Step 1: Decide on your Output Format.</strong> Look at the image you downloaded. If it is a standard photograph (like a person or a landscape), you can seamlessly convert it to a standard JPEG. Alternatively, if the image has a transparent background that you desperately need to keep for a UI mockup, you must use a dedicated <a href="/convert-png">Convert WebP to PNG</a> tool to preserve that transparency.</li>
+          <li><strong>Step 1: Decide on your Output Format.</strong> Look at the image you downloaded. If it is a standard photograph (like a person or a landscape), you can seamlessly <a href="/convert-jpg">convert it to a standard JPEG</a>. Alternatively, if the image has a transparent background that you desperately need to keep for a UI mockup, you must use a dedicated <a href="/convert-png">Convert WebP to PNG</a> tool to preserve that transparency.</li>
           <li><strong>Step 2: Drag and Drop.</strong> Drag the stubbornly un-openable WebP file from your computer's downloads folder directly into the tool's interface.</li>
           <li><strong>Step 3: Instant Local Conversion.</strong> Because the conversion algorithm runs locally in your browser, there is absolutely zero upload waiting time. The image data is instantly translated from the WebP structure into standard PNG or JPG pixel mapping right inside your browser's memory.</li>
           <li><strong>Step 4: Download and Work.</strong> Click download. You now have a standard, universally recognized image file. You can effortlessly drag it into Photoshop, Premiere Pro, Microsoft Word, or any legacy software without triggering a single error message.</li>
@@ -1312,7 +1312,7 @@ export const blogsData = [
       <h2>The Reverse Scenario: Embracing WebP for Your Own Site</h2>
       <p>While converting WebP back to older formats is essential for offline desktop workflows right now, it is important to recognize that WebP is the definitive future of digital publishing. If you are a web developer, an e-commerce store owner, or a blogger, you should actually be doing the exact reverse!</p>
 
-      <p>When you are ready to upload your own heavy JPG or PNG assets to your website, you should always use a <a href="/convert-webp">Convert to WebP</a> utility to modernize your images before they hit your server. After conversion, you can further squeeze out maximum performance by running them through a dedicated image compressor. Adopting this workflow ensures your website remains lightning-fast and ranks significantly higher on search engines.</p>
+      <p>When you are ready to upload your own heavy JPG or PNG assets to your website, you should always use a <a href="/convert-webp">Convert to WebP</a> utility to modernize your images before they hit your server. After conversion, you can further squeeze out maximum performance by running them through a dedicated <a href="/compress-webp">WebP compressor</a>. Adopting this workflow ensures your website remains lightning-fast and ranks significantly higher on search engines.</p>
 
       <h2>Frequently Asked Questions (FAQ)</h2>
       <p><strong>Q: Will I lose visual quality when converting WebP to JPG?</strong><br>
@@ -1989,7 +1989,7 @@ export const blogsData = [
       A: For financial documents like bank statements and tax returns, grayscale is perfectly fine and helps reduce file size. However, your passport bio-page and the visa application photos MUST be scanned in full color.</p>
 
       <p><strong>Q: How do I handle double-sided documents like National ID cards?</strong><br>
-      A: Don't put the front on page 1 and the back on page 2. Place both the front and back of the ID card onto a single page side-by-side. You can do this easily by pasting the images into a Word document and saving it as a PDF before joining it with the rest.</p>
+      A: Don't put the front on page 1 and the back on page 2. Place both the front and back of the ID card onto a single page side-by-side. You can do this easily with our <a href="/combine-images">Combine Images</a> tool — drop both photos onto one A4 sheet, download the single image, then convert it with Image to PDF (Step 1 above) before joining it with the rest.</p>
 
       <p><strong>Q: Is a 5MB limit normal for all embassy websites?</strong><br>
       A: 5MB is a common ceiling on major portals like Schengen/VFS, though some are stricter — US CEAC, for example, allows only around 2MB per file. Some older government websites are even stricter, limiting uploads to just 2MB, which requires heavy compression.</p>
@@ -3225,7 +3225,7 @@ export const blogsData = [
 
       <h2>What this tool is not for</h2>
 
-      <p>It is worth being clear about the edges so you pick the right tool the first time. Deleting pages does not let you <em>edit</em> the text or content sitting on a page. It removes whole pages, not words. It also does not change the order of your pages. If your pages are in the wrong sequence and you want to shuffle them around, that is a job for the <a href="/rearrange-pdf">Rearrange PDF</a> tool instead.</p>
+      <p>It is worth being clear about the edges so you pick the right tool the first time. Deleting pages does not let you <em>edit</em> the text or content sitting on a page. It removes whole pages, not words. It also does not change the order of your pages. If your pages are in the wrong sequence and you want to shuffle them around, that is a job for the <a href="/rearrange-pdf">Rearrange PDF</a> tool instead — or <a href="/organize-pdf">Organize PDF</a> if you need to reorder, rotate and delete pages together on one screen.</p>
 
       <p>And if your goal is to break one PDF into several separate files, page deletion is not the right move either. For that, use <a href="/split-pdf">Split PDF</a>. Going the other direction, when you need to join several PDFs into one, <a href="/merge-pdf">Merge PDF</a> handles it. And if the leftover file is still too heavy for an upload limit, run it through <a href="/compress-pdf">Compress PDF</a> afterwards.</p>
 

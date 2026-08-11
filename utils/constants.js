@@ -102,7 +102,7 @@ Working with several files? [Merge them into one PDF](/merge-pdf) first, or [ext
 
       // 3. WHEN TO USE THIS TOOL? (Matches Screenshot 3 - 4 Checkpoints)
       useCases: [
-        "**Exam & Government Portal Uploads:** Applying on SSC, UPSC, IBPS, NEET or a state government portal? These sites strictly cap uploads at sizes like 100KB, 200KB or 500KB. Switch to Target Size mode to Compress PDF files down to the exact quota while keeping them readable.",
+        "**Exam & Government Portal Uploads:** Applying on SSC, UPSC, IBPS, NEET or a state government portal? These sites strictly cap uploads at sizes like 100KB, 200KB or 500KB. Switch to Target Size mode to Compress PDF files down to the exact quota while keeping them readable — our guide on [getting a PDF under 50KB for recruitment forms](/blog/optimize-pdf-under-50kb-government-recruitment-forms) covers the pixel-vs-KB trap that still gets these uploads rejected.",
         "**Email Attachments:** Gmail and Outlook block attachments larger than 25MB. Compress your heavy project reports, portfolios, or thesis papers to send them in a single email without needing Google Drive links.",
         "**Site Performance & SEO:** Heavy PDF assets kill your page load speed and hurt your Core Web Vitals scores. Optimize your files to ensure lightning-fast downloads, reduce bounce rates, and secure higher rankings on Google search results.",
         "**Saving Digital Storage:** Running out of space on Google Drive, iCloud, or your phone? Compressing your archived bills, receipts, and e-books can reclaim gigabytes of storage space for free."
@@ -741,7 +741,7 @@ Stop zipping files. Start creating professional PDFs instantly.`,
         heading: "A real example: turning phone photos into one PDF",
         body: `GoPDFGo places each image on its own PDF page and lets you decide how that page is shaped. Pick **A4** or **US Letter** and every photo is centred and auto-scaled to fit inside standard margins, so nothing gets stretched or cut off — handy when the document has to print cleanly later. Pick **Fit to image** and each page is sized to match that exact photo, with no border, which suits screenshots or artwork where a white frame would look wrong. You can also set portrait or landscape for the whole batch.
 
-Say you are photographing the front and back of an ID for an upload slot that only accepts one file. Add both shots, then check the order — the thumbnails run top to bottom, so the first one becomes page 1. Drag them if the back ended up first. Choose A4 portrait, convert, and you get a single two-page PDF with both sides centred on the page. The same flow works for a stack of taxi and meal receipts shot on your phone: drop them all in, drag them into date order, and export one tidy document instead of ten loose images.
+Say you are photographing the front and back of an ID for an upload slot that only accepts one file. Add both shots, then check the order — the thumbnails run top to bottom, so the first one becomes page 1. Drag them if the back ended up first. Choose A4 portrait, convert, and you get a single two-page PDF with both sides centred on the page — or, if the form wants both sides on **one** page rather than two, lay them out on a single A4 sheet with [Combine Images](/combine-images) first and convert that one image here instead. The same flow works for a stack of taxi and meal receipts shot on your phone: drop them all in, drag them into date order, and export one tidy document instead of ten loose images.
 
 A couple of steps pair well with this. If a photo has your desk or a dark edge in the frame, [crop the image first](/crop) so the page looks deliberate. If the finished PDF is too heavy for a portal that caps uploads, [compress the PDF](/compress-pdf) before sending. And if you already have a PDF to attach it to, [merge the two into one file](/merge-pdf) afterwards.`,
         troubleshooting: [
@@ -778,7 +778,7 @@ A couple of steps pair well with this. If a photo has your desk or a dark edge i
       useCases: [
         "**Creative Showcases:** Designers and photographers can consolidate scattered project images into a polished, unified Digital Portfolio. Converting to PDF guarantees that your visual work is presented exactly as intended, with zero layout shifts on the client’s screen.",
         "**Expense Reporting:** Business travelers often snap photos of taxi bills and food receipts. Use this tool to combine all your daily receipts into one **'Expense_Report.pdf'** for easy reimbursement claims.",
-        "**Education & Notes:** Students often take photos of whiteboard notes or handwritten homework. Convert these scattered images into a structured **Study Guide PDF** that is easy to read, share, and print.",
+        "**Education & Notes:** Students often take photos of whiteboard notes or handwritten homework. Convert these scattered images into a structured **Study Guide PDF** that is easy to read, share, and print — our guide on [combining assignment photos into one PDF from your phone](/blog/combine-assignment-photos-into-one-pdf-mobile) covers shooting, ordering and naming the file for submission.",
         "**KYC & Identity Verification:** Most official portals restrict you to a single upload slot. Capture both the front and back of your PAN Card or License, and instantly merge them into one **Unified Verification Document** for hassle-free approval."
       ],
 
@@ -1075,7 +1075,7 @@ For an ID copy you can go further: [black out the number itself with the ID mask
         }
       ],
       useCases: [
-        "**Protecting ID Copies:** Write 'Submitted to [Company] only' across a copy of your Aadhaar, PAN, or license so it can't be misused elsewhere.",
+        "**Protecting ID Copies:** Write 'Submitted to [Company] only' across a copy of your Aadhaar, PAN, or license so it can't be misused elsewhere — our guide explains [which of the four watermark positions to use](/blog/how-to-add-watermark-to-pdf-online-free) so the mark cannot simply be cropped off.",
         "**Marking Drafts:** Freelancers and teams can stamp DRAFT or SAMPLE on proposals and designs before they're finalized.",
         "**Confidential Documents:** Clearly mark contracts, reports, and financial statements as CONFIDENTIAL before sharing.",
         "**Branding:** Add your name or website across a portfolio or quotation to reinforce ownership."
@@ -1362,7 +1362,7 @@ Two things to know before you rely on the output. First, OCR is never perfect: a
         },
         {
           q: "What is the difference between this and PDF to Text?",
-          a: "**PDF to Text** lifts the text layer that is already inside a normal PDF — instant and exact, but it needs that layer to exist. **OCR PDF** is for scans, where the pages are images and there is no text layer, so the words have to be recognised visually. If you can select text in your PDF with a cursor, use PDF to Text; if you cannot, use this."
+          a: "**PDF to Text** lifts the text layer that is already inside a normal PDF — instant and exact, but it needs that layer to exist. **OCR PDF** is for scans, where the pages are images and there is no text layer, so the words have to be recognised visually. If you can select text in your PDF with a cursor, use PDF to Text; if you cannot, use this — [the five-second test that tells you which tool you need](/blog/ocr-pdf-scanned-document-to-text-hindi-english) walks through it, plus the Hindi-English language choice for bilingual forms."
         },
         {
           q: "Is my scanned document uploaded anywhere?",
@@ -1773,7 +1773,7 @@ A couple of things worth knowing. This tool only outputs JPEG, so if your source
         },
         {
           q: "How do I compress a JPG under 20KB or 50KB for an SSC/UPSC form?",
-          a: "Switch to **Target Size (KB)** mode and pick 20 KB or 50 KB (or type any number). The tool lowers the quality and, if needed, gently resizes the photo until it fits under that limit — ideal for SSC, UPSC, IBPS, NEET and other online form uploads, while keeping the photo clear and recognisable."
+          a: "Switch to **Target Size (KB)** mode and pick 20 KB or 50 KB (or type any number). The tool lowers the quality and, if needed, gently resizes the photo until it fits under that limit — ideal for SSC, UPSC, IBPS, NEET and other online form uploads, while keeping the photo clear and recognisable. Our walkthrough on [compressing a JPG under 20KB for online forms](/blog/compress-jpg-under-20kb-online-forms) covers why screenshots fail the portal's face and signature checks."
         },
         {
           q: "Will my photos look pixelated or blurry?",
@@ -1983,7 +1983,7 @@ Working on a whole asset folder? Load the batch and each file is processed in tu
 
       // 3. USE CASES (4 Checkpoints)
       useCases: [
-        "**Web Developers & SEO:** Speed is money. Compressing WebP images ensures your site loads instantly on 4G mobile networks, lowering bounce rates and improving your **Google Search Rankings**.",
+        "**Web Developers & SEO:** Speed is money. Compressing WebP images ensures your site loads instantly on 4G mobile networks, lowering bounce rates and improving your **Google Search Rankings** — see [speeding up a WordPress site with compressed WebP images](/blog/compress-webp-images-speed-up-wordpress) for the batch workflow and the quality setting to stop at.",
         "**Mobile App Development:** APK and IPA file sizes matter. Compressing your app's WebP assets reduces the download size for users, leading to **more installs** and fewer uninstalls due to storage concerns.",
         "**E-Commerce Stores:** Product images need to be sharp but fast. Use our tool to compress thousands of product thumbnails so your customers can browse your catalog without waiting for images to load.",
         "**Digital Marketing:** Ad banners and email graphics often have strict file size limits (e.g., Google Ads < 150KB). Switch to **Target Size (KB)** mode to force your WebP creative under the exact cap without compromising visual impact."
@@ -2230,7 +2230,7 @@ Resizing also changes format on the way out: load a PNG and save the smaller cop
         },
         {
           q: "How do I resize a photo and signature for an SSC or UPSC form?",
-          a: "Turn off 'Lock Aspect Ratio' if your form needs an exact width and height, then type the required pixels — many exam portals expect a photo around **200×230 px** and a signature around **140×60 px**, but the exact size is always listed in your official notification. Resize it here, then use our Compress JPG tool to bring it under the KB limit if needed."
+          a: "Turn off 'Lock Aspect Ratio' if your form needs an exact width and height, then type the required pixels — many exam portals expect a photo around **200×230 px** and a signature around **140×60 px**, but the exact size is always listed in your official notification. Resize it here, then use our Compress JPG tool to bring it under the KB limit if needed. Our step-by-step on [resizing a passport photo and signature to exactly 200x230](/blog/resize-passport-photo-signature-200x230) shows how to crop to the right shape first so nothing gets stretched."
         },
         {
           q: "Will this remove transparency?",
@@ -2713,7 +2713,7 @@ Stop settling for blurry JPEGs. Upgrade your images to crystal-clear PNGs instan
       // 2. FEATURES (3 Cards)
       walkthrough: {
         heading: "A real example: turning a WebP logo into a clean PNG",
-        body: `GoPDFGo re-encodes your JPG or WebP into **PNG**, a lossless format, so nothing is thrown away in the save. The output is fixed to PNG here — you drop files in and get PNGs back. There is no quality setting to choose for a single image, and if a Batch Quality slider shows up when you convert several files at once, it makes no difference to the result: PNG encoding is lossless either way. It reads JPG, WebP, GIF and BMP, and you can convert a single file or a whole batch entirely on your device.
+        body: `GoPDFGo re-encodes your JPG or WebP into **PNG**, a lossless format, so nothing is thrown away in the save. The output is fixed to PNG here — you drop files in and get PNGs back. There is no quality setting to choose for a single image, and if a Batch Quality slider shows up when you convert several files at once, it makes no difference to the result: PNG encoding is lossless either way. It reads JPG, WebP, GIF and BMP, and you can convert a single file or a whole batch entirely on your device — an iPhone HEIC is not on that list, so [convert HEIC to PNG](/heic-to-png) with the dedicated tool instead.
 
 Say you downloaded a company logo as a WebP but your slide software or a print shop only accepts PNG. Drop it in, convert, and you get a PNG that opens everywhere — and if that WebP had a transparent background, the transparency is kept, so the logo still sits cleanly on any background. Screenshots and diagrams with fine text are the other big win: PNG holds letters and thin lines razor-sharp instead of smearing them the way JPG does.
 
@@ -3635,7 +3635,7 @@ Once you download the PNG, [drop it onto a printable page](/image-to-pdf) next t
         },
         {
           q: "Why should I avoid 'Dynamic' QR codes from other sites?",
-          a: "Many 'free' sites give you a Dynamic code that stops working after a trial period, holding your printed materials hostage until you pay. GoPDFGo eliminates this risk by giving you the direct, static code."
+          a: "Many 'free' sites give you a Dynamic code that stops working after a trial period, holding your printed materials hostage until you pay. GoPDFGo eliminates this risk by giving you the direct, static code — here is [the real difference between static and dynamic QR codes](/blog/static-vs-dynamic-qr-codes-difference), and why static is the safer choice for anything you print."
         },
         {
           q: "Is it safe for passwords?",
