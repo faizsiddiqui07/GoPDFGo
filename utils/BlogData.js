@@ -6402,4 +6402,115 @@ export const blogsData = [
   // `
   // },
 
+  // {
+  //   id: "heic-to-webp-without-converting-to-jpg-first",
+  //   title: "iPhone Photos for Your Website: Convert HEIC Straight to WebP, Not Through JPG",
+  //   seoTitle: "HEIC to WebP: Convert iPhone Photos Without the JPG Step | GoPDFGo",
+  //   keywords: "heic to webp, convert heic to webp, heic to webp online free, iphone photos to webp, batch heic to webp, heic to webp converter, iphone product photos for website, heic won't upload to website, convert iphone photos for web, webp or jpg for website photos",
+  //   excerpt: "Most people convert iPhone HEIC photos to JPG first and to WebP later. That extra hop compresses the same photo twice, and on skies and plain backgrounds it shows. Here is why one pass is better, and the cases where you should stay on JPG instead.",
+  //   date: "August 11, 2026",
+  //   publishedAt: "2026-08-11",
+  //   imageUrl: "/images/blogs/heic-to-webp-without-converting-to-jpg-first.webp",
+  //   content: `
+  //
+  //       <p>You have thirty photos of new stock sitting in your iPhone camera roll, ready to go on your product pages. You AirDrop them across to the laptop, open the folder, and every single file ends in .HEIC. The uploader on your site refuses them. So you do what almost everybody does: you find a converter, it is already set to JPG, you convert the lot, you upload, you move on.</p>
+  //
+  //       <p>Three weeks later PageSpeed Insights tells you to "serve images in next-gen formats". So you take those same JPGs, run them through a WebP converter, and re-upload. Job done.</p>
+  //
+  //       <p>Except you have now compressed the same photograph twice, and the second squeeze was completely avoidable. You can go <a href="/heic-to-webp">straight from HEIC to WebP</a> in a single pass, and on the photos where it matters — skies, studio backdrops, skin — the difference is visible if you know where to look. This post is about that one decision, and about the cases where WebP is flatly the wrong answer and you should stay on JPG instead.</p>
+  //
+  //       <h2>Your iPhone shot it, your website cannot show it</h2>
+  //
+  //       <p>Since iOS 11, iPhones save photos as HEIC by default. It is a genuinely good format — by Apple's own figures it holds the same detail in roughly half the space of an equivalent JPG, which is why they switched. (And apply the same fix to the WebP number: "It is, by Google's published figures, typically 25% to 35% smaller than the same JPG at comparable visible quality".) The problem is that HEIC was never a web format. Chrome, Firefox and Edge will not display it — Safari is the one exception, which is no help when most of your visitors are not on Safari. Most content management systems reject the upload outright anyway, so a raw HEIC is not something you can safely put on a page.</p>
+  //
+  //       <p>That leaves you converting. And the moment you open almost any converter, the default output is JPG, because JPG is the safe universal answer for almost every other situation a photo ends up in. For a website, though, it is not the best answer — it is just the familiar one.</p>
+  //
+  //       <h2>The two-hop habit, and what it quietly costs</h2>
+  //
+  //       <p>Here is the path most people actually take: HEIC to JPG today, JPG to WebP whenever someone mentions page speed. Two conversions, weeks apart, on the same image.</p>
+  //
+  //       <p>Both JPG and WebP are lossy formats at the quality settings people really use. The first conversion decodes your HEIC and re-encodes it as a JPG, throwing away detail the encoder judges you will not miss. The second conversion opens that JPG — artifacts and all — and re-encodes it as WebP at something like 80% quality. The second encoder has no idea which parts of the picture are real detail and which are leftovers from the first pass, so it spends bits faithfully preserving the first encoder's mistakes while making fresh ones of its own.</p>
+  //
+  //       <p>On a busy, detailed photo you will probably never notice. It shows up on smooth areas: a clear sky that develops faint bands instead of a clean gradient, a plain white or grey product backdrop that goes slightly blotchy, skin tones on a headshot, the out-of-focus background behind a subject. Those are exactly the surfaces e-commerce and portfolio photos are full of.</p>
+  //
+  //       <p>There is a practical cost too. Two hops means handling a folder of thirty photos twice — two rounds of dragging in, two rounds of waiting, two folders of files to keep straight and eventually delete. And if you started the second hop with our <a href="/convert-webp">Convert to WebP</a> tool, you would have found it does not accept HEIC at all: it takes JPG, PNG, GIF and BMP. That is deliberate. For iPhone files there is a shorter route.</p>
+  //
+  //       <p>One pass means the photo is lossily compressed exactly once, on its way into WebP — instead of twice. That is the whole argument, and it costs you nothing to take it.</p>
+  //
+  //       <div class="tool-box">
+  //         <h3>How to convert a folder of iPhone HEIC photos straight to WebP</h3>
+  //         <ul>
+  //           <li><strong>Step 1: Get the HEIC files onto the device you are working on.</strong> AirDrop to a Mac, or plug the iPhone into a Windows laptop and copy from the DCIM folder. Do not email them to yourself — Mail often converts to JPG on the way out, which puts you back on the two-hop path without telling you.</li>
+  //           <li><strong>Step 2: Open the <a href="/heic-to-webp">HEIC to WebP converter</a> and drop the whole set in.</strong> It accepts .heic and .heif files only, and it takes a batch, so select all thirty at once rather than going one by one.</li>
+  //           <li><strong>Step 3: Check the quality.</strong> With a whole batch loaded there is no format to pick — WebP is already the output, so there is nothing to change. The slider is labelled Batch Quality and starts at 80%, which is the right setting for a folder of secondary images. Push it to 85% or higher if these are hero shots or product photos people will zoom into. (Drop a single file in instead and you get JPG/PNG/WebP buttons and a quality slider that starts at 85%.)</li>
+  //           <li><strong>Step 4: Convert, and let it finish.</strong> Every file is decoded and re-encoded by your own browser on your own device — nothing is uploaded to a server, which matters when the folder is full of unreleased product shots or client work. A big batch on an older phone will take a while for the same reason, so give it a moment rather than reloading the tab.</li>
+  //           <li><strong>Step 5: Download.</strong> Grab a single WebP, or take the whole batch as one ZIP and unpack it straight into the folder you upload from.</li>
+  //         </ul>
+  //       </div>
+  //
+  //       <h2>What the numbers actually do, and why the JPG surprises people</h2>
+  //
+  //       <p>A recurring surprise: you convert a HEIC to a high-quality JPG and the JPG comes out <em>bigger</em> than the file you started with. That is not a bug. HEIC uses about half the space of a comparable JPG, so going HEIC to JPG is a step up in size and a step down in efficiency. You accept it because JPG opens everywhere — which is a fine trade for a form upload and a poor one for a web page.</p>
+  //
+  //       <p>WebP is the other direction. It is typically 25% to 35% smaller than the same JPG at comparable visible quality, which is precisely why Google keeps flagging it in PageSpeed reports. Going straight from HEIC to WebP gets you a web-ready file without ever paying the JPG tax in between.</p>
+  //
+  //       <p>Rather than trusting any figure in a blog post, including this one, run one photo both ways and look at the two files side by side in your file manager. Your camera, your subject and your quality setting all move the number, and it takes about a minute to find out what they do to yours.</p>
+  //
+  //       <h2>When WebP is right, and when you should stay on JPG</h2>
+  //
+  //       <p>WebP's audience is narrow and worth stating plainly: images served from a page you control, where a browser is the only thing that ever has to read the file. A blog post, a product listing, a portfolio gallery, a CMS media library, an app. Inside that box WebP is clearly the better format — lighter, supported by every modern browser, and able to carry transparency where JPG simply cannot, so if a source file does have an alpha channel it survives the conversion.</p>
+  //
+  //       <p>Outside that box, WebP is the wrong answer, and you should not use the tool this post is about.</p>
+  //
+  //       <p>If the photo is going to an Indian government or recruitment portal, a college admission form, a KYC page, DigiLocker, a bank upload, a print shop, or the inbox of somebody you have never met — use JPG. Those systems were built years ago against a fixed list of accepted formats, and WebP is usually not on it. WhatsApp is its own case: it understands WebP perfectly well, but a .webp can land as a sticker rather than a photo, so send JPG there too. You will get a rejection with an unhelpful error message and no explanation. Convert those photos with <a href="/heic-to-jpg">HEIC to JPG</a> instead, and if the portal enforces a size cap on top of the format rule, our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">compressing a JPG under 20KB for online forms</a> covers what to do next.</p>
+  //
+  //       <p>Two related cases. If you are going to retouch the photo properly before it goes on the site, convert to a lossless master first with <a href="/heic-to-png">HEIC to PNG</a>, edit that, then export your web copy from the finished file — PNG is much heavier, so it is a working format, not a shipping one. And if the lossy-versus-lossless distinction is still fuzzy, the <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG format guide</a> lays out the underlying trade-offs that decide all of this.</p>
+  //
+  //       <h2>Convert first, then resize — that is where the real weight is</h2>
+  //
+  //       <p>Format is the easy win. Dimensions are the big one, and people skip it.</p>
+  //
+  //       <p>A photo off a recent iPhone is several thousand pixels wide. The column it sits in on your site is probably around 800 to 1200 pixels. The browser scales the picture down to fit, so it looks fine — but the visitor's phone still downloads every one of those original pixels first. A 4032-pixel-wide photo in a 1200-pixel column is over three times the width — which is more than ten times the pixels. You are shipping ten times the image anyone can actually see, over mobile data.</p>
+  //
+  //       <p>So the order is: convert to WebP, then <a href="/resize">resize the WebP</a> to the width your layout actually uses. The resizer works one image at a time, which sounds tedious but takes seconds per file and does more for your load time than any quality slider. While you are there, product shots with a lot of dead space around the subject are worth running through <a href="/crop">crop</a> first — cropped pixels are pixels nobody has to download.</p>
+  //
+  //       <p>If a file is still over your page budget after that, <a href="/compress-webp">Compress WebP</a> takes it further without changing format again. It has a By Target Size mode where you type a figure in KB — 100 KB, say — and it searches for the quality that lands under your cap, which is far quicker than nudging a slider and re-checking. Do not push much below 0.6 quality, though; that is where soft edges and gradient banding start to show. For the wider picture on quality settings, hero images and fixing an old media library in batches, read <a href="/blog/compress-webp-images-speed-up-wordpress">how to compress WebP images to speed up your WordPress site</a> next.</p>
+  //
+  //       <h2>Already sitting on a folder of JPGs or PNGs?</h2>
+  //
+  //       <p>Then this post's argument has already happened to you, and there is nothing to recover — a JPG cannot be un-compressed back into the original capture. Convert them anyway with <a href="/convert-webp">Convert to WebP</a>, which takes JPG, PNG, GIF and BMP in a batch and locks the output to WebP. Your existing library still gets lighter. Just take the single-pass route from now on for anything new coming off the phone.</p>
+  //
+  //       <p>And if one of those WebP files later needs to go into Photoshop, a slide deck or a Word document that refuses to open it, that problem has its own fix — see <a href="/blog/convert-webp-to-png-for-photoshop">what to do when Photoshop says "unsupported format"</a>.</p>
+  //
+  //       <h2>The HEIC files that refuse to convert</h2>
+  //
+  //       <p>Occasionally a file will simply not go through, and it is almost always one of two things: a Live Photo, or an HDR or 10-bit HEIC that the browser's decoder cannot read. Nothing is wrong with your file or your browser — that particular variant just is not decodable in-browser.</p>
+  //
+  //       <p>The fix is on the phone, and it is the trick from Step 1 turned to your advantage: email that one photo to yourself. Mail converts HEIC to JPG on the way out — the nuisance that puts you back on the two-hop path is exactly what you want for a file that will not decode. Save the JPG from the email and bring that in. If you would rather not use Mail, set Settings, Photos, Transfer to Mac or PC to Automatic first, then copy the photo across; it converts on the way. Yes, for that one file you are back to two hops; for the odd stubborn photo that is a fine trade. If you keep hitting it, go to Settings, Camera, Formats and switch to Most Compatible so new shots save as JPG from the start — though bear in mind that setting undoes the whole advantage for every future photo, so it is a fix for a specific problem, not a default worth leaving on.</p>
+  //
+  //       <h2>Frequently Asked Questions</h2>
+  //
+  //       <p><strong>Q: Is going HEIC to JPG to WebP actually harmful, or am I being fussy?</strong><br>
+  //       Keep the FAQ but make each answer earn its place by answering something the body does not. For this one: "A: Honestly, on a busy textured photo at high quality you may never see it — and if that is all you shoot, this is not worth losing sleep over. The reason to take the single-pass route anyway is that it is not any harder, and the damage compounds: every future re-save, resize or re-compression starts from a worse original. You are not fixing a visible problem today, you are declining to create one." Then trim the privacy and quality answers to a single line each that points back at the walkthrough rather than restating it. Since the single-pass route is no harder, there is no reason to take the double hit.</p>
+  //
+  //       <p><strong>Q: Can I just upload HEIC files to my site and let the CMS handle it?</strong><br>
+  //       A: Most content management systems reject the upload outright, and where one does accept it, only Safari visitors will see the image — everyone on Chrome, Firefox or Edge gets a broken picture. It needs converting before it goes up, one way or another.</p>
+  //
+  //       <p><strong>Q: Will my photos be uploaded to a server?</strong><br>
+  //       A: No. The <a href="/heic-to-webp">HEIC to WebP converter</a> decodes and re-encodes every file inside your own browser on your own device. Nothing is sent anywhere, which is the point when the folder holds unreleased products or client work.</p>
+  //
+  //       <p><strong>Q: How many files can I convert at once?</strong><br>
+  //       A: As many as you like — drop the whole folder in and download the results as a single ZIP. Because the work happens on your device rather than a server, a large batch on an older phone or laptop takes longer, so convert in smaller groups if it feels slow.</p>
+  //
+  //       <p><strong>Q: My portal rejected the WebP. What now?</strong><br>
+  //       A: That is expected, and it is the case where WebP is the wrong tool. Government portals, exam and admission forms, KYC pages and older applications generally accept JPG or PNG only. Run those photos through <a href="/heic-to-jpg">HEIC to JPG</a> instead and upload that.</p>
+  //
+  //       <p><strong>Q: What quality setting should I use?</strong><br>
+  //       A: The tool picks a sensible one for you — 85% for a single file, 80% when you load a batch. Leave the batch at 80% for supporting images, where a few kilobytes each adds up across a page. Push it to 85% or higher for a hero image or a product shot customers will zoom into. If a specific file still needs to hit a number, use the target-size mode in <a href="/compress-webp">Compress WebP</a> afterwards rather than guessing at the slider. If a specific file still needs to hit a number, use the target-size mode in <a href="/compress-webp">Compress WebP</a> afterwards rather than guessing at the slider.</p>
+  //
+  //       <p>None of this is complicated — it is one decision made once, at the point where your photos leave the phone. Pick the destination first. If it is a page you own, go straight to WebP. If it is a form, a portal or a stranger, go to JPG. The rest is just resizing sensibly and getting on with the actual work.</p>
+  //
+  //   `
+  // },
+
 ];

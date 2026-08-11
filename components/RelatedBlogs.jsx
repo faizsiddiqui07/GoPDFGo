@@ -43,8 +43,10 @@ const TOOL_BLOG_MAP = {
   ],
   "combine-images": [
     "front-and-back-of-id-in-one-image",
-    "combine-screenshots-into-one-image",
     "combine-assignment-photos-into-one-pdf-mobile",
+    // combine-screenshots-into-one-image was mapped here, but that draft is
+    // commented out in BlogData.js, so it silently dropped to 2 guides.
+    "mask-aadhaar-card-safely-for-rent-agreements",
   ],
   "rearrange-pdf": [
     "rearrange-scanned-pdf-page-order",
