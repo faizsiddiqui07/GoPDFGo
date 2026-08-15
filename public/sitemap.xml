@@ -584,14 +584,21 @@
 
   <url>
     <loc>https://gopdfgo.com/blog/front-and-back-of-id-in-one-image</loc>
-    <lastmod>2026-08-08</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://gopdfgo.com/blog/delete-pdf-pages-online-remove-blank-and-extra-pages</loc>
-    <lastmod>2026-08-11</lastmod>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://gopdfgo.com/blog/unlock-bank-statement-pdf-remove-password</loc>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

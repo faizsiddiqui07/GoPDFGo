@@ -3232,88 +3232,88 @@ export const blogsData = [
       <p>Most of the time, though, the annoyance is simpler than all that. You have a PDF with a few pages you wish were not there, and you want them gone without wrecking the rest. That is a thirty-second job. Open the <a href="/delete-pdf-pages">Delete PDF Pages</a> tool, tap the pages you do not want, and download a clean file with everything else exactly as sharp as it always was. No reupload, no reprint, no rescan.</p>
     `
   }, 
-  // {
-  //   id: "unlock-bank-statement-pdf-remove-password",
-  //   title: "How to Unlock a Bank Statement PDF (Remove the Password You Already Know)",
-  //   seoTitle: "Remove Password From PDF Bank Statement | GoPDFGo",
-  //   keywords: "remove password from pdf, unlock pdf, unlock bank statement pdf, remove pdf password online, password protected bank statement, unlock credit card statement pdf, pdf password remover, open locked pdf for kyc",
-  //   excerpt: "Your bank statement opens with a password but the KYC portal still rejects it. Here is how to remove that password from a PDF you can already open, entirely on your own device.",
-  //   date: "June 18, 2026",
-  //   publishedAt: "2026-06-18",
-  //   imageUrl: "/images/blogs/unlock-bank-statement-pdf-remove-password.webp",
-  //   content: `
-  //     <p>You download your account statement from net banking. You go to open it, and your laptop asks for a password. By now you know the drill by heart: it's your PAN in capital letters, followed by your date of birth as DDMMYYYY. You type <em>ABCDE1234F15081990</em>, hit enter, and there it is. Your statement. Every transaction, neatly listed.</p>
+  {
+    id: "unlock-bank-statement-pdf-remove-password",
+    title: "How to Unlock a Bank Statement PDF (Remove the Password You Already Know)",
+    seoTitle: "Remove Password From PDF Bank Statement | GoPDFGo",
+    keywords: "remove password from pdf, unlock pdf, unlock bank statement pdf, remove pdf password online, password protected bank statement, unlock credit card statement pdf, pdf password remover, open locked pdf for kyc",
+    excerpt: "Your bank statement opens with a password but the KYC portal still rejects it. Here is how to remove that password from a PDF you can already open, entirely on your own device.",
+    date: "August 15, 2026",
+    publishedAt: "2026-08-15",
+    imageUrl: "/images/blogs/unlock-bank-statement-pdf-remove-password.webp",
+    content: `
+      <p>You download your account statement from net banking. You go to open it, and your laptop asks for a password. By now you know the drill by heart: it's your PAN in capital letters, followed by your date of birth as DDMMYYYY. You type <em>ABCDE1234F15081990</em>, hit enter, and there it is. Your statement. Every transaction, neatly listed.</p>
 
-  //     <p>Then the loan portal asks you to upload it. Or the new bank's KYC page. Or your CA, who needs it for filing your returns on the Income Tax portal. You pick the file, click upload, and you get a polite little message that the document is password-protected and cannot be accepted. So now you have a PDF you can open just fine, and nobody else can take it.</p>
+      <p>Then the loan portal asks you to upload it. Or the new bank's KYC page. Or your CA, who needs it for filing your returns on the Income Tax portal. You pick the file, click upload, and you get a polite little message that the document is password-protected and cannot be accepted. So now you have a PDF you can open just fine, and nobody else can take it.</p>
 
-  //     <p>That gap, between a file you can read and a file you can actually submit, is what this whole thing is about.</p>
+      <p>That gap, between a file you can read and a file you can actually submit, is what this whole thing is about.</p>
 
-  //     <h2>Why Your Statement Came Locked in the First Place</h2>
+      <h2>Why Your Statement Came Locked in the First Place</h2>
 
-  //     <p>Banks and credit-card companies lock these PDFs on purpose, and honestly, it's a sensible default. Your statement is one of the most personal things you own. It shows where you shop, what you earn, your EMIs, your balance. If that file is sitting in your Gmail inbox or your phone's Downloads folder and your phone goes missing, a password is a small but real wall between a stranger and your money.</p>
+      <p>Banks and credit-card companies lock these PDFs on purpose, and honestly, it's a sensible default. Your statement is one of the most personal things you own. It shows where you shop, what you earn, your EMIs, your balance. If that file is sitting in your Gmail inbox or your phone's Downloads folder and your phone goes missing, a password is a small but real wall between a stranger and your money.</p>
 
-  //     <p>So SBI, HDFC, ICICI, Axis, the credit-card teams at every major issuer, they all do the same thing. They encrypt the PDF with a password built from details only you should know. Usually it's some mix of your PAN, your date of birth, your customer ID, or the last few digits of your card. The exact recipe is printed in the very email that delivered the statement, which all of us ignore until the day we actually need it.</p>
+      <p>So SBI, HDFC, ICICI, Axis, the credit-card teams at every major issuer, they all do the same thing. They encrypt the PDF with a password built from details only you should know. Usually it's some mix of your PAN, your date of birth, your customer ID, or the last few digits of your card. The exact recipe is printed in the very email that delivered the statement, which all of us ignore until the day we actually need it.</p>
 
-  //     <h2>So Why Do KYC and Loan Portals Reject It?</h2>
+      <h2>So Why Do KYC and Loan Portals Reject It?</h2>
 
-  //     <p>Here's the irritating bit. The same security that protects your file is what gets it bounced.</p>
+      <p>Here's the irritating bit. The same security that protects your file is what gets it bounced.</p>
 
-  //     <p>Most upload systems, whether it's a loan aggregator, a new bank's onboarding flow, or a verification desk, run automated checks on whatever you send. They try to read the text, look for tampering, sometimes auto-pull your numbers. A password-locked PDF blocks all of that. The system can't open it without the password, and no sane portal is going to sit there asking lakhs of applicants to type their PAN into a box on its site. So rather than deal with it, they just refuse the file: "Password-protected documents are not allowed."</p>
+      <p>Most upload systems, whether it's a loan aggregator, a new bank's onboarding flow, or a verification desk, run automated checks on whatever you send. They try to read the text, look for tampering, sometimes auto-pull your numbers. A password-locked PDF blocks all of that. The system can't open it without the password, and no sane portal is going to sit there asking lakhs of applicants to type their PAN into a box on its site. So rather than deal with it, they just refuse the file: "Password-protected documents are not allowed."</p>
 
-  //     <p>Which leaves you needing to hand over the same statement, minus the lock. An unlocked copy you can upload anywhere.</p>
+      <p>Which leaves you needing to hand over the same statement, minus the lock. An unlocked copy you can upload anywhere.</p>
 
-  //     <h2>Let's Be Honest About What "Unlock" Means Here</h2>
+      <h2>Let's Be Honest About What "Unlock" Means Here</h2>
 
-  //     <p>This is the part a lot of tools won't tell you straight, so I will.</p>
+      <p>This is the part a lot of tools won't tell you straight, so I will.</p>
 
-  //     <p>The <a href="/unlock-pdf">Unlock PDF</a> tool removes a password from a PDF that <strong>you can already open</strong>. You type in the password you know, and it hands you back a copy with no password on it. That is the whole job, start to finish.</p>
+      <p>The <a href="/unlock-pdf">Unlock PDF</a> tool removes a password from a PDF that <strong>you can already open</strong>. You type in the password you know, and it hands you back a copy with no password on it. That is the whole job, start to finish.</p>
 
-  //     <p>It is <strong>not</strong> a password cracker. It cannot guess, recover, or break into a PDF whose password you've forgotten. Type the wrong password, or no password, and you just get an error and nothing happens to your file. There's no secret backdoor, no brute-forcing, no "recover my forgotten password" magic. If you don't know the password, this genuinely can't help you, and your best bet is to go back to your bank's email or net banking and dig out the format.</p>
+      <p>It is <strong>not</strong> a password cracker. It cannot guess, recover, or break into a PDF whose password you've forgotten. Type the wrong password, or no password, and you just get an error and nothing happens to your file. There's no secret backdoor, no brute-forcing, no "recover my forgotten password" magic. If you don't know the password, this genuinely can't help you, and your best bet is to go back to your bank's email or net banking and dig out the format.</p>
 
-  //     <p>I'm spelling this out because the internet is full of sites promising to "unlock any PDF." For something as private as a bank statement, you want a tool that's clear about its limits, not one making promises it has no business making.</p>
+      <p>I'm spelling this out because the internet is full of sites promising to "unlock any PDF." For something as private as a bank statement, you want a tool that's clear about its limits, not one making promises it has no business making.</p>
 
-  //     <h2>The One Trade-off You Should Know</h2>
+      <h2>The One Trade-off You Should Know</h2>
 
-  //     <p>When the tool removes the password, the output is a <strong>flattened, image-based PDF</strong>. Each page basically becomes a picture of itself. The document looks exactly the same, opens everywhere, and uploads to any portal without complaint. But the text inside it is no longer selectable. You can't click and copy a transaction line out of it anymore, and software can't pull the raw text from it the way it could from the original.</p>
+      <p>When the tool removes the password, the output is a <strong>flattened, image-based PDF</strong>. Each page basically becomes a picture of itself. The document looks exactly the same, opens everywhere, and uploads to any portal without complaint. But the text inside it is no longer selectable. You can't click and copy a transaction line out of it anymore, and software can't pull the raw text from it the way it could from the original.</p>
 
-  //     <p>Is that a problem? For almost everything you'd submit a statement for, no. KYC desks, loan applications, your CA, address proof, embassy visa files, they all just want to <em>see</em> a clean, openable statement. A flattened PDF does exactly that. It would only matter if someone specifically needs to copy-paste figures straight out of the file, which is rare for a document you're uploading.</p>
+      <p>Is that a problem? For almost everything you'd submit a statement for, no. KYC desks, loan applications, your CA, address proof, embassy visa files, they all just want to <em>see</em> a clean, openable statement. A flattened PDF does exactly that. It would only matter if someone specifically needs to copy-paste figures straight out of the file, which is rare for a document you're uploading.</p>
 
-  //     <p>I'd rather you know that now than be surprised by it later.</p>
+      <p>I'd rather you know that now than be surprised by it later.</p>
 
-  //     <h2>Why Doing This on Your Own Device Matters</h2>
+      <h2>Why Doing This on Your Own Device Matters</h2>
 
-  //     <p>Think about what you'd be handing over otherwise. Your full bank statement. Every transaction on it. And to unlock it, the password too, which is often your PAN and DOB stitched together.</p>
+      <p>Think about what you'd be handing over otherwise. Your full bank statement. Every transaction on it. And to unlock it, the password too, which is often your PAN and DOB stitched together.</p>
 
-  //     <p>Now picture typing all of that into some random website that uploads your file to a server "somewhere" to process it. You have no idea where that server sits, who runs it, whether the file actually gets deleted, or whether your PAN and DOB just landed in a log somewhere across the world. For a festival photo you're sharing on WhatsApp, who cares. For your financial life, that's a genuinely bad idea.</p>
+      <p>Now picture typing all of that into some random website that uploads your file to a server "somewhere" to process it. You have no idea where that server sits, who runs it, whether the file actually gets deleted, or whether your PAN and DOB just landed in a log somewhere across the world. For a festival photo you're sharing on WhatsApp, who cares. For your financial life, that's a genuinely bad idea.</p>
 
-  //     <p>This tool runs <strong>entirely on your device</strong>. Your PDF never leaves your browser. It isn't uploaded anywhere, isn't sent to a server, isn't seen by anyone but you. The unlocking happens right there on your laptop or phone, which is how a document this personal should be handled. No upload means there's simply nothing for anyone to intercept or store.</p>
+      <p>This tool runs <strong>entirely on your device</strong>. Your PDF never leaves your browser. It isn't uploaded anywhere, isn't sent to a server, isn't seen by anyone but you. The unlocking happens right there on your laptop or phone, which is how a document this personal should be handled. No upload means there's simply nothing for anyone to intercept or store.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Remove the Password From Your PDF</h3>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/unlock-pdf">GoPDFGo Unlock PDF</a> tool in your browser, on your phone or your computer.</li>
-  //         <li><strong>Step 2:</strong> Pick your locked statement, or drag and drop it into the box. The file stays on your device the entire time.</li>
-  //         <li><strong>Step 3:</strong> Type in the password you already know. For most bank statements that's your PAN in CAPITALS followed by your DOB as DDMMYYYY. Tap the little eye icon to reveal what you've typed and check for typos, because one wrong character means an error.</li>
-  //         <li><strong>Step 4:</strong> Run the unlock. If the password is right, you get a fresh, password-free copy in a moment. If it's wrong, you just see an error and your file is untouched, so go ahead and try again.</li>
-  //         <li><strong>Step 5:</strong> Download your unlocked PDF. Open it once to confirm it no longer asks for a password, then upload it wherever you needed.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Remove the Password From Your PDF</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/unlock-pdf">GoPDFGo Unlock PDF</a> tool in your browser, on your phone or your computer.</li>
+          <li><strong>Step 2:</strong> Pick your locked statement, or drag and drop it into the box. The file stays on your device the entire time.</li>
+          <li><strong>Step 3:</strong> Type in the password you already know. For most bank statements that's your PAN in CAPITALS followed by your DOB as DDMMYYYY. Tap the little eye icon to reveal what you've typed and check for typos, because one wrong character means an error.</li>
+          <li><strong>Step 4:</strong> Run the unlock. If the password is right, you get a fresh, password-free copy in a moment. If it's wrong, you just see an error and your file is untouched, so go ahead and try again.</li>
+          <li><strong>Step 5:</strong> Download your unlocked PDF. Open it once to confirm it no longer asks for a password, then upload it wherever you needed.</li>
+        </ul>
+      </div>
 
-  //     <h2>What to Do Next With Your Unlocked File</h2>
+      <h2>What to Do Next With Your Unlocked File</h2>
 
-  //     <p>Once the lock is off, you might run straight into the next classic wall: file size. Loan and KYC portals love a 2MB or 5MB cap, and a multi-page statement can blow right past it. If your unlocked statement is too heavy to upload, run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring it down to a size the portal will accept, without turning it into a blurry mess.</p>
+      <p>Once the lock is off, you might run straight into the next classic wall: file size. Loan and KYC portals love a 2MB or 5MB cap, and a multi-page statement can blow right past it. If your unlocked statement is too heavy to upload, run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring it down to a size the portal will accept, without turning it into a blurry mess.</p>
 
-  //     <p>A couple of other things you might want before sharing. If you're sending the statement to an agent, a CA, or a property dealer and you want it clearly marked so it can't quietly get passed around, stamp it first with the <a href="/watermark-pdf">Watermark PDF</a> tool. Something like "For ABC Bank loan only" does the job. And if the portal asked you to combine your statement with other documents into a single file, the <a href="/merge-pdf">Merge PDF</a> tool will join them in the exact order you want.</p>
+      <p>A couple of other things you might want before sharing. If you're sending the statement to an agent, a CA, or a property dealer and you want it clearly marked so it can't quietly get passed around, stamp it first with the <a href="/watermark-pdf">Watermark PDF</a> tool. Something like "For ABC Bank loan only" does the job. And if the portal asked you to combine your statement with other documents into a single file, the <a href="/merge-pdf">Merge PDF</a> tool will join them in the exact order you want.</p>
 
-  //     <p>One more thing worth a thought. If any document in your bundle shows your full Aadhaar number, consider masking it before you submit, which you can do with the <a href="/aadhaar-masking">Aadhaar Masking</a> tool. UIDAI itself recommends sharing masked Aadhaar wherever the full number isn't strictly needed.</p>
+      <p>One more thing worth a thought. If any document in your bundle shows your full Aadhaar number, consider masking it before you submit, which you can do with the <a href="/aadhaar-masking">Aadhaar Masking</a> tool. UIDAI itself recommends sharing masked Aadhaar wherever the full number isn't strictly needed.</p>
 
-  //     <h2>The Short Version</h2>
+      <h2>The Short Version</h2>
 
-  //     <p>A password-protected statement is your bank doing its job. A portal rejecting that locked file is the portal doing its job. You just happen to be caught between the two. Removing a password you already know is a perfectly normal, legitimate thing to do with your own document, and there's no reason to send that document, or your PAN, off to a stranger's server to get it done.</p>
+      <p>A password-protected statement is your bank doing its job. A portal rejecting that locked file is the portal doing its job. You just happen to be caught between the two. Removing a password you already know is a perfectly normal, legitimate thing to do with your own document, and there's no reason to send that document, or your PAN, off to a stranger's server to get it done.</p>
 
-  //     <p>So the next time a KYC page bounces your statement, you'll know the fix. Type the password you know, get an unlocked copy back, and carry on with your loan or your verification. Go ahead and <a href="/unlock-pdf">unlock your PDF</a> right on your own device, no upload, nothing leaving your hands.</p>
-  //   `
-  // }, done
+      <p>So the next time a KYC page bounces your statement, you'll know the fix. Type the password you know, get an unlocked copy back, and carry on with your loan or your verification. Go ahead and <a href="/unlock-pdf">unlock your PDF</a> right on your own device, no upload, nothing leaving your hands.</p>
+    `
+  },
 
 
   // 21-06 - 2026
