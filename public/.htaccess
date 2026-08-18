@@ -17,6 +17,11 @@
   RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
 
+  # 1c. /blog aur /blog/ ka apna koi page nahi hai -- blog/ folder me sirf
+  #     alag-alag post pages hain. Dono ko asli index /blogs par 301 karo.
+  #     Pattern $ se anchored hai, isliye /blog/<slug> post URLs par NAHI chalta.
+  RewriteRule ^blog/?$ /blogs [R=301,L]
+
   # 2. Trailing slash HATAO (301) -- sirf tab jab no-slash ".html" page मौजूद ho.
   #    Yeh leftover /x/ folder hone par bhi chalta hai, aur asli asset folders par loop nahi karta.
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f

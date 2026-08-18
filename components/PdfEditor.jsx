@@ -1925,7 +1925,7 @@ const PdfEditor = ({ toolId }) => {
                   {files.length > 0 &&
                   !["merge-pdf", "image-to-pdf"].includes(tool.id)
                     ? "Replace File"
-                    : `Drop ${tool.id === "image-to-pdf" ? "Images" : "PDFs"} here`}
+                    : `Tap to upload ${tool.id === "image-to-pdf" ? "images" : "PDFs"}`}
                 </h3>
               </div>
             )}

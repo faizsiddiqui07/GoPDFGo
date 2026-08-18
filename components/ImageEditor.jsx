@@ -1910,7 +1910,7 @@ const ImageEditor = ({ toolId }) => {
                     <Upload className="w-8 h-8 text-[#FF9933]" />
                   </div>
                   <p className="text-lg font-bold text-slate-700">
-                    Click to Upload {tool.config.allowBatch ? "Images" : "Image"}
+                    Tap to upload {tool.config.allowBatch ? "images" : "image"}
                   </p>
                   {tool.config.accept && (
                     <p className="text-xs text-slate-400 mt-2 font-medium bg-slate-50 inline-block px-2 py-1 rounded border border-slate-100 uppercase">
