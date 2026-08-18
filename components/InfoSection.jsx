@@ -94,7 +94,8 @@ const InfoSection = ({ info }) => {
             info.walkthrough.troubleshooting.length > 0 && (
               <div className="mt-8">
                 <h3 className="text-lg font-bold text-slate-800 mb-4">
-                  Common problems and how to fix them
+                  {info.walkthrough.troubleshootingHeading ||
+                    "Common problems and how to fix them"}
                 </h3>
                 <div className="space-y-3">
                   {info.walkthrough.troubleshooting.map((item, idx) => (
