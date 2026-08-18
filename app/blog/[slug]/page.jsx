@@ -97,7 +97,15 @@ export default function BlogDetailPage() {
                 : `https://gopdfgo.com${blog.imageUrl}`,
               datePublished: blog.publishedAt || blog.date,
               dateModified: blog.publishedAt || blog.date,
-              author: { "@type": "Organization", name: "GoPDFGo" },
+              // Person, not Organization: Google's E-E-A-T signals want a
+              // real human author. This lives only in the JSON-LD script tag,
+              // so the name is never rendered on the page — it points at the
+              // About page, where the name is already public.
+              author: {
+                "@type": "Person",
+                name: "Faiz Siddiqui",
+                url: "https://gopdfgo.com/about",
+              },
               publisher: {
                 "@type": "Organization",
                 name: "GoPDFGo",
