@@ -2590,8 +2590,7 @@ export const blogsData = [
     date: "July 11, 2026",
     publishedAt: "2026-07-11",
     imageUrl: "/images/blogs/break-down-annual-reports-department-wise-pdfs.webp",
-    content: `
-  <p>Every fiscal year, corporate executives and department heads face the same monumental task: reviewing the company's annual report. These comprehensive documents are essential for transparency, stakeholder communication, and strategic planning. However, they are also massive—often spanning 150 to 300 pages of dense financial data, operational reviews, and compliance metrics.</p>
+    content: `<p>Every fiscal year, corporate executives and department heads face the same monumental task: reviewing the company's annual report. These comprehensive documents are essential for transparency, stakeholder communication, and strategic planning. However, they are also massive—often spanning 150 to 300 pages of dense financial data, operational reviews, and compliance metrics.</p>
 
     <p>Emailing a monolithic 300-page file to every manager in the company creates immediate productivity issues. A marketing manager does not need to sift through 50 pages of raw accounting data, just as a supply chain director does not need to read the human resources diversity metrics. Sharing oversized documents leads to information overload, wasted time, and confusion.</p>
 
@@ -3317,89 +3316,89 @@ export const blogsData = [
 
   // 21-06 - 2026
   //   (7 new blogs below — commented; uncomment + add / images / blogs / <slug>.webp to publish)
-  // {
-  //   id: "add-cover-page-to-pdf-report-project",
-  //   title: "How to Add a Cover Page to a PDF Report or Project",
-  //   seoTitle: "Add Cover Page to PDF Report or Project | GoPDFGo",
-  //   keywords: "add cover page to pdf, title page for pdf project, prepend cover page pdf, add front page to pdf report, college project cover page pdf, internship report title page, merge cover page with pdf, add title page to pdf without word",
-  //   excerpt: "Exported your whole report to PDF and only then noticed the title page is missing? Here is the quick way to stick a cover in front without redoing the entire export.",
-  //   date: "June 21, 2026",
-  //   publishedAt: "2026-06-21",
-  //   imageUrl: "/images/blogs/add-cover-page-to-pdf-report-project.webp",
-  //   content: `
-  //     <p>You finished the report. Forty pages of a final-year project, an internship report, maybe a client proposal. You exported the whole thing to PDF and then noticed the obvious gap. There is no cover page. No title, no your name, no college logo, no "Submitted to Prof. So-and-so." Page one is just chapter one.</p>
+  {
+    id: "add-cover-page-to-pdf-report-project",
+    title: "How to Add a Cover Page to a PDF Report or Project",
+    seoTitle: "Add Cover Page to PDF Report or Project | GoPDFGo",
+    keywords: "add cover page to pdf, title page for pdf project, prepend cover page pdf, add front page to pdf report, college project cover page pdf, internship report title page, merge cover page with pdf, add title page to pdf without word",
+    excerpt: "Exported your whole report to PDF and only then noticed the title page is missing? Here is the quick way to stick a cover in front without redoing the entire export.",
+    date: "August 22, 2026",
+    publishedAt: "2026-08-22",
+    imageUrl: "/images/blogs/add-cover-page-to-pdf-report-project.webp",
+    content: `
+      <p>You finished the report. Forty pages of a final-year project, an internship report, maybe a client proposal. You exported the whole thing to PDF and then noticed the obvious gap. There is no cover page. No title, no your name, no college logo, no "Submitted to Prof. So-and-so." Page one is just chapter one.</p>
 
-  //     <p>So do you go back into that giant Word file, insert a page at the very top, fight the formatting that always shifts when you add a page, and re-export all 40 pages again? No. The cover is one page. The report is already a clean PDF. You only need to glue one in front of the other, and that is a two-minute job.</p>
+      <p>So do you go back into that giant Word file, insert a page at the very top, fight the formatting that always shifts when you add a page, and re-export all 40 pages again? No. The cover is one page. The report is already a clean PDF. You only need to glue one in front of the other, and that is a two-minute job.</p>
 
-  //     <h2>The simplest way to think about it</h2>
-  //     <p>A cover page is a separate document until you decide otherwise. So treat it like one. Make your title page as its own one-page PDF, keep your report PDF exactly as it is, and then put the cover <strong>first</strong> and the report <strong>second</strong>. Stack them in that order and merge. That is the whole trick. You are not editing the report. You are not touching a single comma inside those 40 pages. You are adding one sheet to the front of the pile.</p>
+      <h2>The simplest way to think about it</h2>
+      <p>A cover page is a separate document until you decide otherwise. So treat it like one. Make your title page as its own one-page PDF, keep your report PDF exactly as it is, and then put the cover <strong>first</strong> and the report <strong>second</strong>. Stack them in that order and merge. That is the whole trick. You are not editing the report. You are not touching a single comma inside those 40 pages. You are adding one sheet to the front of the pile.</p>
 
-  //     <p>This matters because re-exporting is where things break. Word repaginates, your carefully placed figure jumps to the next page, the heading styles drift, and now you have three new problems you did not have ten minutes ago. Leave the report PDF untouched and all of that goes away.</p>
+      <p>This matters because re-exporting is where things break. Word repaginates, your carefully placed figure jumps to the next page, the heading styles drift, and now you have three new problems you did not have ten minutes ago. Leave the report PDF untouched and all of that goes away.</p>
 
-  //     <h2>First, get your cover page as a PDF</h2>
-  //     <p>You have a few honest options here, depending on how your cover was made. Pick whichever matches your situation.</p>
+      <h2>First, get your cover page as a PDF</h2>
+      <p>You have a few honest options here, depending on how your cover was made. Pick whichever matches your situation.</p>
 
-  //     <ul>
-  //       <li><strong>You designed it in Canva or something similar.</strong> Plenty of students grab a free cover template off Canva because it looks nicer than a plain Word page. Canva exports straight to PDF, so download that single page as a PDF and you are set. Same for a cover built in PowerPoint or Google Slides.</li>
-  //       <li><strong>You have the cover as an image.</strong> Maybe a friend designed it, or you got a JPG with the college logo and a border. An image is not a PDF, so convert it first with <a href="/image-to-pdf">Image to PDF</a>. Drop the JPG or PNG in and it comes out as a clean one-page A4 PDF you can merge.</li>
-  //       <li><strong>The cover sits inside the big Word file but the report is already PDF.</strong> Open the Word doc, go to Print, set the range to that one page ("current page" or "page 1"), and save as PDF. Now you have a standalone cover without re-exporting the whole thing.</li>
-  //       <li><strong>You want to keep it plain.</strong> A simple typed cover in Word, exported as a one-page PDF, works perfectly well. Examiners care that the details are correct, not that the page sparkles.</li>
-  //     </ul>
+      <ul>
+        <li><strong>You designed it in Canva or something similar.</strong> Plenty of students grab a free cover template off Canva because it looks nicer than a plain Word page. Canva exports straight to PDF, so download that single page as a PDF and you are set. Same for a cover built in PowerPoint or Google Slides.</li>
+        <li><strong>You have the cover as an image.</strong> Maybe a friend designed it, or you got a JPG with the college logo and a border. An image is not a PDF, so convert it first with <a href="/image-to-pdf">Image to PDF</a>. Drop the JPG or PNG in and it comes out as a clean one-page A4 PDF you can merge.</li>
+        <li><strong>The cover sits inside the big Word file but the report is already PDF.</strong> Open the Word doc, go to Print, set the range to that one page ("current page" or "page 1"), and save as PDF. Now you have a standalone cover without re-exporting the whole thing.</li>
+        <li><strong>You want to keep it plain.</strong> A simple typed cover in Word, exported as a one-page PDF, works perfectly well. Examiners care that the details are correct, not that the page sparkles.</li>
+      </ul>
 
-  //     <p>Whatever route you take, the goal is one thing: a single PDF that is your cover page, sitting in your Downloads folder, ready to go.</p>
+      <p>Whatever route you take, the goal is one thing: a single PDF that is your cover page, sitting in your Downloads folder, ready to go.</p>
 
-  //     <h2>Now merge the cover in front of the report</h2>
-  //     <p>This is where the order does all the work. The tool keeps whatever sequence you arrange, so the cover goes on top of the stack and the report follows.</p>
+      <h2>Now merge the cover in front of the report</h2>
+      <p>This is where the order does all the work. The tool keeps whatever sequence you arrange, so the cover goes on top of the stack and the report follows.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Adding your cover page with Merge PDF</h3>
-  //       <p>Everything here runs inside your browser. The project file and the cover never leave your laptop, which is reassuring when the report carries your name, roll number, and sometimes a company's internal numbers.</p>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/merge-pdf">Merge PDF</a> tool on GoPDFGo.</li>
-  //         <li><strong>Step 2:</strong> Add your cover-page PDF first, then add the full report PDF. You can drop both in together.</li>
-  //         <li><strong>Step 3:</strong> Check the order in the preview tiles. The cover should be first, the report after it. If they loaded the wrong way around, drag the cover tile to the front.</li>
-  //         <li><strong>Step 4:</strong> If the cover came in sideways from a scan, tap the Rotate button on its tile to set it upright before merging.</li>
-  //         <li><strong>Step 5:</strong> Click <strong>Merge PDF Now</strong> and download. Open it once to confirm page one is your cover and page two is where the report begins.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>Adding your cover page with Merge PDF</h3>
+        <p>Everything here runs inside your browser. The project file and the cover never leave your laptop, which is reassuring when the report carries your name, roll number, and sometimes a company's internal numbers.</p>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/merge-pdf">Merge PDF</a> tool on GoPDFGo.</li>
+          <li><strong>Step 2:</strong> Add your cover-page PDF first, then add the full report PDF. You can drop both in together.</li>
+          <li><strong>Step 3:</strong> Check the order in the preview tiles. The cover should be first, the report after it. If they loaded the wrong way around, drag the cover tile to the front.</li>
+          <li><strong>Step 4:</strong> If the cover came in sideways from a scan, tap the Rotate button on its tile to set it upright before merging.</li>
+          <li><strong>Step 5:</strong> Click <strong>Merge PDF Now</strong> and download. Open it once to confirm page one is your cover and page two is where the report begins.</li>
+        </ul>
+      </div>
 
-  //     <p>That check at the end takes five seconds and saves a fair bit of embarrassment. Open the merged file, look at page one. If it is your title page, you are done.</p>
+      <p>That check at the end takes five seconds and saves a fair bit of embarrassment. Open the merged file, look at page one. If it is your title page, you are done.</p>
 
-  //     <h2>Page numbers, the right way round</h2>
-  //     <p>Plenty of college rubrics and internship report formats want numbered pages, and printed reports almost never number the cover. Here is the part people get wrong: do not merge first and number after. GoPDFGo's <a href="/page-numbers">Add Page Numbers</a> tool stamps a number on <em>every</em> page, starting from one, with no option to skip the first page or start later. Number the merged file and your cover ends up wearing a "1," which looks off.</p>
+      <h2>Page numbers, the right way round</h2>
+      <p>Plenty of college rubrics and internship report formats want numbered pages, and printed reports almost never number the cover. Here is the part people get wrong: do not merge first and number after. GoPDFGo's <a href="/page-numbers">Add Page Numbers</a> tool stamps a number on <em>every</em> page, starting from one, with no option to skip the first page or start later. Number the merged file and your cover ends up wearing a "1," which looks off.</p>
 
-  //     <p>So flip the order. Number the report <em>first</em>, while it is still on its own, then prepend the un-numbered cover with Merge PDF. The cover was never in the file when numbering ran, so it stays clean, and your chapters carry the numbers. If you have already merged and want a more controlled setup (cover blank, numbering starting from the real page one), the longer split-and-rejoin route is laid out in our guide on <a href="/blog/add-page-numbers-to-college-project-pdf">adding page numbers to a college project PDF</a>. For most submissions, numbering before you prepend is enough.</p>
+      <p>So flip the order. Number the report <em>first</em>, while it is still on its own, then prepend the un-numbered cover with Merge PDF. The cover was never in the file when numbering ran, so it stays clean, and your chapters carry the numbers. If you have already merged and want a more controlled setup (cover blank, numbering starting from the real page one), the longer split-and-rejoin route is laid out in our guide on <a href="/blog/add-page-numbers-to-college-project-pdf">adding page numbers to a college project PDF</a>. For most submissions, numbering before you prepend is enough.</p>
 
-  //     <h2>If the merged file turns heavy</h2>
-  //     <p>If the report was full of scanned diagrams or high-res photos and the cover came from a detailed Canva design, the merged PDF can swell to 15 or 20 MB. That is a problem when the college portal caps uploads at 5 MB, or when Gmail starts grumbling at the attachment. Run the finished file through <a href="/compress-pdf">Compress PDF</a> and it drops a lot while the text stays sharp. Do this last, after merging, so you compress once and not twice.</p>
+      <h2>If the merged file turns heavy</h2>
+      <p>If the report was full of scanned diagrams or high-res photos and the cover came from a detailed Canva design, the merged PDF can swell to 15 or 20 MB. That is a problem when the college portal caps uploads at 5 MB, or when Gmail starts grumbling at the attachment. Run the finished file through <a href="/compress-pdf">Compress PDF</a> and it drops a lot while the text stays sharp. Do this last, after merging, so you compress once and not twice.</p>
 
-  //     <h2>The freelancer version of the same job</h2>
-  //     <p>This is not only a student thing. Say you run a small design or consulting gig and you send out quotations and proposals. The quote itself often drops out of an invoicing app or a spreadsheet as a plain PDF. Functional, but flat. A branded cover with your logo, your tagline, and "Proposal prepared for [client]" makes the whole thing read like a studio sent it, not a guy with a laptop at a cafe.</p>
+      <h2>The freelancer version of the same job</h2>
+      <p>This is not only a student thing. Say you run a small design or consulting gig and you send out quotations and proposals. The quote itself often drops out of an invoicing app or a spreadsheet as a plain PDF. Functional, but flat. A branded cover with your logo, your tagline, and "Proposal prepared for [client]" makes the whole thing read like a studio sent it, not a guy with a laptop at a cafe.</p>
 
-  //     <p>The steps do not change. Build the cover once in Canva, keep it as a reusable one-page PDF, and put it on the front of every proposal with <a href="/merge-pdf">Merge PDF</a>. You design it a single time and reuse it for the next ten clients. They see a clean front page before they reach your numbers, and that first impression on a quote does real work.</p>
+      <p>The steps do not change. Build the cover once in Canva, keep it as a reusable one-page PDF, and put it on the front of every proposal with <a href="/merge-pdf">Merge PDF</a>. You design it a single time and reuse it for the next ten clients. They see a clean front page before they reach your numbers, and that first impression on a quote does real work.</p>
 
-  //     <h2>A couple of things this will not do</h2>
-  //     <p>Let me be straight about the limits. Merging puts the cover in front of the report, but it does not redesign the cover for you. If the title page itself looks rough, fix that in whatever tool you made it in. Merge only handles the stacking.</p>
+      <h2>A couple of things this will not do</h2>
+      <p>Let me be straight about the limits. Merging puts the cover in front of the report, but it does not redesign the cover for you. If the title page itself looks rough, fix that in whatever tool you made it in. Merge only handles the stacking.</p>
 
-  //     <p>Also, if the report PDF is password protected, say you pulled it from a portal that locked it, you will need to remove the password with <a href="/unlock-pdf">Unlock PDF</a> before merging, because locked files cannot be combined. And merging keeps each file at its own page size. If the cover is A4 and the report is Letter, they merge fine but the page dimensions differ a touch. Nobody notices on most submissions, but if your guidelines are strict, match the cover's size to the report before you make it.</p>
+      <p>Also, if the report PDF is password protected, say you pulled it from a portal that locked it, you will need to remove the password with <a href="/unlock-pdf">Unlock PDF</a> before merging, because locked files cannot be combined. And merging keeps each file at its own page size. If the cover is A4 and the report is Letter, they merge fine but the page dimensions differ a touch. Nobody notices on most submissions, but if your guidelines are strict, match the cover's size to the report before you make it.</p>
 
-  //     <h2>FAQ</h2>
+      <h2>FAQ</h2>
 
-  //     <p><strong>Q: Will adding a cover page change anything in my actual report?</strong><br>
-  //       A: No. Your report's text, figures, and formatting stay exactly as they were. You are only placing a new page in front of it, so nothing inside the report shifts.</p>
+      <p><strong>Q: Will adding a cover page change anything in my actual report?</strong><br>
+        A: No. Your report's text, figures, and formatting stay exactly as they were. You are only placing a new page in front of it, so nothing inside the report shifts.</p>
 
-  //     <p><strong>Q: My cover is a JPG, not a PDF. Can I still merge it?</strong><br>
-  //       A: Not directly. Convert the JPG to a PDF first with <a href="/image-to-pdf">Image to PDF</a>, then merge that one-page PDF in front of your report.</p>
+      <p><strong>Q: My cover is a JPG, not a PDF. Can I still merge it?</strong><br>
+        A: Not directly. Convert the JPG to a PDF first with <a href="/image-to-pdf">Image to PDF</a>, then merge that one-page PDF in front of your report.</p>
 
-  //     <p><strong>Q: How do I number pages but leave the cover unnumbered?</strong><br>
-  //       A: Add page numbers to the report on its own first with <a href="/page-numbers">Add Page Numbers</a>, then prepend the cover using <a href="/merge-pdf">Merge PDF</a>. The cover is never in the file while numbering runs, so it stays clean.</p>
+      <p><strong>Q: How do I number pages but leave the cover unnumbered?</strong><br>
+        A: Add page numbers to the report on its own first with <a href="/page-numbers">Add Page Numbers</a>, then prepend the cover using <a href="/merge-pdf">Merge PDF</a>. The cover is never in the file while numbering runs, so it stays clean.</p>
 
-  //     <p><strong>Q: The merged file is too big for my college upload portal. What now?</strong><br>
-  //       A: Run the finished merged PDF through <a href="/compress-pdf">Compress PDF</a> as the last step. It brings the size down a good bit while keeping your text and diagrams readable.</p>
+      <p><strong>Q: The merged file is too big for my college upload portal. What now?</strong><br>
+        A: Run the finished merged PDF through <a href="/compress-pdf">Compress PDF</a> as the last step. It brings the size down a good bit while keeping your text and diagrams readable.</p>
 
-  //     <p>Adding a title page really is just stacking one PDF in front of another in the right order. Make your cover, open <a href="/merge-pdf">Merge PDF</a>, put the cover first, and the report is ready to submit. Worth the two minutes before you upload.</p>
-  //     `
-  // }, done
+      <p>Adding a title page really is just stacking one PDF in front of another in the right order. Make your cover, open <a href="/merge-pdf">Merge PDF</a>, put the cover first, and the report is ready to submit. Worth the two minutes before you upload.</p>
+      `
+  },
   // {
   //   id: "convert-png-to-jpg-online-fix-black-background",
   //   title: "Convert PNG to JPG Online to Fix Black Backgrounds and Heavy Files",
@@ -4037,8 +4036,8 @@ export const blogsData = [
   // },
 
 
-      // 22-06-2026 (batch 2 — existing-tool blogs, 14)
-      // (commented; uncomment + add /images/blogs/<slug>.webp to publish)
+  // 22-06-2026 (batch 2 — existing-tool blogs, 14)
+  // (commented; uncomment + add /images/blogs/<slug>.webp to publish)
   //       {
   //         id: "split-question-paper-pdf-subject-wise",
   //       title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
@@ -5084,7 +5083,7 @@ export const blogsData = [
   //       `
   // },
 
-        // 18-07-2027
+  // 18-07-2027
   //       {
   //         id: "send-photos-whatsapp-without-losing-quality",
   //       title: "How to Send Photos on WhatsApp Without WhatsApp Ruining the Quality",
@@ -6511,4 +6510,4 @@ export const blogsData = [
   //       `
   // },
 
-        ];
+];
