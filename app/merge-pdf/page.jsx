@@ -6,7 +6,7 @@ import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
 
 export const metadata = {
-  title: "Merge PDF Online Free – Combine Multiple PDFs Into One | GoPDFGo",
+  title: "Merge PDF Online Free – Combine PDFs Into One | GoPDFGo",
   description:
     "Merge multiple PDF files into one document online. Fast, secure, and private PDF merger that works directly in your browser.",
   keywords:

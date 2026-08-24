@@ -184,9 +184,9 @@ Stop wasting time with slow uploads and daily limits. Combine your PDFs securely
       walkthrough: {
         heading: "Building one application PDF from three files",
         troubleshootingHeading: "A page dropped or out of sequence",
-        body: `Say you are assembling a job or visa application: a cover letter exported from your word processor, a scanned ID, and a two-page marksheet. Drop all three in, then drag them into the order the form expects — cover letter first, ID second, marksheet last. The file sitting at the top becomes page one of the output. GoPDFGo stitches them in that exact sequence, entirely inside your browser, and hands back a single PDF.
+        body: `Say you are assembling a job or visa application: a cover letter exported from your word processor, a scanned ID, and a two-page marksheet. Drop all three in, then drag them into the order the form expects — cover letter first, ID second, marksheet last. The card numbered 1 becomes page one of the output. GoPDFGo stitches them in that exact sequence, entirely inside your browser, and hands back a single PDF.
 
-Mixed formats are fine. Your cover letter might be Letter size and portrait while the marksheet scan is A4 — the tool keeps each page at its own size and orientation instead of stretching everything to match, so nothing gets distorted.
+Mixed formats are fine. Your cover letter might be Letter size and portrait while the marksheet scan is A4 — the tool keeps each page at its own size and orientation instead of stretching everything to match, so nothing gets distorted. If one file came in sideways, use the rotate control on its card to turn it upright before you merge, so every page in the finished PDF reads the right way up.
 
 One thing worth knowing: if one of your files is password-protected or unreadable, Merge PDF does not fail the whole job. It skips that file, finishes the rest, and tells you by name which ones it left out. If a locked file has to be in there, [remove its password first](/unlock-pdf) and merge again. Once everything is combined, you can [reorder or remove individual pages](/organize-pdf) if something landed out of sequence, or [shrink the finished PDF](/compress-pdf) when the merged result is too heavy for an upload form.`,
         troubleshooting: [
@@ -196,7 +196,7 @@ One thing worth knowing: if one of your files is password-protected or unreadabl
           },
           {
             problem: "The pages came out in the wrong order",
-            fix: "The sequence follows the file list top to bottom, not the file names. Drag the files into the order you want before merging; whatever sits at the top becomes page one.",
+            fix: "The sequence follows the numbered order of the cards, not the file names. Drag the files into the order you want before merging; the card numbered 1 becomes page one.",
           },
           {
             problem: "The combined file is very large",
@@ -230,7 +230,7 @@ One thing worth knowing: if one of your files is password-protected or unreadabl
       // 4. STEPS (4 Steps)
       steps: [
         "**Select Files:** Click 'Upload' or drag and drop all the PDF files you want to combine. You can select **multiple files** at once.",
-        "**Arrange Order:** This is the most important step. Adjust the sequence by **dragging items** to your preferred position. The file at the top will become the start of your new document.",
+        "**Arrange Order:** This is the most important step. Adjust the sequence by **dragging items** to your preferred position. The card numbered 1 becomes the start of your new document.",
         "**Click Merge:** Once you are happy with the order, hit the **'Merge PDF'** button. Our engine will stitch the documents together in milliseconds.",
         "**Download:** Your single, unified file is ready. Click 'Download' to save it to your device. No watermarks, no waiting."
       ],
@@ -242,8 +242,8 @@ One thing worth knowing: if one of your files is password-protected or unreadabl
           a: "Yes! You can combine a **Landscape A3 chart** with a **Portrait A4 letter** without any issues. Our tool stitches them together while preserving the original dimensions and formatting of individual pages."
         },
         {
-          q: "What is the maximum file count allowed for a single batch?",
-          a: "Most websites limit you to 20 files. **GoPDFGo has no artificial limits.** As long as your computer or phone has enough RAM to handle the process, you can merge 50, 100, or even more files in a single go."
+          q: "How many files can I merge at once?",
+          a: "There is no fixed cap — the work happens on your own device, so the real limit is your phone or computer's memory. A handful of everyday PDFs is effortless; merging 50–100 scanned files works too, but uses more memory, so on an older phone it is smoother to do a very large job in two or three smaller batches."
         },
         {
           q: "Does merging reduce the quality of my pages?",
@@ -262,8 +262,8 @@ One thing worth knowing: if one of your files is password-protected or unreadabl
           a: "Yes, our interface is fully **mobile-optimized**. You can select files from your Android or iPhone storage, rearrange them with a touch, and download the merged PDF directly to your phone."
         },
         {
-          q: "Can I reorder files before I combine PDF documents together?",
-          a: "Yes. After you add your files, drag and drop them into the exact sequence you want before merging, the file at the top becomes the first page. When the order looks right, hit Merge PDF to stitch them into one clean document."
+          q: "Can I merge password-protected PDFs?",
+          a: "Not while they are locked. A file that needs a password to open can't be read in your browser, so Merge PDF skips it and names it in the results rather than adding blank pages. Remove the protection first with our free [Unlock PDF](/unlock-pdf) tool, then add it to the merge."
         }
       ]
     }

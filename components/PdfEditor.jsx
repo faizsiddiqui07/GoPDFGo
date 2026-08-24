@@ -251,7 +251,10 @@ const PdfEditor = ({ toolId }) => {
       pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
 
       const page = await pdf.getPage(pageNum);
-      const scale = 1.0;
+      // These previews render at ~40–96px, so a full-scale (1.0) canvas was
+      // ~4x the pixels needed per file — a real memory spike when several
+      // upload at once. 0.5 is still crisp at preview size.
+      const scale = 0.5;
       const viewport = page.getViewport({ scale });
       const canvas = document.createElement("canvas");
       const context = canvas.getContext("2d");
@@ -505,36 +508,51 @@ const PdfEditor = ({ toolId }) => {
       try {
         await loadPdfJs();
       } catch (err) {
-        setIsUploading(false);
-        return; // loadPdfJs already set a helpful error message
+        // Merge runs entirely on the locally-bundled pdf-lib; pdf.js is only
+        // for the small file previews. So a blocked CDN must not strand the
+        // uploader — drop the thumbnails and let the merge go ahead.
+        if (tool.id === "merge-pdf") {
+          setErrorMsg(null);
+          setInfoMsg(
+            "Preview thumbnails are unavailable right now, but merging still works — add your files and go.",
+          );
+        } else {
+          setIsUploading(false);
+          return; // loadPdfJs already set a helpful error message
+        }
       }
     }
 
     setTimeout(async () => {
       try {
-        const newFilesData = await Promise.all(
-          validFiles.map(async (f, index) => {
-            let previewUrl = null;
-            if (f.type === "application/pdf") {
-              previewUrl = await generatePdfThumbnail(f);
-            } else {
-              previewUrl = URL.createObjectURL(f);
-              blobUrlsRef.current.add(previewUrl);
-            }
-
-            return {
-              id:
-                window.crypto && window.crypto.randomUUID
-                  ? window.crypto.randomUUID()
-                  : Math.random().toString(36).substring(2) +
-                    Date.now().toString(36),
-              file: f,
-              rotation: 0,
-              order: files.length + index,
-              preview: previewUrl,
-            };
-          }),
-        );
+        const makeEntry = async (f) => {
+          let previewUrl = null;
+          if (f.type === "application/pdf") {
+            previewUrl = await generatePdfThumbnail(f);
+          } else {
+            previewUrl = URL.createObjectURL(f);
+            blobUrlsRef.current.add(previewUrl);
+          }
+          return {
+            id:
+              window.crypto && window.crypto.randomUUID
+                ? window.crypto.randomUUID()
+                : Math.random().toString(36).substring(2) +
+                  Date.now().toString(36),
+            file: f,
+            rotation: 0,
+            preview: previewUrl,
+          };
+        };
+        // Generate previews in small waves. A plain Promise.all over the whole
+        // selection opened a pdf.js document + a full canvas for every file at
+        // once — fine for three, a memory spike (and dead tab) for twenty.
+        const newFilesData = [];
+        for (let k = 0; k < validFiles.length; k += 3) {
+          newFilesData.push(
+            ...(await Promise.all(validFiles.slice(k, k + 3).map(makeEntry))),
+          );
+        }
 
         if (!allowMulti && newFilesData.length > 0) {
           if (
@@ -850,20 +868,34 @@ const PdfEditor = ({ toolId }) => {
       // 1. MERGE
       if (tool.id === "merge-pdf") {
         const newPdf = await PDFDocument.create();
-        const failed = [];
+        const failed = []; // corrupt / unreadable
+        const encrypted = []; // password-protected — pages would be blank
         for (const [idx, item] of files.entries()) {
           try {
             const arrayBuffer = await item.file.arrayBuffer();
             const pdf = await PDFDocument.load(arrayBuffer, {
               ignoreEncryption: true,
             });
+            // ignoreEncryption lets pdf-lib OPEN an encrypted file, but it
+            // cannot DECRYPT the page streams — copying them would stack
+            // blank/garbage pages into the merge. Skip and name them instead,
+            // which is exactly what this page already promises to do.
+            if (pdf.isEncrypted) {
+              encrypted.push(item.file.name);
+              continue;
+            }
             const copiedPages = await newPdf.copyPages(
               pdf,
               pdf.getPageIndices(),
             );
             copiedPages.forEach((page) => {
               const { angle } = page.getRotation();
-              page.setRotation(degrees(angle + item.rotation));
+              // Normalise to 0–359: a source /Rotate 270 plus a 180° turn in
+              // the UI would otherwise be written as 450 (the rotate-pdf branch
+              // normalises for the same reason).
+              page.setRotation(
+                degrees((((angle + item.rotation) % 360) + 360) % 360),
+              );
               newPdf.addPage(page);
             });
           } catch (e) {
@@ -874,18 +906,37 @@ const PdfEditor = ({ toolId }) => {
           // below is a single blocking call with no fraction to report.
           setPdfProgress(Math.round(((idx + 1) / files.length) * 90));
         }
-        if (newPdf.getPageCount() === 0) {
+        const mergedCount = newPdf.getPageCount();
+        if (mergedCount === 0) {
           throw new Error(
-            "None of the selected PDFs could be merged. They may be password-protected or corrupted.",
+            encrypted.length > 0
+              ? "Every file you added is password-protected, so nothing could be merged. Remove the passwords with the Unlock PDF tool first, then merge again."
+              : "None of the selected PDFs could be merged. They may be corrupted or in an unsupported format.",
           );
         }
         const pdfBytes = await newPdf.save();
-        if (failed.length > 0) {
-          setInfoMsg(
-            `Merged successfully. Skipped ${failed.length} file(s) we couldn't read: ${failed.join(", ")}.`,
+        const notes = [];
+        if (encrypted.length > 0)
+          notes.push(
+            `Skipped ${encrypted.length} password-protected file(s): ${encrypted.join(", ")} — unlock them first with the Unlock PDF tool, then merge again.`,
           );
-        }
-        finalizePdf(pdfBytes, `GoPDFGo_${files[0].file.name}`);
+        if (failed.length > 0)
+          notes.push(
+            `Skipped ${failed.length} file(s) we couldn't read: ${failed.join(", ")}.`,
+          );
+        if (notes.length > 0)
+          setInfoMsg(`Merged ${mergedCount} page(s). ${notes.join(" ")}`);
+        // Name after the one merged source (minus any old GoPDFGo_ prefix), or
+        // a neutral "merged" when several were combined — never after a file
+        // that got skipped.
+        const mergedNames = files
+          .map((f) => f.file.name)
+          .filter((n) => !encrypted.includes(n) && !failed.includes(n));
+        const outName =
+          mergedNames.length === 1
+            ? mergedNames[0].replace(/^GoPDFGo_/, "")
+            : "merged.pdf";
+        finalizePdf(pdfBytes, `GoPDFGo_${outName}`);
 
         // 2. IMAGE TO PDF
       } else if (tool.id === "image-to-pdf") {
@@ -3179,6 +3230,7 @@ const PdfEditor = ({ toolId }) => {
                 onClick={processPdf}
                 disabled={
                   files.length === 0 ||
+                  (tool.id === "merge-pdf" && files.length < 2) ||
                   isProcessing ||
                   generatingThumbnails ||
                   isUploading
@@ -3187,6 +3239,7 @@ const PdfEditor = ({ toolId }) => {
                   shakeKey > 0 ? "animate-shake" : ""
                 } ${
                   files.length === 0 ||
+                  (tool.id === "merge-pdf" && files.length < 2) ||
                   isProcessing ||
                   generatingThumbnails ||
                   isUploading
@@ -3214,6 +3267,15 @@ const PdfEditor = ({ toolId }) => {
                   </>
                 )}
               </button>
+            )}
+
+            {/* Merge needs at least two files — say so instead of leaving the
+                greyed button unexplained. */}
+            {tool.id === "merge-pdf" && files.length === 1 && !isDone && (
+              <p className="mt-3 text-sm text-slate-500 text-center">
+                Add one more PDF to merge — a single file has nothing to
+                combine with.
+              </p>
             )}
 
             {ocrStatus && (
