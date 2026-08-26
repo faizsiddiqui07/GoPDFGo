@@ -96,6 +96,35 @@ const PAGE_PREVIEW_FALLBACK =
       'font-size="9" fill="#94a3b8">unavailable</text></svg>',
   );
 
+// Messages we wrote for humans, as opposed to a parser's exception text. The
+// catch in processPdf shows tagged messages verbatim and replaces anything
+// else with a plain sentence, so pdf-lib internals never reach the UI.
+const userError = (msg) => {
+  const e = new Error(msg);
+  e.__userFacing = true;
+  return e;
+};
+
+const ENCRYPTED_PDF_MSG =
+  "This PDF is password-protected, so its pages can't be edited directly. Remove the password with our free Unlock PDF tool first, then try again.";
+
+// pdf-lib can OPEN an encrypted PDF with ignoreEncryption, but it cannot
+// DECRYPT page content — so editing one produces a file that looks valid and
+// is blank, garbled, or unopenable. That applies to owner-locked files too
+// (restricted permissions, empty user password): they render fine in pdf.js,
+// which does implement decryption, but pdf-lib still cannot read their
+// streams. Bank statements and salary slips are routinely owner-locked, so
+// failing closed with a clear message is the only honest behaviour here.
+const loadPdfSafely = async (PDFDocument, bytes) => {
+  const doc = await PDFDocument.load(bytes, { ignoreEncryption: true });
+  if (doc.isEncrypted) throw userError(ENCRYPTED_PDF_MSG);
+  return doc;
+};
+
+// Angles must land in 0–359: a source /Rotate 270 plus a 180° turn would
+// otherwise be written as 450, which some readers ignore.
+const normalizeAngle = (deg) => (((deg % 360) + 360) % 360);
+
 const PdfEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter();
@@ -741,6 +770,10 @@ const PdfEditor = ({ toolId }) => {
       const allPages = new Set();
       thumbnails.forEach((t) => allPages.add(t.pageNum));
       setSelectedPages(allPages);
+      // A range typed in "Select Pages" used to survive the switch back to
+      // "All", and the range wins at export — so every tile showed selected
+      // while only the stale range was actually exported.
+      setRangeInput("");
     }
   };
 
@@ -894,7 +927,7 @@ const PdfEditor = ({ toolId }) => {
               // the UI would otherwise be written as 450 (the rotate-pdf branch
               // normalises for the same reason).
               page.setRotation(
-                degrees((((angle + item.rotation) % 360) + 360) % 360),
+                degrees(normalizeAngle(angle + item.rotation)),
               );
               newPdf.addPage(page);
             });
@@ -908,7 +941,7 @@ const PdfEditor = ({ toolId }) => {
         }
         const mergedCount = newPdf.getPageCount();
         if (mergedCount === 0) {
-          throw new Error(
+          throw userError(
             encrypted.length > 0
               ? "Every file you added is password-protected, so nothing could be merged. Remove the passwords with the Unlock PDF tool first, then merge again."
               : "None of the selected PDFs could be merged. They may be corrupted or in an unsupported format.",
@@ -1028,7 +1061,7 @@ const PdfEditor = ({ toolId }) => {
         }
 
         if (newPdf.getPageCount() === 0) {
-          throw new Error("We couldn't read any of the selected images.");
+          throw userError("We couldn't read any of the selected images.");
         }
 
         const pdfBytes = await newPdf.save();
@@ -1045,12 +1078,7 @@ const PdfEditor = ({ toolId }) => {
         const file = files[0].file;
         const baseName = file.name.replace(/\.pdf$/i, "");
         const arrayBuffer = await file.arrayBuffer();
-        // ignoreEncryption matches every other branch: an owner-locked PDF
-        // (printing/editing restricted, but it opens without a password)
-        // renders thumbnails fine, so throwing here looked like a broken tool.
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const pageCount = pdf.getPageCount();
 
         // Parse the range input into PARTS ("1-5, 8, 10-12" → three groups).
@@ -1154,12 +1182,7 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "rotate-pdf") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        // ignoreEncryption matches every other branch: an owner-locked PDF
-        // (printing/editing restricted, but it opens without a password)
-        // renders thumbnails fine, so throwing here looked like a broken tool.
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const pages = pdf.getPages();
 
         pages.forEach((page, idx) => {
@@ -1167,7 +1190,7 @@ const PdfEditor = ({ toolId }) => {
           const addedRotation = pageRotations[idx] || 0;
           // Normalize: negative or >360 /Rotate values render wrong in some viewers
           const normalized =
-            (((currentRotation + addedRotation) % 360) + 360) % 360;
+            normalizeAngle(currentRotation + addedRotation);
           page.setRotation(degrees(normalized));
         });
 
@@ -1185,7 +1208,7 @@ const PdfEditor = ({ toolId }) => {
           await loadPdfJs();
         }
         if (!window.pdfjsLib) {
-          throw new Error(
+          throw userError(
             "PDF engine failed to load. Please check your connection and retry.",
           );
         }
@@ -1321,7 +1344,7 @@ const PdfEditor = ({ toolId }) => {
           // Candidate 1: lossless re-save — keeps text selectable, helps bloated PDFs
           try {
             const reSaved = await (
-              await PDFDocument.load(arrayBuffer, { ignoreEncryption: true })
+              await loadPdfSafely(PDFDocument, arrayBuffer)
             ).save({ useObjectStreams: true });
             if (reSaved.byteLength < bestSize) {
               bestBytes = reSaved;
@@ -1370,9 +1393,7 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "page-numbers") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const font = await pdf.embedFont(StandardFonts.Helvetica);
         const pages = pdf.getPages();
         const size = 12;
@@ -1391,7 +1412,7 @@ const PdfEditor = ({ toolId }) => {
             pageNumFormat === "pageofn" ? `Page ${n} of ${lastNum}` : `${n}`;
           const textWidth = font.widthOfTextAtSize(text, size);
           const { width, height } = page.getSize();
-          const angle = ((page.getRotation().angle % 360) + 360) % 360;
+          const angle = normalizeAngle(page.getRotation().angle);
 
           // Work in the VISUAL frame (what the reader sees), then map back to
           // the unrotated page coordinates pdf-lib draws in.
@@ -1418,14 +1439,19 @@ const PdfEditor = ({ toolId }) => {
 
           let x;
           let y;
+          // Visible frame -> unrotated page coords. /Rotate 90 displays the
+          // page turned clockwise, so the page's +Y runs along the visible +X:
+          // vx = Y and vy = Wpage - X, which inverts to x = width - vy, y = vx.
+          // The 90 and 270 x-terms were swapped, putting the number on the
+          // opposite edge of every sideways page.
           if (angle === 90) {
-            x = vy;
+            x = width - vy;
             y = vx;
           } else if (angle === 180) {
             x = width - vx;
             y = height - vy;
           } else if (angle === 270) {
-            x = width - vy;
+            x = vy;
             y = height - vx;
           } else {
             x = vx;
@@ -1449,16 +1475,21 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "rearrange-pdf") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        // ignoreEncryption matches every other branch: an owner-locked PDF
-        // (printing/editing restricted, but it opens without a password)
-        // renders thumbnails fine, so throwing here looked like a broken tool.
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const newPdf = await PDFDocument.create();
 
         if (!thumbnails || thumbnails.length === 0) {
-          throw new Error("No pages found to rearrange.");
+          throw userError(
+            "No pages found to rearrange — the page previews didn't finish loading. Reload the page and try again.",
+          );
+        }
+        // The new order is rebuilt from `thumbnails`, which generateAllThumbnails
+        // fills one page at a time — a render failure part-way through leaves it
+        // short, and the export would then silently drop the missing pages.
+        if (thumbnails.length !== pdf.getPageCount()) {
+          throw userError(
+            `Only ${thumbnails.length} of ${pdf.getPageCount()} page previews loaded, so some pages would be lost. Reload the page and try again.`,
+          );
         }
 
         const newOrderIndices = thumbnails.map((t) => Number(t.pageNum) - 1);
@@ -1474,7 +1505,9 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         if (!window.pdfjsLib) await loadPdfJs();
         if (!window.pdfjsLib)
-          throw new Error("PDF engine failed to load. Please retry.");
+          throw userError(
+            "The PDF engine couldn't load. Check your connection and try again.",
+          );
 
         const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
@@ -1550,9 +1583,7 @@ const PdfEditor = ({ toolId }) => {
           return;
         }
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const font = await pdf.embedFont(StandardFonts.HelveticaBold);
         const pages = pdf.getPages();
         const opacity = Math.max(0.05, Math.min(1, watermarkOpacity));
@@ -1570,15 +1601,18 @@ const PdfEditor = ({ toolId }) => {
           const { width, height } = page.getSize();
           // Draw in the VISUAL frame so the stamp lands where the reader sees
           // it, even on /Rotate-d scans (footer used to land on a side edge).
-          const angle = ((page.getRotation().angle % 360) + 360) % 360;
+          const angle = normalizeAngle(page.getRotation().angle);
           const rotatedPage = angle === 90 || angle === 270;
           const Wv = rotatedPage ? height : width;
           const Hv = rotatedPage ? width : height;
 
+          // Same visible-frame mapping as page-numbers; the 90/270 x-terms
+          // were swapped here too, so watermarks landed on the wrong edge of
+          // sideways pages.
           const toBase = (vx, vy) => {
-            if (angle === 90) return { x: vy, y: vx };
+            if (angle === 90) return { x: width - vy, y: vx };
             if (angle === 180) return { x: width - vx, y: height - vy };
-            if (angle === 270) return { x: width - vy, y: height - vx };
+            if (angle === 270) return { x: vy, y: height - vx };
             return { x: vx, y: vy };
           };
           const stamp = (vx, vy, fontSize, extraRotate = 0) => {
@@ -1641,9 +1675,7 @@ const PdfEditor = ({ toolId }) => {
       } else if (tool.id === "delete-pdf-pages") {
         const file = files[0].file;
         const arrayBuffer = await file.arrayBuffer();
-        const pdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const pdf = await loadPdfSafely(PDFDocument, arrayBuffer);
         const pageCount = pdf.getPageCount();
 
         // selectedPages = pages (1-based) the user marked for DELETION
@@ -1675,7 +1707,9 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         if (!window.pdfjsLib) await loadPdfJs();
         if (!window.pdfjsLib)
-          throw new Error("PDF engine failed to load. Please retry.");
+          throw userError(
+            "The PDF engine couldn't load. Check your connection and try again.",
+          );
 
         let pdf;
         try {
@@ -1745,7 +1779,9 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         if (!window.pdfjsLib) await loadPdfJs();
         if (!window.pdfjsLib)
-          throw new Error("PDF engine failed to load. Please retry.");
+          throw userError(
+            "The PDF engine couldn't load. Check your connection and try again.",
+          );
 
         const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
@@ -1787,7 +1823,9 @@ const PdfEditor = ({ toolId }) => {
         const arrayBuffer = await file.arrayBuffer();
         if (!window.pdfjsLib) await loadPdfJs();
         if (!window.pdfjsLib)
-          throw new Error("PDF engine failed to load. Please retry.");
+          throw userError(
+            "The PDF engine couldn't load. Check your connection and try again.",
+          );
 
         const pdf = await openPdfDoc({
           data: arrayBuffer.slice(0),
@@ -1858,19 +1896,24 @@ const PdfEditor = ({ toolId }) => {
         }
 
         const arrayBuffer = await file.arrayBuffer();
-        const srcPdf = await PDFDocument.load(arrayBuffer, {
-          ignoreEncryption: true,
-        });
+        const srcPdf = await loadPdfSafely(PDFDocument, arrayBuffer);
+        // Same completeness guard as rearrange: `thumbnails` drives the output,
+        // so a partially-rendered grid would quietly drop the pages it missed.
+        if (thumbnails.length !== srcPdf.getPageCount()) {
+          throw userError(
+            `Only ${thumbnails.length} of ${srcPdf.getPageCount()} page previews loaded, so some pages would be lost. Reload the page and try again.`,
+          );
+        }
         const outPdf = await PDFDocument.create();
 
         const indices = kept.map((t) => Number(t.pageNum) - 1);
         const copied = await outPdf.copyPages(srcPdf, indices);
         copied.forEach((page, i) => {
           const added = kept[i].rotation || 0;
-          if (added) {
-            const current = page.getRotation().angle || 0;
-            page.setRotation(degrees((current + added) % 360));
-          }
+          const current = page.getRotation().angle || 0;
+          // Runs unconditionally: with no added turn this still repairs a
+          // source page carrying a negative or out-of-range /Rotate.
+          page.setRotation(degrees(normalizeAngle(current + added)));
           outPdf.addPage(page);
         });
 
@@ -1879,7 +1922,14 @@ const PdfEditor = ({ toolId }) => {
       }
     } catch (err) {
       console.error(err);
-      setErrorMsg(err.message || "Error processing file.");
+      // Messages we wrote (userError, and the authored throws below) are shown
+      // as-is; a raw pdf-lib parser message like "Expected instance of PDFDict"
+      // tells the user nothing, so it gets a plain sentence instead.
+      rejectSubmit(
+        err?.__userFacing && err.message
+          ? err.message
+          : "We couldn't process this PDF. It may be corrupted, or in a format this tool can't read — try re-saving or re-downloading it, then upload again.",
+      );
       setIsProcessing(false);
     } finally {
       // Catches every early return and every throw, including the branches

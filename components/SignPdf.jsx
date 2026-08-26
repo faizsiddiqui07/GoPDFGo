@@ -402,6 +402,18 @@ export default function SignPdf() {
       const pdfDoc = await PDFDocument.load(arrayBufRef.current.slice(0), {
         ignoreEncryption: true,
       });
+      // pdf-lib can open an encrypted PDF but cannot decrypt its pages, so
+      // signing one writes the signature in cleartext into a file the reader
+      // still tries to decrypt — the result is unopenable or blank. pdf.js
+      // renders owner-locked files happily (it does implement decryption), so
+      // those walk past the preview check above and would only fail here.
+      if (pdfDoc.isEncrypted) {
+        setErrorMsg(
+          "This PDF is password-protected, so a signature can't be added directly. Remove the password with our free Unlock PDF tool first, then sign it.",
+        );
+        setIsProcessing(false);
+        return;
+      }
       const pngBytes = await (await fetch(signature.url)).arrayBuffer();
       const sigImg = await pdfDoc.embedPng(pngBytes);
 
