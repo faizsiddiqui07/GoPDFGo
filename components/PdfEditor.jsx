@@ -125,6 +125,29 @@ const loadPdfSafely = async (PDFDocument, bytes) => {
 // otherwise be written as 450, which some readers ignore.
 const normalizeAngle = (deg) => (((deg % 360) + 360) % 360);
 
+// Tools that show a per-page thumbnail grid instead of the file-card list.
+// This lived as three hand-written copies that had drifted: the cleanup copy
+// was missing rotate-pdf and rearrange-pdf, so their page thumbnails leaked
+// their blob URLs and a ghost grid survived removing the file.
+// Accept by MIME or .pdf extension — Android file managers and WhatsApp
+// downloads often hand over PDFs with a blank MIME type. Module scope so the
+// accept filter and the preview branch cannot drift apart: the preview used a
+// strict MIME check, so a blank-MIME PDF was accepted and then treated as an
+// image, rendering the browser's broken-image glyph.
+const isPdfFile = (f) =>
+  f.type === "application/pdf" ||
+  (f.name || "").toLowerCase().endsWith(".pdf");
+
+const PAGE_GRID_TOOLS = new Set([
+  "split-pdf",
+  "rotate-pdf",
+  "rearrange-pdf",
+  "extract-pdf-pages",
+  "pdf-to-image",
+  "delete-pdf-pages",
+  "organize-pdf",
+]);
+
 const PdfEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter();
@@ -324,6 +347,11 @@ const PdfEditor = ({ toolId }) => {
   // close any that an error left behind. Each pdf.js document holds a worker
   // and the decoded page data; leaking one per failed attempt is what turns a
   // few retries on a phone into a dead tab.
+  // Re-entrancy latch for processPdf. isProcessing is state, so it has not
+  // rendered yet while the dynamic imports are awaited — a second tap in that
+  // window would start a parallel run.
+  const isProcessingRef = useRef(false);
+
   const openPdfDocsRef = useRef([]);
   const openPdfDoc = async (source) => {
     const doc = await window.pdfjsLib.getDocument(source).promise;
@@ -497,12 +525,6 @@ const PdfEditor = ({ toolId }) => {
     const selectedFiles = Array.from(e.target.files);
     let validFiles = [];
 
-    // Accept by MIME or .pdf extension — Android file managers / WhatsApp
-    // downloads often hand over PDFs with a blank MIME type.
-    const isPdfFile = (f) =>
-      f.type === "application/pdf" ||
-      (f.name || "").toLowerCase().endsWith(".pdf");
-
     if (tool.id === "image-to-pdf")
       validFiles = selectedFiles.filter((f) => f.type.startsWith("image/"));
     else validFiles = selectedFiles.filter(isPdfFile);
@@ -556,7 +578,7 @@ const PdfEditor = ({ toolId }) => {
       try {
         const makeEntry = async (f) => {
           let previewUrl = null;
-          if (f.type === "application/pdf") {
+          if (isPdfFile(f)) {
             previewUrl = await generatePdfThumbnail(f);
           } else {
             previewUrl = URL.createObjectURL(f);
@@ -594,15 +616,7 @@ const PdfEditor = ({ toolId }) => {
           }
 
           setFiles([newFilesData[0]]);
-          if (
-            tool.id === "split-pdf" ||
-            tool.id === "rotate-pdf" ||
-            tool.id === "rearrange-pdf" ||
-            tool.id === "extract-pdf-pages" ||
-            tool.id === "pdf-to-image" ||
-            tool.id === "delete-pdf-pages" ||
-            tool.id === "organize-pdf"
-          ) {
+          if (PAGE_GRID_TOOLS.has(tool.id)) {
             setSplitMode("all");
             setRangeInput("");
             generateAllThumbnails(newFilesData[0].file);
@@ -640,11 +654,7 @@ const PdfEditor = ({ toolId }) => {
     setIsDone(false);
 
     if (
-      (tool.id === "split-pdf" ||
-        tool.id === "extract-pdf-pages" ||
-        tool.id === "pdf-to-image" ||
-        tool.id === "delete-pdf-pages" ||
-        tool.id === "organize-pdf") &&
+      PAGE_GRID_TOOLS.has(tool.id) &&
       newFiles.length === 0
     ) {
       thumbnails.forEach((t) => {
@@ -880,16 +890,35 @@ const PdfEditor = ({ toolId }) => {
 
   // --- Main PDF Processing Logic ---
   const processPdf = async () => {
-    const { PDFDocument, degrees, StandardFonts, rgb } =
-      await import("pdf-lib");
-    const JSZip = (await import("jszip")).default;
-
     if (files.length === 0) {
       setErrorMsg("Please upload a file first.");
       return;
     }
+    // Guard against a second tap while the first run is still starting: the
+    // imports below are awaited, so isProcessing has not rendered yet and a
+    // double-tap would start two runs.
+    if (isProcessingRef.current) return;
+    isProcessingRef.current = true;
 
+    // Show the overlay BEFORE awaiting the dynamic imports. pdf-lib and jszip
+    // are a few hundred KB and used to be fetched first, so on a slow phone
+    // the tap produced 1-4 seconds of nothing at all.
     setIsProcessing(true);
+
+    let PDFDocument, degrees, StandardFonts, rgb, JSZip;
+    try {
+      ({ PDFDocument, degrees, StandardFonts, rgb } = await import("pdf-lib"));
+      JSZip = (await import("jszip")).default;
+    } catch (e) {
+      console.error(e);
+      isProcessingRef.current = false;
+      setIsProcessing(false);
+      rejectSubmit(
+        "The PDF engine couldn't load. Check your connection and try again.",
+      );
+      return;
+    }
+
     openPdfDocsRef.current = [];
     // Reset here, at the single entry point, rather than at each exit: processPdf
     // has ~8 early-return bailouts plus two terminal paths, and resetting at the
@@ -1934,6 +1963,7 @@ const PdfEditor = ({ toolId }) => {
     } finally {
       // Catches every early return and every throw, including the branches
       // that free their document inline on success.
+      isProcessingRef.current = false;
       await closeOpenPdfDocs();
     }
   };
@@ -2144,13 +2174,7 @@ const PdfEditor = ({ toolId }) => {
 
           {isMounted &&
             files.length > 0 &&
-            tool.id !== "split-pdf" &&
-            tool.id !== "rotate-pdf" &&
-            tool.id !== "rearrange-pdf" &&
-            tool.id !== "extract-pdf-pages" &&
-            tool.id !== "pdf-to-image" &&
-            tool.id !== "delete-pdf-pages" &&
-            tool.id !== "organize-pdf" && (
+            !PAGE_GRID_TOOLS.has(tool.id) && (
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
