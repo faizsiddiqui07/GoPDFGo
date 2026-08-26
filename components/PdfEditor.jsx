@@ -121,9 +121,16 @@ const loadPdfSafely = async (PDFDocument, bytes) => {
   return doc;
 };
 
-// Angles must land in 0–359: a source /Rotate 270 plus a 180° turn would
-// otherwise be written as 450, which some readers ignore.
-const normalizeAngle = (deg) => (((deg % 360) + 360) % 360);
+// Angles must land in 0–359 AND on a multiple of 90: pdf-lib's setRotation
+// runs assertMultiple(angle, 90) and throws otherwise, while getRotation
+// returns whatever raw /Rotate the file carries — including junk like 45 from
+// a non-conforming producer. Snap those to 0 rather than letting the export
+// die on a file the user could previously process.
+const normalizeAngle = (deg) => {
+  const n = Number(deg);
+  if (!Number.isFinite(n) || n % 90 !== 0) return 0;
+  return ((n % 360) + 360) % 360;
+};
 
 // Tools that show a per-page thumbnail grid instead of the file-card list.
 // This lived as three hand-written copies that had drifted: the cleanup copy
@@ -966,7 +973,7 @@ const PdfEditor = ({ toolId }) => {
               // the UI would otherwise be written as 450 (the rotate-pdf branch
               // normalises for the same reason).
               page.setRotation(
-                degrees(normalizeAngle(angle + item.rotation)),
+                degrees(normalizeAngle(normalizeAngle(angle) + item.rotation)),
               );
               newPdf.addPage(page);
             });
@@ -1229,7 +1236,7 @@ const PdfEditor = ({ toolId }) => {
           const addedRotation = pageRotations[idx] || 0;
           // Normalize: negative or >360 /Rotate values render wrong in some viewers
           const normalized =
-            normalizeAngle(currentRotation + addedRotation);
+            normalizeAngle(normalizeAngle(currentRotation) + addedRotation);
           page.setRotation(degrees(normalized));
         });
 
@@ -1410,7 +1417,13 @@ const PdfEditor = ({ toolId }) => {
               usedRaster = true;
             }
           } catch (e) {
-            // ignore — keep the best candidate so far
+            // A PasswordException here means pdf.js could not read the file
+            // either, so no candidate can ever work and the run would
+            // otherwise "succeed" by handing back the untouched original.
+            // Owner-locked files do NOT land here — pdf.js decrypts those, so
+            // they still rasterize normally.
+            if (e?.name === "PasswordException") throw e;
+            // otherwise ignore — keep the best candidate so far
           }
 
           // Never serve a file bigger than the original
@@ -1958,7 +1971,9 @@ const PdfEditor = ({ toolId }) => {
           const current = page.getRotation().angle || 0;
           // Runs unconditionally: with no added turn this still repairs a
           // source page carrying a negative or out-of-range /Rotate.
-          page.setRotation(degrees(normalizeAngle(current + added)));
+          page.setRotation(
+            degrees(normalizeAngle(normalizeAngle(current) + added)),
+          );
           outPdf.addPage(page);
         });
 
@@ -1969,11 +1984,16 @@ const PdfEditor = ({ toolId }) => {
       console.error(err);
       // Messages we wrote (userError, and the authored throws below) are shown
       // as-is; a raw pdf-lib parser message like "Expected instance of PDFDict"
-      // tells the user nothing, so it gets a plain sentence instead.
+      // tells the user nothing, so it gets a plain sentence instead. The
+      // PasswordException arm matters: the pdf.js-based tools (pdf-to-text,
+      // ocr-pdf, compress) reject a locked file with "No password given", and
+      // without this it reached the user as "your file may be corrupted".
       rejectSubmit(
         err?.__userFacing && err.message
           ? err.message
-          : "We couldn't process this PDF. It may be corrupted, or in a format this tool can't read — try re-saving or re-downloading it, then upload again.",
+          : err?.name === "PasswordException"
+            ? ENCRYPTED_PDF_MSG
+            : "We couldn't process this PDF. It may be corrupted, or in a format this tool can't read — try re-saving or re-downloading it, then upload again.",
       );
       setIsProcessing(false);
     } finally {
