@@ -178,7 +178,6 @@ const PdfEditor = ({ toolId }) => {
   const [downloadName, setDownloadName] = useState("");
 
   // Lib States
-  const [pdfJsLoaded, setPdfJsLoaded] = useState(false);
 
   // UI States
   const [errorMsg, setErrorMsg] = useState(null);
@@ -507,7 +506,6 @@ const PdfEditor = ({ toolId }) => {
       script.onload = () => {
         window.pdfjsLib.GlobalWorkerOptions.workerSrc =
           "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
-        setPdfJsLoaded(true);
         resolve(true);
       };
       script.onerror = () => {
@@ -579,7 +577,12 @@ const PdfEditor = ({ toolId }) => {
         const makeEntry = async (f) => {
           let previewUrl = null;
           if (isPdfFile(f)) {
-            previewUrl = await generatePdfThumbnail(f);
+            // Page-grid tools render every page via generateAllThumbnails a
+            // moment later and never display this card preview, so rendering
+            // it here was a wasted full-page raster per file.
+            previewUrl = PAGE_GRID_TOOLS.has(tool.id)
+              ? null
+              : await generatePdfThumbnail(f);
           } else {
             previewUrl = URL.createObjectURL(f);
             blobUrlsRef.current.add(previewUrl);
@@ -833,7 +836,14 @@ const PdfEditor = ({ toolId }) => {
           `Reading scanned text with OCR… page ${i} of ${pdf.numPages}`,
         );
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 2 });
+        // 2x is the sweet spot for OCR accuracy, but this was the one render
+        // path with no ceiling: an A0 drawing or a 600-DPI scan produced a
+        // canvas big enough for the browser to refuse to allocate, and the
+        // failure surfaced as an unrelated message. Cap the long side.
+        const OCR_MAX_SIDE = 2400;
+        const base = page.getViewport({ scale: 1 });
+        const scale = Math.min(2, OCR_MAX_SIDE / Math.max(base.width, base.height));
+        const viewport = page.getViewport({ scale });
         const canvas = document.createElement("canvas");
         canvas.width = viewport.width;
         canvas.height = viewport.height;
@@ -1280,8 +1290,11 @@ const PdfEditor = ({ toolId }) => {
               viewport: renderViewport,
             }).promise;
 
-            const imgData = canvas.toDataURL("image/jpeg", quality);
-            const img = await rasterPdf.embedJpg(imgData);
+            const jpgBlob = await new Promise((res) =>
+              canvas.toBlob(res, "image/jpeg", quality),
+            );
+            if (!jpgBlob) throw new Error("encode failed");
+            const img = await rasterPdf.embedJpg(await jpgBlob.arrayBuffer());
             const newPage = rasterPdf.addPage([actualWidth, actualHeight]);
             newPage.drawImage(img, {
               x: 0,
@@ -1779,8 +1792,11 @@ const PdfEditor = ({ toolId }) => {
             canvasContext: context,
             viewport: renderViewport,
           }).promise;
-          const imgData = canvas.toDataURL("image/jpeg", 0.85);
-          const img = await newPdf.embedJpg(imgData);
+          const jpgBlob = await new Promise((res) =>
+            canvas.toBlob(res, "image/jpeg", 0.85),
+          );
+          if (!jpgBlob) throw new Error("encode failed");
+          const img = await newPdf.embedJpg(await jpgBlob.arrayBuffer());
           const newPage = newPdf.addPage([actualWidth, actualHeight]);
           newPage.drawImage(img, {
             x: 0,

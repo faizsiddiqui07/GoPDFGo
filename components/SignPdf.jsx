@@ -313,15 +313,29 @@ export default function SignPdf() {
     const img = new Image();
     img.onload = () => {
       invalidateResult();
+      // A signature photographed on a phone arrives at 12MP. Held at full
+      // resolution this became a lossless PNG data URL — a base64 string of
+      // tens of MB sitting in React state — which is the most likely way to
+      // kill the tab on a mid-range device. It is placed a few centimetres
+      // wide on a page, so 1400px on the long side is far more than enough.
+      const MAX_SIDE = 1400;
+      const shrink = Math.min(
+        1,
+        MAX_SIDE / Math.max(img.naturalWidth, img.naturalHeight),
+      );
+      const w = Math.round(img.naturalWidth * shrink);
+      const h = Math.round(img.naturalHeight * shrink);
       const canvas = document.createElement("canvas");
-      canvas.width = img.naturalWidth;
-      canvas.height = img.naturalHeight;
-      canvas.getContext("2d").drawImage(img, 0, 0);
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, 0, 0, w, h);
       URL.revokeObjectURL(url);
       setSignature({
         url: canvas.toDataURL("image/png"),
-        w: img.naturalWidth,
-        h: img.naturalHeight,
+        w,
+        h,
       });
       setPlace({ x: 0.34, y: 0.74, w: 0.3 });
     };
