@@ -305,12 +305,16 @@ const PdfEditor = ({ toolId }) => {
   };
 
   // --- Thumbnail Generation ---
+  // Returns { url, pageCount } — the document is already open for the render,
+  // so numPages costs nothing extra and lets the file cards answer "how big
+  // will the result be?" before the user commits to the job.
   const generatePdfThumbnail = async (file, pageNum = 1) => {
-    if (!window.pdfjsLib) return null;
+    if (!window.pdfjsLib) return { url: null, pageCount: null };
     let pdf = null;
     try {
       const arrayBuffer = await file.arrayBuffer();
       pdf = await window.pdfjsLib.getDocument(arrayBuffer).promise;
+      const pageCount = pdf.numPages;
 
       const page = await pdf.getPage(pageNum);
       // These previews render at ~40–96px, so a full-scale (1.0) canvas was
@@ -327,17 +331,19 @@ const PdfEditor = ({ toolId }) => {
       return await new Promise((resolve) => {
         canvas.toBlob(
           (blob) => {
-            if (!blob) return resolve(null); // OOM on low-end devices
+            // A null blob is OOM on a low-end device — the page count is
+            // still good, so keep it and just lose the picture.
+            if (!blob) return resolve({ url: null, pageCount });
             const url = URL.createObjectURL(blob);
             blobUrlsRef.current.add(url);
-            resolve(url);
+            resolve({ url, pageCount });
           },
           "image/jpeg",
           0.8,
         );
       });
     } catch (e) {
-      return null;
+      return { url: null, pageCount: null };
     } finally {
       // pdf.js keeps a worker document alive unless destroyed — this leaked
       // one document per uploaded file (e.g. 20 leaks when merging 20 PDFs)
@@ -616,13 +622,16 @@ const PdfEditor = ({ toolId }) => {
       try {
         const makeEntry = async (f) => {
           let previewUrl = null;
+          let pageCount = null;
           if (isPdfFile(f)) {
             // Page-grid tools render every page via generateAllThumbnails a
             // moment later and never display this card preview, so rendering
             // it here was a wasted full-page raster per file.
-            previewUrl = PAGE_GRID_TOOLS.has(tool.id)
-              ? null
-              : await generatePdfThumbnail(f);
+            if (!PAGE_GRID_TOOLS.has(tool.id)) {
+              const t = await generatePdfThumbnail(f);
+              previewUrl = t.url;
+              pageCount = t.pageCount;
+            }
           } else {
             previewUrl = URL.createObjectURL(f);
             blobUrlsRef.current.add(previewUrl);
@@ -636,6 +645,7 @@ const PdfEditor = ({ toolId }) => {
             file: f,
             rotation: 0,
             preview: previewUrl,
+            pageCount,
           };
         };
         // Generate previews in small waves. A plain Promise.all over the whole
@@ -2334,6 +2344,9 @@ const PdfEditor = ({ toolId }) => {
                             </p>
                             <p className="text-sm text-slate-500 font-medium">
                               {(item.file.size / 1024 / 1024).toFixed(2)} MB
+                              {item.pageCount
+                                ? ` · ${item.pageCount} page${item.pageCount === 1 ? "" : "s"}`
+                                : ""}
                             </p>
                             {tool.id === "merge-pdf" && (
                               <button
@@ -3394,6 +3407,29 @@ const PdfEditor = ({ toolId }) => {
 
           {/* Action Buttons */}
           <div className="flex flex-col items-center">
+            {/* What the job actually adds up to, before committing to it. The
+                page count is the number users cannot get anywhere else, and it
+                is the honest answer to "will the merged file be huge?". Hidden
+                until at least one count is known, so it never flashes a wrong
+                total while previews are still resolving. */}
+            {!isDone &&
+              files.length > 1 &&
+              files.some((f) => f.pageCount) && (
+                <p className="mb-3 text-sm text-slate-500 text-center">
+                  {files.length} files
+                  {files.every((f) => f.pageCount)
+                    ? ` · ${files.reduce((n, f) => n + f.pageCount, 0)} pages`
+                    : ""}{" "}
+                  ·{" "}
+                  {(
+                    files.reduce((n, f) => n + f.file.size, 0) /
+                    1024 /
+                    1024
+                  ).toFixed(1)}{" "}
+                  MB total
+                </p>
+              )}
+
             {!isDone && (
               <button
                 // Re-keyed on every rejection so the shake actually replays when
