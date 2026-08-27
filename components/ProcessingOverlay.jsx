@@ -17,12 +17,17 @@ import { createPortal } from "react-dom";
  * compositor thread while pdf-lib / canvas block the main thread.
  *
  * @param progress  0..100 for a real determinate bar, or null for indeterminate
+ * @param finishing true once the measurable work is done and a single
+ *                  unmeasurable blocking step (save/zip) is running. Keeps the
+ *                  bar where the honest count left it and pulses it, rather
+ *                  than freezing at 90% or faking movement to 100%.
  */
 export default function ProcessingOverlay({
   show,
   title,
   progress = null,
   eta = 0,
+  finishing = false,
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -76,13 +81,13 @@ export default function ProcessingOverlay({
             <div className="gpg-proc-bar" aria-hidden="true">
               {/* scaleX keeps the fill on the compositor — no layout on each tick */}
               <span
-                className="gpg-proc-fill"
+                className={`gpg-proc-fill${finishing ? " gpg-proc-fill--working" : ""}`}
                 style={{ transform: `scaleX(${pct / 100})` }}
               />
             </div>
             <div className="gpg-proc-meta" aria-hidden="true">
-              <span>{pct}%</span>
-              {eta > 0 && <span>~{eta}s left</span>}
+              <span>{finishing ? "Finishing…" : `${pct}%`}</span>
+              {!finishing && eta > 0 && <span>~{eta}s left</span>}
             </div>
           </>
         ) : (

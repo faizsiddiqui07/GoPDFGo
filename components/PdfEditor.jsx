@@ -174,6 +174,10 @@ const PdfEditor = ({ toolId }) => {
   // Only branches with a genuinely known page/file count set this — a single
   // pdf-lib save() has no fraction to report, and a faked bar is a lie.
   const [pdfProgress, setPdfProgress] = useState(null);
+  // True once the countable work is done and a single blocking save()/zip is
+  // running. Four branches count honestly to 90 and then have no fraction left
+  // to report, so the bar used to freeze there and read as hung.
+  const [pdfFinishing, setPdfFinishing] = useState(false);
   const [pdfEta, setPdfEta] = useState(0); // seconds; 0 hides it in the overlay
   // Bumped on every blocked submit so the CTA's shake replays even when the
   // same validation fails twice in a row (a re-render alone wouldn't restart it).
@@ -357,6 +361,11 @@ const PdfEditor = ({ toolId }) => {
   // rendered yet while the dynamic imports are awaited — a second tap in that
   // window would start a parallel run.
   const isProcessingRef = useRef(false);
+
+  // The finished panel renders below the widget — on the longer tools that is
+  // a few hundred pixels past where the user was looking when they tapped, so
+  // a completed job could read as nothing having happened.
+  const resultRef = useRef(null);
 
   const openPdfDocsRef = useRef([]);
   const openPdfDoc = async (source) => {
@@ -966,6 +975,7 @@ const PdfEditor = ({ toolId }) => {
     // top is what stops run N+1 from opening at run N's percentage.
     setPdfProgress(null);
     setPdfEta(0);
+    setPdfFinishing(false);
     setErrorMsg(null);
     try {
       // 1. MERGE
@@ -1009,6 +1019,7 @@ const PdfEditor = ({ toolId }) => {
           // below is a single blocking call with no fraction to report.
           setPdfProgress(Math.round(((idx + 1) / files.length) * 90));
         }
+        setPdfFinishing(true);
         const mergedCount = newPdf.getPageCount();
         if (mergedCount === 0) {
           throw userError(
@@ -1435,6 +1446,7 @@ const PdfEditor = ({ toolId }) => {
             const rasterBytes = await rasterizeToBytes(1.5, 0.8, (i, total) =>
               setPdfProgress(Math.round((i / total) * 90)),
             );
+            setPdfFinishing(true);
             if (rasterBytes.byteLength < bestSize) {
               bestBytes = rasterBytes;
               bestSize = rasterBytes.byteLength;
@@ -1638,6 +1650,7 @@ const PdfEditor = ({ toolId }) => {
           setPdfProgress(Math.round(((idx + 1) / wantedPages.length) * 90));
         }
         if (pdf.destroy) pdf.destroy();
+        setPdfFinishing(true);
 
         if (images.length === 1) {
           finalizePdf(images[0].blob, `GoPDFGo_${images[0].name}`, imgFormat);
@@ -1849,6 +1862,7 @@ const PdfEditor = ({ toolId }) => {
           setPdfProgress(Math.round((i / pdf.numPages) * 90));
         }
         if (pdf.destroy) pdf.destroy();
+        setPdfFinishing(true);
 
         const pdfBytes = await newPdf.save();
         finalizePdf(pdfBytes, `GoPDFGo_${file.name}`);
@@ -2035,6 +2049,18 @@ const PdfEditor = ({ toolId }) => {
     setDownloadName(name);
     setIsDone(true);
     setIsProcessing(false);
+    // Wait a frame so the panel is mounted, then bring it to the user rather
+    // than leaving them looking at an unchanged widget. Mirrors rejectSubmit:
+    // scrollIntoView's behavior option overrides CSS scroll-behavior, so the
+    // reduced-motion preference has to be checked here.
+    requestAnimationFrame(() => {
+      resultRef.current?.scrollIntoView({
+        block: "center",
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    });
   };
 
   // Visitors landing straight from Google have no in-site history —
@@ -2079,6 +2105,7 @@ const PdfEditor = ({ toolId }) => {
           title={ocrStatus || "Working on your PDF…"}
           progress={pdfProgress}
           eta={pdfEta}
+          finishing={pdfFinishing}
         />
         {/* Upload Area */}
         <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">
@@ -3424,6 +3451,16 @@ const PdfEditor = ({ toolId }) => {
               </p>
             )}
 
+            {/* The CTA is disabled while page previews render, which on a big
+                scan is long enough to read as a broken button. Say why. */}
+            {generatingThumbnails && !isDone && (
+              <p className="mt-3 text-sm text-slate-500 text-center flex items-center gap-2">
+                <Loader2 size={14} className="animate-spin shrink-0" />
+                Preparing page previews
+                {thumbnails.length > 0 ? ` — ${thumbnails.length} ready` : ""}…
+              </p>
+            )}
+
             {ocrStatus && (
               <p className="mt-3 text-sm text-slate-500 text-center max-w-md">
                 {ocrStatus}
@@ -3437,7 +3474,7 @@ const PdfEditor = ({ toolId }) => {
 
             {/* Results */}
             {(isDone || (tool.id === "compress-pdf" && compressionStats)) && (
-              <div className="text-center animate-fade-in w-full">
+              <div ref={resultRef} className="text-center animate-fade-in w-full">
                 <div className="inline-flex items-center gap-2 text-green-600 font-bold text-xl mb-4">
                   <CheckCircle size={24} /> Processing Complete!
                 </div>

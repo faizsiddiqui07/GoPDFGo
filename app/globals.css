@@ -454,6 +454,14 @@ body {
     animation-duration: 15s !important;
     animation-iteration-count: infinite !important;
   }
+  /* Also a state signal, and the only motion saying the blocking save is
+     still running. An opacity pulse carries no vestibular risk (nothing
+     moves), so it is kept alive at the same calm rate as .animate-pulse.
+     The "Finishing…" label carries the same meaning in text regardless. */
+  .gpg-proc-fill--working {
+    animation-duration: 3s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* ===== PDF page-thumbnail tiles =========================================
@@ -469,4 +477,25 @@ body {
 .gpg-thumb-tile {
   content-visibility: auto;
   contain-intrinsic-size: auto 240px;
+}
+
+/* ===== "Finishing" pulse ==================================================
+   Four tools count honestly to 90% and then hand off to a single blocking
+   save()/zip that reports no fraction at all — so the bar sat frozen at 90
+   and the tool read as hung. This pulses the fill's opacity instead of
+   inventing progress: unmistakably "still working", impossible to misread as
+   movement toward 100. opacity only, so it stays on the compositor and keeps
+   running while the main thread is busy with the save. */
+@keyframes gpgProcWorking {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.gpg-proc-fill--working {
+  animation: gpgProcWorking 1.15s ease-in-out infinite;
 }
