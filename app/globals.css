@@ -455,3 +455,18 @@ body {
     animation-iteration-count: infinite !important;
   }
 }
+
+/* ===== PDF page-thumbnail tiles =========================================
+   A 500-page PDF used to put 500 live tiles in the DOM at once. Rather than
+   hand-rolled JS windowing (scroll maths, a library, and a new class of bugs),
+   let the browser skip the work: content-visibility:auto means a tile that is
+   off-screen is not laid out or painted at all, and contain-intrinsic-size
+   reserves its box so the scrollbar stays honest and nothing jumps.
+
+   `auto 240px` uses the size the browser remembers from the tile's first real
+   render, falling back to 240px before that. Browsers without support simply
+   render every tile as they do today — a clean degradation, not a break. */
+.gpg-thumb-tile {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 240px;
+}

@@ -417,7 +417,14 @@ const PdfEditor = ({ toolId }) => {
       setSelectedPages(tool.id === "delete-pdf-pages" ? new Set() : allPages);
 
       const CHUNK_SIZE = 3;
+      // Yield rate and state-flush rate are separate concerns. Yielding every
+      // 3 pages keeps the tab responsive; flushing state that often is what
+      // costs, since each flush reconciles the whole grid. Small documents
+      // flush every 3 so tiles still appear one by one, big ones flush in
+      // larger groups — 500 pages goes from ~167 re-renders to ~42.
+      const FLUSH_EVERY = numPages > 60 ? 12 : CHUNK_SIZE;
       const failedPreviews = [];
+      let pending = [];
 
       for (let i = 1; i <= numPages; i++) {
         if (gen !== thumbGenRef.current) return; // bail out of the stale loop
@@ -454,11 +461,28 @@ const PdfEditor = ({ toolId }) => {
         // PDF from this list, so skipping the entry silently deleted the page
         // from the user's document.
         if (!url) failedPreviews.push(i);
-        setThumbnails((prev) => [...prev, { pageNum: i, url }]);
+        // Buffer instead of setting state per page. One setState per page meant
+        // a 500-page PDF re-rendered this whole component 500 times, each pass
+        // reconciling an ever-larger grid — the single biggest source of the
+        // lag on big files.
+        pending.push({ pageNum: i, url });
 
+        if (i % FLUSH_EVERY === 0 && pending.length > 0) {
+          const batch = pending;
+          pending = [];
+          setThumbnails((prev) => [...prev, ...batch]);
+        }
+        // Yield on its own cadence so the tab stays responsive between pages
+        // regardless of how often state is flushed.
         if (i % CHUNK_SIZE === 0) {
           await new Promise((resolve) => setTimeout(resolve, 15));
         }
+      }
+      // Whatever did not land on a chunk boundary.
+      if (pending.length > 0 && gen === thumbGenRef.current) {
+        const batch = pending;
+        pending = [];
+        setThumbnails((prev) => [...prev, ...batch]);
       }
 
       if (failedPreviews.length > 0 && gen === thumbGenRef.current) {
@@ -2458,7 +2482,7 @@ const PdfEditor = ({ toolId }) => {
                         <div
                           key={thumb.pageNum}
                           onClick={() => togglePageSelection(thumb.pageNum)}
-                          className={`relative group rounded-lg overflow-hidden border-2 transition-all bg-white shadow-sm ${
+                          className={`gpg-thumb-tile relative group rounded-lg overflow-hidden border-2 transition-all bg-white shadow-sm ${
                             selectedPages.has(thumb.pageNum)
                               ? "border-[#FF9933] ring-4 ring-[#FF9933]/20"
                               : "border-slate-200"
@@ -2470,6 +2494,8 @@ const PdfEditor = ({ toolId }) => {
                         >
                           <img
                             src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                             alt={`Page ${thumb.pageNum}`}
                             className="w-full h-auto"
                           />
@@ -2533,12 +2559,14 @@ const PdfEditor = ({ toolId }) => {
                   {thumbnails.map((thumb, index) => (
                     <div
                       key={thumb.pageNum}
-                      className="relative group flex flex-col items-center"
+                      className="gpg-thumb-tile relative group flex flex-col items-center"
                     >
                       <div className="relative rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm transition-all hover:shadow-lg p-2 w-full">
                         <div className="w-full h-48 sm:h-72 flex items-center justify-center bg-slate-100 overflow-hidden rounded-lg">
                           <img
                             src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                             alt={`Page ${thumb.pageNum}`}
                             className="max-w-full max-h-full object-contain transition-transform duration-300"
                             style={{
@@ -2612,13 +2640,15 @@ const PdfEditor = ({ toolId }) => {
                         <SortableItemWrapper
                           key={`page-${thumb.pageNum}`}
                           id={thumb.pageNum.toString()}
-                          className="relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
+                          className="gpg-thumb-tile relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
                         >
                           <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
                             Original Page {thumb.pageNum}
                           </div>
                           <img
                             src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                             alt={`Page`}
                             className="w-full h-auto pointer-events-none"
                           />
@@ -2678,7 +2708,7 @@ const PdfEditor = ({ toolId }) => {
                             key={`org-${thumb.pageNum}`}
                             id={thumb.pageNum.toString()}
                             disabled={thumb.deleted}
-                            className={`relative group bg-white border-2 rounded-lg overflow-hidden transition-all shadow-sm touch-none select-none ${
+                            className={`gpg-thumb-tile relative group bg-white border-2 rounded-lg overflow-hidden transition-all shadow-sm touch-none select-none ${
                               thumb.deleted
                                 ? "border-red-200 opacity-60"
                                 : "border-slate-200 hover:border-[#FF9933] cursor-grab active:cursor-grabbing"
@@ -2711,6 +2741,8 @@ const PdfEditor = ({ toolId }) => {
                             <div className="relative h-40 flex items-center justify-center overflow-hidden bg-white">
                               <img
                                 src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                                 alt={`Page ${thumb.pageNum}`}
                                 style={{
                                   transform: `rotate(${thumb.rotation || 0}deg)`,
@@ -2917,7 +2949,7 @@ const PdfEditor = ({ toolId }) => {
                             return next;
                           })
                         }
-                        className={`relative rounded-lg overflow-hidden border-2 bg-white shadow-sm text-left cursor-pointer transition ${
+                        className={`gpg-thumb-tile relative rounded-lg overflow-hidden border-2 bg-white shadow-sm text-left cursor-pointer transition ${
                           isOn
                             ? "border-[#FF9933]"
                             : "border-slate-200 opacity-50"
@@ -2930,6 +2962,8 @@ const PdfEditor = ({ toolId }) => {
                         )}
                         <img
                           src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                           alt={`Page ${thumb.pageNum}`}
                           className="w-full h-auto"
                         />
@@ -2985,7 +3019,7 @@ const PdfEditor = ({ toolId }) => {
                           else s.add(thumb.pageNum);
                           setSelectedPages(s);
                         }}
-                        className={`relative group rounded-lg overflow-hidden border-2 cursor-pointer transition-all bg-white shadow-sm ${
+                        className={`gpg-thumb-tile relative group rounded-lg overflow-hidden border-2 cursor-pointer transition-all bg-white shadow-sm ${
                           marked
                             ? "border-red-500 ring-4 ring-red-500/20"
                             : "border-slate-200 hover:border-slate-300 hover:shadow-md"
@@ -2993,6 +3027,8 @@ const PdfEditor = ({ toolId }) => {
                       >
                         <img
                           src={thumb.url || PAGE_PREVIEW_FALLBACK}
+                            loading="lazy"
+                            decoding="async"
                           alt={`Page ${thumb.pageNum}`}
                           className={`w-full h-auto transition ${
                             marked ? "opacity-40" : ""
