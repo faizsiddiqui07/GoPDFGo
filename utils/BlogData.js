@@ -3399,89 +3399,89 @@ export const blogsData = [
       <p>Adding a title page really is just stacking one PDF in front of another in the right order. Make your cover, open <a href="/merge-pdf">Merge PDF</a>, put the cover first, and the report is ready to submit. Worth the two minutes before you upload.</p>
       `
   },
-  // {
-  //   id: "convert-png-to-jpg-online-fix-black-background",
-  //   title: "Convert PNG to JPG Online to Fix Black Backgrounds and Heavy Files",
-  //   seoTitle: "Convert PNG to JPG Online Free (Fix Black BG) | GoPDFGo",
-  //   keywords: "convert png to jpg online, png to jpg converter, fix black background png, png transparent background black, png to jpg for government form, screenshot png too large, convert png to jpeg, change png to jpg free, png to jpg for kyc upload, college erp jpg only",
-  //   excerpt: "Your PNG screenshot shows up with a black box on the upload preview, or the portal only takes JPG, or the file is too heavy for a strict KB limit. Here is the simple, private fix.",
-  //   date: "June 21, 2026",
-  //   publishedAt: "2026-06-21",
-  //   imageUrl: "/images/blogs/convert-png-to-jpg-online-fix-black-background.webp",
-  //   content: `
-  //     <p>You took a screenshot on your phone, cropped it neatly, and went to upload it to a government form or your college ERP. The preview loads and there is a big black box around your photo. Or the portal flat-out refuses the file: <em>"Only JPG/JPEG allowed."</em> Or it accepts the PNG but then complains the file is 4MB when the limit is 200KB. Same screenshot, three different walls.</p>
+  {
+    id: "convert-png-to-jpg-online-fix-black-background",
+    title: "Convert PNG to JPG Online to Fix Black Backgrounds and Heavy Files",
+    seoTitle: "Convert PNG to JPG Online Free (Fix Black BG) | GoPDFGo",
+    keywords: "convert png to jpg online, png to jpg converter, fix black background png, png transparent background black, png to jpg for government form, screenshot png too large, convert png to jpeg, change png to jpg free, png to jpg for kyc upload, college erp jpg only",
+    excerpt: "Your PNG screenshot shows up with a black box on the upload preview, or the portal only takes JPG, or the file is too heavy for a strict KB limit. Here is the simple, private fix.",
+    date: "August 29, 2026",
+    publishedAt: "2026-08-29",
+    imageUrl: "/images/blogs/convert-png-to-jpg-online-fix-black-background.webp",
+    content: `
+      <p>You took a screenshot on your phone, cropped it neatly, and went to upload it to a government form or your college ERP. The preview loads and there is a big black box around your photo. Or the portal flat-out refuses the file: <em>"Only JPG/JPEG allowed."</em> Or it accepts the PNG but then complains the file is 4MB when the limit is 200KB. Same screenshot, three different walls.</p>
 
-  //     <p>All three usually trace back to one thing. Your file is a PNG, and the portal wanted a JPG. Converting it fixes the lot, and it takes about ten seconds. Here is what is actually going on, and how to sort it without handing your KYC documents to some random server.</p>
+      <p>All three usually trace back to one thing. Your file is a PNG, and the portal wanted a JPG. Converting it fixes the lot, and it takes about ten seconds. Here is what is actually going on, and how to sort it without handing your KYC documents to some random server.</p>
 
-  //     <h2>Why your PNG turns into a black box</h2>
+      <h2>Why your PNG turns into a black box</h2>
 
-  //     <p>PNG files can store transparency. That is the whole point of the format for logos and clean graphics. When you screenshot a Story, save a sticker, or crop something with rounded corners, the "empty" areas are not white, they are <em>nothing</em>. Transparent pixels with no colour assigned.</p>
+      <p>PNG files can store transparency. That is the whole point of the format for logos and clean graphics. When you screenshot a Story, save a sticker, or crop something with rounded corners, the "empty" areas are not white, they are <em>nothing</em>. Transparent pixels with no colour assigned.</p>
 
-  //     <p>Your phone and your laptop know how to draw "nothing" as a clean checkered or white area. But a lot of older upload portals, government servers, and printing setups do not. When a transparent pixel reaches a viewer that does not handle it gracefully, those see-through areas often render as solid black. So your perfectly fine screenshot lands in the verification officer's folder looking like it was photographed in a power cut.</p>
+      <p>Your phone and your laptop know how to draw "nothing" as a clean checkered or white area. But a lot of older upload portals, government servers, and printing setups do not. When a transparent pixel reaches a viewer that does not handle it gracefully, those see-through areas often render as solid black. So your perfectly fine screenshot lands in the verification officer's folder looking like it was photographed in a power cut.</p>
 
-  //     <p>JPG cannot store transparency at all. So the moment you convert PNG to JPG, the tool has to decide what to put behind those transparent pixels, and it fills them with a solid colour, usually white. This is not a bug, it is how the format works. That flattening is exactly what kills the black box. The transparent gaps become plain white, the image looks the way it does on your screen, and the portal stops choking on it.</p>
+      <p>JPG cannot store transparency at all. So the moment you convert PNG to JPG, the tool has to decide what to put behind those transparent pixels, and it fills them with a solid colour, usually white. This is not a bug, it is how the format works. That flattening is exactly what kills the black box. The transparent gaps become plain white, the image looks the way it does on your screen, and the portal stops choking on it.</p>
 
-  //     <h2>The other reason: PNGs are just heavy</h2>
+      <h2>The other reason: PNGs are just heavy</h2>
 
-  //     <p>PNG keeps every pixel, lossless, no shortcuts. Great for a crisp logo. Terrible when you have screenshotted a full-colour photo or a busy webpage and the file balloons to 3, 4, even 8MB. A government recruitment portal that wants your photo under 100KB is going to reject that instantly.</p>
+      <p>PNG keeps every pixel, lossless, no shortcuts. Great for a crisp logo. Terrible when you have screenshotted a full-colour photo or a busy webpage and the file balloons to 3, 4, even 8MB. A government recruitment portal that wants your photo under 100KB is going to reject that instantly.</p>
 
-  //     <p>JPG uses lossy compression. It throws away colour data your eye will not miss and gets dramatically smaller. The same screenshot that is 4MB as a PNG can drop to a few hundred KB as a JPG, often with no visible difference for a document or a form photo. So converting solves the size problem and the format problem in one move.</p>
+      <p>JPG uses lossy compression. It throws away colour data your eye will not miss and gets dramatically smaller. The same screenshot that is 4MB as a PNG can drop to a few hundred KB as a JPG, often with no visible difference for a document or a form photo. So converting solves the size problem and the format problem in one move.</p>
 
-  //     <p>If you genuinely want to understand which format suits which job, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks down the trade-offs properly. This article is not that. This is the practical "I just need a JPG right now" walkthrough.</p>
+      <p>If you genuinely want to understand which format suits which job, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks down the trade-offs properly. This article is not that. This is the practical "I just need a JPG right now" walkthrough.</p>
 
-  //     <h2>When you actually need PNG to JPG</h2>
+      <h2>When you actually need PNG to JPG</h2>
 
-  //     <ul>
-  //       <li>The portal says JPG or JPEG only. Banking KYC, a few state PSC forms, older college admission ERPs, some scholarship sites. They simply do not accept PNG.</li>
-  //       <li>Your screenshot or cropped photo shows a black background on the preview but looks fine in your own gallery.</li>
-  //       <li>The file is too heavy for a strict KB limit and it happens to be a PNG.</li>
-  //       <li>You are sending a document photo on WhatsApp or email and want a smaller, universally openable file.</li>
-  //       <li>The Xerox shop guy says his printer "is not taking" your file. Hand him a JPG and watch the problem disappear.</li>
-  //     </ul>
+      <ul>
+        <li>The portal says JPG or JPEG only. Banking KYC, a few state PSC forms, older college admission ERPs, some scholarship sites. They simply do not accept PNG.</li>
+        <li>Your screenshot or cropped photo shows a black background on the preview but looks fine in your own gallery.</li>
+        <li>The file is too heavy for a strict KB limit and it happens to be a PNG.</li>
+        <li>You are sending a document photo on WhatsApp or email and want a smaller, universally openable file.</li>
+        <li>The Xerox shop guy says his printer "is not taking" your file. Hand him a JPG and watch the problem disappear.</li>
+      </ul>
 
-  //     <p>One honest caveat. If your image genuinely needs transparency to sit cleanly over a coloured background, like a logo going onto a website header, converting to JPG is the wrong call. JPG will slap a white rectangle behind it. For a form upload that is exactly what you want. For a floating logo it is not. Know which one you are doing.</p>
+      <p>One honest caveat. If your image genuinely needs transparency to sit cleanly over a coloured background, like a logo going onto a website header, converting to JPG is the wrong call. JPG will slap a white rectangle behind it. For a form upload that is exactly what you want. For a floating logo it is not. Know which one you are doing.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to convert PNG to JPG on GoPDFGo</h3>
-  //       <p>The whole thing runs inside your browser. Your screenshot, your Aadhaar photo, your marksheet, none of it gets uploaded to a server. It is processed on your own device and nothing leaves it.</p>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/convert-jpg">Convert to JPG</a> tool on your phone or laptop.</li>
-  //         <li><strong>Step 2:</strong> Drag your PNG in, or tap the upload area and pick it from your gallery or downloads.</li>
-  //         <li><strong>Step 3:</strong> The tool flattens the image to JPG and fills any transparent areas with a solid white background. That is the step that removes the black box.</li>
-  //         <li><strong>Step 4:</strong> Download the JPG. Open it once to confirm the background is white and the image looks right before you upload it anywhere.</li>
-  //         <li><strong>Step 5:</strong> If the portal also has a size limit and your JPG is still a touch heavy, run it through <a href="/compress-jpg">Compress JPG</a> to bring it under the KB cap.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to convert PNG to JPG on GoPDFGo</h3>
+        <p>The whole thing runs inside your browser. Your screenshot, your Aadhaar photo, your marksheet, none of it gets uploaded to a server. It is processed on your own device and nothing leaves it.</p>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/convert-jpg">Convert to JPG</a> tool on your phone or laptop.</li>
+          <li><strong>Step 2:</strong> Drag your PNG in, or tap the upload area and pick it from your gallery or downloads.</li>
+          <li><strong>Step 3:</strong> The tool flattens the image to JPG and fills any transparent areas with a solid white background. That is the step that removes the black box.</li>
+          <li><strong>Step 4:</strong> Download the JPG. Open it once to confirm the background is white and the image looks right before you upload it anywhere.</li>
+          <li><strong>Step 5:</strong> If the portal also has a size limit and your JPG is still a touch heavy, run it through <a href="/compress-jpg">Compress JPG</a> to bring it under the KB cap.</li>
+        </ul>
+      </div>
 
-  //     <h2>Format first, then size</h2>
+      <h2>Format first, then size</h2>
 
-  //     <p>This is the order that trips people up. They convert to JPG, see it is still 800KB against a 100KB limit, and assume the conversion failed. It did not. Conversion fixes the <em>format and the black box</em>. Hitting a specific KB target is a separate job.</p>
+      <p>This is the order that trips people up. They convert to JPG, see it is still 800KB against a 100KB limit, and assume the conversion failed. It did not. Conversion fixes the <em>format and the black box</em>. Hitting a specific KB target is a separate job.</p>
 
-  //     <p>So do it in two steps. First convert PNG to JPG. Then, only if the portal has a size cap you are still over, send that JPG through <a href="/compress-jpg">Compress JPG</a> and squeeze it down to the limit. Trying to do both in your head at once is how you end up re-uploading the same file five times while the deadline clock ticks. And if the portal is fussy and insists on the JPEG extension specifically, our <a href="/compress-jpeg">Compress JPEG</a> tool covers the same ground.</p>
+      <p>So do it in two steps. First convert PNG to JPG. Then, only if the portal has a size cap you are still over, send that JPG through <a href="/compress-jpg">Compress JPG</a> and squeeze it down to the limit. Trying to do both in your head at once is how you end up re-uploading the same file five times while the deadline clock ticks. And if the portal is fussy and insists on the JPEG extension specifically, our <a href="/compress-jpeg">Compress JPEG</a> tool covers the same ground.</p>
 
-  //     <h2>A few real situations this solves</h2>
+      <h2>A few real situations this solves</h2>
 
-  //     <p><strong>The fresher's first job application.</strong> You cropped your passport photo on your phone, it saved as PNG with rounded transparent corners, and the company careers portal shows it with black wedges in the corners. Convert to JPG and the corners go white.</p>
+      <p><strong>The fresher's first job application.</strong> You cropped your passport photo on your phone, it saved as PNG with rounded transparent corners, and the company careers portal shows it with black wedges in the corners. Convert to JPG and the corners go white.</p>
 
-  //     <p><strong>The college ERP that only eats JPG.</strong> Half these systems were built years ago and never updated. They reject PNG outright. You do not need to re-take anything, just convert what you have.</p>
+      <p><strong>The college ERP that only eats JPG.</strong> Half these systems were built years ago and never updated. They reject PNG outright. You do not need to re-take anything, just convert what you have.</p>
 
-  //     <p><strong>The bank KYC re-upload.</strong> SBI or HDFC net banking asks for a fresh photo of a document, your screenshot is a heavy PNG, and the upload keeps failing silently. Convert it, it shrinks, it goes through.</p>
+      <p><strong>The bank KYC re-upload.</strong> SBI or HDFC net banking asks for a fresh photo of a document, your screenshot is a heavy PNG, and the upload keeps failing silently. Convert it, it shrinks, it goes through.</p>
 
-  //     <p>If your source is a screenshot that needs cropping or straightening first, do that with <a href="/crop">Crop</a> or <a href="/resize">Resize</a> before you convert. And if a portal actually wants a PDF instead of an image, <a href="/image-to-pdf">Image to PDF</a> takes your converted JPG and wraps it into a clean single-page document.</p>
+      <p>If your source is a screenshot that needs cropping or straightening first, do that with <a href="/crop">Crop</a> or <a href="/resize">Resize</a> before you convert. And if a portal actually wants a PDF instead of an image, <a href="/image-to-pdf">Image to PDF</a> takes your converted JPG and wraps it into a clean single-page document.</p>
 
-  //     <h2>FAQ</h2>
+      <h2>FAQ</h2>
 
-  //     <p><strong>Q: Will converting PNG to JPG reduce my image quality?</strong><br> A: A little, because JPG is lossy. For a document, a form photo, a screenshot of text, or a marksheet, you will not notice it at normal viewing size. For a high-detail photograph you plan to print large, you would see a slight softening, but for upload-to-a-portal purposes it is a non-issue.</p>
+      <p><strong>Q: Will converting PNG to JPG reduce my image quality?</strong><br> A: A little, because JPG is lossy. For a document, a form photo, a screenshot of text, or a marksheet, you will not notice it at normal viewing size. For a high-detail photograph you plan to print large, you would see a slight softening, but for upload-to-a-portal purposes it is a non-issue.</p>
 
-  //     <p><strong>Q: Why is the background white and not transparent after converting?</strong><br> A: Because JPG cannot hold transparency. The tool has to fill those see-through pixels with something, and white is the safe default. That is the exact behaviour that fixes the black box on government and ERP uploads. If you need transparency kept, stay on PNG, JPG is not the format for that.</p>
+      <p><strong>Q: Why is the background white and not transparent after converting?</strong><br> A: Because JPG cannot hold transparency. The tool has to fill those see-through pixels with something, and white is the safe default. That is the exact behaviour that fixes the black box on government and ERP uploads. If you need transparency kept, stay on PNG, JPG is not the format for that.</p>
 
-  //     <p><strong>Q: Is my document safe? Do you see my files?</strong><br> A: No. The conversion happens locally in your browser on your own device. Your screenshots, Aadhaar photos, and marksheets are never uploaded to us, so there is nothing on our side to leak.</p>
+      <p><strong>Q: Is my document safe? Do you see my files?</strong><br> A: No. The conversion happens locally in your browser on your own device. Your screenshots, Aadhaar photos, and marksheets are never uploaded to us, so there is nothing on our side to leak.</p>
 
-  //     <p><strong>Q: The portal accepted the JPG but says it is too big. Now what?</strong><br> A: Convert handled the format. For the size, run the JPG through <a href="/compress-jpg">Compress JPG</a> and bring it under the KB limit the portal specified. Two quick steps, format then size.</p>
+      <p><strong>Q: The portal accepted the JPG but says it is too big. Now what?</strong><br> A: Convert handled the format. For the size, run the JPG through <a href="/compress-jpg">Compress JPG</a> and bring it under the KB limit the portal specified. Two quick steps, format then size.</p>
 
-  //     <p>That black box was never a problem with your photo. It was just a PNG meeting a portal that wanted a JPG. Convert it, check the background is white, compress if there is a size cap, and upload with one less thing to worry about. Start with the <a href="/convert-jpg">Convert to JPG</a> tool and get it off your plate.</p>
-  //     `
-  // }, done
+      <p>That black box was never a problem with your photo. It was just a PNG meeting a portal that wanted a JPG. Convert it, check the background is white, compress if there is a size cap, and upload with one less thing to worry about. Start with the <a href="/convert-jpg">Convert to JPG</a> tool and get it off your plate.</p>
+      `
+  }, 
   // {
   //   id: "linkedin-youtube-whatsapp-dp-image-sizes-2026",
   //   title: "Correct Image Sizes for LinkedIn, YouTube and WhatsApp DP (2026 Cheat Sheet)",
