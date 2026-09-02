@@ -3482,79 +3482,79 @@ export const blogsData = [
       <p>That black box was never a problem with your photo. It was just a PNG meeting a portal that wanted a JPG. Convert it, check the background is white, compress if there is a size cap, and upload with one less thing to worry about. Start with the <a href="/convert-jpg">Convert to JPG</a> tool and get it off your plate.</p>
       `
   }, 
-  // {
-  //   id: "linkedin-youtube-whatsapp-dp-image-sizes-2026",
-  //   title: "Correct Image Sizes for LinkedIn, YouTube and WhatsApp DP (2026 Cheat Sheet)",
-  //   seoTitle: "LinkedIn Profile Photo Size & YouTube, WhatsApp DP | GoPDFGo",
-  //   keywords: "linkedin profile photo size, youtube channel art size, whatsapp dp size, linkedin banner size, youtube profile picture size, social media image sizes 2026, resize image for linkedin, profile photo dimensions india, whatsapp business dp size",
-  //   excerpt: "A fresher's LinkedIn, a small shop's YouTube channel, a WhatsApp Business DP, all ruined by blurry or badly cropped photos. Here are the exact pixel sizes for 2026 and how to hit them.",
-  //   date: "June 21, 2026",
-  //   publishedAt: "2026-06-21",
-  //   imageUrl: "/images/blogs/linkedin-youtube-whatsapp-dp-image-sizes-2026.webp",
-  //   content: `
-  //     <p>You finished your degree, a senior told you to "make a proper LinkedIn for placements," and you uploaded a nice photo. On your phone it looked sharp. On the actual profile it came out soft, with the top of your head chopped off and your collar cut at a weird angle. You're not imagining it. You used the wrong size, and LinkedIn squeezed your photo into a box it was never shaped for.</p>
+  {
+    id: "linkedin-youtube-whatsapp-dp-image-sizes-2026",
+    title: "Correct Image Sizes for LinkedIn, YouTube and WhatsApp DP (2026 Cheat Sheet)",
+    seoTitle: "LinkedIn Profile Photo Size & YouTube, WhatsApp DP | GoPDFGo",
+    keywords: "linkedin profile photo size, youtube channel art size, whatsapp dp size, linkedin banner size, youtube profile picture size, social media image sizes 2026, resize image for linkedin, profile photo dimensions india, whatsapp business dp size",
+    excerpt: "A fresher's LinkedIn, a small shop's YouTube channel, a WhatsApp Business DP, all ruined by blurry or badly cropped photos. Here are the exact pixel sizes for 2026 and how to hit them.",
+    date: "September 02, 2026",
+    publishedAt: "2026-09-02",
+    imageUrl: "/images/blogs/linkedin-youtube-whatsapp-dp-image-sizes-2026.webp",
+    content: `
+      <p>You finished your degree, a senior told you to "make a proper LinkedIn for placements," and you uploaded a nice photo. On your phone it looked sharp. On the actual profile it came out soft, with the top of your head chopped off and your collar cut at a weird angle. You're not imagining it. You used the wrong size, and LinkedIn squeezed your photo into a box it was never shaped for.</p>
 
-  //     <p>This happens to everyone the first time. A fresher building a profile for campus placements, a kirana shop owner starting a YouTube channel for product reviews, a salon putting up a WhatsApp Business DP. Same story every time: wrong dimensions in, blurry or badly cropped photo out. The fix isn't a better camera. It's knowing the recommended pixel size for each platform, cropping to that shape first, then resizing to the exact pixels. Here's the cheat sheet, then the method.</p>
+      <p>This happens to everyone the first time. A fresher building a profile for campus placements, a kirana shop owner starting a YouTube channel for product reviews, a salon putting up a WhatsApp Business DP. Same story every time: wrong dimensions in, blurry or badly cropped photo out. The fix isn't a better camera. It's knowing the recommended pixel size for each platform, cropping to that shape first, then resizing to the exact pixels. Here's the cheat sheet, then the method.</p>
 
-  //     <h2>The 2026 cheat sheet (bookmark this)</h2>
-  //     <p>These are the recommended upload sizes. Platforms accept bigger images and shrink them down, but uploading at the right size gives you the cleanest result and the smallest file. Keep this handy.</p>
-  //     <ul>
-  //       <li><strong>LinkedIn profile photo:</strong> 400x400 pixels, square. This is the <em>linkedin profile photo size</em> people search for and get wrong constantly. LinkedIn displays it inside a circle, so keep your face centred with some breathing room.</li>
-  //       <li><strong>LinkedIn banner (cover):</strong> 1584x396 pixels, a wide strip. Your profile photo sits on the bottom-left of this banner, so don't put important text or your logo down in that corner.</li>
-  //       <li><strong>YouTube profile picture (channel icon):</strong> 800x800 pixels, square, shown as a circle. YouTube recommends 800x800 and renders it quite small, so a simple, high-contrast image reads better than a busy one.</li>
-  //       <li><strong>YouTube channel art (banner):</strong> 2560x1440 pixels. The catch: only a centre <strong>safe area of roughly 1235x338 pixels</strong> is guaranteed to show on every device. Anything outside that can get cropped on phones or TVs. Keep your channel name and logo inside the safe area.</li>
-  //       <li><strong>WhatsApp DP (profile photo):</strong> 640x640 pixels, square, shown as a circle. This covers personal WhatsApp and WhatsApp Business. WhatsApp compresses hard, so start sharp.</li>
-  //       <li><strong>Instagram profile photo:</strong> 320x320 pixels, square, shown as a circle. It's small, so crop tight to your face and skip the fine detail.</li>
-  //     </ul>
+      <h2>The 2026 cheat sheet (bookmark this)</h2>
+      <p>These are the recommended upload sizes. Platforms accept bigger images and shrink them down, but uploading at the right size gives you the cleanest result and the smallest file. Keep this handy.</p>
+      <ul>
+        <li><strong>LinkedIn profile photo:</strong> 400x400 pixels, square. This is the <em>linkedin profile photo size</em> people search for and get wrong constantly. LinkedIn displays it inside a circle, so keep your face centred with some breathing room.</li>
+        <li><strong>LinkedIn banner (cover):</strong> 1584x396 pixels, a wide strip. Your profile photo sits on the bottom-left of this banner, so don't put important text or your logo down in that corner.</li>
+        <li><strong>YouTube profile picture (channel icon):</strong> 800x800 pixels, square, shown as a circle. YouTube recommends 800x800 and renders it quite small, so a simple, high-contrast image reads better than a busy one.</li>
+        <li><strong>YouTube channel art (banner):</strong> 2560x1440 pixels. The catch: only a centre <strong>safe area of roughly 1235x338 pixels</strong> is guaranteed to show on every device. Anything outside that can get cropped on phones or TVs. Keep your channel name and logo inside the safe area.</li>
+        <li><strong>WhatsApp DP (profile photo):</strong> 640x640 pixels, square, shown as a circle. This covers personal WhatsApp and WhatsApp Business. WhatsApp compresses hard, so start sharp.</li>
+        <li><strong>Instagram profile photo:</strong> 320x320 pixels, square, shown as a circle. It's small, so crop tight to your face and skip the fine detail.</li>
+      </ul>
 
-  //     <p>Notice the pattern. Almost every profile photo is a <strong>square</strong> that the app then masks into a <strong>circle</strong>. Only the banners are wide rectangles. That one fact prevents most cropping disasters, and it's worth keeping in your head for the rest of this.</p>
+      <p>Notice the pattern. Almost every profile photo is a <strong>square</strong> that the app then masks into a <strong>circle</strong>. Only the banners are wide rectangles. That one fact prevents most cropping disasters, and it's worth keeping in your head for the rest of this.</p>
 
-  //     <h2>Why your photo goes blurry or gets chopped</h2>
-  //     <p>Two different problems get blamed on the same thing. Let's separate them.</p>
+      <h2>Why your photo goes blurry or gets chopped</h2>
+      <p>Two different problems get blamed on the same thing. Let's separate them.</p>
 
-  //     <p><strong>Blurry</strong> usually means your image was too small and the platform stretched it up to fill the box. Upload a 150x150 thumbnail into a slot that wants 400x400 and the app enlarges it, turning every pixel mushy. The fix is to start from a decent-resolution photo and resize <em>down</em> to the target, never up. Resizing up never adds detail that wasn't there.</p>
+      <p><strong>Blurry</strong> usually means your image was too small and the platform stretched it up to fill the box. Upload a 150x150 thumbnail into a slot that wants 400x400 and the app enlarges it, turning every pixel mushy. The fix is to start from a decent-resolution photo and resize <em>down</em> to the target, never up. Resizing up never adds detail that wasn't there.</p>
 
-  //     <p><strong>Badly cropped</strong> means your image was the wrong shape. You uploaded a tall portrait photo, say 1080x1920 straight off your phone, into a square slot. The platform can't fit a tall photo in a square hole, so it grabs the middle and discards the top and bottom. Your forehead and chin go missing. The fix is to crop to the right shape before you upload, so you decide what stays in frame instead of leaving it to an algorithm.</p>
+      <p><strong>Badly cropped</strong> means your image was the wrong shape. You uploaded a tall portrait photo, say 1080x1920 straight off your phone, into a square slot. The platform can't fit a tall photo in a square hole, so it grabs the middle and discards the top and bottom. Your forehead and chin go missing. The fix is to crop to the right shape before you upload, so you decide what stays in frame instead of leaving it to an algorithm.</p>
 
-  //     <p>So the order is always the same: crop to the right shape, then resize to the exact pixels. Do it backwards and you've just shrunk a badly shaped mess.</p>
+      <p>So the order is always the same: crop to the right shape, then resize to the exact pixels. Do it backwards and you've just shrunk a badly shaped mess.</p>
 
-  //     <h2>Crop to shape first, then resize to pixels</h2>
-  //     <p>The circle mask is the bit that catches first-timers. The app shows your square photo as a circle, which means the four corners are hidden. If your face is pushed to one side or your logo touches an edge, the round crop eats it. Compose for the circle, not the square: face roughly centred, a little margin all around. This is the one thing passport-photo guides never have to worry about, because government forms want a flat rectangle, not a circle.</p>
+      <h2>Crop to shape first, then resize to pixels</h2>
+      <p>The circle mask is the bit that catches first-timers. The app shows your square photo as a circle, which means the four corners are hidden. If your face is pushed to one side or your logo touches an edge, the round crop eats it. Compose for the circle, not the square: face roughly centred, a little margin all around. This is the one thing passport-photo guides never have to worry about, because government forms want a flat rectangle, not a circle.</p>
 
-  //     <p>The <a href="/crop">Crop Image</a> tool has aspect-ratio presets for this. For a profile photo, lock it to <strong>1:1</strong> and the crop box won't let you pull it out of square, however shaky your dragging is. Drag the box so your face sits inside the eventual circle, then crop. For a YouTube channel banner, the 2560x1440 frame is 16:9, so pick the <strong>16:9</strong> preset and keep your channel name and logo near the centre, inside that safe area. The LinkedIn banner is an odd 1584x396 ratio with no matching preset, so use <strong>Free</strong> and drag a long, thin box across the top. After cropping, send the result to <a href="/resize">Resize Image</a> and type in the precise width and height.</p>
+      <p>The <a href="/crop">Crop Image</a> tool has aspect-ratio presets for this. For a profile photo, lock it to <strong>1:1</strong> and the crop box won't let you pull it out of square, however shaky your dragging is. Drag the box so your face sits inside the eventual circle, then crop. For a YouTube channel banner, the 2560x1440 frame is 16:9, so pick the <strong>16:9</strong> preset and keep your channel name and logo near the centre, inside that safe area. The LinkedIn banner is an odd 1584x396 ratio with no matching preset, so use <strong>Free</strong> and drag a long, thin box across the top. After cropping, send the result to <a href="/resize">Resize Image</a> and type in the precise width and height.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to get a sharp LinkedIn / YouTube / WhatsApp photo</h3>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Pick your best, well-lit, reasonably high-resolution photo. Bigger to start is fine, you'll shrink it. A tiny screenshot will never come out sharp.</li>
-  //         <li><strong>Step 2:</strong> Open the <a href="/crop">Crop Image</a> tool. For any profile photo, choose the <strong>1:1 (square)</strong> preset. For YouTube channel art, pick <strong>16:9</strong>. For a LinkedIn banner, choose <strong>Free</strong> and drag a wide, short box.</li>
-  //         <li><strong>Step 3:</strong> Drag the crop box so your face (or logo) is centred with a little space around it. Remember the circle mask: anything in the corners gets hidden. Apply the crop.</li>
-  //         <li><strong>Step 4:</strong> Open the <a href="/resize">Resize Image</a> tool and load the cropped image. Enter the exact pixels from the cheat sheet: 400x400 for LinkedIn, 800x800 for YouTube, 640x640 for WhatsApp, and so on.</li>
-  //         <li><strong>Step 5:</strong> Download. If the file feels heavy for upload, run it through <a href="/compress-jpg">Compress JPG</a> to cut the weight without touching the dimensions. Then upload it.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to get a sharp LinkedIn / YouTube / WhatsApp photo</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Pick your best, well-lit, reasonably high-resolution photo. Bigger to start is fine, you'll shrink it. A tiny screenshot will never come out sharp.</li>
+          <li><strong>Step 2:</strong> Open the <a href="/crop">Crop Image</a> tool. For any profile photo, choose the <strong>1:1 (square)</strong> preset. For YouTube channel art, pick <strong>16:9</strong>. For a LinkedIn banner, choose <strong>Free</strong> and drag a wide, short box.</li>
+          <li><strong>Step 3:</strong> Drag the crop box so your face (or logo) is centred with a little space around it. Remember the circle mask: anything in the corners gets hidden. Apply the crop.</li>
+          <li><strong>Step 4:</strong> Open the <a href="/resize">Resize Image</a> tool and load the cropped image. Enter the exact pixels from the cheat sheet: 400x400 for LinkedIn, 800x800 for YouTube, 640x640 for WhatsApp, and so on.</li>
+          <li><strong>Step 5:</strong> Download. If the file feels heavy for upload, run it through <a href="/compress-jpg">Compress JPG</a> to cut the weight without touching the dimensions. Then upload it.</li>
+        </ul>
+      </div>
 
-  //     <h2>Platform by platform, the real-life version</h2>
-  //     <p><strong>The fresher's first LinkedIn.</strong> Crop a head-and-shoulders shot to 1:1, resize to 400x400. Plain background, face filling most of the frame, looking at the camera. For the banner at 1584x396, a clean colour or your campus skyline works, but keep text away from the bottom-left where your photo overlaps. Recruiters scroll fast. A crisp, correctly sized photo quietly signals you've got your act together.</p>
+      <h2>Platform by platform, the real-life version</h2>
+      <p><strong>The fresher's first LinkedIn.</strong> Crop a head-and-shoulders shot to 1:1, resize to 400x400. Plain background, face filling most of the frame, looking at the camera. For the banner at 1584x396, a clean colour or your campus skyline works, but keep text away from the bottom-left where your photo overlaps. Recruiters scroll fast. A crisp, correctly sized photo quietly signals you've got your act together.</p>
 
-  //     <p><strong>The small shop's YouTube channel.</strong> Channel icon at 800x800, usually your logo or a clear product shot. Channel art at 2560x1440, but treat the 1235x338 centre as the only space you can trust. Put the shop name and tagline there. Anything in the outer area might vanish on a customer's phone. Open it on your own phone before you call it done.</p>
+      <p><strong>The small shop's YouTube channel.</strong> Channel icon at 800x800, usually your logo or a clear product shot. Channel art at 2560x1440, but treat the 1235x338 centre as the only space you can trust. Put the shop name and tagline there. Anything in the outer area might vanish on a customer's phone. Open it on your own phone before you call it done.</p>
 
-  //     <p><strong>The WhatsApp Business DP.</strong> 640x640, cropped to 1:1. WhatsApp compresses aggressively, so a small or dark photo turns to mush. Start with a bright, sharp logo or storefront shot, crop tight for the circle, resize to 640, and it survives the squeeze. The same 640x640 works for your personal DP too.</p>
+      <p><strong>The WhatsApp Business DP.</strong> 640x640, cropped to 1:1. WhatsApp compresses aggressively, so a small or dark photo turns to mush. Start with a bright, sharp logo or storefront shot, crop tight for the circle, resize to 640, and it survives the squeeze. The same 640x640 works for your personal DP too.</p>
 
-  //     <p>One honest note. These tools crop and resize. They don't un-blur a photo that was low quality to begin with, and they can't rescue a dark, grainy shot. Start with a decent original and the rest is easy.</p>
+      <p>One honest note. These tools crop and resize. They don't un-blur a photo that was low quality to begin with, and they can't rescue a dark, grainy shot. Start with a decent original and the rest is easy.</p>
 
-  //     <h2>FAQ</h2>
-  //     <p><strong>Q: What is the correct LinkedIn profile photo size in 2026?</strong><br> A: 400x400 pixels, square. LinkedIn shows it inside a circle, so centre your face with a bit of margin. You can upload larger and it'll downscale, but 400x400 is the clean target.</p>
+      <h2>FAQ</h2>
+      <p><strong>Q: What is the correct LinkedIn profile photo size in 2026?</strong><br> A: 400x400 pixels, square. LinkedIn shows it inside a circle, so centre your face with a bit of margin. You can upload larger and it'll downscale, but 400x400 is the clean target.</p>
 
-  //     <p><strong>Q: My YouTube banner text keeps getting cut off. Why?</strong><br> A: Because it's outside the safe area. The full channel art is 2560x1440, but only the centre 1235x338 is guaranteed to show on every device. Keep your channel name and logo inside that strip.</p>
+      <p><strong>Q: My YouTube banner text keeps getting cut off. Why?</strong><br> A: Because it's outside the safe area. The full channel art is 2560x1440, but only the centre 1235x338 is guaranteed to show on every device. Keep your channel name and logo inside that strip.</p>
 
-  //     <p><strong>Q: Should I crop or resize first?</strong><br> A: Crop first to fix the shape, then resize to set the exact pixels. Resizing a wrong-shaped photo just shrinks the problem and can squash your face. Crop to 1:1, then resize to 400x400 (or whatever the platform wants).</p>
+      <p><strong>Q: Should I crop or resize first?</strong><br> A: Crop first to fix the shape, then resize to set the exact pixels. Resizing a wrong-shaped photo just shrinks the problem and can squash your face. Crop to 1:1, then resize to 400x400 (or whatever the platform wants).</p>
 
-  //     <p><strong>Q: Why does my WhatsApp DP look worse than the original?</strong><br> A: WhatsApp compresses profile photos heavily. Start with a sharp 640x640 image. If it still looks soft, the original was probably too small or low quality, and resizing up can't add detail back.</p>
+      <p><strong>Q: Why does my WhatsApp DP look worse than the original?</strong><br> A: WhatsApp compresses profile photos heavily. Start with a sharp 640x640 image. If it still looks soft, the original was probably too small or low quality, and resizing up can't add detail back.</p>
 
-  //     <p>Save the cheat sheet, crop to shape, then resize to the exact pixels. Whether it's a placement-ready LinkedIn, a shop's first YouTube channel, or a Business DP, the <a href="/crop">Crop</a> and <a href="/resize">Resize</a> tools run entirely in your browser, so your photos never leave your device. Get the size right once and you won't upload a blurry DP again.</p>
-  //     `
-  // }, done
+      <p>Save the cheat sheet, crop to shape, then resize to the exact pixels. Whether it's a placement-ready LinkedIn, a shop's first YouTube channel, or a Business DP, the <a href="/crop">Crop</a> and <a href="/resize">Resize</a> tools run entirely in your browser, so your photos never leave your device. Get the size right once and you won't upload a blurry DP again.</p>
+      `
+  }, 
   // {
   //   id: "vcard-qr-code-generator-digital-business-card",
   //   title: "vCard QR Code Generator: Make a Digital Business Card That Saves Your Contact in One Scan",
