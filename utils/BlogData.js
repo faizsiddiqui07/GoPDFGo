@@ -3,64 +3,113 @@ export const blogsData = [
     id: "optimize-pdf-under-50kb-government-recruitment-forms",
     title: "How to Optimize Your PDF Under 50KB for Government Recruitment Forms",
     seoTitle: "Compress PDF under 50KB for SSC, UPSC & Govt Jobs | GoPDFGo",
-    keywords: "compress pdf under 50kb, reduce pdf size for ssc, upsc document upload, compress pdf for govt job, reduce file size online, resize pdf for job portal, ssc cgl document size, how to compress pdf without losing quality",
-    excerpt: "Missing your govt job deadline because of a 'File Size Too Large' error? Learn how to securely compress your PDFs under 50KB without losing quality.",
+    keywords: "compress pdf under 50kb, reduce pdf size for ssc, upsc document upload, compress pdf for govt job, reduce file size online, resize pdf for job portal, ssc cgl document size, how to compress pdf without losing quality, compress pdf to 50kb online, pdf size limit government portal",
+    excerpt: "Portal says under 50 KB and your scanned marksheet is 2 MB? Here is how to hit that exact limit in your browser, keep every digit readable, and what to do when it will not go that small.",
     date: "March 18, 2026",
     publishedAt: "2026-03-18",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/optimize-pdf.webp",
     content: `
-      <p>If you have ever applied for a government job in India—whether it is through the <strong>SSC (Staff Selection Commission)</strong>, <strong>UPSC</strong>, RRB (Railways), or IBPS (Banking)—you know this particular headache well. You spend hours meticulously filling out your details, double-checking your academic records, paying the application fee, and finally reaching the document upload page. You click "Upload," and boom: <em>"Error: File size must be under 50KB."</em></p>
-      
-      <p>Your original scanned marksheet or Aadhaar card is likely around 2MB to 5MB. Shrinking it down to a mere 50KB seems impossible without turning the document into a blurry, unreadable mess. Below is a practical way to hit that size limit while keeping the text readable and your documents off third-party servers.</p>
+      <p>If you have ever applied for a government job in India, whether through <strong>SSC</strong>, <strong>UPSC</strong>, RRB, IBPS or a state PSC, you know this particular headache. You spend an hour filling the form, double-check your category and your roll numbers, pay the fee, and finally reach the document upload page. You pick your marksheet, click Upload, and get the line every aspirant dreads: <em>"File size must be less than 50 KB."</em></p>
 
-      <h2>Why Do Government Portals Require Such Small File Sizes?</h2>
-      <p>It can be incredibly frustrating to compress files, but these recruitment portals have a valid technical reason for their strict limits. Exams like SSC CGL or Railway Group D receive crores of applications each year. If every applicant uploaded a 2MB document, the government servers would require massive amounts of storage space and bandwidth.</p>
-      <p>More importantly, during the final days of the application deadline, millions of students access the site simultaneously. By capping the file size at 50KB or 100KB, the authorities ensure their servers remain fast, prevent website crashes, and guarantee that files can be downloaded quickly by the verifying officers during the document verification phase.</p>
+      <p>Your scanned 10th marksheet is 2 MB. The Aadhaar PDF you downloaded is 1.5 MB. The photo of your caste certificate that your cousin sent on WhatsApp is 4 MB. And the portal wants 50 KB, which is roughly one-fortieth of what you have. It feels like the only way to get there is to turn the document into a grey smudge nobody can read. It isn't, but you do need to understand what the tool is doing, because 50 KB is a genuinely tight number and the difference between a clean pass and a rejected upload comes down to a couple of choices.</p>
 
-      <h2>The Danger of Using the Wrong PDF Compressor</h2>
-      <p>When faced with this "File Too Large" problem, most candidates rush to Google and click on the first free PDF compressor they find. This is a massive mistake. Here are the two critical risks involved:</p>
-      <ul>
-        <li><strong>The Quality Risk:</strong> Basic online compressors aggressively destroy the pixels in your document to force the size down. If the verifying officer cannot clearly read your Roll Number, Father's Name, or Final Marks, your application <strong>will be rejected instantly</strong>. You won't even get a chance to explain.</li>
-        <li><strong>The Privacy Risk:</strong> Marksheets, Category Certificates (OBC/SC/ST/EWS), and Aadhaar cards contain your most sensitive personal and financial data. Most free tools upload your files to external cloud servers located outside India, exposing you to data theft and identity fraud.</li>
-      </ul>
+      <h2>Why Do These Portals Want Such Tiny Files?</h2>
 
-      <h2>Understanding Size vs. Dimensions</h2>
-      <p>Before compressing, it is crucial to understand that <strong>File Size (KB/MB)</strong> is different from <strong>Image Dimensions (Pixels)</strong>. Sometimes, a portal will ask for a signature that is exactly 140x60 pixels AND under 20KB. If you only compress the PDF without fixing the dimensions first, the upload will still fail. Always read the portal's official notification carefully.</p>
+      <p>The limit is not there to torture you. SSC CGL alone crosses 25 lakh applications in a normal year, and Railway Group D has crossed a crore. If each applicant uploads four documents at 2 MB, that is tens of terabytes of storage the exam body has to keep for years, and more importantly, it is bandwidth the site has to serve on the last two days before the deadline when everyone logs in at once. A 50 KB cap keeps the upload servers alive during that rush and lets a verification officer open your file instantly during document verification instead of waiting for a heavy scan to load on a slow office connection.</p>
 
-      <h2>How to Compress Your PDF to under 50KB Safely</h2>
-      <p>This is exactly why we built GoPDFGo. Our platform processes your documents <strong>locally inside your browser</strong>. Your documents stay entirely on your device, delivering complete privacy with fast processing.</p>
+      <p>So the cap is real, it is enforced by the upload script before your file ever reaches a human, and there is no arguing with it. Your job is to get under it while keeping your name, roll number and marks legible.</p>
+
+      <h2>What Is Actually Making Your PDF So Heavy</h2>
+
+      <p>This is worth a minute, because it tells you how far a file can realistically shrink.</p>
+
+      <p>A marksheet PDF made from a phone photo is basically a 12-megapixel colour picture wrapped in a PDF container. That photo is carrying the wood grain of your table, the shadow of your hand and the slight yellow tint of the room light, none of which the verifier needs. A flatbed scan at 300 DPI in colour is the same story. The text on your marksheet, the part that matters, is a tiny fraction of the data. Everything else is pixels describing paper texture.</p>
+
+      <p>That is why a single-page scanned document can drop from 2 MB to well under 100 KB without the text becoming unreadable: most of what gets thrown away was never information in the first place. It is also why a six-page colour bundle will not reach 50 KB no matter what you do. Roughly 8 KB per page is not enough to hold a readable image of a page. So before you compress, make sure you are compressing the right thing: one document, the pages the portal actually asked for, nothing extra.</p>
+
+      <h2>Size vs Dimensions: Two Different Numbers</h2>
+
+      <p>The other trap is that <strong>file size (KB)</strong> and <strong>image dimensions (pixels)</strong> are different things, and portals often specify both. A PDF cap is usually just a KB number. But the photograph and signature slots on the same form will often say something like 3.5 cm x 4.5 cm, or 140 x 60 pixels, and 20 KB. If you only fix the KB and ignore the pixels, that upload still fails. The PDF tool on this page fixes KB. For a photo or signature that needs an exact pixel size, use <a href="/resize">Resize Image</a> first, then compress the image. If the portal wants an image rather than a PDF for a slot, do not upload a PDF there at all; our guide on <a href="/blog/compress-jpg-under-20kb-online-forms">compressing a JPG under 20 KB</a> covers that side of the form.</p>
+
+      <h2>The Two Compression Modes, and Which One You Want Here</h2>
+
+      <p>The <a href="/compress-pdf">Compress PDF</a> tool works in two modes, and picking the wrong one is the main reason people come back saying "it only went down to 400 KB."</p>
+
+      <p><strong>Best compression</strong> starts with a lossless re-save. It strips metadata, unused fonts and duplicated data, and if the file is image-heavy it optimises the page images. Text stays selectable. A typical scan loses 60 to 80 percent of its size this way, so a 2 MB marksheet lands somewhere around 300 to 600 KB. That is great for email and most portals, but it is not 50 KB.</p>
+
+      <p><strong>Target size</strong> is the mode built for recruitment forms. You tap a preset like 200 KB or type your own number, such as 50, and the tool works down toward that figure. To reach a number that small it flattens each page into an image and squeezes it. The result: the text is no longer selectable, and it goes slightly softer than the original. For a marksheet or certificate upload that is the correct trade. The officer is going to look at the page, not copy-paste from it. What you must not do is accept a result you have not zoomed into, which we will get to.</p>
+
+      <p>One guarantee holds in both modes: the tool never hands you a file bigger than the one you gave it. If a PDF is already lean, it says so instead of quietly inflating it.</p>
 
       <div class="tool-box">
-        <h3>Step-by-Step Guide to Perfect Compression:</h3>
-        <ul>
-          <li><strong>Step 1:</strong> Navigate to the secure <a href="/compress-pdf">GoPDFGo Compress PDF</a> tool on your mobile or desktop.</li>
-          <li><strong>Step 2:</strong> Click on the upload area or simply drag and drop your heavy PDF document (like your 10th marksheet or graduation degree).</li>
-          <li><strong>Step 3:</strong> Once uploaded, our in-browser engine will instantly analyze your document. It uses smart rasterization technology to reduce the file footprint while maintaining sharp, legible text edges.</li>
-          <li><strong>Step 4:</strong> Click the <strong>Compress PDF</strong> button. Within seconds, you will see the new optimized file size displayed on your screen.</li>
-          <li><strong>Step 5:</strong> If the size is exactly under the 50KB limit, click Download. If it is still slightly larger (e.g., 60KB), you can simply use the <strong>Target Size (KB)</strong> mode and set your exact limit, like 50KB, so the tool aims straight for that size.</li>
-        </ul>
+      <h3>How to Compress a PDF Under 50 KB for a Recruitment Form</h3>
+      <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/compress-pdf">GoPDFGo Compress PDF</a> tool on your phone or laptop. The whole job happens inside the browser tab, so the file is never uploaded to a server.</li>
+      <li><strong>Step 2:</strong> Drop in the PDF for that one upload slot. If your file has extra pages, the back side of the marksheet or a terms page from the scanner app, trim it down first with <a href="/extract-pdf-pages">Extract PDF Pages</a>. Every page you remove is data you no longer have to squeeze.</li>
+      <li><strong>Step 3:</strong> Switch to <strong>Target size</strong> mode. Either tap the nearest preset or type your exact cap in the box. If the portal says under 50 KB, type 45 rather than 50. Portals measure in slightly different ways and a few KB of headroom saves you a second attempt.</li>
+      <li><strong>Step 4:</strong> Run the compression. The before and after sizes appear on screen. Check that the after figure is genuinely below your cap and not sitting right on it.</li>
+      <li><strong>Step 5:</strong> Download the file. It comes back named GoPDFGo_ followed by your original filename. Open it, zoom into your roll number and the marks column, and confirm you can read every digit. If you can, rename it to something like Ravi_Kumar_10th_Marksheet.pdf and upload.</li>
+      </ul>
       </div>
 
-      <h2>Bonus Tips for a Flawless Government Job Upload</h2>
-      <p>Before you hit the final submit button on that application portal, keep these formatting rules in mind to avoid disqualification:</p>
+      <h2>When It Will Not Reach 50 KB</h2>
+
+      <p>Sometimes the tool tells you it could not reach the target and gives you the smallest clear version it could produce instead. This is deliberate. It stops at the point where going smaller would leave the page unreadable, because a 48 KB file with an illegible roll number gets you rejected months later at verification, which is far worse than a 70 KB file the portal bounces now, while you can still fix it. Here is what actually moves the needle when that happens.</p>
+
       <ul>
-        <li><strong>Check the Required Format:</strong> Does the portal ask for a PDF or a JPG? If they specifically asked for an image (which is very common for passport photos and signatures), do not upload a PDF. You can use our <a href="/compress-jpg">Compress JPG</a> tool instead to shrink image files safely.</li>
-        <li><strong>Rename Your Files:</strong> Do not upload a file named <em>"WhatsApp_Image_2026.pdf"</em>. Rename it professionally, such as <em>"Ravi_Kumar_10th_Marksheet.pdf"</em>. This shows professionalism and makes it easier for the hiring committee.</li>
+      <li><strong>Cut pages.</strong> If the slot is for your 10th marksheet, upload the 10th marksheet, not the 10th plus 12th plus degree in one PDF. Pull out just the page that slot wants.</li>
+      <li><strong>Crop before you compress.</strong> A phone photo where the marksheet fills a third of the frame is spending two-thirds of its budget on your desk. Crop the image tight to the document, then convert it to PDF and compress. This alone often halves the starting size.</li>
+      <li><strong>Re-scan in grayscale.</strong> A colour scan of a black-and-white document is carrying three times the data for no benefit. Most scanner apps and flatbed scanners have a grayscale or black-and-white option. Use it for text documents. Keep colour only for things like a photograph or a certificate with a coloured seal that the notification specifically wants in colour.</li>
+      <li><strong>Check the cap again.</strong> I have watched people fight to get a 300 KB file under 50 KB when the notification actually said 500 KB, or said 50 KB for the photo and 300 KB for the certificate. Read the exact line for the exact slot.</li>
       </ul>
 
-      <p>Don't let a simple technical error or a blurry document ruin months of intense exam preparation. Compress your files securely, upload them with confidence, and get back to your studies. Good luck with your upcoming exams!</p>
+      <h2>The Mistakes That Get Applications Rejected</h2>
+
+      <p><strong>Trusting the number and not the picture.</strong> Getting under 50 KB is half the task. The other half is that a human being, months from now, has to read your father's name and your marks off that page in a crowded verification hall. Always open the compressed file and zoom in. If a digit is ambiguous, go back, crop tighter or re-scan, and try again. A rejected document at the verification stage cannot be fixed by re-uploading.</p>
+
+      <p><strong>Using a compressor that blurs first and asks later.</strong> Many free tools reach a small size by throwing away resolution across the whole page, so everything goes soft together. Target size mode reduces detail only as far as the number forces it to, and stops instead of wrecking the page. That is the difference between a readable marksheet and a grey rectangle.</p>
+
+      <p><strong>Trying to compress a locked PDF.</strong> This one surprises people. The e-Aadhaar you download from UIDAI is password-protected. So are many e-PAN files and most bank statements. The Compress PDF tool will not touch an encrypted file; it refuses with a message pointing you to <a href="/unlock-pdf">Unlock PDF</a>, which removes a password you already know. Do that first, then compress. The unlocked copy is a flattened image PDF, which is fine, because the compressed version was going to be flattened anyway.</p>
+
+      <p><strong>Compressing the same file three times.</strong> Running the output through the tool again does not find new savings. Once the pages are flattened at a given size, the second pass has nothing left to strip and you just get the same file back, or one that is marginally softer for no gain. If the first pass did not reach your number, change something about the input: fewer pages, tighter crop, grayscale.</p>
+
+      <p><strong>Confusing KB and MB.</strong> It sounds silly until it happens at 11:40 PM on deadline night. 50 KB is one-twentieth of 1 MB. If your file says 1.2 MB and the cap says 50 KB, you are not "a little over."</p>
+
+      <p><strong>Uploading a PDF into a JPG slot.</strong> Photo and signature boxes almost always want an image file, not a PDF. A PDF, however small, gets rejected there for the wrong format, not the wrong size. That side of the form is a job for <a href="/compress-jpg">Compress JPG</a>, and if the portal is rejecting something that looks perfectly fine to you, the reasons are usually one of the handful covered in <a href="/blog/why-government-websites-reject-perfectly-fine-pdfs">why government websites reject perfectly fine PDFs</a>.</p>
+
+      <h2>What This Tool Does Not Do</h2>
+
+      <p>I would rather you hear the limits from me than discover them at midnight. Target size mode makes the text non-selectable, so if a portal specifically needs a text-searchable PDF (rare for recruitment, common for some court and academic submissions), use Best compression mode and accept the larger file. The tool cannot make a colour photograph of a certificate look sharp at 50 KB across several pages; physics gets in the way. It does not change page dimensions or pixel sizes, so the photo and signature requirements are a separate task. And it will not open a password-locked file for you or guess a password you have forgotten.</p>
+
+      <p>Everything runs on your device, which matters more than usual here because a category certificate, an Aadhaar PDF and a marksheet together are most of what someone needs to impersonate you. There is no upload, so there is no copy of your documents sitting on someone's server after you close the tab.</p>
+
       <h2>Frequently Asked Questions</h2>
-      <p><strong>Q: How do I compress a PDF to exactly under 50KB or 100KB?</strong><br>
-      A: Open the <a href="/compress-pdf">Compress PDF</a> tool and switch to <strong>Target Size (KB)</strong> mode. Pick a preset like 50 KB or 100 KB, or type your own number, and the tool aims straight for that limit — no guesswork and no compressing the file twice.</p>
-      <p><strong>Q: Will compressing under 50KB make my marksheet unreadable?</strong><br>
-      A: Not with a smart compressor. GoPDFGo optimises the file first and only reduces image detail as much as needed, so your roll number, name, and marks stay legible for the verification officer.</p>
-      <p><strong>Q: Is it safe to compress my Aadhaar card or marksheet online?</strong><br>
-      A: On GoPDFGo, yes — because nothing is uploaded. The entire process runs inside your browser on your own device, so your documents never touch a server.</p>
-      <p><strong>Q: The portal wants a JPG under 50KB, not a PDF. What should I do?</strong><br>
-      A: Use the <a href="/compress-jpg">Compress JPG</a> tool instead and set the same Target Size. For a photo or signature, also check the required pixel size with our <a href="/resize">Resize Image</a> tool.</p>
-      <p><strong>Q: My file is still above 50KB after compressing. What now?</strong><br>
-      A: Set the exact cap in Target Size mode so the tool pushes closer to your limit. If a scanned document simply carries too much detail, reduce its dimensions first with <a href="/resize">Resize Image</a>, then compress — that almost always gets it under 50KB.</p>
-    `
+
+      <p><strong>Q: Should I compress before or after combining documents?</strong><br>
+      A: For recruitment portals, usually neither, because each slot wants one document. If a slot genuinely asks for several certificates in one PDF, combine them first and compress the finished bundle once, then check every page. Compressing each piece separately and then merging them tends to leave you with a bigger file than compressing the merged result, and you cannot predict the final size until the merge is done.</p>
+
+      <p><strong>Q: The portal says the file must be between 50 KB and 300 KB. What do I type?</strong><br>
+      A: Aim inside the range, not at the floor. Type something like 200 in Target size mode. Portals with a minimum size reject files that are too small as readily as ones that are too large, and a 200 KB version will be noticeably sharper than a 55 KB one.</p>
+
+      <p><strong>Q: Can I compress several PDFs in one go?</strong><br>
+      A: No - the tool works on one PDF at a time, and if you pick several it keeps the first and tells you so. Do your 10th, 12th and degree marksheets as three quick separate runs, checking each result against the cap for its own slot, since they will not all land at the same number.</p>
+
+      <p><strong>Q: Does the compressed file keep the GoPDFGo_ prefix, and does that matter for the upload?</strong><br>
+      A: The download is named GoPDFGo_ followed by your original filename. Portals do not care about the name, but rename it anyway before uploading, to something with your name and the document type. It costs five seconds and it means the officer and you both know what the file is later.</p>
+
+      <p><strong>Q: Will the compressed PDF look the same on the officer's computer as on my phone?</strong><br>
+      A: Yes. The output is a standard PDF with each page stored as an image, so it renders identically in Chrome, Adobe Reader, a Windows office PC or an iPhone. There are no fonts to go missing and nothing that depends on the viewer. What you see when you zoom in on your phone is what they will see.</p>
+
+      <p><strong>Q: Does it work on a slow connection or with no internet at all?</strong><br>
+      A: Mostly. The compression engine is fetched the first time you actually run a file through the tool, not when the page opens - so do one run while connected, and after that you can switch off mobile data and keep working. Useful in a hostel with bad Wi-Fi, and on a shared cyber-cafe machine remember the only copy of your file is the one you download yourself.</p>
+
+      <h2>The Short Version</h2>
+
+      <p>A 50 KB cap is tight but honest. One page, cropped to the document, scanned in grayscale, run through Target size mode with a few KB of headroom, gets there almost every time and stays readable. Where it does not, the fix is on the input side: fewer pages, a tighter crop, a cleaner scan, and an unlocked file if it came with a password. Then open the result, zoom in on your roll number, and only upload once you can read every digit yourself.</p>
+
+      <p>Months of preparation should not fall at a file-size check. Open <a href="/compress-pdf">Compress PDF</a>, set your target, and get back to the syllabus.</p>
+      `
   },
   {
     id: "merge-marksheets-pdf-govt-jobs",
@@ -298,52 +347,120 @@ export const blogsData = [
     id: "compress-pan-card-pdf-kyc-verification",
     title: "How to Compress PAN Card PDF under 2MB for KYC Verification",
     seoTitle: "Compress PAN Card PDF under 2MB for KYC Online | GoPDFGo",
-    keywords: "compress pan card pdf, reduce pan card size online, kyc document compression, compress pdf to 2mb, reduce pdf size for bank kyc, pan card upload error, e-pan password unlock, zerodha kyc upload",
-    excerpt: "Struggling to upload your PAN card for banking, mutual funds, or trading KYC? Learn how to compress your secure PAN PDF under 2MB without losing clarity or risking your data.",
+    keywords: "compress pan card pdf, reduce pan card size online, kyc document compression, compress pdf to 2mb, reduce pdf size for bank kyc, pan card upload error, e-pan password unlock, zerodha kyc upload, compress pdf to 200kb for kyc, pan card scan size reduce",
+    excerpt: "Struggling to upload your PAN card for banking, mutual funds or trading KYC? Compress your PAN PDF under 2MB without losing clarity - and without your card ever leaving your device.",
     date: "April 2, 2026",
     publishedAt: "2026-04-02",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/compress-pan-card-pdf-kyc-verification.webp",
     content: `
-      <p>Whether you are opening a new bank account, starting a SIP on a mutual fund platform, applying for a credit card, or verifying your identity on a stock broking app, the <strong>KYC (Know Your Customer)</strong> process is absolutely mandatory. And the single most critical document in this entire digital onboarding process is your PAN (Permanent Account Number) Card.</p>
-      
-      <p>However, a major roadblock occurs during the document upload phase. When you download your official e-PAN from the NSDL or UTIITSL website, or scan your physical plastic card using a high-resolution mobile scanner, the resulting PDF file is often quite heavy—sometimes crossing 4MB or 5MB. The frustration begins when the banking portal throws a strict error: <em>"Upload Failed: PAN Card size must be under 2MB."</em></p>
+      <p>You are three screens into opening a demat account on Zerodha or Groww, or finishing video KYC for a new HDFC savings account, or starting your first SIP. Everything has gone smoothly. Then you reach the PAN upload box, pick your file, and the page comes back with: <em>"Upload failed. File size must be under 2MB."</em> Or 200KB. Or 100KB, if it is a government or PSU bank portal. And now the whole application is stuck behind a single document that is a few hundred kilobytes too heavy.</p>
 
-      <h2>The Massive Risk of Free Online PDF Compressors</h2>
-      <p>When faced with a 2MB or 1MB upload limit, the immediate reaction of most users is to search for a "Free PDF Compressor" on Google. But you need to stop and think! Your PAN card contains your full legal name, your father's name, your exact date of birth, your unique 10-digit alphanumeric tax number, and your verified signature. <strong>Hand it to the wrong site and someone has nearly everything they need to open accounts in your name.</strong></p>
-      
-      <p>If you upload this highly sensitive document to a standard, cloud-based PDF tool, you are actively transmitting your financial identity to a remote server. Even if the website claims to delete files after 2 hours, your data sits on an external server long enough to be vulnerable to data breaches, automated scraping scripts, or hackers. Financial fraud starting from stolen KYC documents is a massive global issue.</p>
+      <p>The fix is a two-minute job, but it is worth understanding <em>why</em> a PAN card, which is the size of a credit card, produces a PDF that fails a 2MB cap. Once you know where the weight comes from, you will pick the right compression mode the first time instead of guessing.</p>
 
-      <h2>The Secure Alternative: Local Browser Compression</h2>
-      <p>You need a tool that can reduce the file size without ever looking at the file itself. That is exactly how <a href="/">GoPDFGo</a> operates. We use <strong>client-side processing</strong> that runs entirely in your browser. This means the mathematical compression algorithm runs entirely within your own computer or mobile browser's memory. Absolutely zero data is sent to our servers.</p>
+      <h2>Where the Weight Actually Comes From</h2>
+
+      <p>PAN PDFs reach your phone in three very different ways, and they behave very differently under compression.</p>
+
+      <p><strong>The official e-PAN.</strong> Downloaded from the NSDL (now Protean) or UTIITSL site, or from the Income Tax portal. This is a small, clean, computer-generated file, usually well under 500KB, and it is password-protected with your date of birth in DDMMYYYY format. On its own it almost never fails a 2MB limit. It fails because it is locked, which is a different problem, covered below.</p>
+
+      <p><strong>A phone scan of the physical card.</strong> This is the usual culprit. A modern phone camera shoots at 12 to 50 megapixels, and a scanner app dutifully wraps that giant photo into a PDF. A single page can land at 3MB to 6MB, most of it wasted on the wood grain of your table and the texture of the card's plastic. There is no detail in a PAN card that needs that much resolution.</p>
+
+      <p><strong>An unlocked copy of the e-PAN.</strong> If you removed the password so a portal would accept it, the unlocked file is rebuilt as page images, and that copy can be noticeably bigger than the original e-PAN. People are often surprised that a file that was 150KB is 1.5MB after unlocking. That is expected, and it is exactly why you compress <em>after</em> unlocking, never before.</p>
+
+      <h2>First, Read the Limit Properly</h2>
+
+      <p>Before touching any tool, look closely at the upload box. Portals are inconsistent, and "2MB" is only the friendliest version of the rule.</p>
+
+      <ul>
+      <li>Broker and mutual fund apps (Zerodha, Upstox, Groww, Kuvera, MF Central) generally allow 2MB to 5MB per document and accept PDF or JPG.</li>
+      <li>Private bank account-opening pages often sit at 1MB or 2MB, PDF only.</li>
+      <li>PSU banks, insurance portals, EPFO and most state government forms are the strict ones: 100KB to 500KB, and some insist on JPG rather than PDF.</li>
+      </ul>
+
+      <p>Note both the number and the format. If the box wants a JPG and you have a PDF, compression will not save you. And if it wants the front and back of the card in one file, that is a joining problem before it is a size problem; the guide on <a href="/blog/front-and-back-of-id-in-one-image">putting both sides of an ID into a single image</a> walks through that case. For the far more common "PDF, under X KB" rule, keep reading.</p>
+
+      <h2>Which Compression Mode to Use for a PAN Card</h2>
+
+      <p>The <a href="/compress-pdf">Compress PDF</a> tool has two modes, and for a PAN card the choice is easier than for most documents.</p>
+
+      <p><strong>Best compression</strong> first re-saves the file losslessly, stripping metadata, unused fonts and duplicated data, and only optimises the page images when the file is image-heavy. A phone scan is entirely image, so this mode typically knocks 60 to 80 percent off it. A 4MB scan comes back around 800KB to 1.2MB. For a 2MB limit, this is usually all you need, and it keeps the page as sharp as possible.</p>
+
+      <p><strong>Target size</strong> is for the strict portals. You tap a preset like 200KB, or type 100 into the box, and the tool works down toward that number. To hit small targets it flattens the page into an image, which means text stops being selectable. For a PAN card that is a non-issue, because a scanned card was never selectable text in the first place, and a KYC officer or an automated checker only needs to <em>see</em> the card clearly.</p>
+
+      <p>My rule of thumb: limit of 1MB or more, use Best compression. Limit under 500KB, use Target size and type the exact number the portal shows. Either way, GoPDFGo will never return a file larger than the one you gave it, so there is no risk in trying Best compression first and checking the result.</p>
 
       <div class="tool-box">
-        <h3>Step-by-Step Guide to Compress Your PAN Card:</h3>
-        <ul>
-          <li><strong>Step 1: Have your PAN Card PDF ready.</strong> If you downloaded an e-PAN, it is likely password-protected. You cannot compress a locked file. First remove the password with our <a href="/unlock-pdf">Unlock PDF</a> tool (the password is usually your Date of Birth in DDMMYYYY format without slashes), then compress the unlocked copy.</li>
-          <li><strong>Step 2:</strong> Go to the secure <a href="/compress-pdf">Compress PDF</a> tool on GoPDFGo.</li>
-          <li><strong>Step 3: Upload the file.</strong> Because it processes locally, the upload progress bar will hit 100% almost instantly. No waiting for server uploads!</li>
-          <li><strong>Step 4: Compress.</strong> Click the 'Compress' button. Our tool will intelligently strip away unnecessary hidden metadata and optimize the image layers while keeping the QR code and text intact.</li>
-          <li><strong>Step 5: Download.</strong> Save the optimized file. It should now easily fall under the 2MB threshold while keeping the details perfectly scannable for the bank's automated OCR (Optical Character Recognition) KYC systems.</li>
-        </ul>
+      <h3>How to Compress a PAN Card PDF for KYC</h3>
+      <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/compress-pdf">Compress PDF</a> tool on your phone or laptop. If your file is a locked e-PAN, run it through <a href="/unlock-pdf">Unlock PDF</a> first with your DOB in DDMMYYYY form, because every editing tool on the site refuses an encrypted file and will point you there anyway.</li>
+      <li><strong>Step 2:</strong> Drop the PDF in, or tap to pick it from your Downloads or WhatsApp folder. Since nothing is uploaded, the file appears instantly; there is no progress bar crawling to 100 percent.</li>
+      <li><strong>Step 3:</strong> Choose the mode. Leave it on Best compression for a 2MB limit. For a 100KB, 200KB or 500KB cap, switch to Target size and tap the matching preset or type the number.</li>
+      <li><strong>Step 4:</strong> Compress, and read the before and after sizes on screen. If it says it could not reach the target, it has stopped at the smallest clear version rather than wreck the card; try a slightly larger number or the tips in the next section.</li>
+      <li><strong>Step 5:</strong> Download. The file is saved as GoPDFGo_ followed by your original name. Open it once, zoom in on the PAN number, the date of birth and the QR code, and if they read cleanly, upload that file.</li>
+      </ul>
       </div>
 
-      <h2>Troubleshooting: "My file is a JPG, not a PDF!"</h2>
-      <p>Sometimes, the KYC portal specifically demands a PDF format, but you only have a photograph (JPG/PNG) of your PAN card in your phone gallery. You do not need to find a scanner to fix this.</p>
-      
-      <p>Simply navigate to our <a href="/image-to-pdf">Image to PDF Converter</a>. Upload the photo of your PAN card, and the tool will instantly wrap it into a secure, standard PDF format. Once converted, if the size is still too large, you can run it through the compression tool.</p>
+      <h2>Getting a Stubborn Scan Under 100KB</h2>
 
-      <p>KYC processes are designed to secure your financial future and prevent money laundering. Make sure the digital tools you use to handle these documents are just as secure. Compress your PAN card locally, complete your verification with peace of mind, and protect your identity.</p>
-    
+      <p>Most PAN scans reach 200KB without complaint. A 100KB cap is where people start to struggle, and it is almost always because the scan contains far more than the card. If your photo shows the card sitting in the middle of a desk, half the file is desk. Crop the image down to the card edges before you convert it, and the same target suddenly becomes easy, because the tool is no longer spending your kilobyte budget on the tablecloth.</p>
+
+      <p>The order that works: crop the photo, convert it with <a href="/image-to-pdf">Image to PDF</a> on A4 or Fit to image, then compress with a Target size of 100KB. A tightly cropped card at 100KB is perfectly legible. The same card photographed with a foot of background on each side at 100KB is a smudge.</p>
+
+      <p>One more thing worth checking before you compress at all: if the scanner app rotated the card sideways, fix that in the source, not after. Compressing a sideways page just gives you a smaller sideways page, and a surprising number of KYC rejections are about orientation, not size.</p>
+
+      <h2>The Locked e-PAN Problem, Briefly</h2>
+
+      <p>If your only copy is the official e-PAN, the error you get is usually not about size at all. Portals reject password-protected PDFs outright because their automated checks cannot open them. You need to remove the password, using the one you already know, which for e-PAN is your date of birth as DDMMYYYY with no slashes. The <a href="/unlock-pdf">Unlock PDF</a> tool does exactly that on your device; it is not a cracker and cannot help if you do not know the password. The output is a flattened, image-based copy that opens everywhere, which is fine for KYC, but as noted earlier it may be heavier than the locked original. So the sequence is always unlock first, compress second. The <a href="/blog/unlock-bank-statement-pdf-remove-password">unlock guide</a> covers the trade-offs in detail if you want them.</p>
+
+      <h2>Mistakes That Get PAN Uploads Rejected</h2>
+
+      <p><strong>Screenshotting the PDF.</strong> Tempting, because a screenshot is small. But a phone screenshot of a PDF is a low-resolution picture with a status bar at the top, and many verification desks reject it as an invalid document. Compress the real file instead.</p>
+
+      <p><strong>Feeding a locked file to the compressor.</strong> The tool will stop with a message pointing to Unlock PDF. It does not silently pass the file through, so if you see that message you have not compressed anything yet.</p>
+
+      <p><strong>Chasing a smaller number than the portal asked for.</strong> If the limit is 2MB, there is no prize for hitting 80KB. Every step down in target costs sharpness. Set the target to the limit the portal shows and leave it there.</p>
+
+      <p><strong>Compressing a blurry photo and hoping.</strong> Compression removes data; it cannot add focus. If the PAN number is fuzzy in the original, it will be fuzzier after. Retake the photo in daylight, on a plain surface, with the card filling the frame.</p>
+
+      <p><strong>Sending the compressed copy to a broker or landlord over WhatsApp and forgetting about it.</strong> A small, crisp PAN copy is exactly the file that gets forwarded around. For anything that is not an official KYC upload, mask part of the number first.</p>
+
+      <h2>What This Tool Will Not Do</h2>
+
+      <p>Some honest limits so you are not surprised. Compress PDF does not rotate pages, so fix orientation separately. It does not open encrypted files, including owner-locked ones that open without a password but are restricted. It cannot always reach an aggressive target on a large, busy image and will tell you when it stops short. And in Target size mode the text becomes non-selectable, which does not matter for a scanned card but does matter if you were compressing a text document and wanted to copy from it later.</p>
+
+      <p>On the privacy side, the whole thing runs inside your browser on your own device; your PAN is not uploaded to GoPDFGo or anywhere else. The engine arrives the first time you run a file through the tool, and after that first run you can even switch off Wi-Fi and keep working. For a document that carries your full name, father's name, date of birth and signature, that is the way it should be handled.</p>
+
+      <h2>After the Upload Goes Through</h2>
+
+      <p>Keep the original scan or e-PAN somewhere safe and treat the compressed copy as the disposable one. If a bank, a landlord for a rent agreement, or a fund house's agent asks for a PAN copy outside an official portal, run it through the <a href="/aadhaar-masking">ID Masking</a> tool and black out part of the number and your signature before sending. It works on PAN cards as well as Aadhaar; you draw the boxes yourself, and the masked area is genuinely removed from the pixels rather than hidden under a layer. The masked result downloads as an image, so convert it back to a PDF if that is what the recipient wants.</p>
+
       <h2>Frequently Asked Questions</h2>
-      <p><strong>Q: How do I compress a PAN card PDF for KYC?</strong><br>
-      A: Open the <a href="/compress-pdf">Compress PDF</a> tool, switch to <strong>Target Size (KB)</strong> mode, and set the limit your KYC portal asks for (often 100KB or 200KB).</p>
-      <p><strong>Q: What file size do most KYC portals accept?</strong><br>
-      A: It varies, but many keep it under 100KB to 200KB. Always check the exact limit shown on the upload page and set that number as your target.</p>
-      <p><strong>Q: Is it safe to compress my PAN card online?</strong><br>
-      A: Yes on GoPDFGo — the compression happens inside your browser and your PAN is never uploaded to a server.</p>
-      <p><strong>Q: Should I mask my PAN before sharing it?</strong><br>
-      A: For anything beyond official KYC, yes. Use the <a href="/aadhaar-masking">ID Masking</a> tool to hide part of the number so the copy cannot be misused.</p>
-    `
+
+      <p><strong>Q: Will compressing damage the QR code on the PAN card?</strong><br>
+      A: At 200KB or above, no; a tightly cropped card keeps the QR readable. Below 100KB on an uncropped scan the code can start to break up. The QR on a PAN is rarely scanned during online KYC, but zoom in and check it after compressing if the portal mentions QR verification.</p>
+
+      <p><strong>Q: Is a compressed copy still a valid PAN document for KYC?</strong><br>
+      A: Yes. KYC desks accept a legible copy of the card, whether that is the e-PAN or a scan of the physical one; they verify the number against the Income Tax database, not the file's pixels. Compression changes the file size, not the details on the card, so as long as the number, name and date of birth read clearly, it is as valid as the original.</p>
+
+      <p><strong>Q: Will the portal reject the file because the name now starts with GoPDFGo_?</strong><br>
+      A: No portal checks the file name against your identity, only the type and size. If you prefer a plain name, rename it after downloading; the contents do not change.</p>
+
+      <p><strong>Q: My e-PAN is already 90KB. Should I still compress it?</strong><br>
+      A: No. If it is under the limit and not password-protected, upload it as is. If it is locked, unlock it and then compress only if the unlocked copy crosses the cap. Compressing a tiny text PDF for its own sake gains nothing - the before and after figures will show barely any change.</p>
+
+      <p><strong>Q: The tool says it cannot reach 50KB. What now?</strong><br>
+      A: Fifty kilobytes is very tight for a full-page scan. Crop to the card edges, convert with Fit to image so there is no white A4 border to spend bytes on, and try again. If the portal accepts JPG, a cropped JPG will often reach 50KB more cleanly than a PDF.</p>
+
+      <p><strong>Q: Does compressing on a phone give a worse result than on a laptop?</strong><br>
+      A: No. The same engine runs in the browser on both, so a 200KB target on an Android phone produces the same file as on a Windows laptop. It may take a couple of seconds longer on an older phone, that is all.</p>
+
+      <h2>The Short Version</h2>
+
+      <p>A PAN card PDF fails a size limit because it is a giant photo, or because it is a locked e-PAN that became a heavy image when unlocked. Read the exact limit and format on the upload page. For 1MB or above, use Best compression. For 500KB or below, use Target size with the portal's number. Crop the scan to the card before converting if you need to go under 100KB. Unlock before compressing, never after, and check the number and date of birth are legible before you hit upload.</p>
+
+      <p>That is the whole job. <a href="/compress-pdf">Compress your PAN card PDF</a> on your own device, upload it, and get back to opening that account.</p>
+      `
   },
   {
     id: "combine-assignment-photos-into-one-pdf-mobile",
@@ -1217,58 +1334,110 @@ export const blogsData = [
   {
     id: "rearrange-scanned-pdf-page-order",
     title: "How to Fix the Page Order of a Scanned PDF Document Instantly",
-    seoTitle: "Rearrange PDF Pages Online | Change PDF Page Order | GoPDFGo",
-    keywords: "rearrange pdf pages, change pdf page order, reorder pdf online, fix scanned document order, move pdf pages, visual pdf organizer, sort pdf pages, swap pdf pages securely, organize pdf offline",
-    excerpt: "Did you scan a 30-page document only to realize page 15 is at the very end? Learn how to visually drag and drop your PDF pages into the perfect sequence directly in your browser.",
+    seoTitle: "Fix Scanned PDF Page Order: Rearrange Pages Online | GoPDFGo",
+    keywords: "rearrange pdf pages, change pdf page order, reorder pdf online, fix scanned document order, move pdf pages, visual pdf organizer, sort pdf pages, organize pdf offline, scanned pdf pages out of order, reorder pdf pages on phone",
+    excerpt: "Scanned a rent agreement or marksheet and the pages came out scrambled? Here is how to drag them back into order in your browser, losslessly, without re-scanning or uploading anything.",
     date: "May 4, 2026",
     publishedAt: "2026-05-04",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/rearrange-scanned-pdf-page-order.webp",
     content: `
-      <p>The transition from physical paper to digital files is rarely a flawless process. If you have ever been tasked with digitizing a massive stack of physical paperwork—like a company architectural portfolio, a complex legal case file, your family's medical records, or a semester's worth of handwritten college notes—you know exactly how easily things can go wrong.</p>
+      <p>You finally sit down to scan the rent agreement. Eleven pages, stamp paper on top, the annexure with the landlord's Aadhaar and PAN at the back. You feed the whole stack into the office ADF scanner, or you photograph each sheet with your phone, and a minute later you have one tidy PDF. Then you scroll through it. Page 4 is where page 7 should be. The signature page is sitting third from the top. And the stamp paper, the one page everyone looks at first, is right at the end.</p>
 
-      <p>You spend thirty minutes meticulously feeding papers into the office's Automatic Document Feeder (ADF) scanner, or carefully snapping photos with your smartphone camera. You finally generate the master PDF document, only to discover the order is a mess: the scanner pulled two pages at once, you accidentally scanned page 12 before page 11, and the crucial executive summary that belongs on page 1 somehow got shoved to the very end of the 50-page document.</p>
+      <p>This happens with marksheets scanned for a college admission, with a 40-page property file for a home loan, with a semester of handwritten notes, with a case bundle for a lawyer. The paper was in order. The scanner, or your thumb on the shutter button, was not. The good news is that fixing it takes about a minute and does not require re-scanning a single sheet.</p>
 
-      <h2>The Frustration of Locked PDF Formats</h2>
-      <p>Unlike a Microsoft Word document where you can simply highlight a paragraph of text, hit 'Cut', and paste it onto another page, a PDF (Portable Document Format) is fundamentally designed to be a "locked" and un-editable format. It is intended to behave exactly like a final, printed piece of paper.</p>
+      <h2>Why You Cannot Just Fix It in the Reader</h2>
+      <p>A PDF is built to behave like a printed booklet. That is its whole point: it looks the same on every device because nobody is supposed to move things around inside it. So the free readers most of us have, Adobe Acrobat Reader on a laptop, the built-in viewer in Chrome or Edge, the default PDF app on an Android phone, will happily show you the pages but give you no way to drag one somewhere else. The paid "Pro" versions will, for a subscription that makes no sense if you need this twice a year.</p>
 
-      <p>Because of this strict architecture, most standard, free PDF readers installed on computers (like Adobe Acrobat Reader, Mac Preview, or the Microsoft Edge browser) do not allow you to change the structural sequence of the pages. To fix a simple page order mistake, software companies typically demand that you upgrade and purchase their premium, "Pro" desktop software, which can cost hundreds of dollars a year. The only free alternative? Deleting the entire file and spending another thirty minutes re-scanning the physical papers perfectly. Both options are terrible for your daily productivity.</p>
+      <p>The other free option is to put the paper back in the scanner in the correct order and start over. For three pages, fine. For a 40-page loan file where the bank's branch wants everything by 5 pm, no.</p>
 
-      <h2>The Cloud Privacy Risk for Scanned Documents</h2>
-      <p>When searching for a quick fix, many users turn to free online PDF organizers. However, scanned documents almost always contain highly sensitive personal information. Uploading your tax returns, legal contracts, or signed NDAs to a random cloud server just to move one page is a massive privacy risk. Your data could be stored on external databases or exposed in a server breach.</p>
+      <h2>What "Rearranging" Actually Does to the File</h2>
+      <p>This part is worth understanding, because it explains why the fix is safe. A PDF keeps a list of its pages in a particular order, and each page's content, in a scan's case a single large image, sits separately. Reordering only rewrites that list. The Rearrange PDF tool does not re-scan, re-compress or redraw anything. The image on page 4 is byte-for-byte the image you scanned; it simply gets a new position. That is why the output is <strong>lossless</strong>, why the file size barely moves, and why a scan that was sharp going in comes out exactly as sharp.</p>
 
-      <h2>The Free, Visual Solution: Local Drag-and-Drop Reordering</h2>
-      <p>You absolutely do not need to buy expensive software subscriptions, risk your data on the cloud, or start your tedious scanning process over from scratch. With GoPDFGo's modern browser-based technology, you can visually reorganize the structure of your PDF file locally—just as easily as rearranging app icons on your smartphone's home screen.</p>
+      <p>It also means the tool runs entirely on your own device. Every page is drawn into a thumbnail in your browser, you drag those thumbnails, and the new file is written right there. Nothing is uploaded. For a document that shows a landlord's Aadhaar, your salary slips or a client's case history, that is not a bonus feature, it is the reason to use this over a random "free PDF organizer" that quietly sends your file to a server you know nothing about.</p>
 
       <div class="tool-box">
-        <h3>How to Reorder Your Pages in 4 Simple Steps:</h3>
-        <p>Because the reordering computation happens safely and locally in your browser's memory, your files are never uploaded to our servers.</p>
-        <ul>
-          <li><strong>Step 1: Open the Organizer.</strong> Navigate directly to the secure <a href="/rearrange-pdf">Rearrange PDF</a> tool on GoPDFGo.</li>
-          <li><strong>Step 2: Upload Your File.</strong> Drag and drop your messy PDF into the interface. Give the local engine a few seconds to securely generate crisp, visual thumbnail previews of every single page in your document.</li>
-          <li><strong>Step 3: Drag and Drop.</strong> Now comes the satisfying part. Simply click and hold the out-of-place page thumbnail, drag it across the screen, and drop it into its correct chronological spot. The position numbers underneath will instantly update. If you are on a mobile device, you can use our touch-friendly interface to swap pages effortlessly.</li>
-          <li><strong>Step 4: Save the New Sequence.</strong> Once the visual grid looks perfect, click the "Rearrange PDF" button. The tool will permanently rewrite the structural code of the file and download your beautifully organized document back to your device.</li>
-        </ul>
+      <h3>How to Fix the Page Order of a Scanned PDF</h3>
+      <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/rearrange-pdf">Rearrange PDF</a> tool in your browser, on a phone or a laptop. The tool takes one PDF at a time.</li>
+      <li><strong>Step 2:</strong> Drop the messy PDF into the box or tap to choose it. Thumbnails of every page appear one by one. On a long or heavy scan this takes a few seconds per batch of pages, so wait until all of them have loaded before you touch anything.</li>
+      <li><strong>Step 3:</strong> Press and hold the thumbnail that is in the wrong place and drag it to where it belongs. The position numbers under the thumbnails update as you drop. Do this for every stray page; you can nudge as many as you like in the same session.</li>
+      <li><strong>Step 4:</strong> Scroll the whole grid once, top to bottom, and read the sequence like you would flip through the paper stack. This is the moment to catch the page you forgot.</li>
+      <li><strong>Step 5:</strong> Click <strong>Rearrange PDF Now</strong>. The reordered copy downloads as GoPDFGo_ followed by your original filename. Open it and flip through before you send it anywhere.</li>
+      </ul>
       </div>
 
-      <h2>The Complete Post-Scan Cleanup Routine</h2>
-      <p>Fixing the overall page order is usually just the first step in creating a flawless professional digital document. When dealing with scanned files, you will often encounter other common issues that require quick fixes. Instead of downloading heavy software, you can handle the entire cleanup process directly on our platform:</p>
+      <h2>The Four Ways Scans Get Scrambled (and How to Unscramble Each)</h2>
 
+      <h3>The double-feed</h3>
+      <p>An ADF scanner grabs two sheets at once, so page 6 goes missing and everything after it shifts. When you notice, you scan page 6 on its own and it lands at the very end. This is the easiest fix: drag that last thumbnail up to the sixth slot, and everything else slides into place automatically.</p>
+
+      <h3>The front-then-back duplex mess</h3>
+      <p>Scanning a double-sided document on a single-sided scanner usually goes like this: you scan all the fronts, flip the stack, scan all the backs. Depending on how you flipped, the backs come out in reverse. So a 10-page document arrives as 1, 3, 5, 7, 9, 10, 8, 6, 4, 2. You can absolutely fix this by dragging, but do it systematically: pull page 2 up under page 1, then page 4 under page 3, and so on. Watch the position numbers rather than trusting your eye, because two pages of dense Hindi text in a rent agreement look identical as thumbnails.</p>
+
+      <h3>The phone-camera shuffle</h3>
+      <p>When you photograph pages with a phone, the PDF follows the order the photos were taken, and one retake of a blurry page puts it at the end. Same fix as the double-feed. One tip: if the retake is now at the end, the blurry original is still sitting in the middle. Move the good one into position first, then remove the bad one afterwards with Delete PDF Pages. Doing the deletion first shifts every position number and makes the drag confusing.</p>
+
+      <h3>The cover page at the back</h3>
+      <p>The stamp paper, the front page of the marksheet, the executive summary of a report, whichever sheet everyone expects first, it somehow ended up last because it was the one you scanned separately. Drag the last thumbnail to position 1 and you are done.</p>
+
+      <h2>Mistakes People Actually Make</h2>
       <ul>
-        <li><strong>Fix Upside-Down Pages:</strong> Did you accidentally feed a paper upside down into the scanner? Before or after you rearrange the document, run the file through our <a href="/rotate-pdf">Rotate PDF</a> tool to permanently fix the orientation of specific sideways or inverted pages.</li>
-        <li><strong>Delete Blurry or Blank Pages:</strong> Scanners often capture blank back-pages or produce blurry scans. Instead of keeping garbage pages in your final document, use our <a href="/delete-pdf-pages">Delete PDF Pages</a> tool to simply tap the blank or blurry pages and drop them, keeping the rest untouched.</li>
-        <li><strong>Reduce File Size for Emails:</strong> High-quality scans create massive file sizes. If your newly rearranged document is 30MB and won't attach to a Gmail message, use our secure <a href="/compress-pdf">Compress PDF</a> tool to aggressively shrink the file size while maintaining text readability.</li>
-        <li><strong>Stamp Sequential Numbers:</strong> Once your pages are finally in the perfect order, make it look incredibly professional by using our <a href="/page-numbers">Add Page Numbers</a> utility to stamp chronological numbers (1, 2, 3...) at the bottom of every page.</li>
+      <li><strong>Dragging before the thumbnails finish loading.</strong> On a 60-page scan, some previews are still rendering while the first ones appear. Drop a page into a slot that is still filling and you can end up confused about what went where. Let the grid settle, then start.</li>
+      <li><strong>Exporting a split second too early.</strong> If you click the button while your last drag has not quite registered, the download reflects the order before that move. Always look at the grid once more, then click. If the downloaded file looks unchanged, that is almost always what happened; go back, confirm the order, export again.</li>
+      <li><strong>Trusting the number printed on the paper.</strong> The position numbers under the thumbnails are positions in the file, not the page numbers printed on the sheets. A marksheet's "Page 2 of 4" is just ink. What matters is which slot it is sitting in.</li>
+      <li><strong>Uploading the wrong file afterwards.</strong> The original stays untouched on your device, so you now have two files with nearly the same name. The reordered one starts with GoPDFGo_. Pick that one when the portal asks.</li>
+      <li><strong>Trying to fix a sideways page by moving it.</strong> Rearranging changes order, not orientation. A page scanned upside down stays upside down wherever you put it. That is a job for Rotate PDF, which fixes the rotation permanently instead of only on screen.</li>
       </ul>
 
-      <h2>Frequently Asked Questions (FAQ)</h2>
-      <p><strong>Q: Will rearranging pages lower the quality of my document?</strong><br>
-      A: Not at all. The rearranging process is 100% lossless. We simply change the structural sequence of the existing pages without compressing or altering the visual data or text quality.</p>
+      <h2>Where This Tool Stops</h2>
+      <p>I would rather you know the edges before you start.</p>
 
-      <p><strong>Q: Can I rearrange massive documents with hundreds of pages?</strong><br>
-      A: Yes. Because GoPDFGo utilizes your device's local CPU RAM instead of server bandwidth, you can visually organize massive documents without worrying about upload limits or server timeouts.</p>
+      <p><strong>One PDF at a time.</strong> If your scan came out as two files, say the first 20 pages from the office scanner and the last 5 photographed at home, you cannot pull pages from the second file into the first here. Join them first with the Merge PDF tool, then reorder the combined file. Merge, by the way, also lets you set the order of whole files, which is often enough if each file is internally correct.</p>
 
-      <p>Stop struggling with rigid document formats and expensive software paywalls. Take full control of your digital files, organize them logically, utilize the right cleanup tools, and present your work with absolute perfection.</p>
-    `
+      <p><strong>It does not rotate or delete.</strong> Reordering is the only thing it does, and it does it cleanly. If your scan needs all three, a page moved, a page turned and a blank back-side removed, the <a href="/organize-pdf">Organize PDF</a> tool does reorder, rotate and delete on one screen. Rearrange PDF is the lighter choice when the order is the only thing wrong.</p>
+
+      <p><strong>It refuses password-protected files.</strong> A locked PDF cannot be read to draw thumbnails, so the tool stops with a message pointing you to Unlock PDF. This catches people with bank statements and salary slips, which are often locked even when they seem to open normally. More on that in the questions below.</p>
+
+      <p><strong>It does not guess the order for you.</strong> There is no automatic "sort by the numbers on the page". You are the one who knows that the annexure goes after the signature page. The tool gives you the thumbnails and the drag; the judgement is yours.</p>
+
+      <p><strong>Big scans take a moment.</strong> Every thumbnail is rendered on your device, so a 150-page image-heavy file on an older phone will be slow to load and slow to scroll. It works, it just is not instant. If half of those pages are junk, remove them first so there is less to draw.</p>
+
+      <h2>The Rest of the Post-Scan Cleanup</h2>
+      <p>Order is usually the first problem you notice in a scan, not the only one. Once the sequence is right, the same batch of pages often needs a couple more passes, and it is worth doing them in a sensible sequence so you are not redoing work.</p>
+
+      <ul>
+      <li><strong>Turn the sideways pages.</strong> Run the file through <a href="/rotate-pdf">Rotate PDF</a> to fix individual pages by 90, 180 or 270 degrees. It rewrites the page's rotation flag, so the fix sticks on every device, unlike the rotate button in a viewer that only turns the page on your screen.</li>
+      <li><strong>Drop the blank back-sides and the blurry retakes.</strong> Use <a href="/delete-pdf-pages">Delete PDF Pages</a> to tap the pages you do not want and export the rest untouched.</li>
+      <li><strong>Get it under the upload limit.</strong> A clean 30-page scan can easily be 15 MB, which no bank portal or Gmail attachment likes. <a href="/compress-pdf">Compress PDF</a> typically brings a scan down 60 to 80 percent, and it never hands you back a file larger than the one you gave it.</li>
+      <li><strong>Stamp the numbers last.</strong> Once every page is where it belongs, use <a href="/page-numbers">Add Page Numbers</a> to print 1, 2, 3 or "Page 1 of N" into the footer margin. It works on scanned pages too, drawing the numbers over the image. Do this after reordering and deleting, never before, or the numbers will be wrong the moment you move anything.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <p><strong>Q: My bank statement opens fine but the tool says it is password-protected. Why?</strong><br>
+      A: Many bank and payroll PDFs are "owner-locked": they open without asking anything but carry restrictions inside, and the tool cannot read them for reordering. Run the file through <a href="/unlock-pdf">Unlock PDF</a> using the password you already know (for statements, often your PAN plus date of birth), then bring the unlocked copy here. Note that the unlocked output is an image-based PDF; that is fine for reordering, which treats every page as an image anyway.</p>
+
+      <p><strong>Q: Does reordering change the file size?</strong><br>
+      A: Only by a few kilobytes, because the page contents are copied over as they are and only the page list is rewritten. If the result is much smaller or much larger than the original, something else happened; a scan that lost a lot of weight was probably compressed elsewhere, not here.</p>
+
+      <p><strong>Q: I dragged a page to the wrong slot. How do I undo it?</strong><br>
+      A: Drag it again to where it should be; nothing is final until you export. And because the original file on your device is never modified, the worst case is simply reopening it and starting the sequence fresh.</p>
+
+      <p><strong>Q: Does it work on a phone?</strong><br>
+      A: Yes. Press and hold a thumbnail, then drag with your finger. On a small screen the grid shows fewer thumbnails per row, so for a 50-page file it is worth zooming your browser out a little to see more of the sequence at once before you export.</p>
+
+      <p><strong>Q: Will the reordered file carry a watermark or any GoPDFGo branding?</strong><br>
+      A: No. The only change is the filename prefix, and you can rename the file to anything you like before submitting it to a portal.</p>
+
+      <p><strong>Q: Can I reorder the same file twice?</strong><br>
+      A: Yes, as many times as you need. Because nothing is re-compressed, running a PDF through the tool three times leaves the page images exactly as they were the first time. Just remember each export gains another GoPDFGo_ prefix, so tidy the filename at the end.</p>
+
+      <h2>The Short Version</h2>
+      <p>A scrambled scan is a list-order problem, not a scanning problem. The pages are fine; only the sequence is wrong, and that sequence can be rewritten in a minute without touching the images, without re-scanning, and without sending a rent agreement or a loan file anywhere. Wait for the thumbnails, drag the strays into place, check the grid once, export. Then rotate, delete, compress and number, in that order, if the scan needs it.</p>
+
+      <p>Next time the stamp paper turns up on the last page, open <a href="/rearrange-pdf">Rearrange PDF</a> and drag it to the front.</p>
+      `
   },
   {
     id: "convert-webp-to-png-for-photoshop",
@@ -1611,56 +1780,101 @@ export const blogsData = [
   {
     id: "convert-expense-receipts-to-pdf-reimbursement",
     title: "How to Convert Photo Receipts into a Single PDF for Expense Reimbursement",
-    seoTitle: "How to Convert Photo Receipts to PDF for Expense Reports | GoPDFGo",
-    keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter",
-    excerpt: "Returning from a business trip with a wallet full of crumpled receipts? Learn how to securely digitize and convert receipts to PDF for fast, hassle-free HR reimbursement.",
+    seoTitle: "Receipt Photos to One PDF for Expense Claims | GoPDFGo",
+    keywords: "convert receipts to pdf, image to pdf online, expense reimbursement documents, combine bill photos, make pdf from jpg receipts, organize business expenses, travel expense pdf, secure image converter, receipt photos to pdf on phone, compress expense report pdf for email",
+    excerpt: "Back from a trip with a pocketful of receipts and a gallery of screenshots? Here is how to turn them into one ordered, email-sized PDF that finance approves fast, entirely on your own device.",
     date: "May 11, 2026",
     publishedAt: "2026-05-11",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
     content: `
-      <p>Whether you are a sales executive returning from a week-long corporate travel trip, a freelancer buying project supplies, or a business owner taking clients out for a networking dinner, expense reimbursements are a critical part of professional life. By the end of the trip, you inevitably collect a massive, disorganized pile of physical paper—taxi receipts, hotel invoices, restaurant bills, and boarding passes.</p>
+      <p>You are back from four days in Bengaluru. Somewhere between the airport cab, two hotel checkouts, a client dinner and eleven Ola rides, you have collected a pocketful of thermal-paper receipts, three of them already fading, plus a scatter of screenshots in your phone gallery. Finance wants the claim by Friday. And the expense portal, or the HR mailbox, wants one PDF, not twenty-three loose images.</p>
 
-      <p>When the month ends, the HR and Accounting departments demand proof of these expenses. If you try to email them 25 separate, unorganized JPEG photos from your mobile phone gallery, you are going to make the accounting team incredibly angry. Individual attachments get lost, files download out of order, and your reimbursement process gets delayed by weeks.</p>
+      <p>If you have ever emailed a stack of photos to accounts and then got a reply asking which one was the Tuesday lunch, you already know why this matters. Attachments arrive out of order, half of them are sideways, one is a 6 MB shot of a bill that is 4 centimetres wide, and the person reconciling it has forty other claims in the queue. Claims that are annoying to check get pushed to the bottom of the pile. That is how a reimbursement slips a full cycle.</p>
 
-      <p><strong>To successfully convert receipts to PDF for expense reimbursement, take clear photos of your bills, upload them into a secure Image to PDF tool, arrange the images in chronological order, and export them as a single, combined PDF document.</strong></p>
+      <p><strong>The fix is to turn your receipt photos into one ordered PDF: shoot each bill clearly, trim the clutter, drop all of them into the <a href="/image-to-pdf">Image to PDF</a> tool, drag them into date order, export a single file, then shrink it so it actually fits in an email.</strong> Fifteen minutes at the airport gate and your claim goes in looking like it was prepared by someone who has done this before.</p>
 
-      <h2>The Wrong Way to Digitize Receipts</h2>
-      <p>Many professionals try to solve this documentation problem by pasting their smartphone photos into a Microsoft Word document and exporting it as a PDF. This method is incredibly tedious and inefficient. You have to manually drag, resize, and format every single image so it fits on the page without breaking the margins.</p>
+      <h2>Why Pasting Photos Into Word Backfires</h2>
 
-      <p>Furthermore, Word heavily compresses the images automatically by default. This aggressive background compression often makes the crucial tax ID numbers, GST details, or total amounts on the receipts completely blurry and unreadable, leading to immediate rejection by the finance team.</p>
+      <p>The instinct most people have is to open a Word document, paste every photo in, and Save As PDF. It works, technically. It is also the method behind most of the "please resend, amount not legible" emails that finance sends.</p>
 
-      <h2>The Efficient Way: Direct Image-to-PDF Conversion</h2>
-      <p>The corporate gold standard is to submit one single, continuous, highly organized document. The fastest and most professional way to build an expense report is to bypass Word entirely and compile your images directly into a PDF structure. Using local web technology, you can achieve this on your phone while waiting at the airport gate.</p>
+      <p>Two things go wrong. First, Word quietly compresses every picture you paste in, and it does it aggressively. A GST number or an invoice total on thermal paper is small, low-contrast text to begin with; run it through Word's default squeeze and it turns into grey fuzz. Second, you spend ages resizing and nudging images so they sit inside the margins, and the moment you insert one more the whole layout jumps. For three receipts it is fine. For a week of travel it is a wasted evening.</p>
+
+      <p>A direct image-to-PDF conversion skips all of that. Each photo lands on its own page, scaled to fit, at the quality you shot it. Nothing gets resampled unless you later choose to compress it yourself, on your own terms.</p>
+
+      <h2>Get the Photos Right Before You Convert</h2>
+
+      <p>The converter can only work with what you give it, so a little care at the shooting stage saves a resend later.</p>
+
+      <ul>
+      <li><strong>Dark, matte background.</strong> A black laptop sleeve or a dark desk works. White receipts on a white hotel bedsheet lose their edges.</li>
+      <li><strong>No flash.</strong> Thermal paper and laminated restaurant bills throw a glare that wipes out exactly the line you need, usually the total. Use window light or the room light and shoot from slightly above.</li>
+      <li><strong>Flatten it first.</strong> A receipt that has been folded in a wallet photographs with a shadow across the crease. Press it under your phone for a minute before shooting.</li>
+      <li><strong>Shoot faded thermal receipts immediately.</strong> Petrol pump and toll receipts can go blank within weeks in a hot car. The photo is your only durable copy.</li>
+      <li><strong>One receipt per photo.</strong> It is tempting to lay six on the table and take one shot. Do not. Finance wants to match one page to one line item.</li>
+      </ul>
+
+      <p>If a photo caught your desk, your fingers or the edge of a coffee cup, use <a href="/crop">Crop Image</a> to trim it down to the bill before you convert. It is a small thing, but a page that is mostly receipt reads as deliberate; a page that is mostly tablecloth reads as careless. And if a couple came out on their side, fix them with the <a href="/rotate">Rotate Image</a> tool first. The converter does read the orientation tag most phone cameras write, so many sideways-looking photos straighten themselves, but a screenshot or an edited image often has that tag stripped, and those will land sideways in the PDF unless you rotate them yourself.</p>
 
       <div class="tool-box">
-        <h3>Step-by-Step Guide to Organizing Your Expense Report:</h3>
-        <p>Because you are dealing with sensitive corporate financial data, you must use a tool that processes files locally without uploading them to an external cloud server.</p>
-        <ul>
-          <li><strong>Step 1: Digitize Smartly.</strong> Place your physical receipts on a dark background (like a black table) to create contrast and take photos using natural light. Do not use the flash, as it will cause a harsh, unreadable glare on glossy taxi or restaurant receipts.</li>
-          <li><strong>Step 2: Correct the Orientation.</strong> If you took photos from weird angles and some receipts are sideways, use our <a href="/rotate">Rotate Image</a> tool to turn each sideways bill upright before you convert them, so every receipt stands the right way up. No accountant wants to tilt their monitor to read your lunch bill.</li>
-          <li><strong>Step 3: Access the Converter.</strong> Navigate to the <a href="/image-to-pdf">Image to PDF</a> tool on the GoPDFGo platform. Our zero-upload engine ensures your company's spending habits remain entirely private and compliant with data policies.</li>
-          <li><strong>Step 4: Upload and Reorder.</strong> Select all your receipt photos at once. Once they load on the screen, drag and drop the visual thumbnails to arrange them chronologically (e.g., Day 1 flights, Day 1 hotel, Day 2 meals, etc.).</li>
-          <li><strong>Step 5: Convert and Save.</strong> Click the button to merge all these images into a single document. Save the file with a clear, professional name like <em>"Rahul_Travel_Expenses_May2026.pdf"</em>.</li>
-        </ul>
+      <h3>How to Turn Receipt Photos Into One Expense PDF</h3>
+      <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool on your phone or laptop. It runs entirely inside the browser, so the receipts never leave your device, which is exactly what you want for a document that shows where your company spends money.</li>
+      <li><strong>Step 2:</strong> Select every receipt photo and screenshot in one go. JPG, PNG and WebP can be mixed in the same batch, so a Zomato screenshot and a camera shot of a taxi bill sit together happily.</li>
+      <li><strong>Step 3:</strong> Put them in order. The thumbnails run top to bottom and the first one becomes page 1. The tool does not sort by filename or capture time, so drag them into the sequence yourself: Day 1 flight, Day 1 cab, Day 1 hotel, Day 2 meals, and so on. Match the order to the lines on your claim form.</li>
+      <li><strong>Step 4:</strong> Pick the page size. A4 portrait is the safe choice for anything going to an Indian HR team; every receipt gets centred on a standard page with a margin, which prints cleanly if they file a hard copy. Fit to image gives a borderless page the exact shape of each photo, which looks neat on screen but produces odd tall-and-thin pages for long bills.</li>
+      <li><strong>Step 5:</strong> Click Convert to PDF and download. The file comes down with a GoPDFGo_ prefix; rename it to something the finance team will recognise, like <em>Priya_Bengaluru_Trip_Sep2026.pdf</em>.</li>
+      </ul>
       </div>
 
-      <h2>The Post-Conversion Polish for Email</h2>
-      <p>If you combined 20 high-resolution smartphone photos, your new PDF expense report might easily weigh 30MB or 40MB. As discussed in previous guides, this is far too large to attach to a standard corporate email (like Gmail or Outlook, which limit attachments to 25MB).</p>
+      <h2>Three Situations That Trip People Up</h2>
 
-      <p>Before sending it to HR, you must pass your new file through our <a href="/compress-pdf">Compress PDF</a> tool. This will drastically shrink the file size down to a manageable 2MB or 3MB, making it perfectly email-friendly while utilizing smart algorithms to keep every single digit on those receipts crystal clear for the accounting auditors.</p>
+      <p><strong>The hotel sent a PDF invoice, not a photo.</strong> Most hotels and airlines email a proper PDF, and the Image to PDF tool only takes images. Do not screenshot the PDF to get it in. Convert your photo receipts to a PDF first, then join that file with the hotel and flight PDFs using <a href="/merge-pdf">Merge PDF</a>, dragging the cards into the order you want. You end up with one document where the airline invoice, the hotel folio and the cab receipts all sit in sequence. One caveat: if the airline PDF opens with a password, Merge will skip it and tell you which file it skipped, so unlock it first with the password you were given.</p>
 
-      <p>Finally, for that extra touch of corporate professionalism, run the compressed file through an <a href="/page-numbers">Add Page Numbers</a> utility. This allows the finance team to easily reference specific bills (e.g., "Can you clarify the charge on Page 4?").</p>
+      <p><strong>The trip was two weeks and there are sixty receipts.</strong> The converter has no hard cap on image count, so sixty pages is fine; the limit is your phone's memory. The bigger risk is you losing track. Sort the physical receipts by day on the table before you photograph anything, and shoot them in that order. Then the gallery order roughly matches the claim order and the dragging stage is a quick check rather than a puzzle.</p>
 
-      <h2>Frequently Asked Questions (FAQ)</h2>
-      <p><strong>Q: Is it safe to use an online converter for company expenses?</strong><br>
-      A: It is only safe if the tool processes files locally. GoPDFGo converts your files directly, in your browser, on your device's CPU. Your financial receipts are never uploaded to our servers, ensuring total privacy.</p>
+      <p><strong>Personal and company expenses are mixed together.</strong> Do not include the personal ones and expect finance to ignore them. It looks like you tried to sneak them in. Leave them out of the batch entirely before converting. If you only notice after export, remove those pages from the finished PDF rather than rebuilding from scratch.</p>
 
-      <p><strong>Q: Will converting to PDF lower the quality of my receipt photos?</strong><br>
-      A: No. Our dedicated conversion engine places your exact image data into the PDF container without adding unnecessary compression, ensuring the text remains legible.</p>
+      <h2>Now Make It Emailable</h2>
 
-      <h3>Build Your Expense Report Instantly</h3>
-      <p>Stop fighting with loose papers and messy email attachments. Use our secure tools to <strong>convert receipts to PDF</strong> today, make your accountant's life easier, and ensure your reimbursement hits your bank account significantly faster.</p>
-    `
+      <p>Twenty modern phone photos, each 3 to 6 MB, become a PDF that can weigh 40 MB or more. Outlook and Gmail both refuse attachments over 25 MB, and plenty of internal expense portals cap uploads at 5 or 10 MB. So the second pass is <a href="/compress-pdf">Compress PDF</a>.</p>
+
+      <p>Use Best compression here. It re-saves the file losslessly first and, because a receipt PDF is nothing but page images, it then optimises those images. A photographed-document PDF typically drops 60 to 80 percent, so a 40 MB bundle lands somewhere around 8 to 12 MB, and the digits on the receipts stay readable because the optimisation is tuned for exactly this kind of file. The tool will never hand you back a file bigger than what you gave it.</p>
+
+      <p>If the portal insists on a hard number like 5 MB, switch to Target size and type the figure in kilobytes - 5000 for 5 MB, 500 for half an MB. Be aware of the trade: to hit a small target the tool flattens pages harder, and on a very long receipt shot in poor light the smallest print can start to soften. Open the compressed file and zoom in on the totals and the GST numbers before you send it. If they have gone soft, the answer is usually a slightly larger target, or splitting the claim into two PDFs by week.</p>
+
+      <p>Finally, run the finished file through <a href="/page-numbers">Page Numbers</a>. Choose Bottom Center, the Page 1 of N format, and start at 1. Numbers are drawn straight onto the page, so they work on photographed receipts just as well as on typed documents. Now the claim form can say "Cab, 14 Sep, page 7" and the person checking it goes straight there. Reviewers approve claims faster when they can find things. That is not a theory; ask anyone who has processed them.</p>
+
+      <h2>What This Workflow Will Not Do</h2>
+
+      <p>I would rather you know the edges than discover them mid-claim. The converter does not read the receipts. It will not extract the totals, add them up, or populate a spreadsheet; it makes a document, and the arithmetic is still yours. It does not enhance or straighten a blurry, crooked photo either, so a receipt you cannot read on your phone screen will be just as unreadable on page 9. Reshoot it. And there is no cloud import: the photos need to be on the device you are using, so if they are on your phone and you are working on a laptop, send them across first. If your accounting work is less about phone photos and more about a month of vendor PDFs from suppliers, that is a different job with its own tricks, covered in <a href="/blog/merge-multiple-vendor-invoices-pdf-accounting">merging vendor invoices into a single PDF for accounting</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <p><strong>Q: My receipt photos are HEIC files from an iPhone. Will they work?</strong><br>
+      A: Not reliably. Most browsers cannot decode HEIC, so the converter may fail to preview them. Run them through the HEIC to JPG converter on this site first, then add the JPGs. A whole batch converts in one go.</p>
+
+      <p><strong>Q: Should I convert to PDF first and compress, or compress each JPG first?</strong><br>
+      A: Convert first, then compress the PDF once. Compressing twenty JPGs individually is slower, and you lose the chance to judge the whole document at one size. The PDF compressor optimises all the page images together and gives you a single result to check.</p>
+
+      <p><strong>Q: Does the PDF preserve the date and time the photo was taken?</strong><br>
+      A: No. Camera metadata does not carry into the PDF pages. If your finance team wants the transaction date on record, that has to be visible on the receipt itself or written on your claim form. Never rely on file timestamps as proof.</p>
+
+      <p><strong>Q: Can I add a receipt I forgot after the PDF is already made?</strong><br>
+      A: Yes, without redoing everything. Convert the one missing photo into its own single-page PDF, then use Merge PDF to join it to the existing file and drag it into the right position. No need to gather the original photos again.</p>
+
+      <p><strong>Q: The finance portal only accepts JPG uploads, not PDF. Now what?</strong><br>
+      A: Then you do not need this workflow at all for that portal; upload the compressed photos one by one. Keep the combined PDF anyway for your own records and for the email copy to your manager, because a single ordered document is far easier to refer back to in three months when a query comes up.</p>
+
+      <p><strong>Q: Is it worth adding a cover page listing all the expenses?</strong><br>
+      A: For anything over ten receipts, yes. Type a short summary table, save it as a one-page PDF, and merge it to the front. Then add page numbers with the skip first page option on and the starting number set to 1, so the summary stays clean and the first receipt still reads as page 1. Reviewers love a summary they can tick against.</p>
+
+      <h2>The Short Version</h2>
+
+      <p>Shoot each receipt cleanly on a dark surface without flash, crop and rotate the stragglers, drop the lot into the converter in claim order, and export one A4 PDF. Compress it once with Best compression so it slides under the email limit, check that the totals are still sharp, add page numbers, and give the file a name a human will recognise. Do that and your claim is the easy one in the pile.</p>
+
+      <p>Your receipts, your company's spending, your device. Nothing gets uploaded. Go ahead and <a href="/image-to-pdf">convert your receipt photos into one PDF</a> before the next flight boards.</p>
+      `
   },
 
   // 07-05-2026
@@ -1733,72 +1947,119 @@ export const blogsData = [
   {
     id: "best-secure-alternatives-ilovepdf-smallpdf",
     title: "Best Secure Alternatives to iLovePDF & Smallpdf (2026 Guide)",
-    seoTitle: "Best Secure Alternatives to iLovePDF & Smallpdf in 2026",
+    seoTitle: "Secure iLovePDF & Smallpdf Alternatives (2026) | GoPDFGo",
     keywords: "ilovepdf alternative, smallpdf alternative, secure pdf tools, local pdf processing, best free pdf editor, offline pdf tools browser, privacy-first pdf tools, pdf merge alternative, gopdfgo vs ilovepdf, secure document processing",
-    excerpt: "Still uploading sensitive documents to cloud websites? Discover why that is a massive privacy risk, and learn how to use next-generation, secure alternatives in 2026.",
+    excerpt: "iLovePDF and Smallpdf send your file to a server first. Here is what a browser-only alternative replaces task by task, what it honestly cannot do, and how to prove nothing is uploaded.",
     date: "May 13, 2026",
     publishedAt: "2026-05-13",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/best-secure-alternatives-ilovepdf-smallpdf.webp",
     content: `
-      <p>When you need to quickly shrink a PDF, split a document, or combine two files, your first instinct is probably to Google it and click on a popular site like iLovePDF or Smallpdf. It is incredibly fast, easy, and usually free.</p>
+      <p>When you need to shrink a PDF, pull two files into one, or chop a scan in half, the reflex is the same for most of us: search "merge pdf", click the first result, and you land on iLovePDF or Smallpdf. They are fast, they are polished, and for a lot of jobs they are genuinely good. I used them for years.</p>
 
-      <p>But here is the hard truth most professionals ignore: If you are uploading confidential business contracts, personal bank statements, or Aadhaar cards to these free sites, you are taking a massive privacy risk. You are sending sensitive personal documents to third-party servers outside your direct control.</p>
+      <p>The part that took me longer to notice is what actually happens when you press the button. Your file is sent to their server, the work is done there, and the result comes back down. For a restaurant menu that is fine. For an SBI statement, a PAN card, an offer letter with someone's salary on it, or a client's rent agreement, you have just handed a copy to a company you have no relationship with, on the strength of a deletion promise you cannot check.</p>
 
-      <p>The good news? In 2026, you don't need to do that anymore. iLovePDF and Smallpdf are genuinely capable and most people reach for them out of habit, but the trade-off is that your file goes up to their servers to get processed. The alternative below skips that step entirely: GoPDFGo runs the same merge, split, and compress jobs right inside your browser, so the file never leaves your laptop in the first place. Let's look at why that matters and how to switch.</p>
+      <p>This guide is about the alternative that skips the upload entirely. GoPDFGo runs the same everyday jobs inside your browser tab, on your own laptop or phone, so the file never leaves the device. I will go task by task through what it replaces, be straight about what it does not replace, and show you the mistakes people make in the first week of switching.</p>
 
-      <h2>The Hidden Cost of "Free" Cloud Tools</h2>
-      <p>When you use a legacy cloud tool, your document travels across the internet to a remote server. Think of it like giving your private diary to a postman, hoping he takes it to a facility, edits it, and mails it right back to you without reading it.</p>
+      <h2>What Actually Happens to Your File on a Cloud Tool</h2>
 
-      <p>Even when a service states it deletes your files after a couple of hours, your data does sit on its servers for that window. If those servers were breached during that time, your bank statements, client invoices, or medical records could be exposed.</p>
+      <p>The mechanics are simple. You choose a file, a progress bar climbs, and that bar is the file travelling to a server you will never see. It sits there while it is processed, and usually for a while afterwards. Most of these services say files are deleted within a couple of hours. Maybe they are. But for that window your bank statement exists on a machine outside your control, and if you read the terms carefully, a few services reserve the right to analyse uploads for "service improvement".</p>
 
-      <p>Plus, server costs are huge. If a service is totally free, they have to make money somehow. Some free services may run on ads or push you toward a paid plan, and a few state in their terms that uploaded files can be processed or analyzed for "service improvement." It is worth reading what you are agreeing to before you upload anything sensitive.</p>
+      <p>I am not going to rehash the full argument here, because we already wrote it up properly. If you want the deeper comparison of how the two approaches differ, read <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local PDF processing vs cloud tools</a>. The short form is: an in-browser tool has nothing to breach, because it never held your file in the first place.</p>
+
+      <h2>What "Alternative" Should Actually Mean</h2>
+
+      <p>An alternative is only useful if it does the specific jobs you go to iLovePDF for. So here is the honest map, task for task, of what GoPDFGo covers and how it behaves.</p>
+
+      <ul>
+      <li><strong>Merge PDF:</strong> Drop in two or more files, drag the cards into order (the number on each card is the page order), and hit merge. Mixed A4 and Letter, portrait and landscape, are kept exactly as they are with no stretching. Each card shows the file size and page count, with a running total above the button, so you can see whether the finished file is going to blow past a portal's upload cap before you make it. That is the Merge PDF tool, and it is the one I would test first.</li>
+      <li><strong>Compress PDF:</strong> Two modes. Best compression does a lossless re-save first, so text stays selectable, and only optimises page images when the file is scan-heavy. Target size lets you pick a preset like 200 KB or type your own number, which is what you want for SSC, UPSC or bank KYC caps. To reach a very small target it flattens pages to images, so text stops being selectable. It never hands back a file bigger than the original. A typical scan drops 60 to 80 percent. Use <a href="/compress-pdf">Compress PDF</a>.</li>
+      <li><strong>Split and extract:</strong> Pull a continuous range like 10-25, or scattered pages like 1, 5, 8-12, into one new PDF with text still selectable. Or break a heavy file into pieces for email.</li>
+      <li><strong>Images to PDF:</strong> Photos of a marksheet or receipts from your phone go onto A4, Letter or fit-to-image pages, in the order you drag them. See <a href="/image-to-pdf">Image to PDF</a>.</li>
+      <li><strong>Rotate, reorder, delete pages:</strong> All three on one screen in Organize PDF, or as separate single-purpose tools. Rotation is written into the file, so it stays fixed everywhere, not just on your screen.</li>
+      <li><strong>Sign, watermark, page numbers:</strong> Draw, type or upload a signature and place it on one page or all of them. Stamp a text watermark diagonally, tiled, in the footer or centre. Add page numbers in four positions with a skip-the-cover option.</li>
+      <li><strong>Unlock, OCR, PDF to text, PDF to image:</strong> Remove a password you already know, read printed text off a scan in English, Hindi or both, or turn pages into JPGs for a form that refuses PDFs.</li>
+      </ul>
+
+      <p>That covers, in my experience, well over ninety percent of what people actually open iLovePDF or Smallpdf for.</p>
 
       <div class="tool-box">
-        <h3>How to Edit PDFs Without Uploading Them</h3>
-        <p>You can now do everything right inside your browser using private document handling. Here is the modern, secure workflow:</p>
-
-        <ul>
-          <li><strong>Step 1: Get Your Files Ready.</strong> Keep your sensitive documents in a folder on your desktop. Do not use tools that ask you to "upload to cloud" or show a slow uploading progress bar.</li>
-          <li><strong>Step 2: Use an In-Browser Tool.</strong> Open a privacy-first platform like GoPDFGo. When you select your files, notice how they appear instantly — that is because the tool is reading them straight from your hard drive, not the internet.</li>
-          <li><strong>Step 3: Choose Your Action.</strong> Want to combine files? Drag and drop them in order. Want to shrink them? Choose your quality level right on the screen.</li>
-          <li><strong>Step 4: Save Instantly.</strong> Click export. The editing happens on your own machine, saving the brand-new file directly to your downloads folder.</li>
-        </ul>
+      <h3>How to Try It Without Trusting Anyone's Word</h3>
+      <p>The claim that "nothing is uploaded" is easy to make. Here is how to check it yourself in two minutes, using a merge job as the test.</p>
+      <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/merge-pdf">Merge PDF</a> tool in Chrome, Edge, Safari or Firefox, and while you are still online, run one small merge start to finish. The processing engine is fetched the first time you use a tool, not when the page opens, so this first run is what pulls it in.</li>
+      <li><strong>Step 2:</strong> Now switch on airplane mode, or pull the network cable. Yes, really. The engine is already sitting in your tab, so it keeps working.</li>
+      <li><strong>Step 3:</strong> Pick your real PDFs from your device. Notice there is no upload bar. The cards appear instantly, with a size and page count on each, because the tool is reading straight from your storage.</li>
+      <li><strong>Step 4:</strong> Drag the cards into the order you want. If one file is sideways, use the small rotate control on its card before merging.</li>
+      <li><strong>Step 5:</strong> Click merge, then download. The file lands in your Downloads folder as GoPDFGo_merged.pdf. You just processed a document with no internet connection, which a cloud tool physically cannot do.</li>
+      </ul>
       </div>
 
-      <h2>The Secure Replacements for Your Daily Tasks</h2>
-      <p>Changing your habits is easy once you know where to go. Here is how you can replace your old risky habits with safe workflows for everyday tasks:</p>
+      <h2>The Jobs It Honestly Does Not Replace</h2>
+
+      <p>I would rather you find this out here than after you have moved your workflow over.</p>
+
+      <p><strong>Word and Excel to PDF.</strong> iLovePDF and Smallpdf will take a .docx and give you back a PDF. GoPDFGo does not accept Word, Excel or PowerPoint files at all. Its input is PDFs and images. For office documents, use the Save as PDF or Print to PDF option built into Word, LibreOffice or Google Docs, which is free and also local, then bring the PDF here.</p>
+
+      <p><strong>Editing the words inside a PDF.</strong> None of these browser tools, GoPDFGo included, will let you change a clause in a contract or fix a typo in a paragraph. For that you still need Acrobat or a desktop editor.</p>
+
+      <p><strong>Cloud imports.</strong> There is no "import from Google Drive" or Dropbox button, and that is deliberate. A tool that promises not to touch the internet should not be pulling files down from it. Download the file to your device first, then open it.</p>
+
+      <p><strong>Image watermarks and background removal.</strong> The watermark tool is text only, so you can stamp CONFIDENTIAL or "For HDFC loan only" but not a logo. The signature tool has no background remover; a photo of your signature on lined paper will bring the lines with it. The fix is to sign on a clean white sheet and crop tightly with the Crop tool before uploading.</p>
+
+      <p><strong>Forgotten passwords.</strong> Unlock PDF removes a password you already know. It does not guess or crack anything, and the unlocked output is a flattened image-based PDF whose text is no longer selectable. If that is your exact situation, the <a href="/blog/unlock-bank-statement-pdf-remove-password">bank statement unlock guide</a> walks through it properly.</p>
+
+      <h2>Mistakes People Make in the First Week</h2>
+
+      <p>These come up over and over, and almost all of them have a two-second fix once you know why they happen.</p>
+
+      <p><strong>Merging a locked statement and finding it missing.</strong> Bank statements and salary slips are often encrypted, sometimes in the sneaky owner-locked way where the file opens without a password but is still flagged restricted. Every editing tool on the site refuses such a file and points you to Unlock PDF. Merge is a little kinder: it skips the locked file, finishes the rest, and names what it left out. People see a nine-page result instead of twelve and assume something broke. Nothing broke. Unlock the statement, then merge again.</p>
+
+      <p><strong>Choosing a 100 KB target and then complaining the text will not select.</strong> Target size mode flattens pages to images to reach small numbers. If you need searchable text, use Best compression instead and accept a slightly larger file.</p>
+
+      <p><strong>Looking for the upload progress bar.</strong> After years of cloud tools, people wait for something to happen after picking a file. Nothing to wait for. The file is already there.</p>
+
+      <p><strong>Expecting the tool to sort by file name.</strong> Merge and Image to PDF go by the order you arrange the cards, not alphabetical order. Drag them.</p>
+
+      <p><strong>Not finding the download.</strong> Every output is named with a GoPDFGo_ prefix in front of the original name, so search your Downloads folder for "GoPDFGo" and it will be right there.</p>
+
+      <h2>Who Should Switch First</h2>
+
+      <p>Everybody benefits, but some people are carrying real professional risk by continuing to upload.</p>
 
       <ul>
-        <li><strong>Stop Cloud Merging:</strong> You don't need to wait for heavy, 100-page court files to upload. Use a secure <a href="/merge-pdf">offline-ready document joiner</a>. It combines massive files in milliseconds because it never touches the internet.</li>
-        <li><strong>Stop Cloud Compression:</strong> Shrinking a large financial report on a remote server exposes your corporate data. Instead, <a href="/compress-pdf">optimize large PDFs directly from your browser</a> to keep your business secrets entirely safe.</li>
-        <li><strong>Stop Cloud Conversions:</strong> Turning a high-quality product photo into a document shouldn't require an internet connection. Do it right on your device to preserve maximum image quality without server limits.</li>
+      <li><strong>HR and recruiters:</strong> Offer letters, passport scans, salary slips and background-check forms. Uploading a candidate's Aadhaar to a free site is the kind of thing that ends up in an incident report.</li>
+      <li><strong>Advocates and law firms:</strong> Affidavits, agreements and client correspondence sit under privilege. A third-party server is outside that perimeter, full stop.</li>
+      <li><strong>CAs and accountants:</strong> PAN cards, ITR acknowledgements, GST filings and balance sheets, every single day. Our piece on <a href="/blog/never-upload-bank-statements-free-pdf-sites">why bank statements should never go to free PDF sites</a> is aimed squarely at this workload.</li>
+      <li><strong>Anyone doing KYC or a loan:</strong> The typical bundle is a statement, a PAN, an Aadhaar and a photo. That is a complete identity kit, and it deserves better than a free upload box.</li>
       </ul>
 
-      <h2>Who Needs to Make the Switch Immediately?</h2>
-      <p>While everyone should care about privacy, certain professions are playing with fire if they continue using cloud-based PDF websites:</p>
-      <ul>
-        <li><strong>Human Resources (HR):</strong> You handle resumes, offer letters, and ID proofs. Uploading an employee's passport to a random free site is a severe breach of trust.</li>
-        <li><strong>Lawyers and Advocates:</strong> Court affidavits and client details must stay under strict attorney-client privilege. Cloud servers break that perimeter.</li>
-        <li><strong>Accountants and CAs:</strong> You deal with PAN cards, tax returns, and balance sheets daily. Don't risk your clients' identity theft just to compress a file for an email.</li>
-      </ul>
+      <h2>Frequently Asked Questions</h2>
 
-      <h2>Frequently Asked Questions (FAQ)</h2>
-      
-      <p><strong>Q: Can these free alternatives completely replace Adobe Acrobat?</strong><br>
-      A: For structural tasks like merging, splitting, compressing, and extracting, yes, absolutely. However, if you need to deeply edit existing text paragraphs (like changing a word in a contract), premium desktop software like Acrobat is still required.</p>
+      <p><strong>Q: If nothing is uploaded, why does the page need internet at all?</strong><br>
+      A: Only to load the page and, the first time you use a tool, to fetch the processing engine into your browser. After that first run everything happens on your device, and you can go offline and keep working, which is exactly the test in the walkthrough above.</p>
 
-      <p><strong>Q: Do these secure alternatives have hidden file size limits?</strong><br>
-      A: Unlike cloud tools that cap you at 15MB to save server space, zero-upload tools use your own computer's memory. This means you can often process massive 200MB+ files for free, limited only by your own device's RAM.</p>
+      <p><strong>Q: Is there a file size or daily task limit like the free tiers of cloud tools?</strong><br>
+      A: No daily count and no artificial cap, because there is no server bill to protect. The real limit is your device's memory. A 100 MB merge on a modern laptop is fine; on an older phone, doing a very large batch in two or three smaller runs is smoother.</p>
 
-      <p><strong>Q: Are these platforms safe for government IDs and Aadhaar cards?</strong><br>
-      A: Yes. Since the document never leaves your device and no data is transmitted over the internet, it is the safest way to resize or combine government identity documents for official portal uploads.</p>
+      <p><strong>Q: Does it work on a phone, or only on a computer?</strong><br>
+      A: Both. It runs in the mobile browser on Android and iPhone, you pick files straight from your phone's storage or gallery, and the finished file downloads to the phone so you can share it on WhatsApp or attach it to an email.</p>
 
-      <p><strong>Q: Do I need to install an extension to use this?</strong><br>
-      A: No. The beauty of modern web architecture is that everything runs directly in your standard browser (Chrome, Edge, Safari) without any downloads, plugins, or extensions.</p>
+      <p><strong>Q: Does the tool cache or keep a copy of my file after I close the tab?</strong><br>
+      A: No. The file lives in the browser tab's memory while you work and is discarded when you close or reload the page. The only lasting copy is the download you saved yourself.</p>
 
-      <h3>Take Back Your Digital Privacy</h3>
-      <p>Stop trading your personal and professional privacy for a tiny bit of convenience. Start using modern, private document handling today and keep your sensitive files exactly where they belong—safe with you.</p>
-    `
+      <p><strong>Q: What is the catch? Why is it free?</strong><br>
+      A: The cost of processing is borne by your own device, not by a server farm, which is what makes the free-and-private combination possible. There is no watermark on the output, no signup, and no upsell that unlocks the "real" version.</p>
+
+      <p><strong>Q: OCR on a scan is slow. Is that normal?</strong><br>
+      A: Yes. OCR is the slowest tool on the site because your device is doing the reading page by page, and the recognition engine downloads once, a few megabytes, on first use. It handles printed English and Hindi well; handwriting and blurry photos read badly no matter what.</p>
+
+      <h2>The Short Version</h2>
+
+      <p>iLovePDF and Smallpdf are capable tools that most of us use out of habit, and the habit involves sending our most personal documents to someone else's server. For merging, compressing, splitting, rotating, signing, watermarking, numbering, unlocking and converting images, a browser-based tool does the same job without the file ever leaving your device, and you can prove it by pulling the plug. What it does not do is convert Word files, edit text inside a PDF, or open anything you cannot already open, and it will politely refuse a locked bank statement until you unlock it first.</p>
+
+      <p>If you want to try the switch, start with the job you do most. Open <a href="/merge-pdf">Merge PDF</a>, drop in two files, and watch how nothing has to upload before the work begins.</p>
+      `
   },
   {
     id: "static-vs-dynamic-qr-codes-difference",
@@ -1862,75 +2123,118 @@ export const blogsData = [
   {
     id: "local-pdf-processing-vs-cloud-tools-safer",
     title: "Local PDF Processing vs Cloud PDF Tools — Which Is Safer?",
-    seoTitle: "Local vs Cloud PDF Tools: Which is More Secure for Your Data?",
-    keywords: "local pdf processing, cloud pdf tools, browser based pdf, secure pdf editor, privacy friendly pdf tools, serverless pdf processing, offline pdf tools in browser, client-side document editing, data privacy, secure document management",
-    excerpt: "Are you risking your confidential data by uploading documents to cloud PDF websites? Discover the massive security differences between legacy cloud tools and privacy-first browser processing.",
+    seoTitle: "Local vs Cloud PDF Tools: Which Is Safer? | GoPDFGo",
+    keywords: "local pdf processing, cloud pdf tools, browser based pdf, secure pdf editor, privacy friendly pdf tools, serverless pdf processing, offline pdf tools in browser, client-side document editing, is it safe to upload pdf online, pdf tool without upload",
+    excerpt: "Where does your bank statement go when you click Upload on a free PDF site? An honest comparison of cloud versus on-device processing, including a one-minute test and the real limits of local tools.",
     date: "May 18, 2026",
     publishedAt: "2026-05-18",
+    updatedAt: "2026-09-04",
     imageUrl: "/images/blogs/local-pdf-processing-vs-cloud-tools-safer.webp",
     content: `
-      <p>We share the most sensitive details of our entire lives through PDF files. Job contracts, hospital medical reports, bank statements, and tax audits all live in this digital format. Yet, when we need to edit, merge, or compress them, we blindly hand them over to random "free" websites.</p>
+      <p>Think about the last five PDFs you handled. For most of us in India that list looks something like an HDFC or SBI statement for a loan, a PAN card scan for a demat KYC, a rent agreement with an Aadhaar photocopy stapled to it, a child's marksheet, and an SSC or UPSC application form that needed to be squeezed under a size cap. Every one of those files says something private about you, and every one of them, at some point, needed merging, compressing, or rotating.</p>
 
-      <p>For a long time, we didn't really have a choice. If you didn't want to pay hundreds of dollars for desktop software, you had to use the cloud. But today, there is a massive, silent shift happening in how websites work. We are finally moving away from risky Cloud servers and moving towards <strong>On-Device Processing</strong>.</p>
+      <p>The habit most of us picked up years ago is to search "merge pdf free", click the first site, and hit Upload. It worked, so we never questioned it. The question this post is trying to answer honestly is: when you do that, where does your file actually go, and is a tool that keeps the file on your own device genuinely safer, or is that just marketing?</p>
 
-      <p>If you want to know exactly what happens to your files after you click the 'Upload' button, and why you should never do it again, here is the honest truth about document security.</p>
+      <h2>What Actually Happens When You Click "Upload"</h2>
 
-      <h2>The Cloud Nightmare: Why Uploading is Bad</h2>
-      <p>When you use an older, popular cloud-based utility, the website acts like a digital courier. It takes your file, sends it across the internet to a massive server (which might be located in another country with different privacy laws), edits it there, and sends it back for you to download.</p>
+      <p>A classic cloud PDF site is a courier. It takes your file off your laptop, sends it over the internet to a server it rents somewhere (very often outside India), runs the edit on that machine, and then sends you a download link. From your side it looks like one smooth action. Under the hood, your statement has now existed in at least three places: your device, the wire in between, and a stranger's hard disk.</p>
 
-      <p>This creates three huge real-world problems:</p>
+      <p>People usually worry about the wrong part. Interception in transit is the least of it. Nearly every site uses HTTPS now, so someone sitting on the same cafe Wi-Fi is unlikely to read your PDF mid-flight. The real problems sit at the other end:</p>
+
       <ul>
-        <li><strong>Data Interception:</strong> Sending sensitive data across public Wi-Fi or cellular networks always carries hacking risks. Even with basic website encryption, you are creating a paper trail of your most private documents.</li>
-        <li><strong>Server Breaches:</strong> Cloud servers are goldmines for hackers. If a PDF site gets breached—and it happens more often than companies admit—your temporary files, like a scan of your driving license, could be stolen in bulk.</li>
-        <li><strong>Slow Speeds and File Limits:</strong> You are entirely at the mercy of your internet connection. Uploading big files on bad Wi-Fi is incredibly frustrating. Plus, because server storage costs money, these sites will block you from uploading files larger than 15MB unless you pay them.</li>
+      <li><strong>Retention you cannot verify.</strong> "Files are deleted after one hour" is a sentence on a privacy page. You have no way to check it, and backups, logs, and crash dumps are routinely exempt from such promises.</li>
+      <li><strong>Server breaches.</strong> A server that receives lakhs of bank statements, Aadhaar scans, and passport pages every day is a very attractive target. If it is breached, your file is stolen in bulk along with everyone else's, and you will probably never be told.</li>
+      <li><strong>Jurisdiction.</strong> If the server sits in another country, the data is subject to that country's laws and that company's staff, not yours.</li>
+      <li><strong>Practical friction.</strong> Upload speed depends on your connection, and because storage costs the site money, you hit "file too large, upgrade to Pro" walls at 15 or 25 MB.</li>
       </ul>
+
+      <p>For a college fest poster, none of this matters. For a salary slip with your PAN printed on it, it matters a great deal. If you want the specific case for financial documents, we wrote a separate piece on <a href="/blog/never-upload-bank-statements-free-pdf-sites">why bank statements should never go to free upload sites</a>, so I will not repeat it here.</p>
+
+      <h2>What "Local" or "On-Device" Processing Really Means</h2>
+
+      <p>The alternative flips the direction of travel. Instead of sending your file to the tool, the tool is sent to you. When you open a page like GoPDFGo's compressor, your browser downloads the editing engine itself, a chunk of code that runs inside the tab. When you pick a file, the browser reads it straight from your disk into the tab's memory, does the merge or compression using your own processor, and writes the finished file to your Downloads folder. There is no upload step because there is nothing to upload to. Files never leave your device, and the site has no server that ever sees them.</p>
+
+      <p>My favourite way to picture it: cloud processing is sending your groceries to a restaurant kitchen and trusting the chef with them. Local processing is the chef bringing their knives to your kitchen. The ingredients never leave your house.</p>
+
+      <p>This is not a theoretical claim, and you do not have to take anyone's word for it. It is something you can test in under a minute.</p>
 
       <div class="tool-box">
-        <h3>How to Safely Process Documents Yourself</h3>
-        <p>You can completely bypass cloud servers by using modern zero-upload architecture. Here is how simple it is in practice:</p>
-
-        <ul>
-          <li><strong>Step 1: Open the Browser Engine.</strong> When you open a modern tool, the website instantly turns your own web browser into editing software. You don't need to install anything on your device.</li>
-          <li><strong>Step 2: Add Your Sensitive Files.</strong> Pick your files from your computer. Notice there is no slow "uploading..." progress bar — the files appear instantly because they never left your hard drive.</li>
-          <li><strong>Step 3: Choose Your Settings.</strong> Whether you want to combine pages, rotate a scanned image, or reduce the file weight, just set your options directly on the screen.</li>
-          <li><strong>Step 4: Execute Privately.</strong> Click the final button. Your computer's own processor does the heavy lifting in moments and saves the fresh file straight back to your personal folder.</li>
-        </ul>
+      <h3>How to Check for Yourself That a PDF Tool Is Not Uploading</h3>
+      <ul>
+      <li><strong>Step 1:</strong> Open <a href="/compress-pdf">Compress PDF</a> and, while still online, run one small file through it start to finish. The processing engine is fetched the first time you actually use the tool, not when the page opens - this first run is the only moment it needs the internet.</li>
+      <li><strong>Step 2:</strong> Now switch off Wi-Fi and mobile data. On a laptop, flip on aeroplane mode. Do not refresh the page.</li>
+      <li><strong>Step 3:</strong> Pick your real file, ideally something with a few pages. Notice there is no "uploading 43%" progress bar. The file appears in the tab instantly because it is being read from your own disk.</li>
+      <li><strong>Step 4:</strong> Run the job again. Choose Best compression, or a Target size preset like 200 KB, and hit the button. It completes with the internet off, which a cloud tool physically cannot do.</li>
+      <li><strong>Step 5:</strong> Download the result. It lands in your Downloads folder named GoPDFGo_ followed by your original file name. Turn your connection back on only when you are done.</li>
+      </ul>
       </div>
 
-      <h2>The Beauty of Private File Handling</h2>
-      <p>This modern method completely flips the script. Instead of sending your private file to the website's server, the website sends its editing tools directly to your computer.</p>
+      <p>If you want to go one step further, open your browser's developer tools (F12 on Windows), click the Network tab, and process a file. You will see scripts load - the page's own, the ad scripts every free site carries, the PDF engine from a CDN - but nothing that carries your file: no POST request with a multi-megabyte body going out. That is what IT departments usually ask for when they want proof, and it is a fair thing to ask.</p>
 
-      <p>Think of it like cooking. Cloud processing is like sending your raw groceries to a restaurant kitchen and hoping the chef doesn't steal your ingredients. The new way is like the chef coming to your house and letting you use their knives in your own kitchen.</p>
+      <h2>Where Local Processing Is Clearly Safer</h2>
 
-      <p>This provides massive everyday benefits:</p>
-      <p><strong>1. True Zero-Trust Security:</strong> You could literally turn off your laptop's Wi-Fi immediately after loading the web page, and the tool would still work perfectly. Your data stays yours, guaranteed.</p>
+      <p>Three everyday Indian scenarios show the difference sharply.</p>
 
-      <p><strong>2. Unlimited File Sizes:</strong> Because you aren't using a company's expensive server, there are no artificial file limits. You can process massive, 500-page architectural blueprints or thick legal case files easily, for free.</p>
+      <p><strong>The home loan bundle.</strong> A bank asks for six months of statements, three salary slips, and Form 16 as a single file. On a cloud site that is nine private documents uploaded, stored, and combined on someone else's machine. Done locally with the <a href="/merge-pdf">Merge PDF</a> tool, the nine files are stitched in your tab. Drag the cards into the order the bank wants, use the per-file rotate control if a scan came in sideways, and the running total above the button tells you the combined page count before you commit.</p>
 
-      <h2>Integrating Safe Tools into Your Work</h2>
-      <p>Once you understand how safe this is, you can work much faster and with total peace of mind:</p>
+      <p><strong>The Aadhaar in a rent agreement.</strong> A broker on WhatsApp asks for "Aadhaar front and back, PDF". Before it goes anywhere, the digits should be masked, and masking on a cloud site is self-defeating because you have just uploaded the unmasked version to do it. Our guide on <a href="/blog/mask-aadhaar-card-safely-for-rent-agreements">masking Aadhaar for rent agreements and KYC</a> covers that flow properly.</p>
+
+      <p><strong>The 200 KB government form.</strong> SSC, state PSC, and university portals cap document uploads at tiny sizes. Compressing a scanned marksheet down to a hard limit means the tool reads every pixel of the page. Whether those pixels get read on your laptop or on a rented server in another continent is exactly the choice this post is about.</p>
+
+      <h2>The Honest Limits of Doing It on Your Device</h2>
+
+      <p>I would be doing you a disservice if I pretended local processing has no downsides. It has a few, and they are worth knowing before you rely on it.</p>
+
+      <p><strong>Your device does the work, so your device is the bottleneck.</strong> Merging 80 high-resolution scanned pages on a 3 GB budget phone can make the browser sluggish or, in the worst case, crash the tab. A cloud server with 64 GB of RAM never has that problem. The workaround is simple, split a giant job into two or three batches, but it is real.</p>
+
+      <p><strong>The first load needs the internet.</strong> The engine has to arrive in your browser once. For the OCR tool that is a few megabytes, and it is the slowest tool on the site because reading text out of a scanned page, in Hindi or English, is heavy work for a phone. It runs page by page and it is still entirely on your device, but "local" does not mean "instant" when the task itself is big.</p>
+
+      <p><strong>Local does not fix a locked file.</strong> Every editing tool on GoPDFGo, compress, merge, split, rotate, watermark, page numbers, all of them, refuses a password-protected PDF and points you to Unlock PDF. Merge will skip the locked file, finish the rest, and name what it skipped. This catches people constantly with bank statements, which are often owner-locked, meaning they open without asking for a password but still carry restrictions. Unlock only works with a password you already know, and its output is a flattened image-based PDF where the text is no longer selectable. If that is your situation, read <a href="/blog/unlock-bank-statement-pdf-remove-password">how to unlock a bank statement PDF</a> first.</p>
+
+      <p><strong>Local protects the file in transit and at rest on a server. It does not protect a compromised device.</strong> If your laptop has a shady browser extension reading every page, or your phone is shared and the Downloads folder is open to whoever borrows it, on-device processing does nothing about that. It removes one large risk, the stranger's server, not every risk.</p>
+
+      <h2>Mistakes People Make When Switching</h2>
+
       <ul>
-        <li><strong>Financial Records:</strong> Use a secure <a href="/merge-pdf">document combiner</a> to attach your salary slips together for a home loan application, knowing the bank's data isn't leaking.</li>
-        <li><strong>Identity Documents:</strong> Need to shrink your passport scan for a government job portal? <a href="/compress-pdf">Reduce the file weight safely</a> without worrying about server bots scraping your face and identity.</li>
+      <li><strong>Trusting "encrypted upload" as equivalent.</strong> Encryption in transit only means the courier cannot read the parcel on the road. The server at the far end decrypts it to do the edit. The file still sits there in plain form.</li>
+      <li><strong>Emailing the output to yourself.</strong> You carefully compress a PAN scan locally, then attach it to a Gmail draft "to have it on the phone". The file is now on a mail server. Use a cable, or process it on the phone in the first place, since every tool here works on Android and iPhone browsers.</li>
+      <li><strong>Expecting cloud-only features.</strong> There is no Google Drive or Dropbox import, no Word or Excel input, no shareable link to the result. Those features exist on cloud sites precisely because the file is already on their server. Here the file is on yours, so you pick it from your own storage and save it back to your own storage.</li>
+      <li><strong>Using Target size when you needed selectable text.</strong> To reach a small cap like 100 KB, Compress PDF flattens each page to an image and the text stops being selectable. If a portal only needs the file to be small, that is fine. If your CA needs to copy figures out of it, use Best compression, which does a lossless re-save first and only optimises images when the file is image-heavy. Either way the tool never hands back a file bigger than the original.</li>
+      <li><strong>Assuming "local" means "anonymous".</strong> The site can still see that someone visited the compress page, the same way any website sees page views. It cannot see the contents of your file, because the file never arrives. Those are two different things and it is worth being precise about which one you care about.</li>
       </ul>
 
-      <h2>Frequently Asked Questions (FAQ)</h2>
+      <h2>What to Do Next</h2>
 
-      <p><strong>Q: How can I prove to my boss or IT department that these tools don't upload data?</strong><br>
-      A: The easiest way to verify is to load the website, disconnect your computer from the internet (turn off Wi-Fi), and try to merge or compress a file. Because the tool runs directly in the browser's memory, it will still complete the task perfectly offline.</p>
+      <p>If you are moving your document habits off cloud sites, do it in this order. First, unlock anything that is password-protected, using a password you know. Second, mask or crop anything that shows more of your identity than the recipient needs. Third, merge, rotate, number, or compress, each in its own pass so you can check the result between steps. Fourth, open the final file once before uploading it to the portal, because a rejected upload at 11:58 PM on a deadline day is the mistake that hurts most.</p>
 
-      <p><strong>Q: Is the compression quality as good as massive cloud servers?</strong><br>
-      A: For everyday use, yes. Our compressor tries a lossless re-save first and only rasterizes pages when that genuinely makes the file smaller, so quality stays high — and all of it runs on your own computer's CPU instead of a remote server.</p>
+      <p>If you are choosing between specific sites rather than between two philosophies, our <a href="/blog/best-secure-alternatives-ilovepdf-smallpdf">comparison of secure alternatives to iLovePDF and Smallpdf</a> gets into the named products.</p>
 
-      <p><strong>Q: What happens if I clear my browser cache?</strong><br>
-      A: Clearing your browser cache will not delete your PDFs. When the tool finishes processing, it saves the final PDF directly to your computer's "Downloads" folder, which is separate from temporary browser data.</p>
+      <h2>Frequently Asked Questions</h2>
 
-      <p><strong>Q: Why does my browser sometimes freeze on very large files?</strong><br>
-      A: Since the processing uses your device's RAM, combining hundreds of massive, high-resolution images might temporarily max out a budget laptop's memory. If this happens, try breaking the task into two smaller batches.</p>
+      <p><strong>Q: Does my file stay in the browser after I close the tab?</strong><br>
+      A: No. The file lives in the tab's memory only while the tab is open. Close the tab and that memory is released. The only copy that survives is the finished PDF you chose to download, which sits in your own Downloads folder like any other file.</p>
 
-      <h3>Make the Safe Choice Today</h3>
-      <p>Blindly trusting third-party servers with your life's paperwork is a thing of the past. Start using private, browser-based tools today and guarantee your own digital safety.</p>
-    `
+      <p><strong>Q: Is it safe to use these tools on an office or college computer?</strong><br>
+      A: The processing is just as private, but the output lands in that machine's Downloads folder, so delete it from there when you are done, and be aware that a managed office PC may have monitoring software that sees everything on screen regardless of which website you use.</p>
+
+      <p><strong>Q: Can a local tool work on a scanned PDF, or only on text PDFs?</strong><br>
+      A: Both. Scans are just pages made of images, and merging, rotating, compressing, and page numbering all work on them, page numbers are drawn over the image. If you need the words out of a scan as text, the OCR tool reads printed English, Hindi, or both together on your device, though handwriting and blurry photos come out badly.</p>
+
+      <p><strong>Q: Why does a cloud site handle a 300 MB file fine while my phone struggles with it locally?</strong><br>
+      A: Because the cloud site is using a server with far more memory than your phone. That is the one genuine advantage of the cloud model, and it is bought by giving up custody of the file. On a laptop with 8 GB of RAM, a 300 MB PDF is normally fine locally; on an older phone, split the job.</p>
+
+      <p><strong>Q: If the site has no server, how does it make money and stay online?</strong><br>
+      A: A page like this is cheap to run precisely because it is not paying for upload bandwidth and disk for everyone's documents. It only has to serve the page and the engine, which is a static download. That is why there is no daily limit and no Pro tier for big files.</p>
+
+      <p><strong>Q: Does local processing change the quality of my PDF?</strong><br>
+      A: The operation decides that, not the location. Merge, rotate, extract, and rearrange are lossless here, so text stays selectable and images keep their resolution. Compression in Best mode is a lossless re-save first. Only the Target size mode and the Unlock tool deliberately flatten pages to images, and both tell you so.</p>
+
+      <h2>The Short Version</h2>
+
+      <p>Cloud PDF tools take custody of your file, and everything after that, retention, breaches, jurisdiction, is a promise you cannot check. On-device tools never take custody in the first place, which you can prove in a minute by switching off your Wi-Fi. The trade is that your own phone or laptop does the work, so enormous jobs may need splitting, locked files still need unlocking, and a compromised device is still a compromised device.</p>
+
+      <p>For the paperwork that defines your financial and legal life, that trade is an easy one. Next time a portal asks you to combine or shrink a document, try it in your own browser: <a href="/compress-pdf">compress the PDF on your device</a>, with nothing leaving your hands.</p>
+      `
   },
   {
     id: "organize-merge-documents-online-visa-applications",
@@ -6488,7 +6792,7 @@ export const blogsData = [
   //       <h2>Frequently Asked Questions</h2>
 
   //       <p><strong>Q: Is going HEIC to JPG to WebP actually harmful, or am I being fussy?</strong><br>
-  //         Keep the FAQ but make each answer earn its place by answering something the body does not. For this one: "A: Honestly, on a busy textured photo at high quality you may never see it — and if that is all you shoot, this is not worth losing sleep over. The reason to take the single-pass route anyway is that it is not any harder, and the damage compounds: every future re-save, resize or re-compression starts from a worse original. You are not fixing a visible problem today, you are declining to create one." Then trim the privacy and quality answers to a single line each that points back at the walkthrough rather than restating it. Since the single-pass route is no harder, there is no reason to take the double hit.</p>
+  //         A: Honestly, on a busy textured photo at high quality you may never see it — and if that is all you shoot, this is not worth losing sleep over. The reason to take the single-pass route anyway is that it is not any harder, and the damage compounds: every future re-save, resize or re-compression starts from a worse original. You are not fixing a visible problem today, you are declining to create one.</p>
 
   //       <p><strong>Q: Can I just upload HEIC files to my site and let the CMS handle it?</strong><br>
   //         A: Most content management systems reject the upload outright, and where one does accept it, only Safari visitors will see the image — everyone on Chrome, Firefox or Edge gets a broken picture. It needs converting before it goes up, one way or another.</p>
@@ -6503,11 +6807,1238 @@ export const blogsData = [
   //         A: That is expected, and it is the case where WebP is the wrong tool. Government portals, exam and admission forms, KYC pages and older applications generally accept JPG or PNG only. Run those photos through <a href="/heic-to-jpg">HEIC to JPG</a> instead and upload that.</p>
 
   //       <p><strong>Q: What quality setting should I use?</strong><br>
-  //         A: The tool picks a sensible one for you — 85% for a single file, 80% when you load a batch. Leave the batch at 80% for supporting images, where a few kilobytes each adds up across a page. Push it to 85% or higher for a hero image or a product shot customers will zoom into. If a specific file still needs to hit a number, use the target-size mode in <a href="/compress-webp">Compress WebP</a> afterwards rather than guessing at the slider. If a specific file still needs to hit a number, use the target-size mode in <a href="/compress-webp">Compress WebP</a> afterwards rather than guessing at the slider.</p>
+  //         A: The tool picks a sensible one for you — 85% for a single file, 80% when you load a batch. Leave the batch at 80% for supporting images, where a few kilobytes each adds up across a page. Push it to 85% or higher for a hero image or a product shot customers will zoom into. If a specific file still needs to hit a number, use the target-size mode in <a href="/compress-webp">Compress WebP</a> afterwards rather than guessing at the slider.</p>
 
   //       <p>None of this is complicated — it is one decision made once, at the point where your photos leave the phone. Pick the destination first. If it is a page you own, go straight to WebP. If it is a form, a portal or a stranger, go to JPG. The rest is just resizing sensibly and getting on with the actual work.</p>
 
   //       `
+  // },
+
+  // {
+  //   id: "add-page-x-of-y-numbers-to-pdf-skip-cover-page",
+  //   title: "How to Add \"Page 1 of N\" Numbers to a PDF and Skip the Cover Page",
+  //   seoTitle: "Add Page 1 of N Numbers to PDF, Skip Cover | GoPDFGo",
+  //   keywords: "add page x of y to pdf, page 1 of n pdf, add page numbers to pdf skip first page, page numbers without cover page pdf, pdf page numbers starting number, add page numbers to scanned pdf, page numbers bottom center pdf, number tender document pdf, continue page numbering from another pdf, pdf page total on every page",
+  //   excerpt: "Plain 1, 2, 3 or \"Page 1 of N\"? Skip the cover, pick a starting number, choose a position that will not collide with your footer. The settings that matter when numbering a merged PDF.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/add-page-x-of-y-numbers-to-pdf-skip-cover-page.webp",
+  //   content: `
+  //     <p>A tender submission is rarely one document. It is a cover letter you wrote in Word, a technical proposal your colleague exported from Google Docs, a price schedule that came out of Excel, a couple of scanned certificates, and a signed declaration somebody photographed on their phone. You merge all of that into a single PDF, open it, and realise it has no page numbers at all. Or worse, it has three different sets: the proposal says "3", the price schedule also says "3", and the scans say nothing.</p>
+  // 
+  //     <p>Adding numbers is the easy part. The part people get wrong is the handful of settings around it: whether to print a plain "7" or "Page 7 of 42", whether the cover should carry a number, what number the first page should actually be, and where on the page the whole thing should sit. Those four decisions are what this post is about. If you are numbering a college project or a court filing, there are dedicated guides for those already, and I will point you to them rather than repeat them here.</p>
+  // 
+  //     <h2>Plain 1, 2, 3 or "Page 1 of N"?</h2>
+  // 
+  //     <p>The <a href="/page-numbers">Page Numbers</a> tool offers both formats, and the choice is not cosmetic.</p>
+  // 
+  //     <p><strong>Plain numbers</strong> are what a reader expects in anything that gets read from front to back. A report, a manual, a book. The number is a location marker and nothing more. It is also the quieter option, which matters when the footer already has a running title or a confidentiality line.</p>
+  // 
+  //     <p><strong>Page 1 of N</strong> answers a different question: <em>is this document complete?</em> That is exactly what a reviewer wants to know when your tender lands on their desk alongside forty others. If page 38 of 42 is missing from the printout, "Page 39 of 42" following "Page 37 of 42" makes the gap obvious in a second. With plain numbers, nobody notices until someone goes looking for the price schedule and cannot find it.</p>
+  // 
+  //     <p>The same logic applies at the print shop. When you hand over a PDF to be printed and spiral-bound, the person at the counter is going to collate it by hand or by machine, and "of 42" tells them what a complete set looks like. It also tells the receiving clerk at the procurement office that what they signed for is what you sent. Legal drafts, audit packs, insurance claims, anything that goes through a checking step, all benefit from the total being printed on every page.</p>
+  // 
+  //     <p>My rule of thumb: if the document will be counted, checked or collated by someone other than the reader, use Page 1 of N. If it will only ever be read, plain numbers are fine.</p>
+  // 
+  //     <h2>Skip the Cover So It Stays Clean</h2>
+  // 
+  //     <p>Cover pages are designed. They have your company name, the tender reference, maybe a logo and a date. A small "1" or "Page 1 of 42" sitting under all of that looks like an afterthought, and in some tender formats the cover is explicitly excluded from the page count.</p>
+  // 
+  //     <p>That is what the <strong>Skip first page</strong> option is for. Tick it and the tool leaves the very first page untouched and starts numbering from the second. Two things worth knowing about how this behaves:</p>
+  // 
+  //     <ul>
+  //     <li>It skips exactly one page, the first one. If your front matter is longer than that, say a cover plus a blank plus a table of contents, the option alone will not leave all three clean. The practical fix is to number the body first, then put the front matter in front of it using the Merge PDF tool, so the numbered section and the unnumbered section are joined after the stamping is done.</li>
+  //     <li>After ticking it, look at the starting number too. You usually want the first page of real content to read as 1, so set the starting number to 1 and confirm the first numbered page says so once you download the result.</li>
+  //     </ul>
+  // 
+  //     <p>If your PDF does not have a cover yet and you are adding one, do that before numbering, not after. The guide on <a href="/blog/add-cover-page-to-pdf-report-project">adding a cover page to a PDF</a> walks through it.</p>
+  // 
+  //     <h2>The Starting Number: For Documents That Continue From Another</h2>
+  // 
+  //     <p>The starting number is the setting most people ignore, and it is the one that saves you when a document is split across files.</p>
+  // 
+  //     <p>Tender portals often cap each upload at a fixed size, so a 120-page submission goes up as three PDFs. If each one is numbered from 1, the evaluator ends up with three "page 1"s and no way to cite a page unambiguously. Instead, number the first file 1 to 40, then set the starting number to 41 for the second file and 81 for the third. Now the whole submission reads as one continuous document even though it lives in three uploads.</p>
+  // 
+  //     <p>The same trick works when you are adding an annexure to a document that was already numbered by someone else. A 30-page agreement arrives numbered 1 to 30; your annexure of test reports should begin at 31, not restart at 1. Set the starting number, apply, and it slots in behind the original without any confusion.</p>
+  // 
+  //     <p>One honest caveat: the tool numbers only the file you give it, and N is simply the last number it stamps - the starting number plus the numbered page count, minus one. Start a 40-page second file at 41 and it reads "Page 41 of 80" through "Page 80 of 80"; start the third at 81 and it ends at "of 120". Chain the starts correctly and the sequence looks right, but the tool never knows the true total of the whole set on its own. If you need a correct "of 120" across every page, merge everything into one PDF first, number it once, and then split it back into upload-sized pieces with the Split PDF tool. The numbers are baked into the pages, so they survive the split intact.</p>
+  // 
+  //     <h2>Four Positions, and Why Bottom Centre Is the Safe Default</h2>
+  // 
+  //     <p>You get Bottom Center, Bottom Left, Bottom Right and Top Right. Bottom Center is the default for a reason: it is the international convention, it is where the eye goes looking for a page number, and it is the position least likely to collide with anything. Headers carry titles and logos. Bottom corners carry footers, file references, sometimes a signature block. The bottom middle is usually the emptiest strip of whitespace on any page.</p>
+  // 
+  //     <p>The other positions are for when the bottom centre is already taken:</p>
+  // 
+  //     <ul>
+  //     <li><strong>Bottom Right</strong> when the document will be bound or stapled on the left and read by flipping. The number sits at the outer edge where your thumb lands.</li>
+  //     <li><strong>Bottom Left</strong> when a Word export already prints something like "Confidential" or a document ID at bottom right on every page.</li>
+  //     <li><strong>Top Right</strong> for scans that have almost no bottom margin, which is common when a certificate was photographed rather than scanned. The top corner is often the only clean space left.</li>
+  //     </ul>
+  // 
+  //     <p>Whatever you choose, the number is drawn in the page margin - the bottom margin for the three bottom positions, the top margin for Top Right - never over the content area. But margins on a scan are whatever the camera captured, so if a page has been cropped tightly, glance at that page in the output and switch to a different corner if the number sits too close to the text.</p>
+  // 
+  //     <h2>It Works on Scanned Pages Too</h2>
+  // 
+  //     <p>This is the part that surprises people. A scanned certificate inside your tender is a picture, not text. You cannot select a word on it, so it feels like nothing can be added to it either. But the page number is not inserted into the text layer; it is drawn on top of the page, the way a rubber stamp goes on paper. So the scanned certificate, the photographed declaration and the Word export all get the same number in the same spot, and in the same font, which is what makes a merged document look like one document instead of five stapled together.</p>
+  // 
+  //     <p>The same drawing approach is why the numbers come out the right way up on pages that were rotated to fix a sideways scan. The tool respects the page's rotation, so a landscape price schedule in the middle of a portrait proposal still gets a readable number in the correct corner.</p>
+  // 
+  //     <p>One thing it does not do is remove numbers that are already there. If your Excel export printed "Page 1 of 3" on every sheet, the new number will sit alongside the old one. Reprint the sheet to PDF without a footer, or choose a position on the opposite side of the page so the two do not overlap.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Add "Page 1 of N" Numbers and Keep the Cover Clean</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Get the page order right first. If the tender is still in separate files, join them with <a href="/merge-pdf">Merge PDF</a> and fix any out-of-place or sideways pages with <a href="/organize-pdf">Organize PDF</a>. Numbers follow whatever order the pages are in when you stamp them.</li>
+  //     <li><strong>Step 2:</strong> Open the Page Numbers tool and drop in the merged PDF. It counts the pages for you.</li>
+  //     <li><strong>Step 3:</strong> Pick the position. Bottom Center unless something already lives there.</li>
+  //     <li><strong>Step 4:</strong> Choose the format: "Page 1 of N" for anything that will be checked or printed, plain "1, 2, 3" for anything that will just be read.</li>
+  //     <li><strong>Step 5:</strong> Tick <strong>Skip first page</strong> so the cover stays unnumbered, and set the starting number to 1 (or to 41, 81, wherever this file continues from).</li>
+  //     <li><strong>Step 6:</strong> Click Add Page Numbers and download. The file comes back as GoPDFGo_ followed by your original name. Open it and check three pages: the cover (should be clean), the first content page (should read 1) and the last page (should show the right total).</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Mistakes I See Constantly</h2>
+  // 
+  //     <p><strong>Numbering before the order is final.</strong> The numbers are permanent once applied. If you then discover the price schedule should come before the technical proposal and move it, the numbers move with it and now run 1, 2, 3, 19, 20, 4, 5. Always finish reordering, deleting and rotating first, and keep the un-numbered original in case you have to redo it.</p>
+  // 
+  //     <p><strong>Forgetting the file is locked.</strong> A supplier's audited accounts or a bank solvency certificate sometimes arrives as a restricted PDF: it opens without asking for a password but refuses edits. The tool will decline it and point you to Unlock PDF. Unlocking gives you an image-based copy that looks identical, and page numbers draw on it just fine. If that document was already inside a merge, note that Merge PDF skips encrypted files and tells you which ones, so check the page count before you number.</p>
+  // 
+  //     <p><strong>Trusting the "of N" without checking the last page.</strong> N is the last number stamped, so a stray blank page at the end from a double-sided scan gets counted and numbered too. Your last real page then reads one short of N, and a reviewer may go hunting for a final page that is just white. Delete blanks first.</p>
+  // 
+  //     <p><strong>Using the same settings for a resume.</strong> A two-page CV does not need "Page 1 of 2", and some applicant tracking systems parse footer text badly. For anything that will be read by software before a human, plain numbers or none at all is the safer call.</p>
+  // 
+  //     <h2>Related Guides</h2>
+  // 
+  //     <p>If your reason for numbering is a dissertation or a final-year project that has to be printed and bound, read <a href="/blog/add-page-numbers-to-college-project-pdf">how to add page numbers to a college project PDF before printing</a>, which goes into university formatting expectations. If it is a pleading, an affidavit or an e-filing bundle, <a href="/blog/add-page-numbers-legal-documents-court-filings">adding page numbers to legal documents and court filings</a> covers the sequential pagination courts demand and why hand-numbering is risky. Both use the same tool; the settings just differ.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I change the font, size or colour of the number?</strong><br>A: No. The tool uses one clean, neutral style so the number reads the same on a Word export and on a scanned image. What you control is the position, the format, the starting number and whether the first page is skipped.</p>
+  // 
+  //     <p><strong>Q: Can I number only some pages, say pages 5 to 20?</strong><br>A: Not directly. The tool stamps every page of the file except, optionally, the first. To number a section only, extract that section into its own PDF, number it, and merge it back in place of the original pages.</p>
+  // 
+  //     <p><strong>Q: Does adding page numbers make the file bigger or blur the scans?</strong><br>A: The change in size is negligible, usually a few kilobytes, because only a small text object is added to each page. The existing page images are not re-encoded, so a scan looks exactly as sharp after numbering as before.</p>
+  // 
+  //     <p><strong>Q: I have to number 15 separate PDFs. Can I batch them?</strong><br>A: The tool takes one PDF at a time. If they belong to a single submission, merge them and number once, which also gets you a correct "of N" across the set. If they genuinely are separate documents, run them one after another; each takes only a moment.</p>
+  // 
+  //     <p><strong>Q: Will the numbers show up when I print, or only on screen?</strong><br>A: They print. The number is part of the page content, not a viewer annotation or a form field, so every PDF reader and every printer renders it. That is also why it cannot be toggled off later.</p>
+  // 
+  //     <p><strong>Q: Can I do this on my phone?</strong><br>A: Yes. The tool runs in the phone's browser exactly as it does on a laptop, with the same four positions and options. The file stays on the phone throughout, which matters when the PDF contains audited accounts or a director's signed declaration.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Pick "Page 1 of N" when someone will count or collate the pages, plain numbers when they will only read them. Tick Skip first page so the cover stays as designed, and set the starting number to 1, or to wherever this file continues from. Leave the position at Bottom Center unless that strip is already occupied. Scanned pages take the number just as well as typed ones, because it is drawn on the page rather than typed into it. Get the page order final, then <a href="/page-numbers">add page numbers to your PDF</a> in your browser, and check the cover, the first content page and the last page before you upload the tender.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "compress-scanned-pdf-without-making-it-blurry",
+  //   title: "How to Compress a Scanned PDF Without Making It Blurry",
+  //   seoTitle: "Compress Scanned PDF Without Blur | GoPDFGo",
+  //   keywords: "compress scanned pdf, reduce scanned pdf size without losing quality, compress pdf without blur, scanned pdf too large to upload, compress scanned document pdf online, reduce pdf from 4mb to 200kb, compress pdf to target size, best compression vs target size pdf, shrink scanned pdf for kyc upload",
+  //   excerpt: "A scanned PDF is a stack of pictures, so a lossless re-save barely helps. Here is how to cut a 4 MB scan by 60-80% in your browser and keep the smallest print readable.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/compress-scanned-pdf-without-making-it-blurry.webp",
+  //   content: `
+  //     <p>A scanned rent agreement comes off the office scanner at 4 MB for eleven pages. A marksheet you photographed on your phone and turned into a PDF lands at 6 MB. Neither will go through the portal, so you run it through a compressor, and one of two things happens: it comes back almost the same size, or it comes back small and the text looks like it was printed on a wet tissue.</p>
+  // 
+  //     <p>Both outcomes come from the same misunderstanding, which is that a scanned PDF is a document. It is not, really. It is a stack of photographs wearing a PDF file extension. Once you see it that way, compressing it without wrecking it becomes a lot more predictable.</p>
+  // 
+  //     <h2>Why a Scan Is Not Like a Normal PDF</h2>
+  // 
+  //     <p>Take a PDF you exported from Word or downloaded from the Income Tax portal. Inside, the text is stored as text: letters, fonts, positions. The whole file might be 80 KB because describing "this paragraph in Arial at 11 point" takes almost no space. You can select the words, search them, copy them.</p>
+  // 
+  //     <p>Now take the same page after it has been through a scanner or your phone camera. There are no letters inside the file any more. There is one big picture of the page, and the letters are just dark pixels sitting among light pixels. An A4 page scanned at 300 DPI is roughly 2500 by 3500 pixels, close to nine million of them, and every one has to be stored. That is where your 4 MB is coming from. Not from the words, from the picture of the words.</p>
+  // 
+  //     <p>The quick test: open the PDF and try to drag-select a line of text. If nothing highlights, it is a scan, and everything below applies to you.</p>
+  // 
+  //     <h2>Why a Lossless Re-save Barely Touches It</h2>
+  // 
+  //     <p>Most compressors, including the Compress PDF tool on GoPDFGo, start with what is called a lossless re-save. It rewrites the file, throws out metadata, drops duplicated objects, trims embedded fonts down to the characters actually used, and stores everything more tightly. On a text PDF this is a great first move because it can drop the size a fair bit without changing a single pixel.</p>
+  // 
+  //     <p>On a scan, there is almost nothing for it to work with. There are no fonts to subset. The metadata is a few kilobytes. The duplicated objects do not exist. Ninety-eight percent of the file is the page images, and a lossless pass leaves those exactly as they were. So you get a 4 MB scan back at 3.9 MB and wonder if the tool even ran. If you want the theory behind why these two kinds of shrinking are not the same thing, the piece on <a href="/blog/real-difference-pdf-optimization-vs-compression">the real difference between PDF optimisation and compression</a> goes into it properly; I will not repeat it here.</p>
+  // 
+  //     <p>This is why the GoPDFGo compressor does not stop at the re-save. It looks at what is actually in the file, and when it sees that the weight is in pictures, it moves on to optimising those pictures. That is the step where a scan really shrinks, and it is the step you need to understand to avoid blur.</p>
+  // 
+  //     <h2>What "Optimising the Page Images" Actually Does</h2>
+  // 
+  //     <p>Two levers get pulled on a scanned page. The first is resolution. A 300 DPI scan is made for printing. On a screen, or for a KYC clerk glancing at a preview, 144 DPI looks almost identical and holds a quarter of the pixels. Bring the page down from 300 to 144 and you have already lost most of the weight before touching quality at all.</p>
+  // 
+  //     <p>The second lever is how tightly the image is encoded. A scanned page is a very friendly image to compress: big areas of near-white, dark strokes, not much in between. JPEG-style encoding can squeeze that hard while keeping the strokes crisp. Push it too far and you get the familiar fuzz around letters and grey smudges where the white paper used to be. That is the blur people are afraid of, and it comes from over-compressing, not from compressing.</p>
+  // 
+  //     <p>The sweet spot is a resolution a screen can actually show and an encoding level that keeps edges clean. The tool aims for exactly that in its default mode, which is why I would start there every time.</p>
+  // 
+  //     <h2>Best Compression vs Target Size: Which One for a Scan?</h2>
+  // 
+  //     <p>The compressor has two modes, and for a scan the choice comes down to one question: has someone else given you a number?</p>
+  // 
+  //     <h3>Best compression: the default</h3>
+  // 
+  //     <p>Pick <strong>Best compression</strong> when nobody has set a limit, or the limit is generous. The tool does its lossless pass, notices the file is image-heavy, and optimises the page images to the point where they still look clean on screen. It does not chase a number, so it never has to squash things harder than necessary. On a typical 4 MB scanned statement or agreement you will land somewhere between 800 KB and 1.6 MB, a drop of about 60 to 80 percent, with pages that look the same as before at normal zoom.</p>
+  // 
+  //     <p>Best compression on a scan has a bonus you may not expect: because it is pulling weight out of the images rather than chasing a figure, it is the most predictable mode. Run it on ten scans and you will see similar ratios across all of them.</p>
+  // 
+  //     <h3>Target size: when a form dictates the number</h3>
+  // 
+  //     <p>Pick <strong>Target size</strong> when a portal has a hard cap. Tap a preset like <strong>200 KB</strong> or type your own figure, and the tool works downward toward it, tightening resolution and encoding step by step until it fits. It is built for the SSC, IBPS and state-portal situations where the upload box simply refuses anything above the line.</p>
+  // 
+  //     <p>Here is the honest part. To reach a small target, the tool flattens every page into a single image. On a text PDF that is a real cost, because the selectable text disappears. On a scan it costs you nothing. The pages were already pictures. There was no selectable text to lose. So the warning that scares people away from Target size, "text will no longer be selectable", is irrelevant for the exact kind of file this article is about. Use Target size on a scan with a clear conscience.</p>
+  // 
+  //     <p>What does still apply is that a smaller target means a softer page. 200 KB from a 4 MB eleven-page scan is a big ask, about 18 KB per page, and the letters will be visibly lighter than at 800 KB. That is the trade the portal is forcing, not the tool. If the cap is 500 KB, do not type 200 just to be safe. Give the tool as much room as the rule allows and it will keep more of the detail.</p>
+  // 
+  //     <h2>When to Reach for a Preset</h2>
+  // 
+  //     <p>The presets are the numbers that come up again and again in India: 200 KB, 500 KB, 1 MB and 2 MB. Anything else - 100 KB, say - you type into the box yourself. A preset is worth using when the instruction on the form matches it exactly. If a recruitment portal says documents must be under 200 KB, tap 200 KB and let the tool find the closest clean version under it.</p>
+  // 
+  //     <p>If the form says something odd like 350 KB, type it. If the form gives no number at all, do not use Target size. You would be choosing a size the tool then has to honour, when Best compression would have given you a cleaner page for free. And if you are unsure what the portal is really complaining about, because plenty of rejections are not about size at all, the piece on <a href="/blog/why-government-websites-reject-perfectly-fine-pdfs">why government websites reject perfectly fine PDFs</a> covers the format and dimension traps that hide behind a vague error message.</p>
+  // 
+  //     <h2>The Guarantee That Removes Most of the Guesswork</h2>
+  // 
+  //     <p>Whatever mode you use, the GoPDFGo compressor never hands you back a file larger than the one you loaded. If it cannot improve the file, it tells you and keeps your original size. This sounds like a small point but it changes how you use the tool: you can try Best compression first, look at the result, and only step into Target size if the number is still too high. There is no way to make things worse by trying.</p>
+  // 
+  //     <p>The same rule covers the Target size failure case. If you ask for 100 KB and the tool cannot get there without turning the page into a grey smear, it stops at the smallest version that still reads and tells you it could not reach your target. At that point you have two choices: accept the closest size, or reduce what is in the file before compressing again, which brings us to the next point.</p>
+  // 
+  //     <h2>Shrink the Document Before You Shrink the File</h2>
+  // 
+  //     <p>Compression works page by page, so every unnecessary page costs you kilobytes you could have spent on the pages that matter. A statement with three pages of terms at the end, a rent agreement scanned with the blank back sides, a marksheet scan with a stray page of the desk: drop those first. Fewer pages under the same cap means more room per page and a sharper result. <a href="/delete-pdf-pages">Delete the extra pages</a> before compressing, not after.</p>
+  // 
+  //     <p>If the scan started as phone photos, the quality of those photos sets the ceiling for everything downstream. A dim, tilted photo compresses into a dim, tilted, now also soft page. Shooting in good light, cropping out the table, and converting the images with <a href="/image-to-pdf">Image to PDF</a> before you compress gives the optimiser clean edges to preserve.</p>
+  // 
+  //     <h2>Encrypted Scans: Unlock First</h2>
+  // 
+  //     <p>A lot of scanned documents in India arrive locked. Salary slips from HR, e-statements, insurance policy scans, sometimes a scanned agreement a lawyer has protected. Some ask for a password to open; others open freely but carry an owner restriction that blocks editing. The compressor treats both the same way: it refuses the file with a clear message and points you to Unlock PDF. It does not quietly strip the protection, and it does not try to compress around it.</p>
+  // 
+  //     <p>So the order is: <a href="/unlock-pdf">unlock it with the password you already know</a>, then compress the unlocked copy. One detail is worth knowing. Unlock PDF outputs a flattened, image-based PDF. For a scan that is a non-event, since the pages were images to begin with, and the compressor will then handle it exactly like any other scan. If you do not know the password, Unlock PDF cannot help; it removes a known password, it does not guess one.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Compress a Scanned PDF Without Blur</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/compress-pdf">Compress PDF</a> tool and drop in your scan. It stays on your device the whole time; nothing is uploaded. If the file is password-protected, unlock it first and use the unlocked copy.</li>
+  //     <li><strong>Step 2:</strong> Leave the mode on Best compression and run it. Note the before and after sizes; a scan should drop somewhere around 60 to 80 percent.</li>
+  //     <li><strong>Step 3:</strong> If the result is under whatever limit you have, you are done. Download it; the file will be named GoPDFGo_ followed by your original name.</li>
+  //     <li><strong>Step 4:</strong> If it is still over, switch to Target size, tap the preset that matches the rule or type the exact number, and run again. Use the largest number the rule allows, not the smallest you can think of.</li>
+  //     <li><strong>Step 5:</strong> Open the downloaded file and zoom in on the smallest text on the page before you upload it anywhere. If it reads, send it. If it does not, go back and raise the target.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>The Five-Second Check Before You Upload</h2>
+  // 
+  //     <p>Do not judge the compressed scan by the first page at fit-to-width zoom. Headings and big print survive almost anything. The place a scan fails is the small stuff: the account number in a statement footer, the stamp and the date on a rent agreement, the subject codes on a marksheet, the tiny declaration line above a signature. Zoom to 150 or 200 percent on the densest page and look at those.</p>
+  // 
+  //     <p>If digits are still distinct from each other, 3 from 8 and 1 from 7, the scan is fine for any human reviewer and for most automated checks. If they have started to merge, the file is too small for its content. Raise the target size, or go back and remove pages so each remaining one gets more room. This check takes five seconds and it is the difference between a KYC that clears and a resubmission request three days later.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Will compressing a scan make it harder to OCR later?</strong><br>A: A little, at aggressive targets. OCR engines need clean letter edges, and a 100 KB page has fewer of them than an 800 KB page. If you plan to run the file through OCR, keep the uncompressed original for that and compress only the copy you upload.</p>
+  // 
+  //     <p><strong>Q: Is a colour scan heavier than a black-and-white one?</strong><br>A: Yes, usually by a wide margin. If your scanner or scanning app offers a greyscale or black-and-white mode, use it for text documents before you compress. Fewer colour channels means less data per pixel, and the compressor has an easier job keeping the strokes sharp.</p>
+  // 
+  //     <p><strong>Q: Can I compress several scans at once?</strong><br>A: No - Compress PDF takes one file at a time, and if you pick several it keeps the first and tells you so. Run each scan through separately, or if the portal wants everything as one document anyway, <a href="/merge-pdf">merge them first</a> and compress the single result once.</p>
+  // 
+  //     <p><strong>Q: Does the compressed scan still print properly?</strong><br>A: Best compression output prints fine on a normal office printer. Target size output at very small numbers is tuned for screens and portals, and may look soft on paper. If you need both, keep two copies: the original for printing, the compressed one for uploading.</p>
+  // 
+  //     <p><strong>Q: The tool said the file barely got smaller, but it is definitely a scan. Why?</strong><br>A: Some scanner apps already compress hard on export, so the images inside the PDF are lean before you start. In that case Best compression has little left to remove and says so. Target size will still push it down if a form demands it, at a cost in sharpness.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>A scanned PDF is a folder of pictures, so the only compression that matters is compression of the pictures. Start with Best compression and expect a 60 to 80 percent drop with pages that look untouched. Reach for Target size only when a form gives you a number, use the biggest number the rule allows, and ignore the flattening warning, because a scan had nothing to flatten. Unlock any locked file first, remove the pages you do not need, and zoom in on the smallest print before you upload. Then <a href="/compress-pdf">compress your scanned PDF</a> right in your browser and get on with the application.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "draw-type-or-upload-signature-pdf-which-looks-best",
+  //   title: "Draw, Type or Upload: Which Signature Looks Best on a PDF (and How to Make an Uploaded One Clean)",
+  //   seoTitle: "Draw, Type or Upload a PDF Signature: Which Wins | GoPDFGo",
+  //   keywords: "draw vs type vs upload signature pdf, best way to add signature to pdf, upload signature image to pdf, transparent png signature, signature white box on pdf, typed signature vs drawn signature, sign pdf on phone with finger, clean signature photo for pdf, how to make signature png, resize signature on pdf",
+  //   excerpt: "Drawn with a finger, typed in a script font, or a photo of your real ink: an honest comparison of all three PDF signature methods, plus the recipe for an uploaded signature with no grey box around it.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/draw-type-or-upload-signature-pdf-which-looks-best.webp",
+  //   content: `
+  //     <p>Every PDF signing tool gives you the same three doors: draw it, type it, or upload it. The Sign PDF tool on GoPDFGo is no different. What nobody tells you is which door to walk through, because each one produces a very different-looking signature, and the one that looks "best" depends on what you're signing and what you're holding in your hand at the time.</p>
+  // 
+  //     <p>I've signed a lot of PDFs each of the three ways, on a phone in an auto, on a laptop trackpad, with a proper photo of my pen-and-paper signature. Here's an honest comparison, plus the recipe I actually use to get an uploaded signature that sits cleanly on the page instead of arriving inside a grey box.</p>
+  // 
+  //     <h2>Method 1: Drawing It</h2>
+  // 
+  //     <p>Drawing is the one people reach for first, and how it turns out depends almost entirely on what you're drawing with.</p>
+  // 
+  //     <p><strong>Finger on a phone screen:</strong> surprisingly decent. A phone touchscreen tracks your finger smoothly, and if you sign a little slower and a little larger than you would on paper, the result is recognisably <em>your</em> signature. The main flaw is that fingers are blunt, so fine loops and the tail of a long surname come out thicker and rounder than your real ink. Turn the phone sideways to landscape if the drawing box feels cramped. If you have a stylus or a tablet pen, you're in the best possible position: that's genuinely as close to paper as digital gets.</p>
+  // 
+  //     <p><strong>Mouse or trackpad on a laptop:</strong> this is where drawing falls apart. A mouse was never built for cursive. Most people end up with a shaky, jagged scrawl that looks nothing like their signature and, worse, looks nothing like the same scrawl they'd draw the next day. A trackpad is even harder. If you're on a laptop and the document matters, skip drawing entirely and use one of the other two methods.</p>
+  // 
+  //     <p>Drawn signatures are also generated at a good resolution inside the tool, so they stay crisp when you resize them onto the signature line. That's a real advantage over uploaded photos, which we'll get to.</p>
+  // 
+  //     <h2>Method 2: Typing It</h2>
+  // 
+  //     <p>You type your name, pick one of the handwriting-style fonts, and the tool renders it as a signature image. Neat, consistent, zero effort, and it looks identical every single time.</p>
+  // 
+  //     <p>That consistency is both its strength and its weakness. It's clean, but it's obviously a font. Anyone who has seen a few signed PDFs recognises those script fonts on sight, and some readers, rightly or wrongly, treat a typed signature as a little less personal than a drawn one. For a quick acknowledgement, an internal approval, a consent form for the school picnic, or a "noted, please proceed" on a quotation, typed is completely fine and honestly the smart choice. For a rent agreement or a freelance contract where the other party might one day want to compare it to your real signature, I'd lean away from it.</p>
+  // 
+  //     <p>One practical tip: type your name the way you actually sign, not the way it appears on your PAN card. If you sign as "R. Sharma" rather than "Rajesh Kumar Sharma", type that. It looks far more natural.</p>
+  // 
+  //     <h2>Method 3: Uploading a Photo of Your Real Signature</h2>
+  // 
+  //     <p>This is the one that can look the best, and also the one that most often looks the worst. The reason is simple: the tool places your image <strong>exactly as it is</strong>. If the photo has a cream-coloured background, shadow from your hand, and a bit of the table edge, all of that gets stamped onto the document too. That's the infamous grey or off-white box around the signature.</p>
+  // 
+  //     <p>Let me be clear about something, because it's the single most common misunderstanding: <strong>the Sign PDF tool does not remove backgrounds.</strong> There's no magic wand that cuts your signature out of the photo. Whatever pixels are in the image you upload are the pixels that land on the PDF. So the quality of an uploaded signature is decided entirely before you ever open the tool, in how you make the image.</p>
+  // 
+  //     <p>Done well, though, an uploaded signature is the only one of the three that's actually your real ink, with your real pressure, loops and slant. For anything formal, it's my pick.</p>
+  // 
+  //     <h2>The Recipe for a Clean Uploaded Signature</h2>
+  // 
+  //     <p>Here is what works, step by step, and why each step matters.</p>
+  // 
+  //     <p><strong>Use a dark pen on plain white paper.</strong> A black or dark blue gel pen or a decent ballpoint. Not a pencil, not a light blue pen, and not the back of an envelope with printing bleeding through. White paper is the whole trick: on a document that is itself white, a white background around your signature is nearly invisible, even without any transparency at all. Cream, ruled or coloured paper gives you a visible tinted box every time.</p>
+  // 
+  //     <p><strong>Sign a bit larger than usual.</strong> Sign two or three times on the same sheet and pick the best one. A slightly bigger signature photographs with more detail, and you'll shrink it down on the PDF anyway, which hides small wobbles.</p>
+  // 
+  //     <p><strong>Photograph it in good, even light.</strong> Daylight from a window is ideal. Hold the phone directly above the paper, not at an angle, and make sure your own shadow isn't falling across the page. Shadows are what turn white paper into a grey gradient. If your phone has a document mode in its camera or scanner app, that often flattens and brightens the paper nicely, but be careful with apps that stamp their own watermark on the result.</p>
+  // 
+  //     <p><strong>Crop tightly.</strong> Open the photo in the <a href="/crop">Crop tool</a> and crop right down to the signature with only a sliver of white around it. Tight cropping matters more than people expect, because when you later resize the signature to fit a line on the PDF, a loosely cropped image forces the actual ink to be tiny inside a big white rectangle. If you're new to it, the guide on <a href="/blog/remove-unwanted-edges-crop-scanned-documents">cropping scanned documents</a> covers the basics.</p>
+  // 
+  //     <p><strong>Save it as PNG.</strong> JPG compression leaves faint blocky noise around thin ink lines that becomes visible once the image is sitting on a clean white PDF page. PNG keeps the edges sharp. If you want the full reasoning, the <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> explains it properly.</p>
+  // 
+  //     <h3>Why a transparent PNG sits best of all</h3>
+  // 
+  //     <p>A signature with a white background looks fine on a white page. It stops looking fine the moment it sits on top of anything: a printed signature line, a "Signature of Tenant" label, a table border, a light grey form field. The white rectangle covers whatever is underneath it, and the line disappears.</p>
+  // 
+  //     <p>A PNG with a <strong>transparent background</strong> avoids all of that, because the only pixels in the image are the ink. The line underneath stays visible and the signature looks like it was drawn onto the page. That's why the tool's own advice is to upload a transparent PNG where you can.</p>
+  // 
+  //     <p>Getting to transparency is the part you have to do elsewhere,. Many phone photo editors and gallery apps now have a "remove background" or "cut out" option, and some export a transparent PNG from it. If yours does, use it, check that the exported file is actually PNG and not a JPG with a fake white background, and keep that file somewhere safe. A good transparent signature PNG is something you make once and reuse for years.</p>
+  // 
+  //     <p>If you can't get a transparent version, don't worry too much. Follow the white-paper-and-good-light recipe and place the signature slightly above the printed line rather than directly over it. On most forms that's indistinguishable from a real ink signature.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Try All Three and Compare</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/sign-pdf">Sign PDF tool</a> and drop in the PDF you need to sign.</li>
+  //     <li><strong>Step 2:</strong> Make a signature by drawing it, then place it on the page and look at it at real size. Then try the typed option with a handwriting font. Then upload your cropped PNG. You can create and place each one in turn and swap it for another; nothing is final until you download.</li>
+  //     <li><strong>Step 3:</strong> Drag the winner onto the signature line and resize it until it fits the space, roughly the size of a real pen signature.</li>
+  //     <li><strong>Step 4:</strong> If the document wants initials or a signature on every page, tick the Place this signature on all N pages box. Leave it unticked if only the last page needs signing.</li>
+  //     <li><strong>Step 5:</strong> Download. The file comes back named GoPDFGo_ followed by your original filename. Open it once and zoom into the signature to check the edges before you send it.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Which Method for Which Document</h2>
+  // 
+  //     <p><strong>Formal agreements: uploaded real signature.</strong> Rent agreements, freelance contracts, NDAs, an offer letter acceptance, a bank or society form that someone may later hold up next to your specimen signature. Use the clean uploaded PNG. If you don't have one prepared and you're on a phone, a careful finger-drawn signature is the next best thing.</p>
+  // 
+  //     <p><strong>Quick acknowledgements: typed.</strong> "Received", "Approved", a leave application, a school consent slip, an invoice acknowledgement to a vendor, a quotation you're accepting over WhatsApp. Nobody is going to forensically compare these. Typed is fast, tidy and consistent.</p>
+  // 
+  //     <p><strong>Internal forms and approvals: drawn on a phone, typed on a laptop.</strong> Match the method to the device. A finger drawing on a phone is good; a mouse drawing on a laptop is not, so on a laptop, type it or upload.</p>
+  // 
+  //     <p>And a boundary worth repeating: every one of these is a <em>visual</em> ink signature. It is not a DSC or Aadhaar-based e-sign. Income tax filings, MCA forms, GST portals and tenders that demand a certified digital signature won't accept any of the three, no matter how good they look.</p>
+  // 
+  //     <h2>Placement and Sizing Tips</h2>
+  // 
+  //     <p>A few small things that separate a signed PDF that looks natural from one that looks pasted on.</p>
+  // 
+  //     <ul>
+  //     <li><strong>Size it like a pen signature.</strong> The most common mistake is making it huge. A real signature is about 4 to 6 cm wide on an A4 page. On screen, aim for roughly a quarter of the page width at most.</li>
+  //     <li><strong>Sit it on the line, not floating above it.</strong> Let the bottom of the letters touch or slightly overlap the printed line. Half a centimetre of air between the signature and the line is what makes it look stuck on.</li>
+  //     <li><strong>You cannot stretch it out of shape.</strong> The resize handle scales width and height together, so the proportions stay locked automatically and the signature never comes out squashed flat or pulled tall.</li>
+  //     <li><strong>Watch the resolution on uploads.</strong> Drawn and typed signatures are made at a decent resolution inside the tool, but an uploaded photo has only the pixels it came with. Enlarging a small crop makes it fuzzy. If it looks rough, go back and re-photograph closer, or draw it instead.</li>
+  //     <li><strong>Use the all-pages option deliberately.</strong> It stamps the same signature at the same spot on every page, which is perfect for initialling a lease but wrong for a form where only page 4 needs a signature. You can move it to any page individually before you download.</li>
+  //     <li><strong>Check the file size after signing.</strong> A signature image adds only a little, but if the original was a heavy scan, run it through <a href="/compress-pdf">Compress PDF</a> before emailing.</li>
+  //     </ul>
+  // 
+  //     <p>One more related case: if what you actually need is a signature <em>image</em> for an online form, say an SSC or bank job portal asking for a signature at exact pixel dimensions and under a KB limit, that's a different job. The guide on <a href="/blog/resize-passport-photo-signature-200x230">resizing a photo and signature to exact pixels</a> covers it, and the same white-paper recipe above is the right starting point.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I save my signature in the tool and reuse it next time?</strong><br>A: There's no account and nothing is stored on a server, so the tool doesn't keep a signature library. The practical workaround is to keep your cropped, transparent PNG in your phone gallery or a folder on your laptop and upload it each time. It takes a few seconds.</p>
+  // 
+  //     <p><strong>Q: My uploaded signature is blue ink. Will that look odd on the PDF?</strong><br>A: No, blue is fine and many people prefer it because it clearly reads as a real wet-ink signature rather than something printed. The only colour to avoid is a pale one, since thin light strokes vanish when the signature is resized smaller.</p>
+  // 
+  //     <p><strong>Q: The PDF I need to sign asks for a password. Can I still sign it?</strong><br>A: Not directly. Sign PDF refuses an encrypted file and points you to Unlock PDF. If you know the password, remove it there first, then sign the unlocked copy. Note that the unlocked file is image-based, so its text won't be selectable afterwards.</p>
+  // 
+  //     <p><strong>Q: Can I add a date or my name next to the signature?</strong><br>A: The tool is built for the signature itself; it doesn't have a separate text field. The tool places one signature per pass, so do it in two rounds: sign and download first, then open the downloaded GoPDFGo_ file in the tool again, type the date or your name with the type option, and place it beside the signature. Two quick passes, same clean result.</p>
+  // 
+  //     <p><strong>Q: Does a typed signature carry any less weight than a drawn one?</strong><br>A: For everyday forms, in practice, no. All three end up as a picture on the page, and none is a certified signature. What differs is how convincing it looks to a human reading it, which is why an uploaded photo of your real signature is the better choice for anything someone might compare against your specimen.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Draw if you're on a phone or tablet and want it to look like your real hand. Type if it's a quick acknowledgement and you're on a laptop. Upload a photo of your real signature for anything formal, and make that photo count: dark pen, plain white paper, good light, cropped tight, saved as PNG, transparent if you can manage it. Remember the tool places the image as-is and won't clean up a background for you, so the work happens before you upload.</p>
+  // 
+  //     <p>Then size it like a real signature, sit it on the line, and check the edges once before you send. Ready to go? Open the <a href="/sign-pdf">Sign PDF tool</a> and try all three on your document, right in your browser.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "extract-specific-pages-from-pdf-chapter-scattered-signature-page",
+  //   title: "How to Extract Specific Pages From a PDF: One Chapter, Scattered Pages, or Just the Signature Page",
+  //   seoTitle: "Extract Specific Pages From a PDF: Ranges & More | GoPDFGo",
+  //   keywords: "extract specific pages from pdf, extract page range from pdf, extract multiple pages from pdf into one file, extract chapter from pdf textbook, extract signature page from contract pdf, pdf page range extractor online, extract pdf pages without uploading, extract vs split pdf, select pages from pdf to save",
+  //   excerpt: "One chapter from a 600-page textbook, seven scattered pages from a report, or only the signature page of a contract. Here is how to pull exactly those pages into one new lossless PDF.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/extract-specific-pages-from-pdf-chapter-scattered-signature-page.webp",
+  //   content: `
+  //     <p>There is a moment most of us hit with a big PDF. You do not need the whole thing. You need a slice of it. A chapter for tonight's revision. Four pages of a report that actually matter to your manager. The one page of a rent agreement that carries both signatures. And the file you are staring at is 300 pages, 40 MB, and full of things the other person has no business seeing.</p>
+  // 
+  //     <p>Pulling a single page out is the simplest version of this, and I have already covered it in the <a href="/blog/extract-single-page-from-large-pdf">merit-list page extraction guide</a>. This post is about the three cases that come up after that one: a continuous block, a set of scattered pages, and the "share only this, nothing else" situation. The tool is the same. What changes is how you select, and a couple of traps that catch people.</p>
+  // 
+  //     <h2>What "Extract" Actually Does</h2>
+  // 
+  //     <p>Before the cases, one sentence on the mechanics, because it explains everything that follows. The <em>Extract PDF Pages</em> tool opens your document, lets you choose pages, and then copies those pages, in the order they appear in the original, into a <strong>brand-new PDF</strong>. Your original file is not touched. The output is one file, never a zip folder of loose pages.</p>
+  // 
+  //     <p>It is also lossless. The tool does not re-render or re-compress anything. It lifts the page objects out at the structural level, so text stays selectable, vector diagrams stay crisp, links inside the page keep working, and a scanned page keeps its full scan. That last part cuts both ways, and I will come back to it.</p>
+  // 
+  //     <h2>Case 1: One Chapter From a Heavy Textbook</h2>
+  // 
+  //     <p>You have a 600-page engineering reference or a NCERT-style PDF the coaching institute sent as one enormous file. Chapter 4 runs from page 41 to page 63. You want just that on your phone so you can read it on the metro without scrolling through five other chapters every time.</p>
+  // 
+  //     <p>This is the continuous-range case. In the page box, type <strong>41-63</strong> and extract. You get a 23-page PDF with only that chapter. Nothing else to think about, except the one thing that trips up almost everyone the first time.</p>
+  // 
+  //     <h3>Printed page numbers are not physical page numbers</h3>
+  // 
+  //     <p>Textbooks have a cover, a copyright page, a preface, a table of contents, sometimes twenty pages of roman-numeral front matter. The tool counts every one of those as a page, starting from 1. So the page that has "41" printed at its bottom corner might physically be page 57 of the file. If you type 41-63 trusting the printed number, you will get the end of chapter 3 and the start of chapter 4, and wonder what went wrong.</p>
+  // 
+  //     <p>The fix is boring and reliable. Tap Select Pages first - the tool opens in Extract All mode, and the page box and tickable thumbnails only wake up once you do. Then scroll the thumbnail strip, find where the chapter actually starts, note the numbers the tool shows on the first and last thumbnails, and type that range into the page box. Ticking thumbnails selects only the pages you tick, so for a whole chapter the typed range is the quicker route. Either way, check that the first page of your output is the chapter heading before you close the tab.</p>
+  // 
+  //     <h2>Case 2: Scattered Pages From a Report</h2>
+  // 
+  //     <p>Now the messier one. Your team lead wants to read the executive summary (page 1), the one chart on page 5, and the recommendations section that runs from 8 to 12. Not the methodology, not the 30-page appendix. Sending the whole 60-page file with "see pages 1, 5 and 8 to 12" in the email is the kind of thing that gets ignored.</p>
+  // 
+  //     <p>In the page box, type <strong>1, 5, 8-12</strong>. Commas separate individual pages, hyphens mark a range, and you can mix them freely. The tool gathers all seven pages into one new PDF, in original order. It does not matter whether you type 8-12 before 1; the output follows the document, not your typing.</p>
+  // 
+  //     <p>If you prefer clicking to typing, the thumbnail view does the same job. Tick a page and it is selected, tick again to drop it. Some people find the thumbnails faster for scattered selections because you can see the chart you want rather than remembering its number. For long ranges the box is faster. On a phone I usually type the range and then glance at the thumbnails to confirm the ticks landed where I expected. Both methods stay in sync, so use whichever feels natural and switch mid-way if you like.</p>
+  // 
+  //     <h3>The order is fixed, and that is usually what you want</h3>
+  // 
+  //     <p>One limit worth knowing: extraction preserves the original order. If you wanted the recommendations to come before the summary, extraction alone will not do that. Extract first, then reorder the new file separately. For most report snippets the original order is exactly right, since the reader expects page 1 before page 5.</p>
+  // 
+  //     <h2>Case 3: Only the Signature Page of a Contract</h2>
+  // 
+  //     <p>This is the case that made me appreciate the tool. A rent agreement, a vendor contract, a freelance NDA. Somebody, a bank, a landlord's lawyer, a society office, asks for "proof that it was signed." They do not need the 18 pages of clauses, the rent figure, the deposit amount, or the other party's PAN and address, which are all sitting in the same PDF.</p>
+  // 
+  //     <p>Sending the full contract to prove one thing is a habit worth breaking. Extract just the signature page (and, if the document has one, the first page with the party names and date), and share that. Type <strong>1, 18</strong> or tick those two thumbnails. The output is a two-page PDF that shows what was signed and by whom, and nothing else.</p>
+  // 
+  //     <p>This is also where doing the job on your own device matters most. A contract is exactly the kind of document you should not be uploading to a random website just to trim it. The extraction here runs inside your browser, on your laptop or phone, and the full contract never goes anywhere. You can open it, pull the page, close the tab, and it was only ever on your device.</p>
+  // 
+  //     <h3>Two things to check before you send it</h3>
+  // 
+  //     <p>First, look at the extracted page for anything you did not mean to share. Signature pages often carry a witness's Aadhaar number or a stamp with the other party's address. If that is a problem, mask it before sending. Second, if the contract was digitally signed with a certificate (the kind that shows a green tick or a validation panel in Acrobat), extracting pages breaks that signature chain. The visible signature image comes across fine, but the cryptographic validation will not, because you have created a new file. For a scanned, ink-signed page this does not apply at all.</p>
+  // 
+  //     <h2>Extract vs Split: They Are Not the Same Tool</h2>
+  // 
+  //     <p>People mix these up constantly, and the tool names do not help. Here is the practical difference.</p>
+  // 
+  //     <ul>
+  //     <li><strong>Extract</strong> takes the pages you choose and gives you <em>one</em> new PDF. It is for "I want this bit."</li>
+  //     <li><strong>Split</strong> breaks the document into <em>several</em> files. It is for "I want this file in pieces," such as cutting a 40 MB report into chunks that fit under an email limit.</li>
+  //     </ul>
+  // 
+  //     <p>So if you need one page per file, say every certificate in a merged bundle saved separately, extraction is the wrong tool; that is a job for <a href="/split-pdf">Split PDF</a>, and the <a href="/blog/split-large-pdf-bypass-email-attachment-limits">email-limit splitting guide</a> walks through it. If you need a handful of pages living together in one document, extraction is right. And if what you actually want is the whole document minus a few pages, neither is the cleanest choice: <a href="/delete-pdf-pages">Delete PDF Pages</a> is the inverse of extraction and involves less ticking.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Extract Specific Pages From a PDF</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/extract-pdf-pages">GoPDFGo Extract PDF Pages</a> tool and drop in your PDF. Large files open quickly since your own device reads them directly.</li>
+  //     <li><strong>Step 2:</strong> Tap Select Pages, then choose your pages. Type a range like 41-63, a scattered list like 1, 5, 8-12, or a mix, into the page box. Or scroll the thumbnails and tick the pages you want. Both methods update each other.</li>
+  //     <li><strong>Step 3:</strong> Glance at the thumbnails to make sure the ticks are on the physical pages you meant, especially if the document has a cover or front matter shifting the numbering.</li>
+  //     <li><strong>Step 4:</strong> Click Extract Pages. The tool assembles your selection into one new PDF, in original order, without recompressing anything.</li>
+  //     <li><strong>Step 5:</strong> Download the file. It is named GoPDFGo_ plus your original filename with _extracted added - agreement.pdf comes back as GoPDFGo_agreement_extracted.pdf. Open it once and check the first and last pages before you send it anywhere.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Mistakes I See People Make</h2>
+  // 
+  //     <p><strong>Extracting from a locked PDF.</strong> If the file asks for a password to open, or opens but is restricted (bank statements and salary slips are often like this even when they open without asking), the extract tool will refuse it with a message pointing you to Unlock PDF. That tool removes a password you already know; it will not crack one you have forgotten. Note that the unlocked copy comes back flattened as page images, so text in it is no longer selectable even after extraction.</p>
+  // 
+  //     <p><strong>Expecting the file to get small.</strong> A three-page extract from a scanned 200-page file will be far smaller than the original, but each of those three pages keeps its full scan resolution. If the result still does not fit under a portal's 2 MB cap, run it through <a href="/compress-pdf">Compress PDF</a> afterwards. Do it in that order, extract then compress, so you are only shrinking the pages you are actually sending.</p>
+  // 
+  //     <p><strong>Typing "to" instead of a hyphen.</strong> The page box wants digits, commas and hyphens. "1, 5, 8-12" works. "1 5 8 to 12" does not. If the tool is not accepting your input, this is usually why.</p>
+  // 
+  //     <p><strong>Forgetting the second half of a two-sided page.</strong> Scanned contracts sometimes have the signature block on the back of the final clause page. Check the thumbnail before and after the page you think is the signature page.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I extract the same page twice, to get a duplicate in the output?</strong><br>A: No. Each page is either selected or not, so the output contains each chosen page once. If you need a duplicate, extract once and then merge the file with itself or with a second extract.</p>
+  // 
+  //     <p><strong>Q: Does extraction keep bookmarks and the table of contents?</strong><br>A: The page content, including any clickable links printed on the pages, comes across intact. The document-level outline does not: bookmarks and the table-of-contents panel are not carried into the new file at all, so the extracted PDF opens without them.</p>
+  // 
+  //     <p><strong>Q: Can I extract pages from two different PDFs into one file?</strong><br>A: Not in a single step. The tool works on one PDF at a time. Either extract from each file separately and then merge the two results, or merge the source files first and extract across the combined document.</p>
+  // 
+  //     <p><strong>Q: Will the extracted pages keep their landscape or portrait orientation?</strong><br>A: Yes. Each page carries its own size and rotation, and extraction copies those settings as they are. A landscape chart page stays landscape in the output even if the surrounding pages are portrait.</p>
+  // 
+  //     <p><strong>Q: Is there a limit on how many pages I can select?</strong><br>A: No fixed limit. You can select 200 pages out of 300 if you want, though at that point deleting the 100 you do not want is quicker. Very large selections on an old phone may take a few seconds, since your device is doing the work.</p>
+  // 
+  //     <p><strong>Q: Does it work offline?</strong><br>A: Mostly. The engine arrives the first time you actually use the tool, not when the page opens - so run one file through it while you are online, and after that you can switch the internet off and keep working.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Whether it is one chapter, seven scattered pages, or a single signature page, the job is the same: open the PDF, choose pages by typing a range or ticking thumbnails, and download one new lossless PDF. Watch for front matter shifting the page numbers, remember that extraction gives you one file while split gives you many, and compress afterwards if a portal still complains about size. Go ahead and <a href="/extract-pdf-pages">extract the pages you need</a> and leave the rest of the document where it belongs.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "fix-messy-scanned-pdf-reorder-rotate-delete-one-screen",
+  //   title: "Fix a Messy Scanned PDF in One Go: Reorder, Rotate and Delete Pages on One Screen",
+  //   seoTitle: "Reorder, Rotate and Delete PDF Pages on One Screen | GoPDFGo",
+  //   keywords: "organize pdf pages online, reorder rotate delete pdf pages, fix messy scanned pdf, organize scanned pdf one screen, rearrange and rotate pdf pages together, clean up scanned document pdf, remove blank page and reorder pdf, pdf page organizer free, fix scanned pdf order and orientation",
+  //   excerpt: "Copier gave you a PDF with two pages swapped, one sideways and a blank in the middle? Here is how to fix all three on one screen and export once, instead of running three separate tools.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/fix-messy-scanned-pdf-reorder-rotate-delete-one-screen.webp",
+  //   content: `
+  //     <p>The office copier has a "scan to PDF" button, and it works, mostly. You feed in a 12-page rent agreement, or a bundle of marksheets, or the printed pages of a project report, and a PDF lands in your email a minute later. Then you open it. Page 7 is sitting where page 5 should be. Page 9 is lying on its side because someone fed one sheet in landscape. And somewhere in the middle there is a completely blank page, because the copier faithfully scanned the back of a single-sided sheet.</p>
+  // 
+  //     <p>Three problems. None of them serious. But if you fix them the usual way, you end up doing three separate jobs: open a reorder tool, fix the order, download. Open a rotate tool, upload that download, fix the sideways page, download again. Open a delete tool, upload the second download, remove the blank, download a third time. By the end you have four copies of the same file in your Downloads folder and you are not entirely sure which one is the good one.</p>
+  // 
+  //     <p>This post is about skipping all of that. The Organize PDF tool puts reordering, rotating and deleting on one screen, so a messy scan becomes one clean export instead of three round trips.</p>
+  // 
+  //     <h2>Why Three Small Fixes Turn Into a Big Chore</h2>
+  // 
+  //     <p>Each fix on its own is trivial. What makes the combination annoying is the handoff between them. Every time you download and re-upload, you lose your place. You have to re-check the whole document to see what state it is in. Did you already remove the blank page, or was that in the version you closed? Was the sideways page fixed before or after you moved page 7? On a 12-page file this is merely irritating. On a 40-page scanned agreement with annexures, it is where mistakes creep in, and you only find them when the bank's verification desk sends the file back.</p>
+  // 
+  //     <p>There is a subtler problem too. Page numbers shift as you work. If you delete a blank page first, everything after it moves up by one, so "page 9 is sideways" is suddenly "page 8 is sideways". Do it across three tools and you are mentally re-numbering pages between each step. Do it on one screen, where you are looking at the actual thumbnails rather than remembering numbers, and the problem disappears.</p>
+  // 
+  //     <h2>What One Screen Actually Changes</h2>
+  // 
+  //     <p>When you drop the PDF into Organize PDF, every page appears as a thumbnail in a grid. That grid is the whole tool. Each page has three things you can do to it: drag it somewhere else, tap to rotate it 90 degrees, or tap to remove it. You do these in whatever order makes sense to you, and the grid always shows the current state of the document. What you see is what you will export.</p>
+  // 
+  //     <p>Three details make this work well, and they are worth understanding before you start, because they answer the questions people usually have halfway through.</p>
+  // 
+  //     <h3>The New Position number</h3>
+  // 
+  //     <p>Every thumbnail carries a "New Position" number. When you first open the file it simply matches the original page order, 1 through 12. As soon as you drag a page, the numbers update live across the whole grid. Drag page 7 into the fifth slot and it now reads 5, while the pages it pushed down read 6 and 7. This is the running order of your final PDF, shown before you commit to anything. If the numbers read 1, 2, 3 and so on in the order you actually want the pages to appear, you are done reordering. The reason it is called <em>New</em> Position is so you never confuse it with the original page number, which is the one printed on the sheet or referenced in an index. The two drift apart the moment you move something, and that is fine.</p>
+  // 
+  //     <h3>Rotations travel with the page</h3>
+  // 
+  //     <p>This is the one that catches people out in other tools. Say you rotate the sideways page 9 so it sits upright, and then drag it to a new spot. Does the rotation stay with the page, or does it stay with slot 9? In Organize PDF, it stays with the page. Each thumbnail carries its own rotation, so you can fix orientation first, reorder afterwards, and nothing gets scrambled. In practice this means the sensible workflow is: rotate whatever is sideways while everything is still in its original, recognisable place, then move pages around. You are never forced to "finish reordering before you are allowed to rotate".</p>
+  // 
+  //     <p>Tapping rotate turns the page 90 degrees each time. A page that came out upside down needs two taps. A page lying on its other side needs three. Keep tapping until the thumbnail looks the way a printed page should; it cycles back round, so you cannot get stuck. The rotation is written into the exported PDF permanently, the same way the standalone rotate tool does it, so the page opens upright in every viewer rather than only on the screen you fixed it on.</p>
+  // 
+  //     <h3>Removed pages grey out, not vanish</h3>
+  // 
+  //     <p>When you tap remove on the blank separator sheet, it does not disappear from the grid. It greys out and stays where it was, with a restore option. This is deliberate. It means you can always see what you have removed, so you can sanity-check that you deleted the blank and not the signature page next to it. And it means a wrong tap is a non-event: restore it, carry on. Nothing is final until you export. Once you have downloaded, the removed pages are gone from that file, but your original PDF is untouched on your device, so even then you can start over.</p>
+  // 
+  //     <h2>Working Through the 12-Page Scan</h2>
+  // 
+  //     <p>Let me walk through the exact case from the top of this post, because the order you tackle things in makes a small but real difference.</p>
+  // 
+  //     <p><strong>Rotate first.</strong> Page 9 is sideways. While everything is still in its original order it is easy to find, so tap rotate until it sits upright. Done, and it will stay done no matter where you move it later.</p>
+  // 
+  //     <p><strong>Remove next.</strong> Tap remove on the blank page. It greys out. Glance at its neighbours to make sure the pages on either side are the ones you expect, and that you did not grey out a page that is merely faint. Faint is a common trap with light pencil signatures or a lightly printed stamp page; zoom in on the thumbnail if you are unsure.</p>
+  // 
+  //     <p><strong>Reorder last.</strong> Now drag page 7 up to where page 5 belongs and watch the New Position numbers settle. Reordering last means you are doing it on a grid that already looks like the final document, with the sideways page upright and the blank greyed out, so you can read the flow of the pages properly while you decide where things go.</p>
+  // 
+  //     <p>Then export. You get one PDF, named GoPDFGo_ followed by your original filename, with the new order, the rotation and the deletion all applied at once. No intermediate copies, no wondering which download is current.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Fix a Messy Scanned PDF on One Screen</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open <a href="/organize-pdf">Organize PDF</a> and drop in your scanned file. Every page renders as a thumbnail.</li>
+  //     <li><strong>Step 2:</strong> Tap rotate on any sideways or upside-down page until it sits upright. Rotations stay attached to their page, so do this before you move anything.</li>
+  //     <li><strong>Step 3:</strong> Tap remove on blank separator sheets, duplicates or instruction pages. They grey out and can be restored with one tap until you export.</li>
+  //     <li><strong>Step 4:</strong> Drag pages into the order you want. The New Position number on each thumbnail updates live, so check that they read 1, 2, 3 in the sequence you intend.</li>
+  //     <li><strong>Step 5:</strong> Export once. Open the downloaded file and flick through it to confirm the order, orientation and page count before you send it anywhere.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>When a Single-Purpose Tool Is Still the Better Choice</h2>
+  // 
+  //     <p>I want to be fair to the specialist tools, because they exist for a reason. If your scan has exactly one problem, the dedicated tool is often faster to reach and simpler to look at. There are three of them, and each has its own detailed guide already:</p>
+  // 
+  //     <ul>
+  //     <li>If the pages are all present and upright but in the wrong sequence, the rearrange tool does only that, and the <a href="/blog/rearrange-scanned-pdf-page-order">guide to fixing scanned page order</a> covers it in depth.</li>
+  //     <li>If everything is in order but some pages are sideways or upside down, the rotate tool is the direct route, and the <a href="/blog/rotate-scanned-assignment-pages-permanently">post on rotating scanned pages permanently</a> explains why the fix sticks across viewers.</li>
+  //     <li>If you just need to drop blank or extra pages, the <a href="/blog/delete-pdf-pages-online-remove-blank-and-extra-pages">delete pages walkthrough</a> is the one to read.</li>
+  //     </ul>
+  // 
+  //     <p>The rule of thumb is simple. One problem, one tool. Two or more problems in the same file, Organize PDF. The break-even point is the moment you would have to download and re-upload, because that is where the time and the confusion come from.</p>
+  // 
+  //     <h2>Mistakes People Make, and How to Avoid Them</h2>
+  // 
+  //     <p><strong>Trusting the copier's page count.</strong> A duplex copier scanning single-sided sheets will often produce a PDF with exactly twice the pages you fed it, every second one blank. Before you start dragging, scroll the whole grid once and remove all the blanks in one sweep. It is much easier to reorder 12 pages than 24.</p>
+  // 
+  //     <p><strong>Giving up after one tap.</strong> If a page still looks wrong after one rotate, tap again rather than assuming the tool failed.</p>
+  // 
+  //     <p><strong>Forgetting the file is locked.</strong> Organize PDF, like every editing tool on the site, refuses a password-protected or owner-restricted PDF and tells you so. Scans from a copier are almost never locked, but a statement you downloaded from net banking or a salary slip from HR often is, even when it opens without asking you for anything. Run it through <a href="/unlock-pdf">Unlock PDF</a> first, using the password you already know, and then organize the unlocked copy. Bear in mind the unlocked copy is a flattened, image-based file, which is fine for a scan that was already an image anyway.</p>
+  // 
+  //     <p><strong>Organizing before merging.</strong> If your document is split across several PDFs, say the agreement in one file and the annexures scanned separately, combine them with <a href="/merge-pdf">Merge PDF</a> first and then organize the single result. Organize PDF works on one file at a time, and it is far easier to fix order and orientation once the pages are all in the same grid.</p>
+  // 
+  //     <p><strong>Not checking the export.</strong> The thumbnails are accurate, but I would still open the downloaded file and page through it before uploading to a portal. It takes ten seconds and it is the last chance to catch a page you greyed out by mistake.</p>
+  // 
+  //     <h2>A Note on Large and Heavy Scans</h2>
+  // 
+  //     <p>Every thumbnail is rendered locally on your own device rather than uploaded anywhere, so a 60-page scan at high resolution takes a moment to draw before you can start working - that is normal, and a phone with several other tabs open will feel it. Give the first load a few seconds, close tabs you do not need, and if the file is genuinely huge, consider splitting it into parts before organizing each one. Reordering, rotating and deleting do not re-compress the page content, so the exported file will be roughly the size of the pages you kept; if it still needs to shrink for a portal limit, that is a job for the compress tool afterwards, not before.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Does this work on a phone, or do I need a laptop?</strong><br>A: It works in a phone browser. Thumbnails are smaller on a phone screen, so for a long document it is easier to spot a faint page or a subtle sideways scan on a laptop, but the drag, rotate and remove actions are all touch-friendly and the export is identical.</p>
+  // 
+  //     <p><strong>Q: Does rotating a page in Organize PDF affect its neighbours?</strong><br>A: No. Each page carries its own rotation independently. You can have portrait and landscape pages side by side in the same exported PDF, which is exactly what you want for a report with a wide table in the middle.</p>
+  // 
+  //     <p><strong>Q: Can I straighten a page that is scanned slightly crooked, not fully sideways?</strong><br>A: No. Rotation is in 90-degree steps only, which fixes a page fed in landscape or upside down. A page that is skewed by two or three degrees because the sheet went in at an angle cannot be deskewed here; the honest fix is to rescan that one sheet and then organize.</p>
+  // 
+  //     <p><strong>Q: Will the text still be selectable after I organize a PDF?</strong><br>A: If the original had selectable text, yes, because the page content is kept intact. If the original was a scan from a copier, it never had selectable text to begin with, and organizing cannot add any. For that you would run the finished file through OCR separately.</p>
+  // 
+  //     <p><strong>Q: Can I add a new page or a cover from another file inside Organize PDF?</strong><br>A: No. It only works with the pages already in the file you opened. To bring in a cover or an annexure from a different PDF, combine the files as described above, then organize the result.</p>
+  // 
+  //     <p><strong>Q: My scan is a set of phone photos, not a PDF. Can I organize those?</strong><br>A: Not directly, because the tool opens PDFs only. Convert the photos into one PDF first with the image-to-PDF tool, then bring that PDF into Organize PDF to rotate, remove and reorder the pages. Doing it in that sequence also lets you drop a duplicate photo without going back to your gallery.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>A messy scan usually has more than one thing wrong with it, and fixing each problem in a separate tool means downloading and re-uploading between every step, losing track of what you have already done. Organize PDF puts every page in one grid where you can rotate, remove and reorder in any sequence. The New Position numbers show you the final order before you commit, rotations stay glued to their page so you can fix orientation first, and removed pages grey out rather than vanishing so a wrong tap costs nothing. Then you export once.</p>
+  // 
+  //     <p>Next time the copier hands you a PDF with two pages swapped, one sideways and a blank in the middle, do not open three tools. Open <a href="/organize-pdf">Organize PDF</a>, fix all three on one screen, and download the one clean copy.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "merge-password-protected-pdfs-why-it-fails-and-the-fix",
+  //   title: "Merge PDF Skipped Your Bank Statement? Why Locked PDFs Fail to Merge (and the Fix)",
+  //   seoTitle: "Merge Password-Protected PDF: Why It Fails | GoPDFGo",
+  //   keywords: "merge password protected pdf, merge encrypted pdf, cannot merge password protected pdf, merge pdf file skipped, combine locked pdf files, merge bank statement pdf with password, owner password pdf merge, merge salary slip pdf, unlock and merge pdf, pdf merge skipped encrypted file",
+  //   excerpt: "Merge PDF skipped your bank statement or salary slip by name, even though it opens fine on your screen. Here is why encrypted files cannot be merged, and the unlock-merge-compress fix.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/merge-password-protected-pdfs-why-it-fails-and-the-fix.webp",
+  //   content: `
+  //     <p>You are putting together a loan file. Three months of HDFC statements, your last three salary slips, a PAN copy, a cancelled cheque. You drop all of them into <a href="/merge-pdf">Merge PDF</a>, drag the cards into order, hit the button, and the merged file comes out with a little note underneath: two files were skipped. It names them. Both are your bank statements.</p>
+  // 
+  //     <p>The rest merged perfectly. The statements are simply not in there. And if you open one of those statements on your own laptop, it opens fine, maybe after typing your PAN and date of birth, maybe without any prompt at all. So why would a merge tool refuse a file you can plainly read?</p>
+  // 
+  //     <p>Short answer: the file is encrypted, the tool cannot read the page content without the password, and rather than hand you a PDF with blank pages in the middle, it leaves the file out and tells you. This post is about why that happens, why it is the right call, and the three-step workflow that gets your statement into the bundle.</p>
+  // 
+  //     <h2>What "Skipped" Actually Means</h2>
+  // 
+  //     <p>Merging is a copy job. The tool opens each PDF, reads its pages, and copies them one after another into a new container. Nothing is redrawn or recompressed, which is why merging is lossless. But it only works if the pages can be read in the first place.</p>
+  // 
+  //     <p>An encrypted PDF stores its page content scrambled. Until the correct password is supplied, the pages are just noise to any software. A merge tool that pushed ahead anyway would either crash halfway or, worse, write a PDF whose statement pages come out blank, half-drawn, or as an error box. You would download GoPDFGo_merged.pdf, glance at page one, see your cover letter, and upload it. The loan officer would open page seven and find nothing.</p>
+  // 
+  //     <p>So the tool does the only honest thing. It merges everything it can read, finishes the job, and lists the files it left out by name. The merged file is complete and correct for the files that made it in. It just needs the missing ones added, which we will get to.</p>
+  // 
+  //     <p>This is not a merge-only quirk, by the way. Every editing tool on the site, compress, split, rotate, organize, watermark and the rest, refuses an encrypted file with a message pointing you to Unlock PDF. Merge is the one that handles several files at once, so instead of failing the whole batch it skips the bad one and keeps going.</p>
+  // 
+  //     <h2>"But It Opens Without a Password"</h2>
+  // 
+  //     <p>This is the part that confuses people the most, and it is worth understanding because it describes most Indian bank statements and salary slips.</p>
+  // 
+  //     <p>A PDF can carry two different passwords. The <strong>open password</strong> is the one you know about: the PAN-plus-DOB prompt when you open an SBI or ICICI statement. The <strong>owner password</strong> is different. It is set by whoever generated the file, and it locks down what you can do with the file rather than whether you can look at it. No printing, no copying text, no editing, no extracting pages. A file with only an owner password opens without any prompt at all. Your viewer shows it, you scroll, everything looks normal. But the file is still encrypted on disk, and the viewer is quietly holding the key.</p>
+  // 
+  //     <p>Banks and HR software do this constantly. Salary slips from payroll systems, Form 16 PDFs, statements downloaded from net banking after you have already logged in, e-statements from credit card issuers. Many of them are "owner-locked": no prompt when you open them, but encrypted all the same. Merge PDF sees the encryption flag, cannot get at the page content, and skips the file. From your side it looks like the tool is refusing a perfectly ordinary document.</p>
+  // 
+  //     <p>You can check this yourself. In most desktop viewers, open the file and look at its properties or document info. If you see a Security line that says something like "password protected" or lists restrictions such as Printing: Not Allowed, that is an owner lock. On a phone it is harder to spot, which is exactly why the skipped-file message exists.</p>
+  // 
+  //     <h2>The Fix: Unlock, Then Merge, Then Compress</h2>
+  // 
+  //     <p>There is no way to merge around the lock. The only route is to take the encryption off the file first, and that has to happen one file at a time, with the password you already have. The <a href="/unlock-pdf">Unlock PDF</a> tool does exactly this. It is not a cracker, so if you genuinely do not know the password it cannot help, and neither can any honest tool. But for a statement whose password is in the bank's email, it takes under a minute. The full walkthrough, including the usual PAN-plus-DOB formats and what to do when the password is rejected, is in <a href="/blog/unlock-bank-statement-pdf-remove-password">How to Unlock a Bank Statement PDF</a>, so I will not repeat it here.</p>
+  // 
+  //     <p>What you get back is a flattened copy. Each page is rebuilt as a high-quality image, so the statement looks identical, opens anywhere, and carries no encryption at all. The trade-off is that the text is no longer selectable. For a KYC or loan bundle that is fine. The bank's verification desk wants to see your statement, not copy-paste your balance out of it. Keep the original locked file for your own records in case you ever need the selectable text, and use the flattened copy for submissions.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Get a Locked Statement Into a Merged PDF</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Run your merge as usual in Merge PDF. When it finishes, read the list of skipped files. Those are the encrypted ones. Everything else is already in the output.</li>
+  //     <li><strong>Step 2:</strong> Open each skipped file in Unlock PDF, type the password you use to open it, and download the unlocked copy. Do this for every skipped file. A file that opens without a prompt but still got skipped is owner-locked, and the password the bank or HR portal issued it with is still the one to use.</li>
+  //     <li><strong>Step 3:</strong> Go back to Merge PDF and add all your files again, this time using the unlocked copies in place of the originals. Drag the cards into order. The number on each card is its position in the final document, and the running total above the button tells you how many pages you are about to produce.</li>
+  //     <li><strong>Step 4:</strong> Merge and download. Open GoPDFGo_merged.pdf and scroll through it once. Confirm the statement pages are actually there and readable, not blank.</li>
+  //     <li><strong>Step 5:</strong> If the portal has a size cap, send the merged file through <a href="/compress-pdf">Compress PDF</a>. Flattened pages are images, so an unlocked statement is often heavier than the locked original, and three of them stacked into one bundle can push past a 5 MB limit quickly.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Why Compression Comes Last, Not First</h2>
+  // 
+  //     <p>People sometimes try to shrink the locked statement before merging, hoping a smaller file will slip through. It will not. Compress PDF refuses encrypted files for the same reason Merge skips them: it cannot read the pages. And even once a file is unlocked, compressing each piece separately is more work than compressing the finished bundle once.</p>
+  // 
+  //     <p>Do it at the end. Best compression mode re-saves losslessly first and only optimises page images where the file is image-heavy, which a bundle of flattened statements very much is, so you will usually see a big drop without any visible change. If the portal wants a hard number, say under 2 MB, use Target size mode and type the limit. Either way the tool never hands back a file larger than what you gave it, so there is no harm in trying.</p>
+  // 
+  //     <h2>Mistakes That Waste Ten Minutes</h2>
+  // 
+  //     <p><strong>Merging the original instead of the unlocked copy.</strong> Both files sit in your Downloads folder with nearly the same name. The unlocked one starts with GoPDFGo_. If the statement gets skipped a second time, you picked the wrong file.</p>
+  // 
+  //     <p><strong>Unlocking one month and forgetting the other two.</strong> The skipped-file list names every file it left out. Unlock all of them before you go back to merge, or you will be doing a third pass.</p>
+  // 
+  //     <p><strong>Assuming a file that opened without a prompt is not encrypted.</strong> Covered above, but it is the single most common reason people think the tool is broken. The message naming the skipped file is your evidence. Trust it over what your viewer appears to be doing.</p>
+  // 
+  //     <p><strong>Trying to merge a file whose password you do not know.</strong> A statement forwarded by a family member, an old salary slip from a company whose HR portal you no longer have access to. Unlock PDF cannot help with these, and you should be suspicious of any site claiming it can. Go back to the source: net banking lets you regenerate statements, and most payroll portals keep old slips available for years.</p>
+  // 
+  //     <p><strong>Uploading without opening the result.</strong> Thirty seconds of scrolling through the merged PDF saves a rejection email three days later. Check that the statement pages are present, upright, and in the order the checklist asks for. If a page landed sideways, use the per-file Rotate control on its card before merging rather than fixing it afterwards.</p>
+  // 
+  //     <h2>Where This Fits in a Bigger Bundle</h2>
+  // 
+  //     <p>A loan or KYC file is rarely just statements. If you are assembling the whole thing, <a href="/blog/prepare-property-documents-one-pdf-home-loan">preparing property documents in one PDF for a home loan</a> covers the order banks expect and the documents people forget. The unlock-then-merge routine slots in wherever a statement or salary slip appears in that list. Once everything is combined, if a page ended up in the wrong place or you want to drop a redundant terms-and-conditions page, <a href="/organize-pdf">Organize PDF</a> lets you reorder, rotate and delete pages in one screen without re-merging.</p>
+  // 
+  //     <p>One privacy note, since these are financial documents. The whole chain here, unlock, merge, compress, runs inside your browser on your own device. Your statement and the PAN-plus-DOB password you type are never uploaded anywhere. That is precisely why the tool cannot silently unlock a file for you: there is no server holding your password, so you have to supply it yourself, once, for each locked file.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Will the merged file itself be encrypted if one of the inputs was?</strong><br>A: No. Merge PDF never carries encryption through, because it cannot read an encrypted input in the first place. The output is always a plain, unprotected PDF. If you want the final bundle locked before sending it, that is a separate step in your PDF viewer, not something Merge does.</p>
+  // 
+  //     <p><strong>Q: Does the unlocked statement lose quality when merged?</strong><br>A: No. Merging copies pages as they are. The flattened page image produced by Unlock PDF goes into the merged file at the same resolution. Any quality change only happens later if you compress with an aggressive target.</p>
+  // 
+  //     <p><strong>Q: Can I merge a mix of unlocked statements and normal text PDFs?</strong><br>A: Yes, and it is the usual case. Your cover letter stays selectable text, the statement pages are images, and both sit in the same PDF without conflict. Portals do not care that different pages are built differently.</p>
+  // 
+  //     <p><strong>Q: The skipped file is not password-protected, it is just corrupted. Same fix?</strong><br>A: Not quite. Merge also skips files it cannot parse, such as a download that was cut short or a file with a .pdf extension that is really an image. Unlock PDF will not fix those. Re-download the file from the source, or if it is actually a JPG, convert it to a PDF first.</p>
+  // 
+  //     <p><strong>Q: I have twelve months of statements. Do I really unlock them one at a time?</strong><br>A: Yes, Unlock PDF works on one file per run. It takes a few seconds each. If the portal only asks for three or six months, unlock only those and leave the rest locked.</p>
+  // 
+  //     <p><strong>Q: Is the order of the skipped files a problem?</strong><br>A: No. Skipping does not disturb the order of the files that did merge. When you redo the merge with unlocked copies, drag every card into the final order again, since you are starting a fresh job.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Merge PDF skips a bank statement or salary slip because the file is encrypted, even when it opens on your screen without asking for anything. Merging an unreadable file would give you blank pages, so the tool refuses, finishes the rest, and names what it left out. The fix is a fixed order: unlock the skipped files with the password you already have, merge again using the unlocked copies, and compress the finished bundle if the portal has a size cap. The unlocked pages are images rather than selectable text, which is fine for any KYC, loan or verification upload.</p>
+  // 
+  //     <p>Next time the skipped-file message appears, you know exactly what it is telling you. Unlock the file it names, then <a href="/merge-pdf">merge your PDFs</a> again, all of it on your own device.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "merge-pdfs-with-different-page-sizes-orientations",
+  //   title: "How to Merge PDFs With Different Page Sizes and Orientations Without Distortion",
+  //   seoTitle: "Merge PDFs With Different Page Sizes, No Stretch | GoPDFGo",
+  //   keywords: "merge pdf different page sizes, merge a4 and letter pdf, combine portrait and landscape pdf, merge pdf without resizing pages, merge pdf mixed orientation, merged pdf pages look different sizes, rotate pdf before merging, merge landscape and portrait pages into one pdf, merge scanned pdf with different sizes",
+  //   excerpt: "A Letter cover letter, an A4 scan and a landscape statement page in one merge. Here is why nothing gets stretched, why the result looks uneven on screen, and why it still prints correctly.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/merge-pdfs-with-different-page-sizes-orientations.webp",
+  //   content: `
+  //     <p>Here is a bundle I see all the time. A cover letter you typed in Word or Google Docs, which quietly exported itself as Letter size because that was the default. A copy of your PAN or passport that someone scanned on an office machine, so it came out A4. And one page from an HDFC or SBI statement that the bank laid out in landscape because the transaction table is wide. Three files, three different shapes, one upload box that wants a single PDF.</p>
+  // 
+  //     <p>The question people ask before they merge is not "will it work" but "will it mangle my pages". Will the A4 scan get squeezed to Letter? Will the landscape statement get turned on its side, or cropped, or shrunk into a little box in the middle of a portrait page? I have seen tools do all of those things, so the worry is fair. This post is about what actually happens to mixed sizes and orientations when you merge with the <strong>Merge PDF</strong> tool, why the result can look a bit odd on screen, and why that oddness is fine.</p>
+  // 
+  //     <h2>First, What "Different Page Sizes" Really Means</h2>
+  // 
+  //     <p>A PDF page is not a fixed-size thing the way a sheet of paper is. Every page in a PDF carries its own dimensions, and nothing forces two pages in the same file to agree with each other. A4 is 210 by 297 mm. Letter is 216 by 279 mm, slightly wider and noticeably shorter. Legal is the same width as Letter but longer. A page scanned from a phone app can be some arbitrary size that matches the photo's pixel ratio rather than any paper standard. And a landscape page is simply a page whose width is bigger than its height.</p>
+  // 
+  //     <p>So when you merge a Letter cover letter with an A4 scan and a landscape statement, you are not asking the tool to fit three things onto one kind of page. You are asking it to line up three pages that were always allowed to be different. The only real question is whether the tool respects that or "helpfully" overrides it.</p>
+  // 
+  //     <h2>What the Merge Tool Does With Them</h2>
+  // 
+  //     <p>It copies each page across exactly as it is. Your Letter page stays Letter. Your A4 scan stays A4. Your landscape page stays landscape, at its full width. There is no stretching to a common size, no shrinking the wide page to fit a narrow one, no white border added to pad the small page up to the big one. The merge is a container operation: pages are moved into a new file in the order you chose, and their dimensions travel with them.</p>
+  // 
+  //     <p>This is why the tool can call itself lossless. Scaling or re-rendering a page would mean redrawing it, and redrawing is where text goes soft and scanned images lose detail. Leaving the page alone means the text in your cover letter is still crisp and selectable, and the scan of your ID looks exactly as it did before, down to the pixel.</p>
+  // 
+  //     <p>I want to be plain about the flip side too. If what you actually want is a file where every page is A4, this tool will not do that for you. It preserves, it does not normalise. For most uploads that is the right behaviour, because a portal or a human reviewer just needs to read the pages, and reading is not affected by a page being 6 mm wider than its neighbour. But if a specific form insists on uniform A4 pages, the merge on its own will not get you there.</p>
+  // 
+  //     <h2>Why the Merged File Looks Uneven on Screen But Prints Fine</h2>
+  // 
+  //     <p>This is the bit that makes people think something went wrong when nothing did.</p>
+  // 
+  //     <p>Open the merged PDF in Chrome, Adobe Reader, or the preview on your phone, and scroll. The Letter page looks a certain width. The A4 page below it looks a touch narrower and taller. Then the landscape statement page appears, and depending on the viewer it either sits much wider than everything else, or it is shrunk so its full width fits the window and it looks like a short, squat page with white space above and below. It looks like a stack of paper someone assembled from different pads. That is because it <em>is</em>.</p>
+  // 
+  //     <p>Viewers show pages at their true relative sizes, or fit each one to the window width. Either way, mixed sizes look mixed. That is the viewer being honest, not the file being broken.</p>
+  // 
+  //     <p>Printing is a different story. When you send the file to a printer, the print dialog scales <strong>each page independently</strong> to the paper in the tray. With "Fit to page" on, which is the default in nearly every print dialog, the Letter page shrinks a hair to sit on A4, the A4 page prints at its natural size, and the landscape page is rotated by the printer driver to lie along the sheet and scaled down until its width fits. Every page comes out on its own sheet, fully visible, correctly oriented. Nothing is clipped. If you print with "Actual size" instead, the A4 and Letter pages differ by a few millimetres at the edges, which is invisible in practice, and the landscape page still gets rotated to fit.</p>
+  // 
+  //     <p>So the rule is: judge the merged file by whether every page is present, readable, and facing the right way, not by whether the edges line up in a scroll view.</p>
+  // 
+  //     <h2>Orientation: When a Whole File Came In Sideways</h2>
+  // 
+  //     <p>Sizes take care of themselves. Orientation is where you have a decision to make, because there are two very different situations that look the same at first glance.</p>
+  // 
+  //     <p>The first is a page that is <strong>meant</strong> to be landscape. The bank statement, a wide salary slip, a spreadsheet exported to PDF. The content reads correctly when the page is wide. Leave it alone. The merge tool keeps it landscape, and the printer will handle it as described above.</p>
+  // 
+  //     <p>The second is a file that is <strong>wrongly</strong> sideways. Typically a scan where the document was fed in rotated, so every page in that file shows text running up the side. It is a portrait document wearing a landscape orientation by accident. This is what the <strong>Rotate control on each file's card</strong> is for. Tap it and the whole file turns 90 degrees before it is merged, so all its pages land upright in the finished PDF. The rotation is written into the output, not just shown on your screen, which is the distinction that catches people out when they rotate in a viewer, close it, and find the file sideways again.</p>
+  // 
+  //     <p>One limit to know: that card control rotates the <strong>entire file</strong>, not individual pages within it. If a five-page scan has only page three sideways, rotating the card would flip the four good pages the wrong way. For that case, fix the file first with <a href="/rotate-pdf">Rotate PDF</a>, which lets you turn specific pages and saves the fix permanently, then bring the corrected file into the merge. Or merge first and use <a href="/organize-pdf">Organize PDF</a> afterwards to tap-rotate the odd page in the combined file. Either route works; the first is tidier if you are going to reuse that scan elsewhere. There is a longer explanation of why viewer rotation does not stick in <a href="/blog/rotate-scanned-assignment-pages-permanently">the post on rotating scanned pages permanently</a>.</p>
+  // 
+  //     <h2>Getting the Order Right, and Checking It Before You Click</h2>
+  // 
+  //     <p>Each file you add becomes a card with a number on it. The number is the order, full stop. File names do not matter, upload order does not matter, and nothing is sorted alphabetically behind your back. Drag the cover letter card to position 1, the ID scan to 2, the statement page to 3, and that is the sequence the output will follow.</p>
+  // 
+  //     <p>Each card also shows two things worth reading before you merge: the file's size and its page count. Above the merge button there is a running total of pages across every card. Use it as a sanity check. A one-page cover letter, a one-page ID copy, and a two-page statement should read four pages total. If it says five, one of those files has a stray blank page from the scanner that you may want to strip out with <a href="/delete-pdf-pages">Delete PDF Pages</a> first. If it says three, you probably attached the wrong version of something. It takes two seconds and it saves the "wait, where did my second statement page go" moment after upload.</p>
+  // 
+  //     <p>The size readout matters for a different reason. Scanned pages are heavy, and merging keeps them at full quality, so if the total is creeping past a portal's limit you will know before you download rather than after the upload fails.</p>
+  // 
+  //     <h2>A Short Note on Locked Files</h2>
+  // 
+  //     <p>Bank statements and salary slips are often password-protected, and some of them are owner-locked, meaning they open without a password but carry restrictions. Merge PDF cannot read those. It does not fail the whole job; it skips the locked file, finishes the rest, and names exactly which files it left out. If that page has to be in the bundle, remove the password you already know with Unlock PDF and merge again. That tool is covered properly in <a href="/blog/unlock-bank-statement-pdf-remove-password">the guide to unlocking a bank statement PDF</a>, including the one trade-off it involves, so I will not repeat it here.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Merge PDFs of Different Sizes and Orientations</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open <a href="/merge-pdf">Merge PDF</a> and drop in all your files at once. Letter, A4, landscape, phone scans, any mix is fine.</li>
+  //     <li><strong>Step 2:</strong> Look at the cards. Each shows the file's size and page count, and once every file can be read, the running total above the button tells you how many pages the output will have.</li>
+  //     <li><strong>Step 3:</strong> If any file is showing sideways, use the Rotate control on that card to turn it upright. Leave genuinely landscape pages such as statements alone.</li>
+  //     <li><strong>Step 4:</strong> Drag the cards into the order you want. The card numbered 1 becomes page one of the output.</li>
+  //     <li><strong>Step 5:</strong> Click Merge. If a file was password-protected, the tool tells you by name that it was skipped. Download the result, which is saved as GoPDFGo_merged.pdf, and flick through it once to confirm every page faces the right way.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Mistakes That Make People Think the Merge Went Wrong</h2>
+  // 
+  //     <p><strong>Rotating in the viewer and expecting it to stick.</strong> The rotate button in Chrome's PDF viewer or in Adobe Reader changes what you see, not the file. If you turned a page upright that way and then merged the original file, the merged copy will be sideways again. Rotate on the card, or with the rotate tool, before merging.</p>
+  // 
+  //     <p><strong>Expecting the landscape page to be turned into portrait.</strong> It will not be, and it should not be. A statement table rotated 90 degrees to fit a portrait page would be unreadable. The page stays wide, the printer scales it, everyone is happy.</p>
+  // 
+  //     <p><strong>Judging the file by the thumbnail strip.</strong> The little sidebar thumbnails in most viewers are drawn at a uniform width, which makes a landscape page look squashed and an A4 page look identical to Letter. Open the actual pages before deciding something is distorted.</p>
+  // 
+  //     <p><strong>Uploading a phone scan with a black border and blaming the merge.</strong> The merge did not add that border. It was in the scan. Crop the image before it becomes a PDF, or accept it; the merge simply carries the page as it is.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I force every page to A4 after merging?</strong><br>A: Not with this tool, which keeps each page at its original size on purpose. If a form genuinely requires uniform A4 pages, open the merged file, use your browser or viewer's Print function, choose "Save as PDF" as the printer, set paper size to A4 and "Fit to page", and print. That produces a new PDF where every page has been scaled onto A4. Text stays readable but the file is re-rendered, so do this only when a portal insists.</p>
+  // 
+  //     <p><strong>Q: Does the running page total include a file that ends up being skipped?</strong><br>A: It depends on the kind of lock. A file that needs a password just to open shows no page count on its card at all, and the page total stays hidden until every file can be read - you only see the file count and the size total. An owner-locked file (opens without a password but is restricted) does get counted in the total, and is then skipped at merge time, so the finished PDF comes out short by that file's pages and its name appears in the skipped list. Either way, if the final count looks short, check the skipped names before assuming pages went missing.</p>
+  // 
+  //     <p><strong>Q: Will an A3 drawing or a Legal-size agreement survive the merge?</strong><br>A: Yes, at full size. Oversized architectural sheets, Legal contracts and A5 booklet pages all keep their dimensions. Printing them on an A4 printer relies on the print dialog scaling them down, which is the normal behaviour anywhere.</p>
+  // 
+  //     <p><strong>Q: I merged on my phone and the landscape page looks tiny. Is that a bug?</strong><br>A: No. A phone viewer fits each page to the screen width, so a wide page has to shrink more than a tall one and ends up short with blank space around it. Pinch to zoom and it is all there at full resolution. On a laptop or on paper it looks normal.</p>
+  // 
+  //     <p><strong>Q: Does rotating on the card degrade the scan?</strong><br>A: No. Rotation changes the page's orientation flag rather than redrawing the image, so the scan is untouched. The merged output is the same quality as the input regardless of how many files you rotated.</p>
+  // 
+  //     <p><strong>Q: Can I merge two files that are both landscape and get a landscape PDF?</strong><br>A: Yes. There is no default page shape being imposed. If every input page is landscape, every output page is landscape. The tool only ever reflects what you gave it.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Mixed page sizes and orientations are not a problem to be solved before merging, they are just what real document bundles look like. The merge keeps each page at its own size and orientation, which is why nothing gets stretched, cropped or blurred. The one thing you should actively fix is a file that came in wrongly sideways, and the Rotate control on that file's card handles it before the merge. Read the page counts, check the running total, drag the cards into order, and let the printer worry about fitting everything onto paper. If a locked statement is skipped, unlock it and merge again.</p>
+  // 
+  //     <p>Ready to combine that Letter cover letter, A4 scan and landscape statement into one file? <a href="/merge-pdf">Merge your PDFs</a> right in your browser, with each page kept exactly as it was.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "photo-of-printed-page-to-text-ocr-on-phone",
+  //   title: "Photographed a Notice, Form or Page? Turn That Photo Into Text on Your Phone",
+  //   seoTitle: "Photo of a Printed Page to Text on Your Phone | GoPDFGo",
+  //   keywords: "photo to text on phone, extract text from photo, convert picture to text online free, ocr photo of notice, image to text hindi, photo of printed page to text, copy text from photo without app, jpg to text converter, ocr from camera photo, notice photo to whatsapp text",
+  //   excerpt: "You photographed a notice or form and now you need the words, not the picture. Here is the two-step chain that turns a phone photo into copyable text, in English, Hindi or both. No app needed.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/photo-of-printed-page-to-text-ocr-on-phone.webp",
+  //   content: `
+  //     <p>A notice goes up on the society board. The electricity office hands you a printed slip. The school sends a circular home in your kid's diary. The college puts the exam timetable on a wall. In every one of these cases you do the natural thing: you pull out your phone and take a photo. And then, an hour later, you need the text. Not the picture, the actual words. To forward the exact dates on WhatsApp, to paste an account number into a form, to translate a paragraph, to search for your roll number in a list.</p>
+  // 
+  //     <p>Retyping it is the usual answer. It is also slow, and if the notice is in Hindi and your keyboard is set to English, it is doubly slow. The better answer is OCR, which reads the letters off the photo and gives you plain text you can copy. GoPDFGo has an <a href="/ocr-pdf">OCR PDF</a> tool that does exactly this on your phone, in the browser, with nothing installed. There is just one catch that trips almost everyone up on the first try: the tool takes a <strong>PDF</strong>, and what you have is a <strong>JPG</strong>.</p>
+  // 
+  //     <p>So this post is about that gap. A photo is not a PDF, and the OCR tool will not take a photo directly. The fix is a two-step chain, it takes about a minute, and once you have done it once you will not think about it again.</p>
+  // 
+  //     <h2>Why the OCR Tool Wants a PDF and Not a Photo</h2>
+  // 
+  //     <p>Fair question. The honest reason is that the OCR tool was built around the most common case, which is a scanned PDF: a multi-page document from a scanner or a photocopy shop, where every page is a picture and there is no text layer to copy from. It works page by page through a PDF, and it reports progress by page count. A single photo from your camera roll is a different kind of file, so the tool simply does not open it.</p>
+  // 
+  //     <p>That is not a dead end, because turning a photo into a one-page PDF is trivial. The <a href="/image-to-pdf">Image to PDF</a> tool takes a JPG, PNG or WebP and wraps it in a PDF page. If you photographed a two-page notice, you add both photos and get a two-page PDF. Then that PDF goes into OCR. Two tools, one after the other, no upload in between, and the file never leaves your phone at any point.</p>
+  // 
+  //     <p>If you already have a scanned PDF rather than a photo, you can skip this post entirely and read the <a href="/blog/ocr-pdf-scanned-document-to-text-hindi-english">deep dive on OCR for scanned PDFs</a>, which covers the five-second test for whether a PDF is a scan at all, and goes into the Hindi and English language choice in detail. This post is for the photo-first case, where the document only ever existed as a picture on your phone.</p>
+  // 
+  //     <h2>Take the Photo Properly, Because OCR Cannot Fix a Bad One</h2>
+  // 
+  //     <p>I want to put this section before the steps, because it matters more than the steps. OCR reads shapes. If the shapes are clean, it reads them well. If the shapes are smeared, tilted, half in shadow, or tiny, it guesses, and its guesses are wrong in ways that are easy to miss. A 3 that becomes an 8 in a bank account number does not look like an error on screen. It just looks like a number.</p>
+  // 
+  //     <p>So, before anything else, take the photo like this:</p>
+  // 
+  //     <ul>
+  //     <li><strong>Flat.</strong> If the notice is curling or folded, press it down or hold the corners. A curved page makes the lines of text bend, and bent lines read badly.</li>
+  //     <li><strong>Straight-on.</strong> Hold the phone directly above or in front of the page, parallel to it. An angled shot turns rectangles into trapezoids and makes the far end of every line smaller than the near end. The engine has no idea the page was flat in real life.</li>
+  //     <li><strong>Even light, no shadow.</strong> This is the one people miss. Under a ceiling light, your own hand and phone throw a shadow across the page. Step aside so the light hits the page from the side, or move near a window. A shadow band across the middle of the text is the single most common reason a photo OCRs half right and half garbage.</li>
+  //     <li><strong>Fill the frame.</strong> Get close enough that the text is large in the photo. A notice photographed from across the room, with the whole wall in the frame, has letters only a few pixels tall. Zooming in later does not add detail that was never captured.</li>
+  //     <li><strong>Tap to focus, then hold still.</strong> Tap on the text in the camera app so the phone focuses on the page and not on the wall behind it. Wait for the focus to lock before pressing the shutter. Motion blur is invisible on a small thumbnail and fatal to OCR.</li>
+  //     <li><strong>Skip the flash on glossy paper.</strong> The flash bounces off laminated notices and glossy print as a white blob that swallows whatever text was under it. Ambient light is safer.</li>
+  //     </ul>
+  // 
+  //     <p>One more thing: if the photo has a lot of wall, board, table or bedsheet around the notice, crop it. A big dark border or a busy background gives the engine junk to chew on and can push the real text off to a corner. The <a href="/crop">Crop</a> tool lets you drag a box around just the printed area and save that. It is quick, and it makes a measurable difference on cluttered shots. There is a <a href="/blog/remove-unwanted-edges-crop-scanned-documents">separate guide on cropping photographed documents</a> if you want the detail.</p>
+  // 
+  //     <h2>The Two-Step Chain</h2>
+  // 
+  //     <p>Here is the whole workflow, from a photo in your gallery to text on your clipboard. All of it runs on your phone.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Turn a Photo of a Printed Page Into Text on Your Phone</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Take the photo following the tips above: flat, straight-on, even light, text filling the frame. If there is a lot of background around the page, open the photo in the Crop tool first and trim to just the printed area.</li>
+  //     <li><strong>Step 2:</strong> Open the Image to PDF tool. Add your photo, or all the photos if the notice ran to more than one page, and put them in reading order. Leave the page size on the default and export. You get a one-page or multi-page PDF saved to your phone.</li>
+  //     <li><strong>Step 3:</strong> Open the <a href="/ocr-pdf">OCR PDF</a> tool and pick the PDF you just made.</li>
+  //     <li><strong>Step 4:</strong> Choose the language that is actually on the page. English only for an English notice, Hindi only for a Hindi one, and Hindi + English for the bilingual notices most government and municipal offices print. Getting this right is the difference between readable text and nonsense, and the next section explains why.</li>
+  //     <li><strong>Step 5:</strong> Run it. On the very first use the tool downloads its recognition engine, a few megabytes, and this happens once. Then it reads the page. Keep the tab open and in the foreground while it works.</li>
+  //     <li><strong>Step 6:</strong> Copy the text with one tap, or download it as a .txt file. Paste it into WhatsApp, an email, a form, or a translation app. Proofread any number before you rely on it.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>English, Hindi, or Both: Pick the One on the Page</h2>
+  // 
+  //     <p>This is not a cosmetic setting. The English model has no idea what Devanagari is. Feed it a Hindi line and it does not produce slightly worse Hindi, it produces a string of Latin letters that vaguely follow the shapes and mean nothing. The Hindi model does the same thing in reverse to English. So if you photographed a Hindi-only circular and left the tool on English, the output will look broken, and the fix is simply to switch the language and run it again.</p>
+  // 
+  //     <p>Most official notices in India are bilingual, with the Hindi line above or beside the English one. For those, choose Hindi + English. It recognises both scripts in a single pass, so the whole notice comes back readable instead of alternating between good lines and gibberish. It is a bit slower than a single language, which is the price of doing two jobs at once. For a one-page notice the difference is a few seconds and not worth worrying about.</p>
+  // 
+  //     <p>A small tip for the mixed case: if the notice is bilingual but you only need the English half, you can still pick English only. The Hindi lines will come out as junk, but you can just delete them from the text, and the run will be a little faster. Whether that trade is worth it depends on how much Hindi there is to scroll past.</p>
+  // 
+  //     <h2>What This Will Not Do, and What to Expect</h2>
+  // 
+  //     <p>I would rather set expectations here than have you find out the hard way.</p>
+  // 
+  //     <p><strong>Printed text only.</strong> A typed notice, a printed form, a photocopied circular, a printed timetable: all fine. A handwritten note on the same board: not fine. Handwriting reads badly, and the neater it is the less bad, but even a clear teacher's handwriting comes back with too many wrong words to trust. If what you photographed is handwritten, retyping is genuinely faster.</p>
+  // 
+  //     <p><strong>Blur is not recoverable.</strong> If the photo is soft, the output is guesswork. There is no setting that sharpens it later. Retake the photo. This is why the camera tips come first in this post.</p>
+  // 
+  //     <p><strong>It is the slowest tool on the site.</strong> Most other tools on GoPDFGo feel instant by comparison. This one renders the page to an image, then examines it shape by shape, and on a phone that takes real time. Expect somewhere between a few seconds and a minute for a single page, longer on an older phone or a large photo. A ten-page photographed booklet will take a while. The progress bar shows the real page count, so you can see it moving. Do not switch apps while it is running.</p>
+  // 
+  //     <p><strong>The engine downloads once.</strong> The first time you run it, the tool fetches its recognition engine and language data, a few MB. After that it is cached and later runs start straight away. If you are on a tight mobile data plan, do the first run on Wi-Fi.</p>
+  // 
+  //     <p><strong>Small errors are normal.</strong> Even on a good photo, similar shapes get confused. A 1 and an l, a 0 and an O, a 5 and an S. A long number can lose a digit. This is the nature of OCR, not a bug in this particular tool, and it is why the last step of the walkthrough is proofreading. Anything you will act on, an amount, a date, an account number, a roll number, check it against the photo before you send it.</p>
+  // 
+  //     <p><strong>You get text, not a searchable PDF.</strong> The output is plain text with page breaks marked. The tool does not build a new PDF with an invisible text layer under the image. For the notice-to-WhatsApp use case that is exactly what you want. If what you actually need is a searchable PDF, this is not the tool for it.</p>
+  // 
+  //     <h2>Where the Text Goes Next</h2>
+  // 
+  //     <p>The point of all this is that the text is now just text. A few things people do with it:</p>
+  // 
+  //     <ul>
+  //     <li><strong>Forward the exact wording on WhatsApp.</strong> Instead of a blurry photo that the family group will squint at, paste the notice as a message. Dates and times are then searchable inside the chat, which a photo never is.</li>
+  //     <li><strong>Paste a number into a form.</strong> A consumer number from an electricity slip, a challan number from a notice, a reference number from a printed receipt. Copy from the OCR text, paste into the portal, and check it once against the original.</li>
+  //     <li><strong>Translate it.</strong> Paste the Hindi text into a translation app if you are more comfortable in English, or the other way round. This is a big reason people OCR bilingual notices in the first place.</li>
+  //     <li><strong>Search a printed list.</strong> A merit list or a seat allotment pinned to a notice board. Photograph it in sections, OCR it, then search the text for your name or number instead of running your finger down the page.</li>
+  //     <li><strong>Keep a text copy.</strong> Download the .txt and keep it alongside the photo. A year from now the photo will be one of thousands in your gallery, and the text file will be the one you can actually search.</li>
+  //     </ul>
+  // 
+  //     <h2>Mistakes That Waste a Second Run</h2>
+  // 
+  //     <p>Two things I have watched people do that the steps above do not cover.</p>
+  // 
+  //     <p>Photographing a whole notice board with six notices on it and expecting to pull out one. You will get all six, interleaved, in whatever order the engine reads across the page. Photograph one notice at a time, close up, or crop to the one you want before converting.</p>
+  // 
+  //     <p>Trusting a number without checking it. This one is not a wasted run, it is worse: a wrong digit in a form you have already submitted stays wrong. Proofread against the photo before you paste.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I OCR a screenshot instead of a camera photo?</strong><br>A: Yes, and screenshots usually read better than camera photos because they are perfectly flat, evenly lit and sharp. Save the screenshot, run it through Image to PDF, then OCR it exactly the same way. This is handy for text inside an image someone forwarded on WhatsApp.</p>
+  // 
+  //     <p><strong>Q: Does the photo have to be a JPG?</strong><br>A: No. Image to PDF accepts JPG, PNG and WebP, which covers Android photos and what most apps export. iPhone photos are the exception: they are usually HEIC, which the picker will not accept - run them through <a href="/heic-to-jpg">HEIC to JPG</a> first, then into Image to PDF.</p>
+  // 
+  //     <p><strong>Q: I photographed a three-page notice. Do I OCR each page separately?</strong><br>A: No need. Add all three photos to Image to PDF in reading order, export one three-page PDF, and OCR that once. The text comes back with page breaks marked, so you can tell where each photo ended.</p>
+  // 
+  //     <p><strong>Q: The notice was printed in a language other than Hindi or English. Will it read that?</strong><br>A: Not reliably. The tool offers English, Hindi and the two together. Other scripts, such as Tamil, Bengali or Gujarati, do not have a model here, so a notice in those languages will come back as nonsense. English text on the same page would still read, but the regional-language lines would not.</p>
+  // 
+  //     <p><strong>Q: Will this read the text off a photo of a computer screen or a projector slide?</strong><br>A: Sometimes, but it is the worst case for the camera. Screens introduce a moire pattern, glare and uneven brightness, and projector slides are dim and angled. If you can take a screenshot or get the file itself, do that instead. If a photo is your only option, get as square-on as you can and turn off the flash.</p>
+  // 
+  //     <p><strong>Q: Does OCR change my original photo or the PDF?</strong><br>A: No. Both stay exactly as they were on your phone. OCR only reads them and produces a separate text result, which you copy or download as a .txt file.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>A photo of a printed page is not yet something you can copy text from, but it is one small step away. Take the picture flat, straight-on, in even light with no shadow across the text, and crop out the wall if there is a lot of it. Run it through Image to PDF to get a one-page PDF, then through OCR PDF with the right language picked: English, Hindi, or both for a bilingual notice. Expect it to take a little while, because reading shapes off an image is heavy work and this is the slowest tool on the site, and expect to proofread the numbers. What you get back is plain text you can paste into WhatsApp, a form, or a translator, without retyping a word.</p>
+  // 
+  //     <p>Next time a notice goes up and you reach for your camera, take the extra two seconds to shoot it properly. Then <a href="/ocr-pdf">turn that photo into text on your phone</a>, with nothing installed and nothing uploaded.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "rotate-only-specific-pages-in-pdf",
+  //   title: "How to Rotate Only the Sideways Pages in a PDF (Not the Whole Document)",
+  //   seoTitle: "Rotate Only Specific Pages in a PDF, Not All | GoPDFGo",
+  //   keywords: "rotate specific pages in pdf, rotate only one page in pdf, rotate single page pdf online, rotate certain pages in pdf, rotate individual pdf pages, fix sideways page in pdf, rotate one page not whole document, rotate selected pages pdf free, mixed portrait landscape pdf",
+  //   excerpt: "Two pages of your KYC bundle scanned sideways and the rest are fine? Here is how to rotate just those pages 90, 180 or 270 degrees, permanently and losslessly, without touching the good ones.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/rotate-only-specific-pages-in-pdf.webp",
+  //   content: `
+  //     <p>You scan a KYC bundle at the Xerox shop near the branch. Twelve pages: PAN, Aadhaar front and back, three months of salary slips, a rent agreement, a couple of utility bills. You get home, open the PDF, and pages 4 and 9 are lying on their side. The other ten are perfect. Two sheets went into the feeder the wrong way and nobody noticed.</p>
+  // 
+  //     <p>The obvious reaction is to hit a "rotate" button. The obvious mistake is hitting the one that turns the <em>whole document</em>. Now the two bad pages are upright and the ten good pages are sideways, which is a worse position than the one you started in. I have watched people go around this loop three or four times before giving up and rescanning everything.</p>
+  // 
+  //     <p>This post is about the other way of doing it: rotating only the pages that are wrong, by the amount each one needs, and leaving every other page exactly as it was. That is a slightly different job from fixing a document where every page is upside down, and it deserves its own explanation.</p>
+  // 
+  //     <h2>Why "Rotate All" Is the Wrong Button Here</h2>
+  // 
+  //     <p>Most rotate features, in viewers and in a lot of online tools, are document-wide. They exist for the case where a whole file came out flipped, so one click spins every page by the same amount. That is fine when every page is wrong in the same way.</p>
+  // 
+  //     <p>Your KYC bundle is not that. It is ten correct pages plus two that need a quarter turn. Apply a 90 degree turn to everything and you have not fixed anything, you have just moved the problem from two pages to ten. Apply it again and you are at 180, which is upside down for the good pages and still sideways for the bad ones. There is no whole-document rotation that brings a mixed file into line, because the pages do not all need the same correction.</p>
+  // 
+  //     <p>The same thing happens with a scanned bank statement. A six-page HDFC or SBI statement printout where one sheet went through the feeder rotated, or a set of marksheets where the 12th certificate is landscape and got scanned on its side while the rest are portrait. Different pages, different problems, so the fix has to be per page.</p>
+  // 
+  //     <h2>What Per-Page Rotation Actually Does</h2>
+  // 
+  //     <p>Every page inside a PDF carries its own rotation value. It is a small number stored with the page, and it can be 0, 90, 180 or 270. When a viewer draws the page, it reads that number and turns the content accordingly. Page 4 can say 90 while page 5 says 0, and they sit next to each other in the same file without any conflict. There is no rule that a PDF must be all portrait or all landscape.</p>
+  // 
+  //     <p>The Rotate PDF tool works at that level. Each page in the preview has its own rotate button, and every click turns that one page 90 degrees clockwise - one click for 90, two for 180, three for 270, and a fourth brings it back to where it started. When you process the file, only the pages you turned get a new rotation value. So in the KYC example, pages 4 and 9 get a new flag and the content of pages 1 to 3, 5 to 8 and 10 to 12 is left untouched.</p>
+  // 
+  //     <p>The amount is up to you, page by page. If page 4 is lying on its left side it probably needs a single 90 degree turn. If page 9 went in upside down it needs 180, so you click twice. If one went in on its right side it needs 270, which is three clicks. You keep clicking until the thumbnail looks right, and only what you see in the preview gets written to the file.</p>
+  // 
+  //     <h3>Why the fix sticks when the viewer's rotate button does not</h3>
+  // 
+  //     <p>This is the part that catches people out. Chrome, the phone's built-in PDF viewer, Adobe Reader, they all have a rotate control. Use it and the page looks fine. Close the file, reopen it, and it is sideways again. Send it to the bank and their reviewer sees it sideways too.</p>
+  // 
+  //     <p>That is because the viewer's rotate only changes how the page is <em>displayed</em> on your screen in that session. It never writes anything into the file. The rotation value on the page is still 0, and any other program reading the file will honour that 0. The tool here changes the value itself, which is why the correction travels with the file to whoever opens it next. If you want the longer version of that distinction applied to a whole assignment, the earlier post on <a href="/blog/rotate-scanned-assignment-pages-permanently">rotating scanned assignment pages permanently</a> goes into it in detail. The point of this post is the selective part: doing it to two pages and not twelve.</p>
+  // 
+  //     <h2>It Is Lossless, Which Matters for Scans</h2>
+  // 
+  //     <p>Because the tool only updates a flag, it does not touch the page content. A scanned page is a big image, and that image is not decoded, resampled or re-compressed. It is the same image, told to display at a different angle. Your 300 dpi scan of a PAN card stays a 300 dpi scan. A page that was real text, say a salary slip exported from the HR portal, keeps its selectable, searchable text.</p>
+  // 
+  //     <p>This is not true of every route. Some people fix orientation by converting the PDF to images, rotating the images, and converting back. That works, but every page goes through an image codec on the way, the text layer is gone, and the file often gets bigger. For an ID document that a verification desk is going to zoom in on, you do not want to lose sharpness for the sake of a quarter turn. Flipping a flag is the clean way.</p>
+  // 
+  //     <p>The file size also stays essentially the same - the pages are not re-compressed, though the file is re-saved, so the number can shift slightly. Rotation is not going to push you over a portal's upload cap, and it is not going to shrink the file either, so do not count on it for that.</p>
+  // 
+  //     <h2>Mixed Portrait and Landscape Is Fine</h2>
+  // 
+  //     <p>A question I get asked: "If I rotate the landscape pages so they read properly, will the document look odd with different shaped pages?" The honest answer is that a PDF with mixed page shapes is completely normal and every viewer handles it. A rent agreement in portrait followed by a landscape bank statement page followed by a portrait Aadhaar scan is a perfectly valid file. Viewers show each page at its own size, and continuous scrolling just moves from one to the next.</p>
+  // 
+  //     <p>What you are correcting is not the shape of the page but whether the content on it is readable without tilting your head. A landscape statement page that opens sideways should be turned so it opens landscape and upright. A portrait page that opens sideways should be turned so it opens portrait and upright. After that, some pages will be tall and some will be wide, and that is fine. Do not try to force everything into portrait by rotating a genuinely wide table. You will just make the table unreadable.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Rotate Only Specific Pages in a PDF</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/rotate-pdf">GoPDFGo Rotate PDF</a> tool and drop in your file. It stays on your device throughout; nothing is uploaded.</li>
+  //     <li><strong>Step 2:</strong> Scroll through the page previews and find the ones that are wrong. In the KYC example that is pages 4 and 9. Leave everything else untouched.</li>
+  //     <li><strong>Step 3:</strong> On each wrong page, click its rotate button until the preview sits upright - every click is 90 degrees clockwise, so one click is 90, two is 180, three is 270, and four brings it back around. Each page is independent, so page 4 can get one click and page 9 can get two.</li>
+  //     <li><strong>Step 4:</strong> Glance down the whole set once more. Nothing is written until you process, so if you turned the wrong page or overshot, keep clicking until the preview is right.</li>
+  //     <li><strong>Step 5:</strong> Click Process PDF, then download. The file comes back with the same name prefixed by GoPDFGo_. Open it in any viewer to confirm that only the pages you changed have moved.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Mistakes Worth Avoiding</h2>
+  // 
+  //     <p><strong>Rotating the whole file for a two-page problem.</strong> Covered above, but it is the number one way this goes wrong. If the tool you are using only offers a single rotate-everything button, it is the wrong tool for a mixed document.</p>
+  // 
+  //     <p><strong>Trusting the viewer's rotate and uploading anyway.</strong> The file looks right on your screen, you upload it, the reviewer sees it sideways, and your application gets bounced as "document not clear." Always open the downloaded file fresh, ideally on a different device or in a different viewer, before you submit it.</p>
+  // 
+  //     <p><strong>Trying to fix a slight tilt.</strong> Rotation works in quarter turns only. If a page is skewed by 3 or 4 degrees because the sheet was not square in the feeder, no amount of clicking will straighten it. That page needs to be rescanned. A crooked page is annoying, but a sideways page is what actually gets rejected, so prioritise accordingly.</p>
+  // 
+  //     <p><strong>Expecting it to work on a locked PDF.</strong> If the file asks for a password, or opens without one but has editing restrictions set by the bank, the rotate tool will refuse it and point you to Unlock PDF. Salary slips and statements downloaded from bank sites are commonly locked like this. Run the file through <a href="/unlock-pdf">Unlock PDF</a> with the password you already know, then rotate. Keep in mind the unlocked output is a flattened, image-based PDF, so its text will no longer be selectable, which for a KYC upload does not matter at all. Each bank sets its own password format - often some mix of your PAN, date of birth or customer ID - and the exact pattern is printed in the email that delivered the file.</p>
+  // 
+  //     <p><strong>Rotating pages that are also in the wrong order.</strong> Sometimes the sideways pages are the same ones that got fed in out of sequence. If your bundle needs both a rotation fix and a reorder, do it in one pass with <a href="/organize-pdf">Organize PDF</a>, where you can drag pages into order and tap to rotate them on the same screen, and the rotation travels with the page as you move it. For a pure reorder job, the post on <a href="/blog/rearrange-scanned-pdf-page-order">fixing a scanned PDF's page order</a> covers that on its own.</p>
+  // 
+  //     <h2>When the Sideways Page Is a Separate File</h2>
+  // 
+  //     <p>A related situation: you have not scanned one bundle, you have six separate PDFs, and one of them, say the rent agreement, is entirely sideways. You do not need to rotate it first and then combine. The <a href="/merge-pdf">Merge PDF</a> tool has a per-file rotate control on each card, so you can turn that one document before it joins the others, and the pages from the other five files are left as they are. Same idea as this post, just at the file level rather than the page level.</p>
+  // 
+  //     <p>If you do rotate first and merge second, that also works fine, because the rotation flag is carried into the merged file. Merge does not reset it.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can I rotate a range of pages, like 5 to 8, in one go?</strong><br>A: The tool is built around turning each page individually from its preview, which is the right fit for the "two random pages are wrong" case. For four consecutive sideways pages you click through them one at a time. It is a few seconds of extra work and it means you never accidentally catch a good page in the range.</p>
+  // 
+  //     <p><strong>Q: Will the fixed page open correctly on the bank's or portal's side, not just mine?</strong><br>A: Yes. The rotation value is part of the PDF standard and every conforming reader honours it: Adobe, Chrome, Edge, macOS Preview, the phone viewers, and the automated document systems portals use. That is the whole reason to write it into the file rather than rely on your own viewer.</p>
+  // 
+  //     <p><strong>Q: I rotated page 4 and then realised page 4 was fine and page 5 was the sideways one. Do I have to start over?</strong><br>A: No. Nothing is locked in until you process. Keep clicking page 4 until it comes back around to where it started - four clicks in total returns it to zero - then fix page 5. If you have already downloaded the file, just load the downloaded copy back in and correct it. Because rotation is lossless, running it twice does not degrade anything.</p>
+  // 
+  //     <p><strong>Q: Does rotating a page change its page number or its position in the document?</strong><br>A: No. Rotation touches orientation only - page 9 stays page 9. One ordering tip though: a page number stamped earlier is drawn into the page itself, so it turns along with everything else when you rotate. Fix the orientation first, then add numbers with the <a href="/page-numbers">Page Numbers</a> tool, and they will sit correctly on every page.</p>
+  // 
+  //     <p><strong>Q: My scanner app already has a rotate option. Why not use that?</strong><br>A: If you are still in the scanner app and it lets you rotate a single page before export, use it, that is the earliest point to fix it. The trouble is that most people only notice the sideways page after the PDF has been exported and shared, sometimes days later. At that point you are working with the PDF, and this is how to fix it without rescanning.</p>
+  // 
+  //     <p><strong>Q: Is there any limit on how many pages I can rotate in one file?</strong><br>A: Not in practice. Rotate two pages or twenty, in any mix of 90, 180 and 270. Since the work is just updating flags on your own device, a 50-page bundle processes in about the same time as a 5-page one.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>A document where two pages are sideways is not a document that needs rotating. It is a document where two pages need rotating. Turn only those pages, by whatever amount each one needs, and leave the rest alone. Because the tool writes the correction into each page's own rotation value, the fix is permanent and shows up correctly for whoever opens it, the page content is untouched so scans stay sharp and text stays selectable, and a mix of portrait and landscape pages is perfectly normal.</p>
+  // 
+  //     <p>Next time a KYC bundle or a statement comes back with a stray page on its side, skip the rescan. Load it into <a href="/rotate-pdf">Rotate PDF</a>, fix the two pages that are wrong, and send it off.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "sign-pdf-online-without-printing",
+  //   title: "How to Sign a PDF Online Without Printing or Scanning It",
+  //   seoTitle: "Sign a PDF Online Without Printing or Scanning | GoPDFGo",
+  //   keywords: "sign pdf online free, how to sign a pdf without printing, add signature to pdf, sign rent agreement pdf, sign offer letter pdf online, e sign pdf on phone, initial every page of pdf, sign pdf without uploading, draw signature on pdf, sign consent form pdf",
+  //   excerpt: "Landlord, HR or school wants a PDF signed and returned? Skip the print-sign-scan trip. Draw, type or upload a signature, initial every page in one click, and download, all on your own device.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
+  //   content: `
+  //     <p>The email lands at 6 pm. "Please find attached the rent agreement. Kindly sign and return by tomorrow." Or it's HR with an offer letter. Or your kid's school with a consent form for the picnic. Different sender, same request: sign this PDF and send it back.</p>
+  // 
+  //     <p>And every time, the same loop starts. You need a printer, and the one at home is out of ink. So you WhatsApp the file to the shop near the bus stand, pay Rs 5 a page, sign it on their counter, and then photograph each page with your phone because the shop's scanner is "not working today." The photos come out slanted, one has your thumb in it, and the whole thing is 14 MB by the time it bounces back to the landlord. It took an hour to add a two-second scribble.</p>
+  // 
+  //     <p>You can skip the whole loop. Open the PDF in your browser, put your signature on the line, download, reply. This post walks through exactly how, including the annoying bits nobody mentions: locked PDFs, initialling every page, the file size afterwards, and the one situation where a visual signature is genuinely not enough.</p>
+  // 
+  //     <h2>Why People Still Print and Scan</h2>
+  // 
+  //     <p>Mostly because the alternatives have been bad. The PDF reader on your phone might let you scribble something, but it looks like a child drew it with a crayon, and half the time the annotation vanishes when the other person opens the file in a different app. Desktop editors want a subscription for the sign feature. And the free "sign online" websites want your document uploaded to their server, which is a strange thing to do with an offer letter that has your salary on it, or a rent agreement with your Aadhaar copy stapled at the back.</p>
+  // 
+  //     <p>So people default to paper, because paper at least works. The Sign PDF tool is meant to be the version that works without the paper: it runs entirely inside your browser, on your own device, and the signed file it produces is a normal, flat PDF that opens the same way in every reader, on every phone, with the signature baked into the page rather than floating on top as an annotation.</p>
+  // 
+  //     <h2>Three Ways to Make a Signature</h2>
+  // 
+  //     <p>Before placing anything, you need a signature to place. There are three ways to make one, and which you choose depends on the document and the device you are holding.</p>
+  // 
+  //     <h3>Draw it</h3>
+  // 
+  //     <p>On a phone, sign with your finger on the screen. On a laptop, use the mouse or trackpad. This gives you a signature that is genuinely yours, and for most day-to-day forms it is the right pick. A tip from experience: draw it larger than you think you need. A big, slow stroke on screen shrinks down cleanly; a tiny fast squiggle becomes a blob. If the first attempt looks like a heart-rate monitor, clear it and try again. Nothing is committed until you download.</p>
+  // 
+  //     <h3>Type it</h3>
+  // 
+  //     <p>Type your name and pick a handwriting-style font. It is tidy, it is legible, and it is fine for internal approvals, acknowledgements, "received in good condition" notes, and anywhere the other party mainly needs to see that a signature is present. I would not use a typed signature on a rent agreement, though. Not because it is invalid, but because a landlord who sees a font where they expected a scrawl will ask you to do it again, and now you have lost the time you saved.</p>
+  // 
+  //     <h3>Upload it</h3>
+  // 
+  //     <p>Sign once on a clean white sheet with a dark pen, photograph it in good light, and upload that image. This is the best option when you want the signed PDF to look exactly like your pen signature, and once you have the image saved you can reuse it for every document after this one.</p>
+  // 
+  //     <p>Here is the catch, and the tool's own help page says it plainly: the image is placed exactly as it is. There is <strong>no background removal</strong>. If your photo has a grey shadow, the ruled lines of a notebook, or a yellowish tint from the tube light, all of that lands on the page and covers the text beneath. The fix is upstream. Use a plain white sheet, shoot it under daylight, and <a href="/crop">crop tightly</a> so only the ink remains with a sliver of white around it. A clean PNG with a transparent background sits best of all, but a tightly cropped photo on bright white paper looks perfectly respectable on a white PDF page. What looks bad is a big off-white rectangle sitting on top of the agreement's text.</p>
+  // 
+  //     <h2>Placing It on the Line</h2>
+  // 
+  //     <p>Once the signature exists, drag it onto the page and drop it where the line is. Then resize it. The default size is rarely right for the space on the form; agreement templates leave a short line at the bottom of the last page, and a signature that is twice its length looks careless. Shrink it so it sits inside the line with a little air on each side, and check it does not overlap the printed "Signature of Tenant" label underneath.</p>
+  // 
+  //     <p>Move between pages to find the right spot. On a rent agreement that is usually the last page; on an offer letter it is often page two or three, below "I accept the terms above"; on a school consent form it is wherever the box is. What you see on screen is where it lands in the file, so zoom in and look before you download. If it landed a page early or a few millimetres off, just drag it again.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Sign a PDF Without Printing It</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/sign-pdf">GoPDFGo Sign PDF</a> tool and drop in the agreement, letter, or form.</li>
+  //     <li><strong>Step 2:</strong> Create your signature: draw it with a finger or mouse, type your name in a handwriting style, or upload a clean, tightly cropped image of your real signature.</li>
+  //     <li><strong>Step 3:</strong> Go to the page with the signature line, drag the signature onto it, and resize it to fit. Nothing is final until you download, so adjust freely.</li>
+  //     <li><strong>Step 4:</strong> If the document asks you to initial every page, tick "Place this signature on all N pages" (N shows the real page count). Skip this if only one page needs signing.</li>
+  //     <li><strong>Step 5:</strong> Download the signed PDF. It is saved as GoPDFGo_ followed by the original file name, so you will not confuse it with the unsigned copy.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>Initialling Every Page Without Doing It 11 Times</h2>
+  // 
+  //     <p>Rent agreements in most Indian cities run to eight, ten, twelve pages, and the broker will tell you to "sign on every page, sir." On paper that means eleven signatures and a cramping hand. In the tool there is a checkbox labelled "Place this signature on all N pages," where N is the actual count in your file, so on an eleven-page agreement it reads all 11 pages. Tick it, and the same signature at the same position is stamped on every page in one go.</p>
+  // 
+  //     <p>Two things to know. First, it uses the position you set, so put the signature somewhere that is empty on every page, usually the bottom margin, rather than on the last page's signature line, because that spot on page four might be sitting on top of a clause. Second, the tool holds one signature in one position per pass, so if you also need a full signature on the final page's line, that is a second pass. Do the all-pages initials, download, then open the downloaded GoPDFGo_ file in the tool again and place the main signature on the last page's line. The initials you added in the first pass are already part of the page content, so the second pass does not disturb them.</p>
+  // 
+  //     <p>Do not tick the box on a form where only one page needs a signature. It really does mean every page, and a consent form with your signature floating in the middle of the school's instructions page looks odd.</p>
+  // 
+  //     <h2>When the PDF Refuses to Open in the Tool</h2>
+  // 
+  //     <p>Some documents arrive locked. Salary slips from the payroll portal, bank letters, anything sent through a corporate document system, and occasionally an agreement a lawyer's office has "protected" out of habit. Some of these ask for a password when you open them; others open fine but are owner-restricted so that editing is blocked. Either way, the sign tool will not edit an encrypted file. It stops with a clear message pointing you to Unlock PDF.</p>
+  // 
+  //     <p>Run the file through <a href="/unlock-pdf">Unlock PDF</a> first, using the password you already know (it only removes a known password; it will not guess one you have forgotten). The unlocked output is a flattened, image-based PDF: the pages look identical, but the text is no longer selectable. For a document you are about to sign and return, that does not matter. Sign the unlocked copy and send that. If the password itself is the mystery, check the email that delivered the file; banks and payroll systems almost always print the format there (PAN plus date of birth, employee ID, and so on).</p>
+  // 
+  //     <h2>After Signing: Size and Bundling</h2>
+  // 
+  //     <p>If the original PDF was a scan, it was probably heavy already, and it stays heavy after signing. The landlord's email might take it, but a property portal, a company HR system, or a WhatsApp send to a broker with a slow connection will grumble at anything over a few MB. Pass the signed file through <a href="/compress-pdf">Compress PDF</a>. On a scanned agreement, Best Compression typically drops the size by 60 to 80 percent while leaving the pages looking the same, and it never hands you back a bigger file than you gave it. Compress <em>after</em> signing, not before, so the signature is compressed along with everything else and you only do one pass.</p>
+  // 
+  //     <p>Landlords and HR teams frequently want the signed document plus ID proof in a single file. Open <a href="/merge-pdf">Merge PDF</a>, add the signed agreement first and the ID pages after, drag the cards if the order is wrong, and download GoPDFGo_merged.pdf. If your ID proof is a phone photo rather than a PDF, convert it with Image to PDF before merging, and if the ID is your Aadhaar, mask the number first; there is a separate guide on <a href="/blog/mask-aadhaar-card-safely-for-rent-agreements">masking Aadhaar for rent agreements</a>. Keep in mind merge skips encrypted files and tells you which ones it skipped, so unlock any locked ID PDF first as well.</p>
+  // 
+  //     <h2>The Honest Bit: This Is Not a DSC</h2>
+  // 
+  //     <p>What the tool adds is a visual signature: an image of your handwriting placed on the page. That is what a rent agreement, an offer letter acceptance, a consent form, an NDA with a freelance client, or a "no objection" letter needs in practice. The other side wants to see your signature on their document, and now they can.</p>
+  // 
+  //     <p>It is not a cryptographic digital signature. There is no certificate, no key, no verification panel in the reader. So if a portal says "upload the document signed with your DSC," or the GST, MCA, income-tax, or tender site asks for a Digital Signature Certificate token, or a form wants Aadhaar-based e-sign with an OTP, this tool is not that and cannot be made into that. Those signatures are issued by licensed certifying authorities and involve a registered identity; a drawn signature, however neat, will be rejected by the portal's validator. Use this for everyday documents between people. Use a DSC or e-sign service where a regulator specifically demands one.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Can the other person move or delete my signature after I send the file?</strong><br>A: Not casually. The signature is drawn into the page content of the downloaded PDF, not added as a removable annotation, so it opens as part of the page in any reader. Someone with a PDF editor could still alter the document, which is true of any non-certified PDF, so keep your own copy of what you sent.</p>
+  // 
+  //     <p><strong>Q: Can I add a date next to the signature?</strong><br>A: The tool places signatures, not text fields, and it places one item per pass. So sign and download first, then re-open the signed GoPDFGo_ file in the tool, type the date in the type option as if it were a signature, and place it beside your name in a second pass. It is a small hack, but it produces a clean result.</p>
+  // 
+  //     <p><strong>Q: Two people need to sign the same agreement. How do we do that?</strong><br>A: Sign your copy, download it, and send it to the second person. They open the signed file in the same tool and add their signature on their line. Signatures stack; the second signing does not disturb the first.</p>
+  // 
+  //     <p><strong>Q: Does signing on my phone give a worse result than on a laptop?</strong><br>A: Drawing with a finger is a bit looser than with a mouse, but the drawn signature is captured at high resolution on both, so neither comes out pixelated. If your finger signature looks shaky, upload a photo of your pen signature instead and reuse it from the phone every time.</p>
+  // 
+  //     <p><strong>Q: The signed PDF looks fine on my laptop but the signature is tiny on the recipient's phone. Why?</strong><br>A: It is not tiny; the whole page is shrunk to fit the phone screen and the signature shrinks with it. Zoom in and it is the size you set. If you want it more visible at a glance, resize it larger before downloading.</p>
+  // 
+  //     <p><strong>Q: Can I sign a Word document or a photo of a form?</strong><br>A: The tool takes PDFs only. Export the Word file to PDF from Word itself, and turn a photo of a form into a PDF with Image to PDF first, then sign that.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>The print-sign-scan loop exists because nobody gave you a decent way to put a signature on a PDF without paying for it. Now you have one. Draw, type, or upload a signature, drop it on the line, tick the all-pages box if the broker wants every page initialled, download, and reply to the email. Unlock a locked file first, compress the result if it is heavy, merge in your ID if they asked for one file, and remember this is a visual signature, not a DSC.</p>
+  // 
+  //     <p>Next time that "kindly sign and return" email lands, skip the trip to the print shop and <a href="/sign-pdf">sign the PDF in your browser</a>.</p>
+  //     `
+  // },
+
+  // {
+  //   id: "watermark-documents-before-sending-to-broker-agent",
+  //   title: "Sending Property Papers or ID Copies to a Broker or Agent? Watermark Them First",
+  //   seoTitle: "Watermark ID Copies Before Sending to a Broker | GoPDFGo",
+  //   keywords: "watermark id copy before sharing, watermark aadhaar for broker, send documents to property agent safely, watermark rent agreement documents, stamp pan card copy with name and date, protect id copy from misuse, watermark property papers pdf, share documents with loan agent safely, for xyz only watermark, watermark pdf for whatsapp",
+  //   excerpt: "A broker wants Aadhaar, PAN and property papers on WhatsApp. Stamp every page with their name and today's date first, so the copy cannot be quietly reused. Here is the wording, position and opacity.",
+  //   date: "September 04, 2026",
+  //   publishedAt: "2026-09-04",
+  //   imageUrl: "/images/blogs/watermark-documents-before-sending-to-broker-agent.webp",
+  //   content: `
+  //     <p>You have found a 2BHK you like. The broker is friendly, the rent is fair, and then comes the message you knew was coming: "Sir, please send Aadhaar, PAN and one salary slip on WhatsApp, owner wants to see." Or you are selling a plot and the agent wants a copy of the sale deed and your ID to "show to a serious buyer." Or a loan agent from some DSA needs your papers "just to check eligibility, no commitment."</p>
+  // 
+  //     <p>So you send them. Everyone does. And that is where the problem starts, because a clean copy of your Aadhaar or your property papers, once it is on someone else's phone, is not yours anymore. It is theirs. It gets forwarded to the owner, to a sub-broker, to a friend who "also has a client," and nobody in that chain has any reason to delete it.</p>
+  // 
+  //     <p>This post is about one small habit that changes the maths: stamp the copy with the name of the person you are sending it to, and the date, before it leaves your phone. It takes about a minute, and it turns a reusable document into a document that only makes sense in one conversation.</p>
+  // 
+  //     <h2>What Actually Happens to a Clean Copy</h2>
+  // 
+  //     <p>Let me be specific, because "identity theft" sounds abstract until it happens to a cousin.</p>
+  // 
+  //     <p>A broker collects ID copies from dozens of prospective tenants every month. Most of those people never take the flat. Their Aadhaar and PAN copies stay in the broker's WhatsApp gallery, on an old phone, in a shared folder with two other agents. When one of those files turns up later on a fake rent agreement used as address proof, or attached to a small-ticket loan application, or used to get a SIM card, the person whose ID it is has no way of proving where the leak came from. It is a plain, unmarked copy. It could have come from anywhere.</p>
+  // 
+  //     <p>Property papers are a slightly different worry. A clean copy of a sale deed or an allotment letter, floating around with your name on it, is exactly what someone needs to convince a buyer or a lender that they have some claim on the property, or simply to make a convincing fake listing. Nobody is going to register a sale with a photocopy, but a lot of the harm in real estate happens well before anyone reaches the registrar's office.</p>
+  // 
+  //     <p>None of this is a reason to refuse. You do need to share these papers; that is how flats get rented and plots get sold. It is a reason to share them in a form that is useless anywhere else.</p>
+  // 
+  //     <h2>The Stamp That Makes a Copy Single-Use</h2>
+  // 
+  //     <p>The idea is old. People have been writing "for bank use only" across photocopies with a ballpoint pen for decades. The digital version is a text watermark laid across every page of the PDF, and the wording matters more than the tool.</p>
+  // 
+  //     <p>Put three things in it: <strong>who</strong> it is for, <strong>what</strong> it is for, and <strong>when</strong> you sent it. Something like:</p>
+  // 
+  //     <ul>
+  //     <li><em>For Rahul Properties only - 04 Sep 2026</em></li>
+  //     <li><em>Rent verification, Flat 302 Green Park - shared with Meena Estates 04-09-2026</em></li>
+  //     <li><em>Shared with HDFC DSA Suresh for loan enquiry - Sept 2026 - not for onward sharing</em></li>
+  //     </ul>
+  // 
+  //     <p>Why the name? Because a copy marked "For Rahul Properties only" is awkward for Rahul to forward and impossible for anyone else to pass off as freshly obtained. Why the date? Because if the same copy surfaces eight months later, the date on it tells you exactly which sharing it came from, and it makes the document look stale to anyone hoping to reuse it. "CONFIDENTIAL" on its own does none of this. Every agent has seen a hundred documents stamped confidential and forwarded every one of them.</p>
+  // 
+  //     <p>One practical note: keep the text readable at a glance but do not write a paragraph. The longer the text, the further it reaches across the page in diagonal mode, which is good, but past a point it starts to fight with the content underneath.</p>
+  // 
+  //     <h2>Diagonal or Tiled: Pick Based on Who Might Crop It</h2>
+  // 
+  //     <p>The Watermark PDF tool gives you four positions: diagonal, tiled, footer and centre. For this job, only the first two are worth considering.</p>
+  // 
+  //     <p><strong>Diagonal</strong> runs your text at an angle through the middle of the page. It is the strongest visible claim: anyone opening the file sees the recipient's name before they see anything else. On a single-page Aadhaar or PAN copy this is usually enough, because the mark crosses the photo, the number and the name in one stroke and there is no way to trim it off without cutting the document in half.</p>
+  // 
+  //     <p><strong>Tiled</strong> repeats the text in a grid across the whole sheet. Use this when you are worried about cropping specifically. A multi-page sale deed or a salary slip has plenty of empty margin, and a single diagonal stamp may leave a clean block of text somewhere that a screenshot could lift out. Tiling means there is no clean corner anywhere. It looks busier, which is a fair trade for property papers that will pass through several hands.</p>
+  // 
+  //     <p>Footer and centre exist for other jobs. A footer line is discreet enough to be cropped away in one screenshot, and a single centre mark leaves the top and bottom of the page untouched. Both are fine for marking your own drafts. Neither is what you want on an ID copy going to a stranger.</p>
+  // 
+  //     <p>If you want the full rundown of all four positions and the general settings, the <a href="/blog/how-to-add-watermark-to-pdf-online-free">general watermark guide</a> covers that. Here I am only interested in the two that stop reuse.</p>
+  // 
+  //     <h2>Opacity: The Agent Still Has to Read It</h2>
+  // 
+  //     <p>This is where people overdo it. You are stamping the document so it cannot be misused, not so it cannot be used. The broker genuinely needs to read your name, the owner needs to check the PAN number matches the one on the agreement, the loan agent needs to read the salary figure. If the watermark turns your Aadhaar into a grey smear, they will simply ask you to send a clean copy, and you are back where you started.</p>
+  // 
+  //     <p>So tune it. Start with gray at a medium opacity and the normal size, and look at the live preview of page 1. Can you read the Aadhaar number through the stamp? Can you read the stamp without squinting? If both are yes, you are done. If the stamp is faint enough to miss, push the opacity up a notch or switch to red, which sits heavier on the page and is harder to ignore in a WhatsApp thumbnail. If the details are getting lost, pull the opacity down or drop to the small size. Gray is the lightest of the three colours and is almost always the right starting point for an ID copy.</p>
+  // 
+  //     <p>The preview only shows page 1, so for a long deed where later pages are denser, err slightly on the lighter side.</p>
+  // 
+  //     <div class="tool-box">
+  //     <h3>How to Stamp Papers Before Sending Them to a Broker</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open the <a href="/watermark-pdf">Watermark PDF</a> tool and drop in your PDF. If your ID copy is a photo rather than a PDF, run it through Image to PDF first; the watermark tool only takes PDFs.</li>
+  //     <li><strong>Step 2:</strong> Type the stamp text: the recipient's name, the purpose, and today's date. For example: For Rahul Properties only - 04 Sep 2026.</li>
+  //     <li><strong>Step 3:</strong> Choose the position. Diagonal for a single-page ID copy, tiled for multi-page property papers or anything with a lot of white space.</li>
+  //     <li><strong>Step 4:</strong> Set colour to gray, size to normal, and adjust the opacity while watching the live preview until both the stamp and the details underneath are readable.</li>
+  //     <li><strong>Step 5:</strong> Apply and download. The file comes back as GoPDFGo_ followed by your original name, stamped on every page, and it never left your device. Send that one, keep the original.</li>
+  //     </ul>
+  //     </div>
+  // 
+  //     <h2>For Aadhaar, Mask First, Then Stamp</h2>
+  // 
+  //     <p>A watermark tells people what a copy is for. It does not hide anything. On an Aadhaar copy, the full 12-digit number is still fully visible under the stamp, and in most rental or loan situations nobody actually needs all twelve digits. UIDAI itself says a masked Aadhaar, showing only the last four digits, is valid for most purposes.</p>
+  // 
+  //     <p>So for Aadhaar the order is: <a href="/aadhaar-masking">mask the number</a> first, convert the masked image to a PDF with <a href="/image-to-pdf">Image to PDF</a>, and then watermark that PDF with the recipient's name and date. Now you have a copy that hides the number and names its recipient. That is about as far as you can reasonably go with a document you still have to hand over.</p>
+  // 
+  //     <p>PAN cannot be masked in the same way, because the whole point of sharing a PAN is the number. For PAN, the watermark is the protection.</p>
+  // 
+  //     <h2>Things That Trip People Up</h2>
+  // 
+  //     <p><strong>Sending first, stamping later.</strong> The stamp only helps if it is on the copy that actually leaves your phone. If you have already sent a clean copy in the first excited reply, the marked version you send afterwards is decoration. Make the stamp part of the routine before you hit send.</p>
+  // 
+  //     <p><strong>Locked bank statements and salary slips.</strong> A lot of bank PDFs and some payroll PDFs are password-protected or owner-locked, and the watermark tool refuses to touch an encrypted file. It will tell you so and point you to <a href="/unlock-pdf">Unlock PDF</a>. Remove the password you already know there, then watermark the unlocked copy. The unlocked file is image-based, which is fine for a broker who only needs to see it.</p>
+  // 
+  //     <p><strong>Several loose files.</strong> If the broker wants Aadhaar, PAN and two salary slips, it is cleaner to <a href="/merge-pdf">merge them into one PDF</a> first and stamp the lot in a single pass. One file, one stamp, one date. It is also harder for someone to peel off just the Aadhaar page and reuse it, because that page carries the same recipient name as the rest.</p>
+  // 
+  //     <p><strong>Expecting a logo.</strong> The tool stamps text only. There is no way to add an image, a signature graphic or a company logo as a watermark. For this use case that is not a loss, since a name and date carry more meaning than any picture, but I mention it so you do not go looking for the upload button.</p>
+  // 
+  //     <p><strong>Wanting it back clean.</strong> The watermark is baked into the page content and cannot be removed afterwards, by this tool or by any tool on the site. Always stamp a copy and keep the original untouched. If the same broker asks again next month, make a fresh stamped copy with the new date rather than resending the old one.</p>
+  // 
+  //     <h2>What a Watermark Does Not Do</h2>
+  // 
+  //     <p>I want to be honest about the limits. A determined forger with a good editor can paint over a watermark, especially a light one. A stamped copy is not a legal shield and it does not make sharing your documents risk-free. What it does is make casual reuse awkward, make the copy obviously tied to one transaction and one date, and give you a clear trail if it ever turns up where it should not. Most misuse of ID copies is opportunistic, not sophisticated, and opportunistic misuse is exactly what a name-and-date stamp shuts down.</p>
+  // 
+  //     <p>It also does not replace common sense about who you send to. A broker with a shop, a business card and a Google listing is a different proposition from a number that messaged you from a Facebook group. Stamp the copy either way, but for the second kind, ask yourself whether you need to send anything at all before the site visit.</p>
+  // 
+  //     <h2>Frequently Asked Questions</h2>
+  // 
+  //     <p><strong>Q: Will a broker or landlord accept a watermarked ID copy?</strong><br>A: In my experience, yes, without comment. Banks, landlords and registration offices have been accepting hand-annotated photocopies for years, and a light digital stamp is the same thing done neatly. If someone insists on a clean copy for no stated reason, that is useful information about them.</p>
+  // 
+  //     <p><strong>Q: Can I stamp a photo of my Aadhaar directly from the gallery?</strong><br>A: Not directly. The watermark tool works on PDF files, so a JPG or a phone screenshot needs to be turned into a PDF first. Doing that also gives you a single file that is easier to send and harder to accidentally crop.</p>
+  // 
+  //     <p><strong>Q: Should I put my own phone number or the flat address in the stamp?</strong><br>A: Put in what identifies the transaction, not more personal data. The recipient's name and the date are enough. Adding the flat number is fine for rent verification. Adding your own mobile number gives a stranger one more thing they did not have.</p>
+  // 
+  //     <p><strong>Q: Does the stamp cover the photo on the ID?</strong><br>A: With the diagonal position it will cross the photo, which is intentional; a face with a stamp through it is much harder to reuse on a fake profile. At medium opacity in gray the face is still clearly recognisable for verification.</p>
+  // 
+  //     <p><strong>Q: What if the broker forwards it anyway?</strong><br>A: They might. The difference is that whatever they forward carries their name and the date on every page. Anyone downstream can see the copy was not meant for them, and if it ever causes trouble you know exactly which sharing it came from.</p>
+  // 
+  //     <h2>The Short Version</h2>
+  // 
+  //     <p>Brokers, agents and DSAs will keep asking for Aadhaar, PAN, salary slips and property papers over WhatsApp, and you will keep sending them. The one thing you can control is what a copy looks like once it is out of your hands. A text stamp with the recipient's name, the purpose and the date, laid diagonally across an ID copy or tiled across a multi-page deed at an opacity that leaves the details readable, turns a reusable document into a single-use one. Mask the Aadhaar number first, unlock a locked statement before stamping, keep your original clean, and make the stamp part of the habit rather than an afterthought. Take a minute to <a href="/watermark-pdf">watermark the copy</a> on your own phone before you tap send.</p>
+  //     `
   // },
 
 ];

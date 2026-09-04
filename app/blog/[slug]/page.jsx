@@ -96,7 +96,9 @@ export default function BlogDetailPage() {
                 ? blog.imageUrl
                 : `https://gopdfgo.com${blog.imageUrl}`,
               datePublished: blog.publishedAt || blog.date,
-              dateModified: blog.publishedAt || blog.date,
+              // A revised post carries updatedAt; otherwise modified == published.
+              // Keeps the JSON-LD consistent with the sitemap lastmod.
+              dateModified: blog.updatedAt || blog.publishedAt || blog.date,
               // Person, not Organization: Google's E-E-A-T signals want a
               // real human author. This lives only in the JSON-LD script tag,
               // so the name is never rendered on the page — it points at the
