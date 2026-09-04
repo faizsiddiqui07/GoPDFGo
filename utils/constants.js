@@ -53,10 +53,10 @@ export const TOOLS_CONFIG = [
 GoPDFGo’s **Compress PDF** tool is engineered to solve this problem instantly and securely. Unlike traditional tools that force you to upload your personal files to a remote server, our tool does the whole job inside the page you are already on. This means the compression engine is downloaded to your browser and runs directly on your device (laptop or mobile). Your sensitive bank statements, Aadhaar cards, and contracts never leave your system, guaranteeing 100% privacy.
 
 **How does GoPDFGo achieve high compression without quality loss?**
-Our advanced algorithm uses a multi-layered approach to shrink files by up to 90%:
-1.  **DPI Optimization:** We intelligently identify high-resolution images within the document and adjust their Dots Per Inch (DPI) to a web-optimized standard (144 DPI or 72 DPI). This reduces bulk without making images look blurry on screens.
-2.  **Metadata Stripping:** PDFs often carry invisible weight like thumbnail caches, edit history, and XML metadata. We strip this unnecessary data to shave off kilobytes.
-3.  **Font Subsetting:** Instead of embedding an entire font family, we only keep the characters used in your document, significantly reducing file size while keeping text razor-sharp.
+It works in two stages and picks the right one for your file:
+1.  **Lossless re-save first:** The PDF is repacked into a more compact internal structure with nothing thrown away, so a normal text document gets smaller while every word stays selectable and searchable.
+2.  **Page-image optimisation for scans:** When a file is mostly pictures — a scanned statement, a photographed form — the page images are resampled and re-encoded, which is where the big reductions (typically 60-80% on a scan) come from.
+3.  **Target size when a form demands it:** Pick a preset like 200 KB or type your own number, and the tool works down toward that figure, flattening pages to images only as far as needed to get there.
 
 Experience the fastest, safest, and most efficient way to optimize your documents with GoPDFGo.`,
 
@@ -64,7 +64,7 @@ Experience the fastest, safest, and most efficient way to optimize your document
       walkthrough: {
         heading: "Shrinking a scanned statement",
         troubleshootingHeading: "Hardly smaller, or the text stopped selecting",
-        body: `GoPDFGo compresses a PDF in two different ways and picks the right one for your file. For a normal text PDF it does a **lossless re-save** — stripping metadata, unused fonts, and duplicated data — so the text stays fully selectable and the size drops with no visible change. For a scanned or image-heavy PDF, where most of the weight is pictures, it optimises those page images instead, and that is where the big reductions come from.
+        body: `GoPDFGo compresses a PDF in two different ways and picks the right one for your file. For a normal text PDF it does a **lossless re-save** — repacking the file's internal structure more compactly with nothing thrown away — so the text stays fully selectable and the size drops with no visible change. For a scanned or image-heavy PDF, where most of the weight is pictures, it optimises those page images instead, and that is where the big reductions come from.
 
 Here is what that looks like in practice. Take a 4 MB scanned statement. In **Best compression** mode you will usually get it down to a few hundred kilobytes with the pages still crisp on screen — a typical scan loses somewhere around 60-80% of its size. If a form insists on a hard limit, switch to **Target size** mode, tap a preset like 200 KB or type your own number, and the tool works down toward that figure. To hit a very small target it flattens each page into an image, so the text stops being selectable and goes slightly softer — a fair trade when a portal simply refuses anything above the cap.
 
@@ -93,11 +93,11 @@ Working with several files? [Merge them into one PDF](/merge-pdf) first, or [ext
         },
         {
           title: "100% Privacy-First Architecture",
-          desc: "Your security is our #1 priority. GoPDFGo runs entirely in your browser, right on your own device. Unlike other sites, we have no 'upload' server. You can literally turn off your internet after the page loads, and the tool will still compress your files perfectly."
+          desc: "Your security is our #1 priority. GoPDFGo runs entirely in your browser, right on your own device. Unlike other sites, we have no 'upload' server. Once you have run one file through it, you can literally turn off your internet and it will keep compressing — the engine is fetched on that first run and then stays in your browser."
         },
         {
           title: "Preserve Visual Quality",
-          desc: "Worrying about blurry documents? Don't be. Our tool removes 'invisible' data (metadata, unused fonts) first. When image compression is needed, it uses bicubic resampling to maintain visual fidelity, so your compressed PDF looks professional for printing and viewing."
+          desc: "Worrying about blurry documents? Don't be. The lossless re-save comes first and changes nothing visible. When page images do need compressing, they are resampled in careful steps rather than crushed in one go, so the tool stops at the smallest version that still reads cleanly instead of wrecking the page."
         }
       ],
 
@@ -111,7 +111,7 @@ Working with several files? [Merge them into one PDF](/merge-pdf) first, or [ext
 
       // 4. HOW TO USE THIS TOOL (Matches Screenshot 3 - 4 Steps)
       steps: [
-        "**Drag, Drop, & Go:** Load your PDFs via the upload button or a quick drag-and-drop action. We fully support batch processing, allowing you to work on multiple heavy files simultaneously.",
+        "**Drag, Drop, & Go:** Load your PDF via the upload button or a quick drag-and-drop action. The tool works on one file at a time, so run each document separately — or merge them first if the portal wants a single file.",
         "**Auto-Analysis:** Our browser-based engine immediately scans your PDF structure to find redundant data and high-res images that can be optimized.",
         "**Review Savings:** Within seconds, you will see the 'Before' and 'After' file sizes (e.g., 5MB → 200KB). You can clearly see how much space you have saved.",
         "**Instant Download:** Click 'Download' to save your new, lighter PDF. Since processing is local, there is no waiting for server downloads—it's instant."
@@ -125,11 +125,11 @@ Working with several files? [Merge them into one PDF](/merge-pdf) first, or [ext
         },
         {
           q: "Is it safe to upload private documents like Bank Statements?",
-          a: "There is **nothing to upload** — that is the whole point. The moment you pick a file it is read into your browser and compressed by your own device's processor; it is never sent to us, and it clears the moment you close the tab. That makes a password-protected bank statement or an Aadhaar scan safer here than on any tool that copies it to a server first."
+          a: "There is **nothing to upload** — that is the whole point. The moment you pick a file it is read into your browser and compressed by your own device's processor; it is never sent to us, and it clears the moment you close the tab. That makes a bank statement or an Aadhaar scan safer here than on any tool that copies it to a server first. One note: if the statement is password-protected, the tool will refuse it and point you to Unlock PDF — remove the password first, then compress."
         },
         {
           q: "Can I compress PDF on Mac, iPhone, or Android?",
-          a: "Absolutely. GoPDFGo is a Progressive Web App (PWA). It works seamlessly on Chrome, Safari, Edge, and Firefox across all devices—Windows, macOS, iOS, and Android—without installing any battery-draining apps."
+          a: "Absolutely. It runs in the browser you already have — Chrome, Safari, Edge or Firefox — on Windows, macOS, iOS and Android, with nothing to install."
         },
         {
           q: "Is there a file size limit?",
@@ -137,7 +137,7 @@ Working with several files? [Merge them into one PDF](/merge-pdf) first, or [ext
         },
         {
           q: "Does this tool work offline?",
-          a: "Yes! Once the webpage is loaded, our compression engine is cached in your browser. You can disconnect your Wi-Fi or mobile data and continue compressing files. This is a great way to verify our privacy guarantee yourself!"
+          a: "Mostly. The compression engine is fetched the first time you actually run a file through the tool, not when the page opens. Do one run while connected, then disconnect your Wi-Fi or mobile data and keep compressing — a good way to verify the privacy guarantee yourself."
         },
         {
           q: "Why did my file size not decrease much?",
@@ -207,7 +207,7 @@ One thing worth knowing: if one of your files is password-protected or unreadabl
       features: [
         {
           title: "Visual Drag & Drop Editor",
-          desc: "Control the flow of your document. Upload multiple files and simply **drag and drop** them to set the correct sequence. You can reorder pages effortlessly to ensure your final document follows the exact structure you need (e.g., Cover Page first, then Index, then Chapters)."
+          desc: "Control the flow of your document. Upload multiple files and simply **drag and drop** them to set the correct sequence. You can reorder the files effortlessly to ensure your final document follows the exact structure you need (e.g., Cover Page first, then Index, then Chapters)."
         },
         {
           title: "Secure & Private Merging",
@@ -342,7 +342,7 @@ Extraction pairs well with the next step. If you would rather cut a few unwanted
       // 4. HOW TO USE THIS TOOL
       steps: [
         "**Upload Securely:** Drag and drop your heavy PDF file into the upload zone. Because it processes locally, even massive 50MB files will load instantly.",
-        "**Select Your Pages:** Use the visual thumbnails to click the pages you want, or type specific page numbers and ranges (e.g., 2, 4, 7-10) directly into the input box.",
+        "**Select Your Pages:** Tap **Select Pages** first — the tool opens in Extract All mode — then click the thumbnails you want, or type page numbers and ranges (e.g., 2, 4, 7-10) into the box that appears.",
         "**Extract Instantly:** Click the 'Extract Pages' button. Our local engine will seamlessly stitch your chosen pages into a brand new document in milliseconds.",
         "**Download & Share:** Save your new, lightweight, highly-targeted PDF directly to your hard drive, ready to be emailed or printed."
       ],
@@ -355,7 +355,7 @@ Extraction pairs well with the next step. If you would rather cut a few unwanted
         },
         {
           q: "Is it safe to extract pages from confidential bank statements?",
-          a: "Yes, it is safer than using offline software. GoPDFGo operates entirely in your browser. No upload happens, meaning we physically cannot see, copy, or store your private financial data."
+          a: "Yes. GoPDFGo operates entirely in your browser — no upload happens, so we physically cannot see, copy, or store your financial data. If the statement is password-protected, though, the tool will refuse it: remove the password with Unlock PDF first, then extract."
         },
         {
           q: "Can I extract PDF pages from several ranges into one file?",
@@ -367,7 +367,7 @@ Extraction pairs well with the next step. If you would rather cut a few unwanted
         },
         {
           q: "Does this tool work offline?",
-          a: "Yes! Once the webpage is loaded, the extraction engine is cached in your browser. You can disconnect from the internet and continue extracting pages securely."
+          a: "Mostly. The engine is fetched the first time you run a file through the tool, not when the page opens — so do one extraction while connected, and after that you can disconnect and keep working."
         }
       ]
     }
@@ -534,14 +534,14 @@ This one runs entirely on your device, so a signed contract or an ID scan never 
           },
           {
             problem: "You rotated the wrong way and now the page is upside down.",
-            fix: "Nothing is locked in until you process. Keep clicking to cycle through 180 and 270, or use the counter-clockwise button, and watch the on-screen preview until the page sits upright before you download.",
+            fix: "Nothing is locked in until you process. Keep clicking that page's rotate button — each click is 90 degrees clockwise, so it cycles through 180 and 270 and a fourth click brings it back to where it started. Watch the on-screen preview until the page sits upright before you download.",
           },
         ],
       },
       features: [
         {
           title: "Permanent Rotation Save",
-          desc: "Don't just view it; fix it. Most PDF readers only rotate the 'view' temporarily. Our tool alters the **document metadata** to ensure that the new orientation (Landscape or Portrait) is saved permanently. Next time you open it, it will be perfect."
+          desc: "Don't just view it; fix it. Most PDF readers only rotate the 'view' temporarily. Our tool rewrites each page's **rotation flag** inside the file to ensure that the new orientation (Landscape or Portrait) is saved permanently. Next time you open it, it will be perfect."
         },
         {
           title: "Mix of Orientations",
@@ -558,13 +558,13 @@ This one runs entirely on your device, so a signed contract or an ID scan never 
         "**Scanned Documents:** Old scanners often have a mind of their own, scanning pages upside down or sideways. Use this tool to **correct scanned batches** before sharing them with clients or colleagues.",
         "**Mobile Photography:** When you convert phone photos to PDF, they often retain the wrong camera orientation. Rotate them to **Portrait mode** so they display correctly on computer screens.",
         "**Professional Reporting:** Sending a report where the charts are sideways forces the reader to rotate their head. Fix the orientation to ensure a **smooth reading experience** for your boss or professor.",
-        "**Pre-Merge Preparation:** Before merging multiple files, it is crucial that they all share the same orientation. Use this tool to **align all documents** vertically before stitching them together."
+        "**Pre-Merge Preparation:** Merge PDF happily keeps mixed portrait and landscape pages as they are — but if a whole file came in sideways, **straighten it here first** so every page of the combined document reads the right way up."
       ],
 
       // 4. STEPS (4 Steps)
       steps: [
         "**Select PDF:** Upload the document that has the wrong orientation. You can drag and drop it directly into the tool.",
-        "**Choose Rotation:** Use the rotation buttons to turn the pages **90° Clockwise** or **Counter-Clockwise**. You can rotate until the preview looks upright.",
+        "**Choose Rotation:** Each page has its own rotate button that turns it **90° clockwise** per click — keep clicking until that page's preview looks upright. To turn the whole document at once, use **Rotate All Left** or **Rotate All Right**.",
         "**Apply Changes:** Click the **'Process PDF'** button. Our engine permanently writes the new orientation tags into the file.",
         "**Download:** Save the fixed document. You can now open it in any viewer, and it will stay upright."
       ],
@@ -624,7 +624,7 @@ Most online tools force you to upload your document to a server just to add a ti
 **GoPDFGo is different.** The stamping is done by your own machine.
 1.  **100% Private:** Your document never leaves your device. The numbering engine runs inside your browser.
 2.  **No Overwriting:** Our smart algorithm places numbers in the safe margin areas (headers/footers) so they don't overlap with your text.
-3.  **Universal Compatibility:** Works on scanned PDFs, digital PDFs, and even files that previously had no margins.
+3.  **Universal Compatibility:** Works on scanned PDFs and digital PDFs alike — the number is drawn onto the page, so it appears even where there is no text layer.
 
 Turn your chaotic pile of digital pages into a structured, professional document in seconds.`,
 
@@ -632,7 +632,7 @@ Turn your chaotic pile of digital pages into a structured, professional document
       walkthrough: {
         heading: "Numbering a merged 50-page report",
         troubleshootingHeading: "Numbers landing where they shouldn't",
-        body: `Say you have just combined a cover sheet, a Word export, and three scanned appendices into one report. GoPDFGo counts the pages for you — no need to tell it there are 50 — then stamps each one in the position you pick: **Bottom Center**, Bottom Left, Bottom Right, or Top Right. The numbers land in the footer margin, so nothing overlaps your text, signatures, or footnotes.
+        body: `Say you have just combined a cover sheet, a Word export, and three scanned appendices into one report. GoPDFGo counts the pages for you — no need to tell it there are 50 — then stamps each one in the position you pick: **Bottom Center**, Bottom Left, Bottom Right, or Top Right. The numbers land in the page margin — the bottom margin for the three bottom positions, the top margin for Top Right — so nothing overlaps your text, signatures, or footnotes.
 
 Because the first page is a cover, tick **Skip first page** so numbering starts on the actual content. Choose the format too: plain '1, 2, 3', or 'Page 1 of N' when you want readers to see how much is left. On the scanned appendices the number is drawn on top of the image layer, which is why it still appears even though that text is not selectable. Everything runs in your browser, so a confidential draft never leaves your device.
 
@@ -659,7 +659,7 @@ Building the report first? [Merge your files into one PDF](/merge-pdf) before nu
         },
         {
           title: "Safe Margin Tech",
-          desc: "Worried about the number covering your text? Our engine identifies the **safe whitespace** in the page margin. It places the number cleanly there, ensuring that your original content, signatures, and footnotes remain 100% visible and untouched."
+          desc: "Worried about the number covering your text? The number is placed at a fixed, safe distance from the page edge — in the bottom margin, or the top margin for Top Right — so your original content, signatures, and footnotes stay visible and untouched."
         },
         {
           title: "Confidential, Local Numbering",
@@ -669,7 +669,7 @@ Building the report first? [Merge your files into one PDF](/merge-pdf) before nu
 
       // 3. USE CASES (4 Checkpoints)
       useCases: [
-        "**Legal Documentation:** Lawyers and paralegals deal with massive case files. Courts require every page to be numbered for reference (e.g., 'Refer to Page 45'). Use our tool to **Bates-stamp** or number your exhibits instantly without expensive software.",
+        "**Legal Documentation:** Lawyers and paralegals deal with massive case files. Courts require every page to be numbered for reference (e.g., 'Refer to Page 45'). Use our tool to number your exhibits sequentially — plain '1, 2, 3' or 'Page 1 of N' — without expensive software.",
         "**Academic Thesis & Research:** Universities have strict formatting guidelines. A dissertation without page numbers is often rejected. Ensure your **Table of Contents** matches the actual document by adding accurate page numbers before submission.",
         "**Corporate Reports:** Merging multiple Excel sheets and Word docs into one PDF often results in lost page numbers. Re-index your entire **Annual Report** or financial statement to ensure stakeholders can navigate it easily.",
         "**Document Integrity & Printing:** Essential for hard copies. Embedding page numbers allows for effortless navigation and acts as a safeguard. If a printed stack is accidentally dropped or shuffled, the document can be **restored to its original sequence** instantly."
@@ -687,7 +687,7 @@ Building the report first? [Merge your files into one PDF](/merge-pdf) before nu
       faq: [
         {
           q: "Will the page numbers cover my text?",
-          a: "No. The numbers are placed in the **footer margin** (the bottom whitespace) of the page. We have calibrated the position to avoid overlapping with standard document text or footnotes."
+          a: "No. The numbers are placed in the **page margin** — the bottom whitespace for the three bottom positions, the top for Top Right — at a distance calibrated to avoid standard document text and footnotes."
         },
         {
           q: "Can I number scanned PDF documents?",
@@ -1099,7 +1099,7 @@ For an ID copy you can go further: [black out the number itself with the ID mask
       faq: [
         {
           q: "Will the watermark cover my text?",
-          a: "No. The watermark is semi-transparent, so your original content stays fully readable underneath it — and you can lower the opacity or change the position and size to keep everything clear."
+          a: "It should not — the watermark is semi-transparent, so the content underneath stays readable. If a large, dark mark does make a line hard to read, lower the opacity, pick a smaller size or move it to the footer; the live preview shows the effect before you download."
         },
         {
           q: "Is the watermark added to every page?",
@@ -1630,7 +1630,7 @@ Once it's signed, you can [shrink the file before emailing](/compress-pdf) if sc
           },
           {
             problem: "The signature looks blurry or pixelated when you make it bigger",
-            fix: "Every signature ends up as an image, so none of the three modes is infinitely scalable — but a drawn or typed one is generated at a reasonably high resolution, while an uploaded photo is limited to whatever the source file had. Start from a sharp, well-lit image and avoid stretching it much larger than its natural size. If it still looks rough, draw or type the signature instead, which usually gives you more resolution to work with. Start from a sharp, well-lit image and avoid stretching it much larger than its natural size. If it still looks rough, draw or type the signature instead.",
+            fix: "Every signature ends up as an image, so none of the three modes is infinitely scalable — but a drawn or typed one is generated at a reasonably high resolution, while an uploaded photo is limited to whatever the source file had. Start from a sharp, well-lit image and avoid stretching it much larger than its natural size. If it still looks rough, draw or type the signature instead, which usually gives you more resolution to work with.",
           },
           {
             problem: "It landed on the wrong page or slightly off the signature line",
