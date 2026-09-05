@@ -7,7 +7,7 @@ export const blogsData = [
     excerpt: "Portal says under 50 KB and your scanned marksheet is 2 MB? Here is how to hit that exact limit in your browser, keep every digit readable, and what to do when it will not go that small.",
     date: "March 18, 2026",
     publishedAt: "2026-03-18",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/optimize-pdf.webp",
     content: `
       <p>If you have ever applied for a government job in India, whether through <strong>SSC</strong>, <strong>UPSC</strong>, RRB, IBPS or a state PSC, you know this particular headache. You spend an hour filling the form, double-check your category and your roll numbers, pay the fee, and finally reach the document upload page. You pick your marksheet, click Upload, and get the line every aspirant dreads: <em>"File size must be less than 50 KB."</em></p>
@@ -351,7 +351,7 @@ export const blogsData = [
     excerpt: "Struggling to upload your PAN card for banking, mutual funds or trading KYC? Compress your PAN PDF under 2MB without losing clarity - and without your card ever leaving your device.",
     date: "April 2, 2026",
     publishedAt: "2026-04-02",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/compress-pan-card-pdf-kyc-verification.webp",
     content: `
       <p>You are three screens into opening a demat account on Zerodha or Groww, or finishing video KYC for a new HDFC savings account, or starting your first SIP. Everything has gone smoothly. Then you reach the PAN upload box, pick your file, and the page comes back with: <em>"Upload failed. File size must be under 2MB."</em> Or 200KB. Or 100KB, if it is a government or PSU bank portal. And now the whole application is stuck behind a single document that is a few hundred kilobytes too heavy.</p>
@@ -1339,7 +1339,7 @@ export const blogsData = [
     excerpt: "Scanned a rent agreement or marksheet and the pages came out scrambled? Here is how to drag them back into order in your browser, losslessly, without re-scanning or uploading anything.",
     date: "May 4, 2026",
     publishedAt: "2026-05-04",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/rearrange-scanned-pdf-page-order.webp",
     content: `
       <p>You finally sit down to scan the rent agreement. Eleven pages, stamp paper on top, the annexure with the landlord's Aadhaar and PAN at the back. You feed the whole stack into the office ADF scanner, or you photograph each sheet with your phone, and a minute later you have one tidy PDF. Then you scroll through it. Page 4 is where page 7 should be. The signature page is sitting third from the top. And the stamp paper, the one page everyone looks at first, is right at the end.</p>
@@ -1785,7 +1785,7 @@ export const blogsData = [
     excerpt: "Back from a trip with a pocketful of receipts and a gallery of screenshots? Here is how to turn them into one ordered, email-sized PDF that finance approves fast, entirely on your own device.",
     date: "May 11, 2026",
     publishedAt: "2026-05-11",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/convert-expense-receipts-to-pdf-reimbursement.webp",
     content: `
       <p>You are back from four days in Bengaluru. Somewhere between the airport cab, two hotel checkouts, a client dinner and eleven Ola rides, you have collected a pocketful of thermal-paper receipts, three of them already fading, plus a scatter of screenshots in your phone gallery. Finance wants the claim by Friday. And the expense portal, or the HR mailbox, wants one PDF, not twenty-three loose images.</p>
@@ -1952,7 +1952,7 @@ export const blogsData = [
     excerpt: "iLovePDF and Smallpdf send your file to a server first. Here is what a browser-only alternative replaces task by task, what it honestly cannot do, and how to prove nothing is uploaded.",
     date: "May 13, 2026",
     publishedAt: "2026-05-13",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/best-secure-alternatives-ilovepdf-smallpdf.webp",
     content: `
       <p>When you need to shrink a PDF, pull two files into one, or chop a scan in half, the reflex is the same for most of us: search "merge pdf", click the first result, and you land on iLovePDF or Smallpdf. They are fast, they are polished, and for a lot of jobs they are genuinely good. I used them for years.</p>
@@ -2128,7 +2128,7 @@ export const blogsData = [
     excerpt: "Where does your bank statement go when you click Upload on a free PDF site? An honest comparison of cloud versus on-device processing, including a one-minute test and the real limits of local tools.",
     date: "May 18, 2026",
     publishedAt: "2026-05-18",
-    updatedAt: "2026-09-04",
+    updatedAt: "2026-09-05",
     imageUrl: "/images/blogs/local-pdf-processing-vs-cloud-tools-safer.webp",
     content: `
       <p>Think about the last five PDFs you handled. For most of us in India that list looks something like an HDFC or SBI statement for a loan, a PAN card scan for a demat KYC, a rent agreement with an Aadhaar photocopy stapled to it, a child's marksheet, and an SSC or UPSC application form that needed to be squeezed under a size cap. Every one of those files says something private about you, and every one of them, at some point, needed merging, compressing, or rotating.</p>
