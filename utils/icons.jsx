@@ -29,6 +29,7 @@ import {
   ImageDown,
   LayoutGrid,
   PenTool,
+  FileSearch,
 } from "lucide-react";
 
 // Icons mapping
@@ -70,6 +71,7 @@ export const TOOL_ICONS = {
   "heic-to-webp": <ImageDown className="w-5 h-5 text-green-500" />,
   "organize-pdf": <LayoutGrid className="w-5 h-5 text-orange-500" />,
   "sign-pdf": <PenTool className="w-5 h-5 text-orange-600" />,
+  "remove-pdf-metadata": <FileSearch className="w-5 h-5 text-slate-600" />,
 };
 
 export const getToolIcon = (toolId) => {

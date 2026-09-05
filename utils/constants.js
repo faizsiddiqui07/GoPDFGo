@@ -23,7 +23,8 @@ import {
   LayoutGrid,
   PenTool,
   ScanText,
-  Combine
+  Combine,
+  FileSearch
 } from "lucide-react";
 
 export const TOOLS_CONFIG = [
@@ -1684,6 +1685,117 @@ Once it's signed, you can [shrink the file before emailing](/compress-pdf) if sc
         {
           q: "What's the best way to upload my real signature?",
           a: "Sign on white paper, take a clear photo, and ideally remove the background so it's a transparent PNG. A clean image sits more naturally on the document, though a normal photo works too."
+        }
+      ]
+    }
+  },
+
+  {
+    id: "remove-pdf-metadata",
+    type: "pdf",
+    title: "Remove PDF Metadata",
+    desc: "See and strip the hidden title, author and software details in a PDF.",
+    leadIn: "Every PDF quietly carries a title, an author name, and the name of the software that made it \u2014 often your real name, or your employer's licence. See exactly what your file is carrying, edit any of it, or strip it out completely. The file is read and rewritten inside your browser, so it never leaves your device.",
+    icon: FileSearch,
+    color: "orange",
+    config: { mode: "metadata", accept: ".pdf" },
+    info: {
+      sectionHeadings: {
+        features: "Why Clean PDF Metadata in Your Browser?",
+        useCases: "When Hidden PDF Details Matter",
+        steps: "How to Remove Metadata From a PDF",
+        faq: "PDF Metadata FAQs"
+      },
+      intro: `Open any PDF's properties panel and you will find a small block of information nobody meant to publish: a **Title** that is still the filename from someone's desktop, an **Author** field with a full name, and a **Creator** or **Producer** line naming the exact software \u2014 sometimes down to a licensed copy registered to a company.
+
+None of it is visible on the page. All of it travels with the file. When you email a resume, upload an agreement to a portal, or send a quotation to a client, that block goes along for the ride.
+
+**Remove PDF Metadata** shows you the whole block in plain sight, lets you edit any line, and \u2014 where you leave a field empty \u2014 deletes it from the file outright rather than blanking it. The reading and the rewriting both happen inside your browser, so a document you are cleaning precisely because it is sensitive is never uploaded to anyone.`,
+      walkthrough: {
+        heading: "Cleaning a resume before you send it",
+        troubleshootingHeading: "When a field will not go away",
+        body: `Say you exported your CV from a word processor on a shared office laptop. The page itself is perfect. The properties panel is not: **Author** holds the previous owner's name, **Title** reads "Untitled document (3)", and **Producer** names the licensed suite it was exported from.
+
+Open the PDF here and all six text fields appear at once, filled in with whatever your file actually holds \u2014 Title, Author, Subject, Keywords, Creator and Producer \u2014 along with the creation and modification dates underneath. Fields your file left empty are shown as empty, so you can see at a glance how much is really there.
+
+From here you have two ways to go. Tap **Clear all** to empty every field in one go, which is what most people want before sending a document outside their organisation. Or edit them individually: put a proper document title in, leave your name in **Author** if you want the credit, and clear only the lines that give away the software or the machine. Anything you leave empty is deleted from the file rather than written as a blank value, so there is no leftover entry for a reader to find. The **Also remove the dates** checkbox does the same for the creation and modification timestamps.
+
+Then apply and download. Open the finished file's properties and the cleared lines are simply not there. Nothing else about the document changes \u2014 the pages, the text, the images and the file size are untouched, because only that one small dictionary at the end of the file was rewritten.
+
+Cleaning a document you are about to share? It often pairs with the rest of the pre-send routine: [black out the number on an ID copy](/aadhaar-masking) first, [stamp it with who it is for](/watermark-pdf), or [shrink it for an upload cap](/compress-pdf) afterwards.`,
+        troubleshooting: [
+          {
+            problem: "The Producer line still shows a tool name after cleaning",
+            fix: "Check that you cleared the Producer field itself and not only Creator \u2014 they are two different entries and PDFs often fill both. If you cleared it and the value has genuinely come back, the file was probably re-saved afterwards by another PDF app, since most of them stamp their own Producer on the way out. Clean it last, right before you send it."
+          },
+          {
+            problem: "My PDF shows no metadata at all",
+            fix: "That is a good outcome, not a failure. Plenty of PDFs \u2014 especially ones already exported by privacy-conscious software or previously cleaned \u2014 carry no Info entries. The tool says so plainly, and you can still type values in if you want to add a proper title."
+          },
+          {
+            problem: "The tool refuses my file and mentions a password",
+            fix: "Encrypted PDFs cannot have their metadata read or rewritten while they are locked. Remove the password you already know with the Unlock PDF tool, then bring the unlocked copy back here."
+          },
+          {
+            problem: "I cleared the dates but my computer still shows a date",
+            fix: "Your file manager shows the date the file was saved to your disk, which every file has and no PDF tool can change. What this removes is the date recorded inside the document, which is the one that travels with the file when you send it."
+          }
+        ]
+      },
+      features: [
+        {
+          title: "See Everything, Then Decide",
+          desc: "The tool reads the file's real Info dictionary and shows all six text fields plus both dates before you change anything. You are never guessing at what a document is carrying \u2014 and a field your file left empty is shown as empty rather than filled with a placeholder."
+        },
+        {
+          title: "Deleted, Not Just Blanked",
+          desc: "Leave a field empty and its entry is **removed from the file**, not written back as an empty string. There is a real difference: a blanked field still exists in the document's bytes as an entry, while a deleted one leaves nothing behind for anyone to read."
+        },
+        {
+          title: "Nothing Is Uploaded",
+          desc: "The document is opened, inspected and rewritten by your own browser. That matters most for exactly the files worth cleaning \u2014 resumes, agreements, quotations, medical letters \u2014 which are the ones you would least want sitting on a stranger's server."
+        }
+      ],
+      useCases: [
+        "**Sending a resume or portfolio:** Recruiters open the properties panel more often than candidates expect. Clear an Author field holding someone else's name, a Title that is still an old filename, and a Producer line naming software you no longer use.",
+        "**Sharing agreements and quotations:** A contract exported from your firm's licensed suite can name that licence in its Producer field. Clear it before the document goes to a client, a counterparty or a portal.",
+        "**Publishing a document on a website:** Anything you put up for download carries its metadata to every visitor who saves it. Give it a clean, deliberate Title and remove the rest.",
+        "**Cleaning documents from someone else:** A PDF forwarded to you can still carry the original sender's name and machine details. Strip them before you pass it on."
+      ],
+      steps: [
+        "**Upload your PDF:** Tap the box or drag the file in. It is opened on your device \u2014 there is no upload step and no progress bar to wait for.",
+        "**Read what is there:** All six fields appear filled in with your file's real values, with the creation and modification dates shown underneath.",
+        "**Clear or edit:** Tap **Clear all** to empty everything at once, or edit fields one at a time. A field showing as empty will be deleted from the file; use **Undo** to put the original values back.",
+        "**Apply and download:** The cleaned PDF downloads with a GoPDFGo_ prefix. Open its properties to confirm the entries are gone."
+      ],
+      faq: [
+        {
+          q: "What exactly is PDF metadata?",
+          a: "A small block of information stored inside the file, separate from the pages you see. It holds a **Title**, **Author**, **Subject**, **Keywords**, **Creator** (the application you wrote the document in) and **Producer** (the engine that wrote the PDF), plus the dates the file was created and last changed. Your PDF reader shows it under File, Properties or Document Properties."
+        },
+        {
+          q: "Does removing metadata change how the document looks?",
+          a: "No. The pages, text, images, fonts, form fields and page order are all untouched \u2014 only that small information block at the end of the file is rewritten. The file size barely moves, usually by a few dozen bytes."
+        },
+        {
+          q: "Is the data actually gone, or just hidden?",
+          a: "Gone. When you leave a field empty, the entry is deleted from the file rather than saved as an empty value, so there is nothing left in the bytes for a viewer or a script to read back. That is a real distinction: a great many tools simply overwrite the value with a blank, which still leaves the entry sitting in the document."
+        },
+        {
+          q: "Can I edit the fields instead of clearing them?",
+          a: "Yes, and it is often the better choice. Type a proper document title so it appears in a reader's tab and in search results, keep your own name in Author if you want the credit, and clear only the lines that name your software or your machine. The tool writes exactly what you type."
+        },
+        {
+          q: "Why can't it open my password-protected PDF?",
+          a: "An encrypted PDF's contents cannot be read or rewritten while the protection is in place, so the tool stops and tells you rather than handing back a broken file. Remove the password you already know with our free [Unlock PDF](/unlock-pdf) tool, then clean the unlocked copy here."
+        },
+        {
+          q: "Does this remove hidden text or tracked changes from the pages?",
+          a: "No, and it is worth being clear about the limit. This works on the document's information block, not on the page content. Text hidden behind an image, comments, or anything else living on the pages themselves is a different job \u2014 for visual information you want gone permanently, use the [ID masking tool](/aadhaar-masking), which flattens what you cover into the image."
+        },
+        {
+          q: "Is my file uploaded anywhere?",
+          a: "No. The PDF is opened, read and rewritten entirely inside your browser using your own device's processor. Nothing about it \u2014 not the pages, not the metadata you just read \u2014 is sent anywhere, which is the whole point for a document you are cleaning because it is sensitive."
         }
       ]
     }
