@@ -1,19 +1,21 @@
-"use client";
-
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calendar } from "lucide-react"; 
+import { ArrowLeft, ArrowRight, Calendar } from "lucide-react";
 import { blogsData } from "@/utils/BlogData";
+import BlogContent from "@/components/BlogContent";
 
-export default function BlogDetailPage() {
-  const params = useParams();
-  const router = useRouter();
-  const contentRef = useRef(null);
+// Server component on purpose. This page used to be "use client", which meant
+// the whole blogsData module — every post's full HTML — was bundled into the
+// JavaScript every reader downloaded, just to render one article. Rendering on
+// the server keeps that module out of the client entirely; the only client
+// code left is BlogContent, which exists solely to keep the article's internal
+// links from triggering a full page reload.
+export default async function BlogDetailPage({ params }) {
+  const { slug } = await params;
 
   // 1. Current blog ka "Index" nikalna
-  const currentIndex = blogsData.findIndex((b) => b.id === params.slug);
+  const currentIndex = blogsData.findIndex((b) => b.id === slug);
   const blog = blogsData[currentIndex];
 
   // 2. Related blogs nikalna (Theek pehle wale 3)
@@ -21,48 +23,19 @@ export default function BlogDetailPage() {
   if (currentIndex !== -1) {
     // Current blog se pehle ke saare blogs
     const previousBlogs = blogsData.slice(0, currentIndex);
-    
+
     if (previousBlogs.length >= 3) {
       // Agar current blog se pehle 3 ya zyada blogs hain, toh theek pehle wale 3 utha lo
       relatedBlogs = previousBlogs.slice(-3);
     } else {
       // Agar user pehla ya doosra blog hi open kar le (jiske pehle 3 blogs nahi hain),
       // toh hum design maintain karne ke liye baaki array me se pehle 3 dikha denge.
-      relatedBlogs = blogsData.filter(b => b.id !== params.slug).slice(0, 3);
+      relatedBlogs = blogsData.filter((b) => b.id !== slug).slice(0, 3);
     }
   }
 
   // Related blogs ko reverse kar dete hain taaki un 3 mein se jo sabse latest hai wo grid me pehle dikhe
   relatedBlogs = relatedBlogs.reverse();
-
-  // Link interceptor (Aapka custom logic Next.js router ke hisaab se)
-  useEffect(() => {
-    const handleLinkClick = (e) => {
-      const anchor = e.target.closest("a");
-
-      if (anchor) {
-        const href = anchor.getAttribute("href");
-
-        // Agar internal link hai (starts with /), toh Next.js router use karo
-        if (href && href.startsWith("/")) {
-          e.preventDefault();
-          router.push(href);
-          window.scrollTo(0, 0);
-        }
-      }
-    };
-
-    const container = contentRef.current;
-    if (container) {
-      container.addEventListener("click", handleLinkClick);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener("click", handleLinkClick);
-      }
-    };
-  }, [router]);
 
   if (!blog) {
     return (
@@ -82,7 +55,6 @@ export default function BlogDetailPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-8 px-4 sm:py-10 sm:px-6 lg:px-8">
-
       {blog && (
         <script
           type="application/ld+json"
@@ -121,7 +93,7 @@ export default function BlogDetailPage() {
           }}
         />
       )}
-      
+
       <div className="max-w-5xl mx-auto">
         <Link
           href="/blogs"
@@ -157,12 +129,14 @@ export default function BlogDetailPage() {
               {blog.title}
             </h1>
 
-            {/* Content body */}
-            <div
-              ref={contentRef}
-              className="blog-content text-base sm:text-lg text-slate-600 leading-relaxed space-y-4 sm:space-y-6"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
-            />
+            {/* Content body — rendered on the server, wrapped by the client
+                component that keeps its internal links from full-reloading. */}
+            <BlogContent>
+              <div
+                className="blog-content text-base sm:text-lg text-slate-600 leading-relaxed space-y-4 sm:space-y-6"
+                dangerouslySetInnerHTML={{ __html: blog.content }}
+              />
+            </BlogContent>
           </div>
         </article>
 
@@ -172,7 +146,7 @@ export default function BlogDetailPage() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6 sm:mb-8">
               Read More Guides
             </h2>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
               {relatedBlogs.map((relatedBlog) => (
                 <Link
