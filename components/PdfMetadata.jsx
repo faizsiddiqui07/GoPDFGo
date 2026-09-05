@@ -276,7 +276,7 @@ export default function PdfMetadata() {
   const outName = `GoPDFGo_${file?.name || "document.pdf"}`;
 
   return (
-    <div className="max-w-5xl mx-auto px-4 pt-8 animate-rise">
+    <div className="max-w-7xl mx-auto px-4 pt-8 animate-rise">
       <ProcessingOverlay
         show={isProcessing}
         title="Rewriting your PDF's metadata…"
