@@ -297,7 +297,7 @@ export default function PdfMetadata() {
           <FileSearch size={28} className="text-orange-500" /> Remove PDF
           Metadata
         </h1>
-        <p className="mt-3 max-w-3xl text-sm sm:text-base text-slate-600 leading-relaxed">
+        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
           Every PDF quietly carries a title, an author name, and the name of the
           software that made it — often your real name, or your employer&apos;s
           licence. See exactly what your file is carrying, edit any of it, or
