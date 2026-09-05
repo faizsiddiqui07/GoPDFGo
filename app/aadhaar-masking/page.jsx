@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 // --- Next.js Native SEO ---
 export const metadata = {
@@ -29,7 +30,7 @@ export default function AadhaarMaskingPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hum poora object nahi, sirf string pass kar rahe hain */}
-      <ImageEditor toolId="aadhaar-masking" />
+      <ImageEditor toolId="aadhaar-masking" info={TOOL_INFO["aadhaar-masking"]} />
     </div>
   );
 }

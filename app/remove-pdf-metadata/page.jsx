@@ -1,6 +1,7 @@
 import React from "react";
 import PdfMetadata from "../../components/PdfMetadata";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
@@ -30,7 +31,7 @@ export default function RemovePdfMetadataPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfMetadata />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["remove-pdf-metadata"]} />
       <RelatedTools currentToolId="remove-pdf-metadata" toolType="pdf" />
       <RelatedBlogs toolId="remove-pdf-metadata" />
     </div>

@@ -8,7 +8,7 @@ import RelatedTools from "./RelatedTools";
 import RelatedBlogs from "./RelatedBlogs";
 import { TOOLS_CONFIG } from "@/utils/constants";
  
-const QrGenerator = ({ toolId }) => {
+const QrGenerator = ({ toolId, info }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter(); // Next.js router instance
 
@@ -354,7 +354,7 @@ const QrGenerator = ({ toolId }) => {
         </div>
       </div>
 
-      <InfoSection info={tool.info} />
+      <InfoSection info={info} />
       <RelatedTools currentToolId={tool.id} toolType={tool.type} />
       <RelatedBlogs toolId={tool.id} />
     </div>

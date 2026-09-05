@@ -1,6 +1,7 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
@@ -30,7 +31,7 @@ export default function RearrangePDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="rearrange-pdf" />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["rearrange-pdf"]} />
       <RelatedTools currentToolId="rearrange-pdf" toolType="pdf" />
       <RelatedBlogs toolId="rearrange-pdf" />
     </div>

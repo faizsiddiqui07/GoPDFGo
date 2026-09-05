@@ -1,5 +1,6 @@
 import React from "react";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 import PdfEditor from "@/components/PdfEditor";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
@@ -30,7 +31,7 @@ export default function SplitPDFPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="split-pdf" />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["split-pdf"]} />
       <RelatedTools currentToolId="split-pdf" toolType="pdf" />
       <RelatedBlogs toolId="split-pdf" />
     </div>

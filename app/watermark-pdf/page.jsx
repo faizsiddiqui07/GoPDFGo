@@ -1,6 +1,7 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
@@ -30,7 +31,7 @@ export default function WatermarkPdfPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="watermark-pdf" />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["watermark-pdf"]} />
       <RelatedTools currentToolId="watermark-pdf" toolType="pdf" />
       <RelatedBlogs toolId="watermark-pdf" />
     </div>

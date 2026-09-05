@@ -35,7 +35,7 @@ import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
 import NextSteps from "./NextSteps";
 
-const ImageEditor = ({ toolId }) => {
+const ImageEditor = ({ toolId, info }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
   const router = useRouter();
 
@@ -3265,7 +3265,7 @@ const ImageEditor = ({ toolId }) => {
           )}
         </div>
       </div>
-      <InfoSection info={tool.info} />
+      <InfoSection info={info} />
 
       <RelatedTools currentToolId={tool.id} toolType={tool.type} />
       <RelatedBlogs toolId={tool.id} />

@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 export const metadata = {
   title: "HEIC to PNG – Convert iPhone Photos to PNG Free | GoPDFGo",
@@ -26,7 +27,7 @@ export default function HeicToPngPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="heic-to-png" />
+      <ImageEditor toolId="heic-to-png" info={TOOL_INFO["heic-to-png"]} />
     </div>
   );
 }

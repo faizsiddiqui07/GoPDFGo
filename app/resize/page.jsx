@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Resize Image Online – Pixel Perfect Dimensions Free | GoPDFGo",
@@ -26,7 +27,7 @@ export default function ResizeImagePage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="resize" />
+      <ImageEditor toolId="resize" info={TOOL_INFO["resize"]} />
     </div>
   );
 }

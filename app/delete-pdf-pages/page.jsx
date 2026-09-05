@@ -1,6 +1,7 @@
 import React from "react";
 import PdfEditor from "../../components/PdfEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
@@ -30,7 +31,7 @@ export default function DeletePdfPagesPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <PdfEditor toolId="delete-pdf-pages" />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["delete-pdf-pages"]} />
       <RelatedTools currentToolId="delete-pdf-pages" toolType="pdf" />
       <RelatedBlogs toolId="delete-pdf-pages" />
     </div>

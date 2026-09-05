@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Rotate Image Online – Fix Photo Orientation Free | GoPDFGo",
@@ -26,7 +27,7 @@ export default function RotateImagePage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="rotate" />
+      <ImageEditor toolId="rotate" info={TOOL_INFO["rotate"]} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Compress PNG Online – Reduce PNG Size Free | GoPDFGo",
@@ -26,7 +27,7 @@ export default function CompressPngPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="compress-png" />
+      <ImageEditor toolId="compress-png" info={TOOL_INFO["compress-png"]} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import SignPdf from "../../components/SignPdf";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 import InfoSection from "@/components/InfoSection";
 import RelatedTools from "@/components/RelatedTools";
 import RelatedBlogs from "@/components/RelatedBlogs";
@@ -30,7 +31,7 @@ export default function SignPdfPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       <SignPdf />
-      <InfoSection info={tool.info} />
+      <InfoSection info={TOOL_INFO["sign-pdf"]} />
       <RelatedTools currentToolId="sign-pdf" toolType="pdf" />
       <RelatedBlogs toolId="sign-pdf" />
     </div>

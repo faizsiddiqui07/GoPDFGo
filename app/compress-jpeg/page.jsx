@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Compress JPEG Images Online – Reduce JPEG Size Free | GoPDFGo",
@@ -29,7 +30,7 @@ export default function CompressJPEGPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="compress-jpeg" />
+      <ImageEditor toolId="compress-jpeg" info={TOOL_INFO["compress-jpeg"]} />
     </div>
   );
 }

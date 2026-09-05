@@ -1,6 +1,7 @@
 import React from "react";
 import QrGenerator from "../../components/QrGenerator"; 
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Free QR Code Generator Online – No Expiration | GoPDFGo",
@@ -26,7 +27,7 @@ export default function QrGeneratorPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <QrGenerator toolId="qr-generator" />
+      <QrGenerator toolId="qr-generator" info={TOOL_INFO["qr-generator"]} />
     </div>
   );
 }

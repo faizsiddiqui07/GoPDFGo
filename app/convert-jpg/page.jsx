@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 export const metadata = {
   title: "Convert Images to JPG Online Free – PNG WebP to JPG | GoPDFGo",
@@ -27,7 +28,7 @@ export default function ConvertJPEGPage() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* "convert-jpg" ID use karna hai jaisa constants me define hai */}
-      <ImageEditor toolId="convert-jpg" />
+      <ImageEditor toolId="convert-jpg" info={TOOL_INFO["convert-jpg"]} />
     </div>
   );
 }

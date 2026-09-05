@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 export const metadata = {
   title: "Convert Images to WebP Online Free – JPG PNG to WebP | GoPDFGo",
@@ -26,7 +27,7 @@ export default function ConvertWebPPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="convert-webp" />
+      <ImageEditor toolId="convert-webp" info={TOOL_INFO["convert-webp"]} />
     </div>
   );
 }

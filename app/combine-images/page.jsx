@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "../../utils/constants";
+import { TOOL_INFO } from "../../utils/toolsContent";
 
 export const metadata = {
   title: "Combine Images Online Free – Two Photos Into One | GoPDFGo",
@@ -28,7 +29,7 @@ export default function CombineImagesPage() {
   // adding them here too emitted the FAQPage JSON-LD twice.
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="combine-images" />
+      <ImageEditor toolId="combine-images" info={TOOL_INFO["combine-images"]} />
     </div>
   );
 }

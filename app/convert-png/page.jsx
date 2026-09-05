@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 export const metadata = {
   title: "Convert Images to PNG Online Free – JPG WebP to PNG | GoPDFGo",
@@ -26,7 +27,7 @@ export default function ConvertPNGPage() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <ImageEditor toolId="convert-png" />
+      <ImageEditor toolId="convert-png" info={TOOL_INFO["convert-png"]} />
     </div>
   );
 }

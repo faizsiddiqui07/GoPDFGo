@@ -1,6 +1,7 @@
 import React from "react";
 import ImageEditor from "../../components/ImageEditor"; // Path check kar lijiyega
 import { TOOLS_CONFIG } from "@/utils/constants";
+import { TOOL_INFO } from "@/utils/toolsContent";
 
 // --- Next.js Native SEO ---
 export const metadata = {
@@ -29,7 +30,7 @@ const tool = TOOLS_CONFIG.find((t) => t.id === "color-picker");
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hum poora object nahi, sirf string pass kar rahe hain taaki error na aaye */}
-      <ImageEditor toolId="color-picker" />
+      <ImageEditor toolId="color-picker" info={TOOL_INFO["color-picker"]} />
     </div>
   );
 }
