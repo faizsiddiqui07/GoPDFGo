@@ -31,6 +31,7 @@ import ProcessingOverlay from "./ProcessingOverlay";
 import { formatBytes } from "../utils/helpers";
 import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import NextSteps from "./NextSteps";
 
 // --- DND KIT IMPORTS ---
 import {
@@ -3641,6 +3642,8 @@ const PdfEditor = ({ toolId }) => {
                     Start Over
                   </button>
                 </div>
+
+                <NextSteps toolId={tool.id} />
               </div>
             )}
           </div>

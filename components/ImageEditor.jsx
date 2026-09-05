@@ -33,6 +33,7 @@ import { formatBytes } from "../utils/helpers";
 import { WORKER_CODE } from "../utils/worker";
 import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
+import NextSteps from "./NextSteps";
 
 const ImageEditor = ({ toolId }) => {
   const tool = TOOLS_CONFIG.find((t) => t.id === toolId);
@@ -2882,6 +2883,10 @@ const ImageEditor = ({ toolId }) => {
                                 Edit Again
                               </button>
                             )}
+
+                            {convertedUrl && !isProcessing && (
+                              <NextSteps toolId={tool.id} />
+                            )}
                           </div>
                         )}
                       </div>
@@ -2975,6 +2980,8 @@ const ImageEditor = ({ toolId }) => {
                 >
                   <Archive size={20} /> Download All ZIP
                 </button>
+
+                <NextSteps toolId={tool.id} />
               </div>
             ) : (
               <div className="text-slate-400 flex flex-col items-center">

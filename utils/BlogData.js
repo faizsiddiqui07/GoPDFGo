@@ -4821,6 +4821,115 @@ export const blogsData = [
   //       `
   // },
   // {
+  //   id: "remove-author-name-from-pdf-before-sending-resume",
+  //   title: "Your Resume Says Someone Else Wrote It: Removing the Author Name From a PDF",
+  //   seoTitle: "Remove the Author Name From a PDF Resume | GoPDFGo",
+  //   keywords: "remove author name from pdf, pdf shows wrong author, change pdf author, resume pdf author name, remove name from pdf properties, edit pdf author online, pdf properties author, fix pdf author before sending",
+  //   excerpt: "You used a friend's resume template or a shared office laptop, and now your PDF's properties name someone else. Here is how to see it, fix it, and set a title worth having.",
+  //   date: "September 05, 2026",
+  //   publishedAt: "2026-09-05",
+  //   imageUrl: "/images/blogs/remove-author-name-from-pdf-before-sending-resume.webp",
+  //   content: `
+  //     <p>Here is a small thing that happens to a lot of people applying for jobs, and almost nobody notices until someone points it out.</p>
+  
+  //     <p>You needed a resume. A friend sent you their format, or you downloaded a template, or you built it on a college lab computer. You replaced every word with your own details, exported a PDF, and sent it off. The page is entirely yours.</p>
+  
+  //     <p>The document's properties are not. Open that PDF, press Ctrl+D, and the <strong>Author</strong> line may well still say <em>Priya Menon</em>, or <em>lab-pc-04</em>, or the name of whoever set up the template two years ago.</p>
+  
+  //     <p>Recruiters do open that panel. Some applicant tracking systems read it automatically. It is a strange thing for a hiring manager to see a candidate's file attributed to someone else, and it costs nothing to fix.</p>
+  
+  //     <h2>Why Your Name Is Not the One In There</h2>
+  
+  //     <p>The Author field is not typed in by anyone. It is filled automatically from the account name on the machine where the document was first created, and then it stays put through every later edit and export.</p>
+  
+  //     <p>So it survives the things you would expect to reset it:</p>
+  
+  //     <ul>
+  //     <li><strong>A shared template.</strong> You edited someone else's file. Their name came with it.</li>
+  //     <li><strong>A borrowed or office laptop.</strong> The account name belongs to the machine, not to you.</li>
+  //     <li><strong>A cyber cafe or college lab.</strong> Often a generic machine name, which looks careless rather than wrong.</li>
+  //     <li><strong>A previous employer's computer.</strong> The most awkward version: a resume for a new job, attributed to an account at the old one.</li>
+  //     </ul>
+  
+  //     <p>The same applies to the <strong>Creator</strong> and <strong>Producer</strong> lines, which name the software - sometimes a licensed copy registered to a company you no longer work for.</p>
+  
+  //     <h2>Fixing It Without Rebuilding the Resume</h2>
+  
+  //     <p>You do not need to redo the document. The information block sits alongside the pages, separate from them, and can be rewritten on its own. Your layout, fonts, spacing and content are untouched.</p>
+  
+  //     <div class="tool-box">
+  //     <h3>How to Fix the Author Name on Your Resume PDF</h3>
+  //     <ul>
+  //     <li><strong>Step 1:</strong> Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a> and drop your resume in. It is read on your own device, which is worth knowing for a file that carries your address and phone number.</li>
+  //     <li><strong>Step 2:</strong> Look at the <strong>Author</strong> field. If it holds a name that is not yours, that is what recruiters can see.</li>
+  //     <li><strong>Step 3:</strong> Replace it with your own name, or clear it entirely - both are fine, and an empty field is better than a wrong one.</li>
+  //     <li><strong>Step 4:</strong> Set the <strong>Title</strong> to something deliberate, like "Anjali Nair - Marketing Executive - Resume". This is what shows in the browser tab when your PDF is opened.</li>
+  //     <li><strong>Step 5:</strong> Clear <strong>Creator</strong> and <strong>Producer</strong>, which only name software, and leave the date checkbox ticked if you would rather not advertise when the file was made.</li>
+  //     <li><strong>Step 6:</strong> Apply, download, then open the new file's properties once to confirm it reads the way you want.</li>
+  //     </ul>
+  //     </div>
+  
+  //     <h2>Set the Title, Do Not Just Blank Everything</h2>
+  
+  //     <p>It is tempting to clear all six fields and move on. For most documents that is right, but a resume is the one case where filling a field in beats emptying it.</p>
+  
+  //     <p>The Title is what appears in the tab when a recruiter opens your PDF in a browser, which is how most of them will read it. A tab reading "Anjali Nair - Marketing Executive - Resume" is a small, free signal of care. A tab reading "Untitled document (3)" is a small signal of the opposite.</p>
+  
+  //     <p>So: real Title, your name in Author, and clear the rest.</p>
+  
+  //     <h2>It Is Not Only Resumes</h2>
+  
+  //     <p>The same thing happens anywhere templates get passed around, which in practice covers most of student and small-business life.</p>
+  
+  //     <p><strong>College project reports.</strong> One senior's format circulates through an entire batch, edited by thirty juniors. Every submitted PDF then carries that senior's name in the Author field - an odd thing for an evaluator to find on work you are being graded for individually.</p>
+  
+  //     <p><strong>Quotations and invoices.</strong> A freelancer who started from a template found online is sending clients a document attributed to a stranger. And a firm whose PDF exporter writes its licence holder into the Producer line is quietly telling every recipient which software it pays for.</p>
+  
+  //     <p><strong>Files forwarded to you.</strong> This one is worth making a habit. A document that has passed through three organisations can still name someone at the first, and forwarding it on makes you the person who shared it. A quick look before you pass anything along costs nothing.</p>
+  
+  //     <p>The fix is the same in every case, and it takes the same half a minute.</p>
+  
+  //     <h2>While You Are Cleaning It Up</h2>
+  
+  //     <p>A few other things worth checking on the same file, since you have it open anyway.</p>
+  
+  //     <p><strong>The filename.</strong> Metadata is invisible; the filename is not. "resume final final v3.pdf" arrives in an inbox looking exactly as considered as it sounds. Rename it to your name and the role.</p>
+  
+  //     <p><strong>The size.</strong> Some portals cap resume uploads at 1 MB or 2 MB, and a resume with a photo can cross that. <a href="/compress-pdf">Compress PDF</a> handles it; for the hard exact-KB caps on government portals, <a href="/blog/optimize-pdf-under-50kb-government-recruitment-forms">the 50 KB guide</a> covers the tighter cases.</p>
+  
+  //     <p><strong>The bundle.</strong> If the application wants your resume, marksheets and ID as one file, <a href="/merge-pdf">Merge PDF</a> puts them in the order you choose - and it is worth reading the <a href="/blog/common-pdf-mistakes-online-job-applications">common formatting mistakes</a> before you assemble it.</p>
+  
+  //     <p><strong>A locked file.</strong> If your resume PDF asks for a password to open, nothing can edit its properties until that comes off. Use <a href="/unlock-pdf">Unlock PDF</a> first.</p>
+  
+  //     <h2>Frequently Asked Questions</h2>
+  
+  //     <p><strong>Q: Do recruiters really check document properties?</strong><br>
+  //     A: Not all of them, but enough that it is worth the thirty seconds. More reliably, applicant tracking systems parse the file, and some of them read those fields as part of building a candidate record.</p>
+  
+  //     <p><strong>Q: Should I clear the Author field or put my own name in?</strong><br>
+  //     A: Either is fine. Your own name is the natural choice for your own work. An empty field is better than someone else's name, so if in doubt, clear it.</p>
+  
+  //     <p><strong>Q: Will this change how my resume looks?</strong><br>
+  //     A: No. The pages are untouched - only the information block alongside them is rewritten. Your layout, fonts and spacing come through exactly as they were, and the file size barely moves.</p>
+  
+  //     <p><strong>Q: I made the PDF from Word. Can I not just fix it there?</strong><br>
+  //     A: You can, if you still have the source file and know where the setting lives. This is for the far more common case where you only have the PDF, or where the field survived the export anyway.</p>
+  
+  //     <p><strong>Q: Does removing the author name look like I am hiding something?</strong><br>
+  //     A: No. An empty Author field is completely ordinary - a great many PDFs have one. A field naming a person who is not you is the version that raises questions.</p>
+  
+  //     <p><strong>Q: Is my resume uploaded anywhere to do this?</strong><br>
+  //     A: No. It is opened, read and rewritten inside your browser on your own device. A resume carries your phone number, your address and your employment history, which is a poor thing to hand to a server you know nothing about.</p>
+  
+  //     <h2>The Short Version</h2>
+  
+  //     <p>The Author field on a PDF comes from the machine that made the document, not from the person sending it, so a borrowed template or a shared laptop puts someone else's name on your resume. It is invisible on the page and perfectly visible in the properties panel.</p>
+  
+  //     <p>Put your own name in, give the file a real title, clear the software lines, and send it. Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a> and it is a half-minute job.</p>
+  
+  //     `
+  // },
+  // {
   //   id: "admit-card-pdf-to-image-save-gallery",
   //   title: "Save Your Admit Card PDF as an Image in Your Phone Gallery",
   //   seoTitle: "Admit Card PDF to Image: Save Hall Ticket in Gallery",
@@ -8032,7 +8141,6 @@ export const blogsData = [
   //     <p>Brokers, agents and DSAs will keep asking for Aadhaar, PAN, salary slips and property papers over WhatsApp, and you will keep sending them. The one thing you can control is what a copy looks like once it is out of your hands. A text stamp with the recipient's name, the purpose and the date, laid diagonally across an ID copy or tiled across a multi-page deed at an opacity that leaves the details readable, turns a reusable document into a single-use one. Mask the Aadhaar number first, unlock a locked statement before stamping, keep your original clean, and make the stamp part of the habit rather than an afterthought. Take a minute to <a href="/watermark-pdf">watermark the copy</a> on your own phone before you tap send.</p>
   //     `
   // },
-
   // {
   //   id: "what-your-pdf-reveals-about-you-metadata",
   //   title: "What Your PDF Quietly Reveals About You (and How to Check in 30 Seconds)",
@@ -8044,15 +8152,15 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/what-your-pdf-reveals-about-you-metadata.webp",
   //   content: `
   //     <p>Open any PDF on your laptop, press Ctrl+D in Adobe Reader, or File then Properties in almost any viewer. A small panel appears with a handful of lines you have probably never looked at: Title, Author, Subject, Keywords, Application, PDF Producer, and two dates.</p>
-  // 
+
   //     <p>Now try it on a file you have actually sent to someone. A resume. A quotation. An agreement. There is a fair chance one of those lines says something you did not intend to publish.</p>
-  // 
+
   //     <p>None of this appears on the page. All of it travels with the file, to every person you send it to and every portal you upload it into. This post is about what that block contains, why it so often holds the wrong thing, and how to look at yours right now.</p>
-  // 
+
   //     <h2>What Is Actually In There</h2>
-  // 
+
   //     <p>A PDF stores a small dictionary of information alongside the pages. Six of the entries are free text and two are dates:</p>
-  // 
+
   //     <ul>
   //     <li><strong>Title.</strong> Meant to be the document's real title. In practice it is frequently the filename from whoever first made it, which is how PDFs end up carrying titles like "Untitled document (3)" or "final FINAL v2 REVISED".</li>
   //     <li><strong>Author.</strong> Usually pulled from the account name on the computer that created the file. Not the person who sent it to you, necessarily. Whoever made the original.</li>
@@ -8061,36 +8169,36 @@ export const blogsData = [
   //     <li><strong>Producer.</strong> The engine that actually wrote the PDF file, often with a version number and sometimes a licence holder's name attached.</li>
   //     <li><strong>Created</strong> and <strong>Modified</strong> dates, recorded inside the document itself. These are separate from the date your file manager shows, which is just when the file landed on your disk.</li>
   //     </ul>
-  // 
+
   //     <p>Individually, none of these is dramatic. Together they describe where a document came from, and that is more than most people mean to share.</p>
-  // 
+
   //     <h2>Where the Awkward Cases Come From</h2>
-  // 
+
   //     <p>Almost nobody types this information in deliberately. It gets attached automatically, which is exactly why it so often says something unintended.</p>
-  // 
+
   //     <p><strong>The borrowed template.</strong> Someone shares a resume format, an invoice template, or a rent agreement draft. You edit the contents and export. The Author field still carries the name of whoever made the original, so your resume goes out into the world under someone else's name.</p>
-  // 
+
   //     <p><strong>The shared or office machine.</strong> A document exported from a laptop registered to a previous employee, or from a cyber cafe's PC, picks up whatever account name is on that machine.</p>
-  // 
+
   //     <p><strong>The licensed software line.</strong> Some PDF exporters write the licence holder into the Producer field. A quotation sent to a client can quietly name the firm's internal software licence.</p>
-  // 
+
   //     <p><strong>The scanner app.</strong> Free mobile scanner apps put their own branding in the Producer or Creator line - the same apps that also like to stamp a visible watermark across your page, a habit worth <a href="/blog/why-mobile-scanner-apps-add-watermarks-avoid">understanding before you rely on one</a>.</p>
-  // 
+
   //     <h2>Does Any of It Actually Matter?</h2>
-  // 
+
   //     <p>Honestly, for a lot of documents, no. A menu, a notice, a photo album - nobody is opening the properties panel.</p>
-  // 
+
   //     <p>It matters in a narrower set of situations, and they happen to be the ones where the stakes are highest:</p>
-  // 
+
   //     <ul>
   //     <li><strong>Job applications.</strong> Recruiters and HR software both read document properties. An Author field with a stranger's name on your resume invites exactly the wrong question. (The rest of the formatting traps in that process are covered in <a href="/blog/common-pdf-mistakes-online-job-applications">the five PDF mistakes that sink online job applications</a>.)</li>
   //     <li><strong>Anything sent to a counterparty.</strong> A contract, a quotation, a proposal. The other side's lawyer may well look, and a Title reading "draft 4 - do not send" is not the impression you wanted.</li>
   //     <li><strong>Documents you publish.</strong> A PDF on a website is downloaded by strangers, and every one of them gets the metadata too.</li>
   //     <li><strong>Files that pass through several hands.</strong> Each stage can add a name. By the time it reaches you, a document can carry a small history of everyone who touched it.</li>
   //     </ul>
-  // 
+
   //     <p>For a bank statement or an ID copy, the metadata is genuinely the smaller worry - what matters far more is where the file itself is going, which is the point of <a href="/blog/never-upload-bank-statements-free-pdf-sites">not handing those documents to free upload sites at all</a>.</p>
-  // 
+
   //     <div class="tool-box">
   //     <h3>How to See What Your PDF Is Carrying</h3>
   //     <ul>
@@ -8101,161 +8209,51 @@ export const blogsData = [
   //     <li><strong>Step 5:</strong> Apply and download, then open the new file's properties to confirm. Anything you left empty is deleted from the file rather than saved as a blank.</li>
   //     </ul>
   //     </div>
-  // 
+
   //     <h2>Clearing It Versus Filling It In</h2>
-  // 
+
   //     <p>The instinct is to wipe everything, and for a document going to a stranger that is usually right. But a blank Title is a small missed opportunity.</p>
-  // 
+
   //     <p>The Title field is what a browser shows in the tab when someone opens your PDF, and it is one of the things search engines read for a PDF published on a website. "Rahul Kumar - Senior Accountant - Resume" reads considerably better in a recruiter's tab than "Untitled document (3)" or nothing at all.</p>
-  // 
+
   //     <p>So a reasonable default: write a real Title, keep your own name in Author if you want the credit for your own work, and clear Creator, Producer, Subject and Keywords, which almost never carry anything you meant to send.</p>
-  // 
+
   //     <h2>What Cleaning Metadata Does Not Do</h2>
-  // 
+
   //     <p>Worth being clear about the boundary, because it is easy to assume too much.</p>
-  // 
+
   //     <p>This works on the document's information block, not on the pages. Text sitting under an image, a comment left in a margin, or a number printed on a scan is page content - it stays exactly where it is. If you need something on the page itself to be genuinely gone rather than covered, that is a different job: the <a href="/aadhaar-masking">ID masking tool</a> flattens what you black out into the image so the pixels underneath are actually removed.</p>
-  // 
+
   //     <p>It also cannot touch the date your operating system records when the file is saved to disk. Every file has one, no PDF tool can change it, and it is not part of the document.</p>
-  // 
+
   //     <p>And a locked PDF cannot be inspected at all while it is encrypted. If your file asks for a password, remove it first with <a href="/unlock-pdf">Unlock PDF</a>, then clean the unlocked copy.</p>
-  // 
+
   //     <h2>Frequently Asked Questions</h2>
-  // 
+
   //     <p><strong>Q: Where do I see this in a normal PDF reader?</strong><br>
   //     A: In Adobe Reader it is File, Properties, or Ctrl+D. In Chrome's built-in viewer it is the document properties option in the menu. On a phone most readers hide it, which is part of why so few people know it exists.</p>
-  // 
+
   //     <p><strong>Q: Will clearing metadata change how my document looks or prints?</strong><br>
   //     A: No. The pages, text, images, fonts and page order are untouched. Only that small information block is rewritten, so the file size moves by a few dozen bytes at most.</p>
-  // 
+
   //     <p><strong>Q: Is the information really deleted, or just blanked out?</strong><br>
   //     A: Deleted. When you leave a field empty the entry is removed from the file rather than written back as an empty value - there is a real difference, because a blanked entry still exists in the bytes for anything reading the file programmatically.</p>
-  // 
+
   //     <p><strong>Q: My PDF shows no metadata at all. Is something wrong?</strong><br>
   //     A: No, that is a clean result. Plenty of PDFs carry nothing, particularly ones exported by privacy-conscious software or cleaned already. You can still add a Title if you want one.</p>
-  // 
+
   //     <p><strong>Q: Do other people's PDFs carry this too?</strong><br>
   //     A: Yes, and it is worth checking a file before you forward it on. A document that has passed through three organisations can arrive carrying a name from the first one.</p>
-  // 
+
   //     <p><strong>Q: Is my file uploaded to check it?</strong><br>
   //     A: No. It is opened and read inside your own browser. Given the whole point is inspecting a document you consider sensitive, sending it to a server first would rather defeat the exercise.</p>
-  // 
-  //     <h2>The Short Version</h2>
-  // 
-  //     <p>Every PDF carries a small block of information that nobody sees and nobody meant to send: a title that is often an old filename, an author name that is often the wrong person, and the software that made it. It rarely matters, and when it does - a resume, a contract, anything published - it matters quite a lot.</p>
-  // 
-  //     <p>Checking takes half a minute. Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a>, look at what your file is carrying, and decide what deserves to travel with it.</p>
-  // 
-  //     `
-  // },
 
-  // {
-  //   id: "remove-author-name-from-pdf-before-sending-resume",
-  //   title: "Your Resume Says Someone Else Wrote It: Removing the Author Name From a PDF",
-  //   seoTitle: "Remove the Author Name From a PDF Resume | GoPDFGo",
-  //   keywords: "remove author name from pdf, pdf shows wrong author, change pdf author, resume pdf author name, remove name from pdf properties, edit pdf author online, pdf properties author, fix pdf author before sending",
-  //   excerpt: "You used a friend's resume template or a shared office laptop, and now your PDF's properties name someone else. Here is how to see it, fix it, and set a title worth having.",
-  //   date: "September 05, 2026",
-  //   publishedAt: "2026-09-05",
-  //   imageUrl: "/images/blogs/remove-author-name-from-pdf-before-sending-resume.webp",
-  //   content: `
-  //     <p>Here is a small thing that happens to a lot of people applying for jobs, and almost nobody notices until someone points it out.</p>
-  // 
-  //     <p>You needed a resume. A friend sent you their format, or you downloaded a template, or you built it on a college lab computer. You replaced every word with your own details, exported a PDF, and sent it off. The page is entirely yours.</p>
-  // 
-  //     <p>The document's properties are not. Open that PDF, press Ctrl+D, and the <strong>Author</strong> line may well still say <em>Priya Menon</em>, or <em>lab-pc-04</em>, or the name of whoever set up the template two years ago.</p>
-  // 
-  //     <p>Recruiters do open that panel. Some applicant tracking systems read it automatically. It is a strange thing for a hiring manager to see a candidate's file attributed to someone else, and it costs nothing to fix.</p>
-  // 
-  //     <h2>Why Your Name Is Not the One In There</h2>
-  // 
-  //     <p>The Author field is not typed in by anyone. It is filled automatically from the account name on the machine where the document was first created, and then it stays put through every later edit and export.</p>
-  // 
-  //     <p>So it survives the things you would expect to reset it:</p>
-  // 
-  //     <ul>
-  //     <li><strong>A shared template.</strong> You edited someone else's file. Their name came with it.</li>
-  //     <li><strong>A borrowed or office laptop.</strong> The account name belongs to the machine, not to you.</li>
-  //     <li><strong>A cyber cafe or college lab.</strong> Often a generic machine name, which looks careless rather than wrong.</li>
-  //     <li><strong>A previous employer's computer.</strong> The most awkward version: a resume for a new job, attributed to an account at the old one.</li>
-  //     </ul>
-  // 
-  //     <p>The same applies to the <strong>Creator</strong> and <strong>Producer</strong> lines, which name the software - sometimes a licensed copy registered to a company you no longer work for.</p>
-  // 
-  //     <h2>Fixing It Without Rebuilding the Resume</h2>
-  // 
-  //     <p>You do not need to redo the document. The information block sits alongside the pages, separate from them, and can be rewritten on its own. Your layout, fonts, spacing and content are untouched.</p>
-  // 
-  //     <div class="tool-box">
-  //     <h3>How to Fix the Author Name on Your Resume PDF</h3>
-  //     <ul>
-  //     <li><strong>Step 1:</strong> Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a> and drop your resume in. It is read on your own device, which is worth knowing for a file that carries your address and phone number.</li>
-  //     <li><strong>Step 2:</strong> Look at the <strong>Author</strong> field. If it holds a name that is not yours, that is what recruiters can see.</li>
-  //     <li><strong>Step 3:</strong> Replace it with your own name, or clear it entirely - both are fine, and an empty field is better than a wrong one.</li>
-  //     <li><strong>Step 4:</strong> Set the <strong>Title</strong> to something deliberate, like "Anjali Nair - Marketing Executive - Resume". This is what shows in the browser tab when your PDF is opened.</li>
-  //     <li><strong>Step 5:</strong> Clear <strong>Creator</strong> and <strong>Producer</strong>, which only name software, and leave the date checkbox ticked if you would rather not advertise when the file was made.</li>
-  //     <li><strong>Step 6:</strong> Apply, download, then open the new file's properties once to confirm it reads the way you want.</li>
-  //     </ul>
-  //     </div>
-  // 
-  //     <h2>Set the Title, Do Not Just Blank Everything</h2>
-  // 
-  //     <p>It is tempting to clear all six fields and move on. For most documents that is right, but a resume is the one case where filling a field in beats emptying it.</p>
-  // 
-  //     <p>The Title is what appears in the tab when a recruiter opens your PDF in a browser, which is how most of them will read it. A tab reading "Anjali Nair - Marketing Executive - Resume" is a small, free signal of care. A tab reading "Untitled document (3)" is a small signal of the opposite.</p>
-  // 
-  //     <p>So: real Title, your name in Author, and clear the rest.</p>
-  // 
-  //     <h2>It Is Not Only Resumes</h2>
-  //
-  //     <p>The same thing happens anywhere templates get passed around, which in practice covers most of student and small-business life.</p>
-  //
-  //     <p><strong>College project reports.</strong> One senior's format circulates through an entire batch, edited by thirty juniors. Every submitted PDF then carries that senior's name in the Author field - an odd thing for an evaluator to find on work you are being graded for individually.</p>
-  //
-  //     <p><strong>Quotations and invoices.</strong> A freelancer who started from a template found online is sending clients a document attributed to a stranger. And a firm whose PDF exporter writes its licence holder into the Producer line is quietly telling every recipient which software it pays for.</p>
-  //
-  //     <p><strong>Files forwarded to you.</strong> This one is worth making a habit. A document that has passed through three organisations can still name someone at the first, and forwarding it on makes you the person who shared it. A quick look before you pass anything along costs nothing.</p>
-  //
-  //     <p>The fix is the same in every case, and it takes the same half a minute.</p>
-  //
-  //     <h2>While You Are Cleaning It Up</h2>
-  // 
-  //     <p>A few other things worth checking on the same file, since you have it open anyway.</p>
-  // 
-  //     <p><strong>The filename.</strong> Metadata is invisible; the filename is not. "resume final final v3.pdf" arrives in an inbox looking exactly as considered as it sounds. Rename it to your name and the role.</p>
-  // 
-  //     <p><strong>The size.</strong> Some portals cap resume uploads at 1 MB or 2 MB, and a resume with a photo can cross that. <a href="/compress-pdf">Compress PDF</a> handles it; for the hard exact-KB caps on government portals, <a href="/blog/optimize-pdf-under-50kb-government-recruitment-forms">the 50 KB guide</a> covers the tighter cases.</p>
-  // 
-  //     <p><strong>The bundle.</strong> If the application wants your resume, marksheets and ID as one file, <a href="/merge-pdf">Merge PDF</a> puts them in the order you choose - and it is worth reading the <a href="/blog/common-pdf-mistakes-online-job-applications">common formatting mistakes</a> before you assemble it.</p>
-  // 
-  //     <p><strong>A locked file.</strong> If your resume PDF asks for a password to open, nothing can edit its properties until that comes off. Use <a href="/unlock-pdf">Unlock PDF</a> first.</p>
-  // 
-  //     <h2>Frequently Asked Questions</h2>
-  // 
-  //     <p><strong>Q: Do recruiters really check document properties?</strong><br>
-  //     A: Not all of them, but enough that it is worth the thirty seconds. More reliably, applicant tracking systems parse the file, and some of them read those fields as part of building a candidate record.</p>
-  // 
-  //     <p><strong>Q: Should I clear the Author field or put my own name in?</strong><br>
-  //     A: Either is fine. Your own name is the natural choice for your own work. An empty field is better than someone else's name, so if in doubt, clear it.</p>
-  // 
-  //     <p><strong>Q: Will this change how my resume looks?</strong><br>
-  //     A: No. The pages are untouched - only the information block alongside them is rewritten. Your layout, fonts and spacing come through exactly as they were, and the file size barely moves.</p>
-  // 
-  //     <p><strong>Q: I made the PDF from Word. Can I not just fix it there?</strong><br>
-  //     A: You can, if you still have the source file and know where the setting lives. This is for the far more common case where you only have the PDF, or where the field survived the export anyway.</p>
-  // 
-  //     <p><strong>Q: Does removing the author name look like I am hiding something?</strong><br>
-  //     A: No. An empty Author field is completely ordinary - a great many PDFs have one. A field naming a person who is not you is the version that raises questions.</p>
-  // 
-  //     <p><strong>Q: Is my resume uploaded anywhere to do this?</strong><br>
-  //     A: No. It is opened, read and rewritten inside your browser on your own device. A resume carries your phone number, your address and your employment history, which is a poor thing to hand to a server you know nothing about.</p>
-  // 
   //     <h2>The Short Version</h2>
-  // 
-  //     <p>The Author field on a PDF comes from the machine that made the document, not from the person sending it, so a borrowed template or a shared laptop puts someone else's name on your resume. It is invisible on the page and perfectly visible in the properties panel.</p>
-  // 
-  //     <p>Put your own name in, give the file a real title, clear the software lines, and send it. Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a> and it is a half-minute job.</p>
-  // 
+
+  //     <p>Every PDF carries a small block of information that nobody sees and nobody meant to send: a title that is often an old filename, an author name that is often the wrong person, and the software that made it. It rarely matters, and when it does - a resume, a contract, anything published - it matters quite a lot.</p>
+
+  //     <p>Checking takes half a minute. Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a>, look at what your file is carrying, and decide what deserves to travel with it.</p>
+
   //     `
   // },
 

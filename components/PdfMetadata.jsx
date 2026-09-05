@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ProcessingOverlay from "./ProcessingOverlay";
+import NextSteps from "./NextSteps";
 import {
   ArrowLeft,
   Upload,
@@ -497,6 +498,8 @@ export default function PdfMetadata() {
                     Start Over
                   </button>
                 </div>
+
+                <NextSteps toolId="remove-pdf-metadata" />
               </div>
             )}
           </div>
