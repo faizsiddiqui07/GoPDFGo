@@ -3975,87 +3975,87 @@ export const blogsData = [
       <p>Pick "Page 1 of N" when someone will count or collate the pages, plain numbers when they will only read them. Tick Skip first page so the cover stays as designed, and set the starting number to 1, or to wherever this file continues from. Leave the position at Bottom Center unless that strip is already occupied. Scanned pages take the number just as well as typed ones, because it is drawn on the page rather than typed into it. Get the page order final, then <a href="/page-numbers">add page numbers to your PDF</a> in your browser, and check the cover, the first content page and the last page before you upload the tender.</p>
       `
   },
-  // {
-  //   id: "vcard-qr-code-generator-digital-business-card",
-  //   title: "vCard QR Code Generator: Make a Digital Business Card That Saves Your Contact in One Scan",
-  //   seoTitle: "vCard QR Code Generator: Digital Card | GoPDFGo",
-  //   keywords: "vcard qr code generator, digital business card qr code, contact qr code, save contact qr code, vcard qr for visiting card, qr code that saves contact, business card qr code india, create vcard qr code free, scan to save contact, qr code for phone number and email",
-  //   excerpt: "Stop printing your phone number in tiny text on your visiting card. Build a short vCard text block, turn it into a QR code, and let one scan drop your name, number, email and company straight into someone's phone.",
-  //   date: "June 21, 2026",
-  //   publishedAt: "2026-06-21",
-  //   imageUrl: "/images/blogs/vcard-qr-code-generator-digital-business-card.webp",
-  //   content: `
-  //     <p>Picture the end of a meeting at a coffee shop in Koramangala, or a site visit for a 2BHK in Wakad. You hand over your visiting card. The other person looks at it, says "great, I'll save your number," and slips it into a shirt pocket. You both know what happens next. That card goes home, lands in a drawer with forty others, and your number never makes it into their phone. Three weeks later they are squinting at it trying to remember which broker you were.</p>
+  {
+    id: "vcard-qr-code-generator-digital-business-card",
+    title: "vCard QR Code Generator: Make a Digital Business Card That Saves Your Contact in One Scan",
+    seoTitle: "vCard QR Code Generator: Digital Card | GoPDFGo",
+    keywords: "vcard qr code generator, digital business card qr code, contact qr code, save contact qr code, vcard qr for visiting card, qr code that saves contact, business card qr code india, create vcard qr code free, scan to save contact, qr code for phone number and email",
+    excerpt: "Stop printing your phone number in tiny text on your visiting card. Build a short vCard text block, turn it into a QR code, and let one scan drop your name, number, email and company straight into someone's phone.",
+    date: "September 12, 2026",
+    publishedAt: "2026-09-12",
+    imageUrl: "/images/blogs/vcard-qr-code-generator-digital-business-card.webp",
+    content: `
+      <p>Picture the end of a meeting at a coffee shop in Koramangala, or a site visit for a 2BHK in Wakad. You hand over your visiting card. The other person looks at it, says "great, I'll save your number," and slips it into a shirt pocket. You both know what happens next. That card goes home, lands in a drawer with forty others, and your number never makes it into their phone. Three weeks later they are squinting at it trying to remember which broker you were.</p>
 
-  //     <p>The card isn't the problem. The gap between paper and phone is. Nobody enjoys typing a ten-digit number plus an email with a dot and an underscore off a 7-point font, so they don't. A vCard QR code removes that step. One scan with the phone camera, a little card pops up saying "Add to Contacts," they tap once, and your name, number, email and company are saved. No typing, no lost card. It actually works, and it is cheaper than the card you already print.</p>
+      <p>The card isn't the problem. The gap between paper and phone is. Nobody enjoys typing a ten-digit number plus an email with a dot and an underscore off a 7-point font, so they don't. A vCard QR code removes that step. One scan with the phone camera, a little card pops up saying "Add to Contacts," they tap once, and your name, number, email and company are saved. No typing, no lost card. It actually works, and it is cheaper than the card you already print.</p>
 
-  //     <h2>What a vCard QR code actually is (and what it isn't)</h2>
+      <h2>What a vCard QR code actually is (and what it isn't)</h2>
 
-  //     <p>Most QR codes you have scanned on a poster or a menu open a website. You point your camera, a link shows up, you tap it, a browser loads. A vCard QR code does none of that. It doesn't open a webpage. The black-and-white pattern has your contact details written straight inside it, in a small standard format called <strong>vCard</strong>. When the phone reads the code, it recognises a contact and offers to save it into the phonebook.</p>
+      <p>Most QR codes you have scanned on a poster or a menu open a website. You point your camera, a link shows up, you tap it, a browser loads. A vCard QR code does none of that. It doesn't open a webpage. The black-and-white pattern has your contact details written straight inside it, in a small standard format called <strong>vCard</strong>. When the phone reads the code, it recognises a contact and offers to save it into the phonebook.</p>
 
-  //     <p>That difference is the whole point. There is no website to maintain, no link that can break, nothing for the other person to "visit." It works offline too. Stuck in the basement of an exhibition hall with one bar of signal? The scan still works, because everything sits in the code itself, not on a server somewhere.</p>
+      <p>That difference is the whole point. There is no website to maintain, no link that can break, nothing for the other person to "visit." It works offline too. Stuck in the basement of an exhibition hall with one bar of signal? The scan still works, because everything sits in the code itself, not on a server somewhere.</p>
 
-  //     <p>Here is the trade-off, and it is a real one. A vCard QR code is <strong>static and permanent</strong>. The details are baked into the pattern. If you switch your number next year, every printed code keeps handing out the old one forever, and you cannot edit a code that is already on paper. You generate a fresh one and reprint. So put details you are confident about, and lead with the number you intend to keep. If you change companies or numbers every few months, this is a genuine limitation, not a footnote.</p>
+      <p>Here is the trade-off, and it is a real one. A vCard QR code is <strong>static and permanent</strong>. The details are baked into the pattern. If you switch your number next year, every printed code keeps handing out the old one forever, and you cannot edit a code that is already on paper. You generate a fresh one and reprint. So put details you are confident about, and lead with the number you intend to keep. If you change companies or numbers every few months, this is a genuine limitation, not a footnote.</p>
 
-  //     <h2>The vCard text block: simpler than it sounds</h2>
+      <h2>The vCard text block: simpler than it sounds</h2>
 
-  //     <p>"vCard format" sounds like something a developer wrote. It is just a few lines of plain text with labels in front. You are not coding. You are filling a form by hand. Here is a working block you can copy and edit. Select the whole thing, top line to bottom line:</p>
+      <p>"vCard format" sounds like something a developer wrote. It is just a few lines of plain text with labels in front. You are not coding. You are filling a form by hand. Here is a working block you can copy and edit. Select the whole thing, top line to bottom line:</p>
 
-  //     <pre>BEGIN:VCARD
-  //       VERSION:3.0
-  //       N:Sharma;Rohan;;;
-  //       FN:Rohan Sharma
-  //       TEL;TYPE=CELL:+919812345678
-  //       EMAIL:rohan@example.com
-  //       ORG:Sharma Properties
-  //       END:VCARD</pre>
+      <pre>BEGIN:VCARD
+        VERSION:3.0
+        N:Sharma;Rohan;;;
+        FN:Rohan Sharma
+        TEL;TYPE=CELL:+919812345678
+        EMAIL:rohan@example.com
+        ORG:Sharma Properties
+        END:VCARD</pre>
 
-  //     <p>That is the entire thing. Read it top to bottom and it explains itself, but a quick tour of the lines you will actually change:</p>
+      <p>That is the entire thing. Read it top to bottom and it explains itself, but a quick tour of the lines you will actually change:</p>
 
-  //     <ul>
-  //       <li><strong>N</strong> is the structured name, written <em>Surname;First name;;;</em> — surname comes first here, with those semicolons. So <em>N:Sharma;Rohan;;;</em> means surname Sharma, first name Rohan. The extra semicolons hold a middle name and titles you are leaving blank, so keep them.</li>
-  //       <li><strong>FN</strong> is the full name written the normal way, <em>Rohan Sharma</em>. This is the line that shows up as the contact name on most phones, so don't drop it.</li>
-  //       <li><strong>TEL</strong> is your phone. Add the country code: for India that is <em>+91</em> and then the ten digits, no spaces. The <em>;TYPE=CELL</em> tag just tells the phone it is a mobile.</li>
-  //       <li><strong>EMAIL</strong> is your email. <strong>ORG</strong> is your company or shop name — for a freelancer that is just your studio or brand name.</li>
-  //     </ul>
+      <ul>
+        <li><strong>N</strong> is the structured name, written <em>Surname;First name;;;</em> — surname comes first here, with those semicolons. So <em>N:Sharma;Rohan;;;</em> means surname Sharma, first name Rohan. The extra semicolons hold a middle name and titles you are leaving blank, so keep them.</li>
+        <li><strong>FN</strong> is the full name written the normal way, <em>Rohan Sharma</em>. This is the line that shows up as the contact name on most phones, so don't drop it.</li>
+        <li><strong>TEL</strong> is your phone. Add the country code: for India that is <em>+91</em> and then the ten digits, no spaces. The <em>;TYPE=CELL</em> tag just tells the phone it is a mobile.</li>
+        <li><strong>EMAIL</strong> is your email. <strong>ORG</strong> is your company or shop name — for a freelancer that is just your studio or brand name.</li>
+      </ul>
 
-  //     <p>Keep it short. Every extra line you add (full address, website, a second number) makes the QR pattern denser and harder to scan, which bites when it is printed small in the corner of a card. Name, number, email, company covers what most people need at a meeting.</p>
+      <p>Keep it short. Every extra line you add (full address, website, a second number) makes the QR pattern denser and harder to scan, which bites when it is printed small in the corner of a card. Name, number, email, company covers what most people need at a meeting.</p>
 
-  //     <h2>Build it, generate it, print it</h2>
+      <h2>Build it, generate it, print it</h2>
 
-  //     <p>The tool is the <a href="/qr-generator">QR Generator</a>, and the detail that matters is which tab you pick. Use the <strong>Text / URL</strong> tab, not the Wi-Fi one. You paste your finished vCard block into the text box exactly as written. The generator doesn't need to "understand" vCard — it encodes whatever text you hand it, and the phone on the other end knows what to do with it.</p>
+      <p>The tool is the <a href="/qr-generator">QR Generator</a>, and the detail that matters is which tab you pick. Use the <strong>Text / URL</strong> tab, not the Wi-Fi one. You paste your finished vCard block into the text box exactly as written. The generator doesn't need to "understand" vCard — it encodes whatever text you hand it, and the phone on the other end knows what to do with it.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to make your vCard QR code on GoPDFGo</h3>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open Notes, WhatsApp's "message yourself," or any text box, and write out your vCard block using the example above. Swap in your own name, number, email and company. Check the phone number digit by digit — this is the one thing you cannot fix after printing.</li>
-  //         <li><strong>Step 2:</strong> Copy the whole block, from <strong>BEGIN:VCARD</strong> down to <strong>END:VCARD</strong>. Leave either line out and the phone won't recognise it as a contact, so grab both.</li>
-  //         <li><strong>Step 3:</strong> Open the <a href="/qr-generator">QR Generator</a> and stay on the <strong>Text / URL</strong> tab. Paste your vCard block straight into the text field.</li>
-  //         <li><strong>Step 4:</strong> Tap <strong>Generate QR Code</strong>. The code appears on screen. Your contact details are encoded into the image right there in your browser — they are not sent to our servers.</li>
-  //         <li><strong>Step 5:</strong> Before you download, test it. Open your phone camera and scan the code off your laptop screen. If an "Add Contact" card pops up with your details correct, you are set. If nothing happens, check that both the BEGIN and END lines made it in.</li>
-  //         <li><strong>Step 6:</strong> Hit <strong>Download PNG</strong> and send the file to your designer, or drop it into your card layout yourself. A 10-rupee print run at the Xerox shop near the office, and your card now saves itself into people's phones.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to make your vCard QR code on GoPDFGo</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Open Notes, WhatsApp's "message yourself," or any text box, and write out your vCard block using the example above. Swap in your own name, number, email and company. Check the phone number digit by digit — this is the one thing you cannot fix after printing.</li>
+          <li><strong>Step 2:</strong> Copy the whole block, from <strong>BEGIN:VCARD</strong> down to <strong>END:VCARD</strong>. Leave either line out and the phone won't recognise it as a contact, so grab both.</li>
+          <li><strong>Step 3:</strong> Open the <a href="/qr-generator">QR Generator</a> and stay on the <strong>Text / URL</strong> tab. Paste your vCard block straight into the text field.</li>
+          <li><strong>Step 4:</strong> Tap <strong>Generate QR Code</strong>. The code appears on screen. Your contact details are encoded into the image right there in your browser — they are not sent to our servers.</li>
+          <li><strong>Step 5:</strong> Before you download, test it. Open your phone camera and scan the code off your laptop screen. If an "Add Contact" card pops up with your details correct, you are set. If nothing happens, check that both the BEGIN and END lines made it in.</li>
+          <li><strong>Step 6:</strong> Hit <strong>Download PNG</strong> and send the file to your designer, or drop it into your card layout yourself. A 10-rupee print run at the Xerox shop near the office, and your card now saves itself into people's phones.</li>
+        </ul>
+      </div>
 
-  //     <h2>Who this actually helps in India</h2>
+      <h2>Who this actually helps in India</h2>
 
-  //     <p>A real-estate agent doing four site visits a day cannot count on people typing the number off a card later that evening. Print the vCard QR on the card and the brochure, and every serious lead has you saved before they walk out of the flat. A freelance designer or developer at a meetup hands over the card, the other person scans once, and the name lands in their phone spelled right — no "was it Rohan or Rohit" guessing a week later. Sales reps walking into a distributor's office, a salon owner who wants regulars to save the booking number, a CA or an insurance advisor whose whole business runs on people calling back — same story. The card stops being a thing people mean to act on and forget.</p>
+      <p>A real-estate agent doing four site visits a day cannot count on people typing the number off a card later that evening. Print the vCard QR on the card and the brochure, and every serious lead has you saved before they walk out of the flat. A freelance designer or developer at a meetup hands over the card, the other person scans once, and the name lands in their phone spelled right — no "was it Rohan or Rohit" guessing a week later. Sales reps walking into a distributor's office, a salon owner who wants regulars to save the booking number, a CA or an insurance advisor whose whole business runs on people calling back — same story. The card stops being a thing people mean to act on and forget.</p>
 
-  //     <p>It sits well next to the rest of the card too. If you also want a code that opens your portfolio or a Google review page, that is a separate <a href="/blog/static-vs-dynamic-qr-codes-difference">static URL QR code</a> — keep the two clearly apart so nobody scans the wrong one. And if you are laying out the card yourself from photos or screenshots, run them through <a href="/image-to-pdf">Image to PDF</a> first so the press gets one clean file, then <a href="/compress-pdf">compress the PDF</a> if it comes out heavy for emailing.</p>
+      <p>It sits well next to the rest of the card too. If you also want a code that opens your portfolio or a Google review page, that is a separate <a href="/blog/static-vs-dynamic-qr-codes-difference">static URL QR code</a> — keep the two clearly apart so nobody scans the wrong one. And if you are laying out the card yourself from photos or screenshots, run them through <a href="/image-to-pdf">Image to PDF</a> first so the press gets one clean file, then <a href="/compress-pdf">compress the PDF</a> if it comes out heavy for emailing.</p>
 
-  //     <h2>FAQ</h2>
+      <h2>FAQ</h2>
 
-  //     <p><strong>Q: Will this work on both Android and iPhone?</strong><br> A: Yes. Modern iPhones through the camera app and most Android phones read vCard QR codes natively and offer to save the contact. Very old phones or a stripped-down camera app might not, in which case a free QR scanner app handles it — but that is rare now.</p>
+      <p><strong>Q: Will this work on both Android and iPhone?</strong><br> A: Yes. Modern iPhones through the camera app and most Android phones read vCard QR codes natively and offer to save the contact. Very old phones or a stripped-down camera app might not, in which case a free QR scanner app handles it — but that is rare now.</p>
 
-  //     <p><strong>Q: Can I edit the QR later if my number changes?</strong><br> A: No. A vCard QR is static — the details are physically encoded in the pattern. If your number or email changes, you generate a new code and reprint. Codes already printed will keep giving the old details. Put your most stable number on it.</p>
+      <p><strong>Q: Can I edit the QR later if my number changes?</strong><br> A: No. A vCard QR is static — the details are physically encoded in the pattern. If your number or email changes, you generate a new code and reprint. Codes already printed will keep giving the old details. Put your most stable number on it.</p>
 
-  //     <p><strong>Q: Is my phone number safe? Does the tool store it?</strong><br> A: The <a href="/qr-generator">QR Generator</a> encodes your vCard text into the image inside your browser, so your contact details are not sent to us to build the code. Keep in mind that once it is printed, anyone who scans it gets those details — that is the point of the thing — so only put what you are happy to share on a visiting card.</p>
+      <p><strong>Q: Is my phone number safe? Does the tool store it?</strong><br> A: The <a href="/qr-generator">QR Generator</a> encodes your vCard text into the image inside your browser, so your contact details are not sent to us to build the code. Keep in mind that once it is printed, anyone who scans it gets those details — that is the point of the thing — so only put what you are happy to share on a visiting card.</p>
 
-  //     <p><strong>Q: My code only showed text, it didn't save the contact. What went wrong?</strong><br> A: Almost always a missing or misspelled BEGIN:VCARD or END:VCARD line, or a typo in VERSION:3.0. The phone treats it as a contact only when those exact lines wrap your details. Copy the example again carefully and regenerate.</p>
+      <p><strong>Q: My code only showed text, it didn't save the contact. What went wrong?</strong><br> A: Almost always a missing or misspelled BEGIN:VCARD or END:VCARD line, or a typo in VERSION:3.0. The phone treats it as a contact only when those exact lines wrap your details. Copy the example again carefully and regenerate.</p>
 
-  //     <p>Write your eight lines of text, paste them into the <a href="/qr-generator">QR Generator</a> on the Text / URL tab, scan it once to be sure, and print. Your next card won't sit forgotten in a drawer — it will be in the phonebook, which is where you wanted it all along.</p>
-  //     `
-  // }, done
+      <p>Write your eight lines of text, paste them into the <a href="/qr-generator">QR Generator</a> on the Text / URL tab, scan it once to be sure, and print. Your next card won't sit forgotten in a drawer — it will be in the phonebook, which is where you wanted it all along.</p>
+      `
+  },
 
 
 
@@ -4831,32 +4831,32 @@ export const blogsData = [
   //   imageUrl: "/images/blogs/remove-author-name-from-pdf-before-sending-resume.webp",
   //   content: `
   //     <p>Here is a small thing that happens to a lot of people applying for jobs, and almost nobody notices until someone points it out.</p>
-  
+
   //     <p>You needed a resume. A friend sent you their format, or you downloaded a template, or you built it on a college lab computer. You replaced every word with your own details, exported a PDF, and sent it off. The page is entirely yours.</p>
-  
+
   //     <p>The document's properties are not. Open that PDF, press Ctrl+D, and the <strong>Author</strong> line may well still say <em>Priya Menon</em>, or <em>lab-pc-04</em>, or the name of whoever set up the template two years ago.</p>
-  
+
   //     <p>Recruiters do open that panel. Some applicant tracking systems read it automatically. It is a strange thing for a hiring manager to see a candidate's file attributed to someone else, and it costs nothing to fix.</p>
-  
+
   //     <h2>Why Your Name Is Not the One In There</h2>
-  
+
   //     <p>The Author field is not typed in by anyone. It is filled automatically from the account name on the machine where the document was first created, and then it stays put through every later edit and export.</p>
-  
+
   //     <p>So it survives the things you would expect to reset it:</p>
-  
+
   //     <ul>
   //     <li><strong>A shared template.</strong> You edited someone else's file. Their name came with it.</li>
   //     <li><strong>A borrowed or office laptop.</strong> The account name belongs to the machine, not to you.</li>
   //     <li><strong>A cyber cafe or college lab.</strong> Often a generic machine name, which looks careless rather than wrong.</li>
   //     <li><strong>A previous employer's computer.</strong> The most awkward version: a resume for a new job, attributed to an account at the old one.</li>
   //     </ul>
-  
+
   //     <p>The same applies to the <strong>Creator</strong> and <strong>Producer</strong> lines, which name the software - sometimes a licensed copy registered to a company you no longer work for.</p>
-  
+
   //     <h2>Fixing It Without Rebuilding the Resume</h2>
-  
+
   //     <p>You do not need to redo the document. The information block sits alongside the pages, separate from them, and can be rewritten on its own. Your layout, fonts, spacing and content are untouched.</p>
-  
+
   //     <div class="tool-box">
   //     <h3>How to Fix the Author Name on Your Resume PDF</h3>
   //     <ul>
@@ -4868,65 +4868,65 @@ export const blogsData = [
   //     <li><strong>Step 6:</strong> Apply, download, then open the new file's properties once to confirm it reads the way you want.</li>
   //     </ul>
   //     </div>
-  
+
   //     <h2>Set the Title, Do Not Just Blank Everything</h2>
-  
+
   //     <p>It is tempting to clear all six fields and move on. For most documents that is right, but a resume is the one case where filling a field in beats emptying it.</p>
-  
+
   //     <p>The Title is what appears in the tab when a recruiter opens your PDF in a browser, which is how most of them will read it. A tab reading "Anjali Nair - Marketing Executive - Resume" is a small, free signal of care. A tab reading "Untitled document (3)" is a small signal of the opposite.</p>
-  
+
   //     <p>So: real Title, your name in Author, and clear the rest.</p>
-  
+
   //     <h2>It Is Not Only Resumes</h2>
-  
+
   //     <p>The same thing happens anywhere templates get passed around, which in practice covers most of student and small-business life.</p>
-  
+
   //     <p><strong>College project reports.</strong> One senior's format circulates through an entire batch, edited by thirty juniors. Every submitted PDF then carries that senior's name in the Author field - an odd thing for an evaluator to find on work you are being graded for individually.</p>
-  
+
   //     <p><strong>Quotations and invoices.</strong> A freelancer who started from a template found online is sending clients a document attributed to a stranger. And a firm whose PDF exporter writes its licence holder into the Producer line is quietly telling every recipient which software it pays for.</p>
-  
+
   //     <p><strong>Files forwarded to you.</strong> This one is worth making a habit. A document that has passed through three organisations can still name someone at the first, and forwarding it on makes you the person who shared it. A quick look before you pass anything along costs nothing.</p>
-  
+
   //     <p>The fix is the same in every case, and it takes the same half a minute.</p>
-  
+
   //     <h2>While You Are Cleaning It Up</h2>
-  
+
   //     <p>A few other things worth checking on the same file, since you have it open anyway.</p>
-  
+
   //     <p><strong>The filename.</strong> Metadata is invisible; the filename is not. "resume final final v3.pdf" arrives in an inbox looking exactly as considered as it sounds. Rename it to your name and the role.</p>
-  
+
   //     <p><strong>The size.</strong> Some portals cap resume uploads at 1 MB or 2 MB, and a resume with a photo can cross that. <a href="/compress-pdf">Compress PDF</a> handles it; for the hard exact-KB caps on government portals, <a href="/blog/optimize-pdf-under-50kb-government-recruitment-forms">the 50 KB guide</a> covers the tighter cases.</p>
-  
+
   //     <p><strong>The bundle.</strong> If the application wants your resume, marksheets and ID as one file, <a href="/merge-pdf">Merge PDF</a> puts them in the order you choose - and it is worth reading the <a href="/blog/common-pdf-mistakes-online-job-applications">common formatting mistakes</a> before you assemble it.</p>
-  
+
   //     <p><strong>A locked file.</strong> If your resume PDF asks for a password to open, nothing can edit its properties until that comes off. Use <a href="/unlock-pdf">Unlock PDF</a> first.</p>
-  
+
   //     <h2>Frequently Asked Questions</h2>
-  
+
   //     <p><strong>Q: Do recruiters really check document properties?</strong><br>
   //     A: Not all of them, but enough that it is worth the thirty seconds. More reliably, applicant tracking systems parse the file, and some of them read those fields as part of building a candidate record.</p>
-  
+
   //     <p><strong>Q: Should I clear the Author field or put my own name in?</strong><br>
   //     A: Either is fine. Your own name is the natural choice for your own work. An empty field is better than someone else's name, so if in doubt, clear it.</p>
-  
+
   //     <p><strong>Q: Will this change how my resume looks?</strong><br>
   //     A: No. The pages are untouched - only the information block alongside them is rewritten. Your layout, fonts and spacing come through exactly as they were, and the file size barely moves.</p>
-  
+
   //     <p><strong>Q: I made the PDF from Word. Can I not just fix it there?</strong><br>
   //     A: You can, if you still have the source file and know where the setting lives. This is for the far more common case where you only have the PDF, or where the field survived the export anyway.</p>
-  
+
   //     <p><strong>Q: Does removing the author name look like I am hiding something?</strong><br>
   //     A: No. An empty Author field is completely ordinary - a great many PDFs have one. A field naming a person who is not you is the version that raises questions.</p>
-  
+
   //     <p><strong>Q: Is my resume uploaded anywhere to do this?</strong><br>
   //     A: No. It is opened, read and rewritten inside your browser on your own device. A resume carries your phone number, your address and your employment history, which is a poor thing to hand to a server you know nothing about.</p>
-  
+
   //     <h2>The Short Version</h2>
-  
+
   //     <p>The Author field on a PDF comes from the machine that made the document, not from the person sending it, so a borrowed template or a shared laptop puts someone else's name on your resume. It is invisible on the page and perfectly visible in the properties panel.</p>
-  
+
   //     <p>Put your own name in, give the file a real title, clear the software lines, and send it. Open <a href="/remove-pdf-metadata">Remove PDF Metadata</a> and it is a half-minute job.</p>
-  
+
   //     `
   // },
   // {
