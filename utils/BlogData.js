@@ -4061,83 +4061,83 @@ export const blogsData = [
 
   // 22-06 - 2026
   //   (4 new- tool blogs below — commented; uncomment + add / images / blogs / <slug>.webp to publish)
-  // {
-  //   id: "extract-text-from-pdf-copy-paste-free",
-  //   title: "How to Extract and Copy Text From a PDF (Free, No Upload)",
-  //   seoTitle: "Extract & Copy Text From PDF Free, No Upload | GoPDFGo",
-  //   keywords: "extract text from pdf, copy text from pdf, pdf to text, get text out of pdf, copy paste from pdf, convert pdf to txt, pull text from pdf free, extract text without upload",
-  //   excerpt: "You select text in a PDF, hit Ctrl+C, and paste only to get a jumbled mess or nothing at all. Here is how to pull clean, copyable text out of a PDF in seconds, fully in your browser.",
-  //   date: "June 22, 2026",
-  //   publishedAt: "2026-06-22",
-  //   imageUrl: "/images/blogs/extract-text-from-pdf-copy-paste-free.webp",
-  //   content: `
-  //     <p>You are studying late, a chapter PDF from your coaching material open on one screen, and you just want two paragraphs from it in your study group's WhatsApp. You drag across the text, press Ctrl+C, paste, and out comes a jumbled mess: words glued together, line breaks in the wrong places, half a sentence missing. Or nothing pastes at all. Most of us have been there with a PDF at least once.</p>
+  {
+    id: "extract-text-from-pdf-copy-paste-free",
+    title: "How to Extract and Copy Text From a PDF (Free, No Upload)",
+    seoTitle: "Extract & Copy Text From PDF Free, No Upload | GoPDFGo",
+    keywords: "extract text from pdf, copy text from pdf, pdf to text, get text out of pdf, copy paste from pdf, convert pdf to txt, pull text from pdf free, extract text without upload",
+    excerpt: "You select text in a PDF, hit Ctrl+C, and paste only to get a jumbled mess or nothing at all. Here is how to pull clean, copyable text out of a PDF in seconds, fully in your browser.",
+    date: "September 16, 2026",
+    publishedAt: "2026-09-16",
+    imageUrl: "/images/blogs/extract-text-from-pdf-copy-paste-free.webp",
+    content: `
+      <p>You are studying late, a chapter PDF from your coaching material open on one screen, and you just want two paragraphs from it in your study group's WhatsApp. You drag across the text, press Ctrl+C, paste, and out comes a jumbled mess: words glued together, line breaks in the wrong places, half a sentence missing. Or nothing pastes at all. Most of us have been there with a PDF at least once.</p>
 
-  //     <p>Getting plain text out of a PDF should be simple, but the format does not make it easy. A PDF is built to look identical on every screen and printer, not to hand its words over neatly. Here is why it fights you, and a clean way to pull copyable text out of most PDFs in a few seconds, right in your browser, without uploading the file anywhere.</p>
+      <p>Getting plain text out of a PDF should be simple, but the format does not make it easy. A PDF is built to look identical on every screen and printer, not to hand its words over neatly. Here is why it fights you, and a clean way to pull copyable text out of most PDFs in a few seconds, right in your browser, without uploading the file anywhere.</p>
 
-  //     <h2>Why copying text from a PDF goes wrong</h2>
-  //     <p>A PDF is not a Word file. Inside, text is often placed character by character at fixed positions on the page, more like a printed sheet than a document you can edit. When you select and copy inside a PDF reader, the reader has to guess the reading order. On multi-column layouts, tables, or anything with fancy formatting, it guesses wrong a lot. That is how you end up with two columns mixed together or stray spaces scattered through a sentence.</p>
+      <h2>Why copying text from a PDF goes wrong</h2>
+      <p>A PDF is not a Word file. Inside, text is often placed character by character at fixed positions on the page, more like a printed sheet than a document you can edit. When you select and copy inside a PDF reader, the reader has to guess the reading order. On multi-column layouts, tables, or anything with fancy formatting, it guesses wrong a lot. That is how you end up with two columns mixed together or stray spaces scattered through a sentence.</p>
 
-  //     <p>On a phone it is worse, because selecting a precise block of text in a mobile PDF viewer is fiddly and the handles never land where you want them. What you actually need is a tool that reads the PDF's underlying text directly and gives it back as clean plain text you can copy or save. That is what our <a href="/pdf-to-text">PDF to Text</a> tool does.</p>
+      <p>On a phone it is worse, because selecting a precise block of text in a mobile PDF viewer is fiddly and the handles never land where you want them. What you actually need is a tool that reads the PDF's underlying text directly and gives it back as clean plain text you can copy or save. That is what our <a href="/pdf-to-text">PDF to Text</a> tool does.</p>
 
-  //     <h2>The one thing to understand: the text layer</h2>
-  //     <p>Every PDF created from a real document, a Word export, an e-book, a generated question paper, an invoice from accounting software, carries a hidden <strong>text layer</strong>. That is the actual selectable text sitting behind what you see on the page. Our tool reads that layer and hands it to you, formatting stripped, ready to use.</p>
+      <h2>The one thing to understand: the text layer</h2>
+      <p>Every PDF created from a real document, a Word export, an e-book, a generated question paper, an invoice from accounting software, carries a hidden <strong>text layer</strong>. That is the actual selectable text sitting behind what you see on the page. Our tool reads that layer and hands it to you, formatting stripped, ready to use.</p>
 
-  //     <p>There is one honest catch. If your PDF is a <strong>scan</strong>, where someone photographed or scanned a printed page, that page is just an <em>image</em>. To your eyes it looks like text, but there is no text layer under it. It is a picture of words. Nothing can copy text that does not exist in the file as text. For a pure scan you need OCR (optical character recognition), which reads the letters off the picture. This tool will come back empty on those, so use the <a href="/ocr-pdf">OCR PDF</a> tool for them instead.</p>
+      <p>There is one honest catch. If your PDF is a <strong>scan</strong>, where someone photographed or scanned a printed page, that page is just an <em>image</em>. To your eyes it looks like text, but there is no text layer under it. It is a picture of words. Nothing can copy text that does not exist in the file as text. For a pure scan you need OCR (optical character recognition), which reads the letters off the picture. This tool will come back empty on those, so use the <a href="/ocr-pdf">OCR PDF</a> tool for them instead.</p>
 
-  //     <p>You can check in two seconds. Open the PDF and try to select a single word with your mouse or finger. If a word highlights, you have a real text layer and extraction will work cleanly. If your cursor just draws a box over the whole page and nothing highlights, it is a scanned image. Good news for one common worry though: even PDFs that block copying through restrictions usually still have a readable text layer, and our reader pulls the text from those restricted-but-text-based files just fine.</p>
+      <p>You can check in two seconds. Open the PDF and try to select a single word with your mouse or finger. If a word highlights, you have a real text layer and extraction will work cleanly. If your cursor just draws a box over the whole page and nothing highlights, it is a scanned image. Good news for one common worry though: even PDFs that block copying through restrictions usually still have a readable text layer, and our reader pulls the text from those restricted-but-text-based files just fine.</p>
 
-  //     <h2>Where you will actually copy text from a PDF</h2>
-  //     <p>Once you know it works on any text-based PDF, the everyday uses pile up fast:</p>
-  //     <ul>
-  //       <li><strong>Exam prep and coaching:</strong> Pull a definition, a formula explanation, or a worked answer from an e-book or your lecture notes and paste it straight into your notes app or the group chat. No retyping.</li>
-  //       <li><strong>Previous year question papers:</strong> This is the big one for students. Copy questions out of a PYQ PDF to build your own practice set, or to paste a tricky question into a search and find a worked solution. Far quicker than typing each question by hand.</li>
-  //       <li><strong>Agreements and letters:</strong> Need one specific clause out of a rent agreement or an offer letter to send to a family member? Copy just that clause instead of screenshotting the whole page.</li>
-  //       <li><strong>Translation:</strong> Copy a chunk of English or Hindi text and paste it into Google Translate. You cannot translate a picture of words, but you can translate extracted text.</li>
-  //       <li><strong>Quick sharing:</strong> Drop a key line from a notice or circular into WhatsApp instead of forwarding a 4 MB file nobody opens.</li>
-  //     </ul>
+      <h2>Where you will actually copy text from a PDF</h2>
+      <p>Once you know it works on any text-based PDF, the everyday uses pile up fast:</p>
+      <ul>
+        <li><strong>Exam prep and coaching:</strong> Pull a definition, a formula explanation, or a worked answer from an e-book or your lecture notes and paste it straight into your notes app or the group chat. No retyping.</li>
+        <li><strong>Previous year question papers:</strong> This is the big one for students. Copy questions out of a PYQ PDF to build your own practice set, or to paste a tricky question into a search and find a worked solution. Far quicker than typing each question by hand.</li>
+        <li><strong>Agreements and letters:</strong> Need one specific clause out of a rent agreement or an offer letter to send to a family member? Copy just that clause instead of screenshotting the whole page.</li>
+        <li><strong>Translation:</strong> Copy a chunk of English or Hindi text and paste it into Google Translate. You cannot translate a picture of words, but you can translate extracted text.</li>
+        <li><strong>Quick sharing:</strong> Drop a key line from a notice or circular into WhatsApp instead of forwarding a 4 MB file nobody opens.</li>
+      </ul>
 
-  //     <h2>How to extract text from your PDF on GoPDFGo</h2>
-  //     <p>The whole thing runs <strong>inside your browser</strong>. Your PDF never leaves your device and nothing is uploaded to any server, which matters when the file is an agreement, a salary slip, or anything with your personal details in it. Here is the flow.</p>
+      <h2>How to extract text from your PDF on GoPDFGo</h2>
+      <p>The whole thing runs <strong>inside your browser</strong>. Your PDF never leaves your device and nothing is uploaded to any server, which matters when the file is an agreement, a salary slip, or anything with your personal details in it. Here is the flow.</p>
 
-  //     <div class="tool-box">
-  //       <h3>Get clean, copyable text in under a minute</h3>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/pdf-to-text">PDF to Text</a> tool on GoPDFGo, on your laptop or your phone, it works on both.</li>
-  //         <li><strong>Step 2:</strong> Click the upload area or drag your PDF onto it. The file is read locally, so even a big document loads without waiting on an internet upload.</li>
-  //         <li><strong>Step 3:</strong> The tool reads the PDF's text layer and shows the full extracted text on screen, page by page, as plain readable text.</li>
-  //         <li><strong>Step 4:</strong> Select just the part you need and copy it, or grab everything at once and download it as a <strong>.txt file</strong> that opens in any text editor. Paste into your notes, a chat, a translator, or an email.</li>
-  //         <li><strong>Step 5:</strong> If the output comes back empty, do the highlight test above. An empty result almost always means a scanned page with no text layer, not a problem with the tool.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>Get clean, copyable text in under a minute</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/pdf-to-text">PDF to Text</a> tool on GoPDFGo, on your laptop or your phone, it works on both.</li>
+          <li><strong>Step 2:</strong> Click the upload area or drag your PDF onto it. The file is read locally, so even a big document loads without waiting on an internet upload.</li>
+          <li><strong>Step 3:</strong> The tool reads the PDF's text layer and shows the full extracted text on screen, page by page, as plain readable text.</li>
+          <li><strong>Step 4:</strong> Select just the part you need and copy it, or grab everything at once and download it as a <strong>.txt file</strong> that opens in any text editor. Paste into your notes, a chat, a translator, or an email.</li>
+          <li><strong>Step 5:</strong> If the output comes back empty, do the highlight test above. An empty result almost always means a scanned page with no text layer, not a problem with the tool.</li>
+        </ul>
+      </div>
 
-  //     <h2>If your PDF turns out to be a scan</h2>
-  //     <p>Say you ran the highlight test and confirmed it is a scanned image, so nothing extracts. You are not fully stuck, you just need a different path. For a short clause, retyping the few lines you need is often faster than people expect. For a longer file, run it through <a href="/ocr-pdf">OCR PDF</a>, which reads the words off each page image and hands you back plain text in English, Hindi, or both. And if the scan is what you are working with anyway, you can still keep it tidy with our other tools, like cropping the dark edges off a scan with <a href="/crop">Crop</a>, or fixing pages that came out sideways using <a href="/rotate-pdf">Rotate PDF</a> before you share it.</p>
+      <h2>If your PDF turns out to be a scan</h2>
+      <p>Say you ran the highlight test and confirmed it is a scanned image, so nothing extracts. You are not fully stuck, you just need a different path. For a short clause, retyping the few lines you need is often faster than people expect. For a longer file, run it through <a href="/ocr-pdf">OCR PDF</a>, which reads the words off each page image and hands you back plain text in English, Hindi, or both. And if the scan is what you are working with anyway, you can still keep it tidy with our other tools, like cropping the dark edges off a scan with <a href="/crop">Crop</a>, or fixing pages that came out sideways using <a href="/rotate-pdf">Rotate PDF</a> before you share it.</p>
 
-  //     <p>One more thing worth separating out: if your real goal was to grab a single page out of a giant report rather than its text, that is a different job. For pulling a page out as its own file, the <a href="/split-pdf">Split PDF</a> tool is the right fit, not this one. This tool is purely about getting the words out so you can copy, paste, or save them as text.</p>
+      <p>One more thing worth separating out: if your real goal was to grab a single page out of a giant report rather than its text, that is a different job. For pulling a page out as its own file, the <a href="/split-pdf">Split PDF</a> tool is the right fit, not this one. This tool is purely about getting the words out so you can copy, paste, or save them as text.</p>
 
-  //     <h2>A few tips for the cleanest text</h2>
-  //     <ul>
-  //       <li><strong>Check before you panic.</strong> The highlight test (try to select one word in the PDF) tells you in two seconds whether extraction will work at all.</li>
-  //       <li><strong>Tables come out flat.</strong> Plain text extraction strips formatting, so a table arrives as rows of words without the grid. That is expected, you get the words, not the layout.</li>
-  //       <li><strong>Mixed PDFs happen.</strong> A file can have some real-text pages and some scanned pages. The text pages extract, the scanned ones stay blank, and now you know why.</li>
-  //       <li><strong>Private files stay private.</strong> Since everything runs on your device, you can put an agreement or a pay slip through it without wondering where the file ended up.</li>
-  //     </ul>
+      <h2>A few tips for the cleanest text</h2>
+      <ul>
+        <li><strong>Check before you panic.</strong> The highlight test (try to select one word in the PDF) tells you in two seconds whether extraction will work at all.</li>
+        <li><strong>Tables come out flat.</strong> Plain text extraction strips formatting, so a table arrives as rows of words without the grid. That is expected, you get the words, not the layout.</li>
+        <li><strong>Mixed PDFs happen.</strong> A file can have some real-text pages and some scanned pages. The text pages extract, the scanned ones stay blank, and now you know why.</li>
+        <li><strong>Private files stay private.</strong> Since everything runs on your device, you can put an agreement or a pay slip through it without wondering where the file ended up.</li>
+      </ul>
 
-  //     <p>So the next time a PDF refuses to give up a clean paragraph, you do not have to retype it word by word or take ten screenshots. Open the text extractor, let it read the layer, and lift exactly the lines you need. For genuine text-based PDFs, which is almost everything you deal with day to day, it just reads them and gives you the text.</p>
+      <p>So the next time a PDF refuses to give up a clean paragraph, you do not have to retype it word by word or take ten screenshots. Open the text extractor, let it read the layer, and lift exactly the lines you need. For genuine text-based PDFs, which is almost everything you deal with day to day, it just reads them and gives you the text.</p>
 
-  //     <h2>Frequently Asked Questions</h2>
-  //     <p><strong>Q: Does my PDF get uploaded to a server?</strong><br> A: No. The whole process runs inside your browser on your own device. The file never leaves your phone or computer, which is why it is safe for agreements, salary slips, and anything personal.</p>
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: Does my PDF get uploaded to a server?</strong><br> A: No. The whole process runs inside your browser on your own device. The file never leaves your phone or computer, which is why it is safe for agreements, salary slips, and anything personal.</p>
 
-  //     <p><strong>Q: Why is the extracted text empty even though I can clearly see the words?</strong><br> A: Your PDF is almost certainly a scanned image, a picture of a page with no real text layer underneath. The words are visible but they are not actual text in the file, so there is nothing to copy. That case needs OCR, so run the file through <a href="/ocr-pdf">OCR PDF</a> instead, which reads the words off the page images.</p>
+      <p><strong>Q: Why is the extracted text empty even though I can clearly see the words?</strong><br> A: Your PDF is almost certainly a scanned image, a picture of a page with no real text layer underneath. The words are visible but they are not actual text in the file, so there is nothing to copy. That case needs OCR, so run the file through <a href="/ocr-pdf">OCR PDF</a> instead, which reads the words off the page images.</p>
 
-  //     <p><strong>Q: Does it work on my phone?</strong><br> A: Yes. The tool runs in the browser on both Android and iPhone the same way it does on a laptop. Open the PDF, let it read, then copy the part you need or download the .txt. Handy when you only have your phone and a question paper.</p>
+      <p><strong>Q: Does it work on my phone?</strong><br> A: Yes. The tool runs in the browser on both Android and iPhone the same way it does on a laptop. Open the PDF, let it read, then copy the part you need or download the .txt. Handy when you only have your phone and a question paper.</p>
 
-  //     <p><strong>Q: Why does my copied text have weird spacing or jumbled words?</strong><br> A: That usually comes from copying directly inside a PDF reader, especially on two-column pages or tables, where the reader guesses the reading order wrong. Reading the text layer through this tool gives you cleaner output, though tables still arrive as flat rows of words rather than a grid.</p>
+      <p><strong>Q: Why does my copied text have weird spacing or jumbled words?</strong><br> A: That usually comes from copying directly inside a PDF reader, especially on two-column pages or tables, where the reader guesses the reading order wrong. Reading the text layer through this tool gives you cleaner output, though tables still arrive as flat rows of words rather than a grid.</p>
 
-  //     <p><strong>Q: Can I copy just one paragraph instead of the whole document?</strong><br> A: Yes. The extracted text appears on screen as plain text, so you can select and copy just the clause, definition, or paragraph you need, or grab everything at once and download it as a .txt file.</p>
-  //     `
-  // }, done
+      <p><strong>Q: Can I copy just one paragraph instead of the whole document?</strong><br> A: Yes. The extracted text appears on screen as plain text, so you can select and copy just the clause, definition, or paragraph you need, or grab everything at once and download it as a .txt file.</p>
+      `
+  },
   //     {
   //   id: "heic-to-jpg-iphone-photos-wont-open",
   //   title: "iPhone HEIC Photos Won't Open? How to Convert HEIC to JPG (and When to Use PNG or WebP)",
