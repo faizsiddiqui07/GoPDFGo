@@ -4138,92 +4138,92 @@ export const blogsData = [
       <p><strong>Q: Can I copy just one paragraph instead of the whole document?</strong><br> A: Yes. The extracted text appears on screen as plain text, so you can select and copy just the clause, definition, or paragraph you need, or grab everything at once and download it as a .txt file.</p>
       `
   },
-  //     {
-  //   id: "heic-to-jpg-iphone-photos-wont-open",
-  //   title: "iPhone HEIC Photos Won't Open? How to Convert HEIC to JPG (and When to Use PNG or WebP)",
-  //   seoTitle: "HEIC to JPG: Fix iPhone Photos That Won't Open",
-  //   keywords: "heic to jpg, what is heic, heic file won't open, convert heic to jpg, heic to png, heic to webp, iphone photo won't upload, heic not supported, convert iphone photos, heic file format",
-  //   excerpt: "You sent a photo from your iPhone and the other person got a file that won't open. Or an exam portal rejected your upload. That's HEIC. Here is what it is and how to fix it in seconds.",
-  //   date: "June 22, 2026",
-  //   publishedAt: "2026-06-22",
-  //   imageUrl: "/images/blogs/heic-to-jpg-iphone-photos-wont-open.webp",
-  //   content: `
-  //     <p>You take a photo on your iPhone and email it to your office, or upload it to an exam portal, and the file is suddenly called something like <em>IMG_4821.HEIC</em> that refuses to open. Your Android friend taps it and gets a grey box. The government website says "invalid file format." The photo looks fine on your phone, but nowhere else will read it.</p>
+  {
+    id: "heic-to-jpg-iphone-photos-wont-open",
+    title: "iPhone HEIC Photos Won't Open? How to Convert HEIC to JPG (and When to Use PNG or WebP)",
+    seoTitle: "HEIC to JPG: Fix iPhone Photos That Won't Open",
+    keywords: "heic to jpg, what is heic, heic file won't open, convert heic to jpg, heic to png, heic to webp, iphone photo won't upload, heic not supported, convert iphone photos, heic file format",
+    excerpt: "You sent a photo from your iPhone and the other person got a file that won't open. Or an exam portal rejected your upload. That's HEIC. Here is what it is and how to fix it in seconds.",
+    date: "September 19, 2026",
+    publishedAt: "2026-09-19",
+    imageUrl: "/images/blogs/heic-to-jpg-iphone-photos-wont-open.webp",
+    content: `
+      <p>You take a photo on your iPhone and email it to your office, or upload it to an exam portal, and the file is suddenly called something like <em>IMG_4821.HEIC</em> that refuses to open. Your Android friend taps it and gets a grey box. The government website says "invalid file format." The photo looks fine on your phone, but nowhere else will read it.</p>
 
-  //     <p>This is one of the most common headaches for iPhone users. The fix takes about ten seconds and needs no app or paid software. Here is what HEIC actually is, why it happens, and exactly which format to convert it to.</p>
+      <p>This is one of the most common headaches for iPhone users. The fix takes about ten seconds and needs no app or paid software. Here is what HEIC actually is, why it happens, and exactly which format to convert it to.</p>
 
-  //     <h2>What Is HEIC, and Why Does Your iPhone Use It?</h2>
-  //     <p>HEIC stands for High Efficiency Image Coding. It is Apple's image format, built on the same HEVC video compression that newer iPhones use, and stored in a container called HEIF. Since iOS 11 (2017), on the iPhone 7 and later, Apple made HEIC the default camera format instead of the old JPG.</p>
+      <h2>What Is HEIC, and Why Does Your iPhone Use It?</h2>
+      <p>HEIC stands for High Efficiency Image Coding. It is Apple's image format, built on the same HEVC video compression that newer iPhones use, and stored in a container called HEIF. Since iOS 11 (2017), on the iPhone 7 and later, Apple made HEIC the default camera format instead of the old JPG.</p>
 
-  //     <p>The reason is genuinely useful: a HEIC photo looks just as sharp as a JPG but takes up roughly half the storage. So your phone holds twice as many photos for the same space. That part works well.</p>
+      <p>The reason is genuinely useful: a HEIC photo looks just as sharp as a JPG but takes up roughly half the storage. So your phone holds twice as many photos for the same space. That part works well.</p>
 
-  //     <p>The catch is that almost nothing outside Apple's world fully supports it. Android phones, older Windows laptops, most websites, and a long list of Indian government and exam portals do not recognise a <strong>.HEIC</strong> file. iOS understands the format and shows it to you perfectly. The moment that file leaves an Apple device, other systems do not know what to do with it. You are not doing anything wrong, and the photo is not corrupted. It is just in a format the rest of the world has not caught up with.</p>
+      <p>The catch is that almost nothing outside Apple's world fully supports it. Android phones, older Windows laptops, most websites, and a long list of Indian government and exam portals do not recognise a <strong>.HEIC</strong> file. iOS understands the format and shows it to you perfectly. The moment that file leaves an Apple device, other systems do not know what to do with it. You are not doing anything wrong, and the photo is not corrupted. It is just in a format the rest of the world has not caught up with.</p>
 
-  //     <h2>Where HEIC Actually Causes Trouble</h2>
-  //     <p>Here are the real situations where people get stuck:</p>
-  //     <ul>
-  //       <li><strong>Exam and job portals:</strong> SSC, UPSC, IBPS, state PSCs, university admission sites and KYC pages usually accept only JPG, JPEG or PNG. Drop a HEIC there and you get a rejection or a blank upload.</li>
-  //       <li><strong>Sharing with Android friends:</strong> Sending a photo on WhatsApp usually works because WhatsApp compresses images sent as photos into a standard format. But send the same file as a <em>document</em> (to keep it full quality), and the original .HEIC goes through unchanged, and your Android friend cannot open it.</li>
-  //       <li><strong>Putting photos on a website:</strong> Browsers and WordPress do not display HEIC. A product photo or a blog image saved as HEIC simply will not show up for visitors.</li>
-  //       <li><strong>Old Windows machines:</strong> A college lab PC or an office desktop on an older Windows build will refuse to preview the file without a special add-on.</li>
-  //     </ul>
+      <h2>Where HEIC Actually Causes Trouble</h2>
+      <p>Here are the real situations where people get stuck:</p>
+      <ul>
+        <li><strong>Exam and job portals:</strong> SSC, UPSC, IBPS, state PSCs, university admission sites and KYC pages usually accept only JPG, JPEG or PNG. Drop a HEIC there and you get a rejection or a blank upload.</li>
+        <li><strong>Sharing with Android friends:</strong> Sending a photo on WhatsApp usually works because WhatsApp compresses images sent as photos into a standard format. But send the same file as a <em>document</em> (to keep it full quality), and the original .HEIC goes through unchanged, and your Android friend cannot open it.</li>
+        <li><strong>Putting photos on a website:</strong> Browsers and WordPress do not display HEIC. A product photo or a blog image saved as HEIC simply will not show up for visitors.</li>
+        <li><strong>Old Windows machines:</strong> A college lab PC or an office desktop on an older Windows build will refuse to preview the file without a special add-on.</li>
+      </ul>
 
-  //     <p>In every one of these cases the fix is the same: convert the HEIC into a format that is actually accepted. The only real question is which format.</p>
+      <p>In every one of these cases the fix is the same: convert the HEIC into a format that is actually accepted. The only real question is which format.</p>
 
-  //     <h2>Quick Way to Tell If a File Is HEIC</h2>
-  //     <p>Look at the file name. If it ends in <strong>.HEIC</strong> or <strong>.HEIF</strong>, that is the one. On your iPhone you usually will not see the extension, but the moment you AirDrop, email or copy the original to a computer, the .HEIC tag shows up. If a file "won't open" on a non-Apple device and it came from an iPhone, it is almost certainly HEIC.</p>
+      <h2>Quick Way to Tell If a File Is HEIC</h2>
+      <p>Look at the file name. If it ends in <strong>.HEIC</strong> or <strong>.HEIF</strong>, that is the one. On your iPhone you usually will not see the extension, but the moment you AirDrop, email or copy the original to a computer, the .HEIC tag shows up. If a file "won't open" on a non-Apple device and it came from an iPhone, it is almost certainly HEIC.</p>
 
-  //     <h2>JPG, PNG or WebP? Which One to Convert This File Into</h2>
-  //     <p>You have three sensible targets. Pick based on what you are about to do with the photo, not on theory.</p>
+      <h2>JPG, PNG or WebP? Which One to Convert This File Into</h2>
+      <p>You have three sensible targets. Pick based on what you are about to do with the photo, not on theory.</p>
 
-  //     <p><strong>Pick JPG for forms, uploads and sharing.</strong> This is the safe default for most people. JPG opens on every device and is accepted by every exam, job and KYC portal. Uploading a photo to an SSC or IBPS form, a college admission page, or sending it to someone whose phone you do not know? Convert to JPG with the <a href="/heic-to-jpg">HEIC to JPG</a> tool.</p>
+      <p><strong>Pick JPG for forms, uploads and sharing.</strong> This is the safe default for most people. JPG opens on every device and is accepted by every exam, job and KYC portal. Uploading a photo to an SSC or IBPS form, a college admission page, or sending it to someone whose phone you do not know? Convert to JPG with the <a href="/heic-to-jpg">HEIC to JPG</a> tool.</p>
 
-  //     <p><strong>Pick PNG when you need lossless quality for editing.</strong> PNG keeps every pixel exactly as it was, with no compression softening. If you are going to edit the photo, or you need a screenshot to stay razor-sharp, use <a href="/heic-to-png">HEIC to PNG</a>. Files are bigger, so skip it for casual sharing.</p>
+      <p><strong>Pick PNG when you need lossless quality for editing.</strong> PNG keeps every pixel exactly as it was, with no compression softening. If you are going to edit the photo, or you need a screenshot to stay razor-sharp, use <a href="/heic-to-png">HEIC to PNG</a>. Files are bigger, so skip it for casual sharing.</p>
 
-  //     <p><strong>Pick WebP when the photo is going on a website.</strong> WebP gives the smallest file at good quality, which keeps web pages loading fast. For an online store, a portfolio or a WordPress blog, <a href="/heic-to-webp">HEIC to WebP</a> is the right call. A few very old browsers do not support it, but in 2026 that is a tiny minority.</p>
+      <p><strong>Pick WebP when the photo is going on a website.</strong> WebP gives the smallest file at good quality, which keeps web pages loading fast. For an online store, a portfolio or a WordPress blog, <a href="/heic-to-webp">HEIC to WebP</a> is the right call. A few very old browsers do not support it, but in 2026 that is a tiny minority.</p>
 
-  //     <p>If you want the deeper trade-offs behind these formats, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks it down properly. For a HEIC file you just need to upload somewhere, JPG is almost always the answer.</p>
+      <p>If you want the deeper trade-offs behind these formats, our <a href="/blog/jpg-vs-png-format-guide">JPG vs PNG guide</a> breaks it down properly. For a HEIC file you just need to upload somewhere, JPG is almost always the answer.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Convert Your HEIC Photos on GoPDFGo</h3>
-  //       <p>The whole thing runs inside your browser. Your photos are never uploaded to any server, which matters when the image is your Aadhaar selfie, a signature, or a personal photo. Everything stays on your own device.</p>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Get the HEIC file onto the device you are working on. AirDrop it, email it to yourself, or connect your iPhone and copy it over.</li>
-  //         <li><strong>Step 2:</strong> Decide the target format. For an exam or job portal, open the <a href="/heic-to-jpg">HEIC to JPG</a> tool. For editing, use <a href="/heic-to-png">HEIC to PNG</a>. For a website, use <a href="/heic-to-webp">HEIC to WebP</a>.</li>
-  //         <li><strong>Step 3:</strong> Drag and drop your photo onto the upload area, or tap to select it. You can add several photos at once, not just one.</li>
-  //         <li><strong>Step 4:</strong> The conversion runs on your device. For multiple photos you get them packed into a single ZIP, so you are not downloading them one by one.</li>
-  //         <li><strong>Step 5:</strong> Download your converted images. As a real example, if an IBPS or university form was rejecting your iPhone selfie as an invalid format, the JPG you just made will sail through the same upload box.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Convert Your HEIC Photos on GoPDFGo</h3>
+        <p>The whole thing runs inside your browser. Your photos are never uploaded to any server, which matters when the image is your Aadhaar selfie, a signature, or a personal photo. Everything stays on your own device.</p>
+        <ul>
+          <li><strong>Step 1:</strong> Get the HEIC file onto the device you are working on. AirDrop it, email it to yourself, or connect your iPhone and copy it over.</li>
+          <li><strong>Step 2:</strong> Decide the target format. For an exam or job portal, open the <a href="/heic-to-jpg">HEIC to JPG</a> tool. For editing, use <a href="/heic-to-png">HEIC to PNG</a>. For a website, use <a href="/heic-to-webp">HEIC to WebP</a>.</li>
+          <li><strong>Step 3:</strong> Drag and drop your photo onto the upload area, or tap to select it. You can add several photos at once, not just one.</li>
+          <li><strong>Step 4:</strong> The conversion runs on your device. For multiple photos you get them packed into a single ZIP, so you are not downloading them one by one.</li>
+          <li><strong>Step 5:</strong> Download your converted images. As a real example, if an IBPS or university form was rejecting your iPhone selfie as an invalid format, the JPG you just made will sail through the same upload box.</li>
+        </ul>
+      </div>
 
-  //     <h2>When HEIC Conversion Can Fail</h2>
-  //     <p>Most HEIC files convert cleanly, but a few stubborn ones can trip up any browser-based converter. <strong>Live Photos</strong> sometimes bundle motion data that does not translate into a flat image, and a few HEICs shot in very high colour depth can fail to decode. If one particular photo refuses to convert, it is usually one of these special types, not a fault at your end.</p>
+      <h2>When HEIC Conversion Can Fail</h2>
+      <p>Most HEIC files convert cleanly, but a few stubborn ones can trip up any browser-based converter. <strong>Live Photos</strong> sometimes bundle motion data that does not translate into a flat image, and a few HEICs shot in very high colour depth can fail to decode. If one particular photo refuses to convert, it is usually one of these special types, not a fault at your end.</p>
 
-  //     <p>The workaround: open the photo on your iPhone, take a screenshot of it, and convert that screenshot instead. A screenshot is a plain image and always converts.</p>
+      <p>The workaround: open the photo on your iPhone, take a screenshot of it, and convert that screenshot instead. A screenshot is a plain image and always converts.</p>
 
-  //     <h2>Stop the Problem at the Source</h2>
-  //     <p>If you keep hitting HEIC trouble, tell your iPhone to shoot in JPG from now on. Go to <strong>Settings, then Camera, then Formats</strong>, and choose <strong>Most Compatible</strong> instead of "High Efficiency." From then on your camera saves JPG by default and you skip the conversion step. You lose a little storage efficiency, but if you upload to portals often, that is a fair trade.</p>
+      <h2>Stop the Problem at the Source</h2>
+      <p>If you keep hitting HEIC trouble, tell your iPhone to shoot in JPG from now on. Go to <strong>Settings, then Camera, then Formats</strong>, and choose <strong>Most Compatible</strong> instead of "High Efficiency." From then on your camera saves JPG by default and you skip the conversion step. You lose a little storage efficiency, but if you upload to portals often, that is a fair trade.</p>
 
-  //     <p>You will still have years of old HEIC photos in your library, so knowing how to convert them stays useful.</p>
+      <p>You will still have years of old HEIC photos in your library, so knowing how to convert them stays useful.</p>
 
-  //     <h2>A Note on Privacy</h2>
-  //     <p>Many free "HEIC to JPG" sites work by uploading your photo to their server, converting it there, and sending it back. For a holiday snap, no problem. For a photo of your PAN card, your signature, or a KYC selfie, that is your personal data sitting on someone else's computer. GoPDFGo does the conversion entirely in your browser, so nothing leaves your device. It is the same reason a lot of people prefer a local <a href="/compress-pdf">compress PDF</a> tool over cloud-based ones when the file is sensitive.</p>
+      <h2>A Note on Privacy</h2>
+      <p>Many free "HEIC to JPG" sites work by uploading your photo to their server, converting it there, and sending it back. For a holiday snap, no problem. For a photo of your PAN card, your signature, or a KYC selfie, that is your personal data sitting on someone else's computer. GoPDFGo does the conversion entirely in your browser, so nothing leaves your device. It is the same reason a lot of people prefer a local <a href="/compress-pdf">compress PDF</a> tool over cloud-based ones when the file is sensitive.</p>
 
-  //     <h2>The Short Version</h2>
-  //     <p>HEIC is not a broken format, just an Apple-first one. The instant you need that photo to work outside the Apple world, convert it: JPG for forms and sharing, PNG for editing and quality, WebP for websites. Do it once and it stops being a problem.</p>
+      <h2>The Short Version</h2>
+      <p>HEIC is not a broken format, just an Apple-first one. The instant you need that photo to work outside the Apple world, convert it: JPG for forms and sharing, PNG for editing and quality, WebP for websites. Do it once and it stops being a problem.</p>
 
-  //     <h2>Frequently Asked Questions</h2>
-  //     <p><strong>Q: Why does my iPhone photo open on my phone but not on my friend's Android?</strong><br> A: Your iPhone saves photos in HEIC, which Apple devices read but most Android phones do not fully support. Convert it to JPG using the <a href="/heic-to-jpg">HEIC to JPG</a> tool and it will open on any device.</p>
+      <h2>Frequently Asked Questions</h2>
+      <p><strong>Q: Why does my iPhone photo open on my phone but not on my friend's Android?</strong><br> A: Your iPhone saves photos in HEIC, which Apple devices read but most Android phones do not fully support. Convert it to JPG using the <a href="/heic-to-jpg">HEIC to JPG</a> tool and it will open on any device.</p>
 
-  //     <p><strong>Q: Is it safe to convert photos of my documents like Aadhaar or PAN?</strong><br> A: Yes. On GoPDFGo the conversion happens inside your browser and the photo is never uploaded anywhere. Your sensitive documents stay on your own device the whole time.</p>
+      <p><strong>Q: Is it safe to convert photos of my documents like Aadhaar or PAN?</strong><br> A: Yes. On GoPDFGo the conversion happens inside your browser and the photo is never uploaded anywhere. Your sensitive documents stay on your own device the whole time.</p>
 
-  //     <p><strong>Q: Will converting to JPG hurt the quality?</strong><br> A: JPG uses slight compression, but it is invisible for normal photos and uploads. If you need genuinely lossless quality for editing, convert to PNG instead.</p>
+      <p><strong>Q: Will converting to JPG hurt the quality?</strong><br> A: JPG uses slight compression, but it is invisible for normal photos and uploads. If you need genuinely lossless quality for editing, convert to PNG instead.</p>
 
-  //     <p><strong>Q: Can I convert many HEIC photos at once?</strong><br> A: Yes. Drop several photos together and the tool converts them in a batch, then gives you everything in a single ZIP file to download.</p>
+      <p><strong>Q: Can I convert many HEIC photos at once?</strong><br> A: Yes. Drop several photos together and the tool converts them in a batch, then gives you everything in a single ZIP file to download.</p>
 
-  //     <p><strong>Q: My HEIC file will not convert at all. What is wrong?</strong><br> A: It is likely a Live Photo or a high-colour-depth HEIC that is hard to decode. The easy fix is to open the photo on your iPhone, take a screenshot, and convert the screenshot, since screenshots are always standard images.</p>
-  //     `
-  // }, done
+      <p><strong>Q: My HEIC file will not convert at all. What is wrong?</strong><br> A: It is likely a Live Photo or a high-colour-depth HEIC that is hard to decode. The easy fix is to open the photo on your iPhone, take a screenshot, and convert the screenshot, since screenshots are always standard images.</p>
+      `
+  },
   //     {
   //   id: "sign-pdf-online-without-printing",
   //   title: "How to Sign a PDF Online Without Printing or Scanning",
@@ -4301,7 +4301,7 @@ export const blogsData = [
 
   //     `
   // }, done
-  //     {
+  // {
   //   id: "qr-code-for-restaurant-menu-no-monthly-fees",
   //   title: "How to Make a QR Code for Your Restaurant Menu (No Monthly Fees)",
   //   seoTitle: "QR Code for Restaurant Menu, No Monthly Fee | GoPDFGo",
@@ -4370,7 +4370,7 @@ export const blogsData = [
 
   //     <p>You don't need to rent a QR code. You need a clean PDF, a public link, and one free generator. Build the file with <a href="/image-to-pdf">Image to PDF</a>, trim it with <a href="/compress-pdf">Compress PDF</a>, and point the <a href="/qr-generator">QR generator</a> at it. Print once, update forever, pay no one.</p>
   //     `
-  // },
+  // }, done
   // {
   //   id: "organize-pdf-pages-reorder-rotate-delete-one-screen",
   //   title: "Organize PDF Pages: Fix a Messy Scan on One Screen (Reorder, Rotate, Delete)",
@@ -4454,7 +4454,7 @@ export const blogsData = [
   //     <p><strong>Q: Does it work for a very large scan with a few hundred pages?</strong><br>
   //       A: It does, though a big file takes a few seconds to render a thumbnail for every page before the grid is ready. Once the thumbnails load, dragging, rotating, and deleting stay responsive, and you still export in a single step.</p>
   //     `
-  // },
+  // }, done
 
 
   // 22-06-2026 (batch 2 — existing-tool blogs, 14)
@@ -4537,7 +4537,7 @@ export const blogsData = [
 
   //       <p><strong>Q: How do I know the exact page numbers for each subject?</strong><br> A: Open the PDF and use your viewer's page counter, not the number printed on the sheet. Note where each subject begins and ends, since cover and blank pages can shift the real page numbers.</p>
   //       `
-  // },
+  // }, done
   // {
   //   id: "remove-instruction-pages-government-form-pdf",
   //   title: "Remove Instruction Pages From a Government Form PDF Before You Upload It",
@@ -4616,7 +4616,7 @@ export const blogsData = [
 
   //       <p><strong>Q: Do I need an app or an account?</strong><br> A: Neither. It runs in your web browser on phone or laptop, with no install, no sign-up and no cost. You open the tool, add your file, mark the pages, and download.</p>
   //       `
-  // },
+  // }, done
   // {
   //   id: "rotate-upside-down-cheque-passbook-pdf-bank-kyc",
   //   title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
