@@ -89,19 +89,19 @@ const TOOL_BLOG_MAP = {
     "local-pdf-processing-vs-cloud-tools-safer",
   ],
   "heic-to-jpg": [
+    "heic-to-jpg-iphone-photos-wont-open",
     "jpg-vs-png-format-guide",
     "convert-mobile-photos-to-clear-pdf",
-    "fix-mirrored-selfies-upside-down-photos-online",
   ],
   "heic-to-png": [
+    "heic-to-jpg-iphone-photos-wont-open",
     "jpg-vs-png-format-guide",
     "convert-webp-to-png-for-photoshop",
-    "find-exact-color-code-hex-rgb",
   ],
   "heic-to-webp": [
+    "heic-to-jpg-iphone-photos-wont-open",
     "compress-webp-images-speed-up-wordpress",
     "jpg-vs-png-format-guide",
-    "convert-webp-to-png-for-photoshop",
   ],
   "compress-jpg": [
     "compress-jpg-under-20kb-online-forms",
