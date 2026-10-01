@@ -4214,83 +4214,83 @@ export const blogsData = [
       <p><strong>Q: My HEIC file will not convert at all. What is wrong?</strong><br> A: It is likely a Live Photo or a high-colour-depth HEIC that is hard to decode. The easy fix is to open the photo on your iPhone, take a screenshot, and convert the screenshot, since screenshots are always standard images.</p>
       `
   },
-  //     {
-  //   id: "sign-pdf-online-without-printing",
-  //   title: "How to Sign a PDF Online Without Printing or Scanning",
-  //   seoTitle: "Sign PDF Online Without Printing | GoPDFGo",
-  //   keywords: "sign pdf online, how to sign a pdf, sign pdf without printing, add signature to pdf, e sign pdf free, sign rent agreement pdf, draw signature on pdf, sign pdf on phone, electronic signature pdf india",
-  //   excerpt: "Got a rent agreement or job form that needs your signature, but no printer at home? Here is how to sign a PDF straight from your phone or laptop, without printing a single page.",
-  //   date: "June 22, 2026",
-  //   publishedAt: "2026-06-22",
-  //   imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
-  //   content: `
+  {
+    id: "sign-pdf-online-without-printing",
+    title: "How to Sign a PDF Online Without Printing or Scanning",
+    seoTitle: "Sign PDF Online Without Printing | GoPDFGo",
+    keywords: "sign pdf online, how to sign a pdf, sign pdf without printing, add signature to pdf, e sign pdf free, sign rent agreement pdf, draw signature on pdf, sign pdf on phone, electronic signature pdf india",
+    excerpt: "Got a rent agreement or job form that needs your signature, but no printer at home? Here is how to sign a PDF straight from your phone or laptop, without printing a single page.",
+    date: "October 01, 2026",
+    publishedAt: "2026-10-01",
+    imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
+    content: `
 
-  //     <p>The landlord sends the rent agreement on WhatsApp at 9 PM. He wants it signed and back tonight. You have a phone, the PDF is sitting in your downloads, and there is no printer anywhere in the flat. The old routine of print, sign with a pen, scan, then send back is not happening at this hour.</p>
+      <p>The landlord sends the rent agreement on WhatsApp at 9 PM. He wants it signed and back tonight. You have a phone, the PDF is sitting in your downloads, and there is no printer anywhere in the flat. The old routine of print, sign with a pen, scan, then send back is not happening at this hour.</p>
 
-  //     <p>This is one of the most common everyday situations in India right now, and you do not need a printer at all. You can sign a PDF online directly, save it, and send it back in two minutes. Here is exactly how, and I will also be clear about what kind of signature this actually is so you do not run into trouble later.</p>
+      <p>This is one of the most common everyday situations in India right now, and you do not need a printer at all. You can sign a PDF online directly, save it, and send it back in two minutes. Here is exactly how, and I will also be clear about what kind of signature this actually is so you do not run into trouble later.</p>
 
-  //     <h2>The Print-Sign-Scan Habit Needs to Go</h2>
-  //     <p>Most of us were taught one way to "sign" a document: print it, put pen to paper, then scan it back. Every step in that chain can go wrong. The printer is out of ink. The scanner app slaps a watermark across your page. The scan comes out crooked and grey. You end up with a file that is heavier and uglier than the original, and you have wasted a sheet of paper for nothing.</p>
-  //     <p>When the document is already a PDF on your screen, printing it just to sign and re-digitise it makes no sense. You are turning a clean digital file into paper and then back into a worse digital file. Keep it digital the whole way through and drop your signature onto the page directly.</p>
+      <h2>The Print-Sign-Scan Habit Needs to Go</h2>
+      <p>Most of us were taught one way to "sign" a document: print it, put pen to paper, then scan it back. Every step in that chain can go wrong. The printer is out of ink. The scanner app slaps a watermark across your page. The scan comes out crooked and grey. You end up with a file that is heavier and uglier than the original, and you have wasted a sheet of paper for nothing.</p>
+      <p>When the document is already a PDF on your screen, printing it just to sign and re-digitise it makes no sense. You are turning a clean digital file into paper and then back into a worse digital file. Keep it digital the whole way through and drop your signature onto the page directly.</p>
 
-  //     <h2>What You Can Actually Do in the Browser</h2>
-  //     <p>A signing tool that runs in your browser gives you three ways to put your mark on the page, and you can pick whichever feels natural:</p>
-  //     <ul>
-  //       <li><strong>Draw it:</strong> Use your finger on a phone or your mouse on a laptop to draw your signature, the same way you sign on a courier's delivery device. On a touchscreen this comes out surprisingly close to your real handwriting.</li>
-  //       <li><strong>Type it:</strong> Type your name and the tool renders it in a handwriting-style font. This is quick and clean, handy when you just need a neat name on an approval or a letter.</li>
-  //       <li><strong>Upload an image:</strong> If you already have a photo of your signature on white paper, upload that PNG or JPG. The signature sits on the page like a sticker you can move around.</li>
-  //     </ul>
-  //     <p>Once your signature is ready, you drag it to the right spot on any page, resize it so it fits the signature line properly, and download the finished PDF. No queue, no email-it-to-us step.</p>
+      <h2>What You Can Actually Do in the Browser</h2>
+      <p>A signing tool that runs in your browser gives you three ways to put your mark on the page, and you can pick whichever feels natural:</p>
+      <ul>
+        <li><strong>Draw it:</strong> Use your finger on a phone or your mouse on a laptop to draw your signature, the same way you sign on a courier's delivery device. On a touchscreen this comes out surprisingly close to your real handwriting.</li>
+        <li><strong>Type it:</strong> Type your name and the tool renders it in a handwriting-style font. This is quick and clean, handy when you just need a neat name on an approval or a letter.</li>
+        <li><strong>Upload an image:</strong> If you already have a photo of your signature on white paper, upload that PNG or JPG. The signature sits on the page like a sticker you can move around.</li>
+      </ul>
+      <p>Once your signature is ready, you drag it to the right spot on any page, resize it so it fits the signature line properly, and download the finished PDF. No queue, no email-it-to-us step.</p>
 
-  //     <h2>The Honest Part: This Is an Ink Signature, Not a DSC</h2>
-  //     <p>What you are adding is a <strong>visual signature</strong>, also called an ink or wet-ink-style signature. It is a picture of your handwriting placed on the document. For the vast majority of everyday paperwork, that is completely fine and widely accepted.</p>
-  //     <p>What it is <strong>not</strong> is a legally certified <strong>Digital Signature Certificate (DSC)</strong>. A real DSC uses PKI cryptography and is issued by a licensed Certifying Authority in India (the kind of thing you buy for filing GST, MCA company returns, income tax audits, or e-tendering). That signature carries your verified identity in encrypted form and ties it to the document. A drawn or typed signature does not do that.</p>
-  //     <p>So the line is simple. For a rent agreement between you and your landlord, a job application form, a college admission consent form, an authorisation letter, or an internal office approval, a visual signature is perfectly suitable and saves you a printer trip. But if a government portal, a bank, or a court specifically demands a "digitally signed" file with a valid DSC, you will need an actual <strong>Class 3 DSC</strong> from an authorised provider. (Class 2 certificates were discontinued by CCA India in 2021, so Class 3 is what gets issued now.) As long as you do not confuse the two, you are on safe ground.</p>
+      <h2>The Honest Part: This Is an Ink Signature, Not a DSC</h2>
+      <p>What you are adding is a <strong>visual signature</strong>, also called an ink or wet-ink-style signature. It is a picture of your handwriting placed on the document. For the vast majority of everyday paperwork, that is completely fine and widely accepted.</p>
+      <p>What it is <strong>not</strong> is a legally certified <strong>Digital Signature Certificate (DSC)</strong>. A real DSC uses PKI cryptography and is issued by a licensed Certifying Authority in India (the kind of thing you buy for filing GST, MCA company returns, income tax audits, or e-tendering). That signature carries your verified identity in encrypted form and ties it to the document. A drawn or typed signature does not do that.</p>
+      <p>So the line is simple. For a rent agreement between you and your landlord, a job application form, a college admission consent form, an authorisation letter, or an internal office approval, a visual signature is perfectly suitable and saves you a printer trip. But if a government portal, a bank, or a court specifically demands a "digitally signed" file with a valid DSC, you will need an actual <strong>Class 3 DSC</strong> from an authorised provider. (Class 2 certificates were discontinued by CCA India in 2021, so Class 3 is what gets issued now.) As long as you do not confuse the two, you are on safe ground.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to Sign Your PDF in Under Two Minutes</h3>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/sign-pdf">GoPDFGo Sign PDF</a> tool on your phone or laptop and load the PDF you need to sign.</li>
-  //         <li><strong>Step 2:</strong> Choose how you want to sign. Draw it with your finger or mouse, type your name to get a handwriting font, or upload a saved image of your signature.</li>
-  //         <li><strong>Step 3:</strong> Your signature now appears as a movable box. Drag it onto the correct signature line on the page, and pull the corners to resize it so it does not look oversized.</li>
-  //         <li><strong>Step 4:</strong> If the document has signature spots on more than one page, repeat the placement wherever needed. You can add the date next to it the same way.</li>
-  //         <li><strong>Step 5:</strong> Click Download. The signed PDF saves straight to your device, ready to send back on WhatsApp or email.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to Sign Your PDF in Under Two Minutes</h3>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/sign-pdf">GoPDFGo Sign PDF</a> tool on your phone or laptop and load the PDF you need to sign.</li>
+          <li><strong>Step 2:</strong> Choose how you want to sign. Draw it with your finger or mouse, type your name to get a handwriting font, or upload a saved image of your signature.</li>
+          <li><strong>Step 3:</strong> Your signature now appears as a movable box. Drag it onto the correct signature line on the page, and pull the corners to resize it so it does not look oversized.</li>
+          <li><strong>Step 4:</strong> If the document has signature spots on more than one page, repeat the placement wherever needed. You can add the date next to it the same way.</li>
+          <li><strong>Step 5:</strong> Click Download. The signed PDF saves straight to your device, ready to send back on WhatsApp or email.</li>
+        </ul>
+      </div>
 
-  //     <h2>Why Doing This in the Browser Matters for Privacy</h2>
-  //     <p>Think about what is usually inside the documents you sign. A rent agreement has your full name, your address, your father's name, sometimes your Aadhaar number. A bank form or an authorisation letter can carry even more. The last thing you want is to hand that file to a random website that uploads it to a server you know nothing about.</p>
-  //     <p>GoPDFGo does the entire job inside your browser. Your PDF never leaves your phone or computer, nothing is uploaded, and nothing sits on a cloud server waiting to be leaked. This is the same reason careful people prefer to <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">keep PDF processing local instead of using cloud tools</a>, especially for anything with personal details on it. If your agreement happens to show an Aadhaar number you would rather hide before sharing, run it through the <a href="/aadhaar-masking">Aadhaar masking</a> tool first.</p>
+      <h2>Why Doing This in the Browser Matters for Privacy</h2>
+      <p>Think about what is usually inside the documents you sign. A rent agreement has your full name, your address, your father's name, sometimes your Aadhaar number. A bank form or an authorisation letter can carry even more. The last thing you want is to hand that file to a random website that uploads it to a server you know nothing about.</p>
+      <p>GoPDFGo does the entire job inside your browser. Your PDF never leaves your phone or computer, nothing is uploaded, and nothing sits on a cloud server waiting to be leaked. This is the same reason careful people prefer to <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">keep PDF processing local instead of using cloud tools</a>, especially for anything with personal details on it. If your agreement happens to show an Aadhaar number you would rather hide before sharing, run it through the <a href="/aadhaar-masking">Aadhaar masking</a> tool first.</p>
 
-  //     <h2>A Few Practical Tips</h2>
-  //     <ul>
-  //       <li><strong>Sign on your phone for a real-looking signature.</strong> Drawing with a finger on a touchscreen looks far more natural than dragging a mouse on a laptop. If the document is on your computer, the typed handwriting-font option still gives you a clean result.</li>
-  //       <li><strong>Save a clean signature image once.</strong> Sign on plain white paper with a dark pen, photograph it in good light, and keep that image on your phone. Then you can upload the same neat signature onto any form in future instead of redrawing it every time.</li>
-  //       <li><strong>Resize it sensibly.</strong> A giant signature sprawling across half the page looks careless. Match it roughly to the size of the printed name or the signature line.</li>
-  //       <li><strong>Need to combine pages first?</strong> If your agreement and its annexures are separate files, <a href="/merge-pdf">merge them into one PDF</a> before signing so everything stays in a single tidy document.</li>
-  //     </ul>
+      <h2>A Few Practical Tips</h2>
+      <ul>
+        <li><strong>Sign on your phone for a real-looking signature.</strong> Drawing with a finger on a touchscreen looks far more natural than dragging a mouse on a laptop. If the document is on your computer, the typed handwriting-font option still gives you a clean result.</li>
+        <li><strong>Save a clean signature image once.</strong> Sign on plain white paper with a dark pen, photograph it in good light, and keep that image on your phone. Then you can upload the same neat signature onto any form in future instead of redrawing it every time.</li>
+        <li><strong>Resize it sensibly.</strong> A giant signature sprawling across half the page looks careless. Match it roughly to the size of the printed name or the signature line.</li>
+        <li><strong>Need to combine pages first?</strong> If your agreement and its annexures are separate files, <a href="/merge-pdf">merge them into one PDF</a> before signing so everything stays in a single tidy document.</li>
+      </ul>
 
-  //     <p>The whole print-sign-scan routine was always a workaround for the days when documents lived on paper. Your rent agreement, your admission form, your office approval, they are already digital. Sign them as digital files, send them back the same night, and keep that one sheet of paper for something that actually needs it.</p>
+      <p>The whole print-sign-scan routine was always a workaround for the days when documents lived on paper. Your rent agreement, your admission form, your office approval, they are already digital. Sign them as digital files, send them back the same night, and keep that one sheet of paper for something that actually needs it.</p>
 
-  //     <h2>Frequently Asked Questions</h2>
+      <h2>Frequently Asked Questions</h2>
 
-  //     <p><strong>Q: Is a signature I draw on GoPDFGo legally valid?</strong><br>
-  //       A: For everyday paperwork like rent contracts, job and admission forms, consent forms and authorisation letters, it is generally accepted. Where it falls short is anything that specifically requires a Digital Signature Certificate (DSC) with PKI, such as GST or MCA filings on a government portal. For those, only a valid Class 3 DSC from a licensed Certifying Authority will do.</p>
+      <p><strong>Q: Is a signature I draw on GoPDFGo legally valid?</strong><br>
+        A: For everyday paperwork like rent contracts, job and admission forms, consent forms and authorisation letters, it is generally accepted. Where it falls short is anything that specifically requires a Digital Signature Certificate (DSC) with PKI, such as GST or MCA filings on a government portal. For those, only a valid Class 3 DSC from a licensed Certifying Authority will do.</p>
 
-  //     <p><strong>Q: Does my PDF get uploaded to a server?</strong><br>
-  //       A: No. The signing happens entirely inside your browser on your own device. The file never leaves your phone or computer, which is exactly what you want for documents that carry your personal details.</p>
+      <p><strong>Q: Does my PDF get uploaded to a server?</strong><br>
+        A: No. The signing happens entirely inside your browser on your own device. The file never leaves your phone or computer, which is exactly what you want for documents that carry your personal details.</p>
 
-  //     <p><strong>Q: Can I sign a PDF on my Android or iPhone?</strong><br>
-  //       A: Yes. The tool works in your mobile browser, and drawing your signature with a finger on a touchscreen actually looks more natural than using a mouse. Just open the PDF, sign, place it and download.</p>
+      <p><strong>Q: Can I sign a PDF on my Android or iPhone?</strong><br>
+        A: Yes. The tool works in your mobile browser, and drawing your signature with a finger on a touchscreen actually looks more natural than using a mouse. Just open the PDF, sign, place it and download.</p>
 
-  //     <p><strong>Q: I don't have a printer or scanner. Is that a problem?</strong><br>
-  //       A: Not at all, that is the whole point. You skip printing and scanning completely. The PDF stays digital from start to finish, and you download a signed copy ready to share.</p>
+      <p><strong>Q: I don't have a printer or scanner. Is that a problem?</strong><br>
+        A: Not at all, that is the whole point. You skip printing and scanning completely. The PDF stays digital from start to finish, and you download a signed copy ready to share.</p>
 
-  //     <p><strong>Q: Can I add the date or initials along with my signature?</strong><br>
-  //       A: Yes. You can place a typed or drawn date next to your signature, and add initials on each page if the document needs them, using the same drag-and-place method.</p>
+      <p><strong>Q: Can I add the date or initials along with my signature?</strong><br>
+        A: Yes. You can place a typed or drawn date next to your signature, and add initials on each page if the document needs them, using the same drag-and-place method.</p>
 
-  //     `
-  // }, done
+      `
+  },
   // {
   //   id: "qr-code-for-restaurant-menu-no-monthly-fees",
   //   title: "How to Make a QR Code for Your Restaurant Menu (No Monthly Fees)",
