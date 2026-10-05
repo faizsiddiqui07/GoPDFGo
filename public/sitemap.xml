@@ -167,6 +167,12 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://gopdfgo.com/compress-jpeg</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <url>
     <loc>https://gopdfgo.com/resize</loc>
@@ -660,7 +666,7 @@
 
   <url>
     <loc>https://gopdfgo.com/blog/sign-pdf-online-without-printing</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
