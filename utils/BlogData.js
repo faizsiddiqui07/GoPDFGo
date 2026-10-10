@@ -4224,7 +4224,7 @@ export const blogsData = [
     publishedAt: "2026-10-01",
     imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
     content: `
-  <p>The email lands at 6 pm. "Please find attached the rent agreement. Kindly sign and return by tomorrow." Or it's HR with an offer letter. Or your kid's school with a consent form for the picnic. Different sender, same request: sign this PDF and send it back.</p>
+    <p>The email lands at 6 pm. "Please find attached the rent agreement. Kindly sign and return by tomorrow." Or it's HR with an offer letter. Or your kid's school with a consent form for the picnic. Different sender, same request: sign this PDF and send it back.</p>
 
   <p>And every time, the same loop starts. You need a printer, and the one at home is out of ink. So you WhatsApp the file to the shop near the bus stand, pay Rs 5 a page, sign it on their counter, and then photograph each page with your phone because the shop's scanner is "not working today." The photos come out slanted, one has your thumb in it, and the whole thing is 14 MB by the time it bounces back to the landlord. It took an hour to add a two-second scribble.</p>
 
@@ -4388,90 +4388,90 @@ export const blogsData = [
       <p>You don't need to rent a QR code. You need a clean PDF, a public link, and one free generator. Build the file with <a href="/image-to-pdf">Image to PDF</a>, trim it with <a href="/compress-pdf">Compress PDF</a>, and point the <a href="/qr-generator">QR generator</a> at it. Print once, update forever, pay no one.</p>
       `
   },
-  // {
-  //   id: "organize-pdf-pages-reorder-rotate-delete-one-screen",
-  //   title: "Organize PDF Pages: Fix a Messy Scan on One Screen (Reorder, Rotate, Delete)",
-  //   seoTitle: "Organize PDF Pages on One Screen | GoPDFGo",
-  //   keywords: "organize pdf pages, reorder rotate delete pdf, fix messy pdf, organize pdf online, edit pdf pages browser, clean up scanned pdf, organize pdf free",
-  //   excerpt: "You scanned a rent agreement, the tenant's Aadhaar copy snuck in sideways, and there's a blank back-page riding along. Here's how to fix all three at once instead of running three separate tools.",
-  //   date: "June 22, 2026",
-  //   publishedAt: "2026-06-22",
-  //   imageUrl: "/images/blogs/organize-pdf-pages-reorder-rotate-delete-one-screen.webp",
-  //   content: `
-  //     <p>You scanned a six-page rent agreement on your phone for the landlord, and somewhere in the rush the tenant's Aadhaar copy got pulled into the same file. Now the document is a small mess. The pages are out of sequence because you photographed them in the wrong order. The Aadhaar page sits sideways because the phone was held the wrong way that one time. And page 6 is completely blank, the back of a sheet the scanner picked up by accident. Three problems, one PDF.</p>
+  {
+    id: "organize-pdf-pages-reorder-rotate-delete-one-screen",
+    title: "Organize PDF Pages: Fix a Messy Scan on One Screen (Reorder, Rotate, Delete)",
+    seoTitle: "Organize PDF Pages on One Screen | GoPDFGo",
+    keywords: "organize pdf pages, reorder rotate delete pdf, fix messy pdf, organize pdf online, edit pdf pages browser, clean up scanned pdf, organize pdf free",
+    excerpt: "You scanned a rent agreement, the tenant's Aadhaar copy snuck in sideways, and there's a blank back-page riding along. Here's how to fix all three at once instead of running three separate tools.",
+    date: "October 10, 2026",
+    publishedAt: "2026-10-10",
+    imageUrl: "/images/blogs/organize-pdf-pages-reorder-rotate-delete-one-screen.webp",
+    content: `
+      <p>You scanned a six-page rent agreement on your phone for the landlord, and somewhere in the rush the tenant's Aadhaar copy got pulled into the same file. Now the document is a small mess. The pages are out of sequence because you photographed them in the wrong order. The Aadhaar page sits sideways because the phone was held the wrong way that one time. And page 6 is completely blank, the back of a sheet the scanner picked up by accident. Three problems, one PDF.</p>
 
-  //     <p>The usual fix is to bounce between three tools: a reorder tool, then a rotate tool, then a delete-pages tool, downloading and re-uploading each time. By the third round you have four near-identical files in your Downloads folder and no idea which is the latest. A two-minute job somehow ate twenty.</p>
+      <p>The usual fix is to bounce between three tools: a reorder tool, then a rotate tool, then a delete-pages tool, downloading and re-uploading each time. By the third round you have four near-identical files in your Downloads folder and no idea which is the latest. A two-minute job somehow ate twenty.</p>
 
-  //     <p>You can do the whole thing on a single screen instead. See every page as a thumbnail, fix the order, spin the sideways page, drop the blank one, and export once at the end. That is what an <strong>organize PDF pages</strong> tool does.</p>
+      <p>You can do the whole thing on a single screen instead. See every page as a thumbnail, fix the order, spin the sideways page, drop the blank one, and export once at the end. That is what an <strong>organize PDF pages</strong> tool does.</p>
 
-  //     <h2>Why a messy PDF usually has three problems at once</h2>
+      <h2>Why a messy PDF usually has three problems at once</h2>
 
-  //     <p>A jumbled file is rarely just one issue. When a document gets messy, it is almost always because it was scanned in a hurry or stitched together from a couple of sources, and that produces a predictable mix:</p>
+      <p>A jumbled file is rarely just one issue. When a document gets messy, it is almost always because it was scanned in a hurry or stitched together from a couple of sources, and that produces a predictable mix:</p>
 
-  //     <ul>
-  //       <li><strong>Wrong order.</strong> You photographed page 3 before page 2, or the scanner's feeder pulled sheets out of sequence.</li>
-  //       <li><strong>A sideways page.</strong> One sheet went into the camera rotated, so it sits at 90 degrees while everything else is upright. On a government portal, the officer checking that page cannot read it without tilting their head.</li>
-  //       <li><strong>A blank or duplicate page.</strong> The back of a printed sheet, a stray cover page, or a second copy of an ID that got swept into a merge.</li>
-  //     </ul>
+      <ul>
+        <li><strong>Wrong order.</strong> You photographed page 3 before page 2, or the scanner's feeder pulled sheets out of sequence.</li>
+        <li><strong>A sideways page.</strong> One sheet went into the camera rotated, so it sits at 90 degrees while everything else is upright. On a government portal, the officer checking that page cannot read it without tilting their head.</li>
+        <li><strong>A blank or duplicate page.</strong> The back of a printed sheet, a stray cover page, or a second copy of an ID that got swept into a merge.</li>
+      </ul>
 
-  //     <p>Fix these one at a time across different tools and you end up uploading the same private document again and again. For a rent agreement with someone's Aadhaar in it, or a bank statement, that is exactly what you want to avoid. Better to see all the pages together and fix everything where it sits.</p>
+      <p>Fix these one at a time across different tools and you end up uploading the same private document again and again. For a rent agreement with someone's Aadhaar in it, or a bank statement, that is exactly what you want to avoid. Better to see all the pages together and fix everything where it sits.</p>
 
-  //     <h2>One screen, all your pages as thumbnails</h2>
+      <h2>One screen, all your pages as thumbnails</h2>
 
-  //     <p>The <a href="/organize-pdf">Organize PDF</a> tool lays the whole document out as a grid of page thumbnails, like seeing every photo in your gallery at once. Because you can see everything, the problems jump out. The sideways Aadhaar page is obvious. The blank page is clearly blank. And you can tell at a glance that the page sitting at position 5 really belongs at position 2.</p>
+      <p>The <a href="/organize-pdf">Organize PDF</a> tool lays the whole document out as a grid of page thumbnails, like seeing every photo in your gallery at once. Because you can see everything, the problems jump out. The sideways Aadhaar page is obvious. The blank page is clearly blank. And you can tell at a glance that the page sitting at position 5 really belongs at position 2.</p>
 
-  //     <p>From that one view you do three things without leaving the screen. Drag a thumbnail to a new spot to reorder it. Hit rotate on the sideways page to spin it upright. Delete the blank page, and restore it if you change your mind. When the grid looks right, you export once, and that single PDF carries every change.</p>
+      <p>From that one view you do three things without leaving the screen. Drag a thumbnail to a new spot to reorder it. Hit rotate on the sideways page to spin it upright. Delete the blank page, and restore it if you change your mind. When the grid looks right, you export once, and that single PDF carries every change.</p>
 
-  //     <p>Here is the part that makes doing it all together actually work: when you rotate a page, the rotation stays stuck to that specific page, not to a slot. So you can rotate the Aadhaar sheet, then drag it three positions earlier, and it stays upright wherever it lands. You are not rotating "page 4" as a fixed position. You are rotating that actual sheet, and it carries its orientation with it. Without that, pages would un-rotate every time you shuffled them.</p>
+      <p>Here is the part that makes doing it all together actually work: when you rotate a page, the rotation stays stuck to that specific page, not to a slot. So you can rotate the Aadhaar sheet, then drag it three positions earlier, and it stays upright wherever it lands. You are not rotating "page 4" as a fixed position. You are rotating that actual sheet, and it carries its orientation with it. Without that, pages would un-rotate every time you shuffled them.</p>
 
-  //     <div class="tool-box">
-  //       <h3>How to clean up a messy PDF in one go</h3>
-  //       <p>Everything below happens inside your browser. The file is never sent to a server, so a scan with an Aadhaar or PAN card in it stays on your own device. If the ID copy is meant to be shared, you can run it through <a href="/aadhaar-masking">Aadhaar Masking</a> first to grey out the number before you ever assemble the document.</p>
-  //       <ul>
-  //         <li><strong>Step 1:</strong> Open the <a href="/organize-pdf">Organize PDF</a> tool and drop in your file. Give it a moment to render a thumbnail for every page.</li>
-  //         <li><strong>Step 2:</strong> Fix the order. Click and hold any out-of-place thumbnail, drag it where it belongs, and let go. The page numbers update as you move things.</li>
-  //         <li><strong>Step 3:</strong> Fix the sideways page. Find the rotated thumbnail and tap rotate until it stands upright.</li>
-  //         <li><strong>Step 4:</strong> Remove the junk last, once the order looks right. A stray blank or duplicate page is much easier to spot when the rest of the document is already in proper sequence. Delete it, and restore it if you removed the wrong one. Nothing is final until you export.</li>
-  //         <li><strong>Step 5:</strong> When the grid looks clean, click export. Your corrected PDF downloads with the reorder, rotation, and deletion all applied together.</li>
-  //       </ul>
-  //     </div>
+      <div class="tool-box">
+        <h3>How to clean up a messy PDF in one go</h3>
+        <p>Everything below happens inside your browser. The file is never sent to a server, so a scan with an Aadhaar or PAN card in it stays on your own device. If the ID copy is meant to be shared, you can run it through <a href="/aadhaar-masking">Aadhaar Masking</a> first to grey out the number before you ever assemble the document.</p>
+        <ul>
+          <li><strong>Step 1:</strong> Open the <a href="/organize-pdf">Organize PDF</a> tool and drop in your file. Give it a moment to render a thumbnail for every page.</li>
+          <li><strong>Step 2:</strong> Fix the order. Click and hold any out-of-place thumbnail, drag it where it belongs, and let go. The page numbers update as you move things.</li>
+          <li><strong>Step 3:</strong> Fix the sideways page. Find the rotated thumbnail and tap rotate until it stands upright.</li>
+          <li><strong>Step 4:</strong> Remove the junk last, once the order looks right. A stray blank or duplicate page is much easier to spot when the rest of the document is already in proper sequence. Delete it, and restore it if you removed the wrong one. Nothing is final until you export.</li>
+          <li><strong>Step 5:</strong> When the grid looks clean, click export. Your corrected PDF downloads with the reorder, rotation, and deletion all applied together.</li>
+        </ul>
+      </div>
 
-  //     <h2>When a single-purpose tool still makes more sense</h2>
+      <h2>When a single-purpose tool still makes more sense</h2>
 
-  //     <p>Doing everything at once is not always the right call. If your document has exactly one problem, a focused tool is quicker and there is less to think about.</p>
+      <p>Doing everything at once is not always the right call. If your document has exactly one problem, a focused tool is quicker and there is less to think about.</p>
 
-  //     <ul>
-  //       <li>If the order is perfect and you only need to shuffle pages around, the dedicated <a href="/rearrange-pdf">Rearrange PDF</a> tool is a tighter fit.</li>
-  //       <li>If every page is upright except for a batch that all need the same turn, <a href="/rotate-pdf">Rotate PDF</a> handles just that.</li>
-  //       <li>If you only need to drop a couple of pages and nothing else, <a href="/delete-pdf-pages">Delete PDF Pages</a> does the one job.</li>
-  //     </ul>
+      <ul>
+        <li>If the order is perfect and you only need to shuffle pages around, the dedicated <a href="/rearrange-pdf">Rearrange PDF</a> tool is a tighter fit.</li>
+        <li>If every page is upright except for a batch that all need the same turn, <a href="/rotate-pdf">Rotate PDF</a> handles just that.</li>
+        <li>If you only need to drop a couple of pages and nothing else, <a href="/delete-pdf-pages">Delete PDF Pages</a> does the one job.</li>
+      </ul>
 
-  //     <p>The organize tool earns its place when you have a combination of issues. One sideways page, plus a wrong order, plus a blank sheet, all in the same file. That is when running three separate tools wastes real time, and seeing everything on one canvas saves it.</p>
+      <p>The organize tool earns its place when you have a combination of issues. One sideways page, plus a wrong order, plus a blank sheet, all in the same file. That is when running three separate tools wastes real time, and seeing everything on one canvas saves it.</p>
 
-  //     <h2>Why staying in the browser matters here</h2>
+      <h2>Why staying in the browser matters here</h2>
 
-  //     <p>Every time you upload a document to a cloud-based PDF site, a copy of that file sits on someone else's server for a while. For a wedding invite, fine. For a scanned PAN card, a bank statement, or a signed rent agreement, that is a real exposure, and you take it three times over if you bounce between three upload-based tools. The Organize PDF tool runs entirely on your machine, so the document never leaves your device, and the export is quick because there is no upload and no queue. If you want the longer version of why local processing is safer, we covered <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local PDF processing versus cloud tools</a> separately.</p>
+      <p>Every time you upload a document to a cloud-based PDF site, a copy of that file sits on someone else's server for a while. For a wedding invite, fine. For a scanned PAN card, a bank statement, or a signed rent agreement, that is a real exposure, and you take it three times over if you bounce between three upload-based tools. The Organize PDF tool runs entirely on your machine, so the document never leaves your device, and the export is quick because there is no upload and no queue. If you want the longer version of why local processing is safer, we covered <a href="/blog/local-pdf-processing-vs-cloud-tools-safer">local PDF processing versus cloud tools</a> separately.</p>
 
-  //     <p>Once the file is clean, you might have one thing left to do. Big phone scans are heavy, often several MB per page, so if your tidied document is too large to attach to an email or upload to a portal, run it through <a href="/compress-pdf">Compress PDF</a> before you send it. And if you built this file from several scans to begin with, <a href="/merge-pdf">Merge PDF</a> is where that combining happens, with the organize tool stepping in afterward to clean up the mess that merging tends to leave.</p>
+      <p>Once the file is clean, you might have one thing left to do. Big phone scans are heavy, often several MB per page, so if your tidied document is too large to attach to an email or upload to a portal, run it through <a href="/compress-pdf">Compress PDF</a> before you send it. And if you built this file from several scans to begin with, <a href="/merge-pdf">Merge PDF</a> is where that combining happens, with the organize tool stepping in afterward to clean up the mess that merging tends to leave.</p>
 
-  //     <h2>Frequently Asked Questions</h2>
+      <h2>Frequently Asked Questions</h2>
 
-  //     <p><strong>Q: If I rotate a page and then move it, does the rotation get lost?</strong><br>
-  //       A: No. The rotation is attached to that specific page, not to a position. Drag the page anywhere in the document and it stays correctly oriented.</p>
+      <p><strong>Q: If I rotate a page and then move it, does the rotation get lost?</strong><br>
+        A: No. The rotation is attached to that specific page, not to a position. Drag the page anywhere in the document and it stays correctly oriented.</p>
 
-  //     <p><strong>Q: Can I undo a delete?</strong><br>
-  //       A: Yes. Deleted pages can be restored. Nothing is permanent until you click export, so you can remove a page, look at the result, and bring it back if you changed your mind.</p>
+      <p><strong>Q: Can I undo a delete?</strong><br>
+        A: Yes. Deleted pages can be restored. Nothing is permanent until you click export, so you can remove a page, look at the result, and bring it back if you changed your mind.</p>
 
-  //     <p><strong>Q: Is my file uploaded anywhere?</strong><br>
-  //       A: No. The whole process runs inside your browser on your own device. The PDF never travels to a server, which is what makes it safe for sensitive scans like ID proofs and bank statements.</p>
+      <p><strong>Q: Is my file uploaded anywhere?</strong><br>
+        A: No. The whole process runs inside your browser on your own device. The PDF never travels to a server, which is what makes it safe for sensitive scans like ID proofs and bank statements.</p>
 
-  //     <p><strong>Q: Will reordering keep the text in my PDF selectable and searchable?</strong><br>
-  //       A: Yes. Reordering and rotating only change the sequence and orientation of pages. They do not re-render or flatten the content, so any selectable or searchable text in the original pages stays selectable and searchable afterward.</p>
+      <p><strong>Q: Will reordering keep the text in my PDF selectable and searchable?</strong><br>
+        A: Yes. Reordering and rotating only change the sequence and orientation of pages. They do not re-render or flatten the content, so any selectable or searchable text in the original pages stays selectable and searchable afterward.</p>
 
-  //     <p><strong>Q: Does it work for a very large scan with a few hundred pages?</strong><br>
-  //       A: It does, though a big file takes a few seconds to render a thumbnail for every page before the grid is ready. Once the thumbnails load, dragging, rotating, and deleting stay responsive, and you still export in a single step.</p>
-  //     `
-  // }, done
+      <p><strong>Q: Does it work for a very large scan with a few hundred pages?</strong><br>
+        A: It does, though a big file takes a few seconds to render a thumbnail for every page before the grid is ready. Once the thumbnails load, dragging, rotating, and deleting stay responsive, and you still export in a single step.</p>
+      `
+  },
 
 
   // 22-06 - 2026(batch 2 — existing - tool blogs, 14)(commented; uncomment + add / images / blogs / <slug>.webp to publish)
@@ -4768,7 +4768,7 @@ export const blogsData = [
   // <p><strong>Q: Can I add my PAN or photo to the same PDF?</strong><br> A: A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents.</p>
 
   // `
-  // },
+  // }, done
   // {
   //   id: "combine-documents-one-pdf-gst-registration",
   // title: "How to Put All Your Documents in One PDF for GST Registration",
@@ -4836,7 +4836,7 @@ export const blogsData = [
 
   // <p><strong>Q: Is it safe to upload my rent agreement and PAN to an online tool?</strong><br> A: With GoPDFGo, the conversion happens entirely inside your browser. Your documents are processed on your own device and never uploaded to any server, so your PAN number, address and the property owner's details stay private.</p>
   // `
-  // },
+  // }, done
   // {
   //   id: "remove-author-name-from-pdf-before-sending-resume",
   // title: "Your Resume Says Someone Else Wrote It: Removing the Author Name From a PDF",
