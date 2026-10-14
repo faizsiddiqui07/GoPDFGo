@@ -1838,13 +1838,13 @@ const ImageEditor = ({ toolId, info }) => {
       )}
 
 
-      {/* overflow-hidden removed: it only clipped this card's rounded
-          corners, but it also made the card a scroll container, which
-          silently disables position:sticky for the controls column. Each
-          panel now carries the radius for the corners it actually touches.
-          min-h-150 stays — it is the 600px floor that gives the rail
-          something to travel against before the preview has real height. */}
-      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 grid grid-cols-1 lg:grid-cols-2 min-h-150">
+      {/* overflow-hidden clips this card's own rounded corners. It also makes
+          the card a scroll container, which disables position:sticky inside —
+          and that is fine here: an image tool puts its controls in the LEFT
+          column with the preview on the right, so there is no rail beside the
+          preview to pin. Sticky belongs to the PDF tools only (ToolShell.jsx);
+          do not reintroduce it here. */}
+      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-150">
         {/* Title AND bar are both derived from `processed` (files actually
             finished) so they can never disagree. `batchProgress.current` is the
             QUEUED index — with 5 lanes it races ahead and used to read
@@ -1865,21 +1865,8 @@ const ImageEditor = ({ toolId, info }) => {
           }
           eta={isBatchMode ? batchProgress.eta : 0}
         />
-        {/* CONTROLS PANEL — rendered first, but painted on the RIGHT from lg
-            up via order-2, matching how iLovePDF puts the controls and the
-            download button in a rail beside the preview. */}
-        {/* The rail only drops out of full height once there is something to
-            preview beside it. With no files this panel holds just the
-            dropzone, which is flex-1 and needs h-full to fill the card;
-            going content-height there left the upload box stranded at the
-            top with ~300px of blank card underneath. */}
-        <div
-          className={`p-6 md:p-8 flex flex-col h-full bg-white z-10 ${
-            files.length > 0
-              ? "lg:h-auto lg:self-start lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto lg:overscroll-contain"
-              : ""
-          }`}
-        >
+        {/* LEFT PANEL */}
+        <div className="p-6 md:p-8 border-r border-slate-200 flex flex-col h-full bg-white z-10">
           {files.length === 0 ? (
             <div
               className={`flex-1 border-2 border-dashed rounded-xl flex flex-col items-center justify-center p-8 transition-colors cursor-pointer ${
@@ -2928,16 +2915,8 @@ const ImageEditor = ({ toolId, info }) => {
           )}
         </div>
 
-        {/* PREVIEW PANEL — right-hand column from lg up, below the controls on
-            phones. Keeps its own overflow-hidden: that one clips the preview
-            image to the panel and is unrelated to the card-level one that was
-            removed. It also draws the column divider, because it is the panel
-            that stretches full height — the controls column is self-start, so
-            a border there would stop short of the card's bottom edge.
-            Per-corner radius classes on purpose: rounded-b-none and
-            rounded-r-2xl both write bottom-right, and which wins depends on
-            stylesheet order rather than the order written here. */}
-        <div className="bg-slate-50 p-6 md:p-8 flex flex-col items-center justify-center border-t lg:border-t-0 text-center relative min-h-100 overflow-hidden rounded-b-2xl lg:rounded-bl-none lg:rounded-tr-2xl lg:border-l lg:border-slate-200">
+        {/* RIGHT PANEL (Preview) */}
+        <div className="bg-slate-50 p-6 md:p-8 flex flex-col items-center justify-center border-t lg:border-t-0 text-center relative min-h-100 overflow-hidden">
           {isProcessing && !isBatchMode && !isInstantTool && (
             <div className="absolute inset-0 bg-white/80 z-20 flex flex-col items-center justify-center backdrop-blur-sm">
               <Loader2 size={48} className="text-[#FF9933] animate-spin mb-4" />
