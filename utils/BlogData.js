@@ -4476,85 +4476,85 @@ export const blogsData = [
 
   // 22-06 - 2026(batch 2 — existing - tool blogs, 14)(commented; uncomment + add / images / blogs / <slug>.webp to publish)
 
-  // {
-  //   id: "split-question-paper-pdf-subject-wise",
-  // title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
-  // seoTitle: "Split Question Paper PDF Subject-Wise (Free) | GoPDFGo",
-  // keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
-  // excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
-  // date: "June 22, 2026",
-  // publishedAt: "2026-06-22",
-  // imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
-  // content: `
-  // <p>You download a 240-page PDF of previous-year questions, or a senior shares a fat question bank on the class group. The problem hits the first time you sit down to revise. You only want to do Chemistry tonight, but Physics, Maths and Biology are all stuffed into the same file, so you keep scrolling past sixty pages of other subjects just to reach the section you need. Then a friend pings you for "only Chemistry," and you end up forwarding an 80MB monster that takes ten minutes to load on their phone.</p>
+  {
+    id: "split-question-paper-pdf-subject-wise",
+  title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
+  seoTitle: "Split Question Paper PDF Subject-Wise (Free) | GoPDFGo",
+  keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
+  excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
+  date: "October 14, 2026",
+  publishedAt: "2026-10-14",
+  imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
+  content: `
+  <p>You download a 240-page PDF of previous-year questions, or a senior shares a fat question bank on the class group. The problem hits the first time you sit down to revise. You only want to do Chemistry tonight, but Physics, Maths and Biology are all stuffed into the same file, so you keep scrolling past sixty pages of other subjects just to reach the section you need. Then a friend pings you for "only Chemistry," and you end up forwarding an 80MB monster that takes ten minutes to load on their phone.</p>
 
-  // <p>The fix takes about five minutes, once. You break that one combined PDF into separate subject-wise files, and after that every revision session starts with the right file already in front of you. Here is how to do it without your question bank ever leaving your device.</p>
+  <p>The fix takes about five minutes, once. You break that one combined PDF into separate subject-wise files, and after that every revision session starts with the right file already in front of you. Here is how to do it without your question bank ever leaving your device.</p>
 
-  // <h2>Why one combined PDF slows down your revision</h2>
-  // <p>A single mega-PDF looks handy on the day you download it. The pain turns up later, usually when you are already short on time.</p>
-  // <ul>
-  //   <li><strong>Scrolling kills your focus.</strong> Every time you open the file for Maths, you scroll past dozens of pages of other subjects. Repeated across a study session, that drag adds up and pulls your attention away from actually solving questions.</li>
-  //   <li><strong>Sharing is a hassle.</strong> Nobody wants to download an 80MB file just to get one subject. A 6MB Chemistry-only PDF lands almost instantly, so your friend actually opens it instead of leaving it on the group.</li>
-  //   <li><strong>Printing costs you.</strong> If you want a printout for last-minute revision, a combined file means you either print all 240 pages or fiddle with page-range settings at the shop every single time.</li>
-  //   <li><strong>Backups get confusing.</strong> When everything is one blob, you cannot tell at a glance whether you have the complete Biology set. Files named per subject make your Drive or phone folder readable in one look.</li>
-  // </ul>
+  <h2>Why one combined PDF slows down your revision</h2>
+  <p>A single mega-PDF looks handy on the day you download it. The pain turns up later, usually when you are already short on time.</p>
+  <ul>
+    <li><strong>Scrolling kills your focus.</strong> Every time you open the file for Maths, you scroll past dozens of pages of other subjects. Repeated across a study session, that drag adds up and pulls your attention away from actually solving questions.</li>
+    <li><strong>Sharing is a hassle.</strong> Nobody wants to download an 80MB file just to get one subject. A 6MB Chemistry-only PDF lands almost instantly, so your friend actually opens it instead of leaving it on the group.</li>
+    <li><strong>Printing costs you.</strong> If you want a printout for last-minute revision, a combined file means you either print all 240 pages or fiddle with page-range settings at the shop every single time.</li>
+    <li><strong>Backups get confusing.</strong> When everything is one blob, you cannot tell at a glance whether you have the complete Biology set. Files named per subject make your Drive or phone folder readable in one look.</li>
+  </ul>
 
-  // <h2>Splitting by subject is not the same as pulling one page</h2>
-  // <p>People mix these up. If you only want a single page out of a large file, say one specific question or one answer-key sheet, that is a one-page job and our <a href="/blog/extract-single-page-from-large-pdf">extract a single page guide</a> covers it. Subject-wise splitting is different. You are carving the document into several chunks by page range so each subject becomes its own complete file. One PDF goes in, four or five clean PDFs come out.</p>
+  <h2>Splitting by subject is not the same as pulling one page</h2>
+  <p>People mix these up. If you only want a single page out of a large file, say one specific question or one answer-key sheet, that is a one-page job and our <a href="/blog/extract-single-page-from-large-pdf">extract a single page guide</a> covers it. Subject-wise splitting is different. You are carving the document into several chunks by page range so each subject becomes its own complete file. One PDF goes in, four or five clean PDFs come out.</p>
 
-  // <h2>First, find where each subject starts and ends</h2>
-  // <p>Before you split anything, get the page numbers. Open the combined PDF and note where each subject begins and ends. Most question banks have a contents page or clear section breaks, so this is quick.</p>
-  // <p>Write it down somewhere, on paper or in your notes app:</p>
-  // <ul>
-  //   <li><strong>Physics:</strong> pages 1 to 58</li>
-  //   <li><strong>Chemistry:</strong> pages 59 to 122</li>
-  //   <li><strong>Maths:</strong> pages 123 to 190</li>
-  //   <li><strong>Biology:</strong> pages 191 to 240</li>
-  // </ul>
-  // <p>Watch out for one thing students often get wrong. The page number printed at the bottom of the sheet is usually not the same as the actual PDF page number, because of cover pages and blank sheets. Trust the page counter in your PDF viewer, not the printed number. Count from the real first page of the file.</p>
+  <h2>First, find where each subject starts and ends</h2>
+  <p>Before you split anything, get the page numbers. Open the combined PDF and note where each subject begins and ends. Most question banks have a contents page or clear section breaks, so this is quick.</p>
+  <p>Write it down somewhere, on paper or in your notes app:</p>
+  <ul>
+    <li><strong>Physics:</strong> pages 1 to 58</li>
+    <li><strong>Chemistry:</strong> pages 59 to 122</li>
+    <li><strong>Maths:</strong> pages 123 to 190</li>
+    <li><strong>Biology:</strong> pages 191 to 240</li>
+  </ul>
+  <p>Watch out for one thing students often get wrong. The page number printed at the bottom of the sheet is usually not the same as the actual PDF page number, because of cover pages and blank sheets. Trust the page counter in your PDF viewer, not the printed number. Count from the real first page of the file.</p>
 
-  // <h2>How to split the question paper subject-wise on GoPDFGo</h2>
-  // <p>This is exactly what our Split PDF tool is for, and the whole thing runs <strong>inside your browser</strong>. Your question bank is never uploaded to any server, which matters if it is paid material a coaching institute shared with your batch.</p>
-  // <p>One thing to know about how the tool works, so the result is not a surprise. You hand it your page ranges — one per subject, separated by commas — and it gives each range back as its own separate, ready-made PDF, all bundled together in a single ZIP. So four subjects means four clean subject-wise PDFs in one download. There is no unzipping-and-merging step any more; the tool groups each range into its own file for you.</p>
+  <h2>How to split the question paper subject-wise on GoPDFGo</h2>
+  <p>This is exactly what our Split PDF tool is for, and the whole thing runs <strong>inside your browser</strong>. Your question bank is never uploaded to any server, which matters if it is paid material a coaching institute shared with your batch.</p>
+  <p>One thing to know about how the tool works, so the result is not a surprise. You hand it your page ranges — one per subject, separated by commas — and it gives each range back as its own separate, ready-made PDF, all bundled together in a single ZIP. So four subjects means four clean subject-wise PDFs in one download. There is no unzipping-and-merging step any more; the tool groups each range into its own file for you.</p>
 
-  // <div class="tool-box">
-  //   <h3>Splitting your combined PDF, step by step</h3>
-  //   <ul>
-  //     <li><strong>Step 1:</strong> Open the <a href="/split-pdf">Split PDF</a> tool and drop in your big combined question-paper file. Nothing leaves your device.</li>
-  //     <li><strong>Step 2:</strong> Enter one range per subject, separated by commas — for example <strong>1-58, 59-122, 123-190, 191-240</strong> for Physics, Chemistry, Maths and Biology. Each range becomes its own PDF.</li>
-  //     <li><strong>Step 3:</strong> Click Split and download the ZIP. Inside you already get one clean PDF per subject — no unzipping and no merging. Rename each one clearly, like Physics_PYQ_2016-2025.pdf.</li>
-  //     <li><strong>Step 4:</strong> That is it — every subject is already its own PDF. Drop them into a clearly named folder on your phone or Drive so the right file is one tap away at revision time.</li>
-  //   </ul>
-  // </div>
+  <div class="tool-box">
+    <h3>Splitting your combined PDF, step by step</h3>
+    <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/split-pdf">Split PDF</a> tool and drop in your big combined question-paper file. Nothing leaves your device.</li>
+      <li><strong>Step 2:</strong> Enter one range per subject, separated by commas — for example <strong>1-58, 59-122, 123-190, 191-240</strong> for Physics, Chemistry, Maths and Biology. Each range becomes its own PDF.</li>
+      <li><strong>Step 3:</strong> Click Split and download the ZIP. Inside you already get one clean PDF per subject — no unzipping and no merging. Rename each one clearly, like Physics_PYQ_2016-2025.pdf.</li>
+      <li><strong>Step 4:</strong> That is it — every subject is already its own PDF. Drop them into a clearly named folder on your phone or Drive so the right file is one tap away at revision time.</li>
+    </ul>
+  </div>
 
-  // <h2>Name the files properly</h2>
-  // <p>This sounds trivial, but it saves real frustration. A file called Split_1.pdf tells you nothing at 11pm before an exam. Give each one a name that says the subject and the span of years or chapters, like <strong>Maths_PYQ_2015-2025.pdf</strong> or <strong>Biology_Genetics_QBank.pdf</strong>. When you dig through WhatsApp or Drive a month later, the right file shows up in one tap. And because a subject-wise file is small and self-contained, when someone on the group asks for "only Physics," you forward one neat PDF instead of the whole bank, and it downloads in seconds even on patchy hostel 4G.</p>
+  <h2>Name the files properly</h2>
+  <p>This sounds trivial, but it saves real frustration. A file called Split_1.pdf tells you nothing at 11pm before an exam. Give each one a name that says the subject and the span of years or chapters, like <strong>Maths_PYQ_2015-2025.pdf</strong> or <strong>Biology_Genetics_QBank.pdf</strong>. When you dig through WhatsApp or Drive a month later, the right file shows up in one tap. And because a subject-wise file is small and self-contained, when someone on the group asks for "only Physics," you forward one neat PDF instead of the whole bank, and it downloads in seconds even on patchy hostel 4G.</p>
 
-  // <h2>A bit of cleanup makes each file nicer to revise from</h2>
-  // <p>Once your subjects are separate, a little tidying goes a long way.</p>
-  // <ul>
-  //   <li><strong>Drop the junk pages.</strong> Combined PDFs often have a cover, an index, and blank separators between subjects. If a stray blank sheet or an irrelevant instruction page landed in your Chemistry file, cut it with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the file holds only questions.</li>
-  //   <li><strong>Fix sideways scans.</strong> Some banks are scanned, and a diagram-heavy page can come in rotated. Instead of tilting your head every time, straighten it for good with <a href="/rotate-pdf">Rotate PDF</a> before you save the subject file.</li>
-  //   <li><strong>Shrink heavy scans.</strong> If a subject file is still large because it is a high-resolution scan, run it through <a href="/compress-pdf">Compress PDF</a> so it sends quickly on the class group and nobody complains about data.</li>
-  // </ul>
+  <h2>A bit of cleanup makes each file nicer to revise from</h2>
+  <p>Once your subjects are separate, a little tidying goes a long way.</p>
+  <ul>
+    <li><strong>Drop the junk pages.</strong> Combined PDFs often have a cover, an index, and blank separators between subjects. If a stray blank sheet or an irrelevant instruction page landed in your Chemistry file, cut it with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the file holds only questions.</li>
+    <li><strong>Fix sideways scans.</strong> Some banks are scanned, and a diagram-heavy page can come in rotated. Instead of tilting your head every time, straighten it for good with <a href="/rotate-pdf">Rotate PDF</a> before you save the subject file.</li>
+    <li><strong>Shrink heavy scans.</strong> If a subject file is still large because it is a high-resolution scan, run it through <a href="/compress-pdf">Compress PDF</a> so it sends quickly on the class group and nobody complains about data.</li>
+  </ul>
 
-  // <p>There is one honest limit. If your subjects are interleaved rather than in clean blocks, say a mixed mock test where Q1 is Physics, Q2 is Chemistry and so on, splitting by page range will not separate them, because the tool works on continuous ranges. For that kind of jumble you are better off keeping the file whole and using your viewer's bookmarks. But for the standard subject-after-subject question bank, which is how almost all of them are arranged, this is exactly the right approach.</p>
+  <p>There is one honest limit. If your subjects are interleaved rather than in clean blocks, say a mixed mock test where Q1 is Physics, Q2 is Chemistry and so on, splitting by page range will not separate them, because the tool works on continuous ranges. For that kind of jumble you are better off keeping the file whole and using your viewer's bookmarks. But for the standard subject-after-subject question bank, which is how almost all of them are arranged, this is exactly the right approach.</p>
 
-  // <p>Spend the five minutes on it now, before your prep gets intense. A folder of clean, named, subject-wise PDFs is a small thing that makes every study session after it run smoother.</p>
+  <p>Spend the five minutes on it now, before your prep gets intense. A folder of clean, named, subject-wise PDFs is a small thing that makes every study session after it run smoother.</p>
 
-  // <h2>FAQ</h2>
+  <h2>FAQ</h2>
 
-  // <p><strong>Q: Will splitting reduce the quality of the question paper?</strong><br> A: No. The pages are copied exactly as they are into the new file. The text, diagrams and scan quality stay identical to the original. Only the page count changes.</p>
+  <p><strong>Q: Will splitting reduce the quality of the question paper?</strong><br> A: No. The pages are copied exactly as they are into the new file. The text, diagrams and scan quality stay identical to the original. Only the page count changes.</p>
 
-  // <p><strong>Q: Is my question bank uploaded to a server when I split it?</strong><br> A: No. The Split PDF tool runs entirely in your browser, on your device. Your file never leaves your phone or computer, which matters if it is paid coaching material.</p>
+  <p><strong>Q: Is my question bank uploaded to a server when I split it?</strong><br> A: No. The Split PDF tool runs entirely in your browser, on your device. Your file never leaves your phone or computer, which matters if it is paid coaching material.</p>
 
-  // <p><strong>Q: Why does the tool give me separate pages instead of one subject file?</strong><br> A: Split PDF pulls out each page in your range as its own single-page PDF, bundled in a ZIP. To get one combined file per subject, run those pages through Merge PDF afterwards. That second step takes only a few seconds.</p>
+  <p><strong>Q: Why does the tool give me separate pages instead of one subject file?</strong><br> A: Split PDF pulls out each page in your range as its own single-page PDF, bundled in a ZIP. To get one combined file per subject, run those pages through Merge PDF afterwards. That second step takes only a few seconds.</p>
 
-  // <p><strong>Q: Can I split a password-protected question paper PDF?</strong><br> A: Not directly. Remove the password first with <a href="/unlock-pdf">Unlock PDF</a>, entering the password you already know, then split the unlocked copy. A locked file cannot be split as it is.</p>
+  <p><strong>Q: Can I split a password-protected question paper PDF?</strong><br> A: Not directly. Remove the password first with <a href="/unlock-pdf">Unlock PDF</a>, entering the password you already know, then split the unlocked copy. A locked file cannot be split as it is.</p>
 
-  // <p><strong>Q: How do I know the exact page numbers for each subject?</strong><br> A: Open the PDF and use your viewer's page counter, not the number printed on the sheet. Note where each subject begins and ends, since cover and blank pages can shift the real page numbers.</p>
-  // `
-  // }, done
+  <p><strong>Q: How do I know the exact page numbers for each subject?</strong><br> A: Open the PDF and use your viewer's page counter, not the number printed on the sheet. Note where each subject begins and ends, since cover and blank pages can shift the real page numbers.</p>
+  `
+  },
   // {
   //   id: "remove-instruction-pages-government-form-pdf",
   // title: "Remove Instruction Pages From a Government Form PDF Before You Upload It",

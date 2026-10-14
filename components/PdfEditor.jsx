@@ -32,6 +32,7 @@ import { formatBytes } from "../utils/helpers";
 import RelatedTools from "./RelatedTools";
 import { TOOLS_CONFIG } from "@/utils/constants";
 import NextSteps from "./NextSteps";
+import ToolShell from "./ToolShell";
 
 // --- DND KIT IMPORTS ---
 import {
@@ -1099,7 +1100,12 @@ const PdfEditor = ({ toolId }) => {
         };
 
         const skipped = [];
-        for (const item of files) {
+        // Feed the overlay real numbers. Building a PDF from 100 phone photos
+        // is the longest blocking job on the site, and before this it showed an
+        // indeterminate spinner the whole way through, which reads as a hang.
+        const imgStart = performance.now();
+        setPdfProgress(0);
+        for (const [imgIdx, item] of files.entries()) {
           try {
             let image;
 
@@ -1150,7 +1156,25 @@ const PdfEditor = ({ toolId }) => {
           } catch (e) {
             skipped.push(item.file.name);
           }
+
+          // Completed count, not the loop index, and capped at 90 because
+          // newPdf.save() below is one blocking call with no fraction to report.
+          const done = imgIdx + 1;
+          setPdfProgress(Math.round((done / files.length) * 90));
+          setPdfEta(
+            Math.round(
+              (((performance.now() - imgStart) / done) * (files.length - done)) /
+                1000,
+            ),
+          );
+          // Hand the main thread back after every photo so the bar and ETA
+          // actually paint. This does NOT shorten the stalls: measured drift was
+          // 879ms yielding on alternate photos and 818ms yielding on every one,
+          // i.e. unchanged — a single photo's decode + re-encode is itself the
+          // atomic block and no yield can split it.
+          await new Promise((resolve) => setTimeout(resolve, 0));
         }
+        setPdfFinishing(true);
 
         if (newPdf.getPageCount() === 0) {
           throw userError("We couldn't read any of the selected images.");
@@ -2110,7 +2134,12 @@ const PdfEditor = ({ toolId }) => {
         )}
       </div>
 
-      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      {/* No overflow-hidden here. It existed only to clip this card's own
+          rounded corners, but it also made the card the nearest scroll
+          container, which silently disables position:sticky for the rail
+          inside. The corner clipping now lives on the upload strip, the one
+          child that actually touches the top corners. */}
+      <div className="relative bg-white rounded-2xl shadow-xl border border-slate-200">
         <ProcessingOverlay
           show={isProcessing}
           title={ocrStatus || "Working on your PDF…"}
@@ -2119,7 +2148,7 @@ const PdfEditor = ({ toolId }) => {
           finishing={pdfFinishing}
         />
         {/* Upload Area */}
-        <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center">
+        <div className="p-4 sm:p-6 md:p-8 bg-slate-50 border-b border-slate-100 text-center rounded-t-2xl">
           <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 hover:bg-white hover:border-[#FF9933] transition-colors cursor-pointer relative group">
             <input
               ref={fileInputRef}
@@ -2181,95 +2210,15 @@ const PdfEditor = ({ toolId }) => {
             </div>
           )}
 
-          {tool.id === "compress-pdf" && files.length > 0 && !isDone && (
-            <div className="mb-6">
-              {/* Mode toggle: Best compression vs Target size */}
-              <div className="inline-flex w-full sm:w-auto p-1 bg-slate-100 rounded-xl mb-4">
-                <button
-                  type="button"
-                  onClick={() => setPdfSizeMode("best")}
-                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
-                    pdfSizeMode === "best"
-                      ? "bg-white text-[#e68a2e] shadow-sm"
-                      : "text-slate-500 hover:text-slate-700"
-                  }`}
-                >
-                  Best Compression
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setPdfSizeMode("target")}
-                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
-                    pdfSizeMode === "target"
-                      ? "bg-white text-[#e68a2e] shadow-sm"
-                      : "text-slate-500 hover:text-slate-700"
-                  }`}
-                >
-                  Target Size (KB)
-                </button>
-              </div>
 
-              {pdfSizeMode === "target" && (
-                <div className="mb-4">
-                  <p className="text-sm font-semibold text-slate-600 mb-2">
-                    Shrink to about this size (for portals with strict upload
-                    limits):
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {[200, 500, 1000, 2000].map((kb) => (
-                      <button
-                        key={kb}
-                        type="button"
-                        onClick={() => setPdfTargetKB(kb)}
-                        className={`px-4 py-2 rounded-lg text-sm font-bold border transition cursor-pointer ${
-                          Number(pdfTargetKB) === kb
-                            ? "bg-orange-100 border-orange-300 text-[#e68a2e]"
-                            : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
-                        }`}
-                      >
-                        {kb >= 1000 ? `${kb / 1000} MB` : `${kb} KB`}
-                      </button>
-                    ))}
-                    <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-3">
-                      <input
-                        type="number"
-                        min="20"
-                        value={pdfTargetKB}
-                        onChange={(e) =>
-                          setPdfTargetKB(parseInt(e.target.value) || 0)
-                        }
-                        className="w-20 py-2 outline-none text-sm font-bold text-slate-700"
-                      />
-                      <span className="text-sm text-slate-400 font-medium">
-                        KB
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="bg-blue-50 text-blue-700 p-3 rounded-lg flex items-start gap-2 text-sm border border-blue-100">
-                <Info size={18} className="mt-0.5 shrink-0" />
-                <span>
-                  {pdfSizeMode === "target" ? (
-                    <>
-                      <strong>Note:</strong> Hitting an exact size flattens pages
-                      to images, so text inside becomes non-selectable and may
-                      look softer. Best for scanned or image-heavy PDFs.
-                    </>
-                  ) : (
-                    <>
-                      <strong>Note:</strong> We try a lossless re-save first and
-                      keep text selectable when we can. Only image-heavy PDFs get
-                      flattened for extra savings — and we never hand back a file
-                      bigger than your original.
-                    </>
-                  )}
-                </span>
-              </div>
-            </div>
-          )}
-
+          {/* Preview on the left, every option and the download button in a
+              rail that stays put while the preview scrolls past it. The rail
+              is switched off for watermark-pdf, which already paints its own
+              controls-and-live-preview pair and would be squeezed twice. */}
+          <ToolShell
+            rail={files.length > 0 && tool.id !== "watermark-pdf"}
+            preview={
+              <>
           {isMounted &&
             files.length > 0 &&
             !PAGE_GRID_TOOLS.has(tool.id) && (
@@ -2299,32 +2248,49 @@ const PdfEditor = ({ toolId }) => {
                           key={item.id}
                           id={item.id}
                           disabled={!isDraggable}
-                          className={`relative group bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition p-3 flex items-center gap-4 ${
+                          className={`gpg-thumb-tile relative group bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition p-3 flex items-center gap-4 ${
                             isDraggable
                               ? "cursor-grab active:cursor-grabbing"
                               : "cursor-default"
                           }`}
                         >
                           {isDraggable && (
-                            <div className="text-slate-400 hover:text-slate-600">
-                              <GripVertical size={20} />
-                            </div>
-                          )}
-                          {isDraggable && (
-                            <div className="absolute -top-2 -left-2 w-6 h-6 bg-[#FF9933] text-white text-xs rounded-full flex items-center justify-center font-bold shadow-sm z-10">
-                              {idx + 1}
+                            // The position number is a laid-out flex child, not
+                            // an overlay hanging off the corner. The card has
+                            // content-visibility:auto, whose paint containment
+                            // clips to the padding box — an absolutely
+                            // positioned badge at -top-2 -left-2 was being
+                            // sliced down to a sliver with the digit cut off.
+                            <div className="flex flex-col items-center gap-1 shrink-0">
+                              <span className="w-7 h-7 bg-[#FF9933] text-white text-sm rounded-full flex items-center justify-center font-bold shadow-sm tabular-nums">
+                                {idx + 1}
+                              </span>
+                              <GripVertical
+                                size={18}
+                                className="text-slate-400 group-hover:text-slate-600"
+                              />
                             </div>
                           )}
 
                           <div className="w-24 h-32 sm:w-32 sm:h-44 bg-slate-100 rounded-lg overflow-hidden shrink-0 flex items-center justify-center border border-slate-200 relative shadow-inner">
                             {item.preview ? (
+                              // lazy + async decode matter most on image-to-pdf,
+                              // where this src is the full-size original photo:
+                              // picking 100 of them used to decode all 100 at
+                              // once into 128x176 boxes. The rotate is applied
+                              // only when there IS a rotation — an unconditional
+                              // transform put every card on its own GPU layer.
                               <img
                                 src={item.preview}
                                 alt="Preview"
+                                loading="lazy"
+                                decoding="async"
                                 className="w-full h-full object-cover transition-transform duration-300"
-                                style={{
-                                  transform: `rotate(${item.rotation}deg)`,
-                                }}
+                                style={
+                                  item.rotation
+                                    ? { transform: `rotate(${item.rotation}deg)` }
+                                    : undefined
+                                }
                               />
                             ) : (
                               <FileText size={40} className="text-slate-300" />
@@ -2388,73 +2354,6 @@ const PdfEditor = ({ toolId }) => {
                 </SortableContext>
               </DndContext>
             )}
-
-          {/* Image to PDF Controls */}
-          {files.length > 0 && tool.id === "image-to-pdf" && (
-            <div className="mb-8 space-y-6">
-              <div>
-                <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
-                  Page Size
-                </label>
-                <div className="flex flex-wrap gap-3 justify-center">
-                  {[
-                    { v: "a4", label: "A4" },
-                    { v: "letter", label: "US Letter" },
-                    { v: "fit", label: "Fit to Image" },
-                  ].map((o) => (
-                    <button
-                      key={o.v}
-                      onClick={() => setPdfPageSize(o.v)}
-                      className={`px-5 py-2.5 rounded-xl font-bold transition cursor-pointer ${
-                        pdfPageSize === o.v
-                          ? "bg-[#FF9933] text-white shadow-lg"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      {o.label}
-                    </button>
-                  ))}
-                </div>
-                {pdfPageSize === "fit" && (
-                  <p className="text-xs text-slate-500 text-center mt-2">
-                    Each page matches its image exactly — no borders or extra
-                    whitespace.
-                  </p>
-                )}
-              </div>
-
-              {pdfPageSize !== "fit" && (
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
-                    Page Orientation
-                  </label>
-                  <div className="flex gap-4 justify-center">
-                    <button
-                      onClick={() => setPdfOrientation("portrait")}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
-                        pdfOrientation === "portrait"
-                          ? "bg-[#FF9933] text-white shadow-lg"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      <Smartphone size={20} /> Portrait
-                    </button>
-                    <button
-                      onClick={() => setPdfOrientation("landscape")}
-                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
-                        pdfOrientation === "landscape"
-                          ? "bg-[#FF9933] text-white shadow-lg"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      <Monitor size={20} /> Landscape
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
           {/* Split PDF Controls */}
           {files.length > 0 &&
             (tool.id === "split-pdf" || tool.id === "extract-pdf-pages") && (
@@ -2561,7 +2460,6 @@ const PdfEditor = ({ toolId }) => {
                 )}
               </div>
             )}
-
           {/* Rotate PDF Controls */}
           {files.length > 0 && tool.id === "rotate-pdf" && (
             <div className="mb-8 animate-fade-in">
@@ -2647,7 +2545,6 @@ const PdfEditor = ({ toolId }) => {
               )}
             </div>
           )}
-
           {/* Rearrange PDF UI with DnD Kit */}
           {isMounted && files.length > 0 && tool.id === "rearrange-pdf" && (
             <div className="mb-8 animate-fade-in">
@@ -2683,7 +2580,7 @@ const PdfEditor = ({ toolId }) => {
                           id={thumb.pageNum.toString()}
                           className="gpg-thumb-tile relative group bg-white border-2 border-slate-200 hover:border-[#FF9933] rounded-lg overflow-hidden cursor-grab active:cursor-grabbing transition-all shadow-sm touch-none select-none"
                         >
-                          <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
+                          <div className="absolute top-1.5 left-1.5 bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md ring-1 ring-white/70 tabular-nums z-10">
                             Original Page {thumb.pageNum}
                           </div>
                           <img
@@ -2710,7 +2607,6 @@ const PdfEditor = ({ toolId }) => {
               )}
             </div>
           )}
-
           {/* Organize PDF: drag-reorder + per-page rotate + delete */}
           {isMounted && files.length > 0 && tool.id === "organize-pdf" && (
             <div className="mb-8 animate-fade-in">
@@ -2755,7 +2651,7 @@ const PdfEditor = ({ toolId }) => {
                                 : "border-slate-200 hover:border-[#FF9933] cursor-grab active:cursor-grabbing"
                             }`}
                           >
-                            <div className="absolute top-1 left-1 bg-slate-800/70 text-white text-[10px] font-bold px-2 py-0.5 rounded backdrop-blur-sm z-10">
+                            <div className="absolute top-1.5 left-1.5 bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded-md shadow-md ring-1 ring-white/70 tabular-nums z-10">
                               Page {thumb.pageNum}
                             </div>
 
@@ -2866,50 +2762,6 @@ const PdfEditor = ({ toolId }) => {
               )}
             </div>
           )}
-
-          {/* OCR language. Hindi+English is the default because Indian
-              paperwork is usually bilingual and a single-language pass mangles
-              the other script. The download note is there because the language
-              data really is a few MB on a phone the first time. */}
-          {files.length > 0 && tool.id === "ocr-pdf" && (
-            <div className="mb-8 animate-fade-in max-w-xl mx-auto">
-              <p className="text-sm font-bold text-slate-700 mb-2 text-center">
-                Language of the document
-              </p>
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { v: "hin+eng", label: "Hindi + English", note: "Best for Indian forms" },
-                  { v: "eng", label: "English", note: "Fastest" },
-                  { v: "hin", label: "Hindi", note: "Devanagari only" },
-                ].map((l) => (
-                  <button
-                    key={l.v}
-                    onClick={() => setOcrLang(l.v)}
-                    className={`px-2 py-3 rounded-xl border text-center transition active:scale-95 touch-manipulation cursor-pointer ${
-                      ocrLang === l.v
-                        ? "bg-[#FF9933] text-white border-[#FF9933] shadow-md"
-                        : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
-                    }`}
-                  >
-                    <span className="block text-sm font-bold">{l.label}</span>
-                    <span
-                      className={`block text-[11px] mt-0.5 ${
-                        ocrLang === l.v ? "text-white/80" : "text-slate-400"
-                      }`}
-                    >
-                      {l.note}
-                    </span>
-                  </button>
-                ))}
-              </div>
-              <p className="text-xs text-slate-500 mt-3 text-center leading-relaxed">
-                Pick the language that is actually on the page — reading Hindi
-                with the English model (or the reverse) returns nonsense. The
-                language data downloads once on first use, then stays cached.
-              </p>
-            </div>
-          )}
-
           {/* PDF to Image Controls */}
           {files.length > 0 && tool.id === "pdf-to-image" && (
             <div className="mb-8 animate-fade-in">
@@ -3018,7 +2870,6 @@ const PdfEditor = ({ toolId }) => {
               )}
             </div>
           )}
-
           {/* Delete Pages Controls */}
           {files.length > 0 && tool.id === "delete-pdf-pages" && (
             <div className="mb-8 animate-fade-in">
@@ -3090,92 +2941,7 @@ const PdfEditor = ({ toolId }) => {
               )}
             </div>
           )}
-
           {/* Watermark Controls */}
-          {/* Page Numbers Options */}
-          {files.length > 0 && tool.id === "page-numbers" && !isDone && (
-            <div className="mb-8 animate-fade-in max-w-3xl mx-auto space-y-5">
-              <div>
-                <label className="block text-sm font-bold text-slate-700 mb-2">
-                  Position
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {[
-                    { id: "bottom-center", label: "Bottom Center" },
-                    { id: "bottom-right", label: "Bottom Right" },
-                    { id: "bottom-left", label: "Bottom Left" },
-                    { id: "top-right", label: "Top Right" },
-                  ].map((p) => (
-                    <button
-                      key={p.id}
-                      onClick={() => setPageNumPos(p.id)}
-                      className={`py-2.5 px-2 rounded-lg font-bold text-xs sm:text-sm transition cursor-pointer ${
-                        pageNumPos === p.id
-                          ? "bg-[#FF9933] text-white shadow"
-                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                      }`}
-                    >
-                      {p.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">
-                    Format
-                  </label>
-                  <div className="flex gap-1.5">
-                    {[
-                      { id: "plain", label: "1, 2, 3" },
-                      { id: "pageofn", label: "Page 1 of N" },
-                    ].map((f) => (
-                      <button
-                        key={f.id}
-                        onClick={() => setPageNumFormat(f.id)}
-                        className={`flex-1 py-2 px-2 rounded-lg font-bold text-xs transition cursor-pointer ${
-                          pageNumFormat === f.id
-                            ? "bg-[#FF9933] text-white shadow"
-                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-                        }`}
-                      >
-                        {f.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-slate-700 mb-2">
-                    Start counting from
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={pageNumStart}
-                    onChange={(e) =>
-                      setPageNumStart(parseInt(e.target.value) || 1)
-                    }
-                    className="w-full p-2.5 border border-slate-300 rounded-lg text-center font-bold focus:ring-2 focus:ring-[#FF9933] outline-none"
-                  />
-                </div>
-                <div className="flex items-end">
-                  <label className="flex items-center gap-2 cursor-pointer bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 w-full">
-                    <input
-                      type="checkbox"
-                      checked={pageNumSkipFirst}
-                      onChange={(e) => setPageNumSkipFirst(e.target.checked)}
-                      className="accent-[#FF9933] w-4 h-4"
-                    />
-                    <span className="text-sm font-bold text-slate-700">
-                      Skip first page (cover)
-                    </span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          )}
-
           {files.length > 0 && tool.id === "watermark-pdf" && (
             <div className="mb-8 animate-fade-in max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
               {/* Controls */}
@@ -3369,7 +3135,288 @@ const PdfEditor = ({ toolId }) => {
               </div>
             </div>
           )}
+              </>
+            }
+            controls={
+              <>
+          {tool.id === "compress-pdf" && files.length > 0 && !isDone && (
+            <div className="mb-6">
+              {/* Mode toggle: Best compression vs Target size */}
+              <div className="inline-flex w-full sm:w-auto p-1 bg-slate-100 rounded-xl mb-4">
+                <button
+                  type="button"
+                  onClick={() => setPdfSizeMode("best")}
+                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
+                    pdfSizeMode === "best"
+                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      : "text-slate-500 hover:text-slate-700"
+                  }`}
+                >
+                  Best Compression
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setPdfSizeMode("target")}
+                  className={`flex-1 sm:flex-none px-4 py-2 rounded-lg text-sm font-bold transition cursor-pointer ${
+                    pdfSizeMode === "target"
+                      ? "bg-white text-[#e68a2e] shadow-sm"
+                      : "text-slate-500 hover:text-slate-700"
+                  }`}
+                >
+                  Target Size (KB)
+                </button>
+              </div>
 
+              {pdfSizeMode === "target" && (
+                <div className="mb-4">
+                  <p className="text-sm font-semibold text-slate-600 mb-2">
+                    Shrink to about this size (for portals with strict upload
+                    limits):
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {[200, 500, 1000, 2000].map((kb) => (
+                      <button
+                        key={kb}
+                        type="button"
+                        onClick={() => setPdfTargetKB(kb)}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold border transition cursor-pointer ${
+                          Number(pdfTargetKB) === kb
+                            ? "bg-orange-100 border-orange-300 text-[#e68a2e]"
+                            : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
+                        }`}
+                      >
+                        {kb >= 1000 ? `${kb / 1000} MB` : `${kb} KB`}
+                      </button>
+                    ))}
+                    <div className="flex items-center gap-1.5 bg-white border border-slate-200 rounded-lg px-3">
+                      <input
+                        type="number"
+                        min="20"
+                        value={pdfTargetKB}
+                        onChange={(e) =>
+                          setPdfTargetKB(parseInt(e.target.value) || 0)
+                        }
+                        className="w-20 py-2 outline-none text-sm font-bold text-slate-700"
+                      />
+                      <span className="text-sm text-slate-400 font-medium">
+                        KB
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="bg-blue-50 text-blue-700 p-3 rounded-lg flex items-start gap-2 text-sm border border-blue-100">
+                <Info size={18} className="mt-0.5 shrink-0" />
+                <span>
+                  {pdfSizeMode === "target" ? (
+                    <>
+                      <strong>Note:</strong> Hitting an exact size flattens pages
+                      to images, so text inside becomes non-selectable and may
+                      look softer. Best for scanned or image-heavy PDFs.
+                    </>
+                  ) : (
+                    <>
+                      <strong>Note:</strong> We try a lossless re-save first and
+                      keep text selectable when we can. Only image-heavy PDFs get
+                      flattened for extra savings — and we never hand back a file
+                      bigger than your original.
+                    </>
+                  )}
+                </span>
+              </div>
+            </div>
+          )}
+          {/* Image to PDF Controls */}
+          {files.length > 0 && tool.id === "image-to-pdf" && (
+            <div className="mb-8 space-y-6">
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
+                  Page Size
+                </label>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {[
+                    { v: "a4", label: "A4" },
+                    { v: "letter", label: "US Letter" },
+                    { v: "fit", label: "Fit to Image" },
+                  ].map((o) => (
+                    <button
+                      key={o.v}
+                      onClick={() => setPdfPageSize(o.v)}
+                      className={`px-5 py-2.5 rounded-xl font-bold transition cursor-pointer ${
+                        pdfPageSize === o.v
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      {o.label}
+                    </button>
+                  ))}
+                </div>
+                {pdfPageSize === "fit" && (
+                  <p className="text-xs text-slate-500 text-center mt-2">
+                    Each page matches its image exactly — no borders or extra
+                    whitespace.
+                  </p>
+                )}
+              </div>
+
+              {pdfPageSize !== "fit" && (
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-3 text-center">
+                    Page Orientation
+                  </label>
+                  <div className="flex gap-4 justify-center">
+                    <button
+                      onClick={() => setPdfOrientation("portrait")}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
+                        pdfOrientation === "portrait"
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <Smartphone size={20} /> Portrait
+                    </button>
+                    <button
+                      onClick={() => setPdfOrientation("landscape")}
+                      className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition cursor-pointer ${
+                        pdfOrientation === "landscape"
+                          ? "bg-[#FF9933] text-white shadow-lg"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      <Monitor size={20} /> Landscape
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+          {/* OCR language. Hindi+English is the default because Indian
+              paperwork is usually bilingual and a single-language pass mangles
+              the other script. The download note is there because the language
+              data really is a few MB on a phone the first time. */}
+          {files.length > 0 && tool.id === "ocr-pdf" && (
+            <div className="mb-8 animate-fade-in max-w-xl mx-auto">
+              <p className="text-sm font-bold text-slate-700 mb-2 text-center">
+                Language of the document
+              </p>
+              <div className="grid grid-cols-3 gap-2">
+                {[
+                  { v: "hin+eng", label: "Hindi + English", note: "Best for Indian forms" },
+                  { v: "eng", label: "English", note: "Fastest" },
+                  { v: "hin", label: "Hindi", note: "Devanagari only" },
+                ].map((l) => (
+                  <button
+                    key={l.v}
+                    onClick={() => setOcrLang(l.v)}
+                    className={`px-2 py-3 rounded-xl border text-center transition active:scale-95 touch-manipulation cursor-pointer ${
+                      ocrLang === l.v
+                        ? "bg-[#FF9933] text-white border-[#FF9933] shadow-md"
+                        : "bg-white text-slate-600 border-slate-200 hover:border-[#FF9933]"
+                    }`}
+                  >
+                    <span className="block text-sm font-bold">{l.label}</span>
+                    <span
+                      className={`block text-[11px] mt-0.5 ${
+                        ocrLang === l.v ? "text-white/80" : "text-slate-400"
+                      }`}
+                    >
+                      {l.note}
+                    </span>
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs text-slate-500 mt-3 text-center leading-relaxed">
+                Pick the language that is actually on the page — reading Hindi
+                with the English model (or the reverse) returns nonsense. The
+                language data downloads once on first use, then stays cached.
+              </p>
+            </div>
+          )}
+          {/* Page Numbers Options */}
+          {files.length > 0 && tool.id === "page-numbers" && !isDone && (
+            <div className="mb-8 animate-fade-in max-w-3xl mx-auto space-y-5">
+              <div>
+                <label className="block text-sm font-bold text-slate-700 mb-2">
+                  Position
+                </label>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {[
+                    { id: "bottom-center", label: "Bottom Center" },
+                    { id: "bottom-right", label: "Bottom Right" },
+                    { id: "bottom-left", label: "Bottom Left" },
+                    { id: "top-right", label: "Top Right" },
+                  ].map((p) => (
+                    <button
+                      key={p.id}
+                      onClick={() => setPageNumPos(p.id)}
+                      className={`py-2.5 px-2 rounded-lg font-bold text-xs sm:text-sm transition cursor-pointer ${
+                        pageNumPos === p.id
+                          ? "bg-[#FF9933] text-white shadow"
+                          : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                      }`}
+                    >
+                      {p.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Format
+                  </label>
+                  <div className="flex gap-1.5">
+                    {[
+                      { id: "plain", label: "1, 2, 3" },
+                      { id: "pageofn", label: "Page 1 of N" },
+                    ].map((f) => (
+                      <button
+                        key={f.id}
+                        onClick={() => setPageNumFormat(f.id)}
+                        className={`flex-1 py-2 px-2 rounded-lg font-bold text-xs transition cursor-pointer ${
+                          pageNumFormat === f.id
+                            ? "bg-[#FF9933] text-white shadow"
+                            : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        }`}
+                      >
+                        {f.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">
+                    Start counting from
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    value={pageNumStart}
+                    onChange={(e) =>
+                      setPageNumStart(parseInt(e.target.value) || 1)
+                    }
+                    className="w-full p-2.5 border border-slate-300 rounded-lg text-center font-bold focus:ring-2 focus:ring-[#FF9933] outline-none"
+                  />
+                </div>
+                <div className="flex items-end">
+                  <label className="flex items-center gap-2 cursor-pointer bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 w-full">
+                    <input
+                      type="checkbox"
+                      checked={pageNumSkipFirst}
+                      onChange={(e) => setPageNumSkipFirst(e.target.checked)}
+                      className="accent-[#FF9933] w-4 h-4"
+                    />
+                    <span className="text-sm font-bold text-slate-700">
+                      Skip first page (cover)
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          )}
           {/* Unlock Controls */}
           {files.length > 0 && tool.id === "unlock-pdf" && (
             <div className="mb-8 animate-fade-in max-w-md mx-auto">
@@ -3405,8 +3452,11 @@ const PdfEditor = ({ toolId }) => {
               </p>
             </div>
           )}
-
-          {/* Action Buttons */}
+              </>
+            }
+            action={
+              <>
+                {/* Action Buttons */}
           <div className="flex flex-col items-center">
             {/* What the job actually adds up to, before committing to it. The
                 page count is the number users cannot get anywhere else, and it
@@ -3647,6 +3697,9 @@ const PdfEditor = ({ toolId }) => {
               </div>
             )}
           </div>
+              </>
+            }
+          />
         </div>
       </div>
 
