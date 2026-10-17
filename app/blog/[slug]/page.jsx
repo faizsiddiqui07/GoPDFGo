@@ -94,13 +94,8 @@ export default async function BlogDetailPage({ params }) {
         />
       )}
 
-      <div className="gpg-shell">
-        {/* The reading column is capped well short of the shell. Line length,
-            not screen width, is what makes body text readable, so the extra
-            room on a large monitor goes to the Read More grid below rather
-            than into 200-character lines. */}
-        <div className="gpg-article">
-          <Link
+      <div className="gpg-article">
+        <Link
           href="/blogs"
           className="text-slate-500 hover:text-[#FF9933] inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
         >
@@ -138,23 +133,21 @@ export default async function BlogDetailPage({ params }) {
                 component that keeps its internal links from full-reloading. */}
             <BlogContent>
               <div
-                className="blog-content text-base sm:text-lg 2xl:text-xl text-slate-600 leading-relaxed space-y-4 sm:space-y-6"
+                className="blog-content text-base sm:text-lg text-slate-600 leading-relaxed space-y-4 sm:space-y-6"
                 dangerouslySetInnerHTML={{ __html: blog.content }}
               />
             </BlogContent>
           </div>
         </article>
-        </div>
 
-        {/* --- RELATED BLOGS SECTION — full shell width, so a wide screen
-            shows a fourth card instead of more empty margin. --- */}
+        {/* --- RELATED BLOGS SECTION --- */}
         {relatedBlogs.length > 0 && (
           <div className="mt-6 sm:mt-10 border-t border-slate-200 pt-6 sm:pt-10">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 mb-6 sm:mb-8">
               Read More Guides
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 md:gap-6 xl:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
               {relatedBlogs.map((relatedBlog) => (
                 <Link
                   href={`/blog/${relatedBlog.id}`}

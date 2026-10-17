@@ -47,7 +47,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {relatedTools.map((tool) => (
           <Link
             href={`/${tool.id}`} // Changed from 'to'

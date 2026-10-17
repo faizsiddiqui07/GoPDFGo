@@ -198,7 +198,7 @@ const RelatedBlogs = ({ toolId }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
         {posts.map((post) => (
           <Link
             href={`/blog/${post.id}`}

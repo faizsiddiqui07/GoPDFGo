@@ -537,13 +537,12 @@ body {
 }
 
 /* ===== Article column =====================================================
-   Deliberately narrower than .gpg-shell and deliberately slower to grow.
-   Reading comfort is governed by characters per line, not by screen width: at
-   the old 64rem with 18px type a line already ran to about 100 characters,
-   which is past comfortable. So the column grows just enough to stay in
-   proportion with the larger type that kicks in on big screens, and the space
-   that is left over is spent on the parts that genuinely benefit from it — the
-   hero image and the Read More grid, which both live outside this class.
+   The blog page's container. Deliberately narrower than .gpg-shell and
+   deliberately slower to grow, because reading comfort is governed by
+   characters per line rather than by screen width — at 64rem with 18px type a
+   line already runs to roughly 100 characters, which is at the edge of
+   comfortable. Growing this to the full shell width would push it well past
+   that, so it stops at 76rem.
    ========================================================================= */
 .gpg-article {
   width: 100%;
@@ -553,7 +552,7 @@ body {
 
 @media (min-width: 1600px) {
   .gpg-article {
-    max-width: 70rem; /* 1120px, paired with the 2xl type bump */
+    max-width: 70rem; /* 1120px */
   }
 }
 
@@ -561,21 +560,4 @@ body {
   .gpg-article {
     max-width: 76rem; /* 1216px */
   }
-}
-
-/* ===== Article measure ====================================================
-   The article card is allowed to widen on a large monitor so its hero image
-   and padding stay in proportion. The text inside it is not: reading comfort
-   is a function of characters per line, and letting the body follow the card
-   out to 1216px pushed lines to about 112 characters — worse than the ~100 it
-   was before the card grew.
-
-   The cap is in `ch` rather than pixels on purpose, so it keeps holding when
-   the type steps up to 20px on wide screens instead of silently loosening.
-   Tables and callouts in the posts are all narrow, so none of them need to
-   break out of it.
-   ========================================================================= */
-.blog-content {
-  max-width: 80ch;
-  margin-inline: auto;
 }

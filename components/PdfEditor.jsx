@@ -2234,7 +2234,7 @@ const PdfEditor = ({ toolId }) => {
                   <div
                     className={`space-y-3 mb-8 ${
                       tool.id === "merge-pdf"
-                        ? "grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 space-y-0"
+                        ? "grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0"
                         : ""
                     }`}
                   >
