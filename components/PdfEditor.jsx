@@ -2112,7 +2112,7 @@ const PdfEditor = ({ toolId }) => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pt-8 animate-rise">
+    <div className="gpg-shell mx-auto px-4 pt-8 animate-rise">
       <div className="mb-6">
         <button
           onClick={goBackToTools}
@@ -2234,7 +2234,7 @@ const PdfEditor = ({ toolId }) => {
                   <div
                     className={`space-y-3 mb-8 ${
                       tool.id === "merge-pdf"
-                        ? "grid grid-cols-1 md:grid-cols-2 gap-4 space-y-0"
+                        ? "grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 space-y-0"
                         : ""
                     }`}
                   >

@@ -24,7 +24,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10 sm:py-16 font-sans text-slate-700">
+    <div className="gpg-shell mx-auto px-4 py-10 sm:py-16 font-sans text-slate-700">
       {/* =========================================
            1. HEADER SECTION
       ========================================= */}

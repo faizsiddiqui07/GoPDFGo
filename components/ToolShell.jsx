@@ -29,6 +29,14 @@ import React from "react";
  * way. Switching between a fragment and a wrapper would remount the preview
  * subtree on the 0 -> 1 file transition and throw away loaded thumbnails.
  *
+ * The lg width is 22rem rather than 20rem for a measurable reason: at 20rem the
+ * p-5 padding left 280px of usable space, and every standard sidebar ad unit
+ * (300x250, 300x600, 336x280) needs at least 300. 22rem leaves 312. That said,
+ * this rail is a poor place for an ad on purpose — it is sticky, it scrolls
+ * internally, and it holds the Download button, so a unit here would be a
+ * sticky ad sitting under a primary control. The horizontal bands between the
+ * card and the prose are the intended placements.
+ *
  * `action` renders exactly once. An earlier design mirrored it into a phone-only
  * bottom bar, but the action slot owns `resultRef` and the component scrolls to
  * it after a job finishes — duplicating it would give that ref two targets.
@@ -50,7 +58,7 @@ const ToolShell = ({ rail = true, preview, controls, action }) => (
             // scrolling into view. Per spec, setting one overflow axis makes the
             // other compute to `auto` too, so the inner padding is what keeps the
             // CTA's drop shadow from being shaved off: do not drop lg:p-5.
-            "mt-6 w-full lg:mt-0 lg:w-80 xl:w-96 lg:shrink-0 lg:self-start " +
+            "mt-6 w-full lg:mt-0 lg:w-[22rem] xl:w-96 2xl:w-[28rem] lg:shrink-0 lg:self-start " +
             "lg:sticky lg:top-24 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto " +
             "lg:overscroll-contain lg:rounded-2xl lg:border lg:border-slate-200 " +
             "lg:bg-slate-50/60 lg:p-5 lg:shadow-sm"

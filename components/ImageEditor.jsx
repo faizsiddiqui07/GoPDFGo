@@ -1792,7 +1792,7 @@ const ImageEditor = ({ toolId, info }) => {
 
   return (
     <div
-      className="max-w-7xl mx-auto px-4 pt-8 animate-rise"
+      className="gpg-shell mx-auto px-4 pt-8 animate-rise"
       onMouseUp={handleInteractionEnd}
       onTouchEnd={handleInteractionEnd}
       onMouseMove={(e) => {

@@ -28,7 +28,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
   if (relatedTools.length === 0) return null;
 
   return (
-    <div className="mt-0 mb-8 border-t border-slate-200 max-w-7xl mx-auto px-4 pt-10">
+    <div className="mt-0 mb-8 border-t border-slate-200 gpg-shell mx-auto px-4 pt-10">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-xl sm:text-2xl font-bold text-slate-800">
           More{" "}
@@ -47,7 +47,7 @@ const RelatedTools = ({ currentToolId, toolType }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 2xl:grid-cols-6 gap-3 sm:gap-4">
         {relatedTools.map((tool) => (
           <Link
             href={`/${tool.id}`} // Changed from 'to'

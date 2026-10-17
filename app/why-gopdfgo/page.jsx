@@ -35,7 +35,7 @@ export default function WhyGoPdfGoPage() {
       ========================================= */}
       <div className="bg-slate-900 text-white pt-20 pb-10 px-4 text-center relative overflow-hidden">
         {/* Abstract Background Element */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full gpg-shell opacity-10 pointer-events-none">
           <div className="absolute top-10 right-10 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl"></div>
         </div>
@@ -58,7 +58,7 @@ export default function WhyGoPdfGoPage() {
       {/* =========================================
            2. THE PROBLEM: THE DATA PRIVACY CRISIS
       ========================================= */}
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6 md:py-8 lg:py-10 border-b border-slate-200">
+      <div className="gpg-shell mx-auto px-4 py-4 sm:py-6 md:py-8 lg:py-10 border-b border-slate-200">
         <div className="text-center mb-6 sm:mb-8 lg:mb-10">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mt-2">
             Where do your files actually go?
@@ -112,7 +112,7 @@ export default function WhyGoPdfGoPage() {
            3. THE SOLUTION: CLIENT-SIDE ARCHITECTURE
       ========================================= */}
       <div className="bg-white py-4 sm:py-6 md:py-8 lg:py-10">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="gpg-shell mx-auto px-4">
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mt-2">
               The Power of Serverless Processing
@@ -214,7 +214,7 @@ export default function WhyGoPdfGoPage() {
       {/* =========================================
            5. USE CASES BY INDUSTRY (New Section)
       ========================================= */}
-      <div className="max-w-7xl mx-auto px-4 py-4 sm:py-6 md:py-8 lg:py-10">
+      <div className="gpg-shell mx-auto px-4 py-4 sm:py-6 md:py-8 lg:py-10">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 text-center mb-6 md:mb-8 lg:mb-10">
           Trusted by Professionals Everywhere
         </h2>
@@ -320,7 +320,7 @@ export default function WhyGoPdfGoPage() {
            6. THE FOUNDER'S VISION (Storytelling)
       ========================================= */}
       <div className="bg-slate-50 py-4 sm:py-6 md:py-8 lg:py-10 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="gpg-shell mx-auto px-4 text-center">
           <Heart className="w-10 sm:w-12 h-10 sm:h-12 text-red-500 mx-auto mb-4 sm:mb-5 md:mb-6 fill-current" />
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">
             Built with Code, Coffee, and Ethics

@@ -50,7 +50,7 @@ export default function HowItWorksPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8 md:py-10 lg:py-12">
+      <div className="gpg-shell mx-auto px-4 py-6 sm:py-8 md:py-10 lg:py-12">
         {/* =========================================
              2. VISUAL PROCESS FLOW (Step-by-Step)
         ========================================= */}

@@ -7,7 +7,7 @@ import YearNow from "./YearNow";
 const Footer = () => {
   return (
     <footer className="bg-white border-t border-slate-200 pt-10 pb-6 mt-auto">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="gpg-shell mx-auto px-4">
         {/* Main Grid: Mobile pe 1 column, Tablet pe 2, Desktop pe 4 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
           {/* Column 1: Brand Info & Privacy Badge */}

@@ -16,7 +16,7 @@ export const metadata = {
 export default function BlogsPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="gpg-shell mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
           <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">
@@ -29,7 +29,7 @@ export default function BlogsPage() {
         </div>
 
         {/* Blogs Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 xl:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 md:gap-6 xl:gap-8">
           {[...blogsData].reverse().map((blog) => (
             <Link
               href={`/blog/${blog.id}`}

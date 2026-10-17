@@ -185,7 +185,7 @@ const RelatedBlogs = ({ toolId }) => {
   if (posts.length === 0) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 mt-0 mb-12 border-t border-slate-200 pt-10">
+    <div className="gpg-shell mx-auto px-4 mt-0 mb-12 border-t border-slate-200 pt-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-800 flex items-center gap-2">
           <BookOpen size={22} className="text-[#FF9933]" /> Related Guides
@@ -198,7 +198,7 @@ const RelatedBlogs = ({ toolId }) => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5">
         {posts.map((post) => (
           <Link
             href={`/blog/${post.id}`}

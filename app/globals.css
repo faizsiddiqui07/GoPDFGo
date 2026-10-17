@@ -499,3 +499,83 @@ body {
 .gpg-proc-fill--working {
   animation: gpgProcWorking 1.15s ease-in-out infinite;
 }
+
+
+/* ===== Page shell =========================================================
+   One place that decides how wide the site is allowed to get. Header, tool
+   card, info prose and footer all use it, so they can never disagree about
+   where the page edge sits.
+
+   Below 1600px this is byte-for-byte the old max-w-7xl (80rem), so every
+   laptop renders exactly as before. Above that it opens in steps rather than
+   running to the viewport, because a tool page stretched edge to edge on a 4K
+   panel is as awkward as one squeezed into the middle — the steps keep roughly
+   a fifth of the screen as breathing room at every size.
+   ========================================================================= */
+.gpg-shell {
+  width: 100%;
+  max-width: 80rem; /* 1280px — unchanged from max-w-7xl */
+  margin-inline: auto;
+}
+
+@media (min-width: 1600px) {
+  .gpg-shell {
+    max-width: 92rem; /* 1472px */
+  }
+}
+
+@media (min-width: 1920px) {
+  .gpg-shell {
+    max-width: 108rem; /* 1728px */
+  }
+}
+
+@media (min-width: 2400px) {
+  .gpg-shell {
+    max-width: 124rem; /* 1984px */
+  }
+}
+
+/* ===== Article column =====================================================
+   Deliberately narrower than .gpg-shell and deliberately slower to grow.
+   Reading comfort is governed by characters per line, not by screen width: at
+   the old 64rem with 18px type a line already ran to about 100 characters,
+   which is past comfortable. So the column grows just enough to stay in
+   proportion with the larger type that kicks in on big screens, and the space
+   that is left over is spent on the parts that genuinely benefit from it — the
+   hero image and the Read More grid, which both live outside this class.
+   ========================================================================= */
+.gpg-article {
+  width: 100%;
+  max-width: 64rem; /* 1024px — unchanged from max-w-5xl */
+  margin-inline: auto;
+}
+
+@media (min-width: 1600px) {
+  .gpg-article {
+    max-width: 70rem; /* 1120px, paired with the 2xl type bump */
+  }
+}
+
+@media (min-width: 1920px) {
+  .gpg-article {
+    max-width: 76rem; /* 1216px */
+  }
+}
+
+/* ===== Article measure ====================================================
+   The article card is allowed to widen on a large monitor so its hero image
+   and padding stay in proportion. The text inside it is not: reading comfort
+   is a function of characters per line, and letting the body follow the card
+   out to 1216px pushed lines to about 112 characters — worse than the ~100 it
+   was before the card grew.
+
+   The cap is in `ch` rather than pixels on purpose, so it keeps holding when
+   the type steps up to 20px on wide screens instead of silently loosening.
+   Tables and callouts in the posts are all narrow, so none of them need to
+   break out of it.
+   ========================================================================= */
+.blog-content {
+  max-width: 80ch;
+  margin-inline: auto;
+}

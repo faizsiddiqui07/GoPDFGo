@@ -145,7 +145,7 @@ export default function Home() {
       {/* =========================================
              2. TOOLS GRID SECTION
         ========================================= */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 pb-6 sm:pb-10 space-y-10 sm:space-y-16">
+      <div className="relative z-10 gpg-shell mx-auto px-4 pb-6 sm:pb-10 space-y-10 sm:space-y-16">
         {categories.map((cat) => {
           const tools = getToolsByType(cat.type);
 
@@ -163,7 +163,7 @@ export default function Home() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-6">
                 {tools.map((tool) => (
                   <Link
                     href={`/${tool.id}`}
@@ -209,7 +209,7 @@ export default function Home() {
              3. WHY BROWSER BASED IS SAFER (NEW SEO SECTION)
         ========================================= */}
       <div className="bg-white py-10 md:py-12 lg:py-16 border-y border-slate-100">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="gpg-shell mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-10 items-center">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
@@ -320,7 +320,7 @@ export default function Home() {
              4. WHO SHOULD USE (PERSONAS)
         ========================================= */}
       <div className="py-10 md:py-12 lg:py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="gpg-shell mx-auto px-4">
           <div className="text-center mb-6 sm:mb-10">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Who uses GoPDFGo?
@@ -418,7 +418,7 @@ export default function Home() {
                WHY CHOOSE US (FEATURES)
         ========================================= */}
       <div className="py-8 sm:py-12 md:py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="gpg-shell mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-10">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
               Why use our free PDF &amp; image tools?

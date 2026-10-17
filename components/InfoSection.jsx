@@ -58,7 +58,7 @@ const InfoSection = ({ info }) => {
       : null;
 
   return (
-    <article className="max-w-7xl mx-auto px-4 mt-8 sm:mt-12 md:mt-14 pb-8 sm:pb-12">
+    <article className="gpg-shell mx-auto px-4 mt-8 sm:mt-12 md:mt-14 pb-8 sm:pb-12">
       {/* 🔹 FAQ SCHEMA (JSON-LD) */}
       {faqSchema && (
         <script
