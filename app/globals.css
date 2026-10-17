@@ -535,29 +535,3 @@ body {
     max-width: 124rem; /* 1984px */
   }
 }
-
-/* ===== Article column =====================================================
-   The blog page's container. Deliberately narrower than .gpg-shell and
-   deliberately slower to grow, because reading comfort is governed by
-   characters per line rather than by screen width — at 64rem with 18px type a
-   line already runs to roughly 100 characters, which is at the edge of
-   comfortable. Growing this to the full shell width would push it well past
-   that, so it stops at 76rem.
-   ========================================================================= */
-.gpg-article {
-  width: 100%;
-  max-width: 64rem; /* 1024px — unchanged from max-w-5xl */
-  margin-inline: auto;
-}
-
-@media (min-width: 1600px) {
-  .gpg-article {
-    max-width: 70rem; /* 1120px */
-  }
-}
-
-@media (min-width: 1920px) {
-  .gpg-article {
-    max-width: 76rem; /* 1216px */
-  }
-}

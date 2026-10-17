@@ -94,7 +94,7 @@ export default async function BlogDetailPage({ params }) {
         />
       )}
 
-      <div className="gpg-article">
+      <div className="max-w-5xl mx-auto">
         <Link
           href="/blogs"
           className="text-slate-500 hover:text-[#FF9933] inline-flex items-center gap-1 text-sm font-medium mb-4 sm:mb-6 transition cursor-pointer"
