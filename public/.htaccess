@@ -3,6 +3,18 @@
   Options -Indexes -MultiViews
   RewriteEngine On
 
+  # 0. Dotfiles bahar se serve mat karo. FTP deploy action har deploy par
+  #    .ftp-deploy-sync-state.json web root me likhta hai -- server ki poori
+  #    file list (1000+ entries), jo abhi HTTP 200 par koi bhi padh sakta hai.
+  #    Usme koi password nahi hai aur SEO/traffic par zero asar hai, par ise
+  #    publicly padhne ki kisi ko zaroorat bhi nahi. Deploy action yeh file FTP
+  #    se padhta hai, HTTP se nahi -- isliye block karne se deploy nahi tootega.
+  #    Ek naam ki jagah poori dotfile class band ki hai, taaki aage koi aur
+  #    dotfile aa jaye to wo bhi apne aap dhak jaye.
+  #    .well-known chhoda hai: SSL certificate renewal wahi se hota hai.
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule (^|/)\. - [F,L]
+
   # 1. Ek hi redirect me HTTPS + non-www force karo (path/query preserve hota hai)
   RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^www\.gopdfgo\.com$ [NC]
