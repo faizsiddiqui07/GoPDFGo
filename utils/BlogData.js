@@ -4478,14 +4478,14 @@ export const blogsData = [
 
   {
     id: "split-question-paper-pdf-subject-wise",
-  title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
-  seoTitle: "Split Question Paper PDF Subject-Wise (Free) | GoPDFGo",
-  keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
-  excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
-  date: "October 14, 2026",
-  publishedAt: "2026-10-14",
-  imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
-  content: `
+    title: "How to Split a Question Paper PDF Subject-Wise into Separate Files",
+    seoTitle: "Split Question Paper PDF Subject-Wise (Free) | GoPDFGo",
+    keywords: "split question paper pdf subject wise, split previous year question paper pdf, separate subjects from one pdf, split question bank pdf, extract subject wise pages from pdf, split pdf for revision, divide question paper pdf",
+    excerpt: "Got one giant previous-year-questions PDF with every subject jumbled together? Here is how to split it into clean subject-wise files for focused revision, right in your browser.",
+    date: "October 14, 2026",
+    publishedAt: "2026-10-14",
+    imageUrl: "/images/blogs/split-question-paper-pdf-subject-wise.webp",
+    content: `
   <p>You download a 240-page PDF of previous-year questions, or a senior shares a fat question bank on the class group. The problem hits the first time you sit down to revise. You only want to do Chemistry tonight, but Physics, Maths and Biology are all stuffed into the same file, so you keep scrolling past sixty pages of other subjects just to reach the section you need. Then a friend pings you for "only Chemistry," and you end up forwarding an 80MB monster that takes ten minutes to load on their phone.</p>
 
   <p>The fix takes about five minutes, once. You break that one combined PDF into separate subject-wise files, and after that every revision session starts with the right file already in front of you. Here is how to do it without your question bank ever leaving your device.</p>
@@ -4557,14 +4557,14 @@ export const blogsData = [
   },
   {
     id: "remove-instruction-pages-government-form-pdf",
-  title: "Remove Instruction Pages From a Government Form PDF Before You Upload It",
-  seoTitle: "Remove Instruction Pages From Govt Form PDF | GoPDFGo",
-  keywords: "remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove",
-  excerpt: "Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.",
-  date: "October 17, 2026",
-  publishedAt: "2026-10-17",
-  imageUrl: "/images/blogs/remove-instruction-pages-government-form-pdf.webp",
-  content: `
+    title: "Remove Instruction Pages From a Government Form PDF Before You Upload It",
+    seoTitle: "Remove Instruction Pages From Govt Form PDF | GoPDFGo",
+    keywords: "remove instruction pages from government form pdf, delete cover page from govt form, remove guideline pages pdf, trim front pages government application, delete first pages of pdf before upload, keep only filled form pages pdf, scholarship form instruction pages remove",
+    excerpt: "Open an SSC or scholarship form and the first four pages are instructions, not the form. Here is how to remove those notice pages so only your filled form gets uploaded and the file fits the size cap.",
+    date: "October 17, 2026",
+    publishedAt: "2026-10-17",
+    imageUrl: "/images/blogs/remove-instruction-pages-government-form-pdf.webp",
+    content: `
   <p>You download the application PDF for an SSC post, or a state PSC vacancy, or an NSP scholarship. You open it expecting boxes to fill. Instead, page 1 is a notice with the closing date and a helpline number. Page 2 is eligibility conditions. Page 3 is "Documents to be enclosed". The actual form, the one with your name, photo and signature, does not start until page 4 or 5.</p>
 
   <p>That part is normal. The annoyance comes later, at the upload step, when the portal asks for the filled form back and you realise the file you have still drags all those instruction pages along at the front.</p>
@@ -4634,65 +4634,65 @@ export const blogsData = [
   <p><strong>Q: Do I need an app or an account?</strong><br> A: Neither. It runs in your web browser on phone or laptop, with no install, no sign-up and no cost. You open the tool, add your file, mark the pages, and download.</p>
   `
   },
-  // {
-  //   id: "rotate-upside-down-cheque-passbook-pdf-bank-kyc",
-  // title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
-  // seoTitle: "Rotate Upside-Down Cheque or Passbook PDF for KYC",
-  // keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
-  // excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
-  // date: "June 22, 2026",
-  // publishedAt: "2026-06-22",
-  // imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
-  // content: `
-  // <h2>The cheque looked fine on your phone. The bank saw it sideways.</h2>
-  // <p>The quick fix you need is this: rotate the scanned cheque or passbook PDF upright and save it so the new angle stays in the file, then upload that. Here is how the problem usually starts. You needed to add a bank account for a refund, or finish KYC for a new demat account, or submit a cancelled cheque for an EPF claim. You placed the cheque on the table, scanned it with whatever app was on your phone, and it saved as a PDF. You uploaded it and moved on.</p>
-  // <p>Two days later there is an email or an SMS saying the document was rejected, please re-upload a clear image. You open the file and the cheque is lying on its side, or fully upside down. The account number is there. The IFSC is there. Everything is readable if you tilt your head. But the verification person, or the automated check behind the portal, saw a rotated page and bounced it.</p>
-  // <p>The same thing happens with passbooks. You open the passbook flat, scan the page with your name, branch and account number, and because of how you held the phone, the page lands rotated 90 degrees. On your screen the scanner app spins the preview to match your phone, so it looks correct while you tap save. The PDF that actually gets written keeps the raw captured angle. The page you saw and the page they received were not the same.</p>
+  {
+    id: "rotate-upside-down-cheque-passbook-pdf-bank-kyc",
+  title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
+  seoTitle: "Rotate Upside-Down Cheque or Passbook PDF for KYC",
+  keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
+  excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
+  date: "October 24, 2026",
+  publishedAt: "2026-10-24",
+  imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
+  content: `
+  <h2>The cheque looked fine on your phone. The bank saw it sideways.</h2>
+  <p>The quick fix you need is this: rotate the scanned cheque or passbook PDF upright and save it so the new angle stays in the file, then upload that. Here is how the problem usually starts. You needed to add a bank account for a refund, or finish KYC for a new demat account, or submit a cancelled cheque for an EPF claim. You placed the cheque on the table, scanned it with whatever app was on your phone, and it saved as a PDF. You uploaded it and moved on.</p>
+  <p>Two days later there is an email or an SMS saying the document was rejected, please re-upload a clear image. You open the file and the cheque is lying on its side, or fully upside down. The account number is there. The IFSC is there. Everything is readable if you tilt your head. But the verification person, or the automated check behind the portal, saw a rotated page and bounced it.</p>
+  <p>The same thing happens with passbooks. You open the passbook flat, scan the page with your name, branch and account number, and because of how you held the phone, the page lands rotated 90 degrees. On your screen the scanner app spins the preview to match your phone, so it looks correct while you tap save. The PDF that actually gets written keeps the raw captured angle. The page you saw and the page they received were not the same.</p>
 
-  // <h2>Rotate the scanned cheque or passbook upright before the bank sees it</h2>
-  // <p>Two separate things cause this, and it helps to know which one got you.</p>
-  // <p>The first is the preview mismatch above: the app rotates what you see, not what it saves. You swipe through, everything looks upright, you save, and the file is sideways. You only find out when someone opens it on a desktop.</p>
-  // <p>The second is plain misorientation at capture. You held the phone in portrait while the cheque was landscape, or the passbook sat rotated on the table. The page goes in at 90 or 270 degrees and stays there.</p>
-  // <p>The fix for both is the same. Open the PDF, turn the page so the account number reads the normal way, and write that new angle into the file so it travels with it. That writing-in step is the one people skip. If you only spin the view inside a PDF reader and re-share, some readers keep that change as a setting on your screen rather than inside the document, so the next person opens it sideways again.</p>
+  <h2>Rotate the scanned cheque or passbook upright before the bank sees it</h2>
+  <p>Two separate things cause this, and it helps to know which one got you.</p>
+  <p>The first is the preview mismatch above: the app rotates what you see, not what it saves. You swipe through, everything looks upright, you save, and the file is sideways. You only find out when someone opens it on a desktop.</p>
+  <p>The second is plain misorientation at capture. You held the phone in portrait while the cheque was landscape, or the passbook sat rotated on the table. The page goes in at 90 or 270 degrees and stays there.</p>
+  <p>The fix for both is the same. Open the PDF, turn the page so the account number reads the normal way, and write that new angle into the file so it travels with it. That writing-in step is the one people skip. If you only spin the view inside a PDF reader and re-share, some readers keep that change as a setting on your screen rather than inside the document, so the next person opens it sideways again.</p>
 
-  // <h2>Why a rotated cheque actually gets rejected</h2>
-  // <p>The bank is not being fussy for the sake of it. A few concrete reasons orientation matters:</p>
-  // <ul>
-  //   <li>Many KYC and account-verification desks clear hundreds of documents a day. A sideways cheque is slower to read at a glance, so it gets bounced rather than squinted at.</li>
-  //   <li>Several portals run automated readers that try to pull the account number, IFSC code or the MICR line at the bottom of the cheque. That OCR is trained on upright text. Feed it a page turned 90 or 180 degrees and it reads nothing usable, so the document fails the check silently, before any human even looks.</li>
-  //   <li>For an EPF or insurance claim, the cancelled cheque is the proof of which account the money goes to. If the reviewer cannot instantly confirm the name and the number, they mark it incomplete and the claim waits another cycle.</li>
-  // </ul>
-  // <p>Two minutes spent turning it upright is the difference between approved this week and re-upload next week.</p>
+  <h2>Why a rotated cheque actually gets rejected</h2>
+  <p>The bank is not being fussy for the sake of it. A few concrete reasons orientation matters:</p>
+  <ul>
+    <li>Many KYC and account-verification desks clear hundreds of documents a day. A sideways cheque is slower to read at a glance, so it gets bounced rather than squinted at.</li>
+    <li>Several portals run automated readers that try to pull the account number, IFSC code or the MICR line at the bottom of the cheque. That OCR is trained on upright text. Feed it a page turned 90 or 180 degrees and it reads nothing usable, so the document fails the check silently, before any human even looks.</li>
+    <li>For an EPF or insurance claim, the cancelled cheque is the proof of which account the money goes to. If the reviewer cannot instantly confirm the name and the number, they mark it incomplete and the claim waits another cycle.</li>
+  </ul>
+  <p>Two minutes spent turning it upright is the difference between approved this week and re-upload next week.</p>
 
-  // <h2>Turn the page upright and keep the angle in the file</h2>
-  // <p>This is a PDF, not a photo, so it needs a PDF tool. If your cheque is sitting as a JPG instead, that is a different fix (covered further down). For an actual PDF, you want something that rotates the page and stores the new orientation inside the document for good. GoPDFGo's <a href="/rotate-pdf">Rotate PDF</a> does that, and it runs entirely inside your browser, so your cheque or passbook never gets uploaded to anyone's server. For a cancelled cheque with your account number on it, that local-only handling is worth caring about.</p>
+  <h2>Turn the page upright and keep the angle in the file</h2>
+  <p>This is a PDF, not a photo, so it needs a PDF tool. If your cheque is sitting as a JPG instead, that is a different fix (covered further down). For an actual PDF, you want something that rotates the page and stores the new orientation inside the document for good. GoPDFGo's <a href="/rotate-pdf">Rotate PDF</a> does that, and it runs entirely inside your browser, so your cheque or passbook never gets uploaded to anyone's server. For a cancelled cheque with your account number on it, that local-only handling is worth caring about.</p>
 
-  // <div class="tool-box">
-  //   <p><strong>Step 1:</strong> Open the <a href="/rotate-pdf">Rotate PDF</a> tool and pick your scanned cheque or passbook PDF. Nothing leaves your device; the whole thing runs on your machine.</p>
-  //   <p><strong>Step 2:</strong> Look at each page. Use the rotate control to turn it 90, 180 or 270 degrees until the account number, name and IFSC read upright the normal way.</p>
-  //   <p><strong>Step 3:</strong> If only one page is wrong, common with a multi-page passbook, rotate just that page and leave the others as they are.</p>
-  //   <p><strong>Step 4:</strong> Save or download. The new angle is now written into the PDF, so whoever opens it next sees it upright, on any device or reader.</p>
-  //   <p><strong>Step 5:</strong> Open the downloaded file once more, ideally on a computer or in a different app than the one that made it, and confirm it genuinely opens upright before you submit it to the bank or KYC portal.</p>
-  // </div>
+  <div class="tool-box">
+    <p><strong>Step 1:</strong> Open the <a href="/rotate-pdf">Rotate PDF</a> tool and pick your scanned cheque or passbook PDF. Nothing leaves your device; the whole thing runs on your machine.</p>
+    <p><strong>Step 2:</strong> Look at each page. Use the rotate control to turn it 90, 180 or 270 degrees until the account number, name and IFSC read upright the normal way.</p>
+    <p><strong>Step 3:</strong> If only one page is wrong, common with a multi-page passbook, rotate just that page and leave the others as they are.</p>
+    <p><strong>Step 4:</strong> Save or download. The new angle is now written into the PDF, so whoever opens it next sees it upright, on any device or reader.</p>
+    <p><strong>Step 5:</strong> Open the downloaded file once more, ideally on a computer or in a different app than the one that made it, and confirm it genuinely opens upright before you submit it to the bank or KYC portal.</p>
+  </div>
 
-  // <h2>A few practical tips for cheques and passbooks</h2>
-  // <p><strong>Rotate before anything else.</strong> If you also need to shrink the file to fit an upload limit, fix the orientation first, then compress. Do it the other way and you sometimes compress, spot that it is sideways, and redo the whole thing. When the portal has a size cap, run the upright file through <a href="/compress-pdf">Compress PDF</a> afterwards.</p>
-  // <p><strong>One subject per page.</strong> For a cancelled cheque, the cheque should fill the page and read upright. For a passbook, the page with your name, account number, branch and IFSC is the one they want. If your scan picked up blank or duplicate pages, trim them with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the reviewer sees only what matters.</p>
-  // <p><strong>Hide what they do not need.</strong> Some KYC submissions ask only for proof of the account, not your full transaction history or other ID numbers on the page. If an Aadhaar number is visible in the same scan, you can cover it with <a href="/aadhaar-masking">Aadhaar Masking</a> before you share.</p>
-  // <p><strong>If it is a photo, not a PDF.</strong> Got the cheque as a sideways JPG straight from the camera? Turn the image first with <a href="/rotate">Rotate Image</a>, then convert it using <a href="/image-to-pdf">Image to PDF</a> if the portal wants a PDF. Rotate PDF is only for files that are already PDFs.</p>
+  <h2>A few practical tips for cheques and passbooks</h2>
+  <p><strong>Rotate before anything else.</strong> If you also need to shrink the file to fit an upload limit, fix the orientation first, then compress. Do it the other way and you sometimes compress, spot that it is sideways, and redo the whole thing. When the portal has a size cap, run the upright file through <a href="/compress-pdf">Compress PDF</a> afterwards.</p>
+  <p><strong>One subject per page.</strong> For a cancelled cheque, the cheque should fill the page and read upright. For a passbook, the page with your name, account number, branch and IFSC is the one they want. If your scan picked up blank or duplicate pages, trim them with <a href="/delete-pdf-pages">Delete PDF Pages</a> so the reviewer sees only what matters.</p>
+  <p><strong>Hide what they do not need.</strong> Some KYC submissions ask only for proof of the account, not your full transaction history or other ID numbers on the page. If an Aadhaar number is visible in the same scan, you can cover it with <a href="/aadhaar-masking">Aadhaar Masking</a> before you share.</p>
+  <p><strong>If it is a photo, not a PDF.</strong> Got the cheque as a sideways JPG straight from the camera? Turn the image first with <a href="/rotate">Rotate Image</a>, then convert it using <a href="/image-to-pdf">Image to PDF</a> if the portal wants a PDF. Rotate PDF is only for files that are already PDFs.</p>
 
-  // <h2>What rotating cannot fix</h2>
-  // <p>Rotation fixes orientation and nothing else. If your cheque is blurry, the corners are cut off, or the lighting washed out the account number, turning it upright will not make it readable; re-scan it in good light with the whole cheque inside the frame. Rotation also will not undo a mirror flip, where the text reads backwards as if seen in a mirror, that is a separate issue. And if the bank specifically asked for a JPG or PNG, send that format rather than a PDF just because it rotated nicely.</p>
-  // <p>For most rejections, though, orientation really is the whole story. Turn it upright, save the angle into the file, re-upload, and it usually clears on the next try.</p>
+  <h2>What rotating cannot fix</h2>
+  <p>Rotation fixes orientation and nothing else. If your cheque is blurry, the corners are cut off, or the lighting washed out the account number, turning it upright will not make it readable; re-scan it in good light with the whole cheque inside the frame. Rotation also will not undo a mirror flip, where the text reads backwards as if seen in a mirror, that is a separate issue. And if the bank specifically asked for a JPG or PNG, send that format rather than a PDF just because it rotated nicely.</p>
+  <p>For most rejections, though, orientation really is the whole story. Turn it upright, save the angle into the file, re-upload, and it usually clears on the next try.</p>
 
-  // <h2>FAQ</h2>
-  // <p><strong>Q: I rotated the page in my PDF reader and it looked fine, but the bank still saw it sideways. Why?</strong><br> A: Some readers spin only the view on your screen and do not store that change inside the file. When you share or re-upload, the document still carries its old angle. You need a tool that writes the rotation into the PDF itself so it travels with the file.</p>
-  // <p><strong>Q: My passbook PDF has five pages and only one is upside down. Do I have to rotate all of them?</strong><br> A: No. Rotate just the page that is wrong and leave the correctly-oriented pages alone. The tool lets you set the angle for each page on its own.</p>
-  // <p><strong>Q: Is it safe to put my cancelled cheque through an online rotate tool?</strong><br> A: With GoPDFGo the file never leaves your device; the rotation runs inside your browser. That is why it suits sensitive documents like cheques and passbooks. Tools that upload your file to a server are a different matter, and for bank documents it is better to avoid those.</p>
-  // <p><strong>Q: After rotating, the bank still rejected it. What now?</strong><br> A: Check whether the real problem was clarity rather than orientation. A blurry or cropped cheque fails even when it is upright. Re-scan in good light with the full cheque inside the frame, then rotate again if needed.</p>
-  // <p><strong>Q: The cheque is sideways in a photo, not a PDF. Same tool?</strong><br> A: No. Use the image rotate tool for a JPG or PNG, then convert it to PDF if the portal wants one. Rotate PDF only handles files that are already in PDF format.</p>
-  // `
-  // }, done
+  <h2>FAQ</h2>
+  <p><strong>Q: I rotated the page in my PDF reader and it looked fine, but the bank still saw it sideways. Why?</strong><br> A: Some readers spin only the view on your screen and do not store that change inside the file. When you share or re-upload, the document still carries its old angle. You need a tool that writes the rotation into the PDF itself so it travels with the file.</p>
+  <p><strong>Q: My passbook PDF has five pages and only one is upside down. Do I have to rotate all of them?</strong><br> A: No. Rotate just the page that is wrong and leave the correctly-oriented pages alone. The tool lets you set the angle for each page on its own.</p>
+  <p><strong>Q: Is it safe to put my cancelled cheque through an online rotate tool?</strong><br> A: With GoPDFGo the file never leaves your device; the rotation runs inside your browser. That is why it suits sensitive documents like cheques and passbooks. Tools that upload your file to a server are a different matter, and for bank documents it is better to avoid those.</p>
+  <p><strong>Q: After rotating, the bank still rejected it. What now?</strong><br> A: Check whether the real problem was clarity rather than orientation. A blurry or cropped cheque fails even when it is upright. Re-scan in good light with the full cheque inside the frame, then rotate again if needed.</p>
+  <p><strong>Q: The cheque is sideways in a photo, not a PDF. Same tool?</strong><br> A: No. Use the image rotate tool for a JPG or PNG, then convert it to PDF if the portal wants one. Rotate PDF only handles files that are already in PDF format.</p>
+  `
+  },
   // {
   //   id: "aadhaar-front-and-back-in-one-pdf",
   // title: "How to Put Aadhaar Front and Back in One PDF for KYC",
