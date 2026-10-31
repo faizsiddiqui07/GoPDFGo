@@ -4225,8 +4225,7 @@ export const blogsData = [
     imageUrl: "/images/blogs/sign-pdf-online-without-printing.webp",
     content: `
     <p>The email lands at 6 pm. "Please find attached the rent agreement. Kindly sign and return by tomorrow." Or it's HR with an offer letter. Or your kid's school with a consent form for the picnic. Different sender, same request: sign this PDF and send it back.</p>
-
-  <p>And every time, the same loop starts. You need a printer, and the one at home is out of ink. So you WhatsApp the file to the shop near the bus stand, pay Rs 5 a page, sign it on their counter, and then photograph each page with your phone because the shop's scanner is "not working today." The photos come out slanted, one has your thumb in it, and the whole thing is 14 MB by the time it bounces back to the landlord. It took an hour to add a two-second scribble.</p>
+    <p>And every time, the same loop starts. You need a printer, and the one at home is out of ink. So you WhatsApp the file to the shop near the bus stand, pay Rs 5 a page, sign it on their counter, and then photograph each page with your phone because the shop's scanner is "not working today." The photos come out slanted, one has your thumb in it, and the whole thing is 14 MB by the time it bounces back to the landlord. It took an hour to add a two-second scribble.</p>
 
   <p>You can skip the whole loop. Open the PDF in your browser, put your signature on the line, download, reply. This post walks through exactly how, including the annoying bits nobody mentions: locked PDFs, initialling every page, the file size afterwards, and the one situation where a visual signature is genuinely not enough.</p>
 
@@ -4636,14 +4635,14 @@ export const blogsData = [
   },
   {
     id: "rotate-upside-down-cheque-passbook-pdf-bank-kyc",
-  title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
-  seoTitle: "Rotate Upside-Down Cheque or Passbook PDF for KYC",
-  keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
-  excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
-  date: "October 24, 2026",
-  publishedAt: "2026-10-24",
-  imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
-  content: `
+    title: "Rotate an Upside-Down Scanned Cheque or Passbook PDF Before the Bank Rejects It",
+    seoTitle: "Rotate Upside-Down Cheque or Passbook PDF for KYC",
+    keywords: "rotate upside down scanned pdf cheque passbook, rotate cheque pdf, fix sideways passbook pdf, bank kyc pdf rejected, rotate pdf permanently online",
+    excerpt: "A cancelled cheque or passbook PDF scanned sideways or upside down quietly gets rejected during bank and KYC verification. Here is how to rotate it upright and lock that angle into the file permanently, right in your browser.",
+    date: "October 24, 2026",
+    publishedAt: "2026-10-24",
+    imageUrl: "/images/blogs/rotate-upside-down-cheque-passbook-pdf-bank-kyc.webp",
+    content: `
   <h2>The cheque looked fine on your phone. The bank saw it sideways.</h2>
   <p>The quick fix you need is this: rotate the scanned cheque or passbook PDF upright and save it so the new angle stays in the file, then upload that. Here is how the problem usually starts. You needed to add a bank account for a refund, or finish KYC for a new demat account, or submit a cancelled cheque for an EPF claim. You placed the cheque on the table, scanned it with whatever app was on your phone, and it saved as a PDF. You uploaded it and moved on.</p>
   <p>Two days later there is an email or an SMS saying the document was rejected, please re-upload a clear image. You open the file and the cheque is lying on its side, or fully upside down. The account number is there. The IFSC is there. Everything is readable if you tilt your head. But the verification person, or the automated check behind the portal, saw a rotated page and bounced it.</p>
@@ -4693,82 +4692,82 @@ export const blogsData = [
   <p><strong>Q: The cheque is sideways in a photo, not a PDF. Same tool?</strong><br> A: No. Use the image rotate tool for a JPG or PNG, then convert it to PDF if the portal wants one. Rotate PDF only handles files that are already in PDF format.</p>
   `
   },
-  // {
-  //   id: "aadhaar-front-and-back-in-one-pdf",
-  // title: "How to Put Aadhaar Front and Back in One PDF for KYC",
-  // seoTitle: "Aadhaar Front and Back in One PDF for KYC | GoPDFGo",
-  // keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
-  // excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
-  // date: "June 22, 2026",
-  // publishedAt: "2026-06-22",
-  // imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
-  // content: `
-  // <h1>How to Put Aadhaar Front and Back in One PDF for KYC</h1>
+  {
+    id: "aadhaar-front-and-back-in-one-pdf",
+  title: "How to Put Aadhaar Front and Back in One PDF for KYC",
+  seoTitle: "Aadhaar Front and Back in One PDF for KYC | GoPDFGo",
+  keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
+  excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
+  date: "October 31, 2026",
+  publishedAt: "2026-10-31",
+  imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
+  content: `
+  <h1>How to Put Aadhaar Front and Back in One PDF for KYC</h1>
 
-  // <p>Putting your Aadhaar front and back in one PDF is the exact thing a bank or KYC form asks for, usually at the worst moment. You are halfway through opening an account, you hit the field that says "Upload Aadhaar (front and back) as a single PDF," and the form only accepts one file. You have a photo of the front somewhere in your gallery, the back is missing, and now you are stuck.</p>
+  <p>Putting your Aadhaar front and back in one PDF is the exact thing a bank or KYC form asks for, usually at the worst moment. You are halfway through opening an account, you hit the field that says "Upload Aadhaar (front and back) as a single PDF," and the form only accepts one file. You have a photo of the front somewhere in your gallery, the back is missing, and now you are stuck.</p>
 
-  // <p>It takes about two minutes and you do not need any app. The whole thing runs in your browser, so your Aadhaar photos never leave your phone or laptop. For a document this sensitive, that is worth caring about.</p>
+  <p>It takes about two minutes and you do not need any app. The whole thing runs in your browser, so your Aadhaar photos never leave your phone or laptop. For a document this sensitive, that is worth caring about.</p>
 
-  // <h2>Why KYC Forms Insist on a Single PDF</h2>
-  // <p>Banks, mutual fund portals, SIM re-verification desks, and most government KYC flows ask for both sides of Aadhaar because each side carries different information. The front has your photo, name, date of birth, and the Aadhaar number. The back has your address and the QR code. A form that only takes the front is incomplete for address proof, which is usually why they asked for Aadhaar in the first place.</p>
+  <h2>Why KYC Forms Insist on a Single PDF</h2>
+  <p>Banks, mutual fund portals, SIM re-verification desks, and most government KYC flows ask for both sides of Aadhaar because each side carries different information. The front has your photo, name, date of birth, and the Aadhaar number. The back has your address and the QR code. A form that only takes the front is incomplete for address proof, which is usually why they asked for Aadhaar in the first place.</p>
 
-  // <p>They want one file instead of two images for a practical reason. Their staff opens a single attachment, sees front then back, and moves on. Send two separate JPGs and one often gets lost, attached to the wrong record, or downloaded out of order. A single ordered PDF removes that confusion, and it is the format their upload field is actually built to accept, so you skip the "file type not supported" rejection.</p>
+  <p>They want one file instead of two images for a practical reason. Their staff opens a single attachment, sees front then back, and moves on. Send two separate JPGs and one often gets lost, attached to the wrong record, or downloaded out of order. A single ordered PDF removes that confusion, and it is the format their upload field is actually built to accept, so you skip the "file type not supported" rejection.</p>
 
-  // <h2>Take Two Clean Photos First</h2>
-  // <p>Before you combine anything, get the two source photos right. A bad scan of Aadhaar gets a KYC application sent back, and re-doing it can cost you a few days. Place the card flat on a plain, dark surface like a wooden table. A dark background makes the white card stand out and keeps the edges sharp.</p>
+  <h2>Take Two Clean Photos First</h2>
+  <p>Before you combine anything, get the two source photos right. A bad scan of Aadhaar gets a KYC application sent back, and re-doing it can cost you a few days. Place the card flat on a plain, dark surface like a wooden table. A dark background makes the white card stand out and keeps the edges sharp.</p>
 
-  // <ul>
-  //   <li>Shoot in daylight near a window. Skip the camera flash, since it throws a white glare across the laminated card and washes out the Aadhaar number.</li>
-  //   <li>Hold the phone directly above the card, parallel to it, so the card comes out as a clean rectangle and not a slanted shape.</li>
-  //   <li>Fill most of the frame with the card, but leave a small margin so no corner gets cut off.</li>
-  //   <li>Click the front first, then flip and click the back. Check both before you move on. The number and address must be readable when you zoom in, not a grey smudge.</li>
-  // </ul>
+  <ul>
+    <li>Shoot in daylight near a window. Skip the camera flash, since it throws a white glare across the laminated card and washes out the Aadhaar number.</li>
+    <li>Hold the phone directly above the card, parallel to it, so the card comes out as a clean rectangle and not a slanted shape.</li>
+    <li>Fill most of the frame with the card, but leave a small margin so no corner gets cut off.</li>
+    <li>Click the front first, then flip and click the back. Check both before you move on. The number and address must be readable when you zoom in, not a grey smudge.</li>
+  </ul>
 
-  // <p>If a photo came out with too much table around it, trim it with the <a href="/crop">Crop</a> tool so only the card remains. Cleaner input gives you a cleaner final PDF.</p>
+  <p>If a photo came out with too much table around it, trim it with the <a href="/crop">Crop</a> tool so only the card remains. Cleaner input gives you a cleaner final PDF.</p>
 
-  // <h2>Combine Both Sides into One Ordered PDF</h2>
-  // <p>Now you have two photos: front and back. The job is to stack them into one PDF in that exact order. The <a href="/image-to-pdf">Image to PDF</a> tool does precisely this. It takes your photos and combines them into a single ordered PDF, entirely inside your browser, with no upload to any server and no watermark stamped on top.</p>
+  <h2>Combine Both Sides into One Ordered PDF</h2>
+  <p>Now you have two photos: front and back. The job is to stack them into one PDF in that exact order. The <a href="/image-to-pdf">Image to PDF</a> tool does precisely this. It takes your photos and combines them into a single ordered PDF, entirely inside your browser, with no upload to any server and no watermark stamped on top.</p>
 
-  // <div class="tool-box">
-  //   <h3>Make your single Aadhaar PDF:</h3>
-  //   <ul>
-  //     <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool in your phone or laptop browser.</li>
-  //     <li><strong>Step 2:</strong> Add both photos. Select the front and the back together from your gallery, or add them one at a time.</li>
-  //     <li><strong>Step 3:</strong> Check the order. The front should sit as page 1 and the back as page 2. If they loaded the wrong way around, drag the thumbnails to swap them.</li>
-  //     <li><strong>Step 4:</strong> Generate the PDF. The tool stitches both images into a single two-page file in seconds.</li>
-  //     <li><strong>Step 5:</strong> Download and rename it something clear like "Aadhaar_FrontBack.pdf" so you can find it instantly when the upload field opens.</li>
-  //   </ul>
-  // </div>
+  <div class="tool-box">
+    <h3>Make your single Aadhaar PDF:</h3>
+    <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool in your phone or laptop browser.</li>
+      <li><strong>Step 2:</strong> Add both photos. Select the front and the back together from your gallery, or add them one at a time.</li>
+      <li><strong>Step 3:</strong> Check the order. The front should sit as page 1 and the back as page 2. If they loaded the wrong way around, drag the thumbnails to swap them.</li>
+      <li><strong>Step 4:</strong> Generate the PDF. The tool stitches both images into a single two-page file in seconds.</li>
+      <li><strong>Step 5:</strong> Download and rename it something clear like "Aadhaar_FrontBack.pdf" so you can find it instantly when the upload field opens.</li>
+    </ul>
+  </div>
 
-  // <p>One file, both sides, in the right order, ready to attach. Because everything happens locally, your Aadhaar image is never sitting on some random website's server waiting to be leaked.</p>
+  <p>One file, both sides, in the right order, ready to attach. Because everything happens locally, your Aadhaar image is never sitting on some random website's server waiting to be leaked.</p>
 
-  // <h2>Keep the File Small Enough to Upload</h2>
-  // <p>Phone cameras shoot big photos these days, often a few MB each, and two of those combined can push your PDF past the size limit many KYC portals enforce. Those limits vary by portal, and some run as tight as a couple of hundred KB, so check the exact number your form shows. If the form rejects your file for being too large, do not re-shoot the photos at lower quality. Make the full PDF first, then run it through the <a href="/compress-pdf">Compress PDF</a> tool. It shrinks the file while keeping the number and address sharp enough to pass verification.</p>
+  <h2>Keep the File Small Enough to Upload</h2>
+  <p>Phone cameras shoot big photos these days, often a few MB each, and two of those combined can push your PDF past the size limit many KYC portals enforce. Those limits vary by portal, and some run as tight as a couple of hundred KB, so check the exact number your form shows. If the form rejects your file for being too large, do not re-shoot the photos at lower quality. Make the full PDF first, then run it through the <a href="/compress-pdf">Compress PDF</a> tool. It shrinks the file while keeping the number and address sharp enough to pass verification.</p>
 
-  // <p>Be careful not to over-compress. If you squeeze the file so hard that the Aadhaar number turns fuzzy, the KYC reviewer cannot read it and your form bounces. Aim for the smallest size where you can still zoom in and read every digit cleanly.</p>
+  <p>Be careful not to over-compress. If you squeeze the file so hard that the Aadhaar number turns fuzzy, the KYC reviewer cannot read it and your form bounces. Aim for the smallest size where you can still zoom in and read every digit cleanly.</p>
 
-  // <h2>If You Are Sharing It Outside Official KYC, Mask It First</h2>
-  // <p>Official bank or government KYC needs your full, unmasked Aadhaar, so leave it as is for those. But the moment you send Aadhaar to a landlord, a coaching centre, a private gym, a courier, or any non-government party, you should hide the first eight digits of the number. UIDAI itself permits masked Aadhaar for most address-proof purposes, and your full number sitting in a stranger's WhatsApp is a genuine risk.</p>
+  <h2>If You Are Sharing It Outside Official KYC, Mask It First</h2>
+  <p>Official bank or government KYC needs your full, unmasked Aadhaar, so leave it as is for those. But the moment you send Aadhaar to a landlord, a coaching centre, a private gym, a courier, or any non-government party, you should hide the first eight digits of the number. UIDAI itself permits masked Aadhaar for most address-proof purposes, and your full number sitting in a stranger's WhatsApp is a genuine risk.</p>
 
-  // <p>Run the front through the <a href="/aadhaar-masking">Aadhaar Masking</a> tool before you combine the sides. It blacks out the first eight digits and leaves only the last four visible, which is enough to prove identity without handing over the whole number. Then combine the masked front and the back into your single PDF the same way as above.</p>
+  <p>Run the front through the <a href="/aadhaar-masking">Aadhaar Masking</a> tool before you combine the sides. It blacks out the first eight digits and leaves only the last four visible, which is enough to prove identity without handing over the whole number. Then combine the masked front and the back into your single PDF the same way as above.</p>
 
-  // <h2>A Few Honest Limits</h2>
-  // <p>This method makes a clean image-based PDF, which is exactly what KYC desks want. It will not improve a blurry photo, so if your source shot is unreadable, the PDF will be too. Re-shoot it rather than hoping compression saves it. A few strict government portals occasionally ask for a self-attested copy, meaning you sign across the photocopy. In that case, print, sign, photograph the signed copy, and then make your PDF. For the vast majority of online KYC, the two-photo method here is all you need.</p>
+  <h2>A Few Honest Limits</h2>
+  <p>This method makes a clean image-based PDF, which is exactly what KYC desks want. It will not improve a blurry photo, so if your source shot is unreadable, the PDF will be too. Re-shoot it rather than hoping compression saves it. A few strict government portals occasionally ask for a self-attested copy, meaning you sign across the photocopy. In that case, print, sign, photograph the signed copy, and then make your PDF. For the vast majority of online KYC, the two-photo method here is all you need.</p>
 
-  // <p>Once you have done this once, the next form is quick. Two photos, drop them in front-then-back, export one PDF, compress if needed. That is the whole routine.</p>
+  <p>Once you have done this once, the next form is quick. Two photos, drop them in front-then-back, export one PDF, compress if needed. That is the whole routine.</p>
 
-  // <p><strong>Q: Does the front have to be page 1 and the back page 2?</strong><br> A: Yes, keep the front first. Reviewers expect to see your photo and number first, then the address on the back. If they loaded in the wrong order, drag the thumbnails to swap them before exporting.</p>
+  <p><strong>Q: Does the front have to be page 1 and the back page 2?</strong><br> A: Yes, keep the front first. Reviewers expect to see your photo and number first, then the address on the back. If they loaded in the wrong order, drag the thumbnails to swap them before exporting.</p>
 
-  // <p><strong>Q: Is it safe to make my Aadhaar PDF on a website?</strong><br> A: With the Image to PDF tool here, yes, because the work happens inside your own browser and the photos are never uploaded to a server. Avoid any site that sends your Aadhaar image to the cloud for processing.</p>
+  <p><strong>Q: Is it safe to make my Aadhaar PDF on a website?</strong><br> A: With the Image to PDF tool here, yes, because the work happens inside your own browser and the photos are never uploaded to a server. Avoid any site that sends your Aadhaar image to the cloud for processing.</p>
 
-  // <p><strong>Q: My KYC portal rejected the PDF for being too big. What do I do?</strong><br> A: Make the single PDF first, then pass it through the Compress PDF tool to bring it under the portal's size limit. Stop compressing the moment the Aadhaar number is still clearly readable on zoom.</p>
+  <p><strong>Q: My KYC portal rejected the PDF for being too big. What do I do?</strong><br> A: Make the single PDF first, then pass it through the Compress PDF tool to bring it under the portal's size limit. Stop compressing the moment the Aadhaar number is still clearly readable on zoom.</p>
 
-  // <p><strong>Q: Should I mask my Aadhaar for bank KYC?</strong><br> A: No. Official bank and government KYC needs the full, unmasked number. Mask it only when sharing with private parties like landlords, gyms, or coaching centres.</p>
+  <p><strong>Q: Should I mask my Aadhaar for bank KYC?</strong><br> A: No. Official bank and government KYC needs the full, unmasked number. Mask it only when sharing with private parties like landlords, gyms, or coaching centres.</p>
 
-  // <p><strong>Q: Can I add my PAN or photo to the same PDF?</strong><br> A: A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents.</p>
+  <p><strong>Q: Can I add my PAN or photo to the same PDF?</strong><br> A: A KYC field asking specifically for Aadhaar front and back wants only those two pages. Keep this PDF strictly to the two Aadhaar sides, and make a separate file if the form asks for other documents.</p>
 
-  // `
-  // }, done
+  `
+  },
   // {
   //   id: "combine-documents-one-pdf-gst-registration",
   // title: "How to Put All Your Documents in One PDF for GST Registration",
