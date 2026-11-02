@@ -129,11 +129,17 @@ export default function NextSteps({ toolId }) {
   if (!steps || steps.length === 0) return null;
 
   return (
-    <div className="mt-6 pt-5 border-t border-slate-100">
+    // @container + w-full: the w-full is load-bearing, because
+    // container-type: inline-size stops an element being sized by its own
+    // contents, so a shrink-to-fit container would collapse to nothing.
+    <div className="@container w-full mt-6 pt-5 border-t border-slate-100">
       <p className="text-xs font-bold uppercase tracking-wide text-slate-400 mb-3">
         What people do next
       </p>
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+      {/* @lg (512px) is picked so the image tools, whose controls panel is
+          about 552px, keep the side-by-side row they already had. The PDF
+          rail is 312-448px, comfortably below it, so it stacks. */}
+      <div className="flex flex-col @lg:flex-row gap-2 @lg:gap-3 justify-center">
         {steps.map((s) => (
           <Link
             key={s.href}
@@ -142,7 +148,7 @@ export default function NextSteps({ toolId }) {
           >
             <span className="font-bold">{s.label}</span>
             {s.why && (
-              <span className="hidden sm:inline text-slate-400 group-hover:text-[#e68a2e]">
+              <span className="hidden @lg:inline text-slate-400 group-hover:text-[#e68a2e]">
                 {s.why}
               </span>
             )}

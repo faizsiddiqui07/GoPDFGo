@@ -3140,9 +3140,9 @@ const PdfEditor = ({ toolId }) => {
             controls={
               <>
           {tool.id === "compress-pdf" && files.length > 0 && !isDone && (
-            <div className="mb-6">
+            <div className="@container mb-6">
               {/* Mode toggle: Best compression vs Target size */}
-              <div className="inline-flex w-full sm:w-auto p-1 bg-slate-100 rounded-xl mb-4">
+              <div className="inline-flex w-full @lg:w-auto p-1 bg-slate-100 rounded-xl mb-4">
                 <button
                   type="button"
                   onClick={() => setPdfSizeMode("best")}
@@ -3336,12 +3336,15 @@ const PdfEditor = ({ toolId }) => {
           )}
           {/* Page Numbers Options */}
           {files.length > 0 && tool.id === "page-numbers" && !isDone && (
-            <div className="mb-8 animate-fade-in max-w-3xl mx-auto space-y-5">
+            // Same story as the action block: these options now sit in the
+            // ~312px rail, so sm: (a 640px VIEWPORT) was firing and packing
+            // four "Bottom Center" buttons into 70px columns.
+            <div className="@container mb-8 animate-fade-in max-w-3xl mx-auto space-y-5">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">
                   Position
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 @lg:grid-cols-4 gap-2">
                   {[
                     { id: "bottom-center", label: "Bottom Center" },
                     { id: "bottom-right", label: "Bottom Right" },
@@ -3351,7 +3354,7 @@ const PdfEditor = ({ toolId }) => {
                     <button
                       key={p.id}
                       onClick={() => setPageNumPos(p.id)}
-                      className={`py-2.5 px-2 rounded-lg font-bold text-xs sm:text-sm transition cursor-pointer ${
+                      className={`py-2.5 px-2 rounded-lg font-bold text-xs @lg:text-sm transition cursor-pointer ${
                         pageNumPos === p.id
                           ? "bg-[#FF9933] text-white shadow"
                           : "bg-slate-100 text-slate-600 hover:bg-slate-200"
@@ -3363,7 +3366,7 @@ const PdfEditor = ({ toolId }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 @lg:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">
                     Format
@@ -3457,7 +3460,10 @@ const PdfEditor = ({ toolId }) => {
             action={
               <>
                 {/* Action Buttons */}
-          <div className="flex flex-col items-center">
+          {/* @container makes the breakpoints below measure THIS box rather
+              than the viewport. Everything in here now lives inside the
+              ~312-448px rail, where a viewport-based md: is simply a lie. */}
+          <div className="@container flex flex-col items-center">
             {/* What the job actually adds up to, before committing to it. The
                 page count is the number users cannot get anywhere else, and it
                 is the honest answer to "will the merged file be huge?". Hidden
@@ -3495,7 +3501,7 @@ const PdfEditor = ({ toolId }) => {
                   generatingThumbnails ||
                   isUploading
                 }
-                className={`w-full md:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all active:scale-[0.98] touch-manipulation ${
+                className={`w-full @2xl:w-auto px-8 py-4 rounded-full font-bold text-white flex items-center justify-center gap-2 transition-all active:scale-[0.98] touch-manipulation ${
                   shakeKey > 0 ? "animate-shake" : ""
                 } ${
                   files.length === 0 ||
@@ -3661,7 +3667,7 @@ const PdfEditor = ({ toolId }) => {
                   </div>
                 )}
 
-                <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <div className="flex w-full flex-col @2xl:flex-row gap-4 justify-center">
                   <a
                     href={downloadUrl}
                     download={downloadName}
