@@ -1,3 +1,30 @@
+# ===== Caching =============================================================
+# Pages were going out with no Cache-Control at all, so browsers fell back to
+# their own heuristic and held them. A page is what names the content-hashed
+# CSS and JS, so a stale page keeps requesting the PREVIOUS deploy's assets --
+# which is how a fix that is already sitting on the server stays invisible in
+# the browser. ETag and Last-Modified are still sent, so revalidating a page
+# costs one 304, not a re-download.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-cache, must-revalidate"
+
+  # Nested so that a host without mod_setenvif falls back to plain no-cache
+  # rather than erroring -- a broken .htaccess takes the whole site down.
+  <IfModule mod_setenvif.c>
+    # Images and fonts are NOT hashed, so they must stay replaceable under the
+    # same name. They change rarely though, and revalidating every one on every
+    # page view is waste, so a day is the compromise.
+    SetEnvIf Request_URI "\.(webp|png|jpe?g|gif|svg|ico|woff2?)$" GPG_MEDIA
+    Header set Cache-Control "public, max-age=86400" env=GPG_MEDIA
+
+    # Everything under _next/static carries a content hash in its filename, so
+    # one URL can never mean two different things. Listed last so it wins over
+    # the media rule for hashed images. Safe to keep for a year.
+    SetEnvIf Request_URI "^/_next/static/" GPG_IMMUTABLE
+    Header set Cache-Control "public, max-age=31536000, immutable" env=GPG_IMMUTABLE
+  </IfModule>
+</IfModule>
+
 <IfModule mod_rewrite.c>
   # Security: directory listing + content-negotiation band rakho
   Options -Indexes -MultiViews
