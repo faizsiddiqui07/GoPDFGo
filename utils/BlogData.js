@@ -4775,7 +4775,7 @@ export const blogsData = [
   keywords: "documents in one pdf for gst registration, gst registration document upload, combine address proof pan photo pdf, gst portal single pdf upload, image to pdf for gst, gst registration documents format",
   excerpt: "The GST portal often wants your address proof, PAN, photo and rent agreement as one neat PDF in a single slot. Here is how to combine them in the right sequence without tripping over the size limit.",
   date: "November 21, 2026",
-  publishedAt: "2026-10-21",
+  publishedAt: "2026-11-21",
   imageUrl: "/images/blogs/combine-documents-one-pdf-gst-registration.webp",
   content: `
   <p>You are halfway through your GST registration on the portal, you reach the "Documents Upload" section, and the page gives you exactly one slot for "Proof of Principal Place of Business." But your CA (or the YouTube tutorial you are following) told you to attach the electricity bill, the rent agreement, and a couple of other pages. One slot, four documents. Plenty of people freeze right here.</p>
