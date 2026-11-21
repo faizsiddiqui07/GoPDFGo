@@ -4694,14 +4694,14 @@ export const blogsData = [
   },
   {
     id: "aadhaar-front-and-back-in-one-pdf",
-  title: "How to Put Aadhaar Front and Back in One PDF for KYC",
-  seoTitle: "Aadhaar Front and Back in One PDF for KYC | GoPDFGo",
-  keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
-  excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
-  date: "October 31, 2026",
-  publishedAt: "2026-10-31",
-  imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
-  content: `
+    title: "How to Put Aadhaar Front and Back in One PDF for KYC",
+    seoTitle: "Aadhaar Front and Back in One PDF for KYC | GoPDFGo",
+    keywords: "aadhaar front and back in one pdf, aadhaar both sides single pdf, combine aadhaar front back pdf, aadhaar kyc pdf upload, two sided aadhaar pdf, aadhaar photo to pdf, image to pdf aadhaar, aadhaar self attest pdf",
+    excerpt: "A bank or KYC form wants your full Aadhaar, both sides, as one PDF. Here is how to turn two phone photos into a single clean, watermark-free PDF in the right order.",
+    date: "October 31, 2026",
+    publishedAt: "2026-10-31",
+    imageUrl: "/images/blogs/aadhaar-front-and-back-in-one-pdf.webp",
+    content: `
   <h1>How to Put Aadhaar Front and Back in One PDF for KYC</h1>
 
   <p>Putting your Aadhaar front and back in one PDF is the exact thing a bank or KYC form asks for, usually at the worst moment. You are halfway through opening an account, you hit the field that says "Upload Aadhaar (front and back) as a single PDF," and the form only accepts one file. You have a photo of the front somewhere in your gallery, the back is missing, and now you are stuck.</p>
@@ -4768,74 +4768,74 @@ export const blogsData = [
 
   `
   },
-  // {
-  //   id: "combine-documents-one-pdf-gst-registration",
-  // title: "How to Put All Your Documents in One PDF for GST Registration",
-  // seoTitle: "Documents in One PDF for GST Registration | GoPDFGo",
-  // keywords: "documents in one pdf for gst registration, gst registration document upload, combine address proof pan photo pdf, gst portal single pdf upload, image to pdf for gst, gst registration documents format",
-  // excerpt: "The GST portal often wants your address proof, PAN, photo and rent agreement as one neat PDF in a single slot. Here is how to combine them in the right sequence without tripping over the size limit.",
-  // date: "June 22, 2026",
-  // publishedAt: "2026-06-22",
-  // imageUrl: "/images/blogs/combine-documents-one-pdf-gst-registration.webp",
-  // content: `
-  // <p>You are halfway through your GST registration on the portal, you reach the "Documents Upload" section, and the page gives you exactly one slot for "Proof of Principal Place of Business." But your CA (or the YouTube tutorial you are following) told you to attach the electricity bill, the rent agreement, and a couple of other pages. One slot, four documents. Plenty of people freeze right here.</p>
+  {
+    id: "combine-documents-one-pdf-gst-registration",
+  title: "How to Put All Your Documents in One PDF for GST Registration",
+  seoTitle: "Documents in One PDF for GST Registration | GoPDFGo",
+  keywords: "documents in one pdf for gst registration, gst registration document upload, combine address proof pan photo pdf, gst portal single pdf upload, image to pdf for gst, gst registration documents format",
+  excerpt: "The GST portal often wants your address proof, PAN, photo and rent agreement as one neat PDF in a single slot. Here is how to combine them in the right sequence without tripping over the size limit.",
+  date: "November 21, 2026",
+  publishedAt: "2026-10-21",
+  imageUrl: "/images/blogs/combine-documents-one-pdf-gst-registration.webp",
+  content: `
+  <p>You are halfway through your GST registration on the portal, you reach the "Documents Upload" section, and the page gives you exactly one slot for "Proof of Principal Place of Business." But your CA (or the YouTube tutorial you are following) told you to attach the electricity bill, the rent agreement, and a couple of other pages. One slot, four documents. Plenty of people freeze right here.</p>
 
-  // <p>The GST portal is fussy about this. Each upload slot usually accepts a single file, and depending on the document and format, the cap is often up to 1MB or 2MB. So if you have separate photos of your electricity bill, your rent agreement, your PAN, and your photograph, you cannot feed them in one by one. You need to merge those images into <strong>one clean PDF, in the correct sequence</strong>, before you upload. Let us get that sorted.</p>
+  <p>The GST portal is fussy about this. Each upload slot usually accepts a single file, and depending on the document and format, the cap is often up to 1MB or 2MB. So if you have separate photos of your electricity bill, your rent agreement, your PAN, and your photograph, you cannot feed them in one by one. You need to merge those images into <strong>one clean PDF, in the correct sequence</strong>, before you upload. Let us get that sorted.</p>
 
-  // <h2>What documents in one PDF for GST registration actually look like</h2>
-  // <p>Before combining anything, it helps to know what the portal expects so you can arrange the pages sensibly. For a typical proprietor or small business, the documents fall into three buckets:</p>
-  // <ul>
-  //   <li><strong>Proof of business address:</strong> Latest electricity bill, property tax receipt, or municipal khata copy. If the premises are rented, you also attach the <strong>rent agreement</strong> along with the owner's electricity bill as a No Objection set.</li>
-  //   <li><strong>Identity and PAN:</strong> The PAN card of the proprietor or the company, and sometimes Aadhaar. These often have their own slots, but some address-proof slots may ask for them bundled.</li>
-  //   <li><strong>Photograph:</strong> A passport-size photo of the proprietor or authorised signatory. This is usually a JPEG with its own small size cap, and it sometimes goes inside the address-proof bundle.</li>
-  // </ul>
-  // <p>The portal lists the exact requirement next to each slot, including "Proof of Principal Place of Business" for the address bundle. Read that label carefully. When it says upload a single PDF, that is your cue to combine. When it gives separate slots for PAN and the photo, keep those individual. Group into one PDF only the documents that share a single slot, and leave the rest alone.</p>
+  <h2>What documents in one PDF for GST registration actually look like</h2>
+  <p>Before combining anything, it helps to know what the portal expects so you can arrange the pages sensibly. For a typical proprietor or small business, the documents fall into three buckets:</p>
+  <ul>
+    <li><strong>Proof of business address:</strong> Latest electricity bill, property tax receipt, or municipal khata copy. If the premises are rented, you also attach the <strong>rent agreement</strong> along with the owner's electricity bill as a No Objection set.</li>
+    <li><strong>Identity and PAN:</strong> The PAN card of the proprietor or the company, and sometimes Aadhaar. These often have their own slots, but some address-proof slots may ask for them bundled.</li>
+    <li><strong>Photograph:</strong> A passport-size photo of the proprietor or authorised signatory. This is usually a JPEG with its own small size cap, and it sometimes goes inside the address-proof bundle.</li>
+  </ul>
+  <p>The portal lists the exact requirement next to each slot, including "Proof of Principal Place of Business" for the address bundle. Read that label carefully. When it says upload a single PDF, that is your cue to combine. When it gives separate slots for PAN and the photo, keep those individual. Group into one PDF only the documents that share a single slot, and leave the rest alone.</p>
 
-  // <h2>Why the page order makes a difference</h2>
-  // <p>People skip past this and then pay for it later. When a GST officer opens your PDF during verification, they read it top to bottom. If your rent agreement starts on page 1, the owner's electricity bill is on page 4, and the NOC is buried at the end, the officer has to hunt around. A confused officer raises a clarification, and a clarification notice (FORM GST REG-03) can delay your registration by a week or more while you respond.</p>
-  // <p>So arrange the documents in the order the officer expects. For a rented business address, a clean sequence is: rent agreement first, then the owner's electricity bill or property tax receipt, then the NOC if you have a separate one. For owned premises, lead with the latest electricity bill, then the property tax receipt. Stick to the same order you would use if you were handing the papers across a counter.</p>
+  <h2>Why the page order makes a difference</h2>
+  <p>People skip past this and then pay for it later. When a GST officer opens your PDF during verification, they read it top to bottom. If your rent agreement starts on page 1, the owner's electricity bill is on page 4, and the NOC is buried at the end, the officer has to hunt around. A confused officer raises a clarification, and a clarification notice (FORM GST REG-03) can delay your registration by a week or more while you respond.</p>
+  <p>So arrange the documents in the order the officer expects. For a rented business address, a clean sequence is: rent agreement first, then the owner's electricity bill or property tax receipt, then the NOC if you have a separate one. For owned premises, lead with the latest electricity bill, then the property tax receipt. Stick to the same order you would use if you were handing the papers across a counter.</p>
 
-  // <h2>Combining your document photos into one PDF</h2>
-  // <p>If you have photographed or scanned each document with your phone, you already have the raw material. The job now is to stack those images into a single PDF in the right sequence. Our <a href="/image-to-pdf">Image to PDF</a> tool does exactly this, and because it runs entirely inside your browser, your PAN, rent agreement and electricity bill never leave your device. That matters a lot here, because these papers carry your PAN number, your home or shop address, and the property owner's details too.</p>
-  // <p>Already have them as PDFs rather than photos? If your rent agreement and electricity bill are separate PDF files, use our <a href="/merge-pdf">Merge PDF</a> tool instead to join them into one, then carry on with the size check below.</p>
+  <h2>Combining your document photos into one PDF</h2>
+  <p>If you have photographed or scanned each document with your phone, you already have the raw material. The job now is to stack those images into a single PDF in the right sequence. Our <a href="/image-to-pdf">Image to PDF</a> tool does exactly this, and because it runs entirely inside your browser, your PAN, rent agreement and electricity bill never leave your device. That matters a lot here, because these papers carry your PAN number, your home or shop address, and the property owner's details too.</p>
+  <p>Already have them as PDFs rather than photos? If your rent agreement and electricity bill are separate PDF files, use our <a href="/merge-pdf">Merge PDF</a> tool instead to join them into one, then carry on with the size check below.</p>
 
-  // <div class="tool-box">
-  //   <h3>Steps to build your GST upload PDF:</h3>
-  //   <ul>
-  //     <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool and select all the document photos that belong in one slot at once, the rent agreement, the electricity bill, the PAN, whichever go together.</li>
-  //     <li><strong>Step 2:</strong> Drag the thumbnails to fix the order. Put the rent agreement first, the address proof next, and so on. The first thumbnail becomes page 1.</li>
-  //     <li><strong>Step 3:</strong> Check that each image is the right way up. If a page is sideways, rotate it before converting so the officer can read it without rotating their screen.</li>
-  //     <li><strong>Step 4:</strong> Click <strong>Convert to PDF</strong>. The tool places each image on its own page and stitches them into one file.</li>
-  //     <li><strong>Step 5:</strong> Download the PDF, open it once to confirm the order is correct, then upload it to the matching slot on the GST portal.</li>
-  //   </ul>
-  // </div>
+  <div class="tool-box">
+    <h3>Steps to build your GST upload PDF:</h3>
+    <ul>
+      <li><strong>Step 1:</strong> Open the <a href="/image-to-pdf">Image to PDF</a> tool and select all the document photos that belong in one slot at once, the rent agreement, the electricity bill, the PAN, whichever go together.</li>
+      <li><strong>Step 2:</strong> Drag the thumbnails to fix the order. Put the rent agreement first, the address proof next, and so on. The first thumbnail becomes page 1.</li>
+      <li><strong>Step 3:</strong> Check that each image is the right way up. If a page is sideways, rotate it before converting so the officer can read it without rotating their screen.</li>
+      <li><strong>Step 4:</strong> Click <strong>Convert to PDF</strong>. The tool places each image on its own page and stitches them into one file.</li>
+      <li><strong>Step 5:</strong> Download the PDF, open it once to confirm the order is correct, then upload it to the matching slot on the GST portal.</li>
+    </ul>
+  </div>
 
-  // <h2>Getting under the GST portal size limit</h2>
-  // <p>Modern phone cameras produce heavy images. A single photo of a rent agreement can easily be 4MB or 5MB. Stack four of those and your PDF balloons past 10MB, well over what the portal accepts. If you hit a "file size exceeds the limit" error after combining, you do not have to re-shoot everything. Just run the finished PDF through our <a href="/compress-pdf">Compress PDF</a> tool to bring it under the cap while keeping the text readable.</p>
-  // <p>The balance to strike is size versus legibility. Compress too hard and the officer cannot read the meter number on your electricity bill or the clauses in your rent agreement, and that gets your application sent back. Compress just enough to clear the limit and stop there. Open the compressed file and check that every line is still sharp before you upload.</p>
+  <h2>Getting under the GST portal size limit</h2>
+  <p>Modern phone cameras produce heavy images. A single photo of a rent agreement can easily be 4MB or 5MB. Stack four of those and your PDF balloons past 10MB, well over what the portal accepts. If you hit a "file size exceeds the limit" error after combining, you do not have to re-shoot everything. Just run the finished PDF through our <a href="/compress-pdf">Compress PDF</a> tool to bring it under the cap while keeping the text readable.</p>
+  <p>The balance to strike is size versus legibility. Compress too hard and the officer cannot read the meter number on your electricity bill or the clauses in your rent agreement, and that gets your application sent back. Compress just enough to clear the limit and stop there. Open the compressed file and check that every line is still sharp before you upload.</p>
 
-  // <h2>A few practical habits that save you a rejection</h2>
-  // <ul>
-  //   <li><strong>Shoot in good light, flat on a table.</strong> A clear photo taken on a plain surface beats a fancy scanner app that adds shadows or a watermark across your document.</li>
-  //   <li><strong>Keep colour where it is asked.</strong> Some address proofs and the photograph read better in colour. Do not force everything to black and white if the portal shows a colour preview.</li>
-  //   <li><strong>Name the file sensibly.</strong> Something like Business_Address_Proof.pdf reads far better to a verifying officer than IMG_20260622_184502.pdf.</li>
-  //   <li><strong>Match the format the slot asks for.</strong> If a slot specifically wants a JPEG photograph and not a PDF, do not bundle the photo into your PDF. Upload it separately as the image.</li>
-  //   <li><strong>Cross-check the address.</strong> The address on your electricity bill, your rent agreement, and what you typed into the GST form should all match. Mismatched addresses are one of the most common reasons for a clarification notice.</li>
-  // </ul>
+  <h2>A few practical habits that save you a rejection</h2>
+  <ul>
+    <li><strong>Shoot in good light, flat on a table.</strong> A clear photo taken on a plain surface beats a fancy scanner app that adds shadows or a watermark across your document.</li>
+    <li><strong>Keep colour where it is asked.</strong> Some address proofs and the photograph read better in colour. Do not force everything to black and white if the portal shows a colour preview.</li>
+    <li><strong>Name the file sensibly.</strong> Something like Business_Address_Proof.pdf reads far better to a verifying officer than IMG_20260622_184502.pdf.</li>
+    <li><strong>Match the format the slot asks for.</strong> If a slot specifically wants a JPEG photograph and not a PDF, do not bundle the photo into your PDF. Upload it separately as the image.</li>
+    <li><strong>Cross-check the address.</strong> The address on your electricity bill, your rent agreement, and what you typed into the GST form should all match. Mismatched addresses are one of the most common reasons for a clarification notice.</li>
+  </ul>
 
-  // <p>That is the whole job, really. Group the documents that share a slot, order them the way an officer would want to read them, combine them into one PDF, and shrink it if the portal complains about size. Get it right at the upload stage and you skip the back-and-forth of clarification notices that drag GST registration out for weeks.</p>
+  <p>That is the whole job, really. Group the documents that share a slot, order them the way an officer would want to read them, combine them into one PDF, and shrink it if the portal complains about size. Get it right at the upload stage and you skip the back-and-forth of clarification notices that drag GST registration out for weeks.</p>
 
-  // <p><strong>Q: Can I put my PAN, photo and address proof all in one PDF for GST?</strong><br> A: Only combine documents that share the same upload slot. The GST portal often gives PAN and the photograph their own separate slots, so keep those individual. Bundle into one PDF only what a single slot asks for, such as the rent agreement plus the owner's electricity bill for the address-proof slot.</p>
+  <p><strong>Q: Can I put my PAN, photo and address proof all in one PDF for GST?</strong><br> A: Only combine documents that share the same upload slot. The GST portal often gives PAN and the photograph their own separate slots, so keep those individual. Bundle into one PDF only what a single slot asks for, such as the rent agreement plus the owner's electricity bill for the address-proof slot.</p>
 
-  // <p><strong>Q: My combined PDF is too big for the GST portal. What do I do?</strong><br> A: Run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring it under the slot's limit, which depending on the document and format is often up to 1MB or 2MB. Compress only as far as needed so the text on your electricity bill and rent agreement stays clearly readable.</p>
+  <p><strong>Q: My combined PDF is too big for the GST portal. What do I do?</strong><br> A: Run it through the <a href="/compress-pdf">Compress PDF</a> tool to bring it under the slot's limit, which depending on the document and format is often up to 1MB or 2MB. Compress only as far as needed so the text on your electricity bill and rent agreement stays clearly readable.</p>
 
-  // <p><strong>Q: Does the order of pages in the PDF really matter?</strong><br> A: Yes. The verifying officer reads your PDF top to bottom. A logical order, rent agreement first, then address proof, then NOC, makes verification quick and reduces the chance of a clarification notice. You can drag the thumbnails in the <a href="/image-to-pdf">Image to PDF</a> tool to set the sequence before converting.</p>
+  <p><strong>Q: Does the order of pages in the PDF really matter?</strong><br> A: Yes. The verifying officer reads your PDF top to bottom. A logical order, rent agreement first, then address proof, then NOC, makes verification quick and reduces the chance of a clarification notice. You can drag the thumbnails in the <a href="/image-to-pdf">Image to PDF</a> tool to set the sequence before converting.</p>
 
-  // <p><strong>Q: I already have my rent agreement and electricity bill as PDFs, not photos. How do I combine those?</strong><br> A: Use the <a href="/merge-pdf">Merge PDF</a> tool. Add both PDF files, drag them into the order you want, and merge them into a single file. Then check the size and compress if needed before uploading.</p>
+  <p><strong>Q: I already have my rent agreement and electricity bill as PDFs, not photos. How do I combine those?</strong><br> A: Use the <a href="/merge-pdf">Merge PDF</a> tool. Add both PDF files, drag them into the order you want, and merge them into a single file. Then check the size and compress if needed before uploading.</p>
 
-  // <p><strong>Q: Is it safe to upload my rent agreement and PAN to an online tool?</strong><br> A: With GoPDFGo, the conversion happens entirely inside your browser. Your documents are processed on your own device and never uploaded to any server, so your PAN number, address and the property owner's details stay private.</p>
-  // `
-  // }, done
+  <p><strong>Q: Is it safe to upload my rent agreement and PAN to an online tool?</strong><br> A: With GoPDFGo, the conversion happens entirely inside your browser. Your documents are processed on your own device and never uploaded to any server, so your PAN number, address and the property owner's details stay private.</p>
+  `
+  }, 
   // {
   //   id: "remove-author-name-from-pdf-before-sending-resume",
   // title: "Your Resume Says Someone Else Wrote It: Removing the Author Name From a PDF",
